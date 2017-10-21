@@ -3,7 +3,7 @@ param (
 )
 
 $tempFile = [IO.Path]::GetTempFileName()
-cmd.exe /C "init.cmd && set>$tempFile"
+cmd.exe /C "$PSScriptRoot\init.cmd && set>$tempFile"
 $lines = [System.IO.File]::ReadAllLines("$tempFile")
 $curLoc = get-location
 $lines|foreach -Begin { set-location env: } -End { set-location $curLoc } -Process {
@@ -25,6 +25,6 @@ if ((Get-Module PSReadLine) -and ($KeepPsReadLine -eq $false)) {
     # Only add macros to macros.ps.txt when the same macro cannot be used in both Powershell and cmd.
     # In that case, add equivalent macros to both macros.ps.txt and macros.cmd.txt, to ensure that
     # the Powershell and cmd development environments remain functionally identical.
-    doskey /exename=powershell.exe /MACROFILE=.\scripts\macros.txt
-    doskey /exename=powershell.exe /MACROFILE=.\scripts\macros.ps.txt
+    doskey /exename=powershell.exe /MACROFILE="$PSScriptRoot\macros.txt"
+    doskey /exename=powershell.exe /MACROFILE="$PSScriptRoot\macros.ps.txt"
 }
