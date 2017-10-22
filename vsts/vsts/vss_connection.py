@@ -8,7 +8,7 @@ import logging
 from msrest.service_client import ServiceClient
 from ._file_cache import RESOURCE_CACHE as RESOURCE_FILE_CACHE
 from .exceptions import VstsClientRequestError
-from .location.location_client import LocationClient
+from .location.v4_0.location_client import LocationClient
 from .vss_client_configuration import VssClientConfiguration
 
 
@@ -71,14 +71,14 @@ class VssConnection:
             location_client = LocationClient(self.base_url, self._creds)
             if RESOURCE_FILE_CACHE[location_client.normalized_url]:
                 try:
-                    logging.info('File cache hit for resources on: {url}'.format(url=location_client.normalized_url))
+                    logging.info('File cache hit for resources on: %s', location_client.normalized_url)
                     self._locations = location_client._base_deserialize.deserialize_data(RESOURCE_FILE_CACHE[location_client.normalized_url],
                                                                                          '[ResourceAreaInfo]')
                     return self._locations
-                except Exception as e:
-                    logging.exception(str(e))
+                except Exception as ex:
+                    logging.exception(str(ex))
             else:
-                logging.info('File cache miss for resources on: {url}'.format(url=location_client.normalized_url))
+                logging.info('File cache miss for resources on: %s', location_client.normalized_url)
             self._resource_areas = location_client.get_resource_areas()
             try:
                 serialized = location_client._base_serialize.serialize_data(self._resource_areas, '[ResourceAreaInfo]')
