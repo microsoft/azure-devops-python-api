@@ -136,14 +136,14 @@ class VssClient:
         # Next check for options cached on disk
         if not all_host_types and OPTIONS_FILE_CACHE[self.normalized_url]:
             try:
-                logging.info('File cache hit for options on: {url}'.format(url=self.normalized_url))
+                logging.info('File cache hit for options on: %s', self.normalized_url)
                 self._locations = self._base_deserialize.deserialize_data(OPTIONS_FILE_CACHE[self.normalized_url],
                                                                           '[ApiResourceLocation]')
                 return self._locations
-            except DeserializationError as e:
-                logging.exception(str(e))
+            except DeserializationError as ex:
+                logging.exception(str(ex))
         else:
-            logging.info('File cache miss for options on: {url}'.format(url=self.normalized_url))
+            logging.info('File cache miss for options on: %s', self.normalized_url)
 
         # Last resort, make the call to the server
         options_uri = self._combine_url(self.config.base_url, '_apis')
@@ -167,8 +167,8 @@ class VssClient:
             self._locations = returned_locations
             try:
                 OPTIONS_FILE_CACHE[self.normalized_url] = wrapper.value
-            except SerializationError as e:
-                logging.exception(str(e))
+            except SerializationError as ex:
+                logging.exception(str(ex))
         return returned_locations
 
     @staticmethod
