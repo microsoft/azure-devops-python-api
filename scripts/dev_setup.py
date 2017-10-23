@@ -22,6 +22,7 @@ def exec_command(command):
         print(err, file=sys.stderr)
         sys.exit(1)
 
+
 packages = [os.path.dirname(p) for p in glob.glob('vsts*/setup.py')]
 
 # Extract nspkg and sort nspkg by number of "-"

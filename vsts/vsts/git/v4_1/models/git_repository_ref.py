@@ -16,6 +16,8 @@ class GitRepositoryRef(Model):
     :type collection: :class:`TeamProjectCollectionReference <git.models.TeamProjectCollectionReference>`
     :param id:
     :type id: str
+    :param is_fork: True if the repository was created as a fork
+    :type is_fork: bool
     :param name:
     :type name: str
     :param project:
@@ -31,6 +33,7 @@ class GitRepositoryRef(Model):
     _attribute_map = {
         'collection': {'key': 'collection', 'type': 'TeamProjectCollectionReference'},
         'id': {'key': 'id', 'type': 'str'},
+        'is_fork': {'key': 'isFork', 'type': 'bool'},
         'name': {'key': 'name', 'type': 'str'},
         'project': {'key': 'project', 'type': 'TeamProjectReference'},
         'remote_url': {'key': 'remoteUrl', 'type': 'str'},
@@ -38,10 +41,11 @@ class GitRepositoryRef(Model):
         'url': {'key': 'url', 'type': 'str'}
     }
 
-    def __init__(self, collection=None, id=None, name=None, project=None, remote_url=None, ssh_url=None, url=None):
+    def __init__(self, collection=None, id=None, is_fork=None, name=None, project=None, remote_url=None, ssh_url=None, url=None):
         super(GitRepositoryRef, self).__init__()
         self.collection = collection
         self.id = id
+        self.is_fork = is_fork
         self.name = name
         self.project = project
         self.remote_url = remote_url
