@@ -8,7 +8,7 @@
 version=$1
 
 if [ -z ${version} ]; then
-    version=${!BUILD_BUILDID}
+    version=${BUILD_BUILDID}
 fi
 
 if [ -z ${version} ]; then
@@ -20,7 +20,7 @@ echo "Replace with version: $version"
 
 platform=`uname`
 
-for each in $(find . -name setup.py); do
+for each in $(find vsts -name setup.py); do
     if [ "$platform" == "Darwin" ]; then
         sed -i "" "s/^VERSION = [\"']\(.*\)[\"']/VERSION = \"\1.dev$version\"/" ${each}
     else
@@ -28,7 +28,7 @@ for each in $(find . -name setup.py); do
     fi
 done
 
-for each in $(find . -name version.py); do
+for each in $(find vsts -name version.py); do
     if [ "$platform" == "Darwin" ]; then
         sed -i "" "s/^VERSION = [\"']\(.*\)[\"']/VERSION = \"\1.dev$version\"/" ${each}
     else
