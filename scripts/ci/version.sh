@@ -3,7 +3,7 @@
 # Update the version strings in the source code
 
 # Input:
-#   $1 - the version string, if omitted, use ${!BUILD_BUILDID}
+#   $1 - the version string, if omitted, use ${BUILD_BUILDID}
 
 version=$1
 
@@ -16,11 +16,13 @@ if [ -z ${version} ]; then
     exit 1
 fi
 
-echo "Replace with version: $version"
+echo "Add dev version suffix: $version"
 
 platform=`uname`
 
-for each in $(find vsts -name setup.py); do
+echo "Platform: $platform"
+
+for each in $(find . -name setup.py); do
     if [ "$platform" == "Darwin" ]; then
         sed -i "" "s/^VERSION = [\"']\(.*\)[\"']/VERSION = \"\1.dev$version\"/" ${each}
     else
@@ -28,7 +30,7 @@ for each in $(find vsts -name setup.py); do
     fi
 done
 
-for each in $(find vsts -name version.py); do
+for each in $(find . -name version.py); do
     if [ "$platform" == "Darwin" ]; then
         sed -i "" "s/^VERSION = [\"']\(.*\)[\"']/VERSION = \"\1.dev$version\"/" ${each}
     else
