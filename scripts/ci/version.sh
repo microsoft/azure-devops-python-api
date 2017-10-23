@@ -22,18 +22,32 @@ platform=`uname`
 
 echo "Platform: $platform"
 
-for each in $(find . -name setup.py); do
+pattern="s/^VERSION = [\"']\(.*\)[\"']/VERSION = \"\1.dev$version\"/"
+
+if [ "${platform}" == "MSYS_NT-10.0" ]; then
+    # On preview version of sh build task, the script will pick up the wrong version of find.exe
+    find="C:\Program Files\Git\usr\bin\find.exe"
+else
+    find="find"
+fi
+
+
+for each in $("${find}" . -name setup.py); do
     if [ "$platform" == "Darwin" ]; then
-        sed -i "" "s/^VERSION = [\"']\(.*\)[\"']/VERSION = \"\1.dev$version\"/" ${each}
+        sed -i "" "${pattern}" "${each}"
+        rc=$?; if [[ ${rc} != 0 ]]; then exit ${rc}; fi
     else
-        sed -i "s/^VERSION = [\"']\(.*\)[\"']/VERSION = \"\1.dev$version\"/" ${each}
+        sed -i "${pattern}" "${each}"
+        rc=$?; if [[ ${rc} != 0 ]]; then exit ${rc}; fi
     fi
 done
 
-for each in $(find . -name version.py); do
+for each in $("${find}" . -name version.py); do
     if [ "$platform" == "Darwin" ]; then
-        sed -i "" "s/^VERSION = [\"']\(.*\)[\"']/VERSION = \"\1.dev$version\"/" ${each}
+        sed -i "" "${pattern}" "${each}"
+        rc=$?; if [[ ${rc} != 0 ]]; then exit ${rc}; fi
     else
-        sed -i "s/^VERSION = [\"']\(.*\)[\"']/VERSION = \"\1.dev$version\"/" ${each}
+        sed -i "${pattern}" "${each}"
+        rc=$?; if [[ ${rc} != 0 ]]; then exit ${rc}; fi
     fi
 done
