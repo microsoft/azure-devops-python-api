@@ -1213,9 +1213,9 @@ class GitClientBase(VssClient):
     def get_pull_request_iteration_changes(self, repository_id, pull_request_id, iteration_id, project=None, top=None, skip=None, compare_to=None):
         """GetPullRequestIterationChanges.
         [Preview API] Retrieve the changes made in a pull request between two iterations.
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request.
-        :param int iteration_id: ID of the pull request iteration. <br /> Iteration IDs are zero-based with zero indicating the common commit between the source and target branches.  Iteration one is the head of the source branch at the time the pull request is created and subsequent iterations are created when there are pushes to the source branch.
+        :param int iteration_id: ID of the pull request iteration. <br /> Iteration IDs are zero-based with zero indicating the common commit between the source and target branches. Iteration one is the head of the source branch at the time the pull request is created and subsequent iterations are created when there are pushes to the source branch.
         :param str project: Project ID or project name
         :param int top: Optional. The number of changes to retrieve.  The default value is 100 and the maximum value is 2000.
         :param int skip: Optional. The number of changes to ignore.  For example, to retrieve changes 101-150, set top 50 and skip to 100.
@@ -1756,7 +1756,7 @@ class GitClientBase(VssClient):
         """CreatePullRequest.
         [Preview API] Create a pull request.
         :param :class:`<GitPullRequest> <git.models.GitPullRequest>` git_pull_request_to_create: The pull request to create.
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: The repository ID of the pull request's target branch.
         :param str project: Project ID or project name
         :param bool supports_iterations: If true, subsequent pushes to the pull request will be individually reviewable. Set this to false for large pull requests for performance reasons if this functionality is not needed.
         :rtype: :class:`<GitPullRequest> <git.models.GitPullRequest>`
@@ -1780,7 +1780,7 @@ class GitClientBase(VssClient):
     def get_pull_request(self, repository_id, pull_request_id, project=None, max_comment_length=None, skip=None, top=None, include_commits=None, include_work_item_refs=None):
         """GetPullRequest.
         [Preview API] Retrieve a pull request.
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: The ID of the pull request to retrieve.
         :param str project: Project ID or project name
         :param int max_comment_length: Not used.
@@ -1816,7 +1816,7 @@ class GitClientBase(VssClient):
     def get_pull_requests(self, repository_id, search_criteria, project=None, max_comment_length=None, skip=None, top=None):
         """GetPullRequests.
         [Preview API] Retrieve all pull requests matching a specified criteria.
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: The repository ID of the pull request's target branch.
         :param :class:`<GitPullRequestSearchCriteria> <git.models.GitPullRequestSearchCriteria>` search_criteria: Pull requests will be returned that match this search criteria.
         :param str project: Project ID or project name
         :param int max_comment_length: Not used.
@@ -1864,7 +1864,7 @@ class GitClientBase(VssClient):
         """UpdatePullRequest.
         [Preview API] Update a pull request.
         :param :class:`<GitPullRequest> <git.models.GitPullRequest>` git_pull_request_to_update: The pull request content to update.
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: The ID of the pull request to retrieve.
         :param str project: Project ID or project name
         :rtype: :class:`<GitPullRequest> <git.models.GitPullRequest>`
@@ -2125,7 +2125,7 @@ class GitClientBase(VssClient):
         """CreateThread.
         [Preview API] Create a thread in a pull request.
         :param :class:`<GitPullRequestCommentThread> <git.models.GitPullRequestCommentThread>` comment_thread: The thread to create. Thread must contain at least one comment.
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: Repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request.
         :param str project: Project ID or project name
         :rtype: :class:`<GitPullRequestCommentThread> <git.models.GitPullRequestCommentThread>`
@@ -2146,7 +2146,7 @@ class GitClientBase(VssClient):
     def get_pull_request_thread(self, repository_id, pull_request_id, thread_id, project=None, iteration=None, base_iteration=None):
         """GetPullRequestThread.
         [Preview API] Retrieve a thread in a pull request.
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request.
         :param int thread_id: ID of the thread.
         :param str project: Project ID or project name
@@ -2175,7 +2175,7 @@ class GitClientBase(VssClient):
     def get_threads(self, repository_id, pull_request_id, project=None, iteration=None, base_iteration=None):
         """GetThreads.
         [Preview API] Retrieve all threads in a pull request.
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request.
         :param str project: Project ID or project name
         :param int iteration: If specified, thread positions will be tracked using this iteration as the right side of the diff.
@@ -2204,7 +2204,7 @@ class GitClientBase(VssClient):
         """UpdateThread.
         [Preview API] Update a thread in a pull request.
         :param :class:`<GitPullRequestCommentThread> <git.models.GitPullRequestCommentThread>` comment_thread: The thread content that should be updated.
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request.
         :param int thread_id: ID of the thread to update.
         :param str project: Project ID or project name
