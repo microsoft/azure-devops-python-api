@@ -64,27 +64,27 @@ class VssConnection:
                                                                          url=self.base_url))
 
     def authenticate(self):
-        self._get_resource_areas()
+        self._get_resource_areas(force=True)
 
-    def _get_resource_areas(self):
-        if self._resource_areas is None:
+    def _get_resource_areas(self, force=False):
+        if self._resource_areas is None or force:
             location_client = LocationClient(self.base_url, self._creds)
-            if RESOURCE_FILE_CACHE[location_client.normalized_url]:
+            if not force and RESOURCE_FILE_CACHE[location_client.normalized_url]:
                 try:
                     logging.info('File cache hit for resources on: %s', location_client.normalized_url)
-                    self._locations = location_client._base_deserialize.deserialize_data(RESOURCE_FILE_CACHE[location_client.normalized_url],
-                                                                                         '[ResourceAreaInfo]')
-                    return self._locations
+                    self._resource_areas = location_client._base_deserialize.deserialize_data(RESOURCE_FILE_CACHE[location_client.normalized_url],
+                                                                                              '[ResourceAreaInfo]')
+                    return self._resource_areas
                 except Exception as ex:
                     logging.exception(str(ex))
-            else:
+            elif not force:
                 logging.info('File cache miss for resources on: %s', location_client.normalized_url)
             self._resource_areas = location_client.get_resource_areas()
             try:
                 serialized = location_client._base_serialize.serialize_data(self._resource_areas, '[ResourceAreaInfo]')
                 RESOURCE_FILE_CACHE[location_client.normalized_url] = serialized
-            except Exception as e:
-                logging.exception(str(e))
+            except Exception as ex:
+                logging.exception(str(ex))
         return self._resource_areas
 
     @staticmethod
