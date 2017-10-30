@@ -14,49 +14,49 @@ class TimelineRecord(Model):
 
     :param _links:
     :type _links: :class:`ReferenceLinks <build.models.ReferenceLinks>`
-    :param change_id:
+    :param change_id: The change ID.
     :type change_id: int
-    :param current_operation:
+    :param current_operation: A string that indicates the current operation.
     :type current_operation: str
-    :param details:
+    :param details: A reference to a sub-timeline.
     :type details: :class:`TimelineReference <build.models.TimelineReference>`
-    :param error_count:
+    :param error_count: The number of errors produced by this operation.
     :type error_count: int
-    :param finish_time:
+    :param finish_time: The finish time.
     :type finish_time: datetime
-    :param id:
+    :param id: The ID of the record.
     :type id: str
     :param issues:
     :type issues: list of :class:`Issue <build.models.Issue>`
-    :param last_modified:
+    :param last_modified: The time the record was last modified.
     :type last_modified: datetime
-    :param log:
+    :param log: A reference to the log produced by this operation.
     :type log: :class:`BuildLogReference <build.models.BuildLogReference>`
-    :param name:
+    :param name: The name.
     :type name: str
-    :param order:
+    :param order: An ordinal value relative to other records.
     :type order: int
-    :param parent_id:
+    :param parent_id: The ID of the record's parent.
     :type parent_id: str
-    :param percent_complete:
+    :param percent_complete: The current completion percentage.
     :type percent_complete: int
-    :param result:
+    :param result: The result.
     :type result: object
-    :param result_code:
+    :param result_code: The result code.
     :type result_code: str
-    :param start_time:
+    :param start_time: The start time.
     :type start_time: datetime
-    :param state:
+    :param state: The state of the record.
     :type state: object
-    :param task:
+    :param task: A reference to the task represented by this timeline record.
     :type task: :class:`TaskReference <build.models.TaskReference>`
-    :param type:
+    :param type: The type of the record.
     :type type: str
-    :param url:
+    :param url: The REST URL of the timeline record.
     :type url: str
-    :param warning_count:
+    :param warning_count: The number of warnings produced by this operation.
     :type warning_count: int
-    :param worker_name:
+    :param worker_name: The name of the agent running the operation.
     :type worker_name: str
     """
 

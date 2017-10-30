@@ -12,25 +12,25 @@ from msrest.serialization import Model
 class BuildDefinitionStep(Model):
     """BuildDefinitionStep.
 
-    :param always_run:
+    :param always_run: Indicates whether this step should run even if a previous step fails.
     :type always_run: bool
-    :param condition:
+    :param condition: A condition that determines whether this step should run.
     :type condition: str
-    :param continue_on_error:
+    :param continue_on_error: Indicates whether the phase should continue even if this step fails.
     :type continue_on_error: bool
-    :param display_name:
+    :param display_name: The display name for this step.
     :type display_name: str
-    :param enabled:
+    :param enabled: Indicates whether the step is enabled.
     :type enabled: bool
     :param environment:
     :type environment: dict
     :param inputs:
     :type inputs: dict
-    :param ref_name:
+    :param ref_name: The reference name for this step.
     :type ref_name: str
-    :param task:
+    :param task: The task associated with this step.
     :type task: :class:`TaskDefinitionReference <build.models.TaskDefinitionReference>`
-    :param timeout_in_minutes:
+    :param timeout_in_minutes: The time, in minutes, that this step is allowed to run.
     :type timeout_in_minutes: int
     """
 

@@ -27,9 +27,9 @@ class BuildClient(VssClient):
 
     def create_artifact(self, artifact, build_id, project=None):
         """CreateArtifact.
-        [Preview API] Associates an artifact with a build
-        :param :class:`<BuildArtifact> <build.models.BuildArtifact>` artifact:
-        :param int build_id:
+        [Preview API] Associates an artifact with a build.
+        :param :class:`<BuildArtifact> <build.models.BuildArtifact>` artifact: The artifact.
+        :param int build_id: The ID of the build.
         :param str project: Project ID or project name
         :rtype: :class:`<BuildArtifact> <build.models.BuildArtifact>`
         """
@@ -47,9 +47,9 @@ class BuildClient(VssClient):
 
     def get_artifact(self, build_id, artifact_name, project=None):
         """GetArtifact.
-        [Preview API] Gets a specific artifact for a build
-        :param int build_id:
-        :param str artifact_name:
+        [Preview API] Gets a specific artifact for a build.
+        :param int build_id: The ID of the build.
+        :param str artifact_name: The name of the artifact.
         :param str project: Project ID or project name
         :rtype: :class:`<BuildArtifact> <build.models.BuildArtifact>`
         """
@@ -69,9 +69,9 @@ class BuildClient(VssClient):
 
     def get_artifact_content_zip(self, build_id, artifact_name, project=None):
         """GetArtifactContentZip.
-        [Preview API] Gets a specific artifact for a build
-        :param int build_id:
-        :param str artifact_name:
+        [Preview API] Gets a specific artifact for a build.
+        :param int build_id: The ID of the build.
+        :param str artifact_name: The name of the artifact.
         :param str project: Project ID or project name
         :rtype: object
         """
@@ -91,8 +91,8 @@ class BuildClient(VssClient):
 
     def get_artifacts(self, build_id, project=None):
         """GetArtifacts.
-        [Preview API] Gets all artifacts for a build
-        :param int build_id:
+        [Preview API] Gets all artifacts for a build.
+        :param int build_id: The ID of the build.
         :param str project: Project ID or project name
         :rtype: [BuildArtifact]
         """
@@ -109,10 +109,10 @@ class BuildClient(VssClient):
 
     def get_badge(self, project, definition_id, branch_name=None):
         """GetBadge.
-        [Preview API]
-        :param str project:
-        :param int definition_id:
-        :param str branch_name:
+        [Preview API] Gets a badge that indicates the status of the most recent build for a definition.
+        :param str project: The project ID or name.
+        :param int definition_id: The ID of the definition.
+        :param str branch_name: The name of the branch.
         :rtype: str
         """
         route_values = {
@@ -131,11 +131,11 @@ class BuildClient(VssClient):
 
     def get_build_badge(self, project, repo_type, repo_id=None, branch_name=None):
         """GetBuildBadge.
-        [Preview API]
+        [Preview API] Gets a badge that indicates the status of the most recent build for the specified branch.
         :param str project: Project ID or project name
-        :param str repo_type:
-        :param str repo_id:
-        :param str branch_name:
+        :param str repo_type: The repository type.
+        :param str repo_id: The repository ID.
+        :param str branch_name: The branch name.
         :rtype: :class:`<BuildBadge> <build.models.BuildBadge>`
         """
         route_values = {
@@ -156,11 +156,11 @@ class BuildClient(VssClient):
 
     def get_build_badge_data(self, project, repo_type, repo_id=None, branch_name=None):
         """GetBuildBadgeData.
-        [Preview API]
+        [Preview API] Gets a badge that indicates the status of the most recent build for the specified branch.
         :param str project: Project ID or project name
-        :param str repo_type:
-        :param str repo_id:
-        :param str branch_name:
+        :param str repo_type: The repository type.
+        :param str repo_id: The repository ID.
+        :param str branch_name: The branch name.
         :rtype: str
         """
         route_values = {
@@ -181,8 +181,8 @@ class BuildClient(VssClient):
 
     def delete_build(self, build_id, project=None):
         """DeleteBuild.
-        [Preview API] Deletes a build
-        :param int build_id:
+        [Preview API] Deletes a build.
+        :param int build_id: The ID of the build.
         :param str project: Project ID or project name
         """
         route_values = {
@@ -196,10 +196,10 @@ class BuildClient(VssClient):
 
     def get_build(self, build_id, project=None, property_filters=None):
         """GetBuild.
-        [Preview API] Gets a build
-        :param int build_id:
+        [Preview API] Gets a build.
+        :param int build_id: The ID of the build.
         :param str project: Project ID or project name
-        :param str property_filters: A comma-delimited list of properties to include in the results
+        :param str property_filters: A comma-delimited list of properties to include in the results.
         :rtype: :class:`<Build> <build.models.Build>`
         """
         route_values = {
@@ -218,28 +218,28 @@ class BuildClient(VssClient):
 
     def get_builds(self, project=None, definitions=None, queues=None, build_number=None, min_finish_time=None, max_finish_time=None, requested_for=None, reason_filter=None, status_filter=None, result_filter=None, tag_filters=None, properties=None, top=None, continuation_token=None, max_builds_per_definition=None, deleted_filter=None, query_order=None, branch_name=None, build_ids=None, repository_id=None, repository_type=None):
         """GetBuilds.
-        [Preview API] Gets builds
+        [Preview API] Gets a list of builds.
         :param str project: Project ID or project name
-        :param [int] definitions: A comma-delimited list of definition ids
-        :param [int] queues: A comma-delimited list of queue ids
-        :param str build_number:
-        :param datetime min_finish_time:
-        :param datetime max_finish_time:
-        :param str requested_for:
-        :param BuildReason reason_filter:
-        :param BuildStatus status_filter:
-        :param BuildResult result_filter:
-        :param [str] tag_filters: A comma-delimited list of tags
-        :param [str] properties: A comma-delimited list of properties to include in the results
-        :param int top: The maximum number of builds to retrieve
-        :param str continuation_token:
-        :param int max_builds_per_definition:
-        :param QueryDeletedOption deleted_filter:
-        :param BuildQueryOrder query_order:
-        :param str branch_name:
-        :param [int] build_ids:
-        :param str repository_id:
-        :param str repository_type:
+        :param [int] definitions: A comma-delimited list of definition IDs. If specified, filters to builds for these definitions.
+        :param [int] queues: A comma-delimited list of queue IDs. If specified, filters to builds that ran against these queues.
+        :param str build_number: If specified, filters to builds that match this build number. Append * to do a prefix search.
+        :param datetime min_finish_time: If specified, filters to builds that finished after this date.
+        :param datetime max_finish_time: If specified, filters to builds that finished before this date.
+        :param str requested_for: If specified, filters to builds requested for the specified user.
+        :param BuildReason reason_filter: If specified, filters to builds that match this reason.
+        :param BuildStatus status_filter: If specified, filters to builds that match this status.
+        :param BuildResult result_filter: If specified, filters to builds that match this result.
+        :param [str] tag_filters: A comma-delimited list of tags. If specified, filters to builds that have the specified tags.
+        :param [str] properties: A comma-delimited list of properties to retrieve.
+        :param int top: The maximum number of builds to return.
+        :param str continuation_token: A continuation token, returned by a previous call to this method, that can be used to return the next set of builds.
+        :param int max_builds_per_definition: The maximum number of builds to return per definition.
+        :param QueryDeletedOption deleted_filter: Indicates whether to exclude, include, or only return deleted builds.
+        :param BuildQueryOrder query_order: The order in which builds should be returned.
+        :param str branch_name: If specified, filters to builds that built branches that built this branch.
+        :param [int] build_ids: A comma-delimited list that specifies the IDs of builds to retrieve.
+        :param str repository_id: If specified, filters to builds that built from this repository.
+        :param str repository_type: If specified, filters to builds that built from repositories of this type.
         :rtype: [Build]
         """
         route_values = {
@@ -327,9 +327,9 @@ class BuildClient(VssClient):
 
     def update_build(self, build, build_id, project=None):
         """UpdateBuild.
-        [Preview API] Updates a build
-        :param :class:`<Build> <build.models.Build>` build:
-        :param int build_id:
+        [Preview API] Updates a build.
+        :param :class:`<Build> <build.models.Build>` build: The build.
+        :param int build_id: The ID of the build.
         :param str project: Project ID or project name
         :rtype: :class:`<Build> <build.models.Build>`
         """
@@ -347,8 +347,8 @@ class BuildClient(VssClient):
 
     def update_builds(self, builds, project=None):
         """UpdateBuilds.
-        [Preview API] Update a batch of builds
-        :param [Build] builds:
+        [Preview API] Updates multiple builds.
+        :param [Build] builds: The builds to update.
         :param str project: Project ID or project name
         :rtype: [Build]
         """
@@ -366,11 +366,11 @@ class BuildClient(VssClient):
 
     def get_build_changes(self, project, build_id, continuation_token=None, top=None, include_source_change=None):
         """GetBuildChanges.
-        [Preview API] Gets the changes associated with a build
+        [Preview API] Gets the changes associated with a build.
         :param str project: Project ID or project name
-        :param int build_id:
+        :param int build_id: The build ID.
         :param str continuation_token:
-        :param int top: The maximum number of changes to return
+        :param int top: The maximum number of changes to return.
         :param bool include_source_change:
         :rtype: [Change]
         """
@@ -395,11 +395,11 @@ class BuildClient(VssClient):
 
     def get_changes_between_builds(self, project, from_build_id=None, to_build_id=None, top=None):
         """GetChangesBetweenBuilds.
-        [Preview API] Gets the changes associated between given builds
+        [Preview API] Gets the changes made to the repository between two given builds.
         :param str project: Project ID or project name
-        :param int from_build_id:
-        :param int to_build_id:
-        :param int top: The maximum number of changes to return
+        :param int from_build_id: The ID of the first build.
+        :param int to_build_id: The ID of the last build.
+        :param int top: The maximum number of changes to return.
         :rtype: [Change]
         """
         route_values = {
@@ -453,8 +453,8 @@ class BuildClient(VssClient):
 
     def create_definition(self, definition, project=None, definition_to_clone_id=None, definition_to_clone_revision=None):
         """CreateDefinition.
-        [Preview API] Creates a new definition
-        :param :class:`<BuildDefinition> <build.models.BuildDefinition>` definition:
+        [Preview API] Creates a new definition.
+        :param :class:`<BuildDefinition> <build.models.BuildDefinition>` definition: The definition.
         :param str project: Project ID or project name
         :param int definition_to_clone_id:
         :param int definition_to_clone_revision:
@@ -479,8 +479,8 @@ class BuildClient(VssClient):
 
     def delete_definition(self, definition_id, project=None):
         """DeleteDefinition.
-        [Preview API] Deletes a definition and all associated builds
-        :param int definition_id:
+        [Preview API] Deletes a definition and all associated builds.
+        :param int definition_id: The ID of the definition.
         :param str project: Project ID or project name
         """
         route_values = {
@@ -494,12 +494,12 @@ class BuildClient(VssClient):
 
     def get_definition(self, definition_id, project=None, revision=None, min_metrics_time=None, property_filters=None, include_latest_builds=None):
         """GetDefinition.
-        [Preview API] Gets a definition, optionally at a specific revision
-        :param int definition_id:
+        [Preview API] Gets a definition, optionally at a specific revision.
+        :param int definition_id: The ID of the definition.
         :param str project: Project ID or project name
-        :param int revision:
-        :param datetime min_metrics_time:
-        :param [str] property_filters:
+        :param int revision: The revision number to retrieve. If this is not specified, the latest version will be returned.
+        :param datetime min_metrics_time: If specified, indicates the date from which metrics should be included.
+        :param [str] property_filters: A comma-delimited list of properties to include in the results.
         :param bool include_latest_builds:
         :rtype: :class:`<BuildDefinition> <build.models.BuildDefinition>`
         """
@@ -526,22 +526,22 @@ class BuildClient(VssClient):
 
     def get_definitions(self, project=None, name=None, repository_id=None, repository_type=None, query_order=None, top=None, continuation_token=None, min_metrics_time=None, definition_ids=None, path=None, built_after=None, not_built_after=None, include_all_properties=None, include_latest_builds=None, task_id_filter=None):
         """GetDefinitions.
-        [Preview API] Gets definitions, optionally filtered by name
+        [Preview API] Gets a list of definitions.
         :param str project: Project ID or project name
-        :param str name:
-        :param str repository_id:
-        :param str repository_type:
-        :param DefinitionQueryOrder query_order:
-        :param int top:
-        :param str continuation_token:
-        :param datetime min_metrics_time:
-        :param [int] definition_ids:
-        :param str path:
-        :param datetime built_after:
-        :param datetime not_built_after:
-        :param bool include_all_properties:
-        :param bool include_latest_builds:
-        :param str task_id_filter:
+        :param str name: If specified, filters to definitions whose names match this pattern.
+        :param str repository_id: A repository ID. If specified, filters to definitions that use this repository.
+        :param str repository_type: If specified, filters to definitions that have a repository of this type.
+        :param DefinitionQueryOrder query_order: Indicates the order in which definitions should be returned.
+        :param int top: The maximum number of definitions to return.
+        :param str continuation_token: A continuation token, returned by a previous call to this method, that can be used to return the next set of definitions.
+        :param datetime min_metrics_time: If specified, indicates the date from which metrics should be included.
+        :param [int] definition_ids: A comma-delimited list that specifies the IDs of definitions to retrieve.
+        :param str path: If specified, filters to definitions under this folder.
+        :param datetime built_after: If specified, filters to definitions that have builds after this date.
+        :param datetime not_built_after: If specified, filters to definitions that do not have builds after this date.
+        :param bool include_all_properties: Indicates whether the full definitions should be returned. By default, shallow representations of the definitions are returned.
+        :param bool include_latest_builds: Indicates whether to return the latest and latest completed builds for this definition.
+        :param str task_id_filter: If specified, filters to definitions that use the specified task.
         :rtype: [BuildDefinitionReference]
         """
         route_values = {
@@ -587,9 +587,9 @@ class BuildClient(VssClient):
 
     def update_definition(self, definition, definition_id, project=None, secrets_source_definition_id=None, secrets_source_definition_revision=None):
         """UpdateDefinition.
-        [Preview API] Updates an existing definition
-        :param :class:`<BuildDefinition> <build.models.BuildDefinition>` definition:
-        :param int definition_id:
+        [Preview API] Updates an existing definition.
+        :param :class:`<BuildDefinition> <build.models.BuildDefinition>` definition: The new version of the defintion.
+        :param int definition_id: The ID of the definition.
         :param str project: Project ID or project name
         :param int secrets_source_definition_id:
         :param int secrets_source_definition_revision:
@@ -615,10 +615,10 @@ class BuildClient(VssClient):
 
     def create_folder(self, folder, project, path):
         """CreateFolder.
-        [Preview API] Creates a new folder
-        :param :class:`<Folder> <build.models.Folder>` folder:
+        [Preview API] Creates a new folder.
+        :param :class:`<Folder> <build.models.Folder>` folder: The folder.
         :param str project: Project ID or project name
-        :param str path:
+        :param str path: The full path of the folder.
         :rtype: :class:`<Folder> <build.models.Folder>`
         """
         route_values = {
@@ -635,9 +635,9 @@ class BuildClient(VssClient):
 
     def delete_folder(self, project, path):
         """DeleteFolder.
-        [Preview API] Deletes a definition folder for given folder name and path and all it's existing definitions and it's corresponding builds
+        [Preview API] Deletes a definition folder. Definitions and their corresponding builds will also be deleted.
         :param str project: Project ID or project name
-        :param str path:
+        :param str path: The full path to the folder.
         """
         route_values = {
             'project': self._serialize.url('project', project, 'str'),
@@ -650,10 +650,10 @@ class BuildClient(VssClient):
 
     def get_folders(self, project, path=None, query_order=None):
         """GetFolders.
-        [Preview API] Gets folders
+        [Preview API] Gets a list of build definition folders.
         :param str project: Project ID or project name
-        :param str path:
-        :param FolderQueryOrder query_order:
+        :param str path: The path to start with.
+        :param FolderQueryOrder query_order: The order in which folders should be returned.
         :rtype: [Folder]
         """
         route_values = {
@@ -674,9 +674,9 @@ class BuildClient(VssClient):
     def update_folder(self, folder, project, path):
         """UpdateFolder.
         [Preview API] Updates an existing folder at given  existing path
-        :param :class:`<Folder> <build.models.Folder>` folder:
+        :param :class:`<Folder> <build.models.Folder>` folder: The new version of the folder.
         :param str project: Project ID or project name
-        :param str path:
+        :param str path: The full path to the folder.
         :rtype: :class:`<Folder> <build.models.Folder>`
         """
         route_values = {
@@ -693,12 +693,12 @@ class BuildClient(VssClient):
 
     def get_build_log(self, project, build_id, log_id, start_line=None, end_line=None):
         """GetBuildLog.
-        [Preview API] Gets a log
+        [Preview API] Gets an individual log file for a build.
         :param str project: Project ID or project name
-        :param int build_id:
-        :param int log_id:
-        :param long start_line:
-        :param long end_line:
+        :param int build_id: The ID of the build.
+        :param int log_id: The ID of the log file.
+        :param long start_line: The start line.
+        :param long end_line: The end line.
         :rtype: object
         """
         route_values = {
@@ -720,12 +720,12 @@ class BuildClient(VssClient):
 
     def get_build_log_lines(self, project, build_id, log_id, start_line=None, end_line=None):
         """GetBuildLogLines.
-        [Preview API] Gets a log
+        [Preview API] Gets an individual log file for a build.
         :param str project: Project ID or project name
-        :param int build_id:
-        :param int log_id:
-        :param long start_line:
-        :param long end_line:
+        :param int build_id: The ID of the build.
+        :param int log_id: The ID of the log file.
+        :param long start_line: The start line.
+        :param long end_line: The end line.
         :rtype: [str]
         """
         route_values = {
@@ -748,9 +748,9 @@ class BuildClient(VssClient):
 
     def get_build_logs(self, project, build_id):
         """GetBuildLogs.
-        [Preview API] Gets logs for a build
+        [Preview API] Gets the logs for a build.
         :param str project: Project ID or project name
-        :param int build_id:
+        :param int build_id: The ID of the build.
         :rtype: [BuildLog]
         """
         route_values = {
@@ -766,9 +766,9 @@ class BuildClient(VssClient):
 
     def get_build_logs_zip(self, project, build_id):
         """GetBuildLogsZip.
-        [Preview API] Gets logs for a build
+        [Preview API] Gets the logs for a build.
         :param str project: Project ID or project name
-        :param int build_id:
+        :param int build_id: The ID of the build.
         :rtype: object
         """
         route_values = {
@@ -783,10 +783,10 @@ class BuildClient(VssClient):
 
     def get_project_metrics(self, project, metric_aggregation_type=None, min_metrics_time=None):
         """GetProjectMetrics.
-        [Preview API] Gets metrics of a project
+        [Preview API] Gets build metrics for a project.
         :param str project: Project ID or project name
-        :param str metric_aggregation_type:
-        :param datetime min_metrics_time:
+        :param str metric_aggregation_type: The aggregation type to use (hourly, daily).
+        :param datetime min_metrics_time: The date from which to calculate metrics.
         :rtype: [BuildMetric]
         """
         route_values = {
@@ -806,10 +806,10 @@ class BuildClient(VssClient):
 
     def get_definition_metrics(self, project, definition_id, min_metrics_time=None):
         """GetDefinitionMetrics.
-        [Preview API] Gets metrics of a definition
+        [Preview API] Gets build metrics for a definition.
         :param str project: Project ID or project name
-        :param int definition_id:
-        :param datetime min_metrics_time:
+        :param int definition_id: The ID of the definition.
+        :param datetime min_metrics_time: The date from which to calculate metrics.
         :rtype: [BuildMetric]
         """
         route_values = {
@@ -829,7 +829,7 @@ class BuildClient(VssClient):
 
     def get_build_option_definitions(self, project=None):
         """GetBuildOptionDefinitions.
-        [Preview API] Gets all build option definitions
+        [Preview API] Gets all build definition options supported by the system.
         :param str project: Project ID or project name
         :rtype: [BuildOptionDefinition]
         """
@@ -847,8 +847,8 @@ class BuildClient(VssClient):
         """GetBuildProperties.
         [Preview API] Gets properties for a build.
         :param str project: Project ID or project name
-        :param int build_id: The build id.
-        :param [str] filter: Filter to specific properties. Defaults to all properties.
+        :param int build_id: The ID of the build.
+        :param [str] filter: A comma-delimited list of properties. If specified, filters to these specific properties.
         :rtype: :class:`<object> <build.models.object>`
         """
         route_values = {
@@ -869,9 +869,9 @@ class BuildClient(VssClient):
     def update_build_properties(self, document, project, build_id):
         """UpdateBuildProperties.
         [Preview API] Updates properties for a build.
-        :param :class:`<[JsonPatchOperation]> <build.models.[JsonPatchOperation]>` document:
+        :param :class:`<[JsonPatchOperation]> <build.models.[JsonPatchOperation]>` document: A json-patch document describing the properties to update.
         :param str project: Project ID or project name
-        :param int build_id: The build id.
+        :param int build_id: The ID of the build.
         :rtype: :class:`<object> <build.models.object>`
         """
         route_values = {
@@ -891,8 +891,8 @@ class BuildClient(VssClient):
         """GetDefinitionProperties.
         [Preview API] Gets properties for a definition.
         :param str project: Project ID or project name
-        :param int definition_id: The definition id.
-        :param [str] filter: Filter to specific properties. Defaults to all properties.
+        :param int definition_id: The ID of the definition.
+        :param [str] filter: A comma-delimited list of properties. If specified, filters to these specific properties.
         :rtype: :class:`<object> <build.models.object>`
         """
         route_values = {
@@ -913,9 +913,9 @@ class BuildClient(VssClient):
     def update_definition_properties(self, document, project, definition_id):
         """UpdateDefinitionProperties.
         [Preview API] Updates properties for a definition.
-        :param :class:`<[JsonPatchOperation]> <build.models.[JsonPatchOperation]>` document:
+        :param :class:`<[JsonPatchOperation]> <build.models.[JsonPatchOperation]>` document: A json-patch document describing the properties to update.
         :param str project: Project ID or project name
-        :param int definition_id: The definition id.
+        :param int definition_id: The ID of the definition.
         :rtype: :class:`<object> <build.models.object>`
         """
         route_values = {
@@ -933,9 +933,9 @@ class BuildClient(VssClient):
 
     def get_build_report(self, project, build_id, type=None):
         """GetBuildReport.
-        [Preview API] Gets report for a build
+        [Preview API] Gets a build report.
         :param str project: Project ID or project name
-        :param int build_id:
+        :param int build_id: The ID of the build.
         :param str type:
         :rtype: :class:`<BuildReportMetadata> <build.models.BuildReportMetadata>`
         """
@@ -955,9 +955,9 @@ class BuildClient(VssClient):
 
     def get_build_report_html_content(self, project, build_id, type=None):
         """GetBuildReportHtmlContent.
-        [Preview API] Gets report for a build
+        [Preview API] Gets a build report.
         :param str project: Project ID or project name
-        :param int build_id:
+        :param int build_id: The ID of the build.
         :param str type:
         :rtype: object
         """
@@ -977,7 +977,7 @@ class BuildClient(VssClient):
 
     def get_resource_usage(self):
         """GetResourceUsage.
-        [Preview API]
+        [Preview API] Gets information about build resources in the system.
         :rtype: :class:`<BuildResourceUsage> <build.models.BuildResourceUsage>`
         """
         response = self._send(http_method='GET',
@@ -987,9 +987,9 @@ class BuildClient(VssClient):
 
     def get_definition_revisions(self, project, definition_id):
         """GetDefinitionRevisions.
-        [Preview API] Gets revisions of a definition
+        [Preview API] Gets all revisions of a definition.
         :param str project: Project ID or project name
-        :param int definition_id:
+        :param int definition_id: The ID of the definition.
         :rtype: [BuildDefinitionRevision]
         """
         route_values = {
@@ -1005,7 +1005,7 @@ class BuildClient(VssClient):
 
     def get_build_settings(self):
         """GetBuildSettings.
-        [Preview API] Gets the build settings
+        [Preview API] Gets the build settings.
         :rtype: :class:`<BuildSettings> <build.models.BuildSettings>`
         """
         response = self._send(http_method='GET',
@@ -1015,8 +1015,8 @@ class BuildClient(VssClient):
 
     def update_build_settings(self, settings):
         """UpdateBuildSettings.
-        [Preview API] Updates the build settings
-        :param :class:`<BuildSettings> <build.models.BuildSettings>` settings:
+        [Preview API] Updates the build settings.
+        :param :class:`<BuildSettings> <build.models.BuildSettings>` settings: The new settings.
         :rtype: :class:`<BuildSettings> <build.models.BuildSettings>`
         """
         content = self._serialize.body(settings, 'BuildSettings')
@@ -1028,10 +1028,10 @@ class BuildClient(VssClient):
 
     def add_build_tag(self, project, build_id, tag):
         """AddBuildTag.
-        [Preview API] Adds a tag to a build
+        [Preview API] Adds a tag to a build.
         :param str project: Project ID or project name
-        :param int build_id:
-        :param str tag:
+        :param int build_id: The ID of the build.
+        :param str tag: The tag to add.
         :rtype: [str]
         """
         route_values = {
@@ -1048,10 +1048,10 @@ class BuildClient(VssClient):
 
     def add_build_tags(self, tags, project, build_id):
         """AddBuildTags.
-        [Preview API] Adds tag to a build
-        :param [str] tags:
+        [Preview API] Adds tags to a build.
+        :param [str] tags: The tags to add.
         :param str project: Project ID or project name
-        :param int build_id:
+        :param int build_id: The ID of the build.
         :rtype: [str]
         """
         route_values = {
@@ -1069,10 +1069,10 @@ class BuildClient(VssClient):
 
     def delete_build_tag(self, project, build_id, tag):
         """DeleteBuildTag.
-        [Preview API] Deletes a tag from a build
+        [Preview API] Removes a tag from a build.
         :param str project: Project ID or project name
-        :param int build_id:
-        :param str tag:
+        :param int build_id: The ID of the build.
+        :param str tag: The tag to remove.
         :rtype: [str]
         """
         route_values = {
@@ -1089,9 +1089,9 @@ class BuildClient(VssClient):
 
     def get_build_tags(self, project, build_id):
         """GetBuildTags.
-        [Preview API] Gets the tags for a build
+        [Preview API] Gets the tags for a build.
         :param str project: Project ID or project name
-        :param int build_id:
+        :param int build_id: The ID of the build.
         :rtype: [str]
         """
         route_values = {
@@ -1109,8 +1109,8 @@ class BuildClient(VssClient):
         """AddDefinitionTag.
         [Preview API] Adds a tag to a definition
         :param str project: Project ID or project name
-        :param int definition_id:
-        :param str tag:
+        :param int definition_id: The ID of the definition.
+        :param str tag: The tag to add.
         :rtype: [str]
         """
         route_values = {
@@ -1127,10 +1127,10 @@ class BuildClient(VssClient):
 
     def add_definition_tags(self, tags, project, definition_id):
         """AddDefinitionTags.
-        [Preview API] Adds multiple tags to a definition
-        :param [str] tags:
+        [Preview API] Adds multiple tags to a definition.
+        :param [str] tags: The tags to add.
         :param str project: Project ID or project name
-        :param int definition_id:
+        :param int definition_id: The ID of the definition.
         :rtype: [str]
         """
         route_values = {
@@ -1148,10 +1148,10 @@ class BuildClient(VssClient):
 
     def delete_definition_tag(self, project, definition_id, tag):
         """DeleteDefinitionTag.
-        [Preview API] Deletes a tag from a definition
+        [Preview API] Removes a tag from a definition.
         :param str project: Project ID or project name
-        :param int definition_id:
-        :param str tag:
+        :param int definition_id: The ID of the definition.
+        :param str tag: The tag to remove.
         :rtype: [str]
         """
         route_values = {
@@ -1168,10 +1168,10 @@ class BuildClient(VssClient):
 
     def get_definition_tags(self, project, definition_id, revision=None):
         """GetDefinitionTags.
-        [Preview API] Gets the tags for a definition
+        [Preview API] Gets the tags for a definition.
         :param str project: Project ID or project name
-        :param int definition_id:
-        :param int revision:
+        :param int definition_id: The ID of the definition.
+        :param int revision: The definition revision number. If not specified, uses the latest revision of the definition.
         :rtype: [str]
         """
         route_values = {
@@ -1191,7 +1191,7 @@ class BuildClient(VssClient):
 
     def get_tags(self, project):
         """GetTags.
-        [Preview API] Gets a list of tags in the project
+        [Preview API] Gets a list of all build and definition tags in the project.
         :param str project: Project ID or project name
         :rtype: [str]
         """
@@ -1207,9 +1207,9 @@ class BuildClient(VssClient):
 
     def delete_template(self, project, template_id):
         """DeleteTemplate.
-        [Preview API] Deletes a definition template
+        [Preview API] Deletes a build definition template.
         :param str project: Project ID or project name
-        :param str template_id:
+        :param str template_id: The ID of the template.
         """
         route_values = {
             'project': self._serialize.url('project', project, 'str'),
@@ -1222,9 +1222,9 @@ class BuildClient(VssClient):
 
     def get_template(self, project, template_id):
         """GetTemplate.
-        [Preview API] Gets definition template filtered by id
+        [Preview API] Gets a specific build definition template.
         :param str project: Project ID or project name
-        :param str template_id: Id of the requested template.
+        :param str template_id: The ID of the requested template.
         :rtype: :class:`<BuildDefinitionTemplate> <build.models.BuildDefinitionTemplate>`
         """
         route_values = {
@@ -1239,7 +1239,7 @@ class BuildClient(VssClient):
 
     def get_templates(self, project):
         """GetTemplates.
-        [Preview API] Gets definition templates
+        [Preview API] Gets all definition templates.
         :param str project: Project ID or project name
         :rtype: [BuildDefinitionTemplate]
         """
@@ -1255,10 +1255,10 @@ class BuildClient(VssClient):
 
     def save_template(self, template, project, template_id):
         """SaveTemplate.
-        [Preview API] Saves a definition template
-        :param :class:`<BuildDefinitionTemplate> <build.models.BuildDefinitionTemplate>` template:
+        [Preview API] Updates an existing build definition template.
+        :param :class:`<BuildDefinitionTemplate> <build.models.BuildDefinitionTemplate>` template: The new version of the template.
         :param str project: Project ID or project name
-        :param str template_id:
+        :param str template_id: The ID of the template.
         :rtype: :class:`<BuildDefinitionTemplate> <build.models.BuildDefinitionTemplate>`
         """
         route_values = {
@@ -1275,12 +1275,12 @@ class BuildClient(VssClient):
 
     def get_build_timeline(self, project, build_id, timeline_id=None, change_id=None, plan_id=None):
         """GetBuildTimeline.
-        [Preview API] Gets details for a build
+        [Preview API] Gets a timeline for a build.
         :param str project: Project ID or project name
-        :param int build_id:
-        :param str timeline_id:
+        :param int build_id: The ID of the build.
+        :param str timeline_id: The ID of the timeline. If not specified, uses the main timeline for the plan.
         :param int change_id:
-        :param str plan_id:
+        :param str plan_id: The ID of the plan. If not specified, uses the primary plan for the build.
         :rtype: :class:`<Timeline> <build.models.Timeline>`
         """
         route_values = {
@@ -1302,10 +1302,10 @@ class BuildClient(VssClient):
 
     def get_build_work_items_refs(self, project, build_id, top=None):
         """GetBuildWorkItemsRefs.
-        [Preview API] Gets the work item ids associated with a build
+        [Preview API] Gets the work items associated with a build.
         :param str project: Project ID or project name
-        :param int build_id:
-        :param int top: The maximum number of workitems to return
+        :param int build_id: The ID of the build.
+        :param int top: The maximum number of work items to return.
         :rtype: [ResourceRef]
         """
         route_values = {
@@ -1325,11 +1325,11 @@ class BuildClient(VssClient):
 
     def get_build_work_items_refs_from_commits(self, commit_ids, project, build_id, top=None):
         """GetBuildWorkItemsRefsFromCommits.
-        [Preview API] Gets the work item ids associated with build commits
-        :param [str] commit_ids:
+        [Preview API] Gets the work items associated with a build, filtered to specific commits.
+        :param [str] commit_ids: A comma-delimited list of commit IDs.
         :param str project: Project ID or project name
-        :param int build_id:
-        :param int top: The maximum number of workitems to return, also number of commits to consider if commitids are not sent
+        :param int build_id: The ID of the build.
+        :param int top: The maximum number of work items to return, or the number of commits to consider if no commit IDs are specified.
         :rtype: [ResourceRef]
         """
         route_values = {
@@ -1351,11 +1351,11 @@ class BuildClient(VssClient):
 
     def get_work_items_between_builds(self, project, from_build_id, to_build_id, top=None):
         """GetWorkItemsBetweenBuilds.
-        [Preview API] Gets all the work item ids inbetween fromBuildId to toBuildId
+        [Preview API] Gets all the work items between two builds.
         :param str project: Project ID or project name
-        :param int from_build_id:
-        :param int to_build_id:
-        :param int top: The maximum number of workitems to return
+        :param int from_build_id: The ID of the first build.
+        :param int to_build_id: The ID of the last build.
+        :param int top: The maximum number of work items to return.
         :rtype: [ResourceRef]
         """
         route_values = {

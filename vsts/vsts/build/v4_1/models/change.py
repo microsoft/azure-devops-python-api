@@ -16,15 +16,15 @@ class Change(Model):
     :type author: :class:`IdentityRef <build.models.IdentityRef>`
     :param display_uri: The location of a user-friendly representation of the resource.
     :type display_uri: str
-    :param id: Something that identifies the change. For a commit, this would be the SHA1. For a TFVC changeset, this would be the changeset id.
+    :param id: The identifier for the change. For a commit, this would be the SHA1. For a TFVC changeset, this would be the changeset ID.
     :type id: str
     :param location: The location of the full representation of the resource.
     :type location: str
-    :param message: A description of the change. This might be a commit message or changeset description.
+    :param message: The description of the change. This might be a commit message or changeset description.
     :type message: str
-    :param message_truncated: Indicates whether the message was truncated
+    :param message_truncated: Indicates whether the message was truncated.
     :type message_truncated: bool
-    :param timestamp: A timestamp for the change.
+    :param timestamp: The timestamp for the change.
     :type timestamp: datetime
     :param type: The type of change. "commit", "changeset", etc.
     :type type: str

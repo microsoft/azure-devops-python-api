@@ -12,11 +12,11 @@ from msrest.serialization import Model
 class TimelineReference(Model):
     """TimelineReference.
 
-    :param change_id:
+    :param change_id: The change ID.
     :type change_id: int
-    :param id:
+    :param id: The ID of the timeline.
     :type id: str
-    :param url:
+    :param url: The REST URL of the timeline.
     :type url: str
     """
 

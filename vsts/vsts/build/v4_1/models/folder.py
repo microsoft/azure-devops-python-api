@@ -12,17 +12,17 @@ from msrest.serialization import Model
 class Folder(Model):
     """Folder.
 
-    :param created_by: Process or person who created the folder
+    :param created_by: The process or person who created the folder.
     :type created_by: :class:`IdentityRef <build.models.IdentityRef>`
-    :param created_on: Creation date of the folder
+    :param created_on: The date the folder was created.
     :type created_on: datetime
-    :param description: The description of the folder
+    :param description: The description.
     :type description: str
-    :param last_changed_by: Process or person that last changed the folder
+    :param last_changed_by: The process or person that last changed the folder.
     :type last_changed_by: :class:`IdentityRef <build.models.IdentityRef>`
-    :param last_changed_date: Date the folder was last changed
+    :param last_changed_date: The date the folder was last changed.
     :type last_changed_date: datetime
-    :param path: The path of the folder
+    :param path: The full path.
     :type path: str
     :param project: The project.
     :type project: :class:`TeamProjectReference <build.models.TeamProjectReference>`

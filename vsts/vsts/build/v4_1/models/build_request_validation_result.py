@@ -12,9 +12,9 @@ from msrest.serialization import Model
 class BuildRequestValidationResult(Model):
     """BuildRequestValidationResult.
 
-    :param message:
+    :param message: The message associated with the result.
     :type message: str
-    :param result:
+    :param result: The result.
     :type result: object
     """
 

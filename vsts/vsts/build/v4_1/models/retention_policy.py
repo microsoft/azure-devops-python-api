@@ -18,13 +18,13 @@ class RetentionPolicy(Model):
     :type artifact_types_to_delete: list of str
     :param branches:
     :type branches: list of str
-    :param days_to_keep:
+    :param days_to_keep: The number of days to keep builds.
     :type days_to_keep: int
-    :param delete_build_record:
+    :param delete_build_record: Indicates whether the build record itself should be deleted.
     :type delete_build_record: bool
-    :param delete_test_results:
+    :param delete_test_results: Indicates whether to delete test results associated with the build.
     :type delete_test_results: bool
-    :param minimum_to_keep:
+    :param minimum_to_keep: The minimum number of builds to keep.
     :type minimum_to_keep: int
     """
 
