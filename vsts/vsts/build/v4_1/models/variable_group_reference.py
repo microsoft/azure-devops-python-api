@@ -12,7 +12,7 @@ from msrest.serialization import Model
 class VariableGroupReference(Model):
     """VariableGroupReference.
 
-    :param id:
+    :param id: The ID of the variable group.
     :type id: int
     """
 

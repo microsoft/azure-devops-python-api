@@ -12,25 +12,25 @@ from msrest.serialization import Model
 class DefinitionReference(Model):
     """DefinitionReference.
 
-    :param created_date: The date the definition was created
+    :param created_date: The date the definition was created.
     :type created_date: datetime
-    :param id: Id of the resource
+    :param id: The ID of the referenced definition.
     :type id: int
-    :param name: Name of the linked resource (definition name, controller name, etc.)
+    :param name: The name of the referenced definition.
     :type name: str
-    :param path: The path this definitions belongs to
+    :param path: The folder path of the definition.
     :type path: str
-    :param project: The project.
+    :param project: A reference to the project.
     :type project: :class:`TeamProjectReference <build.models.TeamProjectReference>`
-    :param queue_status: If builds can be queued from this definition
+    :param queue_status: A value that indicates whether builds can be queued against this definition.
     :type queue_status: object
     :param revision: The definition revision number.
     :type revision: int
     :param type: The type of the definition.
     :type type: object
-    :param uri: The Uri of the definition
+    :param uri: The definition's URI.
     :type uri: str
-    :param url: Full http link to the resource
+    :param url: The REST URL of the definition.
     :type url: str
     """
 

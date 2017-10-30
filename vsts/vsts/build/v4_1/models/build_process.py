@@ -12,7 +12,7 @@ from msrest.serialization import Model
 class BuildProcess(Model):
     """BuildProcess.
 
-    :param type:
+    :param type: The type of the process.
     :type type: int
     """
 

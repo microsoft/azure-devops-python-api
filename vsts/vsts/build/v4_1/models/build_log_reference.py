@@ -12,11 +12,11 @@ from msrest.serialization import Model
 class BuildLogReference(Model):
     """BuildLogReference.
 
-    :param id: The id of the log.
+    :param id: The ID of the log.
     :type id: int
     :param type: The type of the log location.
     :type type: str
-    :param url: Full link to the log resource.
+    :param url: A full link to the log resource.
     :type url: str
     """
 

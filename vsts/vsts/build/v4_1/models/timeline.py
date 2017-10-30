@@ -12,15 +12,15 @@ from .timeline_reference import TimelineReference
 class Timeline(TimelineReference):
     """Timeline.
 
-    :param change_id:
+    :param change_id: The change ID.
     :type change_id: int
-    :param id:
+    :param id: The ID of the timeline.
     :type id: str
-    :param url:
+    :param url: The REST URL of the timeline.
     :type url: str
-    :param last_changed_by:
+    :param last_changed_by: The process or person that last changed the timeline.
     :type last_changed_by: str
-    :param last_changed_on:
+    :param last_changed_on: The time the timeline was last changed.
     :type last_changed_on: datetime
     :param records:
     :type records: list of :class:`TimelineRecord <build.models.TimelineRecord>`

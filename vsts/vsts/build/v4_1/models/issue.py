@@ -12,13 +12,13 @@ from msrest.serialization import Model
 class Issue(Model):
     """Issue.
 
-    :param category:
+    :param category: The category.
     :type category: str
     :param data:
     :type data: dict
-    :param message:
+    :param message: A description of the issue.
     :type message: str
-    :param type:
+    :param type: The type (error, warning) of the issue.
     :type type: object
     """
 

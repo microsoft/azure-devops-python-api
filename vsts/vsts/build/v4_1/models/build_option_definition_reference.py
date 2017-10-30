@@ -12,7 +12,7 @@ from msrest.serialization import Model
 class BuildOptionDefinitionReference(Model):
     """BuildOptionDefinitionReference.
 
-    :param id:
+    :param id: The ID of the referenced build option.
     :type id: str
     """
 

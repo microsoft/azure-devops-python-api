@@ -12,19 +12,19 @@ from msrest.serialization import Model
 class BuildDefinitionRevision(Model):
     """BuildDefinitionRevision.
 
-    :param changed_by:
+    :param changed_by: The identity of the person or process that changed the definition.
     :type changed_by: :class:`IdentityRef <build.models.IdentityRef>`
-    :param changed_date:
+    :param changed_date: The date and time that the definition was changed.
     :type changed_date: datetime
-    :param change_type:
+    :param change_type: The change type (add, edit, delete).
     :type change_type: object
-    :param comment:
+    :param comment: The comment associated with the change.
     :type comment: str
-    :param definition_url:
+    :param definition_url: A link to the definition at this revision.
     :type definition_url: str
-    :param name:
+    :param name: The name of the definition.
     :type name: str
-    :param revision:
+    :param revision: The revision number.
     :type revision: int
     """
 

@@ -12,11 +12,11 @@ from msrest.serialization import Model
 class TaskReference(Model):
     """TaskReference.
 
-    :param id:
+    :param id: The ID of the task definition.
     :type id: str
-    :param name:
+    :param name: The name of the task definition.
     :type name: str
-    :param version:
+    :param version: The version of the task definition.
     :type version: str
     """
 

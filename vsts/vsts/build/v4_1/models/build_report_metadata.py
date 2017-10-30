@@ -12,11 +12,11 @@ from msrest.serialization import Model
 class BuildReportMetadata(Model):
     """BuildReportMetadata.
 
-    :param build_id:
+    :param build_id: The Id of the build.
     :type build_id: int
-    :param content:
+    :param content: The content of the report.
     :type content: str
-    :param type:
+    :param type: The type of the report.
     :type type: str
     """
 

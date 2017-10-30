@@ -12,11 +12,11 @@ from msrest.serialization import Model
 class TaskAgentPoolReference(Model):
     """TaskAgentPoolReference.
 
-    :param id:
+    :param id: The pool ID.
     :type id: int
-    :param is_hosted: Gets or sets a value indicating whether or not this pool is managed by the service.
+    :param is_hosted: A value indicating whether or not this pool is managed by the service.
     :type is_hosted: bool
-    :param name:
+    :param name: The pool name.
     :type name: str
     """
 

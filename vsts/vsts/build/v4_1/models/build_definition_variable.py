@@ -12,11 +12,11 @@ from msrest.serialization import Model
 class BuildDefinitionVariable(Model):
     """BuildDefinitionVariable.
 
-    :param allow_override:
+    :param allow_override: Indicates whether the value can be set at queue time.
     :type allow_override: bool
-    :param is_secret:
+    :param is_secret: Indicates whether the variable's value is a secret.
     :type is_secret: bool
-    :param value:
+    :param value: The value of the variable.
     :type value: str
     """
 

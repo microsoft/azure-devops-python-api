@@ -12,23 +12,23 @@ from msrest.serialization import Model
 class BuildOptionInputDefinition(Model):
     """BuildOptionInputDefinition.
 
-    :param default_value:
+    :param default_value: The default value.
     :type default_value: str
-    :param group_name:
+    :param group_name: The name of the input group that this input belongs to.
     :type group_name: str
     :param help:
     :type help: dict
-    :param label:
+    :param label: The label for the input.
     :type label: str
-    :param name:
+    :param name: The name of the input.
     :type name: str
     :param options:
     :type options: dict
-    :param required:
+    :param required: Indicates whether the input is required to have a value.
     :type required: bool
-    :param type:
+    :param type: Indicates the type of the input value.
     :type type: object
-    :param visible_rule:
+    :param visible_rule: The rule that is applied to determine whether the input is visible in the UI.
     :type visible_rule: str
     """
 
