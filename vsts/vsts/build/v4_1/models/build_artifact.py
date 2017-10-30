@@ -12,11 +12,11 @@ from msrest.serialization import Model
 class BuildArtifact(Model):
     """BuildArtifact.
 
-    :param id: The artifact id
+    :param id: The artifact ID.
     :type id: int
-    :param name: The name of the artifact
+    :param name: The name of the artifact.
     :type name: str
-    :param resource: The actual resource
+    :param resource: The actual resource.
     :type resource: :class:`ArtifactResource <build.models.ArtifactResource>`
     """
 

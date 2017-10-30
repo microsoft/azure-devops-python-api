@@ -12,15 +12,15 @@ from .build_log_reference import BuildLogReference
 class BuildLog(BuildLogReference):
     """BuildLog.
 
-    :param id: The id of the log.
+    :param id: The ID of the log.
     :type id: int
     :param type: The type of the log location.
     :type type: str
-    :param url: Full link to the log resource.
+    :param url: A full link to the log resource.
     :type url: str
-    :param created_on: The date the log was created.
+    :param created_on: The date and time the log was created.
     :type created_on: datetime
-    :param last_changed_on: The date the log was last changed.
+    :param last_changed_on: The date and time the log was last changed.
     :type last_changed_on: datetime
     :param line_count: The number of lines in the log.
     :type line_count: long

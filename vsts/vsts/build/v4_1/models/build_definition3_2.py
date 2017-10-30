@@ -12,39 +12,39 @@ from .build_definition_reference import BuildDefinitionReference
 class BuildDefinition3_2(BuildDefinitionReference):
     """BuildDefinition3_2.
 
-    :param created_date: The date the definition was created
+    :param created_date: The date the definition was created.
     :type created_date: datetime
-    :param id: Id of the resource
+    :param id: The ID of the referenced definition.
     :type id: int
-    :param name: Name of the linked resource (definition name, controller name, etc.)
+    :param name: The name of the referenced definition.
     :type name: str
-    :param path: The path this definitions belongs to
+    :param path: The folder path of the definition.
     :type path: str
-    :param project: The project.
+    :param project: A reference to the project.
     :type project: :class:`TeamProjectReference <build.models.TeamProjectReference>`
-    :param queue_status: If builds can be queued from this definition
+    :param queue_status: A value that indicates whether builds can be queued against this definition.
     :type queue_status: object
     :param revision: The definition revision number.
     :type revision: int
     :param type: The type of the definition.
     :type type: object
-    :param uri: The Uri of the definition
+    :param uri: The definition's URI.
     :type uri: str
-    :param url: Full http link to the resource
+    :param url: The REST URL of the definition.
     :type url: str
     :param _links:
     :type _links: :class:`ReferenceLinks <build.models.ReferenceLinks>`
     :param authored_by: The author of the definition.
     :type authored_by: :class:`IdentityRef <build.models.IdentityRef>`
-    :param draft_of: If this is a draft definition, it might have a parent
+    :param draft_of: A reference to the definition that this definition is a draft of, if this is a draft definition.
     :type draft_of: :class:`DefinitionReference <build.models.DefinitionReference>`
-    :param drafts: If this is not a draft definition, it may have drafts of its own
+    :param drafts: The list of drafts associated with this definition, if this is not a draft definition.
     :type drafts: list of :class:`DefinitionReference <build.models.DefinitionReference>`
     :param metrics:
     :type metrics: list of :class:`BuildMetric <build.models.BuildMetric>`
     :param quality: The quality of the definition document (draft, etc.)
     :type quality: object
-    :param queue:
+    :param queue: The default queue for builds run against this definition.
     :type queue: :class:`AgentPoolQueue <build.models.AgentPoolQueue>`
     :param badge_enabled: Indicates whether badges are enabled for this definition
     :type badge_enabled: bool
@@ -60,11 +60,11 @@ class BuildDefinition3_2(BuildDefinitionReference):
     :type description: str
     :param drop_location: The drop location for the definition
     :type drop_location: str
-    :param job_authorization_scope: Gets or sets the job authorization scope for builds which are queued against this definition
+    :param job_authorization_scope: The job authorization scope for builds which are queued against this definition
     :type job_authorization_scope: object
-    :param job_cancel_timeout_in_minutes: Gets or sets the job cancel timeout in minutes for builds which are cancelled by user for this definition
+    :param job_cancel_timeout_in_minutes: The job cancel timeout in minutes for builds which are cancelled by user for this definition
     :type job_cancel_timeout_in_minutes: int
-    :param job_timeout_in_minutes: Gets or sets the job execution timeout in minutes for builds which are queued against this definition
+    :param job_timeout_in_minutes: The job execution timeout in minutes for builds which are queued against this definition
     :type job_timeout_in_minutes: int
     :param latest_build:
     :type latest_build: :class:`Build <build.models.Build>`

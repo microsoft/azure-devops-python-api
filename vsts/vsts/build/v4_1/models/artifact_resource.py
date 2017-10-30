@@ -14,15 +14,15 @@ class ArtifactResource(Model):
 
     :param _links:
     :type _links: :class:`ReferenceLinks <build.models.ReferenceLinks>`
-    :param data: The type-specific resource data. For example, "#/10002/5/drop", "$/drops/5", "\\myshare\myfolder\mydrops\5"
+    :param data: Type-specific data about the artifact.
     :type data: str
-    :param download_url: Link to the resource. This might include things like query parameters to download as a zip file
+    :param download_url: A link to download the resource.
     :type download_url: str
-    :param properties: Properties of Artifact Resource
+    :param properties: Type-specific properties of the artifact.
     :type properties: dict
     :param type: The type of the resource: File container, version control folder, UNC path, etc.
     :type type: str
-    :param url: Link to the resource
+    :param url: The full http link to the resource.
     :type url: str
     """
 

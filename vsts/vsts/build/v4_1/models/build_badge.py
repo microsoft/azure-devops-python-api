@@ -12,9 +12,9 @@ from msrest.serialization import Model
 class BuildBadge(Model):
     """BuildBadge.
 
-    :param build_id: Build id, if exists that this badge corresponds to
+    :param build_id: The ID of the build represented by this badge.
     :type build_id: int
-    :param image_url: Self Url that generates SVG
+    :param image_url: A link to the SVG resource.
     :type image_url: str
     """
 

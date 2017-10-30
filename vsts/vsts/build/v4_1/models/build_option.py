@@ -12,9 +12,9 @@ from msrest.serialization import Model
 class BuildOption(Model):
     """BuildOption.
 
-    :param definition:
+    :param definition: A reference to the build option.
     :type definition: :class:`BuildOptionDefinitionReference <build.models.BuildOptionDefinitionReference>`
-    :param enabled:
+    :param enabled: Indicates whether the behavior is enabled.
     :type enabled: bool
     :param inputs:
     :type inputs: dict

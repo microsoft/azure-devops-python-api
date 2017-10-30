@@ -12,17 +12,17 @@ from .build_option_definition_reference import BuildOptionDefinitionReference
 class BuildOptionDefinition(BuildOptionDefinitionReference):
     """BuildOptionDefinition.
 
-    :param id:
+    :param id: The ID of the referenced build option.
     :type id: str
-    :param description:
+    :param description: The description.
     :type description: str
-    :param groups:
+    :param groups: The list of input groups defined for the build option.
     :type groups: list of :class:`BuildOptionGroupDefinition <build.models.BuildOptionGroupDefinition>`
-    :param inputs:
+    :param inputs: The list of inputs defined for the build option.
     :type inputs: list of :class:`BuildOptionInputDefinition <build.models.BuildOptionInputDefinition>`
-    :param name:
+    :param name: The name of the build option.
     :type name: str
-    :param ordinal:
+    :param ordinal: A value that indicates the relative order in which the behavior should be applied.
     :type ordinal: int
     """
 

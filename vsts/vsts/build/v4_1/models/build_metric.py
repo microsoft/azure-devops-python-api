@@ -12,13 +12,13 @@ from msrest.serialization import Model
 class BuildMetric(Model):
     """BuildMetric.
 
-    :param date: Scoped date of the metric
+    :param date: The date for the scope.
     :type date: datetime
-    :param int_value: The int value of the metric
+    :param int_value: The value.
     :type int_value: int
-    :param name: The name of the metric
+    :param name: The name of the metric.
     :type name: str
-    :param scope: The scope of the metric
+    :param scope: The scope.
     :type scope: str
     """
 

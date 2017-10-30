@@ -12,21 +12,21 @@ from msrest.serialization import Model
 class BuildDefinitionTemplate(Model):
     """BuildDefinitionTemplate.
 
-    :param can_delete:
+    :param can_delete: Indicates whether the template can be deleted.
     :type can_delete: bool
-    :param category:
+    :param category: The template category.
     :type category: str
-    :param description:
+    :param description: A description of the template.
     :type description: str
     :param icons:
     :type icons: dict
-    :param icon_task_id:
+    :param icon_task_id: The ID of the task whose icon is used when showing this template in the UI.
     :type icon_task_id: str
-    :param id:
+    :param id: The ID of the template.
     :type id: str
-    :param name:
+    :param name: The name of the template.
     :type name: str
-    :param template:
+    :param template: The actual template.
     :type template: :class:`BuildDefinition <build.models.BuildDefinition>`
     """
 

@@ -12,13 +12,13 @@ from .variable_group_reference import VariableGroupReference
 class VariableGroup(VariableGroupReference):
     """VariableGroup.
 
-    :param id:
+    :param id: The ID of the variable group.
     :type id: int
-    :param description:
+    :param description: The description.
     :type description: str
-    :param name:
+    :param name: The name of the variable group.
     :type name: str
-    :param type:
+    :param type: The type of the variable group.
     :type type: str
     :param variables:
     :type variables: dict

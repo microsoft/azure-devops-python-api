@@ -12,23 +12,23 @@ from msrest.serialization import Model
 class BuildRepository(Model):
     """BuildRepository.
 
-    :param checkout_submodules:
+    :param checkout_submodules: Indicates whether to checkout submodules.
     :type checkout_submodules: bool
-    :param clean: Indicates whether to clean the target folder when getting code from the repository. This is a String so that it can reference variables.
+    :param clean: Indicates whether to clean the target folder when getting code from the repository.
     :type clean: str
-    :param default_branch: Gets or sets the name of the default branch.
+    :param default_branch: The name of the default branch.
     :type default_branch: str
-    :param id:
+    :param id: The ID of the repository.
     :type id: str
-    :param name: Gets or sets the friendly name of the repository.
+    :param name: The friendly name of the repository.
     :type name: str
     :param properties:
     :type properties: dict
-    :param root_folder: Gets or sets the root folder.
+    :param root_folder: The root folder.
     :type root_folder: str
-    :param type: Gets or sets the type of the repository.
+    :param type: The type of the repository.
     :type type: str
-    :param url: Gets or sets the url of the repository.
+    :param url: The URL of the repository.
     :type url: str
     """
 

@@ -12,7 +12,7 @@ from msrest.serialization import Model
 class BuildTrigger(Model):
     """BuildTrigger.
 
-    :param trigger_type:
+    :param trigger_type: The type of the trigger.
     :type trigger_type: object
     """
 

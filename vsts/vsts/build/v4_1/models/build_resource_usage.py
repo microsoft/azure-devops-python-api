@@ -12,13 +12,13 @@ from msrest.serialization import Model
 class BuildResourceUsage(Model):
     """BuildResourceUsage.
 
-    :param distributed_task_agents:
+    :param distributed_task_agents: The number of build agents.
     :type distributed_task_agents: int
-    :param paid_private_agent_slots:
+    :param paid_private_agent_slots: The number of paid private agent slots.
     :type paid_private_agent_slots: int
-    :param total_usage:
+    :param total_usage: The total usage.
     :type total_usage: int
-    :param xaml_controllers:
+    :param xaml_controllers: The number of XAML controllers.
     :type xaml_controllers: int
     """
 

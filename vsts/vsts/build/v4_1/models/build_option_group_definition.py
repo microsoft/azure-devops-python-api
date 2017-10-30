@@ -12,11 +12,11 @@ from msrest.serialization import Model
 class BuildOptionGroupDefinition(Model):
     """BuildOptionGroupDefinition.
 
-    :param display_name:
+    :param display_name: The name of the group to display in the UI.
     :type display_name: str
-    :param is_expanded:
+    :param is_expanded: Indicates whether the group is initially displayed as expanded in the UI.
     :type is_expanded: bool
-    :param name:
+    :param name: The internal name of the group.
     :type name: str
     """
 

@@ -12,9 +12,9 @@ from msrest.serialization import Model
 class TaskOrchestrationPlanReference(Model):
     """TaskOrchestrationPlanReference.
 
-    :param orchestration_type: Orchestration Type for Build (build, cleanup etc.)
+    :param orchestration_type: The type of the plan.
     :type orchestration_type: int
-    :param plan_id:
+    :param plan_id: The ID of the plan.
     :type plan_id: str
     """
 
