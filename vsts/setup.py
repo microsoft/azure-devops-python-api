@@ -24,7 +24,7 @@ setup(
     version=VERSION,
     description="Python wrapper around the VSTS APIs",
     author="Ted Chambers",
-    author_email="tedchamb@microsoft.com",
+    author_email="vstscli@microsoft.com",
     url="https://github.com/Microsoft/vsts-python-api ",
     keywords=["Microsoft", "VSTS", "Team Services", "SDK", "AzureTfs"],
     install_requires=REQUIRES,
