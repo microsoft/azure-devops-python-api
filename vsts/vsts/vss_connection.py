@@ -56,6 +56,9 @@ class VssConnection:
             return self.base_url
         else:
             resource_areas = self._get_resource_areas()
+            if resource_areas is None:
+                raise VstsClientRequestError(('Failed to retrieve resource areas '
+                                              + 'from server: {url}').format(url=self.base_url))
             for resource_area in resource_areas:
                 if resource_area.id.lower() == resource_id.lower():
                     return resource_area.location_url
