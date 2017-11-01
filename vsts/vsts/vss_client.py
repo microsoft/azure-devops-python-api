@@ -158,6 +158,8 @@ class VssClient:
             headers['X-TFS-FedAuthRedirect'] = 'Suppress'
         response = self._send_request(request, headers=headers)
         wrapper = self._base_deserialize('VssJsonCollectionWrapper', response)
+        if wrapper is None:
+            raise VstsClientRequestError("Failed to retrieve resource locations from: {}".format(options_uri))
         collection = wrapper.value
         returned_locations = self._base_deserialize('[ApiResourceLocation]',
                                                     collection)
