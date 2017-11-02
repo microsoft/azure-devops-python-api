@@ -41,7 +41,6 @@ class VssClient:
 
     def _send_request(self, request, headers=None, content=None, **operation_config):
         """Prepare and send request object according to configuration.
-
         :param ClientRequest request: The request object to be sent.
         :param dict headers: Any headers to add to the request.
         :param content: Any body data to add to the request.
@@ -100,6 +99,7 @@ class VssClient:
         route_values['resource'] = location.resource_name
         route_template = self._remove_optional_route_parameters(location.route_template,
                                                                 route_values)
+        logging.debug('Route template: %s', location.route_template)
         url = self._client.format_url(route_template, **route_values)
         request = ClientRequest()
         request.url = self._client.format_url(url)
@@ -111,9 +111,10 @@ class VssClient:
     @staticmethod
     def _remove_optional_route_parameters(route_template, route_values):
         new_template = ''
+        route_template = route_template.replace('{*', '{')
         for path_segment in route_template.split('/'):
-            if (len(path_segment) <= 2 or not path_segment[0:1] == '{'
-                    or not path_segment[len(path_segment) - 1:] == '}'
+            if (len(path_segment) <= 2 or not path_segment[0] == '{'
+                    or not path_segment[len(path_segment) - 1] == '}'
                     or path_segment[1:len(path_segment) - 1] in route_values):
                 new_template = new_template + '/' + path_segment
         return new_template
