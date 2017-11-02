@@ -47,7 +47,7 @@ class VssClient:
         :param content: Any body data to add to the request.
         :param config: Any specific config overrides
         """
-        if self._trace_env_var in os.environ and os.environ[self._trace_env_var] == 'true':
+        if TRACE_ENV_VAR in os.environ and os.environ[TRACE_ENV_VAR] == 'true':
             print(request.method + ' ' + request.url)
         response = self._client.send(request=request, headers=headers,
                                      content=content, **operation_config)
@@ -235,12 +235,11 @@ class VssClient:
 
     @staticmethod
     def _normalize_url(url):
-        if url.endswith("/"):
-            url = url[:-1]
-        url = url.lower()
-        return url
+        return url.rstrip('/').lower()
 
     _locations_cache = {}
-    _trace_env_var = 'vsts_python_print_urls'
     _session_header_key = 'X-TFS-Session'
     _session_data = {_session_header_key: str(uuid.uuid4())}
+
+
+TRACE_ENV_VAR = 'vsts_python_print_urls'

@@ -30,3 +30,15 @@ class GitClient(GitClientBase):
         response = self._send_request(request, headers)
         return self._deserialize('VstsInfo', response)
 
+    @staticmethod
+    def get_vsts_info_by_remote_url(remote_url, credentials, suppress_fedauth_redirect=True):
+        request = ClientRequest()
+        request.url = remote_url.rstrip('/') + '/vsts/info'
+        request.method = 'GET'
+        headers = {'Accept': 'application/json'}
+        if suppress_fedauth_redirect:
+            headers['X-TFS-FedAuthRedirect'] = 'Suppress'
+        git_client = GitClient(base_url=remote_url, creds=credentials)
+        response = git_client._send_request(request, headers)
+        return git_client._deserialize('VstsInfo', response)
+

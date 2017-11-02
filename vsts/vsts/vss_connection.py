@@ -59,10 +59,13 @@ class VssConnection:
             if resource_areas is None:
                 raise VstsClientRequestError(('Failed to retrieve resource areas '
                                               + 'from server: {url}').format(url=self.base_url))
+            if len(resource_areas) == 0:
+                # For OnPrem environments we get an empty list.
+                return self.base_url
             for resource_area in resource_areas:
                 if resource_area.id.lower() == resource_id.lower():
                     return resource_area.location_url
-            raise VstsClientRequestError(('Could not find information for resource area {id}'
+            raise VstsClientRequestError(('Could not find information for resource area {id} '
                                           + 'from server: {url}').format(id=resource_id,
                                                                          url=self.base_url))
 
@@ -83,8 +86,12 @@ class VssConnection:
             elif not force:
                 logging.info('File cache miss for resources on: %s', location_client.normalized_url)
             self._resource_areas = location_client.get_resource_areas()
+            if self._resource_areas is None:
+                # For OnPrem environments we get an empty collection wrapper.
+                self._resource_areas = []
             try:
-                serialized = location_client._base_serialize.serialize_data(self._resource_areas, '[ResourceAreaInfo]')
+                serialized = location_client._base_serialize.serialize_data(self._resource_areas,
+                                                                            '[ResourceAreaInfo]')
                 RESOURCE_FILE_CACHE[location_client.normalized_url] = serialized
             except Exception as ex:
                 logging.exception(str(ex))
