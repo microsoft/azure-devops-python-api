@@ -108,20 +108,24 @@ class FileCache(collections.MutableMapping):
 
 
 def get_cache_dir():
-    vsts_cache_dir = os.getenv('VSTS_CACHE_DIR', None) or os.path.expanduser(os.path.join('~', '.vsts', 'cache'))
+    vsts_cache_dir = os.getenv('VSTS_CACHE_DIR', None) or os.path.expanduser(os.path.join('~', '.vsts', 'python-sdk',
+                                                                                          'cache'))
     if not os.path.exists(vsts_cache_dir):
         os.makedirs(vsts_cache_dir)
     return vsts_cache_dir
 
 
-def get_cache(name, max_age):
-    file_name = os.path.join(get_cache_dir(), name + '.json')
+DEFAULT_MAX_AGE = 3600 * 12  # 12 hours
+DEFAULT_CACHE_DIR = get_cache_dir()
+
+
+def get_cache(name, max_age=DEFAULT_MAX_AGE, cache_dir=DEFAULT_CACHE_DIR):
+    file_name = os.path.join(cache_dir, name + '.json')
     return FileCache(file_name, max_age)
 
 
-_DEFAULT_MAX_AGE = 3600 * 12  # 12 hours
-OPTIONS_CACHE = get_cache('options', _DEFAULT_MAX_AGE)
-RESOURCE_CACHE = get_cache('resources', _DEFAULT_MAX_AGE)
+OPTIONS_CACHE = get_cache('options')
+RESOURCE_CACHE = get_cache('resources')
 
 
 # Code below this point from azure-cli-core
