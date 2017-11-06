@@ -213,26 +213,34 @@ class VssClient:
         return part1.rstrip('/') + '/' + part2.strip('/')
 
     def _handle_error(self, request, response):
-        try:
-            wrapped_exception = self._base_deserialize('WrappedException', response)
-            if wrapped_exception is not None and wrapped_exception.message is not None:
-                raise VstsServiceError(wrapped_exception)
-            else:
-                # System exceptions from controllers are not returning wrapped exceptions.
-                # Following code is to handle this unusual exception json case.
-                # TODO: dig into this.
-                collection_wrapper = self._base_deserialize('VssJsonCollectionWrapper', response)
-                if collection_wrapper is not None:
-                    wrapped_exception = self._base_deserialize('ImproperException', collection_wrapper.value)
-                    raise VstsClientRequestError(wrapped_exception.message)
-        except DeserializationError:
-            pass
+        print(response.headers)
+        content_type = response.headers.get('Content-Type')
+        error_message = ''
+        if content_type is None or content_type.find('text/plain') < 0:
+            try:
+                wrapped_exception = self._base_deserialize('WrappedException', response)
+                if wrapped_exception is not None and wrapped_exception.message is not None:
+                    raise VstsServiceError(wrapped_exception)
+                else:
+                    # System exceptions from controllers are not returning wrapped exceptions.
+                    # Following code is to handle this unusual exception json case.
+                    # TODO: dig into this.
+                    collection_wrapper = self._base_deserialize('VssJsonCollectionWrapper', response)
+                    if collection_wrapper is not None:
+                        wrapped_exception = self._base_deserialize('ImproperException', collection_wrapper.value)
+                        raise VstsClientRequestError(wrapped_exception.message)
+            except DeserializationError:
+                pass
+        elif response.content is not None:
+            error_message = response.content.decode("utf-8") + '  '
         if response.status_code == 401:
-            raise VstsAuthenticationError('The requested resource requires user authentication: ' +
-                                          request.url)
+            full_message_format = '{error_message}The requested resource requires user authentication: {url}'
+            raise VstsAuthenticationError(full_message_format.format(error_message=error_message,
+                                                                     url=request.url))
         else:
-            raise VstsClientRequestError('"Operation returned an invalid status code of {status_code}.'
-                                         .format(status_code=response.status_code))
+            full_message_format = '{error_message}Operation returned an invalid status code of {status_code}.'
+            raise VstsClientRequestError(full_message_format.format(error_message=error_message,
+                                                                    status_code=response.status_code))
 
     @staticmethod
     def _normalize_url(url):
