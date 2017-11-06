@@ -213,7 +213,6 @@ class VssClient:
         return part1.rstrip('/') + '/' + part2.strip('/')
 
     def _handle_error(self, request, response):
-        print(response.headers)
         content_type = response.headers.get('Content-Type')
         error_message = ''
         if content_type is None or content_type.find('text/plain') < 0:
