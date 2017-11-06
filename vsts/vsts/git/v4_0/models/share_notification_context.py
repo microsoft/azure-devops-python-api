@@ -15,7 +15,7 @@ class ShareNotificationContext(Model):
     :param message: Optional user note or message.
     :type message: str
     :param receivers: Identities of users who will receive a share notification.
-    :type receivers: list of :class:`IdentityRef <git.models.IdentityRef>`
+    :type receivers: list of :class:`IdentityRef <git.v4_0.models.IdentityRef>`
     """
 
     _attribute_map = {

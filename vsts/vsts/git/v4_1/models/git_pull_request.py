@@ -13,39 +13,39 @@ class GitPullRequest(Model):
     """GitPullRequest.
 
     :param _links: Links to other related objects.
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
     :param artifact_id: A string which uniquely identifies this pull request. To generate an artifact ID for a pull request, use this template: ```vstfs:///Git/PullRequestId/{projectId}/{repositoryId}/{pullRequestId}```
     :type artifact_id: str
     :param auto_complete_set_by: If set, auto-complete is enabled for this pull request and this is the identity that enabled it.
-    :type auto_complete_set_by: :class:`IdentityRef <git.models.IdentityRef>`
+    :type auto_complete_set_by: :class:`IdentityRef <git.v4_1.models.IdentityRef>`
     :param closed_by: The user who closed the pull request.
-    :type closed_by: :class:`IdentityRef <git.models.IdentityRef>`
+    :type closed_by: :class:`IdentityRef <git.v4_1.models.IdentityRef>`
     :param closed_date: The date when the pull request was closed (completed, abandoned, or merged externally).
     :type closed_date: datetime
     :param code_review_id: The code review ID of the pull request. Used internally.
     :type code_review_id: int
     :param commits: The commits contained in the pull request.
-    :type commits: list of :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type commits: list of :class:`GitCommitRef <git.v4_1.models.GitCommitRef>`
     :param completion_options: Options which affect how the pull request will be merged when it is completed.
-    :type completion_options: :class:`GitPullRequestCompletionOptions <git.models.GitPullRequestCompletionOptions>`
+    :type completion_options: :class:`GitPullRequestCompletionOptions <git.v4_1.models.GitPullRequestCompletionOptions>`
     :param completion_queue_time: The most recent date at which the pull request entered the queue to be completed. Used internally.
     :type completion_queue_time: datetime
     :param created_by: The identity of the user who created the pull request.
-    :type created_by: :class:`IdentityRef <git.models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <git.v4_1.models.IdentityRef>`
     :param creation_date: The date when the pull request was created.
     :type creation_date: datetime
     :param description: The description of the pull request.
     :type description: str
     :param fork_source: If this is a PR from a fork this will contain information about its source.
-    :type fork_source: :class:`GitForkRef <git.models.GitForkRef>`
+    :type fork_source: :class:`GitForkRef <git.v4_1.models.GitForkRef>`
     :param labels: The labels associated with the pull request.
-    :type labels: list of :class:`WebApiTagDefinition <git.models.WebApiTagDefinition>`
+    :type labels: list of :class:`WebApiTagDefinition <git.v4_1.models.WebApiTagDefinition>`
     :param last_merge_commit: The commit of the most recent pull request merge. If empty, the most recent merge is in progress or was unsuccessful.
-    :type last_merge_commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type last_merge_commit: :class:`GitCommitRef <git.v4_1.models.GitCommitRef>`
     :param last_merge_source_commit: The commit at the head of the source branch at the time of the last pull request merge.
-    :type last_merge_source_commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type last_merge_source_commit: :class:`GitCommitRef <git.v4_1.models.GitCommitRef>`
     :param last_merge_target_commit: The commit at the head of the target branch at the time of the last pull request merge.
-    :type last_merge_target_commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type last_merge_target_commit: :class:`GitCommitRef <git.v4_1.models.GitCommitRef>`
     :param merge_failure_message: If set, pull request merge failed for this reason.
     :type merge_failure_message: str
     :param merge_failure_type: The type of failure (if any) of the pull request merge.
@@ -53,7 +53,7 @@ class GitPullRequest(Model):
     :param merge_id: The ID of the job used to run the pull request merge. Used internally.
     :type merge_id: str
     :param merge_options: Options used when the pull request merge runs. These are separate from completion options since completion happens only once and a new merge will run every time the source branch of the pull request changes.
-    :type merge_options: :class:`GitPullRequestMergeOptions <git.models.GitPullRequestMergeOptions>`
+    :type merge_options: :class:`GitPullRequestMergeOptions <git.v4_1.models.GitPullRequestMergeOptions>`
     :param merge_status: The current status of the pull request merge.
     :type merge_status: object
     :param pull_request_id: The ID of the pull request.
@@ -61,9 +61,9 @@ class GitPullRequest(Model):
     :param remote_url: Used internally.
     :type remote_url: str
     :param repository: The repository containing the target branch of the pull request.
-    :type repository: :class:`GitRepository <git.models.GitRepository>`
+    :type repository: :class:`GitRepository <git.v4_1.models.GitRepository>`
     :param reviewers: A list of reviewers on the pull request along with the state of their votes.
-    :type reviewers: list of :class:`IdentityRefWithVote <git.models.IdentityRefWithVote>`
+    :type reviewers: list of :class:`IdentityRefWithVote <git.v4_1.models.IdentityRefWithVote>`
     :param source_ref_name: The name of the source branch of the pull request.
     :type source_ref_name: str
     :param status: The status of the pull request.
@@ -77,7 +77,7 @@ class GitPullRequest(Model):
     :param url: Used internally.
     :type url: str
     :param work_item_refs: Any work item references associated with this pull request.
-    :type work_item_refs: list of :class:`ResourceRef <git.models.ResourceRef>`
+    :type work_item_refs: list of :class:`ResourceRef <git.v4_1.models.ResourceRef>`
     """
 
     _attribute_map = {

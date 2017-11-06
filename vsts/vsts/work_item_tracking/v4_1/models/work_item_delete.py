@@ -31,7 +31,7 @@ class WorkItemDelete(WorkItemDeleteReference):
     :param url: REST API URL of the resource
     :type url: str
     :param resource: The work item object that was deleted.
-    :type resource: :class:`WorkItem <work-item-tracking.models.WorkItem>`
+    :type resource: :class:`WorkItem <work-item-tracking.v4_1.models.WorkItem>`
     """
 
     _attribute_map = {

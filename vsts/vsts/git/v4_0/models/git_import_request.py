@@ -13,15 +13,15 @@ class GitImportRequest(Model):
     """GitImportRequest.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_0.models.ReferenceLinks>`
     :param detailed_status:
-    :type detailed_status: :class:`GitImportStatusDetail <git.models.GitImportStatusDetail>`
+    :type detailed_status: :class:`GitImportStatusDetail <git.v4_0.models.GitImportStatusDetail>`
     :param import_request_id:
     :type import_request_id: int
     :param parameters: Parameters for creating an import request
-    :type parameters: :class:`GitImportRequestParameters <git.models.GitImportRequestParameters>`
+    :type parameters: :class:`GitImportRequestParameters <git.v4_0.models.GitImportRequestParameters>`
     :param repository:
-    :type repository: :class:`GitRepository <git.models.GitRepository>`
+    :type repository: :class:`GitRepository <git.v4_0.models.GitRepository>`
     :param status:
     :type status: object
     :param url:

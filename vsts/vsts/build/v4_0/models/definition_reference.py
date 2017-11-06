@@ -21,7 +21,7 @@ class DefinitionReference(Model):
     :param path: The path this definitions belongs to
     :type path: str
     :param project: The project.
-    :type project: :class:`TeamProjectReference <build.models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <build.v4_0.models.TeamProjectReference>`
     :param queue_status: If builds can be queued from this definition
     :type queue_status: object
     :param revision: The definition revision number.

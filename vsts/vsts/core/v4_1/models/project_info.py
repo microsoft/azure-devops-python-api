@@ -23,7 +23,7 @@ class ProjectInfo(Model):
     :param name:
     :type name: str
     :param properties:
-    :type properties: list of :class:`ProjectProperty <core.models.ProjectProperty>`
+    :type properties: list of :class:`ProjectProperty <core.v4_1.models.ProjectProperty>`
     :param revision: Current revision of the project
     :type revision: long
     :param state:

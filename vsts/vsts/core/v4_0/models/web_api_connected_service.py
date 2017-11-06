@@ -15,7 +15,7 @@ class WebApiConnectedService(WebApiConnectedServiceRef):
     :param url:
     :type url: str
     :param authenticated_by: The user who did the OAuth authentication to created this service
-    :type authenticated_by: :class:`IdentityRef <core.models.IdentityRef>`
+    :type authenticated_by: :class:`IdentityRef <core.v4_0.models.IdentityRef>`
     :param description: Extra description on the service.
     :type description: str
     :param friendly_name: Friendly Name of service connection
@@ -25,7 +25,7 @@ class WebApiConnectedService(WebApiConnectedServiceRef):
     :param kind: The kind of service.
     :type kind: str
     :param project: The project associated with this service
-    :type project: :class:`TeamProjectReference <core.models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <core.v4_0.models.TeamProjectReference>`
     :param service_uri: Optional uri to connect directly to the service such as https://windows.azure.com
     :type service_uri: str
     """

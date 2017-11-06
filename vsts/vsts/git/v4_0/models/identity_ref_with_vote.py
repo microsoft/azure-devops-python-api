@@ -39,7 +39,7 @@ class IdentityRefWithVote(IdentityRef):
     :param vote:
     :type vote: int
     :param voted_for:
-    :type voted_for: list of :class:`IdentityRefWithVote <git.models.IdentityRefWithVote>`
+    :type voted_for: list of :class:`IdentityRefWithVote <git.v4_0.models.IdentityRefWithVote>`
     """
 
     _attribute_map = {

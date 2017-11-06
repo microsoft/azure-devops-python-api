@@ -13,7 +13,7 @@ class AccessTokenResult(Model):
     """AccessTokenResult.
 
     :param access_token:
-    :type access_token: :class:`JsonWebToken <microsoft.-visual-studio.-services.-web-api.models.JsonWebToken>`
+    :type access_token: :class:`JsonWebToken <microsoft.-visual-studio.-services.-web-api.v4_1.models.JsonWebToken>`
     :param access_token_error:
     :type access_token_error: object
     :param authorization_id:
@@ -23,7 +23,7 @@ class AccessTokenResult(Model):
     :param has_error:
     :type has_error: bool
     :param refresh_token:
-    :type refresh_token: :class:`RefreshTokenGrant <microsoft.-visual-studio.-services.-web-api.models.RefreshTokenGrant>`
+    :type refresh_token: :class:`RefreshTokenGrant <microsoft.-visual-studio.-services.-web-api.v4_1.models.RefreshTokenGrant>`
     :param token_type:
     :type token_type: str
     :param valid_to:

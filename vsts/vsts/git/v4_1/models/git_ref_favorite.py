@@ -13,7 +13,7 @@ class GitRefFavorite(Model):
     """GitRefFavorite.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
     :param id:
     :type id: int
     :param identity_id:

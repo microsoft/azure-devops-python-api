@@ -13,15 +13,15 @@ class GitPullRequestIteration(Model):
     """GitPullRequestIteration.
 
     :param _links: A collection of related REST reference links.
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
     :param author: Author of the pull request iteration.
-    :type author: :class:`IdentityRef <git.models.IdentityRef>`
+    :type author: :class:`IdentityRef <git.v4_1.models.IdentityRef>`
     :param change_list: Changes included with the pull request iteration.
-    :type change_list: list of :class:`GitPullRequestChange <git.models.GitPullRequestChange>`
+    :type change_list: list of :class:`GitPullRequestChange <git.v4_1.models.GitPullRequestChange>`
     :param commits: The commits included with the pull request iteration.
-    :type commits: list of :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type commits: list of :class:`GitCommitRef <git.v4_1.models.GitCommitRef>`
     :param common_ref_commit: The first common Git commit of the source and target refs.
-    :type common_ref_commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type common_ref_commit: :class:`GitCommitRef <git.v4_1.models.GitCommitRef>`
     :param created_date: The creation date of the pull request iteration.
     :type created_date: datetime
     :param description: Description of the pull request iteration.
@@ -31,13 +31,13 @@ class GitPullRequestIteration(Model):
     :param id: ID of the pull request iteration. Iterations are created as a result of creating and pushing updates to a pull request.
     :type id: int
     :param push: The Git push information associated with this pull request iteration.
-    :type push: :class:`GitPushRef <git.models.GitPushRef>`
+    :type push: :class:`GitPushRef <git.v4_1.models.GitPushRef>`
     :param reason: The reason for which the pull request iteration was created.
     :type reason: object
     :param source_ref_commit: The source Git commit of this iteration.
-    :type source_ref_commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type source_ref_commit: :class:`GitCommitRef <git.v4_1.models.GitCommitRef>`
     :param target_ref_commit: The target Git commit of this iteration.
-    :type target_ref_commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type target_ref_commit: :class:`GitCommitRef <git.v4_1.models.GitCommitRef>`
     :param updated_date: The updated date of the pull request iteration.
     :type updated_date: datetime
     """

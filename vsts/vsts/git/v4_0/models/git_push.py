@@ -13,23 +13,23 @@ class GitPush(GitPushRef):
     """GitPush.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_0.models.ReferenceLinks>`
     :param date:
     :type date: datetime
     :param push_correlation_id:
     :type push_correlation_id: str
     :param pushed_by:
-    :type pushed_by: :class:`IdentityRef <git.models.IdentityRef>`
+    :type pushed_by: :class:`IdentityRef <git.v4_0.models.IdentityRef>`
     :param push_id:
     :type push_id: int
     :param url:
     :type url: str
     :param commits:
-    :type commits: list of :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type commits: list of :class:`GitCommitRef <git.v4_0.models.GitCommitRef>`
     :param ref_updates:
-    :type ref_updates: list of :class:`GitRefUpdate <git.models.GitRefUpdate>`
+    :type ref_updates: list of :class:`GitRefUpdate <git.v4_0.models.GitRefUpdate>`
     :param repository:
-    :type repository: :class:`GitRepository <git.models.GitRepository>`
+    :type repository: :class:`GitRepository <git.v4_0.models.GitRepository>`
     """
 
     _attribute_map = {

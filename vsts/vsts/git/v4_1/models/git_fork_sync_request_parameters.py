@@ -13,9 +13,9 @@ class GitForkSyncRequestParameters(Model):
     """GitForkSyncRequestParameters.
 
     :param source: Fully-qualified identifier for the source repository.
-    :type source: :class:`GlobalGitRepositoryKey <git.models.GlobalGitRepositoryKey>`
+    :type source: :class:`GlobalGitRepositoryKey <git.v4_1.models.GlobalGitRepositoryKey>`
     :param source_to_target_refs: If supplied, the set of ref mappings to use when performing a "sync" or create. If missing, all refs will be synchronized.
-    :type source_to_target_refs: list of :class:`SourceToTargetRef <git.models.SourceToTargetRef>`
+    :type source_to_target_refs: list of :class:`SourceToTargetRef <git.v4_1.models.SourceToTargetRef>`
     """
 
     _attribute_map = {

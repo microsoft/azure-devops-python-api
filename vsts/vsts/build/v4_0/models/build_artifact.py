@@ -17,7 +17,7 @@ class BuildArtifact(Model):
     :param name: The name of the artifact
     :type name: str
     :param resource: The actual resource
-    :type resource: :class:`ArtifactResource <build.models.ArtifactResource>`
+    :type resource: :class:`ArtifactResource <build.v4_0.models.ArtifactResource>`
     """
 
     _attribute_map = {

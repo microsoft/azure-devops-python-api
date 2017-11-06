@@ -15,9 +15,9 @@ class WorkItemComment(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
     :param revised_by:
-    :type revised_by: :class:`IdentityReference <work-item-tracking.models.IdentityReference>`
+    :type revised_by: :class:`IdentityReference <work-item-tracking.v4_0.models.IdentityReference>`
     :param revised_date:
     :type revised_date: datetime
     :param revision:

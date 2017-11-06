@@ -17,7 +17,7 @@ class WebApiConnectedServiceDetails(WebApiConnectedServiceRef):
     :param url:
     :type url: str
     :param connected_service_meta_data: Meta data for service connection
-    :type connected_service_meta_data: :class:`WebApiConnectedService <core.models.WebApiConnectedService>`
+    :type connected_service_meta_data: :class:`WebApiConnectedService <core.v4_1.models.WebApiConnectedService>`
     :param credentials_xml: Credential info
     :type credentials_xml: str
     :param end_point: Optional uri to connect directly to the service such as https://windows.azure.com

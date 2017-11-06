@@ -13,13 +13,13 @@ class GitPushRef(Model):
     """GitPushRef.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
     :param date:
     :type date: datetime
     :param push_correlation_id:
     :type push_correlation_id: str
     :param pushed_by:
-    :type pushed_by: :class:`IdentityRef <git.models.IdentityRef>`
+    :type pushed_by: :class:`IdentityRef <git.v4_1.models.IdentityRef>`
     :param push_id:
     :type push_id: int
     :param url:

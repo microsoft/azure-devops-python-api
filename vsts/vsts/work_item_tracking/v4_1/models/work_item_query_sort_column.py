@@ -15,7 +15,7 @@ class WorkItemQuerySortColumn(Model):
     :param descending:
     :type descending: bool
     :param field:
-    :type field: :class:`WorkItemFieldReference <work-item-tracking.models.WorkItemFieldReference>`
+    :type field: :class:`WorkItemFieldReference <work-item-tracking.v4_1.models.WorkItemFieldReference>`
     """
 
     _attribute_map = {

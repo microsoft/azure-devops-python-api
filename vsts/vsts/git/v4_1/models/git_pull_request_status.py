@@ -13,11 +13,11 @@ class GitPullRequestStatus(GitStatus):
     """GitPullRequestStatus.
 
     :param _links: Reference links.
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
     :param context: Context of the status.
-    :type context: :class:`GitStatusContext <git.models.GitStatusContext>`
+    :type context: :class:`GitStatusContext <git.v4_1.models.GitStatusContext>`
     :param created_by: Identity that created the status.
-    :type created_by: :class:`IdentityRef <git.models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <git.v4_1.models.IdentityRef>`
     :param creation_date: Creation date and time of the status.
     :type creation_date: datetime
     :param description: Status description. Typically describes current state of the status.
@@ -33,7 +33,7 @@ class GitPullRequestStatus(GitStatus):
     :param iteration_id: ID of the iteration to associate status with. Minimum value is 1.
     :type iteration_id: int
     :param properties: Custom properties of the status.
-    :type properties: :class:`object <git.models.object>`
+    :type properties: :class:`object <git.v4_1.models.object>`
     """
 
     _attribute_map = {

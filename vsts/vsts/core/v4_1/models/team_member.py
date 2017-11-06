@@ -13,7 +13,7 @@ class TeamMember(Model):
     """TeamMember.
 
     :param identity:
-    :type identity: :class:`IdentityRef <microsoft.-visual-studio.-services.-web-api.models.IdentityRef>`
+    :type identity: :class:`IdentityRef <microsoft.-visual-studio.-services.-web-api.v4_1.models.IdentityRef>`
     :param is_team_admin:
     :type is_team_admin: bool
     """

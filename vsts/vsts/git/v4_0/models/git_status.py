@@ -13,11 +13,11 @@ class GitStatus(Model):
     """GitStatus.
 
     :param _links: Reference links.
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_0.models.ReferenceLinks>`
     :param context: Context of the status.
-    :type context: :class:`GitStatusContext <git.models.GitStatusContext>`
+    :type context: :class:`GitStatusContext <git.v4_0.models.GitStatusContext>`
     :param created_by: Identity that created the status.
-    :type created_by: :class:`IdentityRef <git.models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <git.v4_0.models.IdentityRef>`
     :param creation_date: Creation date and time of the status.
     :type creation_date: datetime
     :param description: Status description. Typically describes current state of the status.

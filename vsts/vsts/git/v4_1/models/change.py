@@ -17,7 +17,7 @@ class Change(Model):
     :param item: Current version.
     :type item: object
     :param new_content: Content of the item after the change.
-    :type new_content: :class:`ItemContent <git.models.ItemContent>`
+    :type new_content: :class:`ItemContent <git.v4_1.models.ItemContent>`
     :param source_server_item: Path of the item on the server.
     :type source_server_item: str
     :param url: URL to retrieve the item.

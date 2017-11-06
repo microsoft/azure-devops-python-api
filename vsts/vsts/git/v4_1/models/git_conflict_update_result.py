@@ -17,7 +17,7 @@ class GitConflictUpdateResult(Model):
     :param custom_message: Reason for failing
     :type custom_message: str
     :param updated_conflict: New state of the conflict after updating
-    :type updated_conflict: :class:`GitConflict <git.models.GitConflict>`
+    :type updated_conflict: :class:`GitConflict <git.v4_1.models.GitConflict>`
     :param update_status: Status of the update on the server
     :type update_status: object
     """

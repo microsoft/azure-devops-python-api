@@ -13,13 +13,13 @@ class TimelineRecord(Model):
     """TimelineRecord.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <build.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <build.v4_1.models.ReferenceLinks>`
     :param change_id: The change ID.
     :type change_id: int
     :param current_operation: A string that indicates the current operation.
     :type current_operation: str
     :param details: A reference to a sub-timeline.
-    :type details: :class:`TimelineReference <build.models.TimelineReference>`
+    :type details: :class:`TimelineReference <build.v4_1.models.TimelineReference>`
     :param error_count: The number of errors produced by this operation.
     :type error_count: int
     :param finish_time: The finish time.
@@ -27,11 +27,11 @@ class TimelineRecord(Model):
     :param id: The ID of the record.
     :type id: str
     :param issues:
-    :type issues: list of :class:`Issue <build.models.Issue>`
+    :type issues: list of :class:`Issue <build.v4_1.models.Issue>`
     :param last_modified: The time the record was last modified.
     :type last_modified: datetime
     :param log: A reference to the log produced by this operation.
-    :type log: :class:`BuildLogReference <build.models.BuildLogReference>`
+    :type log: :class:`BuildLogReference <build.v4_1.models.BuildLogReference>`
     :param name: The name.
     :type name: str
     :param order: An ordinal value relative to other records.
@@ -49,7 +49,7 @@ class TimelineRecord(Model):
     :param state: The state of the record.
     :type state: object
     :param task: A reference to the task represented by this timeline record.
-    :type task: :class:`TaskReference <build.models.TaskReference>`
+    :type task: :class:`TaskReference <build.v4_1.models.TaskReference>`
     :param type: The type of the record.
     :type type: str
     :param url: The REST URL of the timeline record.

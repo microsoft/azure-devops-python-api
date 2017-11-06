@@ -15,7 +15,7 @@ class Identity(Model):
     :param custom_display_name: The custom display name for the identity (if any). Setting this property to an empty string will clear the existing custom display name. Setting this property to null will not affect the existing persisted value (since null values do not get sent over the wire or to the database)
     :type custom_display_name: str
     :param descriptor:
-    :type descriptor: :class:`str <microsoft.-visual-studio.-services.-web-api.models.str>`
+    :type descriptor: :class:`str <microsoft.-visual-studio.-services.-web-api.v4_1.models.str>`
     :param id:
     :type id: str
     :param is_active:
@@ -27,19 +27,19 @@ class Identity(Model):
     :param member_ids:
     :type member_ids: list of str
     :param member_of:
-    :type member_of: list of :class:`str <microsoft.-visual-studio.-services.-web-api.models.str>`
+    :type member_of: list of :class:`str <microsoft.-visual-studio.-services.-web-api.v4_1.models.str>`
     :param members:
-    :type members: list of :class:`str <microsoft.-visual-studio.-services.-web-api.models.str>`
+    :type members: list of :class:`str <microsoft.-visual-studio.-services.-web-api.v4_1.models.str>`
     :param meta_type_id:
     :type meta_type_id: int
     :param properties:
-    :type properties: :class:`object <microsoft.-visual-studio.-services.-web-api.models.object>`
+    :type properties: :class:`object <microsoft.-visual-studio.-services.-web-api.v4_1.models.object>`
     :param provider_display_name: The display name for the identity as specified by the source identity provider.
     :type provider_display_name: str
     :param resource_version:
     :type resource_version: int
     :param subject_descriptor:
-    :type subject_descriptor: :class:`str <microsoft.-visual-studio.-services.-web-api.models.str>`
+    :type subject_descriptor: :class:`str <microsoft.-visual-studio.-services.-web-api.v4_1.models.str>`
     :param unique_user_id:
     :type unique_user_id: int
     """

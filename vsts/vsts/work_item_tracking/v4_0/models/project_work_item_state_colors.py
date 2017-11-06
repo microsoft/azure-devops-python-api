@@ -15,7 +15,7 @@ class ProjectWorkItemStateColors(Model):
     :param project_name: Project name
     :type project_name: str
     :param work_item_type_state_colors: State colors for all work item type in a project
-    :type work_item_type_state_colors: list of :class:`WorkItemTypeStateColors <work-item-tracking.models.WorkItemTypeStateColors>`
+    :type work_item_type_state_colors: list of :class:`WorkItemTypeStateColors <work-item-tracking.v4_0.models.WorkItemTypeStateColors>`
     """
 
     _attribute_map = {

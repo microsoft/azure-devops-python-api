@@ -17,9 +17,9 @@ class BuildOptionDefinition(BuildOptionDefinitionReference):
     :param description:
     :type description: str
     :param groups:
-    :type groups: list of :class:`BuildOptionGroupDefinition <build.models.BuildOptionGroupDefinition>`
+    :type groups: list of :class:`BuildOptionGroupDefinition <build.v4_0.models.BuildOptionGroupDefinition>`
     :param inputs:
-    :type inputs: list of :class:`BuildOptionInputDefinition <build.models.BuildOptionInputDefinition>`
+    :type inputs: list of :class:`BuildOptionInputDefinition <build.v4_0.models.BuildOptionInputDefinition>`
     :param name:
     :type name: str
     :param ordinal:

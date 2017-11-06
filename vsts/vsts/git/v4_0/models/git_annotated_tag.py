@@ -19,9 +19,9 @@ class GitAnnotatedTag(Model):
     :param object_id:
     :type object_id: str
     :param tagged_by: User name, Email and date of tagging
-    :type tagged_by: :class:`GitUserDate <git.models.GitUserDate>`
+    :type tagged_by: :class:`GitUserDate <git.v4_0.models.GitUserDate>`
     :param tagged_object: Tagged git object
-    :type tagged_object: :class:`GitObject <git.models.GitObject>`
+    :type tagged_object: :class:`GitObject <git.v4_0.models.GitObject>`
     :param url:
     :type url: str
     """

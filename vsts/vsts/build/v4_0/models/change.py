@@ -13,7 +13,7 @@ class Change(Model):
     """Change.
 
     :param author: The author of the change.
-    :type author: :class:`IdentityRef <build.models.IdentityRef>`
+    :type author: :class:`IdentityRef <build.v4_0.models.IdentityRef>`
     :param display_uri: The location of a user-friendly representation of the resource.
     :type display_uri: str
     :param id: Something that identifies the change. For a commit, this would be the SHA1. For a TFVC changeset, this would be the changeset id.

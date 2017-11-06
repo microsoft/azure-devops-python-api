@@ -27,7 +27,7 @@ class BuildDefinitionTemplate3_2(Model):
     :param name:
     :type name: str
     :param template:
-    :type template: :class:`BuildDefinition3_2 <build.models.BuildDefinition3_2>`
+    :type template: :class:`BuildDefinition3_2 <build.v4_0.models.BuildDefinition3_2>`
     """
 
     _attribute_map = {

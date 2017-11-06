@@ -30,11 +30,11 @@ class OperationsClient(VssClient):
         [Preview API] Gets an operation from the the operationId using the given pluginId.
         :param str operation_id: The ID for the operation.
         :param str plugin_id: The ID for the plugin.
-        :rtype: :class:`<Operation> <operations.models.Operation>`
+        :rtype: :class:`<Operation> <operations.v4_1.models.Operation>`
         """
-        route_values = {
-            'operationId': self._serialize.url('operation_id', operation_id, 'str')
-        }
+        route_values = {}
+        if operation_id is not None:
+            route_values['operationId'] = self._serialize.url('operation_id', operation_id, 'str')
         query_parameters = {}
         if plugin_id is not None:
             query_parameters['pluginId'] = self._serialize.query('plugin_id', plugin_id, 'str')

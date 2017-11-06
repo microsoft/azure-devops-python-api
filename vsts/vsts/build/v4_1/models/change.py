@@ -13,7 +13,7 @@ class Change(Model):
     """Change.
 
     :param author: The author of the change.
-    :type author: :class:`IdentityRef <build.models.IdentityRef>`
+    :type author: :class:`IdentityRef <build.v4_1.models.IdentityRef>`
     :param display_uri: The location of a user-friendly representation of the resource.
     :type display_uri: str
     :param id: The identifier for the change. For a commit, this would be the SHA1. For a TFVC changeset, this would be the changeset ID.
@@ -24,6 +24,8 @@ class Change(Model):
     :type message: str
     :param message_truncated: Indicates whether the message was truncated.
     :type message_truncated: bool
+    :param pusher: The person or process that pushed the change.
+    :type pusher: str
     :param timestamp: The timestamp for the change.
     :type timestamp: datetime
     :param type: The type of change. "commit", "changeset", etc.
@@ -37,11 +39,12 @@ class Change(Model):
         'location': {'key': 'location', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'message_truncated': {'key': 'messageTruncated', 'type': 'bool'},
+        'pusher': {'key': 'pusher', 'type': 'str'},
         'timestamp': {'key': 'timestamp', 'type': 'iso-8601'},
         'type': {'key': 'type', 'type': 'str'}
     }
 
-    def __init__(self, author=None, display_uri=None, id=None, location=None, message=None, message_truncated=None, timestamp=None, type=None):
+    def __init__(self, author=None, display_uri=None, id=None, location=None, message=None, message_truncated=None, pusher=None, timestamp=None, type=None):
         super(Change, self).__init__()
         self.author = author
         self.display_uri = display_uri
@@ -49,5 +52,6 @@ class Change(Model):
         self.location = location
         self.message = message
         self.message_truncated = message_truncated
+        self.pusher = pusher
         self.timestamp = timestamp
         self.type = type

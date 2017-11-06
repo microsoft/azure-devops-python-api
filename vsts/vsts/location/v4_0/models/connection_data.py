@@ -13,9 +13,9 @@ class ConnectionData(Model):
     """ConnectionData.
 
     :param authenticated_user: The Id of the authenticated user who made this request. More information about the user can be obtained by passing this Id to the Identity service
-    :type authenticated_user: :class:`Identity <locations.models.Identity>`
+    :type authenticated_user: :class:`Identity <locations.v4_0.models.Identity>`
     :param authorized_user: The Id of the authorized user who made this request. More information about the user can be obtained by passing this Id to the Identity service
-    :type authorized_user: :class:`Identity <locations.models.Identity>`
+    :type authorized_user: :class:`Identity <locations.v4_0.models.Identity>`
     :param deployment_id: The id for the server.
     :type deployment_id: str
     :param instance_id: The instance id for this host.
@@ -23,7 +23,7 @@ class ConnectionData(Model):
     :param last_user_access: The last user access for this instance.  Null if not requested specifically.
     :type last_user_access: datetime
     :param location_service_data: Data that the location service holds.
-    :type location_service_data: :class:`LocationServiceData <locations.models.LocationServiceData>`
+    :type location_service_data: :class:`LocationServiceData <locations.v4_0.models.LocationServiceData>`
     :param web_application_relative_directory: The virtual directory of the host we are talking to.
     :type web_application_relative_directory: str
     """

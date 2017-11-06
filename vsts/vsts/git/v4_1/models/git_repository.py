@@ -13,7 +13,7 @@ class GitRepository(Model):
     """GitRepository.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
     :param default_branch:
     :type default_branch: str
     :param id:
@@ -23,9 +23,9 @@ class GitRepository(Model):
     :param name:
     :type name: str
     :param parent_repository:
-    :type parent_repository: :class:`GitRepositoryRef <git.models.GitRepositoryRef>`
+    :type parent_repository: :class:`GitRepositoryRef <git.v4_1.models.GitRepositoryRef>`
     :param project:
-    :type project: :class:`TeamProjectReference <git.models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <git.v4_1.models.TeamProjectReference>`
     :param remote_url:
     :type remote_url: str
     :param ssh_url:

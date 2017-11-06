@@ -15,17 +15,17 @@ class WorkItemType(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
     :param color:
     :type color: str
     :param description:
     :type description: str
     :param field_instances:
-    :type field_instances: list of :class:`WorkItemTypeFieldInstance <work-item-tracking.models.WorkItemTypeFieldInstance>`
+    :type field_instances: list of :class:`WorkItemTypeFieldInstance <work-item-tracking.v4_0.models.WorkItemTypeFieldInstance>`
     :param fields:
-    :type fields: list of :class:`WorkItemTypeFieldInstance <work-item-tracking.models.WorkItemTypeFieldInstance>`
+    :type fields: list of :class:`WorkItemTypeFieldInstance <work-item-tracking.v4_0.models.WorkItemTypeFieldInstance>`
     :param icon:
-    :type icon: :class:`WorkItemIcon <work-item-tracking.models.WorkItemIcon>`
+    :type icon: :class:`WorkItemIcon <work-item-tracking.v4_0.models.WorkItemIcon>`
     :param name:
     :type name: str
     :param transitions:

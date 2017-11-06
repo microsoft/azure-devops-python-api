@@ -13,7 +13,7 @@ class BuildOption(Model):
     """BuildOption.
 
     :param definition:
-    :type definition: :class:`BuildOptionDefinitionReference <build.models.BuildOptionDefinitionReference>`
+    :type definition: :class:`BuildOptionDefinitionReference <build.v4_0.models.BuildOptionDefinitionReference>`
     :param enabled:
     :type enabled: bool
     :param inputs:

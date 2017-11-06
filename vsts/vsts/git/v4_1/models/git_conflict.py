@@ -13,7 +13,7 @@ class GitConflict(Model):
     """GitConflict.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
     :param conflict_id:
     :type conflict_id: int
     :param conflict_path:
@@ -21,19 +21,19 @@ class GitConflict(Model):
     :param conflict_type:
     :type conflict_type: object
     :param merge_base_commit:
-    :type merge_base_commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type merge_base_commit: :class:`GitCommitRef <git.v4_1.models.GitCommitRef>`
     :param merge_origin:
-    :type merge_origin: :class:`GitMergeOriginRef <git.models.GitMergeOriginRef>`
+    :type merge_origin: :class:`GitMergeOriginRef <git.v4_1.models.GitMergeOriginRef>`
     :param merge_source_commit:
-    :type merge_source_commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type merge_source_commit: :class:`GitCommitRef <git.v4_1.models.GitCommitRef>`
     :param merge_target_commit:
-    :type merge_target_commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type merge_target_commit: :class:`GitCommitRef <git.v4_1.models.GitCommitRef>`
     :param resolution_error:
     :type resolution_error: object
     :param resolution_status:
     :type resolution_status: object
     :param resolved_by:
-    :type resolved_by: :class:`IdentityRef <git.models.IdentityRef>`
+    :type resolved_by: :class:`IdentityRef <git.v4_1.models.IdentityRef>`
     :param resolved_date:
     :type resolved_date: datetime
     :param url:

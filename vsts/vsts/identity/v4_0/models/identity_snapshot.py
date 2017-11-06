@@ -13,15 +13,15 @@ class IdentitySnapshot(Model):
     """IdentitySnapshot.
 
     :param groups:
-    :type groups: list of :class:`Identity <identities.models.Identity>`
+    :type groups: list of :class:`Identity <identities.v4_0.models.Identity>`
     :param identity_ids:
     :type identity_ids: list of str
     :param memberships:
-    :type memberships: list of :class:`GroupMembership <identities.models.GroupMembership>`
+    :type memberships: list of :class:`GroupMembership <identities.v4_0.models.GroupMembership>`
     :param scope_id:
     :type scope_id: str
     :param scopes:
-    :type scopes: list of :class:`IdentityScope <identities.models.IdentityScope>`
+    :type scopes: list of :class:`IdentityScope <identities.v4_0.models.IdentityScope>`
     """
 
     _attribute_map = {

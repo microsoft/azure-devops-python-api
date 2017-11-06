@@ -13,11 +13,11 @@ class ImportRepositoryValidation(Model):
     """ImportRepositoryValidation.
 
     :param git_source:
-    :type git_source: :class:`GitImportGitSource <git.models.GitImportGitSource>`
+    :type git_source: :class:`GitImportGitSource <git.v4_0.models.GitImportGitSource>`
     :param password:
     :type password: str
     :param tfvc_source:
-    :type tfvc_source: :class:`GitImportTfvcSource <git.models.GitImportTfvcSource>`
+    :type tfvc_source: :class:`GitImportTfvcSource <git.v4_0.models.GitImportTfvcSource>`
     :param username:
     :type username: str
     """

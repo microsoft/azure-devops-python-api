@@ -13,11 +13,11 @@ class GitRevert(GitAsyncRefOperation):
     """GitRevert.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
     :param detailed_status:
-    :type detailed_status: :class:`GitAsyncRefOperationDetail <git.models.GitAsyncRefOperationDetail>`
+    :type detailed_status: :class:`GitAsyncRefOperationDetail <git.v4_1.models.GitAsyncRefOperationDetail>`
     :param parameters:
-    :type parameters: :class:`GitAsyncRefOperationParameters <git.models.GitAsyncRefOperationParameters>`
+    :type parameters: :class:`GitAsyncRefOperationParameters <git.v4_1.models.GitAsyncRefOperationParameters>`
     :param status:
     :type status: object
     :param url: A URL that can be used to make further requests for status about the operation

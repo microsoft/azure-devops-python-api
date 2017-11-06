@@ -21,7 +21,7 @@ class BuildDefinitionReference(DefinitionReference):
     :param path: The path this definitions belongs to
     :type path: str
     :param project: The project.
-    :type project: :class:`TeamProjectReference <build.models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <build.v4_0.models.TeamProjectReference>`
     :param queue_status: If builds can be queued from this definition
     :type queue_status: object
     :param revision: The definition revision number.
@@ -33,17 +33,17 @@ class BuildDefinitionReference(DefinitionReference):
     :param url: Full http link to the resource
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <build.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <build.v4_0.models.ReferenceLinks>`
     :param authored_by: The author of the definition.
-    :type authored_by: :class:`IdentityRef <build.models.IdentityRef>`
+    :type authored_by: :class:`IdentityRef <build.v4_0.models.IdentityRef>`
     :param draft_of: If this is a draft definition, it might have a parent
-    :type draft_of: :class:`DefinitionReference <build.models.DefinitionReference>`
+    :type draft_of: :class:`DefinitionReference <build.v4_0.models.DefinitionReference>`
     :param metrics:
-    :type metrics: list of :class:`BuildMetric <build.models.BuildMetric>`
+    :type metrics: list of :class:`BuildMetric <build.v4_0.models.BuildMetric>`
     :param quality: The quality of the definition document (draft, etc.)
     :type quality: object
     :param queue: The default queue which should be used for requests.
-    :type queue: :class:`AgentPoolQueue <build.models.AgentPoolQueue>`
+    :type queue: :class:`AgentPoolQueue <build.v4_0.models.AgentPoolQueue>`
     """
 
     _attribute_map = {

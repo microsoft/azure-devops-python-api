@@ -15,15 +15,15 @@ class QueryHierarchyItem(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <work-item-tracking.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_1.models.ReferenceLinks>`
     :param children:
-    :type children: list of :class:`QueryHierarchyItem <work-item-tracking.models.QueryHierarchyItem>`
+    :type children: list of :class:`QueryHierarchyItem <work-item-tracking.v4_1.models.QueryHierarchyItem>`
     :param clauses:
-    :type clauses: :class:`WorkItemQueryClause <work-item-tracking.models.WorkItemQueryClause>`
+    :type clauses: :class:`WorkItemQueryClause <work-item-tracking.v4_1.models.WorkItemQueryClause>`
     :param columns:
-    :type columns: list of :class:`WorkItemFieldReference <work-item-tracking.models.WorkItemFieldReference>`
+    :type columns: list of :class:`WorkItemFieldReference <work-item-tracking.v4_1.models.WorkItemFieldReference>`
     :param created_by:
-    :type created_by: :class:`IdentityReference <work-item-tracking.models.IdentityReference>`
+    :type created_by: :class:`IdentityReference <work-item-tracking.v4_1.models.IdentityReference>`
     :param created_date:
     :type created_date: datetime
     :param filter_options:
@@ -41,15 +41,15 @@ class QueryHierarchyItem(WorkItemTrackingResource):
     :param is_public:
     :type is_public: bool
     :param last_executed_by:
-    :type last_executed_by: :class:`IdentityReference <work-item-tracking.models.IdentityReference>`
+    :type last_executed_by: :class:`IdentityReference <work-item-tracking.v4_1.models.IdentityReference>`
     :param last_executed_date:
     :type last_executed_date: datetime
     :param last_modified_by:
-    :type last_modified_by: :class:`IdentityReference <work-item-tracking.models.IdentityReference>`
+    :type last_modified_by: :class:`IdentityReference <work-item-tracking.v4_1.models.IdentityReference>`
     :param last_modified_date:
     :type last_modified_date: datetime
     :param link_clauses:
-    :type link_clauses: :class:`WorkItemQueryClause <work-item-tracking.models.WorkItemQueryClause>`
+    :type link_clauses: :class:`WorkItemQueryClause <work-item-tracking.v4_1.models.WorkItemQueryClause>`
     :param name:
     :type name: str
     :param path:
@@ -57,11 +57,11 @@ class QueryHierarchyItem(WorkItemTrackingResource):
     :param query_type:
     :type query_type: object
     :param sort_columns:
-    :type sort_columns: list of :class:`WorkItemQuerySortColumn <work-item-tracking.models.WorkItemQuerySortColumn>`
+    :type sort_columns: list of :class:`WorkItemQuerySortColumn <work-item-tracking.v4_1.models.WorkItemQuerySortColumn>`
     :param source_clauses:
-    :type source_clauses: :class:`WorkItemQueryClause <work-item-tracking.models.WorkItemQueryClause>`
+    :type source_clauses: :class:`WorkItemQueryClause <work-item-tracking.v4_1.models.WorkItemQueryClause>`
     :param target_clauses:
-    :type target_clauses: :class:`WorkItemQueryClause <work-item-tracking.models.WorkItemQueryClause>`
+    :type target_clauses: :class:`WorkItemQueryClause <work-item-tracking.v4_1.models.WorkItemQueryClause>`
     :param wiql:
     :type wiql: str
     """

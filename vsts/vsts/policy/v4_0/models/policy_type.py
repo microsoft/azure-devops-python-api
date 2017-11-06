@@ -19,7 +19,7 @@ class PolicyType(PolicyTypeRef):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <policy.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <policy.v4_0.models.ReferenceLinks>`
     :param description:
     :type description: str
     """

@@ -17,7 +17,7 @@ class Change(Model):
     :param item:
     :type item: object
     :param new_content:
-    :type new_content: :class:`ItemContent <git.models.ItemContent>`
+    :type new_content: :class:`ItemContent <git.v4_0.models.ItemContent>`
     :param source_server_item:
     :type source_server_item: str
     :param url:

@@ -13,7 +13,7 @@ class IdentityScope(Model):
     """IdentityScope.
 
     :param administrators:
-    :type administrators: :class:`str <identities.models.str>`
+    :type administrators: :class:`str <identities.v4_1.models.str>`
     :param id:
     :type id: str
     :param is_active:
@@ -31,7 +31,7 @@ class IdentityScope(Model):
     :param securing_host_id:
     :type securing_host_id: str
     :param subject_descriptor:
-    :type subject_descriptor: :class:`str <identities.models.str>`
+    :type subject_descriptor: :class:`str <identities.v4_1.models.str>`
     """
 
     _attribute_map = {

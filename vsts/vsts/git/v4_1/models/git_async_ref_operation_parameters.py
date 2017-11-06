@@ -17,9 +17,9 @@ class GitAsyncRefOperationParameters(Model):
     :param onto_ref_name: The target branch for the cherry pick or revert operation.
     :type onto_ref_name: str
     :param repository: The git repository for the cherry pick or revert operation.
-    :type repository: :class:`GitRepository <git.models.GitRepository>`
+    :type repository: :class:`GitRepository <git.v4_1.models.GitRepository>`
     :param source: Details about the source of the cherry pick or revert operation (e.g. A pull request or a specific commit).
-    :type source: :class:`GitAsyncRefOperationSource <git.models.GitAsyncRefOperationSource>`
+    :type source: :class:`GitAsyncRefOperationSource <git.v4_1.models.GitAsyncRefOperationSource>`
     """
 
     _attribute_map = {

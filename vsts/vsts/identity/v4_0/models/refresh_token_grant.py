@@ -15,7 +15,7 @@ class RefreshTokenGrant(AuthorizationGrant):
     :param grant_type:
     :type grant_type: object
     :param jwt:
-    :type jwt: :class:`JsonWebToken <microsoft.-visual-studio.-services.-web-api.models.JsonWebToken>`
+    :type jwt: :class:`JsonWebToken <microsoft.-visual-studio.-services.-web-api.v4_0.models.JsonWebToken>`
     """
 
     _attribute_map = {

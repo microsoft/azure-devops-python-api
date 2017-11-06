@@ -13,15 +13,15 @@ class PolicyEvaluationRecord(Model):
     """PolicyEvaluationRecord.
 
     :param _links: Links to other related objects
-    :type _links: :class:`ReferenceLinks <policy.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <policy.v4_1.models.ReferenceLinks>`
     :param artifact_id: A string which uniquely identifies the target of a policy evaluation.
     :type artifact_id: str
     :param completed_date: Time when this policy finished evaluating on this pull request.
     :type completed_date: datetime
     :param configuration: Contains all configuration data for the policy which is being evaluated.
-    :type configuration: :class:`PolicyConfiguration <policy.models.PolicyConfiguration>`
+    :type configuration: :class:`PolicyConfiguration <policy.v4_1.models.PolicyConfiguration>`
     :param context: Internal context data of this policy evaluation.
-    :type context: :class:`object <policy.models.object>`
+    :type context: :class:`object <policy.v4_1.models.object>`
     :param evaluation_id: Guid which uniquely identifies this evaluation record (one policy running on one pull request).
     :type evaluation_id: str
     :param started_date: Time when this policy was first evaluated on this pull request.

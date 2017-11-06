@@ -19,7 +19,7 @@ class DataSourceBindingBase(Model):
     :param endpoint_url:
     :type endpoint_url: str
     :param headers:
-    :type headers: list of :class:`AuthorizationHeader <microsoft.-team-foundation.-distributed-task.-common.-contracts.models.AuthorizationHeader>`
+    :type headers: list of :class:`AuthorizationHeader <microsoft.-team-foundation.-distributed-task.-common.-contracts.v4_1.models.AuthorizationHeader>`
     :param parameters:
     :type parameters: dict
     :param result_selector:

@@ -15,15 +15,15 @@ class WorkItemTypeCategory(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <work-item-tracking.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_1.models.ReferenceLinks>`
     :param default_work_item_type: Gets or sets the default type of the work item.
-    :type default_work_item_type: :class:`WorkItemTypeReference <work-item-tracking.models.WorkItemTypeReference>`
+    :type default_work_item_type: :class:`WorkItemTypeReference <work-item-tracking.v4_1.models.WorkItemTypeReference>`
     :param name: The name of the category.
     :type name: str
     :param reference_name: The reference name of the category.
     :type reference_name: str
     :param work_item_types: The work item types that belond to the category.
-    :type work_item_types: list of :class:`WorkItemTypeReference <work-item-tracking.models.WorkItemTypeReference>`
+    :type work_item_types: list of :class:`WorkItemTypeReference <work-item-tracking.v4_1.models.WorkItemTypeReference>`
     """
 
     _attribute_map = {

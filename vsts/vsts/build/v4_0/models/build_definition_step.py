@@ -29,7 +29,7 @@ class BuildDefinitionStep(Model):
     :param ref_name:
     :type ref_name: str
     :param task:
-    :type task: :class:`TaskDefinitionReference <build.models.TaskDefinitionReference>`
+    :type task: :class:`TaskDefinitionReference <build.v4_0.models.TaskDefinitionReference>`
     :param timeout_in_minutes:
     :type timeout_in_minutes: int
     """

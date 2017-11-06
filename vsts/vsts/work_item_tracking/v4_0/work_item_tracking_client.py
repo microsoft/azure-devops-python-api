@@ -39,8 +39,8 @@ class WorkItemTrackingClient(VssClient):
     def get_work_item_ids_for_artifact_uris(self, artifact_uri_query):
         """GetWorkItemIdsForArtifactUris.
         [Preview API] Gets the results of the work item ids linked to the artifact uri
-        :param :class:`<ArtifactUriQuery> <work-item-tracking.models.ArtifactUriQuery>` artifact_uri_query: List of artifact uris.
-        :rtype: :class:`<ArtifactUriQueryResult> <work-item-tracking.models.ArtifactUriQueryResult>`
+        :param :class:`<ArtifactUriQuery> <work-item-tracking.v4_0.models.ArtifactUriQuery>` artifact_uri_query: List of artifact uris.
+        :rtype: :class:`<ArtifactUriQueryResult> <work-item-tracking.v4_0.models.ArtifactUriQueryResult>`
         """
         content = self._serialize.body(artifact_uri_query, 'ArtifactUriQuery')
         response = self._send(http_method='POST',
@@ -56,7 +56,7 @@ class WorkItemTrackingClient(VssClient):
         :param str file_name:
         :param str upload_type:
         :param str area_path:
-        :rtype: :class:`<AttachmentReference> <work-item-tracking.models.AttachmentReference>`
+        :rtype: :class:`<AttachmentReference> <work-item-tracking.v4_0.models.AttachmentReference>`
         """
         query_parameters = {}
         if file_name is not None:
@@ -81,9 +81,9 @@ class WorkItemTrackingClient(VssClient):
         :param str file_name:
         :rtype: object
         """
-        route_values = {
-            'id': self._serialize.url('id', id, 'str')
-        }
+        route_values = {}
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'str')
         query_parameters = {}
         if file_name is not None:
             query_parameters['fileName'] = self._serialize.query('file_name', file_name, 'str')
@@ -101,9 +101,9 @@ class WorkItemTrackingClient(VssClient):
         :param str file_name:
         :rtype: object
         """
-        route_values = {
-            'id': self._serialize.url('id', id, 'str')
-        }
+        route_values = {}
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'str')
         query_parameters = {}
         if file_name is not None:
             query_parameters['fileName'] = self._serialize.query('file_name', file_name, 'str')
@@ -120,9 +120,9 @@ class WorkItemTrackingClient(VssClient):
         :param int depth:
         :rtype: [WorkItemClassificationNode]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if depth is not None:
             query_parameters['$depth'] = self._serialize.query('depth', depth, 'int')
@@ -136,17 +136,19 @@ class WorkItemTrackingClient(VssClient):
 
     def create_or_update_classification_node(self, posted_node, project, structure_group, path=None):
         """CreateOrUpdateClassificationNode.
-        :param :class:`<WorkItemClassificationNode> <work-item-tracking.models.WorkItemClassificationNode>` posted_node:
+        :param :class:`<WorkItemClassificationNode> <work-item-tracking.v4_0.models.WorkItemClassificationNode>` posted_node:
         :param str project: Project ID or project name
         :param TreeStructureGroup structure_group:
         :param str path:
-        :rtype: :class:`<WorkItemClassificationNode> <work-item-tracking.models.WorkItemClassificationNode>`
+        :rtype: :class:`<WorkItemClassificationNode> <work-item-tracking.v4_0.models.WorkItemClassificationNode>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'structureGroup': self._serialize.url('structure_group', structure_group, 'TreeStructureGroup'),
-            'path': self._serialize.url('path', path, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if structure_group is not None:
+            route_values['structureGroup'] = self._serialize.url('structure_group', structure_group, 'TreeStructureGroup')
+        if path is not None:
+            route_values['path'] = self._serialize.url('path', path, 'str')
         content = self._serialize.body(posted_node, 'WorkItemClassificationNode')
         response = self._send(http_method='POST',
                               location_id='5a172953-1b41-49d3-840a-33f79c3ce89f',
@@ -162,11 +164,13 @@ class WorkItemTrackingClient(VssClient):
         :param str path:
         :param int reclassify_id:
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'structureGroup': self._serialize.url('structure_group', structure_group, 'TreeStructureGroup'),
-            'path': self._serialize.url('path', path, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if structure_group is not None:
+            route_values['structureGroup'] = self._serialize.url('structure_group', structure_group, 'TreeStructureGroup')
+        if path is not None:
+            route_values['path'] = self._serialize.url('path', path, 'str')
         query_parameters = {}
         if reclassify_id is not None:
             query_parameters['$reclassifyId'] = self._serialize.query('reclassify_id', reclassify_id, 'int')
@@ -182,13 +186,15 @@ class WorkItemTrackingClient(VssClient):
         :param TreeStructureGroup structure_group:
         :param str path:
         :param int depth:
-        :rtype: :class:`<WorkItemClassificationNode> <work-item-tracking.models.WorkItemClassificationNode>`
+        :rtype: :class:`<WorkItemClassificationNode> <work-item-tracking.v4_0.models.WorkItemClassificationNode>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'structureGroup': self._serialize.url('structure_group', structure_group, 'TreeStructureGroup'),
-            'path': self._serialize.url('path', path, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if structure_group is not None:
+            route_values['structureGroup'] = self._serialize.url('structure_group', structure_group, 'TreeStructureGroup')
+        if path is not None:
+            route_values['path'] = self._serialize.url('path', path, 'str')
         query_parameters = {}
         if depth is not None:
             query_parameters['$depth'] = self._serialize.query('depth', depth, 'int')
@@ -201,17 +207,19 @@ class WorkItemTrackingClient(VssClient):
 
     def update_classification_node(self, posted_node, project, structure_group, path=None):
         """UpdateClassificationNode.
-        :param :class:`<WorkItemClassificationNode> <work-item-tracking.models.WorkItemClassificationNode>` posted_node:
+        :param :class:`<WorkItemClassificationNode> <work-item-tracking.v4_0.models.WorkItemClassificationNode>` posted_node:
         :param str project: Project ID or project name
         :param TreeStructureGroup structure_group:
         :param str path:
-        :rtype: :class:`<WorkItemClassificationNode> <work-item-tracking.models.WorkItemClassificationNode>`
+        :rtype: :class:`<WorkItemClassificationNode> <work-item-tracking.v4_0.models.WorkItemClassificationNode>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'structureGroup': self._serialize.url('structure_group', structure_group, 'TreeStructureGroup'),
-            'path': self._serialize.url('path', path, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if structure_group is not None:
+            route_values['structureGroup'] = self._serialize.url('structure_group', structure_group, 'TreeStructureGroup')
+        if path is not None:
+            route_values['path'] = self._serialize.url('path', path, 'str')
         content = self._serialize.body(posted_node, 'WorkItemClassificationNode')
         response = self._send(http_method='PATCH',
                               location_id='5a172953-1b41-49d3-840a-33f79c3ce89f',
@@ -225,12 +233,13 @@ class WorkItemTrackingClient(VssClient):
         [Preview API] Returns comment for a work item at the specified revision
         :param int id:
         :param int revision:
-        :rtype: :class:`<WorkItemComment> <work-item-tracking.models.WorkItemComment>`
+        :rtype: :class:`<WorkItemComment> <work-item-tracking.v4_0.models.WorkItemComment>`
         """
-        route_values = {
-            'id': self._serialize.url('id', id, 'int'),
-            'revision': self._serialize.url('revision', revision, 'int')
-        }
+        route_values = {}
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'int')
+        if revision is not None:
+            route_values['revision'] = self._serialize.url('revision', revision, 'int')
         response = self._send(http_method='GET',
                               location_id='19335ae7-22f7-4308-93d8-261f9384b7cf',
                               version='4.0-preview.1',
@@ -244,11 +253,11 @@ class WorkItemTrackingClient(VssClient):
         :param int from_revision: Revision from which comments are to be fetched
         :param int top: The number of comments to return
         :param CommentSortOrder order: Ascending or descending by revision id
-        :rtype: :class:`<WorkItemComments> <work-item-tracking.models.WorkItemComments>`
+        :rtype: :class:`<WorkItemComments> <work-item-tracking.v4_0.models.WorkItemComments>`
         """
-        route_values = {
-            'id': self._serialize.url('id', id, 'int')
-        }
+        route_values = {}
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'int')
         query_parameters = {}
         if from_revision is not None:
             query_parameters['fromRevision'] = self._serialize.query('from_revision', from_revision, 'int')
@@ -268,10 +277,11 @@ class WorkItemTrackingClient(VssClient):
         :param str field_name_or_ref_name:
         :param str project: Project ID or project name
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'fieldNameOrRefName': self._serialize.url('field_name_or_ref_name', field_name_or_ref_name, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if field_name_or_ref_name is not None:
+            route_values['fieldNameOrRefName'] = self._serialize.url('field_name_or_ref_name', field_name_or_ref_name, 'str')
         self._send(http_method='DELETE',
                    location_id='b51fd764-e5c2-4b9b-aaf7-3395cf4bdd94',
                    version='4.0',
@@ -282,12 +292,13 @@ class WorkItemTrackingClient(VssClient):
         Gets information on a specific field.
         :param str field_name_or_ref_name: Field simple name or reference name
         :param str project: Project ID or project name
-        :rtype: :class:`<WorkItemField> <work-item-tracking.models.WorkItemField>`
+        :rtype: :class:`<WorkItemField> <work-item-tracking.v4_0.models.WorkItemField>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'fieldNameOrRefName': self._serialize.url('field_name_or_ref_name', field_name_or_ref_name, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if field_name_or_ref_name is not None:
+            route_values['fieldNameOrRefName'] = self._serialize.url('field_name_or_ref_name', field_name_or_ref_name, 'str')
         response = self._send(http_method='GET',
                               location_id='b51fd764-e5c2-4b9b-aaf7-3395cf4bdd94',
                               version='4.0',
@@ -301,9 +312,9 @@ class WorkItemTrackingClient(VssClient):
         :param GetFieldsExpand expand: Use ExtensionFields to include extension fields, otherwise exclude them. Unless the feature flag for this parameter is enabled, extension fields are always included.
         :rtype: [WorkItemField]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if expand is not None:
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'GetFieldsExpand')
@@ -317,14 +328,15 @@ class WorkItemTrackingClient(VssClient):
 
     def update_field(self, work_item_field, field_name_or_ref_name, project=None):
         """UpdateField.
-        :param :class:`<WorkItemField> <work-item-tracking.models.WorkItemField>` work_item_field:
+        :param :class:`<WorkItemField> <work-item-tracking.v4_0.models.WorkItemField>` work_item_field:
         :param str field_name_or_ref_name:
         :param str project: Project ID or project name
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'fieldNameOrRefName': self._serialize.url('field_name_or_ref_name', field_name_or_ref_name, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if field_name_or_ref_name is not None:
+            route_values['fieldNameOrRefName'] = self._serialize.url('field_name_or_ref_name', field_name_or_ref_name, 'str')
         content = self._serialize.body(work_item_field, 'WorkItemField')
         self._send(http_method='PATCH',
                    location_id='b51fd764-e5c2-4b9b-aaf7-3395cf4bdd94',
@@ -335,15 +347,16 @@ class WorkItemTrackingClient(VssClient):
     def create_query(self, posted_query, project, query):
         """CreateQuery.
         Creates a query, or moves a query.
-        :param :class:`<QueryHierarchyItem> <work-item-tracking.models.QueryHierarchyItem>` posted_query: The query to create.
+        :param :class:`<QueryHierarchyItem> <work-item-tracking.v4_0.models.QueryHierarchyItem>` posted_query: The query to create.
         :param str project: Project ID or project name
         :param str query: The parent path for the query to create.
-        :rtype: :class:`<QueryHierarchyItem> <work-item-tracking.models.QueryHierarchyItem>`
+        :rtype: :class:`<QueryHierarchyItem> <work-item-tracking.v4_0.models.QueryHierarchyItem>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'query': self._serialize.url('query', query, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if query is not None:
+            route_values['query'] = self._serialize.url('query', query, 'str')
         content = self._serialize.body(posted_query, 'QueryHierarchyItem')
         response = self._send(http_method='POST',
                               location_id='a67d190c-c41f-424b-814d-0e906f659301',
@@ -357,10 +370,11 @@ class WorkItemTrackingClient(VssClient):
         :param str project: Project ID or project name
         :param str query:
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'query': self._serialize.url('query', query, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if query is not None:
+            route_values['query'] = self._serialize.url('query', query, 'str')
         self._send(http_method='DELETE',
                    location_id='a67d190c-c41f-424b-814d-0e906f659301',
                    version='4.0',
@@ -375,9 +389,9 @@ class WorkItemTrackingClient(VssClient):
         :param bool include_deleted:
         :rtype: [QueryHierarchyItem]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if expand is not None:
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'QueryExpand')
@@ -401,12 +415,13 @@ class WorkItemTrackingClient(VssClient):
         :param QueryExpand expand:
         :param int depth:
         :param bool include_deleted:
-        :rtype: :class:`<QueryHierarchyItem> <work-item-tracking.models.QueryHierarchyItem>`
+        :rtype: :class:`<QueryHierarchyItem> <work-item-tracking.v4_0.models.QueryHierarchyItem>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'query': self._serialize.url('query', query, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if query is not None:
+            route_values['query'] = self._serialize.url('query', query, 'str')
         query_parameters = {}
         if expand is not None:
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'QueryExpand')
@@ -429,11 +444,11 @@ class WorkItemTrackingClient(VssClient):
         :param int top:
         :param QueryExpand expand:
         :param bool include_deleted:
-        :rtype: :class:`<QueryHierarchyItemsResult> <work-item-tracking.models.QueryHierarchyItemsResult>`
+        :rtype: :class:`<QueryHierarchyItemsResult> <work-item-tracking.v4_0.models.QueryHierarchyItemsResult>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if filter is not None:
             query_parameters['$filter'] = self._serialize.query('filter', filter, 'str')
@@ -452,16 +467,17 @@ class WorkItemTrackingClient(VssClient):
 
     def update_query(self, query_update, project, query, undelete_descendants=None):
         """UpdateQuery.
-        :param :class:`<QueryHierarchyItem> <work-item-tracking.models.QueryHierarchyItem>` query_update:
+        :param :class:`<QueryHierarchyItem> <work-item-tracking.v4_0.models.QueryHierarchyItem>` query_update:
         :param str project: Project ID or project name
         :param str query:
         :param bool undelete_descendants:
-        :rtype: :class:`<QueryHierarchyItem> <work-item-tracking.models.QueryHierarchyItem>`
+        :rtype: :class:`<QueryHierarchyItem> <work-item-tracking.v4_0.models.QueryHierarchyItem>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'query': self._serialize.url('query', query, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if query is not None:
+            route_values['query'] = self._serialize.url('query', query, 'str')
         query_parameters = {}
         if undelete_descendants is not None:
             query_parameters['$undeleteDescendants'] = self._serialize.query('undelete_descendants', undelete_descendants, 'bool')
@@ -480,10 +496,11 @@ class WorkItemTrackingClient(VssClient):
         :param int id:
         :param str project: Project ID or project name
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'id': self._serialize.url('id', id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'int')
         self._send(http_method='DELETE',
                    location_id='b70d8d39-926c-465e-b927-b1bf0e5ca0e0',
                    version='4.0-preview.1',
@@ -494,12 +511,13 @@ class WorkItemTrackingClient(VssClient):
         [Preview API]
         :param int id:
         :param str project: Project ID or project name
-        :rtype: :class:`<WorkItemDelete> <work-item-tracking.models.WorkItemDelete>`
+        :rtype: :class:`<WorkItemDelete> <work-item-tracking.v4_0.models.WorkItemDelete>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'id': self._serialize.url('id', id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'int')
         response = self._send(http_method='GET',
                               location_id='b70d8d39-926c-465e-b927-b1bf0e5ca0e0',
                               version='4.0-preview.1',
@@ -512,9 +530,9 @@ class WorkItemTrackingClient(VssClient):
         :param str project: Project ID or project name
         :rtype: [WorkItemDeleteShallowReference]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='b70d8d39-926c-465e-b927-b1bf0e5ca0e0',
                               version='4.0-preview.1',
@@ -529,9 +547,9 @@ class WorkItemTrackingClient(VssClient):
         :param str project: Project ID or project name
         :rtype: [WorkItemDeleteReference]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if ids is not None:
             ids = ",".join(map(str, ids))
@@ -547,15 +565,16 @@ class WorkItemTrackingClient(VssClient):
     def restore_work_item(self, payload, id, project=None):
         """RestoreWorkItem.
         [Preview API]
-        :param :class:`<WorkItemDeleteUpdate> <work-item-tracking.models.WorkItemDeleteUpdate>` payload:
+        :param :class:`<WorkItemDeleteUpdate> <work-item-tracking.v4_0.models.WorkItemDeleteUpdate>` payload:
         :param int id:
         :param str project: Project ID or project name
-        :rtype: :class:`<WorkItemDelete> <work-item-tracking.models.WorkItemDelete>`
+        :rtype: :class:`<WorkItemDelete> <work-item-tracking.v4_0.models.WorkItemDelete>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'id': self._serialize.url('id', id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'int')
         content = self._serialize.body(payload, 'WorkItemDeleteUpdate')
         response = self._send(http_method='PATCH',
                               location_id='b70d8d39-926c-465e-b927-b1bf0e5ca0e0',
@@ -570,12 +589,13 @@ class WorkItemTrackingClient(VssClient):
         :param int id:
         :param int revision_number:
         :param WorkItemExpand expand:
-        :rtype: :class:`<WorkItem> <work-item-tracking.models.WorkItem>`
+        :rtype: :class:`<WorkItem> <work-item-tracking.v4_0.models.WorkItem>`
         """
-        route_values = {
-            'id': self._serialize.url('id', id, 'int'),
-            'revisionNumber': self._serialize.url('revision_number', revision_number, 'int')
-        }
+        route_values = {}
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'int')
+        if revision_number is not None:
+            route_values['revisionNumber'] = self._serialize.url('revision_number', revision_number, 'int')
         query_parameters = {}
         if expand is not None:
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'WorkItemExpand')
@@ -595,9 +615,9 @@ class WorkItemTrackingClient(VssClient):
         :param WorkItemExpand expand:
         :rtype: [WorkItem]
         """
-        route_values = {
-            'id': self._serialize.url('id', id, 'int')
-        }
+        route_values = {}
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'int')
         query_parameters = {}
         if top is not None:
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
@@ -616,7 +636,7 @@ class WorkItemTrackingClient(VssClient):
     def evaluate_rules_on_field(self, rule_engine_input):
         """EvaluateRulesOnField.
         Validates the fields values.
-        :param :class:`<FieldsToEvaluate> <work-item-tracking.models.FieldsToEvaluate>` rule_engine_input:
+        :param :class:`<FieldsToEvaluate> <work-item-tracking.v4_0.models.FieldsToEvaluate>` rule_engine_input:
         """
         content = self._serialize.body(rule_engine_input, 'FieldsToEvaluate')
         self._send(http_method='POST',
@@ -627,23 +647,27 @@ class WorkItemTrackingClient(VssClient):
     def create_template(self, template, team_context):
         """CreateTemplate.
         [Preview API] Creates a template
-        :param :class:`<WorkItemTemplate> <work-item-tracking.models.WorkItemTemplate>` template: Template contents
-        :param :class:`<TeamContext> <work-item-tracking.models.TeamContext>` team_context: The team context for the operation
-        :rtype: :class:`<WorkItemTemplate> <work-item-tracking.models.WorkItemTemplate>`
+        :param :class:`<WorkItemTemplate> <work-item-tracking.v4_0.models.WorkItemTemplate>` template: Template contents
+        :param :class:`<TeamContext> <work-item-tracking.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :rtype: :class:`<WorkItemTemplate> <work-item-tracking.v4_0.models.WorkItemTemplate>`
         """
-        if team_context.projectId:
-            project = team_context.projectId
-        else:
-            project = team_context.project
-        if team_context.teamId:
-            team = team_context.teamId
-        else:
-            team = team_context.team
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.projectId:
+                project = team_context.projectId
+            else:
+                project = team_context.project
+            if team_context.teamId:
+                team = team_context.teamId
+            else:
+                team = team_context.team
 
-        route_values = {
-            'project': self._serialize.url('project', project, 'string'),
-            'team': self._serialize.url('team', team, 'string')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
         content = self._serialize.body(template, 'WorkItemTemplate')
         response = self._send(http_method='POST',
                               location_id='6a90345f-a676-4969-afce-8e163e1d5642',
@@ -655,23 +679,27 @@ class WorkItemTrackingClient(VssClient):
     def get_templates(self, team_context, workitemtypename=None):
         """GetTemplates.
         [Preview API] Gets template
-        :param :class:`<TeamContext> <work-item-tracking.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <work-item-tracking.v4_0.models.TeamContext>` team_context: The team context for the operation
         :param str workitemtypename: Optional, When specified returns templates for given Work item type.
         :rtype: [WorkItemTemplateReference]
         """
-        if team_context.projectId:
-            project = team_context.projectId
-        else:
-            project = team_context.project
-        if team_context.teamId:
-            team = team_context.teamId
-        else:
-            team = team_context.team
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.projectId:
+                project = team_context.projectId
+            else:
+                project = team_context.project
+            if team_context.teamId:
+                team = team_context.teamId
+            else:
+                team = team_context.team
 
-        route_values = {
-            'project': self._serialize.url('project', project, 'string'),
-            'team': self._serialize.url('team', team, 'string')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
         query_parameters = {}
         if workitemtypename is not None:
             query_parameters['workitemtypename'] = self._serialize.query('workitemtypename', workitemtypename, 'str')
@@ -686,23 +714,28 @@ class WorkItemTrackingClient(VssClient):
     def delete_template(self, team_context, template_id):
         """DeleteTemplate.
         [Preview API] Deletes the template with given id
-        :param :class:`<TeamContext> <work-item-tracking.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <work-item-tracking.v4_0.models.TeamContext>` team_context: The team context for the operation
         :param str template_id: Template id
         """
-        if team_context.projectId:
-            project = team_context.projectId
-        else:
-            project = team_context.project
-        if team_context.teamId:
-            team = team_context.teamId
-        else:
-            team = team_context.team
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.projectId:
+                project = team_context.projectId
+            else:
+                project = team_context.project
+            if team_context.teamId:
+                team = team_context.teamId
+            else:
+                team = team_context.team
 
-        route_values = {
-            'project': self._serialize.url('project', project, 'string'),
-            'team': self._serialize.url('team', team, 'string'),
-            'templateId': self._serialize.url('template_id', template_id, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
+        if template_id is not None:
+            route_values['templateId'] = self._serialize.url('template_id', template_id, 'str')
         self._send(http_method='DELETE',
                    location_id='fb10264a-8836-48a0-8033-1b0ccd2748d5',
                    version='4.0-preview.1',
@@ -711,24 +744,29 @@ class WorkItemTrackingClient(VssClient):
     def get_template(self, team_context, template_id):
         """GetTemplate.
         [Preview API] Gets the template with specified id
-        :param :class:`<TeamContext> <work-item-tracking.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <work-item-tracking.v4_0.models.TeamContext>` team_context: The team context for the operation
         :param str template_id: Template Id
-        :rtype: :class:`<WorkItemTemplate> <work-item-tracking.models.WorkItemTemplate>`
+        :rtype: :class:`<WorkItemTemplate> <work-item-tracking.v4_0.models.WorkItemTemplate>`
         """
-        if team_context.projectId:
-            project = team_context.projectId
-        else:
-            project = team_context.project
-        if team_context.teamId:
-            team = team_context.teamId
-        else:
-            team = team_context.team
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.projectId:
+                project = team_context.projectId
+            else:
+                project = team_context.project
+            if team_context.teamId:
+                team = team_context.teamId
+            else:
+                team = team_context.team
 
-        route_values = {
-            'project': self._serialize.url('project', project, 'string'),
-            'team': self._serialize.url('team', team, 'string'),
-            'templateId': self._serialize.url('template_id', template_id, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
+        if template_id is not None:
+            route_values['templateId'] = self._serialize.url('template_id', template_id, 'str')
         response = self._send(http_method='GET',
                               location_id='fb10264a-8836-48a0-8033-1b0ccd2748d5',
                               version='4.0-preview.1',
@@ -738,25 +776,30 @@ class WorkItemTrackingClient(VssClient):
     def replace_template(self, template_content, team_context, template_id):
         """ReplaceTemplate.
         [Preview API] Replace template contents
-        :param :class:`<WorkItemTemplate> <work-item-tracking.models.WorkItemTemplate>` template_content: Template contents to replace with
-        :param :class:`<TeamContext> <work-item-tracking.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<WorkItemTemplate> <work-item-tracking.v4_0.models.WorkItemTemplate>` template_content: Template contents to replace with
+        :param :class:`<TeamContext> <work-item-tracking.v4_0.models.TeamContext>` team_context: The team context for the operation
         :param str template_id: Template id
-        :rtype: :class:`<WorkItemTemplate> <work-item-tracking.models.WorkItemTemplate>`
+        :rtype: :class:`<WorkItemTemplate> <work-item-tracking.v4_0.models.WorkItemTemplate>`
         """
-        if team_context.projectId:
-            project = team_context.projectId
-        else:
-            project = team_context.project
-        if team_context.teamId:
-            team = team_context.teamId
-        else:
-            team = team_context.team
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.projectId:
+                project = team_context.projectId
+            else:
+                project = team_context.project
+            if team_context.teamId:
+                team = team_context.teamId
+            else:
+                team = team_context.team
 
-        route_values = {
-            'project': self._serialize.url('project', project, 'string'),
-            'team': self._serialize.url('team', team, 'string'),
-            'templateId': self._serialize.url('template_id', template_id, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
+        if template_id is not None:
+            route_values['templateId'] = self._serialize.url('template_id', template_id, 'str')
         content = self._serialize.body(template_content, 'WorkItemTemplate')
         response = self._send(http_method='PUT',
                               location_id='fb10264a-8836-48a0-8033-1b0ccd2748d5',
@@ -770,12 +813,13 @@ class WorkItemTrackingClient(VssClient):
         Returns a single update for a work item
         :param int id:
         :param int update_number:
-        :rtype: :class:`<WorkItemUpdate> <work-item-tracking.models.WorkItemUpdate>`
+        :rtype: :class:`<WorkItemUpdate> <work-item-tracking.v4_0.models.WorkItemUpdate>`
         """
-        route_values = {
-            'id': self._serialize.url('id', id, 'int'),
-            'updateNumber': self._serialize.url('update_number', update_number, 'int')
-        }
+        route_values = {}
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'int')
+        if update_number is not None:
+            route_values['updateNumber'] = self._serialize.url('update_number', update_number, 'int')
         response = self._send(http_method='GET',
                               location_id='6570bf97-d02c-4a91-8d93-3abe9895b1a9',
                               version='4.0',
@@ -790,9 +834,9 @@ class WorkItemTrackingClient(VssClient):
         :param int skip:
         :rtype: [WorkItemUpdate]
         """
-        route_values = {
-            'id': self._serialize.url('id', id, 'int')
-        }
+        route_values = {}
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'int')
         query_parameters = {}
         if top is not None:
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
@@ -809,25 +853,29 @@ class WorkItemTrackingClient(VssClient):
     def query_by_wiql(self, wiql, team_context=None, time_precision=None, top=None):
         """QueryByWiql.
         Gets the results of the query.
-        :param :class:`<Wiql> <work-item-tracking.models.Wiql>` wiql: The query containing the wiql.
-        :param :class:`<TeamContext> <work-item-tracking.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<Wiql> <work-item-tracking.v4_0.models.Wiql>` wiql: The query containing the wiql.
+        :param :class:`<TeamContext> <work-item-tracking.v4_0.models.TeamContext>` team_context: The team context for the operation
         :param bool time_precision:
         :param int top:
-        :rtype: :class:`<WorkItemQueryResult> <work-item-tracking.models.WorkItemQueryResult>`
+        :rtype: :class:`<WorkItemQueryResult> <work-item-tracking.v4_0.models.WorkItemQueryResult>`
         """
-        if team_context.projectId:
-            project = team_context.projectId
-        else:
-            project = team_context.project
-        if team_context.teamId:
-            team = team_context.teamId
-        else:
-            team = team_context.team
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.projectId:
+                project = team_context.projectId
+            else:
+                project = team_context.project
+            if team_context.teamId:
+                team = team_context.teamId
+            else:
+                team = team_context.team
 
-        route_values = {
-            'project': self._serialize.url('project', project, 'string'),
-            'team': self._serialize.url('team', team, 'string')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
         query_parameters = {}
         if time_precision is not None:
             query_parameters['timePrecision'] = self._serialize.query('time_precision', time_precision, 'bool')
@@ -846,24 +894,29 @@ class WorkItemTrackingClient(VssClient):
         """GetQueryResultCount.
         Gets the results of the query by id.
         :param str id: The query id.
-        :param :class:`<TeamContext> <work-item-tracking.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <work-item-tracking.v4_0.models.TeamContext>` team_context: The team context for the operation
         :param bool time_precision:
         :rtype: int
         """
-        if team_context.projectId:
-            project = team_context.projectId
-        else:
-            project = team_context.project
-        if team_context.teamId:
-            team = team_context.teamId
-        else:
-            team = team_context.team
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.projectId:
+                project = team_context.projectId
+            else:
+                project = team_context.project
+            if team_context.teamId:
+                team = team_context.teamId
+            else:
+                team = team_context.team
 
-        route_values = {
-            'project': self._serialize.url('project', project, 'string'),
-            'team': self._serialize.url('team', team, 'string'),
-            'id': self._serialize.url('id', id, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'str')
         query_parameters = {}
         if time_precision is not None:
             query_parameters['timePrecision'] = self._serialize.query('time_precision', time_precision, 'bool')
@@ -878,24 +931,29 @@ class WorkItemTrackingClient(VssClient):
         """QueryById.
         Gets the results of the query by id.
         :param str id: The query id.
-        :param :class:`<TeamContext> <work-item-tracking.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <work-item-tracking.v4_0.models.TeamContext>` team_context: The team context for the operation
         :param bool time_precision:
-        :rtype: :class:`<WorkItemQueryResult> <work-item-tracking.models.WorkItemQueryResult>`
+        :rtype: :class:`<WorkItemQueryResult> <work-item-tracking.v4_0.models.WorkItemQueryResult>`
         """
-        if team_context.projectId:
-            project = team_context.projectId
-        else:
-            project = team_context.project
-        if team_context.teamId:
-            team = team_context.teamId
-        else:
-            team = team_context.team
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.projectId:
+                project = team_context.projectId
+            else:
+                project = team_context.project
+            if team_context.teamId:
+                team = team_context.teamId
+            else:
+                team = team_context.team
 
-        route_values = {
-            'project': self._serialize.url('project', project, 'string'),
-            'team': self._serialize.url('team', team, 'string'),
-            'id': self._serialize.url('id', id, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'str')
         query_parameters = {}
         if time_precision is not None:
             query_parameters['timePrecision'] = self._serialize.query('time_precision', time_precision, 'bool')
@@ -912,11 +970,11 @@ class WorkItemTrackingClient(VssClient):
         :param str icon:
         :param str color:
         :param int v:
-        :rtype: :class:`<WorkItemIcon> <work-item-tracking.models.WorkItemIcon>`
+        :rtype: :class:`<WorkItemIcon> <work-item-tracking.v4_0.models.WorkItemIcon>`
         """
-        route_values = {
-            'icon': self._serialize.url('icon', icon, 'str')
-        }
+        route_values = {}
+        if icon is not None:
+            route_values['icon'] = self._serialize.url('icon', icon, 'str')
         query_parameters = {}
         if color is not None:
             query_parameters['color'] = self._serialize.query('color', color, 'str')
@@ -948,9 +1006,9 @@ class WorkItemTrackingClient(VssClient):
         :param int v:
         :rtype: object
         """
-        route_values = {
-            'icon': self._serialize.url('icon', icon, 'str')
-        }
+        route_values = {}
+        if icon is not None:
+            route_values['icon'] = self._serialize.url('icon', icon, 'str')
         query_parameters = {}
         if color is not None:
             query_parameters['color'] = self._serialize.query('color', color, 'str')
@@ -970,11 +1028,11 @@ class WorkItemTrackingClient(VssClient):
         :param [str] types: A list of types to filter the results to specific work item types. Omit this parameter to get work item links of all work item types.
         :param str continuation_token: Specifies the continuationToken to start the batch from. Omit this parameter to get the first batch of links.
         :param datetime start_date_time: Date/time to use as a starting point for link changes. Only link changes that occurred after that date/time will be returned. Cannot be used in conjunction with 'watermark' parameter.
-        :rtype: :class:`<ReportingWorkItemLinksBatch> <work-item-tracking.models.ReportingWorkItemLinksBatch>`
+        :rtype: :class:`<ReportingWorkItemLinksBatch> <work-item-tracking.v4_0.models.ReportingWorkItemLinksBatch>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if types is not None:
             types = ",".join(types)
@@ -994,11 +1052,11 @@ class WorkItemTrackingClient(VssClient):
         """GetRelationType.
         Gets the work item relation types.
         :param str relation:
-        :rtype: :class:`<WorkItemRelationType> <work-item-tracking.models.WorkItemRelationType>`
+        :rtype: :class:`<WorkItemRelationType> <work-item-tracking.v4_0.models.WorkItemRelationType>`
         """
-        route_values = {
-            'relation': self._serialize.url('relation', relation, 'str')
-        }
+        route_values = {}
+        if relation is not None:
+            route_values['relation'] = self._serialize.url('relation', relation, 'str')
         response = self._send(http_method='GET',
                               location_id='f5d33bc9-5b49-4a3c-a9bd-f3cd46dd2165',
                               version='4.0',
@@ -1030,11 +1088,11 @@ class WorkItemTrackingClient(VssClient):
         :param bool include_latest_only: Return only the latest revisions of work items, skipping all historical revisions
         :param ReportingRevisionsExpand expand: Return all the fields in work item revisions, including long text fields which are not returned by default
         :param bool include_discussion_changes_only: Return only the those revisions of work items, where only history field was changed
-        :rtype: :class:`<ReportingWorkItemRevisionsBatch> <work-item-tracking.models.ReportingWorkItemRevisionsBatch>`
+        :rtype: :class:`<ReportingWorkItemRevisionsBatch> <work-item-tracking.v4_0.models.ReportingWorkItemRevisionsBatch>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if fields is not None:
             fields = ",".join(fields)
@@ -1068,16 +1126,16 @@ class WorkItemTrackingClient(VssClient):
     def read_reporting_revisions_post(self, filter, project=None, continuation_token=None, start_date_time=None, expand=None):
         """ReadReportingRevisionsPost.
         Get a batch of work item revisions
-        :param :class:`<ReportingWorkItemRevisionsFilter> <work-item-tracking.models.ReportingWorkItemRevisionsFilter>` filter: An object that contains request settings: field filter, type filter, identity format
+        :param :class:`<ReportingWorkItemRevisionsFilter> <work-item-tracking.v4_0.models.ReportingWorkItemRevisionsFilter>` filter: An object that contains request settings: field filter, type filter, identity format
         :param str project: Project ID or project name
         :param str continuation_token: Specifies the watermark to start the batch from. Omit this parameter to get the first batch of revisions.
         :param datetime start_date_time: Date/time to use as a starting point for revisions, all revisions will occur after this date/time. Cannot be used in conjunction with 'watermark' parameter.
         :param ReportingRevisionsExpand expand:
-        :rtype: :class:`<ReportingWorkItemRevisionsBatch> <work-item-tracking.models.ReportingWorkItemRevisionsBatch>`
+        :rtype: :class:`<ReportingWorkItemRevisionsBatch> <work-item-tracking.v4_0.models.ReportingWorkItemRevisionsBatch>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if continuation_token is not None:
             query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
@@ -1098,11 +1156,11 @@ class WorkItemTrackingClient(VssClient):
         """DeleteWorkItem.
         :param int id:
         :param bool destroy:
-        :rtype: :class:`<WorkItemDelete> <work-item-tracking.models.WorkItemDelete>`
+        :rtype: :class:`<WorkItemDelete> <work-item-tracking.v4_0.models.WorkItemDelete>`
         """
-        route_values = {
-            'id': self._serialize.url('id', id, 'int')
-        }
+        route_values = {}
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'int')
         query_parameters = {}
         if destroy is not None:
             query_parameters['destroy'] = self._serialize.query('destroy', destroy, 'bool')
@@ -1120,11 +1178,11 @@ class WorkItemTrackingClient(VssClient):
         :param [str] fields:
         :param datetime as_of:
         :param WorkItemExpand expand:
-        :rtype: :class:`<WorkItem> <work-item-tracking.models.WorkItem>`
+        :rtype: :class:`<WorkItem> <work-item-tracking.v4_0.models.WorkItem>`
         """
-        route_values = {
-            'id': self._serialize.url('id', id, 'int')
-        }
+        route_values = {}
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'int')
         query_parameters = {}
         if fields is not None:
             fields = ",".join(fields)
@@ -1173,16 +1231,16 @@ class WorkItemTrackingClient(VssClient):
     def update_work_item(self, document, id, validate_only=None, bypass_rules=None, suppress_notifications=None):
         """UpdateWorkItem.
         Updates a single work item
-        :param :class:`<[JsonPatchOperation]> <work-item-tracking.models.[JsonPatchOperation]>` document: The JSON Patch document representing the update
+        :param :class:`<[JsonPatchOperation]> <work-item-tracking.v4_0.models.[JsonPatchOperation]>` document: The JSON Patch document representing the update
         :param int id: The id of the work item to update
         :param bool validate_only: Indicate if you only want to validate the changes without saving the work item
         :param bool bypass_rules: Do not enforce the work item type rules on this update
         :param bool suppress_notifications: Do not fire any notifications for this change
-        :rtype: :class:`<WorkItem> <work-item-tracking.models.WorkItem>`
+        :rtype: :class:`<WorkItem> <work-item-tracking.v4_0.models.WorkItem>`
         """
-        route_values = {
-            'id': self._serialize.url('id', id, 'int')
-        }
+        route_values = {}
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'int')
         query_parameters = {}
         if validate_only is not None:
             query_parameters['validateOnly'] = self._serialize.query('validate_only', validate_only, 'bool')
@@ -1203,18 +1261,19 @@ class WorkItemTrackingClient(VssClient):
     def create_work_item(self, document, project, type, validate_only=None, bypass_rules=None, suppress_notifications=None):
         """CreateWorkItem.
         Creates a single work item
-        :param :class:`<[JsonPatchOperation]> <work-item-tracking.models.[JsonPatchOperation]>` document: The JSON Patch document representing the work item
+        :param :class:`<[JsonPatchOperation]> <work-item-tracking.v4_0.models.[JsonPatchOperation]>` document: The JSON Patch document representing the work item
         :param str project: Project ID or project name
         :param str type: The work item type of the work item to create
         :param bool validate_only: Indicate if you only want to validate the changes without saving the work item
         :param bool bypass_rules: Do not enforce the work item type rules on this update
         :param bool suppress_notifications: Do not fire any notifications for this change
-        :rtype: :class:`<WorkItem> <work-item-tracking.models.WorkItem>`
+        :rtype: :class:`<WorkItem> <work-item-tracking.v4_0.models.WorkItem>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'type': self._serialize.url('type', type, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if type is not None:
+            route_values['type'] = self._serialize.url('type', type, 'str')
         query_parameters = {}
         if validate_only is not None:
             query_parameters['validateOnly'] = self._serialize.query('validate_only', validate_only, 'bool')
@@ -1240,12 +1299,13 @@ class WorkItemTrackingClient(VssClient):
         :param str fields:
         :param datetime as_of:
         :param WorkItemExpand expand:
-        :rtype: :class:`<WorkItem> <work-item-tracking.models.WorkItem>`
+        :rtype: :class:`<WorkItem> <work-item-tracking.v4_0.models.WorkItem>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'type': self._serialize.url('type', type, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if type is not None:
+            route_values['type'] = self._serialize.url('type', type, 'str')
         query_parameters = {}
         if fields is not None:
             query_parameters['fields'] = self._serialize.query('fields', fields, 'str')
@@ -1266,9 +1326,9 @@ class WorkItemTrackingClient(VssClient):
         :param str project: Project ID or project name
         :rtype: [WorkItemTypeCategory]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='9b9f5734-36c8-415e-ba67-f83b45c31408',
                               version='4.0',
@@ -1281,12 +1341,13 @@ class WorkItemTrackingClient(VssClient):
         Returns a the deltas between work item revisions
         :param str project: Project ID or project name
         :param str category:
-        :rtype: :class:`<WorkItemTypeCategory> <work-item-tracking.models.WorkItemTypeCategory>`
+        :rtype: :class:`<WorkItemTypeCategory> <work-item-tracking.v4_0.models.WorkItemTypeCategory>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'category': self._serialize.url('category', category, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if category is not None:
+            route_values['category'] = self._serialize.url('category', category, 'str')
         response = self._send(http_method='GET',
                               location_id='9b9f5734-36c8-415e-ba67-f83b45c31408',
                               version='4.0',
@@ -1298,12 +1359,13 @@ class WorkItemTrackingClient(VssClient):
         Returns a the deltas between work item revisions
         :param str project: Project ID or project name
         :param str type:
-        :rtype: :class:`<WorkItemType> <work-item-tracking.models.WorkItemType>`
+        :rtype: :class:`<WorkItemType> <work-item-tracking.v4_0.models.WorkItemType>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'type': self._serialize.url('type', type, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if type is not None:
+            route_values['type'] = self._serialize.url('type', type, 'str')
         response = self._send(http_method='GET',
                               location_id='7c8d7a76-4a09-43e8-b5df-bd792f4ac6aa',
                               version='4.0',
@@ -1316,9 +1378,9 @@ class WorkItemTrackingClient(VssClient):
         :param str project: Project ID or project name
         :rtype: [WorkItemType]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='7c8d7a76-4a09-43e8-b5df-bd792f4ac6aa',
                               version='4.0',
@@ -1332,13 +1394,15 @@ class WorkItemTrackingClient(VssClient):
         :param str project: Project ID or project name
         :param str type:
         :param str field:
-        :rtype: :class:`<FieldDependentRule> <work-item-tracking.models.FieldDependentRule>`
+        :rtype: :class:`<FieldDependentRule> <work-item-tracking.v4_0.models.FieldDependentRule>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'type': self._serialize.url('type', type, 'str'),
-            'field': self._serialize.url('field', field, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if type is not None:
+            route_values['type'] = self._serialize.url('type', type, 'str')
+        if field is not None:
+            route_values['field'] = self._serialize.url('field', field, 'str')
         response = self._send(http_method='GET',
                               location_id='bd293ce5-3d25-4192-8e67-e8092e879efb',
                               version='4.0',
@@ -1352,10 +1416,11 @@ class WorkItemTrackingClient(VssClient):
         :param str type:
         :rtype: [WorkItemStateColor]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'type': self._serialize.url('type', type, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if type is not None:
+            route_values['type'] = self._serialize.url('type', type, 'str')
         response = self._send(http_method='GET',
                               location_id='7c9d7a76-4a09-43e8-b5df-bd792f4ac6aa',
                               version='4.0-preview.1',
@@ -1369,12 +1434,13 @@ class WorkItemTrackingClient(VssClient):
         :param str project: Project ID or project name
         :param str type:
         :param bool export_global_lists:
-        :rtype: :class:`<WorkItemTypeTemplate> <work-item-tracking.models.WorkItemTypeTemplate>`
+        :rtype: :class:`<WorkItemTypeTemplate> <work-item-tracking.v4_0.models.WorkItemTypeTemplate>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'type': self._serialize.url('type', type, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if type is not None:
+            route_values['type'] = self._serialize.url('type', type, 'str')
         query_parameters = {}
         if export_global_lists is not None:
             query_parameters['exportGlobalLists'] = self._serialize.query('export_global_lists', export_global_lists, 'bool')
@@ -1388,13 +1454,13 @@ class WorkItemTrackingClient(VssClient):
     def update_work_item_type_definition(self, update_model, project=None):
         """UpdateWorkItemTypeDefinition.
         Add/updates a work item type
-        :param :class:`<WorkItemTypeTemplateUpdateModel> <work-item-tracking.models.WorkItemTypeTemplateUpdateModel>` update_model:
+        :param :class:`<WorkItemTypeTemplateUpdateModel> <work-item-tracking.v4_0.models.WorkItemTypeTemplateUpdateModel>` update_model:
         :param str project: Project ID or project name
-        :rtype: :class:`<ProvisioningResult> <work-item-tracking.models.ProvisioningResult>`
+        :rtype: :class:`<ProvisioningResult> <work-item-tracking.v4_0.models.ProvisioningResult>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         content = self._serialize.body(update_model, 'WorkItemTypeTemplateUpdateModel')
         response = self._send(http_method='POST',
                               location_id='8637ac8b-5eb6-4f90-b3f7-4f2ff576a459',

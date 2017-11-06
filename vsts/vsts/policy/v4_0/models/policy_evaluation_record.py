@@ -13,15 +13,15 @@ class PolicyEvaluationRecord(Model):
     """PolicyEvaluationRecord.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <policy.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <policy.v4_0.models.ReferenceLinks>`
     :param artifact_id:
     :type artifact_id: str
     :param completed_date:
     :type completed_date: datetime
     :param configuration:
-    :type configuration: :class:`PolicyConfiguration <policy.models.PolicyConfiguration>`
+    :type configuration: :class:`PolicyConfiguration <policy.v4_0.models.PolicyConfiguration>`
     :param context:
-    :type context: :class:`object <policy.models.object>`
+    :type context: :class:`object <policy.v4_0.models.object>`
     :param evaluation_id:
     :type evaluation_id: str
     :param started_date:

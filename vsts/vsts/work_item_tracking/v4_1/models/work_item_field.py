@@ -15,7 +15,7 @@ class WorkItemField(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <work-item-tracking.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_1.models.ReferenceLinks>`
     :param description: The description of the field.
     :type description: str
     :param is_identity: Indicates whether this field is an identity field.
@@ -31,7 +31,7 @@ class WorkItemField(WorkItemTrackingResource):
     :param reference_name: The reference name of the field.
     :type reference_name: str
     :param supported_operations: The supported operations on this field.
-    :type supported_operations: list of :class:`WorkItemFieldOperation <work-item-tracking.models.WorkItemFieldOperation>`
+    :type supported_operations: list of :class:`WorkItemFieldOperation <work-item-tracking.v4_1.models.WorkItemFieldOperation>`
     :param type: The type of the field.
     :type type: object
     :param usage: The usage of the field.

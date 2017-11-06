@@ -15,13 +15,13 @@ class WorkItem(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <work-item-tracking.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_1.models.ReferenceLinks>`
     :param fields: Map of field and values for the work item.
     :type fields: dict
     :param id: The work item ID.
     :type id: int
     :param relations: Relations of the work item.
-    :type relations: list of :class:`WorkItemRelation <work-item-tracking.models.WorkItemRelation>`
+    :type relations: list of :class:`WorkItemRelation <work-item-tracking.v4_1.models.WorkItemRelation>`
     :param rev: Revision number of the work item.
     :type rev: int
     """

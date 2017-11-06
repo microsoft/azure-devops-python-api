@@ -13,9 +13,9 @@ class GitPullRequestCommentThread(CommentThread):
     """GitPullRequestCommentThread.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_0.models.ReferenceLinks>`
     :param comments: A list of the comments.
-    :type comments: list of :class:`Comment <git.models.Comment>`
+    :type comments: list of :class:`Comment <git.v4_0.models.Comment>`
     :param id: The comment thread id.
     :type id: int
     :param is_deleted: Specify if the thread is deleted which happens when all comments are deleted
@@ -23,15 +23,15 @@ class GitPullRequestCommentThread(CommentThread):
     :param last_updated_date: The time this thread was last updated.
     :type last_updated_date: datetime
     :param properties: A list of (optional) thread properties.
-    :type properties: :class:`object <git.models.object>`
+    :type properties: :class:`object <git.v4_0.models.object>`
     :param published_date: The time this thread was published.
     :type published_date: datetime
     :param status: The status of the comment thread.
     :type status: object
     :param thread_context: Specify thread context such as position in left/right file.
-    :type thread_context: :class:`CommentThreadContext <git.models.CommentThreadContext>`
+    :type thread_context: :class:`CommentThreadContext <git.v4_0.models.CommentThreadContext>`
     :param pull_request_thread_context: Extended context information unique to pull requests
-    :type pull_request_thread_context: :class:`GitPullRequestCommentThreadContext <git.models.GitPullRequestCommentThreadContext>`
+    :type pull_request_thread_context: :class:`GitPullRequestCommentThreadContext <git.v4_0.models.GitPullRequestCommentThreadContext>`
     """
 
     _attribute_map = {

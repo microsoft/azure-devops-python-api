@@ -15,9 +15,9 @@ class GitPullRequestCommentThreadContext(Model):
     :param change_tracking_id: Used to track a comment across iterations. This value can be found by looking at the iteration's changes list. Must be set for pull requests with iteration support. Otherwise, it's not required for 'legacy' pull requests.
     :type change_tracking_id: int
     :param iteration_context: The iteration context being viewed when the thread was created.
-    :type iteration_context: :class:`CommentIterationContext <git.models.CommentIterationContext>`
+    :type iteration_context: :class:`CommentIterationContext <git.v4_1.models.CommentIterationContext>`
     :param tracking_criteria: The criteria used to track this thread. If this property is filled out when the thread is returned, then the thread has been tracked from its original location using the given criteria.
-    :type tracking_criteria: :class:`CommentTrackingCriteria <git.models.CommentTrackingCriteria>`
+    :type tracking_criteria: :class:`CommentTrackingCriteria <git.v4_1.models.CommentTrackingCriteria>`
     """
 
     _attribute_map = {

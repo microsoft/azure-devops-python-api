@@ -15,7 +15,7 @@ class GroupMembership(Model):
     :param active:
     :type active: bool
     :param descriptor:
-    :type descriptor: :class:`str <identities.models.str>`
+    :type descriptor: :class:`str <identities.v4_0.models.str>`
     :param id:
     :type id: str
     :param queried_id:

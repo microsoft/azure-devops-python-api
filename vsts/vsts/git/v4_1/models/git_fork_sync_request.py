@@ -13,15 +13,15 @@ class GitForkSyncRequest(Model):
     """GitForkSyncRequest.
 
     :param _links: Collection of related links
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
     :param detailed_status:
-    :type detailed_status: :class:`GitForkOperationStatusDetail <git.models.GitForkOperationStatusDetail>`
+    :type detailed_status: :class:`GitForkOperationStatusDetail <git.v4_1.models.GitForkOperationStatusDetail>`
     :param operation_id: Unique identifier for the operation.
     :type operation_id: int
     :param source: Fully-qualified identifier for the source repository.
-    :type source: :class:`GlobalGitRepositoryKey <git.models.GlobalGitRepositoryKey>`
+    :type source: :class:`GlobalGitRepositoryKey <git.v4_1.models.GlobalGitRepositoryKey>`
     :param source_to_target_refs: If supplied, the set of ref mappings to use when performing a "sync" or create. If missing, all refs will be synchronized.
-    :type source_to_target_refs: list of :class:`SourceToTargetRef <git.models.SourceToTargetRef>`
+    :type source_to_target_refs: list of :class:`SourceToTargetRef <git.v4_1.models.SourceToTargetRef>`
     :param status:
     :type status: object
     """

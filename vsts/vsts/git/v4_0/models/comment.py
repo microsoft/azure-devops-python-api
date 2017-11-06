@@ -13,9 +13,9 @@ class Comment(Model):
     """Comment.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_0.models.ReferenceLinks>`
     :param author: The author of the pull request comment.
-    :type author: :class:`IdentityRef <git.models.IdentityRef>`
+    :type author: :class:`IdentityRef <git.v4_0.models.IdentityRef>`
     :param comment_type: Determines what kind of comment when it was created.
     :type comment_type: object
     :param content: The comment's content.
@@ -33,7 +33,7 @@ class Comment(Model):
     :param published_date: The date a comment was first published.
     :type published_date: datetime
     :param users_liked: A list of the users who've liked this comment.
-    :type users_liked: list of :class:`IdentityRef <git.models.IdentityRef>`
+    :type users_liked: list of :class:`IdentityRef <git.v4_0.models.IdentityRef>`
     """
 
     _attribute_map = {

@@ -15,13 +15,13 @@ class WorkItem(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
     :param fields:
     :type fields: dict
     :param id:
     :type id: int
     :param relations:
-    :type relations: list of :class:`WorkItemRelation <work-item-tracking.models.WorkItemRelation>`
+    :type relations: list of :class:`WorkItemRelation <work-item-tracking.v4_0.models.WorkItemRelation>`
     :param rev:
     :type rev: int
     """

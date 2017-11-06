@@ -15,11 +15,11 @@ class WorkItemClassificationNode(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
     :param attributes:
     :type attributes: dict
     :param children:
-    :type children: list of :class:`WorkItemClassificationNode <work-item-tracking.models.WorkItemClassificationNode>`
+    :type children: list of :class:`WorkItemClassificationNode <work-item-tracking.v4_0.models.WorkItemClassificationNode>`
     :param id:
     :type id: int
     :param identifier:
