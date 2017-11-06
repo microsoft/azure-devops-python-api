@@ -17,7 +17,7 @@ class GitItemRequestData(Model):
     :param include_links: Whether to include the _links field on the shallow references
     :type include_links: bool
     :param item_descriptors: Collection of items to fetch, including path, version, and recursion level
-    :type item_descriptors: list of :class:`GitItemDescriptor <git.models.GitItemDescriptor>`
+    :type item_descriptors: list of :class:`GitItemDescriptor <git.v4_1.models.GitItemDescriptor>`
     :param latest_processed_change: Whether to include shallow ref to commit that last changed each item
     :type latest_processed_change: bool
     """

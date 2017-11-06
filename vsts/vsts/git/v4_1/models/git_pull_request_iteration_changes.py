@@ -13,7 +13,7 @@ class GitPullRequestIterationChanges(Model):
     """GitPullRequestIterationChanges.
 
     :param change_entries: Changes made in the iteration.
-    :type change_entries: list of :class:`GitPullRequestChange <git.models.GitPullRequestChange>`
+    :type change_entries: list of :class:`GitPullRequestChange <git.v4_1.models.GitPullRequestChange>`
     :param next_skip: Value to specify as skip to get the next page of changes.  This will be zero if there are no more changes.
     :type next_skip: int
     :param next_top: Value to specify as top to get the next page of changes.  This will be zero if there are no more changes.

@@ -15,17 +15,17 @@ class WorkItemType(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <work-item-tracking.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_1.models.ReferenceLinks>`
     :param color: The color.
     :type color: str
     :param description: The description of the work item type.
     :type description: str
     :param field_instances: The fields that exist on the work item type.
-    :type field_instances: list of :class:`WorkItemTypeFieldInstance <work-item-tracking.models.WorkItemTypeFieldInstance>`
+    :type field_instances: list of :class:`WorkItemTypeFieldInstance <work-item-tracking.v4_1.models.WorkItemTypeFieldInstance>`
     :param fields: The fields that exist on the work item type.
-    :type fields: list of :class:`WorkItemTypeFieldInstance <work-item-tracking.models.WorkItemTypeFieldInstance>`
+    :type fields: list of :class:`WorkItemTypeFieldInstance <work-item-tracking.v4_1.models.WorkItemTypeFieldInstance>`
     :param icon: The icon of the work item type.
-    :type icon: :class:`WorkItemIcon <work-item-tracking.models.WorkItemIcon>`
+    :type icon: :class:`WorkItemIcon <work-item-tracking.v4_1.models.WorkItemIcon>`
     :param name: Gets the name of the work item type.
     :type name: str
     :param reference_name: The reference name of the work item type.

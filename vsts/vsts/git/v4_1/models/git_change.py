@@ -15,7 +15,7 @@ class GitChange(Change):
     :param change_id: ID of the change within the group of changes.
     :type change_id: int
     :param new_content_template: New Content template to be used when pushing new changes.
-    :type new_content_template: :class:`GitTemplate <git.models.GitTemplate>`
+    :type new_content_template: :class:`GitTemplate <git.v4_1.models.GitTemplate>`
     :param original_path: Original path of item if different from current path.
     :type original_path: str
     """

@@ -17,7 +17,7 @@ class GitBranchStats(Model):
     :param behind_count: Number of commits behind.
     :type behind_count: int
     :param commit: Current commit.
-    :type commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type commit: :class:`GitCommitRef <git.v4_1.models.GitCommitRef>`
     :param is_base_version: True if this is the result for the base version.
     :type is_base_version: bool
     :param name: Name of the ref.

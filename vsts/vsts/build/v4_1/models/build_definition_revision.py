@@ -13,7 +13,7 @@ class BuildDefinitionRevision(Model):
     """BuildDefinitionRevision.
 
     :param changed_by: The identity of the person or process that changed the definition.
-    :type changed_by: :class:`IdentityRef <build.models.IdentityRef>`
+    :type changed_by: :class:`IdentityRef <build.v4_1.models.IdentityRef>`
     :param changed_date: The date and time that the definition was changed.
     :type changed_date: datetime
     :param change_type: The change type (add, edit, delete).

@@ -29,7 +29,7 @@ class BuildDefinitionStep(Model):
     :param ref_name: The reference name for this step.
     :type ref_name: str
     :param task: The task associated with this step.
-    :type task: :class:`TaskDefinitionReference <build.models.TaskDefinitionReference>`
+    :type task: :class:`TaskDefinitionReference <build.v4_1.models.TaskDefinitionReference>`
     :param timeout_in_minutes: The time, in minutes, that this step is allowed to run.
     :type timeout_in_minutes: int
     """

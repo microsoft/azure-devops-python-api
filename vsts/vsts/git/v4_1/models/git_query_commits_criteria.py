@@ -19,7 +19,7 @@ class GitQueryCommitsCriteria(Model):
     :param author: Alias or display name of the author
     :type author: str
     :param compare_version: If provided, the earliest commit in the graph to search
-    :type compare_version: :class:`GitVersionDescriptor <git.models.GitVersionDescriptor>`
+    :type compare_version: :class:`GitVersionDescriptor <git.v4_1.models.GitVersionDescriptor>`
     :param exclude_deletes: If true, don't include delete history entries
     :type exclude_deletes: bool
     :param from_commit_id: If provided, a lower bound for filtering commits alphabetically
@@ -37,7 +37,7 @@ class GitQueryCommitsCriteria(Model):
     :param item_path: Path of item to search under
     :type item_path: str
     :param item_version: If provided, identifies the commit or branch to search
-    :type item_version: :class:`GitVersionDescriptor <git.models.GitVersionDescriptor>`
+    :type item_version: :class:`GitVersionDescriptor <git.v4_1.models.GitVersionDescriptor>`
     :param to_commit_id: If provided, an upper bound for filtering commits alphabetically
     :type to_commit_id: str
     :param to_date: If provided, only include history entries created before this date (string)

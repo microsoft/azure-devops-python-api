@@ -15,7 +15,7 @@ class GitDeletedRepository(Model):
     :param created_date:
     :type created_date: datetime
     :param deleted_by:
-    :type deleted_by: :class:`IdentityRef <git.models.IdentityRef>`
+    :type deleted_by: :class:`IdentityRef <git.v4_1.models.IdentityRef>`
     :param deleted_date:
     :type deleted_date: datetime
     :param id:
@@ -23,7 +23,7 @@ class GitDeletedRepository(Model):
     :param name:
     :type name: str
     :param project:
-    :type project: :class:`TeamProjectReference <git.models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <git.v4_1.models.TeamProjectReference>`
     """
 
     _attribute_map = {

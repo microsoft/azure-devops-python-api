@@ -15,11 +15,11 @@ class WorkItemClassificationNode(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <work-item-tracking.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_1.models.ReferenceLinks>`
     :param attributes: Dictionary that has node attributes like start/finish date for iteration nodes.
     :type attributes: dict
     :param children: List of child nodes fetched.
-    :type children: list of :class:`WorkItemClassificationNode <work-item-tracking.models.WorkItemClassificationNode>`
+    :type children: list of :class:`WorkItemClassificationNode <work-item-tracking.v4_1.models.WorkItemClassificationNode>`
     :param has_children: Flag that indicates if the classification node has any child nodes.
     :type has_children: bool
     :param id: Integer ID of the classification node.

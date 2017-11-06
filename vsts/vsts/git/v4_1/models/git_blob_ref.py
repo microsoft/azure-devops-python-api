@@ -13,7 +13,7 @@ class GitBlobRef(Model):
     """GitBlobRef.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
     :param object_id: SHA1 hash of git object
     :type object_id: str
     :param size: Size of blob content (in bytes)

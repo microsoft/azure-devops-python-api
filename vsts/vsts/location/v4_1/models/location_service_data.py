@@ -13,7 +13,7 @@ class LocationServiceData(Model):
     """LocationServiceData.
 
     :param access_mappings: Data about the access mappings contained by this location service.
-    :type access_mappings: list of :class:`AccessMapping <locations.models.AccessMapping>`
+    :type access_mappings: list of :class:`AccessMapping <locations.v4_1.models.AccessMapping>`
     :param client_cache_fresh: Data that the location service holds.
     :type client_cache_fresh: bool
     :param client_cache_time_to_live: The time to live on the location service cache.
@@ -25,7 +25,7 @@ class LocationServiceData(Model):
     :param last_change_id64: The non-truncated 64-bit id for the last change that took place on the server.
     :type last_change_id64: long
     :param service_definitions: Data about the service definitions contained by this location service.
-    :type service_definitions: list of :class:`ServiceDefinition <locations.models.ServiceDefinition>`
+    :type service_definitions: list of :class:`ServiceDefinition <locations.v4_1.models.ServiceDefinition>`
     :param service_owner: The identifier of the deployment which is hosting this location data (e.g. SPS, TFS, ELS, Napa, etc.)
     :type service_owner: str
     """

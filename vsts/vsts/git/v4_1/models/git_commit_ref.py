@@ -13,13 +13,13 @@ class GitCommitRef(Model):
     """GitCommitRef.
 
     :param _links: A collection of related REST reference links.
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
     :param author: Author of the commit.
-    :type author: :class:`GitUserDate <git.models.GitUserDate>`
+    :type author: :class:`GitUserDate <git.v4_1.models.GitUserDate>`
     :param change_counts: Counts of the types of changes (edits, deletes, etc.) included with the commit.
-    :type change_counts: :class:`ChangeCountDictionary <git.models.ChangeCountDictionary>`
+    :type change_counts: :class:`ChangeCountDictionary <git.v4_1.models.ChangeCountDictionary>`
     :param changes: An enumeration of the changes included with the commit.
-    :type changes: list of :class:`GitChange <git.models.GitChange>`
+    :type changes: list of :class:`GitChange <git.v4_1.models.GitChange>`
     :param comment: Comment or message of the commit.
     :type comment: str
     :param comment_truncated: Indicates if the comment is truncated from the full Git commit comment message.
@@ -27,17 +27,17 @@ class GitCommitRef(Model):
     :param commit_id: ID (SHA-1) of the commit.
     :type commit_id: str
     :param committer: Committer of the commit.
-    :type committer: :class:`GitUserDate <git.models.GitUserDate>`
+    :type committer: :class:`GitUserDate <git.v4_1.models.GitUserDate>`
     :param parents: An enumeration of the parent commit IDs for this commit.
     :type parents: list of str
     :param remote_url: Remote URL path to the commit.
     :type remote_url: str
     :param statuses: A list of status metadata from services and extensions that may associate additional information to the commit.
-    :type statuses: list of :class:`GitStatus <git.models.GitStatus>`
+    :type statuses: list of :class:`GitStatus <git.v4_1.models.GitStatus>`
     :param url: REST URL for this resource.
     :type url: str
     :param work_items: A list of workitems associated with this commit.
-    :type work_items: list of :class:`ResourceRef <git.models.ResourceRef>`
+    :type work_items: list of :class:`ResourceRef <git.v4_1.models.ResourceRef>`
     """
 
     _attribute_map = {

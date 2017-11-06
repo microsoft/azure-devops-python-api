@@ -15,7 +15,7 @@ class GitTreeDiffResponse(Model):
     :param continuation_token: The HTTP client methods find the continuation token header in the response and populate this field.
     :type continuation_token: list of str
     :param tree_diff:
-    :type tree_diff: :class:`GitTreeDiff <git.models.GitTreeDiff>`
+    :type tree_diff: :class:`GitTreeDiff <git.v4_1.models.GitTreeDiff>`
     """
 
     _attribute_map = {

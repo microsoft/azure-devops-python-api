@@ -33,7 +33,7 @@ class TaskInputDefinitionBase(Model):
     :param type:
     :type type: str
     :param validation:
-    :type validation: :class:`TaskInputValidation <microsoft.-team-foundation.-distributed-task.-common.-contracts.models.TaskInputValidation>`
+    :type validation: :class:`TaskInputValidation <microsoft.-team-foundation.-distributed-task.-common.-contracts.v4_1.models.TaskInputValidation>`
     :param visible_rule:
     :type visible_rule: str
     """

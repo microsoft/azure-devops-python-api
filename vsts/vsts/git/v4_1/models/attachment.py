@@ -13,9 +13,9 @@ class Attachment(Model):
     """Attachment.
 
     :param _links: Links to other related objects.
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
     :param author: The person that uploaded this attachment.
-    :type author: :class:`IdentityRef <git.models.IdentityRef>`
+    :type author: :class:`IdentityRef <git.v4_1.models.IdentityRef>`
     :param content_hash: Content hash of on-disk representation of file content. Its calculated by the server by using SHA1 hash function.
     :type content_hash: str
     :param created_date: The time the attachment was uploaded.
@@ -27,7 +27,7 @@ class Attachment(Model):
     :param id: Id of the attachment.
     :type id: int
     :param properties: Extended properties.
-    :type properties: :class:`object <git.models.object>`
+    :type properties: :class:`object <git.v4_1.models.object>`
     :param url: The url to download the content of the attachment.
     :type url: str
     """

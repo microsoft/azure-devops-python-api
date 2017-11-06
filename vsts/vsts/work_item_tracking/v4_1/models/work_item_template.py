@@ -15,7 +15,7 @@ class WorkItemTemplate(WorkItemTemplateReference):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <work-item-tracking.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_1.models.ReferenceLinks>`
     :param description: The description of the work item template.
     :type description: str
     :param id: The identifier of the work item template.

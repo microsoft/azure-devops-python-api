@@ -19,7 +19,7 @@ class BuildController(XamlBuildControllerReference):
     :param url: Full http link to the resource
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <build.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <build.v4_1.models.ReferenceLinks>`
     :param created_date: The date the controller was created.
     :type created_date: datetime
     :param description: The description of the controller.

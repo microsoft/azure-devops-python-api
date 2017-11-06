@@ -13,15 +13,15 @@ class GitImportRequest(Model):
     """GitImportRequest.
 
     :param _links: Links to related resources.
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
     :param detailed_status: Detailed status of the import, including the current step and an error message, if applicable.
-    :type detailed_status: :class:`GitImportStatusDetail <git.models.GitImportStatusDetail>`
+    :type detailed_status: :class:`GitImportStatusDetail <git.v4_1.models.GitImportStatusDetail>`
     :param import_request_id: The unique identifier for this import request.
     :type import_request_id: int
     :param parameters: Parameters for creating the import request.
-    :type parameters: :class:`GitImportRequestParameters <git.models.GitImportRequestParameters>`
+    :type parameters: :class:`GitImportRequestParameters <git.v4_1.models.GitImportRequestParameters>`
     :param repository: The target repository for this import.
-    :type repository: :class:`GitRepository <git.models.GitRepository>`
+    :type repository: :class:`GitRepository <git.v4_1.models.GitRepository>`
     :param status: Current status of the import.
     :type status: object
     :param url: A link back to this import request resource.

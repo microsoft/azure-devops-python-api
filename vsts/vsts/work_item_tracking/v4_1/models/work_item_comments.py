@@ -13,7 +13,7 @@ class WorkItemComments(Model):
     """WorkItemComments.
 
     :param comments: Comments collection.
-    :type comments: list of :class:`WorkItemComment <work-item-tracking.models.WorkItemComment>`
+    :type comments: list of :class:`WorkItemComment <work-item-tracking.v4_1.models.WorkItemComment>`
     :param count: The count of comments.
     :type count: int
     :param from_revision_count: Count of comments from the revision.
