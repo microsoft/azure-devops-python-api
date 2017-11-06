@@ -21,7 +21,7 @@ class ServiceDefinition(Model):
     :param inherit_level:
     :type inherit_level: object
     :param location_mappings:
-    :type location_mappings: list of :class:`LocationMapping <locations.models.LocationMapping>`
+    :type location_mappings: list of :class:`LocationMapping <locations.v4_1.models.LocationMapping>`
     :param max_version: Maximum api version that this resource supports (current server version for this resource). Copied from <c>ApiResourceLocation</c>.
     :type max_version: str
     :param min_version: Minimum api version that this resource supports. Copied from <c>ApiResourceLocation</c>.
@@ -31,7 +31,7 @@ class ServiceDefinition(Model):
     :param parent_service_type:
     :type parent_service_type: str
     :param properties:
-    :type properties: :class:`object <locations.models.object>`
+    :type properties: :class:`object <locations.v4_1.models.object>`
     :param relative_path:
     :type relative_path: str
     :param relative_to_setting:

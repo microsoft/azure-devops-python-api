@@ -17,9 +17,9 @@ class ProxyAuthorization(Model):
     :param client_id: Gets or sets the client identifier for this proxy.
     :type client_id: str
     :param identity: Gets or sets the user identity to authorize for on-prem.
-    :type identity: :class:`str <core.models.str>`
+    :type identity: :class:`str <core.v4_1.models.str>`
     :param public_key: Gets or sets the public key used to verify the identity of this proxy. Only specify on hosted.
-    :type public_key: :class:`PublicKey <core.models.PublicKey>`
+    :type public_key: :class:`PublicKey <core.v4_1.models.PublicKey>`
     """
 
     _attribute_map = {

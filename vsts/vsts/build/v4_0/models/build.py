@@ -13,25 +13,25 @@ class Build(Model):
     """Build.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <build.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <build.v4_0.models.ReferenceLinks>`
     :param build_number: Build number/name of the build
     :type build_number: str
     :param build_number_revision: Build number revision
     :type build_number_revision: int
     :param controller: The build controller. This should only be set if the definition type is Xaml.
-    :type controller: :class:`BuildController <build.models.BuildController>`
+    :type controller: :class:`BuildController <build.v4_0.models.BuildController>`
     :param definition: The definition associated with the build
-    :type definition: :class:`DefinitionReference <build.models.DefinitionReference>`
+    :type definition: :class:`DefinitionReference <build.v4_0.models.DefinitionReference>`
     :param deleted: Indicates whether the build has been deleted.
     :type deleted: bool
     :param deleted_by: Process or person that deleted the build
-    :type deleted_by: :class:`IdentityRef <build.models.IdentityRef>`
+    :type deleted_by: :class:`IdentityRef <build.v4_0.models.IdentityRef>`
     :param deleted_date: Date the build was deleted
     :type deleted_date: datetime
     :param deleted_reason: Description of how the build was deleted
     :type deleted_reason: str
     :param demands: Demands
-    :type demands: list of :class:`object <build.models.object>`
+    :type demands: list of :class:`object <build.v4_0.models.object>`
     :param finish_time: Time that the build was completed
     :type finish_time: datetime
     :param id: Id of the build
@@ -39,27 +39,27 @@ class Build(Model):
     :param keep_forever:
     :type keep_forever: bool
     :param last_changed_by: Process or person that last changed the build
-    :type last_changed_by: :class:`IdentityRef <build.models.IdentityRef>`
+    :type last_changed_by: :class:`IdentityRef <build.v4_0.models.IdentityRef>`
     :param last_changed_date: Date the build was last changed
     :type last_changed_date: datetime
     :param logs: Log location of the build
-    :type logs: :class:`BuildLogReference <build.models.BuildLogReference>`
+    :type logs: :class:`BuildLogReference <build.v4_0.models.BuildLogReference>`
     :param orchestration_plan: Orchestration plan for the build
-    :type orchestration_plan: :class:`TaskOrchestrationPlanReference <build.models.TaskOrchestrationPlanReference>`
+    :type orchestration_plan: :class:`TaskOrchestrationPlanReference <build.v4_0.models.TaskOrchestrationPlanReference>`
     :param parameters: Parameters for the build
     :type parameters: str
     :param plans: Orchestration plans associated with the build (build, cleanup)
-    :type plans: list of :class:`TaskOrchestrationPlanReference <build.models.TaskOrchestrationPlanReference>`
+    :type plans: list of :class:`TaskOrchestrationPlanReference <build.v4_0.models.TaskOrchestrationPlanReference>`
     :param priority: The build's priority
     :type priority: object
     :param project: The team project
-    :type project: :class:`TeamProjectReference <build.models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <build.v4_0.models.TeamProjectReference>`
     :param properties:
-    :type properties: :class:`object <build.models.object>`
+    :type properties: :class:`object <build.v4_0.models.object>`
     :param quality: Quality of the xaml build (good, bad, etc.)
     :type quality: str
     :param queue: The queue. This should only be set if the definition type is Build.
-    :type queue: :class:`AgentPoolQueue <build.models.AgentPoolQueue>`
+    :type queue: :class:`AgentPoolQueue <build.v4_0.models.AgentPoolQueue>`
     :param queue_options: Queue option of the build.
     :type queue_options: object
     :param queue_position: The current position of the build in the queue
@@ -69,11 +69,11 @@ class Build(Model):
     :param reason: Reason that the build was created
     :type reason: object
     :param repository: The repository
-    :type repository: :class:`BuildRepository <build.models.BuildRepository>`
+    :type repository: :class:`BuildRepository <build.v4_0.models.BuildRepository>`
     :param requested_by: The identity that queued the build
-    :type requested_by: :class:`IdentityRef <build.models.IdentityRef>`
+    :type requested_by: :class:`IdentityRef <build.v4_0.models.IdentityRef>`
     :param requested_for: The identity on whose behalf the build was queued
-    :type requested_for: :class:`IdentityRef <build.models.IdentityRef>`
+    :type requested_for: :class:`IdentityRef <build.v4_0.models.IdentityRef>`
     :param result: The build result
     :type result: object
     :param retained_by_release: Specifies if Build should be retained by Release
@@ -95,7 +95,7 @@ class Build(Model):
     :param url: REST url of the build
     :type url: str
     :param validation_results:
-    :type validation_results: list of :class:`BuildRequestValidationResult <build.models.BuildRequestValidationResult>`
+    :type validation_results: list of :class:`BuildRequestValidationResult <build.v4_0.models.BuildRequestValidationResult>`
     """
 
     _attribute_map = {

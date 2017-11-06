@@ -13,7 +13,7 @@ class IdentityBatchInfo(Model):
     """IdentityBatchInfo.
 
     :param descriptors:
-    :type descriptors: list of :class:`str <identities.models.str>`
+    :type descriptors: list of :class:`str <identities.v4_1.models.str>`
     :param identity_ids:
     :type identity_ids: list of str
     :param include_restricted_visibility:

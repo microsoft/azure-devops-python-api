@@ -13,11 +13,11 @@ class GitForkRef(GitRef):
     """GitForkRef.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
     :param is_locked:
     :type is_locked: bool
     :param is_locked_by:
-    :type is_locked_by: :class:`IdentityRef <git.models.IdentityRef>`
+    :type is_locked_by: :class:`IdentityRef <git.v4_1.models.IdentityRef>`
     :param name:
     :type name: str
     :param object_id:
@@ -25,11 +25,11 @@ class GitForkRef(GitRef):
     :param peeled_object_id:
     :type peeled_object_id: str
     :param statuses:
-    :type statuses: list of :class:`GitStatus <git.models.GitStatus>`
+    :type statuses: list of :class:`GitStatus <git.v4_1.models.GitStatus>`
     :param url:
     :type url: str
     :param repository: The repository ID of the fork.
-    :type repository: :class:`GitRepository <git.models.GitRepository>`
+    :type repository: :class:`GitRepository <git.v4_1.models.GitRepository>`
     """
 
     _attribute_map = {

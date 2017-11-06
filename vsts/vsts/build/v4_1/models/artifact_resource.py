@@ -13,7 +13,7 @@ class ArtifactResource(Model):
     """ArtifactResource.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <build.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <build.v4_1.models.ReferenceLinks>`
     :param data: Type-specific data about the artifact.
     :type data: str
     :param download_url: A link to download the resource.

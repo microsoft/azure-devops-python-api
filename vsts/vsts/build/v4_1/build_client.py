@@ -28,15 +28,16 @@ class BuildClient(VssClient):
     def create_artifact(self, artifact, build_id, project=None):
         """CreateArtifact.
         [Preview API] Associates an artifact with a build.
-        :param :class:`<BuildArtifact> <build.models.BuildArtifact>` artifact: The artifact.
+        :param :class:`<BuildArtifact> <build.v4_1.models.BuildArtifact>` artifact: The artifact.
         :param int build_id: The ID of the build.
         :param str project: Project ID or project name
-        :rtype: :class:`<BuildArtifact> <build.models.BuildArtifact>`
+        :rtype: :class:`<BuildArtifact> <build.v4_1.models.BuildArtifact>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         content = self._serialize.body(artifact, 'BuildArtifact')
         response = self._send(http_method='POST',
                               location_id='1db06c96-014e-44e1-ac91-90b2d4b3e984',
@@ -51,12 +52,13 @@ class BuildClient(VssClient):
         :param int build_id: The ID of the build.
         :param str artifact_name: The name of the artifact.
         :param str project: Project ID or project name
-        :rtype: :class:`<BuildArtifact> <build.models.BuildArtifact>`
+        :rtype: :class:`<BuildArtifact> <build.v4_1.models.BuildArtifact>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         query_parameters = {}
         if artifact_name is not None:
             query_parameters['artifactName'] = self._serialize.query('artifact_name', artifact_name, 'str')
@@ -75,10 +77,11 @@ class BuildClient(VssClient):
         :param str project: Project ID or project name
         :rtype: object
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         query_parameters = {}
         if artifact_name is not None:
             query_parameters['artifactName'] = self._serialize.query('artifact_name', artifact_name, 'str')
@@ -96,10 +99,11 @@ class BuildClient(VssClient):
         :param str project: Project ID or project name
         :rtype: [BuildArtifact]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         response = self._send(http_method='GET',
                               location_id='1db06c96-014e-44e1-ac91-90b2d4b3e984',
                               version='4.1-preview.3',
@@ -115,10 +119,11 @@ class BuildClient(VssClient):
         :param str branch_name: The name of the branch.
         :rtype: str
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'definitionId': self._serialize.url('definition_id', definition_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
         query_parameters = {}
         if branch_name is not None:
             query_parameters['branchName'] = self._serialize.query('branch_name', branch_name, 'str')
@@ -136,12 +141,13 @@ class BuildClient(VssClient):
         :param str repo_type: The repository type.
         :param str repo_id: The repository ID.
         :param str branch_name: The branch name.
-        :rtype: :class:`<BuildBadge> <build.models.BuildBadge>`
+        :rtype: :class:`<BuildBadge> <build.v4_1.models.BuildBadge>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'repoType': self._serialize.url('repo_type', repo_type, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if repo_type is not None:
+            route_values['repoType'] = self._serialize.url('repo_type', repo_type, 'str')
         query_parameters = {}
         if repo_id is not None:
             query_parameters['repoId'] = self._serialize.query('repo_id', repo_id, 'str')
@@ -163,10 +169,11 @@ class BuildClient(VssClient):
         :param str branch_name: The branch name.
         :rtype: str
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'repoType': self._serialize.url('repo_type', repo_type, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if repo_type is not None:
+            route_values['repoType'] = self._serialize.url('repo_type', repo_type, 'str')
         query_parameters = {}
         if repo_id is not None:
             query_parameters['repoId'] = self._serialize.query('repo_id', repo_id, 'str')
@@ -185,10 +192,11 @@ class BuildClient(VssClient):
         :param int build_id: The ID of the build.
         :param str project: Project ID or project name
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         self._send(http_method='DELETE',
                    location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
                    version='4.1-preview.3',
@@ -200,12 +208,13 @@ class BuildClient(VssClient):
         :param int build_id: The ID of the build.
         :param str project: Project ID or project name
         :param str property_filters: A comma-delimited list of properties to include in the results.
-        :rtype: :class:`<Build> <build.models.Build>`
+        :rtype: :class:`<Build> <build.v4_1.models.Build>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         query_parameters = {}
         if property_filters is not None:
             query_parameters['propertyFilters'] = self._serialize.query('property_filters', property_filters, 'str')
@@ -242,9 +251,9 @@ class BuildClient(VssClient):
         :param str repository_type: If specified, filters to builds that built from repositories of this type.
         :rtype: [Build]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if definitions is not None:
             definitions = ",".join(map(str, definitions))
@@ -302,15 +311,15 @@ class BuildClient(VssClient):
     def queue_build(self, build, project=None, ignore_warnings=None, check_in_ticket=None):
         """QueueBuild.
         [Preview API] Queues a build
-        :param :class:`<Build> <build.models.Build>` build:
+        :param :class:`<Build> <build.v4_1.models.Build>` build:
         :param str project: Project ID or project name
         :param bool ignore_warnings:
         :param str check_in_ticket:
-        :rtype: :class:`<Build> <build.models.Build>`
+        :rtype: :class:`<Build> <build.v4_1.models.Build>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if ignore_warnings is not None:
             query_parameters['ignoreWarnings'] = self._serialize.query('ignore_warnings', ignore_warnings, 'bool')
@@ -328,15 +337,16 @@ class BuildClient(VssClient):
     def update_build(self, build, build_id, project=None):
         """UpdateBuild.
         [Preview API] Updates a build.
-        :param :class:`<Build> <build.models.Build>` build: The build.
+        :param :class:`<Build> <build.v4_1.models.Build>` build: The build.
         :param int build_id: The ID of the build.
         :param str project: Project ID or project name
-        :rtype: :class:`<Build> <build.models.Build>`
+        :rtype: :class:`<Build> <build.v4_1.models.Build>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         content = self._serialize.body(build, 'Build')
         response = self._send(http_method='PATCH',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
@@ -352,9 +362,9 @@ class BuildClient(VssClient):
         :param str project: Project ID or project name
         :rtype: [Build]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         content = self._serialize.body(builds, '[Build]')
         response = self._send(http_method='PATCH',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
@@ -374,10 +384,11 @@ class BuildClient(VssClient):
         :param bool include_source_change:
         :rtype: [Change]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         query_parameters = {}
         if continuation_token is not None:
             query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
@@ -402,9 +413,9 @@ class BuildClient(VssClient):
         :param int top: The maximum number of changes to return.
         :rtype: [Change]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if from_build_id is not None:
             query_parameters['fromBuildId'] = self._serialize.query('from_build_id', from_build_id, 'int')
@@ -424,11 +435,11 @@ class BuildClient(VssClient):
         """GetBuildController.
         [Preview API] Gets a controller
         :param int controller_id:
-        :rtype: :class:`<BuildController> <build.models.BuildController>`
+        :rtype: :class:`<BuildController> <build.v4_1.models.BuildController>`
         """
-        route_values = {
-            'controllerId': self._serialize.url('controller_id', controller_id, 'int')
-        }
+        route_values = {}
+        if controller_id is not None:
+            route_values['controllerId'] = self._serialize.url('controller_id', controller_id, 'int')
         response = self._send(http_method='GET',
                               location_id='fcac1932-2ee1-437f-9b6f-7f696be858f6',
                               version='4.1-preview.2',
@@ -454,15 +465,15 @@ class BuildClient(VssClient):
     def create_definition(self, definition, project=None, definition_to_clone_id=None, definition_to_clone_revision=None):
         """CreateDefinition.
         [Preview API] Creates a new definition.
-        :param :class:`<BuildDefinition> <build.models.BuildDefinition>` definition: The definition.
+        :param :class:`<BuildDefinition> <build.v4_1.models.BuildDefinition>` definition: The definition.
         :param str project: Project ID or project name
         :param int definition_to_clone_id:
         :param int definition_to_clone_revision:
-        :rtype: :class:`<BuildDefinition> <build.models.BuildDefinition>`
+        :rtype: :class:`<BuildDefinition> <build.v4_1.models.BuildDefinition>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if definition_to_clone_id is not None:
             query_parameters['definitionToCloneId'] = self._serialize.query('definition_to_clone_id', definition_to_clone_id, 'int')
@@ -483,10 +494,11 @@ class BuildClient(VssClient):
         :param int definition_id: The ID of the definition.
         :param str project: Project ID or project name
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'definitionId': self._serialize.url('definition_id', definition_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
         self._send(http_method='DELETE',
                    location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
                    version='4.1-preview.6',
@@ -501,12 +513,13 @@ class BuildClient(VssClient):
         :param datetime min_metrics_time: If specified, indicates the date from which metrics should be included.
         :param [str] property_filters: A comma-delimited list of properties to include in the results.
         :param bool include_latest_builds:
-        :rtype: :class:`<BuildDefinition> <build.models.BuildDefinition>`
+        :rtype: :class:`<BuildDefinition> <build.v4_1.models.BuildDefinition>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'definitionId': self._serialize.url('definition_id', definition_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
         query_parameters = {}
         if revision is not None:
             query_parameters['revision'] = self._serialize.query('revision', revision, 'int')
@@ -544,9 +557,9 @@ class BuildClient(VssClient):
         :param str task_id_filter: If specified, filters to definitions that use the specified task.
         :rtype: [BuildDefinitionReference]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if name is not None:
             query_parameters['name'] = self._serialize.query('name', name, 'str')
@@ -588,17 +601,18 @@ class BuildClient(VssClient):
     def update_definition(self, definition, definition_id, project=None, secrets_source_definition_id=None, secrets_source_definition_revision=None):
         """UpdateDefinition.
         [Preview API] Updates an existing definition.
-        :param :class:`<BuildDefinition> <build.models.BuildDefinition>` definition: The new version of the defintion.
+        :param :class:`<BuildDefinition> <build.v4_1.models.BuildDefinition>` definition: The new version of the defintion.
         :param int definition_id: The ID of the definition.
         :param str project: Project ID or project name
         :param int secrets_source_definition_id:
         :param int secrets_source_definition_revision:
-        :rtype: :class:`<BuildDefinition> <build.models.BuildDefinition>`
+        :rtype: :class:`<BuildDefinition> <build.v4_1.models.BuildDefinition>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'definitionId': self._serialize.url('definition_id', definition_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
         query_parameters = {}
         if secrets_source_definition_id is not None:
             query_parameters['secretsSourceDefinitionId'] = self._serialize.query('secrets_source_definition_id', secrets_source_definition_id, 'int')
@@ -616,15 +630,16 @@ class BuildClient(VssClient):
     def create_folder(self, folder, project, path):
         """CreateFolder.
         [Preview API] Creates a new folder.
-        :param :class:`<Folder> <build.models.Folder>` folder: The folder.
+        :param :class:`<Folder> <build.v4_1.models.Folder>` folder: The folder.
         :param str project: Project ID or project name
         :param str path: The full path of the folder.
-        :rtype: :class:`<Folder> <build.models.Folder>`
+        :rtype: :class:`<Folder> <build.v4_1.models.Folder>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'path': self._serialize.url('path', path, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if path is not None:
+            route_values['path'] = self._serialize.url('path', path, 'str')
         content = self._serialize.body(folder, 'Folder')
         response = self._send(http_method='PUT',
                               location_id='a906531b-d2da-4f55-bda7-f3e676cc50d9',
@@ -639,10 +654,11 @@ class BuildClient(VssClient):
         :param str project: Project ID or project name
         :param str path: The full path to the folder.
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'path': self._serialize.url('path', path, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if path is not None:
+            route_values['path'] = self._serialize.url('path', path, 'str')
         self._send(http_method='DELETE',
                    location_id='a906531b-d2da-4f55-bda7-f3e676cc50d9',
                    version='4.1-preview.1',
@@ -656,10 +672,11 @@ class BuildClient(VssClient):
         :param FolderQueryOrder query_order: The order in which folders should be returned.
         :rtype: [Folder]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'path': self._serialize.url('path', path, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if path is not None:
+            route_values['path'] = self._serialize.url('path', path, 'str')
         query_parameters = {}
         if query_order is not None:
             query_parameters['queryOrder'] = self._serialize.query('query_order', query_order, 'FolderQueryOrder')
@@ -674,15 +691,16 @@ class BuildClient(VssClient):
     def update_folder(self, folder, project, path):
         """UpdateFolder.
         [Preview API] Updates an existing folder at given  existing path
-        :param :class:`<Folder> <build.models.Folder>` folder: The new version of the folder.
+        :param :class:`<Folder> <build.v4_1.models.Folder>` folder: The new version of the folder.
         :param str project: Project ID or project name
         :param str path: The full path to the folder.
-        :rtype: :class:`<Folder> <build.models.Folder>`
+        :rtype: :class:`<Folder> <build.v4_1.models.Folder>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'path': self._serialize.url('path', path, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if path is not None:
+            route_values['path'] = self._serialize.url('path', path, 'str')
         content = self._serialize.body(folder, 'Folder')
         response = self._send(http_method='POST',
                               location_id='a906531b-d2da-4f55-bda7-f3e676cc50d9',
@@ -701,11 +719,13 @@ class BuildClient(VssClient):
         :param long end_line: The end line.
         :rtype: object
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int'),
-            'logId': self._serialize.url('log_id', log_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
+        if log_id is not None:
+            route_values['logId'] = self._serialize.url('log_id', log_id, 'int')
         query_parameters = {}
         if start_line is not None:
             query_parameters['startLine'] = self._serialize.query('start_line', start_line, 'long')
@@ -728,11 +748,13 @@ class BuildClient(VssClient):
         :param long end_line: The end line.
         :rtype: [str]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int'),
-            'logId': self._serialize.url('log_id', log_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
+        if log_id is not None:
+            route_values['logId'] = self._serialize.url('log_id', log_id, 'int')
         query_parameters = {}
         if start_line is not None:
             query_parameters['startLine'] = self._serialize.query('start_line', start_line, 'long')
@@ -753,10 +775,11 @@ class BuildClient(VssClient):
         :param int build_id: The ID of the build.
         :rtype: [BuildLog]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         response = self._send(http_method='GET',
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
                               version='4.1-preview.2',
@@ -771,10 +794,11 @@ class BuildClient(VssClient):
         :param int build_id: The ID of the build.
         :rtype: object
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         response = self._send(http_method='GET',
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
                               version='4.1-preview.2',
@@ -789,10 +813,11 @@ class BuildClient(VssClient):
         :param datetime min_metrics_time: The date from which to calculate metrics.
         :rtype: [BuildMetric]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'metricAggregationType': self._serialize.url('metric_aggregation_type', metric_aggregation_type, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if metric_aggregation_type is not None:
+            route_values['metricAggregationType'] = self._serialize.url('metric_aggregation_type', metric_aggregation_type, 'str')
         query_parameters = {}
         if min_metrics_time is not None:
             query_parameters['minMetricsTime'] = self._serialize.query('min_metrics_time', min_metrics_time, 'datetime')
@@ -812,10 +837,11 @@ class BuildClient(VssClient):
         :param datetime min_metrics_time: The date from which to calculate metrics.
         :rtype: [BuildMetric]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'definitionId': self._serialize.url('definition_id', definition_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
         query_parameters = {}
         if min_metrics_time is not None:
             query_parameters['minMetricsTime'] = self._serialize.query('min_metrics_time', min_metrics_time, 'datetime')
@@ -833,9 +859,9 @@ class BuildClient(VssClient):
         :param str project: Project ID or project name
         :rtype: [BuildOptionDefinition]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='591cb5a4-2d46-4f3a-a697-5cd42b6bd332',
                               version='4.1-preview.2',
@@ -849,12 +875,13 @@ class BuildClient(VssClient):
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
         :param [str] filter: A comma-delimited list of properties. If specified, filters to these specific properties.
-        :rtype: :class:`<object> <build.models.object>`
+        :rtype: :class:`<object> <build.v4_1.models.object>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         query_parameters = {}
         if filter is not None:
             filter = ",".join(filter)
@@ -869,15 +896,16 @@ class BuildClient(VssClient):
     def update_build_properties(self, document, project, build_id):
         """UpdateBuildProperties.
         [Preview API] Updates properties for a build.
-        :param :class:`<[JsonPatchOperation]> <build.models.[JsonPatchOperation]>` document: A json-patch document describing the properties to update.
+        :param :class:`<[JsonPatchOperation]> <build.v4_1.models.[JsonPatchOperation]>` document: A json-patch document describing the properties to update.
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
-        :rtype: :class:`<object> <build.models.object>`
+        :rtype: :class:`<object> <build.v4_1.models.object>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         content = self._serialize.body(document, '[JsonPatchOperation]')
         response = self._send(http_method='PATCH',
                               location_id='0a6312e9-0627-49b7-8083-7d74a64849c9',
@@ -893,12 +921,13 @@ class BuildClient(VssClient):
         :param str project: Project ID or project name
         :param int definition_id: The ID of the definition.
         :param [str] filter: A comma-delimited list of properties. If specified, filters to these specific properties.
-        :rtype: :class:`<object> <build.models.object>`
+        :rtype: :class:`<object> <build.v4_1.models.object>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'definitionId': self._serialize.url('definition_id', definition_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
         query_parameters = {}
         if filter is not None:
             filter = ",".join(filter)
@@ -913,15 +942,16 @@ class BuildClient(VssClient):
     def update_definition_properties(self, document, project, definition_id):
         """UpdateDefinitionProperties.
         [Preview API] Updates properties for a definition.
-        :param :class:`<[JsonPatchOperation]> <build.models.[JsonPatchOperation]>` document: A json-patch document describing the properties to update.
+        :param :class:`<[JsonPatchOperation]> <build.v4_1.models.[JsonPatchOperation]>` document: A json-patch document describing the properties to update.
         :param str project: Project ID or project name
         :param int definition_id: The ID of the definition.
-        :rtype: :class:`<object> <build.models.object>`
+        :rtype: :class:`<object> <build.v4_1.models.object>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'definitionId': self._serialize.url('definition_id', definition_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
         content = self._serialize.body(document, '[JsonPatchOperation]')
         response = self._send(http_method='PATCH',
                               location_id='d9826ad7-2a68-46a9-a6e9-677698777895',
@@ -937,12 +967,13 @@ class BuildClient(VssClient):
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
         :param str type:
-        :rtype: :class:`<BuildReportMetadata> <build.models.BuildReportMetadata>`
+        :rtype: :class:`<BuildReportMetadata> <build.v4_1.models.BuildReportMetadata>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         query_parameters = {}
         if type is not None:
             query_parameters['type'] = self._serialize.query('type', type, 'str')
@@ -961,10 +992,11 @@ class BuildClient(VssClient):
         :param str type:
         :rtype: object
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         query_parameters = {}
         if type is not None:
             query_parameters['type'] = self._serialize.query('type', type, 'str')
@@ -978,7 +1010,7 @@ class BuildClient(VssClient):
     def get_resource_usage(self):
         """GetResourceUsage.
         [Preview API] Gets information about build resources in the system.
-        :rtype: :class:`<BuildResourceUsage> <build.models.BuildResourceUsage>`
+        :rtype: :class:`<BuildResourceUsage> <build.v4_1.models.BuildResourceUsage>`
         """
         response = self._send(http_method='GET',
                               location_id='3813d06c-9e36-4ea1-aac3-61a485d60e3d',
@@ -992,10 +1024,11 @@ class BuildClient(VssClient):
         :param int definition_id: The ID of the definition.
         :rtype: [BuildDefinitionRevision]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'definitionId': self._serialize.url('definition_id', definition_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
         response = self._send(http_method='GET',
                               location_id='7c116775-52e5-453e-8c5d-914d9762d8c4',
                               version='4.1-preview.2',
@@ -1006,7 +1039,7 @@ class BuildClient(VssClient):
     def get_build_settings(self):
         """GetBuildSettings.
         [Preview API] Gets the build settings.
-        :rtype: :class:`<BuildSettings> <build.models.BuildSettings>`
+        :rtype: :class:`<BuildSettings> <build.v4_1.models.BuildSettings>`
         """
         response = self._send(http_method='GET',
                               location_id='aa8c1c9c-ef8b-474a-b8c4-785c7b191d0d',
@@ -1016,8 +1049,8 @@ class BuildClient(VssClient):
     def update_build_settings(self, settings):
         """UpdateBuildSettings.
         [Preview API] Updates the build settings.
-        :param :class:`<BuildSettings> <build.models.BuildSettings>` settings: The new settings.
-        :rtype: :class:`<BuildSettings> <build.models.BuildSettings>`
+        :param :class:`<BuildSettings> <build.v4_1.models.BuildSettings>` settings: The new settings.
+        :rtype: :class:`<BuildSettings> <build.v4_1.models.BuildSettings>`
         """
         content = self._serialize.body(settings, 'BuildSettings')
         response = self._send(http_method='PATCH',
@@ -1034,11 +1067,13 @@ class BuildClient(VssClient):
         :param str tag: The tag to add.
         :rtype: [str]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int'),
-            'tag': self._serialize.url('tag', tag, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
+        if tag is not None:
+            route_values['tag'] = self._serialize.url('tag', tag, 'str')
         response = self._send(http_method='PUT',
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
                               version='4.1-preview.2',
@@ -1054,10 +1089,11 @@ class BuildClient(VssClient):
         :param int build_id: The ID of the build.
         :rtype: [str]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         content = self._serialize.body(tags, '[str]')
         response = self._send(http_method='POST',
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
@@ -1075,11 +1111,13 @@ class BuildClient(VssClient):
         :param str tag: The tag to remove.
         :rtype: [str]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int'),
-            'tag': self._serialize.url('tag', tag, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
+        if tag is not None:
+            route_values['tag'] = self._serialize.url('tag', tag, 'str')
         response = self._send(http_method='DELETE',
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
                               version='4.1-preview.2',
@@ -1094,10 +1132,11 @@ class BuildClient(VssClient):
         :param int build_id: The ID of the build.
         :rtype: [str]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         response = self._send(http_method='GET',
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
                               version='4.1-preview.2',
@@ -1113,11 +1152,13 @@ class BuildClient(VssClient):
         :param str tag: The tag to add.
         :rtype: [str]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'definitionId': self._serialize.url('definition_id', definition_id, 'int'),
-            'tag': self._serialize.url('tag', tag, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
+        if tag is not None:
+            route_values['tag'] = self._serialize.url('tag', tag, 'str')
         response = self._send(http_method='PUT',
                               location_id='cb894432-134a-4d31-a839-83beceaace4b',
                               version='4.1-preview.2',
@@ -1133,10 +1174,11 @@ class BuildClient(VssClient):
         :param int definition_id: The ID of the definition.
         :rtype: [str]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'definitionId': self._serialize.url('definition_id', definition_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
         content = self._serialize.body(tags, '[str]')
         response = self._send(http_method='POST',
                               location_id='cb894432-134a-4d31-a839-83beceaace4b',
@@ -1154,11 +1196,13 @@ class BuildClient(VssClient):
         :param str tag: The tag to remove.
         :rtype: [str]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'definitionId': self._serialize.url('definition_id', definition_id, 'int'),
-            'tag': self._serialize.url('tag', tag, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
+        if tag is not None:
+            route_values['tag'] = self._serialize.url('tag', tag, 'str')
         response = self._send(http_method='DELETE',
                               location_id='cb894432-134a-4d31-a839-83beceaace4b',
                               version='4.1-preview.2',
@@ -1174,10 +1218,11 @@ class BuildClient(VssClient):
         :param int revision: The definition revision number. If not specified, uses the latest revision of the definition.
         :rtype: [str]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'definitionId': self._serialize.url('definition_id', definition_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
         query_parameters = {}
         if revision is not None:
             query_parameters['revision'] = self._serialize.query('revision', revision, 'int')
@@ -1195,9 +1240,9 @@ class BuildClient(VssClient):
         :param str project: Project ID or project name
         :rtype: [str]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='d84ac5c6-edc7-43d5-adc9-1b34be5dea09',
                               version='4.1-preview.2',
@@ -1211,10 +1256,11 @@ class BuildClient(VssClient):
         :param str project: Project ID or project name
         :param str template_id: The ID of the template.
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'templateId': self._serialize.url('template_id', template_id, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if template_id is not None:
+            route_values['templateId'] = self._serialize.url('template_id', template_id, 'str')
         self._send(http_method='DELETE',
                    location_id='e884571e-7f92-4d6a-9274-3f5649900835',
                    version='4.1-preview.3',
@@ -1225,12 +1271,13 @@ class BuildClient(VssClient):
         [Preview API] Gets a specific build definition template.
         :param str project: Project ID or project name
         :param str template_id: The ID of the requested template.
-        :rtype: :class:`<BuildDefinitionTemplate> <build.models.BuildDefinitionTemplate>`
+        :rtype: :class:`<BuildDefinitionTemplate> <build.v4_1.models.BuildDefinitionTemplate>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'templateId': self._serialize.url('template_id', template_id, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if template_id is not None:
+            route_values['templateId'] = self._serialize.url('template_id', template_id, 'str')
         response = self._send(http_method='GET',
                               location_id='e884571e-7f92-4d6a-9274-3f5649900835',
                               version='4.1-preview.3',
@@ -1243,9 +1290,9 @@ class BuildClient(VssClient):
         :param str project: Project ID or project name
         :rtype: [BuildDefinitionTemplate]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='e884571e-7f92-4d6a-9274-3f5649900835',
                               version='4.1-preview.3',
@@ -1256,15 +1303,16 @@ class BuildClient(VssClient):
     def save_template(self, template, project, template_id):
         """SaveTemplate.
         [Preview API] Updates an existing build definition template.
-        :param :class:`<BuildDefinitionTemplate> <build.models.BuildDefinitionTemplate>` template: The new version of the template.
+        :param :class:`<BuildDefinitionTemplate> <build.v4_1.models.BuildDefinitionTemplate>` template: The new version of the template.
         :param str project: Project ID or project name
         :param str template_id: The ID of the template.
-        :rtype: :class:`<BuildDefinitionTemplate> <build.models.BuildDefinitionTemplate>`
+        :rtype: :class:`<BuildDefinitionTemplate> <build.v4_1.models.BuildDefinitionTemplate>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'templateId': self._serialize.url('template_id', template_id, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if template_id is not None:
+            route_values['templateId'] = self._serialize.url('template_id', template_id, 'str')
         content = self._serialize.body(template, 'BuildDefinitionTemplate')
         response = self._send(http_method='PUT',
                               location_id='e884571e-7f92-4d6a-9274-3f5649900835',
@@ -1281,13 +1329,15 @@ class BuildClient(VssClient):
         :param str timeline_id: The ID of the timeline. If not specified, uses the main timeline for the plan.
         :param int change_id:
         :param str plan_id: The ID of the plan. If not specified, uses the primary plan for the build.
-        :rtype: :class:`<Timeline> <build.models.Timeline>`
+        :rtype: :class:`<Timeline> <build.v4_1.models.Timeline>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int'),
-            'timelineId': self._serialize.url('timeline_id', timeline_id, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
+        if timeline_id is not None:
+            route_values['timelineId'] = self._serialize.url('timeline_id', timeline_id, 'str')
         query_parameters = {}
         if change_id is not None:
             query_parameters['changeId'] = self._serialize.query('change_id', change_id, 'int')
@@ -1308,10 +1358,11 @@ class BuildClient(VssClient):
         :param int top: The maximum number of work items to return.
         :rtype: [ResourceRef]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         query_parameters = {}
         if top is not None:
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
@@ -1332,10 +1383,11 @@ class BuildClient(VssClient):
         :param int top: The maximum number of work items to return, or the number of commits to consider if no commit IDs are specified.
         :rtype: [ResourceRef]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'buildId': self._serialize.url('build_id', build_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         query_parameters = {}
         if top is not None:
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
@@ -1358,9 +1410,9 @@ class BuildClient(VssClient):
         :param int top: The maximum number of work items to return.
         :rtype: [ResourceRef]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if from_build_id is not None:
             query_parameters['fromBuildId'] = self._serialize.query('from_build_id', from_build_id, 'int')

@@ -13,9 +13,9 @@ class GitItem(ItemModel):
     """GitItem.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
     :param content_metadata:
-    :type content_metadata: :class:`FileContentMetadata <git.models.FileContentMetadata>`
+    :type content_metadata: :class:`FileContentMetadata <git.v4_1.models.FileContentMetadata>`
     :param is_folder:
     :type is_folder: bool
     :param is_sym_link:
@@ -29,7 +29,7 @@ class GitItem(ItemModel):
     :param git_object_type: Type of object (Commit, Tree, Blob, Tag, ...)
     :type git_object_type: object
     :param latest_processed_change: Shallow ref to commit that last changed this item Only populated if latestProcessedChange is requested May not be accurate if latest change is not yet cached
-    :type latest_processed_change: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type latest_processed_change: :class:`GitCommitRef <git.v4_1.models.GitCommitRef>`
     :param object_id: Git object id
     :type object_id: str
     :param original_object_id: Git object id

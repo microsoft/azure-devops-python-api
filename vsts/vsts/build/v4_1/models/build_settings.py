@@ -15,9 +15,9 @@ class BuildSettings(Model):
     :param days_to_keep_deleted_builds_before_destroy: The number of days to keep records of deleted builds.
     :type days_to_keep_deleted_builds_before_destroy: int
     :param default_retention_policy: The default retention policy.
-    :type default_retention_policy: :class:`RetentionPolicy <build.models.RetentionPolicy>`
+    :type default_retention_policy: :class:`RetentionPolicy <build.v4_1.models.RetentionPolicy>`
     :param maximum_retention_policy: The maximum retention policy.
-    :type maximum_retention_policy: :class:`RetentionPolicy <build.models.RetentionPolicy>`
+    :type maximum_retention_policy: :class:`RetentionPolicy <build.v4_1.models.RetentionPolicy>`
     """
 
     _attribute_map = {

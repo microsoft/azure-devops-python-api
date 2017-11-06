@@ -15,13 +15,13 @@ class CommentTrackingCriteria(Model):
     :param first_comparing_iteration: The first comparing iteration being viewed. Threads will be tracked if this is greater than 0.
     :type first_comparing_iteration: int
     :param orig_left_file_end: Original position of last character of the comment in left file.
-    :type orig_left_file_end: :class:`CommentPosition <git.models.CommentPosition>`
+    :type orig_left_file_end: :class:`CommentPosition <git.v4_0.models.CommentPosition>`
     :param orig_left_file_start: Original position of first character of the comment in left file.
-    :type orig_left_file_start: :class:`CommentPosition <git.models.CommentPosition>`
+    :type orig_left_file_start: :class:`CommentPosition <git.v4_0.models.CommentPosition>`
     :param orig_right_file_end: Original position of last character of the comment in right file.
-    :type orig_right_file_end: :class:`CommentPosition <git.models.CommentPosition>`
+    :type orig_right_file_end: :class:`CommentPosition <git.v4_0.models.CommentPosition>`
     :param orig_right_file_start: Original position of first character of the comment in right file.
-    :type orig_right_file_start: :class:`CommentPosition <git.models.CommentPosition>`
+    :type orig_right_file_start: :class:`CommentPosition <git.v4_0.models.CommentPosition>`
     :param second_comparing_iteration: The second comparing iteration being viewed. Threads will be tracked if this is greater than 0.
     :type second_comparing_iteration: int
     """

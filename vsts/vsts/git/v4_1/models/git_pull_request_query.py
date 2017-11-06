@@ -13,7 +13,7 @@ class GitPullRequestQuery(Model):
     """GitPullRequestQuery.
 
     :param queries: The queries to perform.
-    :type queries: list of :class:`GitPullRequestQueryInput <git.models.GitPullRequestQueryInput>`
+    :type queries: list of :class:`GitPullRequestQueryInput <git.v4_1.models.GitPullRequestQueryInput>`
     :param results: The results of the queries. This matches the QueryInputs list so Results[n] are the results of QueryInputs[n]. Each entry in the list is a dictionary of commit->pull requests.
     :type results: list of {[GitPullRequest]}
     """

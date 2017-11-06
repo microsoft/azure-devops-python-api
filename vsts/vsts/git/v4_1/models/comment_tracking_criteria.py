@@ -17,13 +17,13 @@ class CommentTrackingCriteria(Model):
     :param orig_file_path: Original filepath the thread was created on before tracking. This will be different than the current thread filepath if the file in question was renamed in a later iteration.
     :type orig_file_path: str
     :param orig_left_file_end: Original position of last character of the thread's span in left file.
-    :type orig_left_file_end: :class:`CommentPosition <git.models.CommentPosition>`
+    :type orig_left_file_end: :class:`CommentPosition <git.v4_1.models.CommentPosition>`
     :param orig_left_file_start: Original position of first character of the thread's span in left file.
-    :type orig_left_file_start: :class:`CommentPosition <git.models.CommentPosition>`
+    :type orig_left_file_start: :class:`CommentPosition <git.v4_1.models.CommentPosition>`
     :param orig_right_file_end: Original position of last character of the thread's span in right file.
-    :type orig_right_file_end: :class:`CommentPosition <git.models.CommentPosition>`
+    :type orig_right_file_end: :class:`CommentPosition <git.v4_1.models.CommentPosition>`
     :param orig_right_file_start: Original position of first character of the thread's span in right file.
-    :type orig_right_file_start: :class:`CommentPosition <git.models.CommentPosition>`
+    :type orig_right_file_start: :class:`CommentPosition <git.v4_1.models.CommentPosition>`
     :param second_comparing_iteration: The iteration of the file on the right side of the diff that the thread will be tracked to. Threads were tracked if this is greater than 0.
     :type second_comparing_iteration: int
     """

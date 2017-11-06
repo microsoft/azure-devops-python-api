@@ -27,15 +27,16 @@ class PolicyClient(VssClient):
 
     def create_policy_configuration(self, configuration, project, configuration_id=None):
         """CreatePolicyConfiguration.
-        :param :class:`<PolicyConfiguration> <policy.models.PolicyConfiguration>` configuration:
+        :param :class:`<PolicyConfiguration> <policy.v4_0.models.PolicyConfiguration>` configuration:
         :param str project: Project ID or project name
         :param int configuration_id:
-        :rtype: :class:`<PolicyConfiguration> <policy.models.PolicyConfiguration>`
+        :rtype: :class:`<PolicyConfiguration> <policy.v4_0.models.PolicyConfiguration>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'configurationId': self._serialize.url('configuration_id', configuration_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if configuration_id is not None:
+            route_values['configurationId'] = self._serialize.url('configuration_id', configuration_id, 'int')
         content = self._serialize.body(configuration, 'PolicyConfiguration')
         response = self._send(http_method='POST',
                               location_id='dad91cbe-d183-45f8-9c6e-9c1164472121',
@@ -49,10 +50,11 @@ class PolicyClient(VssClient):
         :param str project: Project ID or project name
         :param int configuration_id:
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'configurationId': self._serialize.url('configuration_id', configuration_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if configuration_id is not None:
+            route_values['configurationId'] = self._serialize.url('configuration_id', configuration_id, 'int')
         self._send(http_method='DELETE',
                    location_id='dad91cbe-d183-45f8-9c6e-9c1164472121',
                    version='4.0',
@@ -62,12 +64,13 @@ class PolicyClient(VssClient):
         """GetPolicyConfiguration.
         :param str project: Project ID or project name
         :param int configuration_id:
-        :rtype: :class:`<PolicyConfiguration> <policy.models.PolicyConfiguration>`
+        :rtype: :class:`<PolicyConfiguration> <policy.v4_0.models.PolicyConfiguration>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'configurationId': self._serialize.url('configuration_id', configuration_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if configuration_id is not None:
+            route_values['configurationId'] = self._serialize.url('configuration_id', configuration_id, 'int')
         response = self._send(http_method='GET',
                               location_id='dad91cbe-d183-45f8-9c6e-9c1164472121',
                               version='4.0',
@@ -80,9 +83,9 @@ class PolicyClient(VssClient):
         :param str scope:
         :rtype: [PolicyConfiguration]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if scope is not None:
             query_parameters['scope'] = self._serialize.query('scope', scope, 'str')
@@ -96,15 +99,16 @@ class PolicyClient(VssClient):
 
     def update_policy_configuration(self, configuration, project, configuration_id):
         """UpdatePolicyConfiguration.
-        :param :class:`<PolicyConfiguration> <policy.models.PolicyConfiguration>` configuration:
+        :param :class:`<PolicyConfiguration> <policy.v4_0.models.PolicyConfiguration>` configuration:
         :param str project: Project ID or project name
         :param int configuration_id:
-        :rtype: :class:`<PolicyConfiguration> <policy.models.PolicyConfiguration>`
+        :rtype: :class:`<PolicyConfiguration> <policy.v4_0.models.PolicyConfiguration>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'configurationId': self._serialize.url('configuration_id', configuration_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if configuration_id is not None:
+            route_values['configurationId'] = self._serialize.url('configuration_id', configuration_id, 'int')
         content = self._serialize.body(configuration, 'PolicyConfiguration')
         response = self._send(http_method='PUT',
                               location_id='dad91cbe-d183-45f8-9c6e-9c1164472121',
@@ -118,12 +122,13 @@ class PolicyClient(VssClient):
         [Preview API]
         :param str project: Project ID or project name
         :param str evaluation_id:
-        :rtype: :class:`<PolicyEvaluationRecord> <policy.models.PolicyEvaluationRecord>`
+        :rtype: :class:`<PolicyEvaluationRecord> <policy.v4_0.models.PolicyEvaluationRecord>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'evaluationId': self._serialize.url('evaluation_id', evaluation_id, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if evaluation_id is not None:
+            route_values['evaluationId'] = self._serialize.url('evaluation_id', evaluation_id, 'str')
         response = self._send(http_method='GET',
                               location_id='46aecb7a-5d2c-4647-897b-0209505a9fe4',
                               version='4.0-preview.1',
@@ -135,12 +140,13 @@ class PolicyClient(VssClient):
         [Preview API]
         :param str project: Project ID or project name
         :param str evaluation_id:
-        :rtype: :class:`<PolicyEvaluationRecord> <policy.models.PolicyEvaluationRecord>`
+        :rtype: :class:`<PolicyEvaluationRecord> <policy.v4_0.models.PolicyEvaluationRecord>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'evaluationId': self._serialize.url('evaluation_id', evaluation_id, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if evaluation_id is not None:
+            route_values['evaluationId'] = self._serialize.url('evaluation_id', evaluation_id, 'str')
         response = self._send(http_method='PATCH',
                               location_id='46aecb7a-5d2c-4647-897b-0209505a9fe4',
                               version='4.0-preview.1',
@@ -157,9 +163,9 @@ class PolicyClient(VssClient):
         :param int skip:
         :rtype: [PolicyEvaluationRecord]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if artifact_id is not None:
             query_parameters['artifactId'] = self._serialize.query('artifact_id', artifact_id, 'str')
@@ -182,13 +188,15 @@ class PolicyClient(VssClient):
         :param str project: Project ID or project name
         :param int configuration_id:
         :param int revision_id:
-        :rtype: :class:`<PolicyConfiguration> <policy.models.PolicyConfiguration>`
+        :rtype: :class:`<PolicyConfiguration> <policy.v4_0.models.PolicyConfiguration>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'configurationId': self._serialize.url('configuration_id', configuration_id, 'int'),
-            'revisionId': self._serialize.url('revision_id', revision_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if configuration_id is not None:
+            route_values['configurationId'] = self._serialize.url('configuration_id', configuration_id, 'int')
+        if revision_id is not None:
+            route_values['revisionId'] = self._serialize.url('revision_id', revision_id, 'int')
         response = self._send(http_method='GET',
                               location_id='fe1e68a2-60d3-43cb-855b-85e41ae97c95',
                               version='4.0',
@@ -203,10 +211,11 @@ class PolicyClient(VssClient):
         :param int skip:
         :rtype: [PolicyConfiguration]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'configurationId': self._serialize.url('configuration_id', configuration_id, 'int')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if configuration_id is not None:
+            route_values['configurationId'] = self._serialize.url('configuration_id', configuration_id, 'int')
         query_parameters = {}
         if top is not None:
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
@@ -224,12 +233,13 @@ class PolicyClient(VssClient):
         """GetPolicyType.
         :param str project: Project ID or project name
         :param str type_id:
-        :rtype: :class:`<PolicyType> <policy.models.PolicyType>`
+        :rtype: :class:`<PolicyType> <policy.v4_0.models.PolicyType>`
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str'),
-            'typeId': self._serialize.url('type_id', type_id, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if type_id is not None:
+            route_values['typeId'] = self._serialize.url('type_id', type_id, 'str')
         response = self._send(http_method='GET',
                               location_id='44096322-2d3d-466a-bb30-d1b7de69f61f',
                               version='4.0',
@@ -241,9 +251,9 @@ class PolicyClient(VssClient):
         :param str project: Project ID or project name
         :rtype: [PolicyType]
         """
-        route_values = {
-            'project': self._serialize.url('project', project, 'str')
-        }
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='44096322-2d3d-466a-bb30-d1b7de69f61f',
                               version='4.0',

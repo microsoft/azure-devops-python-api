@@ -13,11 +13,11 @@ class ProcessParameters(Model):
     """ProcessParameters.
 
     :param data_source_bindings:
-    :type data_source_bindings: list of :class:`DataSourceBindingBase <microsoft.-team-foundation.-distributed-task.-common.-contracts.models.DataSourceBindingBase>`
+    :type data_source_bindings: list of :class:`DataSourceBindingBase <microsoft.-team-foundation.-distributed-task.-common.-contracts.v4_0.models.DataSourceBindingBase>`
     :param inputs:
-    :type inputs: list of :class:`TaskInputDefinitionBase <microsoft.-team-foundation.-distributed-task.-common.-contracts.models.TaskInputDefinitionBase>`
+    :type inputs: list of :class:`TaskInputDefinitionBase <microsoft.-team-foundation.-distributed-task.-common.-contracts.v4_0.models.TaskInputDefinitionBase>`
     :param source_definitions:
-    :type source_definitions: list of :class:`TaskSourceDefinitionBase <microsoft.-team-foundation.-distributed-task.-common.-contracts.models.TaskSourceDefinitionBase>`
+    :type source_definitions: list of :class:`TaskSourceDefinitionBase <microsoft.-team-foundation.-distributed-task.-common.-contracts.v4_0.models.TaskSourceDefinitionBase>`
     """
 
     _attribute_map = {

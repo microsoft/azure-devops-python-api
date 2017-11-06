@@ -15,7 +15,7 @@ class AccountMyWorkResult(Model):
     :param query_size_limit_exceeded: True, when length of WorkItemDetails is same as the limit
     :type query_size_limit_exceeded: bool
     :param work_item_details: WorkItem Details
-    :type work_item_details: list of :class:`AccountWorkWorkItemModel <work-item-tracking.models.AccountWorkWorkItemModel>`
+    :type work_item_details: list of :class:`AccountWorkWorkItemModel <work-item-tracking.v4_1.models.AccountWorkWorkItemModel>`
     """
 
     _attribute_map = {

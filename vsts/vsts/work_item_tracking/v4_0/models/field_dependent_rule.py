@@ -15,9 +15,9 @@ class FieldDependentRule(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
     :param dependent_fields:
-    :type dependent_fields: list of :class:`WorkItemFieldReference <work-item-tracking.models.WorkItemFieldReference>`
+    :type dependent_fields: list of :class:`WorkItemFieldReference <work-item-tracking.v4_0.models.WorkItemFieldReference>`
     """
 
     _attribute_map = {

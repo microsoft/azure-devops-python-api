@@ -31,7 +31,7 @@ class LocationClient(VssClient):
         :param ConnectOptions connect_options:
         :param int last_change_id: Obsolete 32-bit LastChangeId
         :param long last_change_id64: Non-truncated 64-bit LastChangeId
-        :rtype: :class:`<ConnectionData> <location.models.ConnectionData>`
+        :rtype: :class:`<ConnectionData> <location.v4_1.models.ConnectionData>`
         """
         query_parameters = {}
         if connect_options is not None:
@@ -50,11 +50,11 @@ class LocationClient(VssClient):
         """GetResourceArea.
         [Preview API]
         :param str area_id:
-        :rtype: :class:`<ResourceAreaInfo> <location.models.ResourceAreaInfo>`
+        :rtype: :class:`<ResourceAreaInfo> <location.v4_1.models.ResourceAreaInfo>`
         """
-        route_values = {
-            'areaId': self._serialize.url('area_id', area_id, 'str')
-        }
+        route_values = {}
+        if area_id is not None:
+            route_values['areaId'] = self._serialize.url('area_id', area_id, 'str')
         response = self._send(http_method='GET',
                               location_id='e81700f7-3be2-46de-8624-2eb35882fcaa',
                               version='4.1-preview.1',
@@ -78,10 +78,11 @@ class LocationClient(VssClient):
         :param str service_type:
         :param str identifier:
         """
-        route_values = {
-            'serviceType': self._serialize.url('service_type', service_type, 'str'),
-            'identifier': self._serialize.url('identifier', identifier, 'str')
-        }
+        route_values = {}
+        if service_type is not None:
+            route_values['serviceType'] = self._serialize.url('service_type', service_type, 'str')
+        if identifier is not None:
+            route_values['identifier'] = self._serialize.url('identifier', identifier, 'str')
         self._send(http_method='DELETE',
                    location_id='d810a47d-f4f4-4a62-a03f-fa1860585c4c',
                    version='4.1-preview.1',
@@ -94,12 +95,13 @@ class LocationClient(VssClient):
         :param str identifier:
         :param bool allow_fault_in: If true, we will attempt to fault in a host instance mapping if in SPS.
         :param bool preview_fault_in: If true, we will calculate and return a host instance mapping, but not persist it.
-        :rtype: :class:`<ServiceDefinition> <location.models.ServiceDefinition>`
+        :rtype: :class:`<ServiceDefinition> <location.v4_1.models.ServiceDefinition>`
         """
-        route_values = {
-            'serviceType': self._serialize.url('service_type', service_type, 'str'),
-            'identifier': self._serialize.url('identifier', identifier, 'str')
-        }
+        route_values = {}
+        if service_type is not None:
+            route_values['serviceType'] = self._serialize.url('service_type', service_type, 'str')
+        if identifier is not None:
+            route_values['identifier'] = self._serialize.url('identifier', identifier, 'str')
         query_parameters = {}
         if allow_fault_in is not None:
             query_parameters['allowFaultIn'] = self._serialize.query('allow_fault_in', allow_fault_in, 'bool')
@@ -118,9 +120,9 @@ class LocationClient(VssClient):
         :param str service_type:
         :rtype: [ServiceDefinition]
         """
-        route_values = {
-            'serviceType': self._serialize.url('service_type', service_type, 'str')
-        }
+        route_values = {}
+        if service_type is not None:
+            route_values['serviceType'] = self._serialize.url('service_type', service_type, 'str')
         response = self._send(http_method='GET',
                               location_id='d810a47d-f4f4-4a62-a03f-fa1860585c4c',
                               version='4.1-preview.1',
@@ -131,7 +133,7 @@ class LocationClient(VssClient):
     def update_service_definitions(self, service_definitions):
         """UpdateServiceDefinitions.
         [Preview API]
-        :param :class:`<VssJsonCollectionWrapper> <location.models.VssJsonCollectionWrapper>` service_definitions:
+        :param :class:`<VssJsonCollectionWrapper> <location.v4_1.models.VssJsonCollectionWrapper>` service_definitions:
         """
         content = self._serialize.body(service_definitions, 'VssJsonCollectionWrapper')
         self._send(http_method='PATCH',

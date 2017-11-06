@@ -19,7 +19,7 @@ class PolicyType(PolicyTypeRef):
     :param url: The URL where the policy type can be retrieved.
     :type url: str
     :param _links: The links to other objects related to this object.
-    :type _links: :class:`ReferenceLinks <policy.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <policy.v4_1.models.ReferenceLinks>`
     :param description: Detailed description of the policy type.
     :type description: str
     """

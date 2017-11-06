@@ -23,7 +23,7 @@ class Timeline(TimelineReference):
     :param last_changed_on:
     :type last_changed_on: datetime
     :param records:
-    :type records: list of :class:`TimelineRecord <build.models.TimelineRecord>`
+    :type records: list of :class:`TimelineRecord <build.v4_0.models.TimelineRecord>`
     """
 
     _attribute_map = {

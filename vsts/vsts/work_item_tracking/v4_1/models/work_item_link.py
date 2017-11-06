@@ -15,9 +15,9 @@ class WorkItemLink(Model):
     :param rel:
     :type rel: str
     :param source:
-    :type source: :class:`WorkItemReference <work-item-tracking.models.WorkItemReference>`
+    :type source: :class:`WorkItemReference <work-item-tracking.v4_1.models.WorkItemReference>`
     :param target:
-    :type target: :class:`WorkItemReference <work-item-tracking.models.WorkItemReference>`
+    :type target: :class:`WorkItemReference <work-item-tracking.v4_1.models.WorkItemReference>`
     """
 
     _attribute_map = {

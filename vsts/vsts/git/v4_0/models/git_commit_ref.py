@@ -13,13 +13,13 @@ class GitCommitRef(Model):
     """GitCommitRef.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_0.models.ReferenceLinks>`
     :param author:
-    :type author: :class:`GitUserDate <git.models.GitUserDate>`
+    :type author: :class:`GitUserDate <git.v4_0.models.GitUserDate>`
     :param change_counts:
-    :type change_counts: :class:`ChangeCountDictionary <git.models.ChangeCountDictionary>`
+    :type change_counts: :class:`ChangeCountDictionary <git.v4_0.models.ChangeCountDictionary>`
     :param changes:
-    :type changes: list of :class:`GitChange <git.models.GitChange>`
+    :type changes: list of :class:`GitChange <git.v4_0.models.GitChange>`
     :param comment:
     :type comment: str
     :param comment_truncated:
@@ -27,17 +27,17 @@ class GitCommitRef(Model):
     :param commit_id:
     :type commit_id: str
     :param committer:
-    :type committer: :class:`GitUserDate <git.models.GitUserDate>`
+    :type committer: :class:`GitUserDate <git.v4_0.models.GitUserDate>`
     :param parents:
     :type parents: list of str
     :param remote_url:
     :type remote_url: str
     :param statuses:
-    :type statuses: list of :class:`GitStatus <git.models.GitStatus>`
+    :type statuses: list of :class:`GitStatus <git.v4_0.models.GitStatus>`
     :param url:
     :type url: str
     :param work_items:
-    :type work_items: list of :class:`ResourceRef <git.models.ResourceRef>`
+    :type work_items: list of :class:`ResourceRef <git.v4_0.models.ResourceRef>`
     """
 
     _attribute_map = {

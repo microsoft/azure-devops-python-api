@@ -13,13 +13,13 @@ class GitRepositoryRef(Model):
     """GitRepositoryRef.
 
     :param collection: Team Project Collection where this Fork resides
-    :type collection: :class:`TeamProjectCollectionReference <git.models.TeamProjectCollectionReference>`
+    :type collection: :class:`TeamProjectCollectionReference <git.v4_0.models.TeamProjectCollectionReference>`
     :param id:
     :type id: str
     :param name:
     :type name: str
     :param project:
-    :type project: :class:`TeamProjectReference <git.models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <git.v4_0.models.TeamProjectReference>`
     :param remote_url:
     :type remote_url: str
     :param url:

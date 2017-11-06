@@ -15,7 +15,7 @@ class GitPullRequestChange(GitChange):
     :param change_id: Id of the change within the group.  For example, within the iteration
     :type change_id: int
     :param new_content_template: New Content template to be used
-    :type new_content_template: :class:`GitTemplate <git.models.GitTemplate>`
+    :type new_content_template: :class:`GitTemplate <git.v4_0.models.GitTemplate>`
     :param original_path: Original path of item if different from current path
     :type original_path: str
     :param change_tracking_id: Id used to track files through multiple changes

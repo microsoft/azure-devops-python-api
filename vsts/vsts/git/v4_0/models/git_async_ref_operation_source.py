@@ -13,7 +13,7 @@ class GitAsyncRefOperationSource(Model):
     """GitAsyncRefOperationSource.
 
     :param commit_list:
-    :type commit_list: list of :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type commit_list: list of :class:`GitCommitRef <git.v4_0.models.GitCommitRef>`
     :param pull_request_id:
     :type pull_request_id: int
     """

@@ -13,7 +13,7 @@ class GitAsyncRefOperationSource(Model):
     """GitAsyncRefOperationSource.
 
     :param commit_list: A list of commits to cherry pick or revert
-    :type commit_list: list of :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type commit_list: list of :class:`GitCommitRef <git.v4_1.models.GitCommitRef>`
     :param pull_request_id: Id of the pull request to cherry pick or revert
     :type pull_request_id: int
     """

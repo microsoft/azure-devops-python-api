@@ -13,15 +13,15 @@ class GitPullRequestIteration(Model):
     """GitPullRequestIteration.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_0.models.ReferenceLinks>`
     :param author:
-    :type author: :class:`IdentityRef <git.models.IdentityRef>`
+    :type author: :class:`IdentityRef <git.v4_0.models.IdentityRef>`
     :param change_list:
-    :type change_list: list of :class:`GitPullRequestChange <git.models.GitPullRequestChange>`
+    :type change_list: list of :class:`GitPullRequestChange <git.v4_0.models.GitPullRequestChange>`
     :param commits:
-    :type commits: list of :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type commits: list of :class:`GitCommitRef <git.v4_0.models.GitCommitRef>`
     :param common_ref_commit:
-    :type common_ref_commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type common_ref_commit: :class:`GitCommitRef <git.v4_0.models.GitCommitRef>`
     :param created_date:
     :type created_date: datetime
     :param description:
@@ -31,13 +31,13 @@ class GitPullRequestIteration(Model):
     :param id:
     :type id: int
     :param push:
-    :type push: :class:`GitPushRef <git.models.GitPushRef>`
+    :type push: :class:`GitPushRef <git.v4_0.models.GitPushRef>`
     :param reason:
     :type reason: object
     :param source_ref_commit:
-    :type source_ref_commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type source_ref_commit: :class:`GitCommitRef <git.v4_0.models.GitCommitRef>`
     :param target_ref_commit:
-    :type target_ref_commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type target_ref_commit: :class:`GitCommitRef <git.v4_0.models.GitCommitRef>`
     :param updated_date:
     :type updated_date: datetime
     """

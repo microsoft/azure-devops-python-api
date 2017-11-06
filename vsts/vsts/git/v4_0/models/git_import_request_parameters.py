@@ -15,11 +15,11 @@ class GitImportRequestParameters(Model):
     :param delete_service_endpoint_after_import_is_done: Option to delete service endpoint when import is done
     :type delete_service_endpoint_after_import_is_done: bool
     :param git_source: Source for importing git repository
-    :type git_source: :class:`GitImportGitSource <git.models.GitImportGitSource>`
+    :type git_source: :class:`GitImportGitSource <git.v4_0.models.GitImportGitSource>`
     :param service_endpoint_id: Service Endpoint for connection to external endpoint
     :type service_endpoint_id: str
     :param tfvc_source: Source for importing tfvc repository
-    :type tfvc_source: :class:`GitImportTfvcSource <git.models.GitImportTfvcSource>`
+    :type tfvc_source: :class:`GitImportTfvcSource <git.v4_0.models.GitImportTfvcSource>`
     """
 
     _attribute_map = {

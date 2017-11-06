@@ -17,7 +17,7 @@ class Process(ProcessReference):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <core.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <core.v4_1.models.ReferenceLinks>`
     :param description:
     :type description: str
     :param id:

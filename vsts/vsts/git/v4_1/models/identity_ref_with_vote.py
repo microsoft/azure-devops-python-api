@@ -39,7 +39,7 @@ class IdentityRefWithVote(IdentityRef):
     :param vote: Vote on a pull request:<br /> 10 - approved 5 - approved with suggestions 0 - no vote -5 - waiting for author -10 - rejected
     :type vote: int
     :param voted_for: Groups or teams that that this reviewer contributed to. <br /> Groups and teams can be reviewers on pull requests but can not vote directly.  When a member of the group or team votes, that vote is rolled up into the group or team vote.  VotedFor is a list of such votes.
-    :type voted_for: list of :class:`IdentityRefWithVote <git.models.IdentityRefWithVote>`
+    :type voted_for: list of :class:`IdentityRefWithVote <git.v4_1.models.IdentityRefWithVote>`
     """
 
     _attribute_map = {

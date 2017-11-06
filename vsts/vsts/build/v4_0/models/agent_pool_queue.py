@@ -13,13 +13,13 @@ class AgentPoolQueue(Model):
     """AgentPoolQueue.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <build.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <build.v4_0.models.ReferenceLinks>`
     :param id: Id of the resource
     :type id: int
     :param name: Name of the linked resource (definition name, controller name, etc.)
     :type name: str
     :param pool: The pool used by this queue.
-    :type pool: :class:`TaskAgentPoolReference <build.models.TaskAgentPoolReference>`
+    :type pool: :class:`TaskAgentPoolReference <build.v4_0.models.TaskAgentPoolReference>`
     :param url: Full http link to the resource
     :type url: str
     """

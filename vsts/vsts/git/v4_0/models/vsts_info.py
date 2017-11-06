@@ -13,9 +13,9 @@ class VstsInfo(Model):
     """VstsInfo.
 
     :param collection:
-    :type collection: :class:`TeamProjectCollectionReference <git.models.TeamProjectCollectionReference>`
+    :type collection: :class:`TeamProjectCollectionReference <git.v4_0.models.TeamProjectCollectionReference>`
     :param repository:
-    :type repository: :class:`GitRepository <git.models.GitRepository>`
+    :type repository: :class:`GitRepository <git.v4_0.models.GitRepository>`
     :param server_url:
     :type server_url: str
     """

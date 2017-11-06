@@ -13,9 +13,9 @@ class GitQueryBranchStatsCriteria(Model):
     """GitQueryBranchStatsCriteria.
 
     :param base_commit:
-    :type base_commit: :class:`GitVersionDescriptor <git.models.GitVersionDescriptor>`
+    :type base_commit: :class:`GitVersionDescriptor <git.v4_1.models.GitVersionDescriptor>`
     :param target_commits:
-    :type target_commits: list of :class:`GitVersionDescriptor <git.models.GitVersionDescriptor>`
+    :type target_commits: list of :class:`GitVersionDescriptor <git.v4_1.models.GitVersionDescriptor>`
     """
 
     _attribute_map = {

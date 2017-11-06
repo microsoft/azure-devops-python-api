@@ -17,9 +17,9 @@ class BuildOptionDefinition(BuildOptionDefinitionReference):
     :param description: The description.
     :type description: str
     :param groups: The list of input groups defined for the build option.
-    :type groups: list of :class:`BuildOptionGroupDefinition <build.models.BuildOptionGroupDefinition>`
+    :type groups: list of :class:`BuildOptionGroupDefinition <build.v4_1.models.BuildOptionGroupDefinition>`
     :param inputs: The list of inputs defined for the build option.
-    :type inputs: list of :class:`BuildOptionInputDefinition <build.models.BuildOptionInputDefinition>`
+    :type inputs: list of :class:`BuildOptionInputDefinition <build.v4_1.models.BuildOptionInputDefinition>`
     :param name: The name of the build option.
     :type name: str
     :param ordinal: A value that indicates the relative order in which the behavior should be applied.

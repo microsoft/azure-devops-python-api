@@ -15,7 +15,7 @@ class WorkItemField(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
     :param description:
     :type description: str
     :param is_identity:
@@ -31,7 +31,7 @@ class WorkItemField(WorkItemTrackingResource):
     :param reference_name:
     :type reference_name: str
     :param supported_operations:
-    :type supported_operations: list of :class:`WorkItemFieldOperation <work-item-tracking.models.WorkItemFieldOperation>`
+    :type supported_operations: list of :class:`WorkItemFieldOperation <work-item-tracking.v4_0.models.WorkItemFieldOperation>`
     :param type:
     :type type: object
     """

@@ -15,13 +15,13 @@ class CommentThreadContext(Model):
     :param file_path: File path relative to the root of the repository. It's up to the client to use any path format.
     :type file_path: str
     :param left_file_end: Position of last character of the comment in left file.
-    :type left_file_end: :class:`CommentPosition <git.models.CommentPosition>`
+    :type left_file_end: :class:`CommentPosition <git.v4_0.models.CommentPosition>`
     :param left_file_start: Position of first character of the comment in left file.
-    :type left_file_start: :class:`CommentPosition <git.models.CommentPosition>`
+    :type left_file_start: :class:`CommentPosition <git.v4_0.models.CommentPosition>`
     :param right_file_end: Position of last character of the comment in right file.
-    :type right_file_end: :class:`CommentPosition <git.models.CommentPosition>`
+    :type right_file_end: :class:`CommentPosition <git.v4_0.models.CommentPosition>`
     :param right_file_start: Position of first character of the comment in right file.
-    :type right_file_start: :class:`CommentPosition <git.models.CommentPosition>`
+    :type right_file_start: :class:`CommentPosition <git.v4_0.models.CommentPosition>`
     """
 
     _attribute_map = {

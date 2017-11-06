@@ -23,7 +23,7 @@ class GitCommitDiffs(Model):
     :param change_counts:
     :type change_counts: dict
     :param changes:
-    :type changes: list of :class:`GitChange <git.models.GitChange>`
+    :type changes: list of :class:`GitChange <git.v4_1.models.GitChange>`
     :param common_commit:
     :type common_commit: str
     :param target_commit:

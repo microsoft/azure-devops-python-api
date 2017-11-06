@@ -21,7 +21,7 @@ class BuildDefinitionReference(DefinitionReference):
     :param path: The folder path of the definition.
     :type path: str
     :param project: A reference to the project.
-    :type project: :class:`TeamProjectReference <build.models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <build.v4_1.models.TeamProjectReference>`
     :param queue_status: A value that indicates whether builds can be queued against this definition.
     :type queue_status: object
     :param revision: The definition revision number.
@@ -33,19 +33,19 @@ class BuildDefinitionReference(DefinitionReference):
     :param url: The REST URL of the definition.
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <build.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <build.v4_1.models.ReferenceLinks>`
     :param authored_by: The author of the definition.
-    :type authored_by: :class:`IdentityRef <build.models.IdentityRef>`
+    :type authored_by: :class:`IdentityRef <build.v4_1.models.IdentityRef>`
     :param draft_of: A reference to the definition that this definition is a draft of, if this is a draft definition.
-    :type draft_of: :class:`DefinitionReference <build.models.DefinitionReference>`
+    :type draft_of: :class:`DefinitionReference <build.v4_1.models.DefinitionReference>`
     :param drafts: The list of drafts associated with this definition, if this is not a draft definition.
-    :type drafts: list of :class:`DefinitionReference <build.models.DefinitionReference>`
+    :type drafts: list of :class:`DefinitionReference <build.v4_1.models.DefinitionReference>`
     :param metrics:
-    :type metrics: list of :class:`BuildMetric <build.models.BuildMetric>`
+    :type metrics: list of :class:`BuildMetric <build.v4_1.models.BuildMetric>`
     :param quality: The quality of the definition document (draft, etc.)
     :type quality: object
     :param queue: The default queue for builds run against this definition.
-    :type queue: :class:`AgentPoolQueue <build.models.AgentPoolQueue>`
+    :type queue: :class:`AgentPoolQueue <build.v4_1.models.AgentPoolQueue>`
     """
 
     _attribute_map = {

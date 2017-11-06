@@ -15,9 +15,9 @@ class GitRepositoryCreateOptions(Model):
     :param name:
     :type name: str
     :param parent_repository:
-    :type parent_repository: :class:`GitRepositoryRef <git.models.GitRepositoryRef>`
+    :type parent_repository: :class:`GitRepositoryRef <git.v4_1.models.GitRepositoryRef>`
     :param project:
-    :type project: :class:`TeamProjectReference <git.models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <git.v4_1.models.TeamProjectReference>`
     """
 
     _attribute_map = {

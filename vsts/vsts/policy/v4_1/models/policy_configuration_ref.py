@@ -15,7 +15,7 @@ class PolicyConfigurationRef(Model):
     :param id: The policy configuration ID.
     :type id: int
     :param type: The policy configuration type.
-    :type type: :class:`PolicyTypeRef <policy.models.PolicyTypeRef>`
+    :type type: :class:`PolicyTypeRef <policy.v4_1.models.PolicyTypeRef>`
     :param url: The URL where the policy configuration can be retrieved.
     :type url: str
     """

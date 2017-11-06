@@ -13,15 +13,15 @@ class GitRepository(Model):
     """GitRepository.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_0.models.ReferenceLinks>`
     :param created_by_forking: True if the repository was created as a fork
     :type created_by_forking: bool
     :param default_branch:
     :type default_branch: str
     :param fork_options: If set, options for creating this repo as a fork of another one. If unset, this repo is unrelated to any existing forks.
-    :type fork_options: :class:`GitForkSyncRequestParameters <git.models.GitForkSyncRequestParameters>`
+    :type fork_options: :class:`GitForkSyncRequestParameters <git.v4_0.models.GitForkSyncRequestParameters>`
     :param fork_parent: Only set when querying repositories. If set, the "parent" fork of this repository.
-    :type fork_parent: :class:`GlobalGitRepositoryKey <git.models.GlobalGitRepositoryKey>`
+    :type fork_parent: :class:`GlobalGitRepositoryKey <git.v4_0.models.GlobalGitRepositoryKey>`
     :param id:
     :type id: str
     :param is_fork: True if the repository was created as a fork
@@ -29,9 +29,9 @@ class GitRepository(Model):
     :param name:
     :type name: str
     :param parent_repository:
-    :type parent_repository: :class:`GitRepositoryRef <git.models.GitRepositoryRef>`
+    :type parent_repository: :class:`GitRepositoryRef <git.v4_0.models.GitRepositoryRef>`
     :param project:
-    :type project: :class:`TeamProjectReference <git.models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <git.v4_0.models.TeamProjectReference>`
     :param remote_url:
     :type remote_url: str
     :param url:
