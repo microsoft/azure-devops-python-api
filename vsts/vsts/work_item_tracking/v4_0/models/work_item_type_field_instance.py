@@ -21,7 +21,7 @@ class WorkItemTypeFieldInstance(WorkItemFieldReference):
     :param always_required:
     :type always_required: bool
     :param field:
-    :type field: :class:`WorkItemFieldReference <work-item-tracking.models.WorkItemFieldReference>`
+    :type field: :class:`WorkItemFieldReference <work-item-tracking.v4_0.models.WorkItemFieldReference>`
     :param help_text:
     :type help_text: str
     """

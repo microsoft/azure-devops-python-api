@@ -13,7 +13,7 @@ class GitPullRequestIterationChanges(Model):
     """GitPullRequestIterationChanges.
 
     :param change_entries:
-    :type change_entries: list of :class:`GitPullRequestChange <git.models.GitPullRequestChange>`
+    :type change_entries: list of :class:`GitPullRequestChange <git.v4_0.models.GitPullRequestChange>`
     :param next_skip:
     :type next_skip: int
     :param next_top:

@@ -13,7 +13,7 @@ class ReportingWorkItemLink(Model):
     """ReportingWorkItemLink.
 
     :param changed_by:
-    :type changed_by: :class:`IdentityRef <work-item-tracking.models.IdentityRef>`
+    :type changed_by: :class:`IdentityRef <work-item-tracking.v4_0.models.IdentityRef>`
     :param changed_date:
     :type changed_date: datetime
     :param changed_operation:

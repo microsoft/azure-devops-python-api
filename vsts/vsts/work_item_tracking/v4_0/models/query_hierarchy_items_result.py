@@ -17,7 +17,7 @@ class QueryHierarchyItemsResult(Model):
     :param has_more:
     :type has_more: bool
     :param value:
-    :type value: list of :class:`QueryHierarchyItem <work-item-tracking.models.QueryHierarchyItem>`
+    :type value: list of :class:`QueryHierarchyItem <work-item-tracking.v4_0.models.QueryHierarchyItem>`
     """
 
     _attribute_map = {

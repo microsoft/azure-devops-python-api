@@ -13,13 +13,13 @@ class TimelineRecord(Model):
     """TimelineRecord.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <build.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <build.v4_0.models.ReferenceLinks>`
     :param change_id:
     :type change_id: int
     :param current_operation:
     :type current_operation: str
     :param details:
-    :type details: :class:`TimelineReference <build.models.TimelineReference>`
+    :type details: :class:`TimelineReference <build.v4_0.models.TimelineReference>`
     :param error_count:
     :type error_count: int
     :param finish_time:
@@ -27,11 +27,11 @@ class TimelineRecord(Model):
     :param id:
     :type id: str
     :param issues:
-    :type issues: list of :class:`Issue <build.models.Issue>`
+    :type issues: list of :class:`Issue <build.v4_0.models.Issue>`
     :param last_modified:
     :type last_modified: datetime
     :param log:
-    :type log: :class:`BuildLogReference <build.models.BuildLogReference>`
+    :type log: :class:`BuildLogReference <build.v4_0.models.BuildLogReference>`
     :param name:
     :type name: str
     :param order:
@@ -49,7 +49,7 @@ class TimelineRecord(Model):
     :param state:
     :type state: object
     :param task:
-    :type task: :class:`TaskReference <build.models.TaskReference>`
+    :type task: :class:`TaskReference <build.v4_0.models.TaskReference>`
     :param type:
     :type type: str
     :param url:

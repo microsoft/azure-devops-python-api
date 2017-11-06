@@ -19,7 +19,7 @@ class TeamProjectCollection(TeamProjectCollectionReference):
     :param url: Collection REST Url.
     :type url: str
     :param _links: The links to other objects related to this object.
-    :type _links: :class:`ReferenceLinks <core.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <core.v4_0.models.ReferenceLinks>`
     :param description: Project collection description.
     :type description: str
     :param state: Project collection state.

@@ -15,7 +15,7 @@ class VersionedPolicyConfigurationRef(PolicyConfigurationRef):
     :param id:
     :type id: int
     :param type:
-    :type type: :class:`PolicyTypeRef <policy.models.PolicyTypeRef>`
+    :type type: :class:`PolicyTypeRef <policy.v4_0.models.PolicyTypeRef>`
     :param url:
     :type url: str
     :param revision:

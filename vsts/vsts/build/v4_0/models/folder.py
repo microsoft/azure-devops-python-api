@@ -13,19 +13,19 @@ class Folder(Model):
     """Folder.
 
     :param created_by: Process or person who created the folder
-    :type created_by: :class:`IdentityRef <build.models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <build.v4_0.models.IdentityRef>`
     :param created_on: Creation date of the folder
     :type created_on: datetime
     :param description: The description of the folder
     :type description: str
     :param last_changed_by: Process or person that last changed the folder
-    :type last_changed_by: :class:`IdentityRef <build.models.IdentityRef>`
+    :type last_changed_by: :class:`IdentityRef <build.v4_0.models.IdentityRef>`
     :param last_changed_date: Date the folder was last changed
     :type last_changed_date: datetime
     :param path: The path of the folder
     :type path: str
     :param project: The project.
-    :type project: :class:`TeamProjectReference <build.models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <build.v4_0.models.TeamProjectReference>`
     """
 
     _attribute_map = {

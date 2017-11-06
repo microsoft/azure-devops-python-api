@@ -13,9 +13,9 @@ class GitCommitChanges(Model):
     """GitCommitChanges.
 
     :param change_counts:
-    :type change_counts: :class:`ChangeCountDictionary <git.models.ChangeCountDictionary>`
+    :type change_counts: :class:`ChangeCountDictionary <git.v4_0.models.ChangeCountDictionary>`
     :param changes:
-    :type changes: list of :class:`GitChange <git.models.GitChange>`
+    :type changes: list of :class:`GitChange <git.v4_0.models.GitChange>`
     """
 
     _attribute_map = {

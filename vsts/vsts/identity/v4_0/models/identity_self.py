@@ -19,7 +19,7 @@ class IdentitySelf(Model):
     :param id:
     :type id: str
     :param tenants:
-    :type tenants: list of :class:`TenantInfo <identities.models.TenantInfo>`
+    :type tenants: list of :class:`TenantInfo <identities.v4_0.models.TenantInfo>`
     """
 
     _attribute_map = {

@@ -29,11 +29,11 @@ class OperationsClient(VssClient):
         """GetOperation.
         Gets an operation from the the Id.
         :param str operation_id: The id for the operation.
-        :rtype: :class:`<Operation> <operations.models.Operation>`
+        :rtype: :class:`<Operation> <operations.v4_0.models.Operation>`
         """
-        route_values = {
-            'operationId': self._serialize.url('operation_id', operation_id, 'str')
-        }
+        route_values = {}
+        if operation_id is not None:
+            route_values['operationId'] = self._serialize.url('operation_id', operation_id, 'str')
         response = self._send(http_method='GET',
                               location_id='9a1b74b4-2ca8-4a9f-8470-c2f2e6fdc949',
                               version='4.0',

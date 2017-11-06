@@ -15,7 +15,7 @@ class GitTreeDiff(Model):
     :param base_tree_id: ObjectId of the base tree of this diff.
     :type base_tree_id: str
     :param diff_entries: List of tree entries that differ between the base and target tree.  Renames and object type changes are returned as a delete for the old object and add for the new object.  If a continuation token is returned in the response header, some tree entries are yet to be processed and may yeild more diff entries. If the continuation token is not returned all the diff entries have been included in this response.
-    :type diff_entries: list of :class:`GitTreeDiffEntry <git.models.GitTreeDiffEntry>`
+    :type diff_entries: list of :class:`GitTreeDiffEntry <git.v4_0.models.GitTreeDiffEntry>`
     :param target_tree_id: ObjectId of the target tree of this diff.
     :type target_tree_id: str
     :param url: REST Url to this resource.

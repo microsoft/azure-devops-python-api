@@ -29,11 +29,11 @@ class TeamProject(TeamProjectReference):
     :param visibility: Project visibility.
     :type visibility: object
     :param _links: The links to other objects related to this object.
-    :type _links: :class:`ReferenceLinks <core.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <core.v4_0.models.ReferenceLinks>`
     :param capabilities: Set of capabilities this project has (such as process template & version control).
     :type capabilities: dict
     :param default_team: The shallow ref to the default team.
-    :type default_team: :class:`WebApiTeamRef <core.models.WebApiTeamRef>`
+    :type default_team: :class:`WebApiTeamRef <core.v4_0.models.WebApiTeamRef>`
     """
 
     _attribute_map = {

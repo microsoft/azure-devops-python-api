@@ -13,13 +13,13 @@ class GitTreeRef(Model):
     """GitTreeRef.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_0.models.ReferenceLinks>`
     :param object_id: SHA1 hash of git object
     :type object_id: str
     :param size: Sum of sizes of all children
     :type size: long
     :param tree_entries: Blobs and trees under this tree
-    :type tree_entries: list of :class:`GitTreeEntryRef <git.models.GitTreeEntryRef>`
+    :type tree_entries: list of :class:`GitTreeEntryRef <git.v4_0.models.GitTreeEntryRef>`
     :param url: Url to tree
     :type url: str
     """

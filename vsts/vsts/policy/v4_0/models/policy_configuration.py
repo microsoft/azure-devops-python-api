@@ -15,15 +15,15 @@ class PolicyConfiguration(VersionedPolicyConfigurationRef):
     :param id:
     :type id: int
     :param type:
-    :type type: :class:`PolicyTypeRef <policy.models.PolicyTypeRef>`
+    :type type: :class:`PolicyTypeRef <policy.v4_0.models.PolicyTypeRef>`
     :param url:
     :type url: str
     :param revision:
     :type revision: int
     :param _links:
-    :type _links: :class:`ReferenceLinks <policy.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <policy.v4_0.models.ReferenceLinks>`
     :param created_by:
-    :type created_by: :class:`IdentityRef <policy.models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <policy.v4_0.models.IdentityRef>`
     :param created_date:
     :type created_date: datetime
     :param is_blocking:
@@ -33,7 +33,7 @@ class PolicyConfiguration(VersionedPolicyConfigurationRef):
     :param is_enabled:
     :type is_enabled: bool
     :param settings:
-    :type settings: :class:`object <policy.models.object>`
+    :type settings: :class:`object <policy.v4_0.models.object>`
     """
 
     _attribute_map = {

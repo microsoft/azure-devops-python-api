@@ -19,11 +19,11 @@ class WorkItemUpdate(WorkItemTrackingResourceReference):
     :param id:
     :type id: int
     :param relations:
-    :type relations: :class:`WorkItemRelationUpdates <work-item-tracking.models.WorkItemRelationUpdates>`
+    :type relations: :class:`WorkItemRelationUpdates <work-item-tracking.v4_0.models.WorkItemRelationUpdates>`
     :param rev:
     :type rev: int
     :param revised_by:
-    :type revised_by: :class:`IdentityReference <work-item-tracking.models.IdentityReference>`
+    :type revised_by: :class:`IdentityReference <work-item-tracking.v4_0.models.IdentityReference>`
     :param revised_date:
     :type revised_date: datetime
     :param work_item_id:

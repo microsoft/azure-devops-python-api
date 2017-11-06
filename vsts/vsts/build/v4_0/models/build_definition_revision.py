@@ -13,7 +13,7 @@ class BuildDefinitionRevision(Model):
     """BuildDefinitionRevision.
 
     :param changed_by:
-    :type changed_by: :class:`IdentityRef <build.models.IdentityRef>`
+    :type changed_by: :class:`IdentityRef <build.v4_0.models.IdentityRef>`
     :param changed_date:
     :type changed_date: datetime
     :param change_type:

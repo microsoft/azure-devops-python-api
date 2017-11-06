@@ -31,7 +31,7 @@ class WorkItemDelete(WorkItemDeleteReference):
     :param url:
     :type url: str
     :param resource:
-    :type resource: :class:`WorkItem <work-item-tracking.models.WorkItem>`
+    :type resource: :class:`WorkItem <work-item-tracking.v4_0.models.WorkItem>`
     """
 
     _attribute_map = {

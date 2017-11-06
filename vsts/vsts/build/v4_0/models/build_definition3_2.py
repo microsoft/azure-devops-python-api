@@ -21,7 +21,7 @@ class BuildDefinition3_2(BuildDefinitionReference):
     :param path: The path this definitions belongs to
     :type path: str
     :param project: The project.
-    :type project: :class:`TeamProjectReference <build.models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <build.v4_0.models.TeamProjectReference>`
     :param queue_status: If builds can be queued from this definition
     :type queue_status: object
     :param revision: The definition revision number.
@@ -33,27 +33,27 @@ class BuildDefinition3_2(BuildDefinitionReference):
     :param url: Full http link to the resource
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <build.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <build.v4_0.models.ReferenceLinks>`
     :param authored_by: The author of the definition.
-    :type authored_by: :class:`IdentityRef <build.models.IdentityRef>`
+    :type authored_by: :class:`IdentityRef <build.v4_0.models.IdentityRef>`
     :param draft_of: If this is a draft definition, it might have a parent
-    :type draft_of: :class:`DefinitionReference <build.models.DefinitionReference>`
+    :type draft_of: :class:`DefinitionReference <build.v4_0.models.DefinitionReference>`
     :param metrics:
-    :type metrics: list of :class:`BuildMetric <build.models.BuildMetric>`
+    :type metrics: list of :class:`BuildMetric <build.v4_0.models.BuildMetric>`
     :param quality: The quality of the definition document (draft, etc.)
     :type quality: object
     :param queue: The default queue which should be used for requests.
-    :type queue: :class:`AgentPoolQueue <build.models.AgentPoolQueue>`
+    :type queue: :class:`AgentPoolQueue <build.v4_0.models.AgentPoolQueue>`
     :param badge_enabled: Indicates whether badges are enabled for this definition
     :type badge_enabled: bool
     :param build:
-    :type build: list of :class:`BuildDefinitionStep <build.models.BuildDefinitionStep>`
+    :type build: list of :class:`BuildDefinitionStep <build.v4_0.models.BuildDefinitionStep>`
     :param build_number_format: The build number format
     :type build_number_format: str
     :param comment: The comment entered when saving the definition
     :type comment: str
     :param demands:
-    :type demands: list of :class:`object <build.models.object>`
+    :type demands: list of :class:`object <build.v4_0.models.object>`
     :param description: The description
     :type description: str
     :param drop_location: The drop location for the definition
@@ -65,23 +65,23 @@ class BuildDefinition3_2(BuildDefinitionReference):
     :param job_timeout_in_minutes: Gets or sets the job execution timeout in minutes for builds which are queued against this definition
     :type job_timeout_in_minutes: int
     :param latest_build:
-    :type latest_build: :class:`Build <build.models.Build>`
+    :type latest_build: :class:`Build <build.v4_0.models.Build>`
     :param latest_completed_build:
-    :type latest_completed_build: :class:`Build <build.models.Build>`
+    :type latest_completed_build: :class:`Build <build.v4_0.models.Build>`
     :param options:
-    :type options: list of :class:`BuildOption <build.models.BuildOption>`
+    :type options: list of :class:`BuildOption <build.v4_0.models.BuildOption>`
     :param process_parameters: Process Parameters
-    :type process_parameters: :class:`ProcessParameters <build.models.ProcessParameters>`
+    :type process_parameters: :class:`ProcessParameters <build.v4_0.models.ProcessParameters>`
     :param properties:
-    :type properties: :class:`object <build.models.object>`
+    :type properties: :class:`object <build.v4_0.models.object>`
     :param repository: The repository
-    :type repository: :class:`BuildRepository <build.models.BuildRepository>`
+    :type repository: :class:`BuildRepository <build.v4_0.models.BuildRepository>`
     :param retention_rules:
-    :type retention_rules: list of :class:`RetentionPolicy <build.models.RetentionPolicy>`
+    :type retention_rules: list of :class:`RetentionPolicy <build.v4_0.models.RetentionPolicy>`
     :param tags:
     :type tags: list of str
     :param triggers:
-    :type triggers: list of :class:`BuildTrigger <build.models.BuildTrigger>`
+    :type triggers: list of :class:`BuildTrigger <build.v4_0.models.BuildTrigger>`
     :param variables:
     :type variables: dict
     """

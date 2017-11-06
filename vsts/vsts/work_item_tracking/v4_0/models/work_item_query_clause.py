@@ -13,17 +13,17 @@ class WorkItemQueryClause(Model):
     """WorkItemQueryClause.
 
     :param clauses:
-    :type clauses: list of :class:`WorkItemQueryClause <work-item-tracking.models.WorkItemQueryClause>`
+    :type clauses: list of :class:`WorkItemQueryClause <work-item-tracking.v4_0.models.WorkItemQueryClause>`
     :param field:
-    :type field: :class:`WorkItemFieldReference <work-item-tracking.models.WorkItemFieldReference>`
+    :type field: :class:`WorkItemFieldReference <work-item-tracking.v4_0.models.WorkItemFieldReference>`
     :param field_value:
-    :type field_value: :class:`WorkItemFieldReference <work-item-tracking.models.WorkItemFieldReference>`
+    :type field_value: :class:`WorkItemFieldReference <work-item-tracking.v4_0.models.WorkItemFieldReference>`
     :param is_field_value:
     :type is_field_value: bool
     :param logical_operator:
     :type logical_operator: object
     :param operator:
-    :type operator: :class:`WorkItemFieldOperation <work-item-tracking.models.WorkItemFieldOperation>`
+    :type operator: :class:`WorkItemFieldOperation <work-item-tracking.v4_0.models.WorkItemFieldOperation>`
     :param value:
     :type value: str
     """

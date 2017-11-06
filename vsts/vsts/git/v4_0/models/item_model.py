@@ -13,9 +13,9 @@ class ItemModel(Model):
     """ItemModel.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_0.models.ReferenceLinks>`
     :param content_metadata:
-    :type content_metadata: :class:`FileContentMetadata <git.models.FileContentMetadata>`
+    :type content_metadata: :class:`FileContentMetadata <git.v4_0.models.FileContentMetadata>`
     :param is_folder:
     :type is_folder: bool
     :param is_sym_link:

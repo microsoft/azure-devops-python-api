@@ -15,15 +15,15 @@ class WorkItemTypeCategory(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
     :param default_work_item_type:
-    :type default_work_item_type: :class:`WorkItemTypeReference <work-item-tracking.models.WorkItemTypeReference>`
+    :type default_work_item_type: :class:`WorkItemTypeReference <work-item-tracking.v4_0.models.WorkItemTypeReference>`
     :param name:
     :type name: str
     :param reference_name:
     :type reference_name: str
     :param work_item_types:
-    :type work_item_types: list of :class:`WorkItemTypeReference <work-item-tracking.models.WorkItemTypeReference>`
+    :type work_item_types: list of :class:`WorkItemTypeReference <work-item-tracking.v4_0.models.WorkItemTypeReference>`
     """
 
     _attribute_map = {

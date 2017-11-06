@@ -15,17 +15,17 @@ class WorkItemQueryResult(Model):
     :param as_of:
     :type as_of: datetime
     :param columns:
-    :type columns: list of :class:`WorkItemFieldReference <work-item-tracking.models.WorkItemFieldReference>`
+    :type columns: list of :class:`WorkItemFieldReference <work-item-tracking.v4_0.models.WorkItemFieldReference>`
     :param query_result_type:
     :type query_result_type: object
     :param query_type:
     :type query_type: object
     :param sort_columns:
-    :type sort_columns: list of :class:`WorkItemQuerySortColumn <work-item-tracking.models.WorkItemQuerySortColumn>`
+    :type sort_columns: list of :class:`WorkItemQuerySortColumn <work-item-tracking.v4_0.models.WorkItemQuerySortColumn>`
     :param work_item_relations:
-    :type work_item_relations: list of :class:`WorkItemLink <work-item-tracking.models.WorkItemLink>`
+    :type work_item_relations: list of :class:`WorkItemLink <work-item-tracking.v4_0.models.WorkItemLink>`
     :param work_items:
-    :type work_items: list of :class:`WorkItemReference <work-item-tracking.models.WorkItemReference>`
+    :type work_items: list of :class:`WorkItemReference <work-item-tracking.v4_0.models.WorkItemReference>`
     """
 
     _attribute_map = {

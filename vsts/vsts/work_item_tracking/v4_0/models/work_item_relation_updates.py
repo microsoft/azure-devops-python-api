@@ -13,11 +13,11 @@ class WorkItemRelationUpdates(Model):
     """WorkItemRelationUpdates.
 
     :param added:
-    :type added: list of :class:`WorkItemRelation <work-item-tracking.models.WorkItemRelation>`
+    :type added: list of :class:`WorkItemRelation <work-item-tracking.v4_0.models.WorkItemRelation>`
     :param removed:
-    :type removed: list of :class:`WorkItemRelation <work-item-tracking.models.WorkItemRelation>`
+    :type removed: list of :class:`WorkItemRelation <work-item-tracking.v4_0.models.WorkItemRelation>`
     :param updated:
-    :type updated: list of :class:`WorkItemRelation <work-item-tracking.models.WorkItemRelation>`
+    :type updated: list of :class:`WorkItemRelation <work-item-tracking.v4_0.models.WorkItemRelation>`
     """
 
     _attribute_map = {

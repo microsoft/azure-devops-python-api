@@ -13,7 +13,7 @@ class Proxy(Model):
     """Proxy.
 
     :param authorization:
-    :type authorization: :class:`ProxyAuthorization <core.models.ProxyAuthorization>`
+    :type authorization: :class:`ProxyAuthorization <core.v4_0.models.ProxyAuthorization>`
     :param description: This is a description string
     :type description: str
     :param friendly_name: The friendly name of the server

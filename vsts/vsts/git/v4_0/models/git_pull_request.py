@@ -13,39 +13,39 @@ class GitPullRequest(Model):
     """GitPullRequest.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <git.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <git.v4_0.models.ReferenceLinks>`
     :param artifact_id:
     :type artifact_id: str
     :param auto_complete_set_by:
-    :type auto_complete_set_by: :class:`IdentityRef <git.models.IdentityRef>`
+    :type auto_complete_set_by: :class:`IdentityRef <git.v4_0.models.IdentityRef>`
     :param closed_by:
-    :type closed_by: :class:`IdentityRef <git.models.IdentityRef>`
+    :type closed_by: :class:`IdentityRef <git.v4_0.models.IdentityRef>`
     :param closed_date:
     :type closed_date: datetime
     :param code_review_id:
     :type code_review_id: int
     :param commits:
-    :type commits: list of :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type commits: list of :class:`GitCommitRef <git.v4_0.models.GitCommitRef>`
     :param completion_options:
-    :type completion_options: :class:`GitPullRequestCompletionOptions <git.models.GitPullRequestCompletionOptions>`
+    :type completion_options: :class:`GitPullRequestCompletionOptions <git.v4_0.models.GitPullRequestCompletionOptions>`
     :param completion_queue_time:
     :type completion_queue_time: datetime
     :param created_by:
-    :type created_by: :class:`IdentityRef <git.models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <git.v4_0.models.IdentityRef>`
     :param creation_date:
     :type creation_date: datetime
     :param description:
     :type description: str
     :param fork_source:
-    :type fork_source: :class:`GitForkRef <git.models.GitForkRef>`
+    :type fork_source: :class:`GitForkRef <git.v4_0.models.GitForkRef>`
     :param labels:
-    :type labels: list of :class:`WebApiTagDefinition <git.models.WebApiTagDefinition>`
+    :type labels: list of :class:`WebApiTagDefinition <git.v4_0.models.WebApiTagDefinition>`
     :param last_merge_commit:
-    :type last_merge_commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type last_merge_commit: :class:`GitCommitRef <git.v4_0.models.GitCommitRef>`
     :param last_merge_source_commit:
-    :type last_merge_source_commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type last_merge_source_commit: :class:`GitCommitRef <git.v4_0.models.GitCommitRef>`
     :param last_merge_target_commit:
-    :type last_merge_target_commit: :class:`GitCommitRef <git.models.GitCommitRef>`
+    :type last_merge_target_commit: :class:`GitCommitRef <git.v4_0.models.GitCommitRef>`
     :param merge_failure_message:
     :type merge_failure_message: str
     :param merge_failure_type:
@@ -53,7 +53,7 @@ class GitPullRequest(Model):
     :param merge_id:
     :type merge_id: str
     :param merge_options:
-    :type merge_options: :class:`GitPullRequestMergeOptions <git.models.GitPullRequestMergeOptions>`
+    :type merge_options: :class:`GitPullRequestMergeOptions <git.v4_0.models.GitPullRequestMergeOptions>`
     :param merge_status:
     :type merge_status: object
     :param pull_request_id:
@@ -61,9 +61,9 @@ class GitPullRequest(Model):
     :param remote_url:
     :type remote_url: str
     :param repository:
-    :type repository: :class:`GitRepository <git.models.GitRepository>`
+    :type repository: :class:`GitRepository <git.v4_0.models.GitRepository>`
     :param reviewers:
-    :type reviewers: list of :class:`IdentityRefWithVote <git.models.IdentityRefWithVote>`
+    :type reviewers: list of :class:`IdentityRefWithVote <git.v4_0.models.IdentityRefWithVote>`
     :param source_ref_name:
     :type source_ref_name: str
     :param status:
@@ -77,7 +77,7 @@ class GitPullRequest(Model):
     :param url:
     :type url: str
     :param work_item_refs:
-    :type work_item_refs: list of :class:`ResourceRef <git.models.ResourceRef>`
+    :type work_item_refs: list of :class:`ResourceRef <git.v4_0.models.ResourceRef>`
     """
 
     _attribute_map = {

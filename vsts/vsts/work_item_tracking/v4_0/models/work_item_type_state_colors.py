@@ -13,7 +13,7 @@ class WorkItemTypeStateColors(Model):
     """WorkItemTypeStateColors.
 
     :param state_colors: Work item type state colors
-    :type state_colors: list of :class:`WorkItemStateColor <work-item-tracking.models.WorkItemStateColor>`
+    :type state_colors: list of :class:`WorkItemStateColor <work-item-tracking.v4_0.models.WorkItemStateColor>`
     :param work_item_type_name: Work item type name
     :type work_item_type_name: str
     """

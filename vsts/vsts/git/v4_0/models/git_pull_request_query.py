@@ -13,7 +13,7 @@ class GitPullRequestQuery(Model):
     """GitPullRequestQuery.
 
     :param queries: The query to perform
-    :type queries: list of :class:`GitPullRequestQueryInput <git.models.GitPullRequestQueryInput>`
+    :type queries: list of :class:`GitPullRequestQueryInput <git.v4_0.models.GitPullRequestQueryInput>`
     :param results: The results of the query
     :type results: list of {[GitPullRequest]}
     """

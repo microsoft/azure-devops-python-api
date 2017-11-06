@@ -13,9 +13,9 @@ class ChangedIdentities(Model):
     """ChangedIdentities.
 
     :param identities: Changed Identities
-    :type identities: list of :class:`Identity <identities.models.Identity>`
+    :type identities: list of :class:`Identity <identities.v4_0.models.Identity>`
     :param sequence_context: Last Identity SequenceId
-    :type sequence_context: :class:`ChangedIdentitiesContext <identities.models.ChangedIdentitiesContext>`
+    :type sequence_context: :class:`ChangedIdentitiesContext <identities.v4_0.models.ChangedIdentitiesContext>`
     """
 
     _attribute_map = {

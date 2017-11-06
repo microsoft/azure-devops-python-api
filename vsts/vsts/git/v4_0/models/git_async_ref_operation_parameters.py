@@ -17,9 +17,9 @@ class GitAsyncRefOperationParameters(Model):
     :param onto_ref_name:
     :type onto_ref_name: str
     :param repository:
-    :type repository: :class:`GitRepository <git.models.GitRepository>`
+    :type repository: :class:`GitRepository <git.v4_0.models.GitRepository>`
     :param source:
-    :type source: :class:`GitAsyncRefOperationSource <git.models.GitAsyncRefOperationSource>`
+    :type source: :class:`GitAsyncRefOperationSource <git.v4_0.models.GitAsyncRefOperationSource>`
     """
 
     _attribute_map = {
