@@ -149,7 +149,7 @@ class CoreClient(VssClient):
             query_parameters['$skip'] = self._serialize.query('skip', skip, 'int')
         response = self._send(http_method='GET',
                               location_id='294c494c-2600-4d7e-b76c-3dd50c3c95be',
-                              version='4.1-preview.1',
+                              version='4.1-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -409,6 +409,28 @@ class CoreClient(VssClient):
                               returns_collection=True)
         return self._deserialize('[Proxy]', response)
 
+    def get_all_teams(self, mine=None, top=None, skip=None):
+        """GetAllTeams.
+        [Preview API] Get a list of all teams.
+        :param bool mine: If true return all the teams requesting user is member, otherwise return all the teams user has read access
+        :param int top: Maximum number of teams to return.
+        :param int skip: Number of teams to skip.
+        :rtype: [WebApiTeam]
+        """
+        query_parameters = {}
+        if mine is not None:
+            query_parameters['$mine'] = self._serialize.query('mine', mine, 'bool')
+        if top is not None:
+            query_parameters['$top'] = self._serialize.query('top', top, 'int')
+        if skip is not None:
+            query_parameters['$skip'] = self._serialize.query('skip', skip, 'int')
+        response = self._send(http_method='GET',
+                              location_id='7a4d9ee9-3433-4347-b47a-7a80f1cf307e',
+                              version='4.1-preview.2',
+                              query_parameters=query_parameters,
+                              returns_collection=True)
+        return self._deserialize('[WebApiTeam]', response)
+
     def create_team(self, team, project_id):
         """CreateTeam.
         [Preview API] Create a team in a team project.
@@ -422,7 +444,7 @@ class CoreClient(VssClient):
         content = self._serialize.body(team, 'WebApiTeam')
         response = self._send(http_method='POST',
                               location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
-                              version='4.1-preview.1',
+                              version='4.1-preview.2',
                               route_values=route_values,
                               content=content)
         return self._deserialize('WebApiTeam', response)
@@ -439,7 +461,7 @@ class CoreClient(VssClient):
         }
         self._send(http_method='DELETE',
                    location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
-                   version='4.1-preview.1',
+                   version='4.1-preview.2',
                    route_values=route_values)
 
     def get_team(self, project_id, team_id):
@@ -455,14 +477,15 @@ class CoreClient(VssClient):
         }
         response = self._send(http_method='GET',
                               location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
-                              version='4.1-preview.1',
+                              version='4.1-preview.2',
                               route_values=route_values)
         return self._deserialize('WebApiTeam', response)
 
-    def get_teams(self, project_id, top=None, skip=None):
+    def get_teams(self, project_id, mine=None, top=None, skip=None):
         """GetTeams.
         [Preview API] Get a list of teams.
         :param str project_id:
+        :param bool mine: If true return all the teams requesting user is member, otherwise return all the teams user has read access
         :param int top: Maximum number of teams to return.
         :param int skip: Number of teams to skip.
         :rtype: [WebApiTeam]
@@ -471,13 +494,15 @@ class CoreClient(VssClient):
             'projectId': self._serialize.url('project_id', project_id, 'str')
         }
         query_parameters = {}
+        if mine is not None:
+            query_parameters['$mine'] = self._serialize.query('mine', mine, 'bool')
         if top is not None:
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         if skip is not None:
             query_parameters['$skip'] = self._serialize.query('skip', skip, 'int')
         response = self._send(http_method='GET',
                               location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
-                              version='4.1-preview.1',
+                              version='4.1-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -498,7 +523,7 @@ class CoreClient(VssClient):
         content = self._serialize.body(team_data, 'WebApiTeam')
         response = self._send(http_method='PATCH',
                               location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
-                              version='4.1-preview.1',
+                              version='4.1-preview.2',
                               route_values=route_values,
                               content=content)
         return self._deserialize('WebApiTeam', response)

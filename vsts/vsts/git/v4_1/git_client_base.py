@@ -720,7 +720,7 @@ class GitClientBase(VssClient):
 
     def get_item(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None):
         """GetItem.
-        [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content which is always returned as a download.
+        [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.
         :param str repository_id: The Id of the repository.
         :param str path: The item path.
         :param str project: Project ID or project name
@@ -765,7 +765,7 @@ class GitClientBase(VssClient):
 
     def get_item_content(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None):
         """GetItemContent.
-        [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content which is always returned as a download.
+        [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.
         :param str repository_id: The Id of the repository.
         :param str path: The item path.
         :param str project: Project ID or project name
@@ -856,7 +856,7 @@ class GitClientBase(VssClient):
 
     def get_item_text(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None):
         """GetItemText.
-        [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content which is always returned as a download.
+        [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.
         :param str repository_id: The Id of the repository.
         :param str path: The item path.
         :param str project: Project ID or project name
@@ -901,7 +901,7 @@ class GitClientBase(VssClient):
 
     def get_item_zip(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None):
         """GetItemZip.
-        [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content which is always returned as a download.
+        [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.
         :param str repository_id: The Id of the repository.
         :param str path: The item path.
         :param str project: Project ID or project name
