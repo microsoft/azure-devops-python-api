@@ -263,9 +263,9 @@ class BuildClient(VssClient):
         if build_number is not None:
             query_parameters['buildNumber'] = self._serialize.query('build_number', build_number, 'str')
         if min_finish_time is not None:
-            query_parameters['minFinishTime'] = self._serialize.query('min_finish_time', min_finish_time, 'datetime')
+            query_parameters['minFinishTime'] = self._serialize.query('min_finish_time', min_finish_time, 'iso-8601')
         if max_finish_time is not None:
-            query_parameters['maxFinishTime'] = self._serialize.query('max_finish_time', max_finish_time, 'datetime')
+            query_parameters['maxFinishTime'] = self._serialize.query('max_finish_time', max_finish_time, 'iso-8601')
         if requested_for is not None:
             query_parameters['requestedFor'] = self._serialize.query('requested_for', requested_for, 'str')
         if reason_filter is not None:
@@ -523,7 +523,7 @@ class BuildClient(VssClient):
         if revision is not None:
             query_parameters['revision'] = self._serialize.query('revision', revision, 'int')
         if min_metrics_time is not None:
-            query_parameters['minMetricsTime'] = self._serialize.query('min_metrics_time', min_metrics_time, 'datetime')
+            query_parameters['minMetricsTime'] = self._serialize.query('min_metrics_time', min_metrics_time, 'iso-8601')
         if property_filters is not None:
             property_filters = ",".join(property_filters)
             query_parameters['propertyFilters'] = self._serialize.query('property_filters', property_filters, 'str')
@@ -573,16 +573,16 @@ class BuildClient(VssClient):
         if continuation_token is not None:
             query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
         if min_metrics_time is not None:
-            query_parameters['minMetricsTime'] = self._serialize.query('min_metrics_time', min_metrics_time, 'datetime')
+            query_parameters['minMetricsTime'] = self._serialize.query('min_metrics_time', min_metrics_time, 'iso-8601')
         if definition_ids is not None:
             definition_ids = ",".join(map(str, definition_ids))
             query_parameters['definitionIds'] = self._serialize.query('definition_ids', definition_ids, 'str')
         if path is not None:
             query_parameters['path'] = self._serialize.query('path', path, 'str')
         if built_after is not None:
-            query_parameters['builtAfter'] = self._serialize.query('built_after', built_after, 'datetime')
+            query_parameters['builtAfter'] = self._serialize.query('built_after', built_after, 'iso-8601')
         if not_built_after is not None:
-            query_parameters['notBuiltAfter'] = self._serialize.query('not_built_after', not_built_after, 'datetime')
+            query_parameters['notBuiltAfter'] = self._serialize.query('not_built_after', not_built_after, 'iso-8601')
         if include_all_properties is not None:
             query_parameters['includeAllProperties'] = self._serialize.query('include_all_properties', include_all_properties, 'bool')
         if include_latest_builds is not None:
@@ -819,7 +819,7 @@ class BuildClient(VssClient):
             route_values['metricAggregationType'] = self._serialize.url('metric_aggregation_type', metric_aggregation_type, 'str')
         query_parameters = {}
         if min_metrics_time is not None:
-            query_parameters['minMetricsTime'] = self._serialize.query('min_metrics_time', min_metrics_time, 'datetime')
+            query_parameters['minMetricsTime'] = self._serialize.query('min_metrics_time', min_metrics_time, 'iso-8601')
         response = self._send(http_method='GET',
                               location_id='7433fae7-a6bc-41dc-a6e2-eef9005ce41a',
                               version='4.0-preview.1',
@@ -843,7 +843,7 @@ class BuildClient(VssClient):
             route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
         query_parameters = {}
         if min_metrics_time is not None:
-            query_parameters['minMetricsTime'] = self._serialize.query('min_metrics_time', min_metrics_time, 'datetime')
+            query_parameters['minMetricsTime'] = self._serialize.query('min_metrics_time', min_metrics_time, 'iso-8601')
         response = self._send(http_method='GET',
                               location_id='d973b939-0ce0-4fec-91d8-da3940fa1827',
                               version='4.0-preview.1',
