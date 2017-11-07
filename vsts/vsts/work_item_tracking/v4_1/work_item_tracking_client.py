@@ -1038,7 +1038,7 @@ class WorkItemTrackingClient(VssClient):
         if continuation_token is not None:
             query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
         if start_date_time is not None:
-            query_parameters['startDateTime'] = self._serialize.query('start_date_time', start_date_time, 'datetime')
+            query_parameters['startDateTime'] = self._serialize.query('start_date_time', start_date_time, 'iso-8601')
         response = self._send(http_method='GET',
                               location_id='b5b5b6d0-0308-40a1-b3f4-b9bb3c66878f',
                               version='4.1-preview.2',
@@ -1102,7 +1102,7 @@ class WorkItemTrackingClient(VssClient):
         if continuation_token is not None:
             query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
         if start_date_time is not None:
-            query_parameters['startDateTime'] = self._serialize.query('start_date_time', start_date_time, 'datetime')
+            query_parameters['startDateTime'] = self._serialize.query('start_date_time', start_date_time, 'iso-8601')
         if include_identity_ref is not None:
             query_parameters['includeIdentityRef'] = self._serialize.query('include_identity_ref', include_identity_ref, 'bool')
         if include_deleted is not None:
@@ -1141,7 +1141,7 @@ class WorkItemTrackingClient(VssClient):
         if continuation_token is not None:
             query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
         if start_date_time is not None:
-            query_parameters['startDateTime'] = self._serialize.query('start_date_time', start_date_time, 'datetime')
+            query_parameters['startDateTime'] = self._serialize.query('start_date_time', start_date_time, 'iso-8601')
         if expand is not None:
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'ReportingRevisionsExpand')
         content = self._serialize.body(filter, 'ReportingWorkItemRevisionsFilter')
@@ -1190,7 +1190,7 @@ class WorkItemTrackingClient(VssClient):
             fields = ",".join(fields)
             query_parameters['fields'] = self._serialize.query('fields', fields, 'str')
         if as_of is not None:
-            query_parameters['asOf'] = self._serialize.query('as_of', as_of, 'datetime')
+            query_parameters['asOf'] = self._serialize.query('as_of', as_of, 'iso-8601')
         if expand is not None:
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'WorkItemExpand')
         response = self._send(http_method='GET',
@@ -1218,7 +1218,7 @@ class WorkItemTrackingClient(VssClient):
             fields = ",".join(fields)
             query_parameters['fields'] = self._serialize.query('fields', fields, 'str')
         if as_of is not None:
-            query_parameters['asOf'] = self._serialize.query('as_of', as_of, 'datetime')
+            query_parameters['asOf'] = self._serialize.query('as_of', as_of, 'iso-8601')
         if expand is not None:
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'WorkItemExpand')
         if error_policy is not None:
@@ -1312,7 +1312,7 @@ class WorkItemTrackingClient(VssClient):
         if fields is not None:
             query_parameters['fields'] = self._serialize.query('fields', fields, 'str')
         if as_of is not None:
-            query_parameters['asOf'] = self._serialize.query('as_of', as_of, 'datetime')
+            query_parameters['asOf'] = self._serialize.query('as_of', as_of, 'iso-8601')
         if expand is not None:
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'WorkItemExpand')
         response = self._send(http_method='GET',
