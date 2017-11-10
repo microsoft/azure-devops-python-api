@@ -18,7 +18,7 @@ class GitClient(GitClientBase):
     """
 
     def __init__(self, base_url=None, creds=None):
-        super(GitClient, self).__init__(base_url, creds)
+        GitClientBase.__init__(self, base_url, creds)
 
     def get_vsts_info(self, relative_remote_url):
         request = ClientRequest()
