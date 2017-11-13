@@ -20,7 +20,7 @@ from . import models
 from ._file_cache import OPTIONS_CACHE as OPTIONS_FILE_CACHE
 
 
-class VssClient:
+class VssClient(object):
     """VssClient.
     :param str base_url: Service URL
     :param Authentication creds: Authenticated credentials.
