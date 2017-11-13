@@ -3,16 +3,11 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
-from .models.wrapped_exception import WrappedException
 from msrest.exceptions import (
     ClientException,
-    SerializationError,
-    DeserializationError,
     TokenExpiredError,
     ClientRequestError,
     AuthenticationError,
-    HttpOperationError,
-    ValidationError,
 )
 
 
@@ -36,7 +31,8 @@ class VstsServiceError(VstsClientRequestError):
         self.inner_exception = None
         if wrapped_exception.inner_exception is not None:
             self.inner_exception = VstsServiceError(wrapped_exception.inner_exception)
-        super(VstsServiceError, self).__init__(message=wrapped_exception.message, inner_exception=self.inner_exception)
+        super(VstsServiceError, self).__init__(message=wrapped_exception.message,
+                                               inner_exception=self.inner_exception)
         self.message = wrapped_exception.message
         self.exception_id = wrapped_exception.exception_id
         self.type_name = wrapped_exception.type_name
