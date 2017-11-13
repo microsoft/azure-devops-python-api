@@ -1,6 +1,9 @@
+[![Visual Studio Team services](https://mseng.visualstudio.com/_apis/public/build/definitions/698eacea-9ea2-4eb8-80a4-d06170edf6bc/5904/badge)]()
+[![Python](https://img.shields.io/pypi/pyversions/vsts-cli.svg?maxAge=2592000)](https://pypi.python.org/pypi/vsts)
+
 # Microsoft Visual Studio Team Services Python API
 
-This repository contains Microsoft Visual Studio Team Services public python API. This API is used to build the Visual Studio Team Services CLI. To learn more about the VSTS Cli, check out our [github repo](https://github.com/Microsoft/vsts-cli).
+This repository contains Microsoft Visual Studio Team Services Python API. This API is used to build the Visual Studio Team Services CLI. To learn more about the VSTS CLI, check out our [github repo](https://github.com/Microsoft/vsts-cli).
 
 
 # Contributing
