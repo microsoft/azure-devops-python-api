@@ -1,3 +1,7 @@
+# Microsoft Visual Studio Team Services Python API
+
+This repository contains Microsoft Visual Studio Team Services public python API. This API is used to build the Visual Studio Team Services CLI. To learn more about the VSTS Cli, check out our [github repo](https://github.com/Microsoft/vsts-cli).
+
 
 # Contributing
 
