@@ -12,7 +12,7 @@ from .location.v4_0.location_client import LocationClient
 from .vss_client_configuration import VssClientConfiguration
 
 
-class VssConnection:
+class VssConnection(object):
     """VssConnection.
     """
 
