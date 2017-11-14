@@ -24,6 +24,8 @@ class GitPullRequestCompletionOptions(Model):
     :type squash_merge: bool
     :param transition_work_items: If true, we will attempt to transition any work items linked to the pull request into the next logical state (i.e. Active -> Resolved)
     :type transition_work_items: bool
+    :param triggered_by_auto_complete: If true, the current completion attempt was triggered via auto-complete. Used internally.
+    :type triggered_by_auto_complete: bool
     """
 
     _attribute_map = {
@@ -32,10 +34,11 @@ class GitPullRequestCompletionOptions(Model):
         'delete_source_branch': {'key': 'deleteSourceBranch', 'type': 'bool'},
         'merge_commit_message': {'key': 'mergeCommitMessage', 'type': 'str'},
         'squash_merge': {'key': 'squashMerge', 'type': 'bool'},
-        'transition_work_items': {'key': 'transitionWorkItems', 'type': 'bool'}
+        'transition_work_items': {'key': 'transitionWorkItems', 'type': 'bool'},
+        'triggered_by_auto_complete': {'key': 'triggeredByAutoComplete', 'type': 'bool'}
     }
 
-    def __init__(self, bypass_policy=None, bypass_reason=None, delete_source_branch=None, merge_commit_message=None, squash_merge=None, transition_work_items=None):
+    def __init__(self, bypass_policy=None, bypass_reason=None, delete_source_branch=None, merge_commit_message=None, squash_merge=None, transition_work_items=None, triggered_by_auto_complete=None):
         super(GitPullRequestCompletionOptions, self).__init__()
         self.bypass_policy = bypass_policy
         self.bypass_reason = bypass_reason
@@ -43,3 +46,4 @@ class GitPullRequestCompletionOptions(Model):
         self.merge_commit_message = merge_commit_message
         self.squash_merge = squash_merge
         self.transition_work_items = transition_work_items
+        self.triggered_by_auto_complete = triggered_by_auto_complete
