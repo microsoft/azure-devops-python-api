@@ -33,20 +33,20 @@ class FileCache(collections.MutableMapping):
         try:
             if os.path.isfile(self.file_name):
                 if self.max_age > 0 and os.stat(self.file_name).st_mtime + self.max_age < time.clock():
-                    logging.info('Cache file expired: {file}'.format(file=self.file_name))
+                    logging.info('Cache file expired: %s', file=self.file_name)
                     os.remove(self.file_name)
                 else:
-                    logging.info('Loading cache file: {file}'.format(file=self.file_name))
+                    logging.info('Loading cache file: %s', self.file_name)
                     self.data = get_file_json(self.file_name, throw_on_empty=False) or {}
             else:
-                logging.info('Cache file does not exist: {file}'.format(file=self.file_name))
-        except Exception as e:
-            logging.exception(e)
+                logging.info('Cache file does not exist: %s', self.file_name)
+        except Exception as ex:
+            logging.exception(ex)
             # file is missing or corrupt so attempt to delete it
             try:
                 os.remove(self.file_name)
-            except Exception as e2:
-                logging.exception(e2)
+            except Exception as ex2:
+                logging.exception(ex2)
         self.initial_load_occurred = True
 
     def save(self):
