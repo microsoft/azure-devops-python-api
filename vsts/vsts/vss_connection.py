@@ -59,7 +59,7 @@ class VssConnection(object):
             if resource_areas is None:
                 raise VstsClientRequestError(('Failed to retrieve resource areas '
                                               + 'from server: {url}').format(url=self.base_url))
-            if len(resource_areas) == 0:
+            if not resource_areas:
                 # For OnPrem environments we get an empty list.
                 return self.base_url
             for resource_area in resource_areas:
