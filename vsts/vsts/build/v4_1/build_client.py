@@ -225,15 +225,15 @@ class BuildClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('Build', response)
 
-    def get_builds(self, project=None, definitions=None, queues=None, build_number=None, min_finish_time=None, max_finish_time=None, requested_for=None, reason_filter=None, status_filter=None, result_filter=None, tag_filters=None, properties=None, top=None, continuation_token=None, max_builds_per_definition=None, deleted_filter=None, query_order=None, branch_name=None, build_ids=None, repository_id=None, repository_type=None):
+    def get_builds(self, project=None, definitions=None, queues=None, build_number=None, min_time=None, max_time=None, requested_for=None, reason_filter=None, status_filter=None, result_filter=None, tag_filters=None, properties=None, top=None, continuation_token=None, max_builds_per_definition=None, deleted_filter=None, query_order=None, branch_name=None, build_ids=None, repository_id=None, repository_type=None):
         """GetBuilds.
         [Preview API] Gets a list of builds.
         :param str project: Project ID or project name
         :param [int] definitions: A comma-delimited list of definition IDs. If specified, filters to builds for these definitions.
         :param [int] queues: A comma-delimited list of queue IDs. If specified, filters to builds that ran against these queues.
         :param str build_number: If specified, filters to builds that match this build number. Append * to do a prefix search.
-        :param datetime min_finish_time: If specified, filters to builds that finished after this date.
-        :param datetime max_finish_time: If specified, filters to builds that finished before this date.
+        :param datetime min_time: If specified, filters to builds that finished/started/queued after this date based on the queryOrder specified.
+        :param datetime max_time: If specified, filters to builds that finished/started/queued before this date based on the queryOrder specified.
         :param str requested_for: If specified, filters to builds requested for the specified user.
         :param BuildReason reason_filter: If specified, filters to builds that match this reason.
         :param BuildStatus status_filter: If specified, filters to builds that match this status.
@@ -263,10 +263,10 @@ class BuildClient(VssClient):
             query_parameters['queues'] = self._serialize.query('queues', queues, 'str')
         if build_number is not None:
             query_parameters['buildNumber'] = self._serialize.query('build_number', build_number, 'str')
-        if min_finish_time is not None:
-            query_parameters['minFinishTime'] = self._serialize.query('min_finish_time', min_finish_time, 'iso-8601')
-        if max_finish_time is not None:
-            query_parameters['maxFinishTime'] = self._serialize.query('max_finish_time', max_finish_time, 'iso-8601')
+        if min_time is not None:
+            query_parameters['minTime'] = self._serialize.query('min_time', min_time, 'iso-8601')
+        if max_time is not None:
+            query_parameters['maxTime'] = self._serialize.query('max_time', max_time, 'iso-8601')
         if requested_for is not None:
             query_parameters['requestedFor'] = self._serialize.query('requested_for', requested_for, 'str')
         if reason_filter is not None:
