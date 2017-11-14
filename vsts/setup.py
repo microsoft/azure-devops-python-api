@@ -34,10 +34,11 @@ CLASSIFIERS = [
 setup(
     name=NAME,
     version=VERSION,
+    license='MIT',
     description="Python wrapper around the VSTS APIs",
     author="Microsoft Corporation",
     author_email="vstscli@microsoft.com",
-    url="https://github.com/Microsoft/vsts-python-api ",
+    url="https://github.com/Microsoft/vsts-python-api",
     keywords=["Microsoft", "VSTS", "Team Services", "SDK", "AzureTfs"],
     install_requires=REQUIRES,
     classifiers=CLASSIFIERS,
