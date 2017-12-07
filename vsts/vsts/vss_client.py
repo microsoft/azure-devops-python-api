@@ -227,9 +227,14 @@ class VssClient(object):
                     # Following code is to handle this unusual exception json case.
                     # TODO: dig into this.
                     collection_wrapper = self._base_deserialize('VssJsonCollectionWrapper', response)
-                    if collection_wrapper is not None:
+                    if collection_wrapper is not None and collection_wrapper.value is not None:
                         wrapped_exception = self._base_deserialize('ImproperException', collection_wrapper.value)
-                        raise VstsClientRequestError(wrapped_exception.message)
+                        if wrapped_exception is not None and wrapped_exception.message is not None:
+                            raise VstsClientRequestError(wrapped_exception.message)
+                # if we get here we still have not raised an exception, try to deserialize as a System Exception
+                system_exception = self._base_deserialize('SystemException', response)
+                if system_exception is not None and system_exception.message is not None:
+                    raise VstsClientRequestError(system_exception.message)
             except DeserializationError:
                 pass
         elif response.content is not None:

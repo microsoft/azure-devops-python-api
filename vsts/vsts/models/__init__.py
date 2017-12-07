@@ -9,6 +9,7 @@ from .api_resource_location import ApiResourceLocation
 from ..customer_intelligence.v4_0.models.customer_intelligence_event import CustomerIntelligenceEvent
 from .improper_exception import ImproperException
 from ..location.v4_0.models.resource_area_info import ResourceAreaInfo
+from .system_exception import SystemException
 from .vss_json_collection_wrapper_base import VssJsonCollectionWrapperBase
 from .vss_json_collection_wrapper import VssJsonCollectionWrapper
 from .wrapped_exception import WrappedException
@@ -18,6 +19,7 @@ __all__ = [
     'CustomerIntelligenceEvent',
     'ImproperException',
     'ResourceAreaInfo',
+    'SystemException',
     'VssJsonCollectionWrapperBase',
     'VssJsonCollectionWrapper',
     'WrappedException'
