@@ -13,7 +13,7 @@ class WrappedException(Model):
     :param exception_id:
     :type exception_id: str
     :param inner_exception:
-    :type inner_exception: :class:`WrappedException <vsts.WrappedException>`
+    :type inner_exception: :class:`WrappedException <vsts.models.WrappedException>`
     :param message:
     :type message: str
     :param type_name:
