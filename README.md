@@ -5,6 +5,27 @@
 
 This repository contains Microsoft Visual Studio Team Services Python API. This API is used to build the Visual Studio Team Services CLI. To learn more about the VSTS CLI, check out our [github repo](https://github.com/Microsoft/vsts-cli).
 
+# Getting Started
+
+Following is an example how to use the API directly:
+
+```
+from vsts.vss_connection import VssConnection
+from msrest.authentication import BasicAuthentication
+import pprint
+
+token='REDACTED'
+team_instance='https://REDACTED.visualstudio.com'
+
+credentials = BasicAuthentication('', token)
+connection = VssConnection(base_url=team_instance, creds=credentials)
+core_client = connection.get_client('vsts.core.v4_0.core_client.CoreClient')
+
+team_projects = core_client.get_projects()
+
+for project in team_projects:
+    pprint.pprint(project.__dict__)
+```
 
 # Contributing
 
