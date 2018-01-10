@@ -12,7 +12,7 @@ from msrest.serialization import Model
 class Wiql(Model):
     """Wiql.
 
-    :param query:
+    :param query: The text of the WIQL query
     :type query: str
     """
 

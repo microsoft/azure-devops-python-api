@@ -65,7 +65,7 @@ class CoreClient(VssClient):
         """GetConnectedServices.
         [Preview API]
         :param str project_id:
-        :param ConnectedServiceKind kind:
+        :param str kind:
         :rtype: [WebApiConnectedService]
         """
         route_values = {}
@@ -73,7 +73,7 @@ class CoreClient(VssClient):
             route_values['projectId'] = self._serialize.url('project_id', project_id, 'str')
         query_parameters = {}
         if kind is not None:
-            query_parameters['kind'] = self._serialize.query('kind', kind, 'ConnectedServiceKind')
+            query_parameters['kind'] = self._serialize.query('kind', kind, 'str')
         response = self._send(http_method='GET',
                               location_id='b4f70219-e18b-42c5-abe3-98b07d35525e',
                               version='4.1-preview.1',
@@ -81,54 +81,6 @@ class CoreClient(VssClient):
                               query_parameters=query_parameters,
                               returns_collection=True)
         return self._deserialize('[WebApiConnectedService]', response)
-
-    def create_identity_mru(self, mru_data, mru_name):
-        """CreateIdentityMru.
-        [Preview API]
-        :param :class:`<IdentityData> <core.v4_1.models.IdentityData>` mru_data:
-        :param str mru_name:
-        """
-        route_values = {}
-        if mru_name is not None:
-            route_values['mruName'] = self._serialize.url('mru_name', mru_name, 'str')
-        content = self._serialize.body(mru_data, 'IdentityData')
-        self._send(http_method='POST',
-                   location_id='5ead0b70-2572-4697-97e9-f341069a783a',
-                   version='4.1-preview.1',
-                   route_values=route_values,
-                   content=content)
-
-    def get_identity_mru(self, mru_name):
-        """GetIdentityMru.
-        [Preview API]
-        :param str mru_name:
-        :rtype: [IdentityRef]
-        """
-        route_values = {}
-        if mru_name is not None:
-            route_values['mruName'] = self._serialize.url('mru_name', mru_name, 'str')
-        response = self._send(http_method='GET',
-                              location_id='5ead0b70-2572-4697-97e9-f341069a783a',
-                              version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[IdentityRef]', response)
-
-    def update_identity_mru(self, mru_data, mru_name):
-        """UpdateIdentityMru.
-        [Preview API]
-        :param :class:`<IdentityData> <core.v4_1.models.IdentityData>` mru_data:
-        :param str mru_name:
-        """
-        route_values = {}
-        if mru_name is not None:
-            route_values['mruName'] = self._serialize.url('mru_name', mru_name, 'str')
-        content = self._serialize.body(mru_data, 'IdentityData')
-        self._send(http_method='PATCH',
-                   location_id='5ead0b70-2572-4697-97e9-f341069a783a',
-                   version='4.1-preview.1',
-                   route_values=route_values,
-                   content=content)
 
     def get_team_members_with_extended_properties(self, project_id, team_id, top=None, skip=None):
         """GetTeamMembersWithExtendedProperties.
@@ -259,7 +211,7 @@ class CoreClient(VssClient):
     def get_projects(self, state_filter=None, top=None, skip=None, continuation_token=None):
         """GetProjects.
         [Preview API] Get project references with the specified state
-        :param object state_filter: Filter on team projects in a specific team project state (default: WellFormed).
+        :param str state_filter: Filter on team projects in a specific team project state (default: WellFormed).
         :param int top:
         :param int skip:
         :param str continuation_token:
@@ -267,7 +219,7 @@ class CoreClient(VssClient):
         """
         query_parameters = {}
         if state_filter is not None:
-            query_parameters['stateFilter'] = self._serialize.query('state_filter', state_filter, 'object')
+            query_parameters['stateFilter'] = self._serialize.query('state_filter', state_filter, 'str')
         if top is not None:
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         if skip is not None:

@@ -65,7 +65,7 @@ class CoreClient(VssClient):
         """GetConnectedServices.
         [Preview API]
         :param str project_id:
-        :param ConnectedServiceKind kind:
+        :param str kind:
         :rtype: [WebApiConnectedService]
         """
         route_values = {}
@@ -73,7 +73,7 @@ class CoreClient(VssClient):
             route_values['projectId'] = self._serialize.url('project_id', project_id, 'str')
         query_parameters = {}
         if kind is not None:
-            query_parameters['kind'] = self._serialize.query('kind', kind, 'ConnectedServiceKind')
+            query_parameters['kind'] = self._serialize.query('kind', kind, 'str')
         response = self._send(http_method='GET',
                               location_id='b4f70219-e18b-42c5-abe3-98b07d35525e',
                               version='4.0-preview.1',
@@ -258,7 +258,7 @@ class CoreClient(VssClient):
     def get_projects(self, state_filter=None, top=None, skip=None, continuation_token=None):
         """GetProjects.
         Get project references with the specified state
-        :param object state_filter: Filter on team projects in a specific team project state (default: WellFormed).
+        :param str state_filter: Filter on team projects in a specific team project state (default: WellFormed).
         :param int top:
         :param int skip:
         :param str continuation_token:
@@ -266,7 +266,7 @@ class CoreClient(VssClient):
         """
         query_parameters = {}
         if state_filter is not None:
-            query_parameters['stateFilter'] = self._serialize.query('state_filter', state_filter, 'object')
+            query_parameters['stateFilter'] = self._serialize.query('state_filter', state_filter, 'str')
         if top is not None:
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         if skip is not None:

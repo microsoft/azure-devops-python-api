@@ -12,19 +12,19 @@ from msrest.serialization import Model
 class WorkItemQueryClause(Model):
     """WorkItemQueryClause.
 
-    :param clauses:
+    :param clauses: Child clauses if the current clause is a logical operator
     :type clauses: list of :class:`WorkItemQueryClause <work-item-tracking.v4_1.models.WorkItemQueryClause>`
-    :param field:
+    :param field: Field associated with condition
     :type field: :class:`WorkItemFieldReference <work-item-tracking.v4_1.models.WorkItemFieldReference>`
-    :param field_value:
+    :param field_value: Right side of the condition when a field to field comparison
     :type field_value: :class:`WorkItemFieldReference <work-item-tracking.v4_1.models.WorkItemFieldReference>`
-    :param is_field_value:
+    :param is_field_value: Determines if this is a field to field comparison
     :type is_field_value: bool
-    :param logical_operator:
+    :param logical_operator: Logical operator separating the condition clause
     :type logical_operator: object
-    :param operator:
+    :param operator: The field operator
     :type operator: :class:`WorkItemFieldOperation <work-item-tracking.v4_1.models.WorkItemFieldOperation>`
-    :param value:
+    :param value: Right side of the condition when a field to value comparison
     :type value: str
     """
 

@@ -91,6 +91,7 @@ from .global_git_repository_key import GlobalGitRepositoryKey
 from .identity_ref import IdentityRef
 from .identity_ref_with_vote import IdentityRefWithVote
 from .import_repository_validation import ImportRepositoryValidation
+from .item_content import ItemContent
 from .item_model import ItemModel
 from .json_patch_operation import JsonPatchOperation
 from .reference_links import ReferenceLinks
@@ -189,6 +190,7 @@ __all__ = [
     'IdentityRef',
     'IdentityRefWithVote',
     'ImportRepositoryValidation',
+    'ItemContent',
     'ItemModel',
     'JsonPatchOperation',
     'ReferenceLinks',
