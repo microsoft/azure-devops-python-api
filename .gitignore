@@ -293,3 +293,8 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+.vscode/
+vsts/build/bdist.win32/
+
+# don't ignore release managment client
+!vsts/vsts/release
