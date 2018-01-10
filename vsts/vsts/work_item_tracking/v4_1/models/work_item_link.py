@@ -12,11 +12,11 @@ from msrest.serialization import Model
 class WorkItemLink(Model):
     """WorkItemLink.
 
-    :param rel:
+    :param rel: The type of link.
     :type rel: str
-    :param source:
+    :param source: The source work item.
     :type source: :class:`WorkItemReference <work-item-tracking.v4_1.models.WorkItemReference>`
-    :param target:
+    :param target: The target work item.
     :type target: :class:`WorkItemReference <work-item-tracking.v4_1.models.WorkItemReference>`
     """
 

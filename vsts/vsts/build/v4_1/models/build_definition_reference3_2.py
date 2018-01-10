@@ -9,8 +9,8 @@
 from .definition_reference import DefinitionReference
 
 
-class BuildDefinitionReference(DefinitionReference):
-    """BuildDefinitionReference.
+class BuildDefinitionReference3_2(DefinitionReference):
+    """BuildDefinitionReference3_2.
 
     :param created_date: The date the definition was created.
     :type created_date: datetime
@@ -40,10 +40,6 @@ class BuildDefinitionReference(DefinitionReference):
     :type draft_of: :class:`DefinitionReference <build.v4_1.models.DefinitionReference>`
     :param drafts: The list of drafts associated with this definition, if this is not a draft definition.
     :type drafts: list of :class:`DefinitionReference <build.v4_1.models.DefinitionReference>`
-    :param latest_build:
-    :type latest_build: :class:`Build <build.v4_1.models.Build>`
-    :param latest_completed_build:
-    :type latest_completed_build: :class:`Build <build.v4_1.models.Build>`
     :param metrics:
     :type metrics: list of :class:`BuildMetric <build.v4_1.models.BuildMetric>`
     :param quality: The quality of the definition document (draft, etc.)
@@ -67,21 +63,17 @@ class BuildDefinitionReference(DefinitionReference):
         'authored_by': {'key': 'authoredBy', 'type': 'IdentityRef'},
         'draft_of': {'key': 'draftOf', 'type': 'DefinitionReference'},
         'drafts': {'key': 'drafts', 'type': '[DefinitionReference]'},
-        'latest_build': {'key': 'latestBuild', 'type': 'Build'},
-        'latest_completed_build': {'key': 'latestCompletedBuild', 'type': 'Build'},
         'metrics': {'key': 'metrics', 'type': '[BuildMetric]'},
         'quality': {'key': 'quality', 'type': 'object'},
         'queue': {'key': 'queue', 'type': 'AgentPoolQueue'}
     }
 
-    def __init__(self, created_date=None, id=None, name=None, path=None, project=None, queue_status=None, revision=None, type=None, uri=None, url=None, _links=None, authored_by=None, draft_of=None, drafts=None, latest_build=None, latest_completed_build=None, metrics=None, quality=None, queue=None):
-        super(BuildDefinitionReference, self).__init__(created_date=created_date, id=id, name=name, path=path, project=project, queue_status=queue_status, revision=revision, type=type, uri=uri, url=url)
+    def __init__(self, created_date=None, id=None, name=None, path=None, project=None, queue_status=None, revision=None, type=None, uri=None, url=None, _links=None, authored_by=None, draft_of=None, drafts=None, metrics=None, quality=None, queue=None):
+        super(BuildDefinitionReference3_2, self).__init__(created_date=created_date, id=id, name=name, path=path, project=project, queue_status=queue_status, revision=revision, type=type, uri=uri, url=url)
         self._links = _links
         self.authored_by = authored_by
         self.draft_of = draft_of
         self.drafts = drafts
-        self.latest_build = latest_build
-        self.latest_completed_build = latest_completed_build
         self.metrics = metrics
         self.quality = quality
         self.queue = queue

@@ -16,6 +16,7 @@ from .build_controller import BuildController
 from .build_definition import BuildDefinition
 from .build_definition3_2 import BuildDefinition3_2
 from .build_definition_reference import BuildDefinitionReference
+from .build_definition_reference3_2 import BuildDefinitionReference3_2
 from .build_definition_revision import BuildDefinitionRevision
 from .build_definition_step import BuildDefinitionStep
 from .build_definition_template import BuildDefinitionTemplate
@@ -48,6 +49,9 @@ from .process_parameters import ProcessParameters
 from .reference_links import ReferenceLinks
 from .resource_ref import ResourceRef
 from .retention_policy import RetentionPolicy
+from .source_provider_attributes import SourceProviderAttributes
+from .source_repository import SourceRepository
+from .supported_trigger import SupportedTrigger
 from .task_agent_pool_reference import TaskAgentPoolReference
 from .task_definition_reference import TaskDefinitionReference
 from .task_input_definition_base import TaskInputDefinitionBase
@@ -75,6 +79,7 @@ __all__ = [
     'BuildDefinition',
     'BuildDefinition3_2',
     'BuildDefinitionReference',
+    'BuildDefinitionReference3_2',
     'BuildDefinitionRevision',
     'BuildDefinitionStep',
     'BuildDefinitionTemplate',
@@ -107,6 +112,9 @@ __all__ = [
     'ReferenceLinks',
     'ResourceRef',
     'RetentionPolicy',
+    'SourceProviderAttributes',
+    'SourceRepository',
+    'SupportedTrigger',
     'TaskAgentPoolReference',
     'TaskDefinitionReference',
     'TaskInputDefinitionBase',

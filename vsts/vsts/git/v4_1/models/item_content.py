@@ -9,21 +9,21 @@
 from msrest.serialization import Model
 
 
-class WorkItemQuerySortColumn(Model):
-    """WorkItemQuerySortColumn.
+class ItemContent(Model):
+    """ItemContent.
 
-    :param descending: The direction to sort by.
-    :type descending: bool
-    :param field: A work item field.
-    :type field: :class:`WorkItemFieldReference <work-item-tracking.v4_1.models.WorkItemFieldReference>`
+    :param content:
+    :type content: str
+    :param content_type:
+    :type content_type: object
     """
 
     _attribute_map = {
-        'descending': {'key': 'descending', 'type': 'bool'},
-        'field': {'key': 'field', 'type': 'WorkItemFieldReference'}
+        'content': {'key': 'content', 'type': 'str'},
+        'content_type': {'key': 'contentType', 'type': 'object'}
     }
 
-    def __init__(self, descending=None, field=None):
-        super(WorkItemQuerySortColumn, self).__init__()
-        self.descending = descending
-        self.field = field
+    def __init__(self, content=None, content_type=None):
+        super(ItemContent, self).__init__()
+        self.content = content
+        self.content_type = content_type
