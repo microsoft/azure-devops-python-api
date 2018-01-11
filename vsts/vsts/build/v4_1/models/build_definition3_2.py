@@ -6,10 +6,10 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .build_definition_reference import BuildDefinitionReference
+from .build_definition_reference3_2 import BuildDefinitionReference3_2
 
 
-class BuildDefinition3_2(BuildDefinitionReference):
+class BuildDefinition3_2(BuildDefinitionReference3_2):
     """BuildDefinition3_2.
 
     :param created_date: The date the definition was created.

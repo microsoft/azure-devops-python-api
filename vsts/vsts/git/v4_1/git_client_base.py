@@ -761,7 +761,7 @@ class GitClientBase(VssClient):
         :param str path: The item path.
         :param str project: Project ID or project name
         :param str scope_path: The path scope.  The default is null.
-        :param VersionControlRecursionType recursion_level: The recursion level of this request. The default is 'none', no recursion.
+        :param str recursion_level: The recursion level of this request. The default is 'none', no recursion.
         :param bool include_content_metadata: Set to true to include content metadata.  Default is false.
         :param bool latest_processed_change: Set to true to include the lastest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
@@ -779,7 +779,7 @@ class GitClientBase(VssClient):
         if scope_path is not None:
             query_parameters['scopePath'] = self._serialize.query('scope_path', scope_path, 'str')
         if recursion_level is not None:
-            query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'VersionControlRecursionType')
+            query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'str')
         if include_content_metadata is not None:
             query_parameters['includeContentMetadata'] = self._serialize.query('include_content_metadata', include_content_metadata, 'bool')
         if latest_processed_change is not None:
@@ -807,7 +807,7 @@ class GitClientBase(VssClient):
         :param str path: The item path.
         :param str project: Project ID or project name
         :param str scope_path: The path scope.  The default is null.
-        :param VersionControlRecursionType recursion_level: The recursion level of this request. The default is 'none', no recursion.
+        :param str recursion_level: The recursion level of this request. The default is 'none', no recursion.
         :param bool include_content_metadata: Set to true to include content metadata.  Default is false.
         :param bool latest_processed_change: Set to true to include the lastest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
@@ -825,7 +825,7 @@ class GitClientBase(VssClient):
         if scope_path is not None:
             query_parameters['scopePath'] = self._serialize.query('scope_path', scope_path, 'str')
         if recursion_level is not None:
-            query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'VersionControlRecursionType')
+            query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'str')
         if include_content_metadata is not None:
             query_parameters['includeContentMetadata'] = self._serialize.query('include_content_metadata', include_content_metadata, 'bool')
         if latest_processed_change is not None:
@@ -852,7 +852,7 @@ class GitClientBase(VssClient):
         :param str repository_id: The Id of the repository.
         :param str project: Project ID or project name
         :param str scope_path: The path scope.  The default is null.
-        :param VersionControlRecursionType recursion_level: The recursion level of this request. The default is 'none', no recursion.
+        :param str recursion_level: The recursion level of this request. The default is 'none', no recursion.
         :param bool include_content_metadata: Set to true to include content metadata.  Default is false.
         :param bool latest_processed_change: Set to true to include the lastest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
@@ -869,7 +869,7 @@ class GitClientBase(VssClient):
         if scope_path is not None:
             query_parameters['scopePath'] = self._serialize.query('scope_path', scope_path, 'str')
         if recursion_level is not None:
-            query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'VersionControlRecursionType')
+            query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'str')
         if include_content_metadata is not None:
             query_parameters['includeContentMetadata'] = self._serialize.query('include_content_metadata', include_content_metadata, 'bool')
         if latest_processed_change is not None:
@@ -900,7 +900,7 @@ class GitClientBase(VssClient):
         :param str path: The item path.
         :param str project: Project ID or project name
         :param str scope_path: The path scope.  The default is null.
-        :param VersionControlRecursionType recursion_level: The recursion level of this request. The default is 'none', no recursion.
+        :param str recursion_level: The recursion level of this request. The default is 'none', no recursion.
         :param bool include_content_metadata: Set to true to include content metadata.  Default is false.
         :param bool latest_processed_change: Set to true to include the lastest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
@@ -918,7 +918,7 @@ class GitClientBase(VssClient):
         if scope_path is not None:
             query_parameters['scopePath'] = self._serialize.query('scope_path', scope_path, 'str')
         if recursion_level is not None:
-            query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'VersionControlRecursionType')
+            query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'str')
         if include_content_metadata is not None:
             query_parameters['includeContentMetadata'] = self._serialize.query('include_content_metadata', include_content_metadata, 'bool')
         if latest_processed_change is not None:
@@ -946,7 +946,7 @@ class GitClientBase(VssClient):
         :param str path: The item path.
         :param str project: Project ID or project name
         :param str scope_path: The path scope.  The default is null.
-        :param VersionControlRecursionType recursion_level: The recursion level of this request. The default is 'none', no recursion.
+        :param str recursion_level: The recursion level of this request. The default is 'none', no recursion.
         :param bool include_content_metadata: Set to true to include content metadata.  Default is false.
         :param bool latest_processed_change: Set to true to include the lastest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
@@ -964,7 +964,7 @@ class GitClientBase(VssClient):
         if scope_path is not None:
             query_parameters['scopePath'] = self._serialize.query('scope_path', scope_path, 'str')
         if recursion_level is not None:
-            query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'VersionControlRecursionType')
+            query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'str')
         if include_content_metadata is not None:
             query_parameters['includeContentMetadata'] = self._serialize.query('include_content_metadata', include_content_metadata, 'bool')
         if latest_processed_change is not None:
