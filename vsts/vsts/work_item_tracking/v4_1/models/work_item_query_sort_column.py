@@ -12,9 +12,9 @@ from msrest.serialization import Model
 class WorkItemQuerySortColumn(Model):
     """WorkItemQuerySortColumn.
 
-    :param descending:
+    :param descending: The direction to sort by.
     :type descending: bool
-    :param field:
+    :param field: A work item field.
     :type field: :class:`WorkItemFieldReference <work-item-tracking.v4_1.models.WorkItemFieldReference>`
     """
 

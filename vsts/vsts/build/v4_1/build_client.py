@@ -134,6 +134,33 @@ class BuildClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('str', response)
 
+    def list_branches(self, project, provider_name, service_endpoint_id=None, repository=None):
+        """ListBranches.
+        [Preview API] Gets a list of branches for the given source code repository.
+        :param str project: Project ID or project name
+        :param str provider_name: The name of the source provider.
+        :param str service_endpoint_id: If specified, the ID of the service endpoint to query. Can only be omitted for providers that do use service endpoints, e.g. TFVC or TFGit.
+        :param str repository: If specified, the vendor-specific identifier or the name of the repository to get branches. Can only be omitted for providers that do not support multiple repositories.
+        :rtype: [str]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if provider_name is not None:
+            route_values['providerName'] = self._serialize.url('provider_name', provider_name, 'str')
+        query_parameters = {}
+        if service_endpoint_id is not None:
+            query_parameters['serviceEndpointId'] = self._serialize.query('service_endpoint_id', service_endpoint_id, 'str')
+        if repository is not None:
+            query_parameters['repository'] = self._serialize.query('repository', repository, 'str')
+        response = self._send(http_method='GET',
+                              location_id='e05d4403-9b81-4244-8763-20fde28d1976',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters,
+                              returns_collection=True)
+        return self._deserialize('[str]', response)
+
     def get_build_badge(self, project, repo_type, repo_id=None, branch_name=None):
         """GetBuildBadge.
         [Preview API] Gets a badge that indicates the status of the most recent build for the specified branch.
@@ -235,16 +262,16 @@ class BuildClient(VssClient):
         :param datetime min_time: If specified, filters to builds that finished/started/queued after this date based on the queryOrder specified.
         :param datetime max_time: If specified, filters to builds that finished/started/queued before this date based on the queryOrder specified.
         :param str requested_for: If specified, filters to builds requested for the specified user.
-        :param BuildReason reason_filter: If specified, filters to builds that match this reason.
-        :param BuildStatus status_filter: If specified, filters to builds that match this status.
-        :param BuildResult result_filter: If specified, filters to builds that match this result.
+        :param str reason_filter: If specified, filters to builds that match this reason.
+        :param str status_filter: If specified, filters to builds that match this status.
+        :param str result_filter: If specified, filters to builds that match this result.
         :param [str] tag_filters: A comma-delimited list of tags. If specified, filters to builds that have the specified tags.
         :param [str] properties: A comma-delimited list of properties to retrieve.
         :param int top: The maximum number of builds to return.
         :param str continuation_token: A continuation token, returned by a previous call to this method, that can be used to return the next set of builds.
         :param int max_builds_per_definition: The maximum number of builds to return per definition.
-        :param QueryDeletedOption deleted_filter: Indicates whether to exclude, include, or only return deleted builds.
-        :param BuildQueryOrder query_order: The order in which builds should be returned.
+        :param str deleted_filter: Indicates whether to exclude, include, or only return deleted builds.
+        :param str query_order: The order in which builds should be returned.
         :param str branch_name: If specified, filters to builds that built branches that built this branch.
         :param [int] build_ids: A comma-delimited list that specifies the IDs of builds to retrieve.
         :param str repository_id: If specified, filters to builds that built from this repository.
@@ -270,11 +297,11 @@ class BuildClient(VssClient):
         if requested_for is not None:
             query_parameters['requestedFor'] = self._serialize.query('requested_for', requested_for, 'str')
         if reason_filter is not None:
-            query_parameters['reasonFilter'] = self._serialize.query('reason_filter', reason_filter, 'BuildReason')
+            query_parameters['reasonFilter'] = self._serialize.query('reason_filter', reason_filter, 'str')
         if status_filter is not None:
-            query_parameters['statusFilter'] = self._serialize.query('status_filter', status_filter, 'BuildStatus')
+            query_parameters['statusFilter'] = self._serialize.query('status_filter', status_filter, 'str')
         if result_filter is not None:
-            query_parameters['resultFilter'] = self._serialize.query('result_filter', result_filter, 'BuildResult')
+            query_parameters['resultFilter'] = self._serialize.query('result_filter', result_filter, 'str')
         if tag_filters is not None:
             tag_filters = ",".join(tag_filters)
             query_parameters['tagFilters'] = self._serialize.query('tag_filters', tag_filters, 'str')
@@ -288,9 +315,9 @@ class BuildClient(VssClient):
         if max_builds_per_definition is not None:
             query_parameters['maxBuildsPerDefinition'] = self._serialize.query('max_builds_per_definition', max_builds_per_definition, 'int')
         if deleted_filter is not None:
-            query_parameters['deletedFilter'] = self._serialize.query('deleted_filter', deleted_filter, 'QueryDeletedOption')
+            query_parameters['deletedFilter'] = self._serialize.query('deleted_filter', deleted_filter, 'str')
         if query_order is not None:
-            query_parameters['queryOrder'] = self._serialize.query('query_order', query_order, 'BuildQueryOrder')
+            query_parameters['queryOrder'] = self._serialize.query('query_order', query_order, 'str')
         if branch_name is not None:
             query_parameters['branchName'] = self._serialize.query('branch_name', branch_name, 'str')
         if build_ids is not None:
@@ -544,7 +571,7 @@ class BuildClient(VssClient):
         :param str name: If specified, filters to definitions whose names match this pattern.
         :param str repository_id: A repository ID. If specified, filters to definitions that use this repository.
         :param str repository_type: If specified, filters to definitions that have a repository of this type.
-        :param DefinitionQueryOrder query_order: Indicates the order in which definitions should be returned.
+        :param str query_order: Indicates the order in which definitions should be returned.
         :param int top: The maximum number of definitions to return.
         :param str continuation_token: A continuation token, returned by a previous call to this method, that can be used to return the next set of definitions.
         :param datetime min_metrics_time: If specified, indicates the date from which metrics should be included.
@@ -568,7 +595,7 @@ class BuildClient(VssClient):
         if repository_type is not None:
             query_parameters['repositoryType'] = self._serialize.query('repository_type', repository_type, 'str')
         if query_order is not None:
-            query_parameters['queryOrder'] = self._serialize.query('query_order', query_order, 'DefinitionQueryOrder')
+            query_parameters['queryOrder'] = self._serialize.query('query_order', query_order, 'str')
         if top is not None:
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         if continuation_token is not None:
@@ -669,7 +696,7 @@ class BuildClient(VssClient):
         [Preview API] Gets a list of build definition folders.
         :param str project: Project ID or project name
         :param str path: The path to start with.
-        :param FolderQueryOrder query_order: The order in which folders should be returned.
+        :param str query_order: The order in which folders should be returned.
         :rtype: [Folder]
         """
         route_values = {}
@@ -679,7 +706,7 @@ class BuildClient(VssClient):
             route_values['path'] = self._serialize.url('path', path, 'str')
         query_parameters = {}
         if query_order is not None:
-            query_parameters['queryOrder'] = self._serialize.query('query_order', query_order, 'FolderQueryOrder')
+            query_parameters['queryOrder'] = self._serialize.query('query_order', query_order, 'str')
         response = self._send(http_method='GET',
                               location_id='a906531b-d2da-4f55-bda7-f3e676cc50d9',
                               version='4.1-preview.1',
@@ -1007,6 +1034,30 @@ class BuildClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('object', response)
 
+    def list_repositories(self, project, provider_name, service_endpoint_id=None):
+        """ListRepositories.
+        [Preview API] Gets a list of source code repositories.
+        :param str project: Project ID or project name
+        :param str provider_name: The name of the source provider.
+        :param str service_endpoint_id: If specified, the ID of the service endpoint to query. Can only be omitted for providers that do use service endpoints, e.g. TFVC or TFGit.
+        :rtype: [SourceRepository]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if provider_name is not None:
+            route_values['providerName'] = self._serialize.url('provider_name', provider_name, 'str')
+        query_parameters = {}
+        if service_endpoint_id is not None:
+            query_parameters['serviceEndpointId'] = self._serialize.query('service_endpoint_id', service_endpoint_id, 'str')
+        response = self._send(http_method='GET',
+                              location_id='d44d1680-f978-4834-9b93-8c6e132329c9',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters,
+                              returns_collection=True)
+        return self._deserialize('[SourceRepository]', response)
+
     def get_resource_usage(self):
         """GetResourceUsage.
         [Preview API] Gets information about build resources in the system.
@@ -1058,6 +1109,22 @@ class BuildClient(VssClient):
                               version='4.1-preview.1',
                               content=content)
         return self._deserialize('BuildSettings', response)
+
+    def list_source_providers(self, project):
+        """ListSourceProviders.
+        [Preview API] Get a list of source providers and their capabilities.
+        :param str project: Project ID or project name
+        :rtype: [SourceProviderAttributes]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        response = self._send(http_method='GET',
+                              location_id='3ce81729-954f-423d-a581-9fea01d25186',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              returns_collection=True)
+        return self._deserialize('[SourceProviderAttributes]', response)
 
     def add_build_tag(self, project, build_id, tag):
         """AddBuildTag.

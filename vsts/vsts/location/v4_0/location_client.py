@@ -28,14 +28,14 @@ class LocationClient(VssClient):
     def get_connection_data(self, connect_options=None, last_change_id=None, last_change_id64=None):
         """GetConnectionData.
         [Preview API] This was copied and adapted from TeamFoundationConnectionService.Connect()
-        :param ConnectOptions connect_options:
+        :param str connect_options:
         :param int last_change_id: Obsolete 32-bit LastChangeId
         :param long last_change_id64: Non-truncated 64-bit LastChangeId
         :rtype: :class:`<ConnectionData> <location.v4_0.models.ConnectionData>`
         """
         query_parameters = {}
         if connect_options is not None:
-            query_parameters['connectOptions'] = self._serialize.query('connect_options', connect_options, 'ConnectOptions')
+            query_parameters['connectOptions'] = self._serialize.query('connect_options', connect_options, 'str')
         if last_change_id is not None:
             query_parameters['lastChangeId'] = self._serialize.query('last_change_id', last_change_id, 'int')
         if last_change_id64 is not None:

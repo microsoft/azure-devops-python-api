@@ -12,6 +12,8 @@ from msrest.serialization import Model
 class WorkItemStateColor(Model):
     """WorkItemStateColor.
 
+    :param category: Category of state
+    :type category: str
     :param color: Color value
     :type color: str
     :param name: Work item type state name
@@ -19,11 +21,13 @@ class WorkItemStateColor(Model):
     """
 
     _attribute_map = {
+        'category': {'key': 'category', 'type': 'str'},
         'color': {'key': 'color', 'type': 'str'},
         'name': {'key': 'name', 'type': 'str'}
     }
 
-    def __init__(self, color=None, name=None):
+    def __init__(self, category=None, color=None, name=None):
         super(WorkItemStateColor, self).__init__()
+        self.category = category
         self.color = color
         self.name = name

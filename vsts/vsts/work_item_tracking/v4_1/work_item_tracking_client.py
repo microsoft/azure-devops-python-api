@@ -257,7 +257,7 @@ class WorkItemTrackingClient(VssClient):
         :param int id: Work item id
         :param int from_revision: Revision from which comments are to be fetched
         :param int top: The number of comments to return
-        :param CommentSortOrder order: Ascending or descending by revision id
+        :param str order: Ascending or descending by revision id
         :rtype: :class:`<WorkItemComments> <work-item-tracking.v4_1.models.WorkItemComments>`
         """
         route_values = {}
@@ -269,7 +269,7 @@ class WorkItemTrackingClient(VssClient):
         if top is not None:
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         if order is not None:
-            query_parameters['order'] = self._serialize.query('order', order, 'CommentSortOrder')
+            query_parameters['order'] = self._serialize.query('order', order, 'str')
         response = self._send(http_method='GET',
                               location_id='19335ae7-22f7-4308-93d8-261f9384b7cf',
                               version='4.1-preview.1',
@@ -315,7 +315,7 @@ class WorkItemTrackingClient(VssClient):
         """GetFields.
         [Preview API] Returns information for all fields.
         :param str project: Project ID or project name
-        :param GetFieldsExpand expand: Use ExtensionFields to include extension fields, otherwise exclude them. Unless the feature flag for this parameter is enabled, extension fields are always included.
+        :param str expand: Use ExtensionFields to include extension fields, otherwise exclude them. Unless the feature flag for this parameter is enabled, extension fields are always included.
         :rtype: [WorkItemField]
         """
         route_values = {}
@@ -323,7 +323,7 @@ class WorkItemTrackingClient(VssClient):
             route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if expand is not None:
-            query_parameters['$expand'] = self._serialize.query('expand', expand, 'GetFieldsExpand')
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         response = self._send(http_method='GET',
                               location_id='b51fd764-e5c2-4b9b-aaf7-3395cf4bdd94',
                               version='4.1-preview.2',
@@ -392,7 +392,7 @@ class WorkItemTrackingClient(VssClient):
         """GetQueries.
         [Preview API] Gets the root queries and their children
         :param str project: Project ID or project name
-        :param QueryExpand expand: Include the query string (wiql), clauses, query result columns, and sort options in the results.
+        :param str expand: Include the query string (wiql), clauses, query result columns, and sort options in the results.
         :param int depth: In the folder of queries, return child queries and folders to this depth.
         :param bool include_deleted: Include deleted queries and folders
         :rtype: [QueryHierarchyItem]
@@ -402,7 +402,7 @@ class WorkItemTrackingClient(VssClient):
             route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if expand is not None:
-            query_parameters['$expand'] = self._serialize.query('expand', expand, 'QueryExpand')
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         if depth is not None:
             query_parameters['$depth'] = self._serialize.query('depth', depth, 'int')
         if include_deleted is not None:
@@ -420,7 +420,7 @@ class WorkItemTrackingClient(VssClient):
         [Preview API] Retrieves an individual query and its children
         :param str project: Project ID or project name
         :param str query:
-        :param QueryExpand expand: Include the query string (wiql), clauses, query result columns, and sort options in the results.
+        :param str expand: Include the query string (wiql), clauses, query result columns, and sort options in the results.
         :param int depth: In the folder of queries, return child queries and folders to this depth.
         :param bool include_deleted: Include deleted queries and folders
         :rtype: :class:`<QueryHierarchyItem> <work-item-tracking.v4_1.models.QueryHierarchyItem>`
@@ -432,7 +432,7 @@ class WorkItemTrackingClient(VssClient):
             route_values['query'] = self._serialize.url('query', query, 'str')
         query_parameters = {}
         if expand is not None:
-            query_parameters['$expand'] = self._serialize.query('expand', expand, 'QueryExpand')
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         if depth is not None:
             query_parameters['$depth'] = self._serialize.query('depth', depth, 'int')
         if include_deleted is not None:
@@ -450,7 +450,7 @@ class WorkItemTrackingClient(VssClient):
         :param str project: Project ID or project name
         :param str filter: The text to filter the queries with.
         :param int top: The number of queries to return (Default is 50 and maximum is 200).
-        :param QueryExpand expand:
+        :param str expand:
         :param bool include_deleted: Include deleted queries and folders
         :rtype: :class:`<QueryHierarchyItemsResult> <work-item-tracking.v4_1.models.QueryHierarchyItemsResult>`
         """
@@ -463,7 +463,7 @@ class WorkItemTrackingClient(VssClient):
         if top is not None:
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         if expand is not None:
-            query_parameters['$expand'] = self._serialize.query('expand', expand, 'QueryExpand')
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         if include_deleted is not None:
             query_parameters['$includeDeleted'] = self._serialize.query('include_deleted', include_deleted, 'bool')
         response = self._send(http_method='GET',
@@ -597,7 +597,7 @@ class WorkItemTrackingClient(VssClient):
         [Preview API] Returns a fully hydrated work item for the requested revision
         :param int id:
         :param int revision_number:
-        :param WorkItemExpand expand:
+        :param str expand:
         :rtype: :class:`<WorkItem> <work-item-tracking.v4_1.models.WorkItem>`
         """
         route_values = {}
@@ -607,7 +607,7 @@ class WorkItemTrackingClient(VssClient):
             route_values['revisionNumber'] = self._serialize.url('revision_number', revision_number, 'int')
         query_parameters = {}
         if expand is not None:
-            query_parameters['$expand'] = self._serialize.query('expand', expand, 'WorkItemExpand')
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         response = self._send(http_method='GET',
                               location_id='a00c85a5-80fa-4565-99c3-bcd2181434bb',
                               version='4.1-preview.2',
@@ -621,7 +621,7 @@ class WorkItemTrackingClient(VssClient):
         :param int id:
         :param int top:
         :param int skip:
-        :param WorkItemExpand expand:
+        :param str expand:
         :rtype: [WorkItem]
         """
         route_values = {}
@@ -633,7 +633,7 @@ class WorkItemTrackingClient(VssClient):
         if skip is not None:
             query_parameters['$skip'] = self._serialize.query('skip', skip, 'int')
         if expand is not None:
-            query_parameters['$expand'] = self._serialize.query('expand', expand, 'WorkItemExpand')
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         response = self._send(http_method='GET',
                               location_id='a00c85a5-80fa-4565-99c3-bcd2181434bb',
                               version='4.1-preview.2',
@@ -1084,7 +1084,7 @@ class WorkItemTrackingClient(VssClient):
         :param bool include_deleted: Specify if the deleted item should be returned.
         :param bool include_tag_ref: Specify if the tag objects should be returned for System.Tags field.
         :param bool include_latest_only: Return only the latest revisions of work items, skipping all historical revisions
-        :param ReportingRevisionsExpand expand: Return all the fields in work item revisions, including long text fields which are not returned by default
+        :param str expand: Return all the fields in work item revisions, including long text fields which are not returned by default
         :param bool include_discussion_changes_only: Return only the those revisions of work items, where only history field was changed
         :param int max_page_size: The maximum number of results to return in this batch
         :rtype: :class:`<ReportingWorkItemRevisionsBatch> <work-item-tracking.v4_1.models.ReportingWorkItemRevisionsBatch>`
@@ -1112,7 +1112,7 @@ class WorkItemTrackingClient(VssClient):
         if include_latest_only is not None:
             query_parameters['includeLatestOnly'] = self._serialize.query('include_latest_only', include_latest_only, 'bool')
         if expand is not None:
-            query_parameters['$expand'] = self._serialize.query('expand', expand, 'ReportingRevisionsExpand')
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         if include_discussion_changes_only is not None:
             query_parameters['includeDiscussionChangesOnly'] = self._serialize.query('include_discussion_changes_only', include_discussion_changes_only, 'bool')
         if max_page_size is not None:
@@ -1131,7 +1131,7 @@ class WorkItemTrackingClient(VssClient):
         :param str project: Project ID or project name
         :param str continuation_token: Specifies the watermark to start the batch from. Omit this parameter to get the first batch of revisions.
         :param datetime start_date_time: Date/time to use as a starting point for revisions, all revisions will occur after this date/time. Cannot be used in conjunction with 'watermark' parameter.
-        :param ReportingRevisionsExpand expand:
+        :param str expand:
         :rtype: :class:`<ReportingWorkItemRevisionsBatch> <work-item-tracking.v4_1.models.ReportingWorkItemRevisionsBatch>`
         """
         route_values = {}
@@ -1143,7 +1143,7 @@ class WorkItemTrackingClient(VssClient):
         if start_date_time is not None:
             query_parameters['startDateTime'] = self._serialize.query('start_date_time', start_date_time, 'iso-8601')
         if expand is not None:
-            query_parameters['$expand'] = self._serialize.query('expand', expand, 'ReportingRevisionsExpand')
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         content = self._serialize.body(filter, 'ReportingWorkItemRevisionsFilter')
         response = self._send(http_method='POST',
                               location_id='f828fe59-dd87-495d-a17c-7a8d6211ca6c',
@@ -1179,7 +1179,7 @@ class WorkItemTrackingClient(VssClient):
         :param int id: The work item id
         :param [str] fields: Comma-separated list of requested fields
         :param datetime as_of: AsOf UTC date time string
-        :param WorkItemExpand expand: The expand parameters for work item attributes
+        :param str expand: The expand parameters for work item attributes
         :rtype: :class:`<WorkItem> <work-item-tracking.v4_1.models.WorkItem>`
         """
         route_values = {}
@@ -1192,7 +1192,7 @@ class WorkItemTrackingClient(VssClient):
         if as_of is not None:
             query_parameters['asOf'] = self._serialize.query('as_of', as_of, 'iso-8601')
         if expand is not None:
-            query_parameters['$expand'] = self._serialize.query('expand', expand, 'WorkItemExpand')
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         response = self._send(http_method='GET',
                               location_id='72c7ddf8-2cdc-4f60-90cd-ab71c14a399b',
                               version='4.1-preview.2',
@@ -1206,8 +1206,8 @@ class WorkItemTrackingClient(VssClient):
         :param [int] ids: The comma-separated list of requested work item ids
         :param [str] fields: Comma-separated list of requested fields
         :param datetime as_of: AsOf UTC date time string
-        :param WorkItemExpand expand: The expand parameters for work item attributes
-        :param WorkItemErrorPolicy error_policy: The flag to control error policy in a bulk get work items request
+        :param str expand: The expand parameters for work item attributes
+        :param str error_policy: The flag to control error policy in a bulk get work items request
         :rtype: [WorkItem]
         """
         query_parameters = {}
@@ -1220,9 +1220,9 @@ class WorkItemTrackingClient(VssClient):
         if as_of is not None:
             query_parameters['asOf'] = self._serialize.query('as_of', as_of, 'iso-8601')
         if expand is not None:
-            query_parameters['$expand'] = self._serialize.query('expand', expand, 'WorkItemExpand')
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         if error_policy is not None:
-            query_parameters['errorPolicy'] = self._serialize.query('error_policy', error_policy, 'WorkItemErrorPolicy')
+            query_parameters['errorPolicy'] = self._serialize.query('error_policy', error_policy, 'str')
         response = self._send(http_method='GET',
                               location_id='72c7ddf8-2cdc-4f60-90cd-ab71c14a399b',
                               version='4.1-preview.2',
@@ -1300,7 +1300,7 @@ class WorkItemTrackingClient(VssClient):
         :param str type: The work item type name
         :param str fields: Comma-separated list of requested fields
         :param datetime as_of: AsOf UTC date time string
-        :param WorkItemExpand expand: The expand parameters for work item attributes
+        :param str expand: The expand parameters for work item attributes
         :rtype: :class:`<WorkItem> <work-item-tracking.v4_1.models.WorkItem>`
         """
         route_values = {}
@@ -1314,7 +1314,7 @@ class WorkItemTrackingClient(VssClient):
         if as_of is not None:
             query_parameters['asOf'] = self._serialize.query('as_of', as_of, 'iso-8601')
         if expand is not None:
-            query_parameters['$expand'] = self._serialize.query('expand', expand, 'WorkItemExpand')
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         response = self._send(http_method='GET',
                               location_id='62d3d110-0047-428c-ad3c-4fe872c91c74',
                               version='4.1-preview.2',
@@ -1427,7 +1427,7 @@ class WorkItemTrackingClient(VssClient):
             route_values['field'] = self._serialize.url('field', field, 'str')
         response = self._send(http_method='GET',
                               location_id='bd293ce5-3d25-4192-8e67-e8092e879efb',
-                              version='4.1-preview.1',
+                              version='4.1-preview.2',
                               route_values=route_values)
         return self._deserialize('FieldDependentRule', response)
 

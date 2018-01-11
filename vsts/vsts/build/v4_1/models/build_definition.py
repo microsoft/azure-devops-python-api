@@ -40,6 +40,10 @@ class BuildDefinition(BuildDefinitionReference):
     :type draft_of: :class:`DefinitionReference <build.v4_1.models.DefinitionReference>`
     :param drafts: The list of drafts associated with this definition, if this is not a draft definition.
     :type drafts: list of :class:`DefinitionReference <build.v4_1.models.DefinitionReference>`
+    :param latest_build:
+    :type latest_build: :class:`Build <build.v4_1.models.Build>`
+    :param latest_completed_build:
+    :type latest_completed_build: :class:`Build <build.v4_1.models.Build>`
     :param metrics:
     :type metrics: list of :class:`BuildMetric <build.v4_1.models.BuildMetric>`
     :param quality: The quality of the definition document (draft, etc.)
@@ -64,10 +68,6 @@ class BuildDefinition(BuildDefinitionReference):
     :type job_cancel_timeout_in_minutes: int
     :param job_timeout_in_minutes: The job execution timeout (in minutes) for builds queued against this definition.
     :type job_timeout_in_minutes: int
-    :param latest_build:
-    :type latest_build: :class:`Build <build.v4_1.models.Build>`
-    :param latest_completed_build:
-    :type latest_completed_build: :class:`Build <build.v4_1.models.Build>`
     :param options:
     :type options: list of :class:`BuildOption <build.v4_1.models.BuildOption>`
     :param process: The build process.
@@ -105,6 +105,8 @@ class BuildDefinition(BuildDefinitionReference):
         'authored_by': {'key': 'authoredBy', 'type': 'IdentityRef'},
         'draft_of': {'key': 'draftOf', 'type': 'DefinitionReference'},
         'drafts': {'key': 'drafts', 'type': '[DefinitionReference]'},
+        'latest_build': {'key': 'latestBuild', 'type': 'Build'},
+        'latest_completed_build': {'key': 'latestCompletedBuild', 'type': 'Build'},
         'metrics': {'key': 'metrics', 'type': '[BuildMetric]'},
         'quality': {'key': 'quality', 'type': 'object'},
         'queue': {'key': 'queue', 'type': 'AgentPoolQueue'},
@@ -117,8 +119,6 @@ class BuildDefinition(BuildDefinitionReference):
         'job_authorization_scope': {'key': 'jobAuthorizationScope', 'type': 'object'},
         'job_cancel_timeout_in_minutes': {'key': 'jobCancelTimeoutInMinutes', 'type': 'int'},
         'job_timeout_in_minutes': {'key': 'jobTimeoutInMinutes', 'type': 'int'},
-        'latest_build': {'key': 'latestBuild', 'type': 'Build'},
-        'latest_completed_build': {'key': 'latestCompletedBuild', 'type': 'Build'},
         'options': {'key': 'options', 'type': '[BuildOption]'},
         'process': {'key': 'process', 'type': 'BuildProcess'},
         'process_parameters': {'key': 'processParameters', 'type': 'ProcessParameters'},
@@ -131,8 +131,8 @@ class BuildDefinition(BuildDefinitionReference):
         'variables': {'key': 'variables', 'type': '{BuildDefinitionVariable}'}
     }
 
-    def __init__(self, created_date=None, id=None, name=None, path=None, project=None, queue_status=None, revision=None, type=None, uri=None, url=None, _links=None, authored_by=None, draft_of=None, drafts=None, metrics=None, quality=None, queue=None, badge_enabled=None, build_number_format=None, comment=None, demands=None, description=None, drop_location=None, job_authorization_scope=None, job_cancel_timeout_in_minutes=None, job_timeout_in_minutes=None, latest_build=None, latest_completed_build=None, options=None, process=None, process_parameters=None, properties=None, repository=None, retention_rules=None, tags=None, triggers=None, variable_groups=None, variables=None):
-        super(BuildDefinition, self).__init__(created_date=created_date, id=id, name=name, path=path, project=project, queue_status=queue_status, revision=revision, type=type, uri=uri, url=url, _links=_links, authored_by=authored_by, draft_of=draft_of, drafts=drafts, metrics=metrics, quality=quality, queue=queue)
+    def __init__(self, created_date=None, id=None, name=None, path=None, project=None, queue_status=None, revision=None, type=None, uri=None, url=None, _links=None, authored_by=None, draft_of=None, drafts=None, latest_build=None, latest_completed_build=None, metrics=None, quality=None, queue=None, badge_enabled=None, build_number_format=None, comment=None, demands=None, description=None, drop_location=None, job_authorization_scope=None, job_cancel_timeout_in_minutes=None, job_timeout_in_minutes=None, options=None, process=None, process_parameters=None, properties=None, repository=None, retention_rules=None, tags=None, triggers=None, variable_groups=None, variables=None):
+        super(BuildDefinition, self).__init__(created_date=created_date, id=id, name=name, path=path, project=project, queue_status=queue_status, revision=revision, type=type, uri=uri, url=url, _links=_links, authored_by=authored_by, draft_of=draft_of, drafts=drafts, latest_build=latest_build, latest_completed_build=latest_completed_build, metrics=metrics, quality=quality, queue=queue)
         self.badge_enabled = badge_enabled
         self.build_number_format = build_number_format
         self.comment = comment
@@ -142,8 +142,6 @@ class BuildDefinition(BuildDefinitionReference):
         self.job_authorization_scope = job_authorization_scope
         self.job_cancel_timeout_in_minutes = job_cancel_timeout_in_minutes
         self.job_timeout_in_minutes = job_timeout_in_minutes
-        self.latest_build = latest_build
-        self.latest_completed_build = latest_completed_build
         self.options = options
         self.process = process
         self.process_parameters = process_parameters
