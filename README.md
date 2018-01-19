@@ -27,6 +27,12 @@ for project in team_projects:
     pprint.pprint(project.__dict__)
 ```
 
+# VSTS REST API Documentation
+
+The python SDK is a thin wrapper around the VSTS REST APIs. Please consult our REST API documentation for API specific details while working with this python SDK.
+
+[VSTS REST API Documentation](https://docs.microsoft.com/en-us/rest/api/vsts)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
