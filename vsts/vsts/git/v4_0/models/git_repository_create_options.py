@@ -12,8 +12,6 @@ from msrest.serialization import Model
 class GitRepositoryCreateOptions(Model):
     """GitRepositoryCreateOptions.
 
-    :param fork_options: If set, options for creating this repo as a fork of another one. If unset, this repo is unrelated to any existing forks.
-    :type fork_options: :class:`GitForkSyncRequestParameters <git.v4_0.models.GitForkSyncRequestParameters>`
     :param name:
     :type name: str
     :param parent_repository:
@@ -23,15 +21,13 @@ class GitRepositoryCreateOptions(Model):
     """
 
     _attribute_map = {
-        'fork_options': {'key': 'forkOptions', 'type': 'GitForkSyncRequestParameters'},
         'name': {'key': 'name', 'type': 'str'},
         'parent_repository': {'key': 'parentRepository', 'type': 'GitRepositoryRef'},
         'project': {'key': 'project', 'type': 'TeamProjectReference'}
     }
 
-    def __init__(self, fork_options=None, name=None, parent_repository=None, project=None):
+    def __init__(self, name=None, parent_repository=None, project=None):
         super(GitRepositoryCreateOptions, self).__init__()
-        self.fork_options = fork_options
         self.name = name
         self.parent_repository = parent_repository
         self.project = project
