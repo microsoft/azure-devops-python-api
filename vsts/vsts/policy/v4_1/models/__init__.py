@@ -6,7 +6,6 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .graph_subject_base import GraphSubjectBase
 from .identity_ref import IdentityRef
 from .policy_configuration import PolicyConfiguration
 from .policy_configuration_ref import PolicyConfigurationRef
@@ -17,7 +16,6 @@ from .reference_links import ReferenceLinks
 from .versioned_policy_configuration_ref import VersionedPolicyConfigurationRef
 
 __all__ = [
-    'GraphSubjectBase',
     'IdentityRef',
     'PolicyConfiguration',
     'PolicyConfigurationRef',
