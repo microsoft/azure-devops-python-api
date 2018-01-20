@@ -23,7 +23,7 @@ class ContributionsClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = '8477aec9-a4c7-4bd4-a456-ba4c53c989cb'
 
     def query_contribution_nodes(self, query):
         """QueryContributionNodes.

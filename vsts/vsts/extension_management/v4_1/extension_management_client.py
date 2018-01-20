@@ -23,7 +23,7 @@ class ExtensionManagementClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = '6c2b0933-3600-42ae-bf8b-93d4f7e83594'
 
     def get_installed_extensions(self, include_disabled_extensions=None, include_errors=None, asset_types=None, include_installation_issues=None):
         """GetInstalledExtensions.

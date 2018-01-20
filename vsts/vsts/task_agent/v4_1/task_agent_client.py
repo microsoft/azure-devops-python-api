@@ -23,7 +23,7 @@ class TaskAgentClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = 'a85b8835-c1a1-4aac-ae97-1c3d0ba72dbd'
 
     def add_agent(self, agent, pool_id):
         """AddAgent.

@@ -23,7 +23,7 @@ class DashboardClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = '31c84e0a-3ece-48fd-a29d-100849af99ba'
 
     def create_dashboard(self, dashboard, team_context):
         """CreateDashboard.

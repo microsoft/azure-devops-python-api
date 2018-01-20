@@ -23,7 +23,7 @@ class IdentityClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = '8A3D49B8-91F0-46EF-B33D-DDA338C25DB3'
+    resource_area_identifier = '8a3d49b8-91f0-46ef-b33d-dda338c25db3'
 
     def create_or_bind_with_claims(self, source_identity):
         """CreateOrBindWithClaims.
