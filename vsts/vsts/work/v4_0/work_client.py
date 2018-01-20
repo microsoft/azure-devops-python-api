@@ -23,7 +23,7 @@ class WorkClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = '1D4F49F9-02B9-4E26-B826-2CDB6195F2A9'
+    resource_area_identifier = '1d4f49f9-02b9-4e26-b826-2cdb6195f2a9'
 
     def get_backlog_configurations(self, team_context):
         """GetBacklogConfigurations.
