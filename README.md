@@ -5,6 +5,10 @@
 
 This repository contains Microsoft Visual Studio Team Services Python API. This API is used to build the Visual Studio Team Services CLI. To learn more about the VSTS CLI, check out our [github repo](https://github.com/Microsoft/vsts-cli).
 
+# Installation
+
+```pip install vsts```
+
 # Getting Started
 
 Following is an example how to use the API directly:
