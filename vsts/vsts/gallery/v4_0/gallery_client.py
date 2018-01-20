@@ -23,7 +23,7 @@ class GalleryClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = '69d21c00-f135-441b-b5ce-3626378e0819'
 
     def share_extension_by_id(self, extension_id, account_name):
         """ShareExtensionById.

@@ -23,7 +23,7 @@ class TfvcClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = '8aa40520-446d-40e6-89f6-9c9f9ce44c48'
 
     def get_branch(self, path, project=None, include_parent=None, include_children=None):
         """GetBranch.

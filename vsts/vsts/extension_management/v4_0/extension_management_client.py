@@ -23,7 +23,7 @@ class ExtensionManagementClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = '6c2b0933-3600-42ae-bf8b-93d4f7e83594'
 
     def get_acquisition_options(self, item_id, test_commerce=None, is_free_or_trial_install=None):
         """GetAcquisitionOptions.
