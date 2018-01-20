@@ -23,7 +23,7 @@ class ReleaseClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = 'efc2f575-36ef-48e9-b672-0c6fb4a48ac5'
 
     def get_approvals(self, project, assigned_to_filter=None, status_filter=None, release_ids_filter=None, type_filter=None, top=None, continuation_token=None, query_order=None, include_my_group_approvals=None):
         """GetApprovals.

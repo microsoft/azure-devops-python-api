@@ -23,7 +23,7 @@ class TestClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = 'c2aa639c-3ccc-4740-b3b6-ce2a1e1d984e'
 
     def get_action_results(self, project, run_id, test_case_result_id, iteration_id, action_path=None):
         """GetActionResults.
