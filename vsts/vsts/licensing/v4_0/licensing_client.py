@@ -23,7 +23,7 @@ class LicensingClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = 'c73a23a1-59bb-458c-8ce3-02c83215e015'
 
     def get_extension_license_usage(self):
         """GetExtensionLicenseUsage.
