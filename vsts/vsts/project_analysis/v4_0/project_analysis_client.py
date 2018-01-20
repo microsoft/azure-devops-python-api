@@ -23,7 +23,7 @@ class ProjectAnalysisClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = '7658fa33-b1bf-4580-990f-fac5896773d3'
 
     def get_project_language_analytics(self, project):
         """GetProjectLanguageAnalytics.

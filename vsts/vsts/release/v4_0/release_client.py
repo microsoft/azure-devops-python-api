@@ -23,7 +23,7 @@ class ReleaseClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = 'efc2f575-36ef-48e9-b672-0c6fb4a48ac5'
 
     def get_agent_artifact_definitions(self, project, release_id):
         """GetAgentArtifactDefinitions.
