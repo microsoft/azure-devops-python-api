@@ -6,7 +6,6 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .associated_work_item import AssociatedWorkItem
 from .attachment import Attachment
 from .change import Change
 from .change_count_dictionary import ChangeCountDictionary
@@ -66,6 +65,7 @@ from .git_push_ref import GitPushRef
 from .git_push_search_criteria import GitPushSearchCriteria
 from .git_query_branch_stats_criteria import GitQueryBranchStatsCriteria
 from .git_query_commits_criteria import GitQueryCommitsCriteria
+from .git_recycle_bin_repository_details import GitRecycleBinRepositoryDetails
 from .git_ref import GitRef
 from .git_ref_favorite import GitRefFavorite
 from .git_ref_update import GitRefUpdate
@@ -88,6 +88,7 @@ from .git_tree_ref import GitTreeRef
 from .git_user_date import GitUserDate
 from .git_version_descriptor import GitVersionDescriptor
 from .global_git_repository_key import GlobalGitRepositoryKey
+from .graph_subject_base import GraphSubjectBase
 from .identity_ref import IdentityRef
 from .identity_ref_with_vote import IdentityRefWithVote
 from .import_repository_validation import ImportRepositoryValidation
@@ -105,7 +106,6 @@ from .web_api_create_tag_request_data import WebApiCreateTagRequestData
 from .web_api_tag_definition import WebApiTagDefinition
 
 __all__ = [
-    'AssociatedWorkItem',
     'Attachment',
     'Change',
     'ChangeCountDictionary',
@@ -165,6 +165,7 @@ __all__ = [
     'GitPushSearchCriteria',
     'GitQueryBranchStatsCriteria',
     'GitQueryCommitsCriteria',
+    'GitRecycleBinRepositoryDetails',
     'GitRef',
     'GitRefFavorite',
     'GitRefUpdate',
@@ -187,6 +188,7 @@ __all__ = [
     'GitUserDate',
     'GitVersionDescriptor',
     'GlobalGitRepositoryKey',
+    'GraphSubjectBase',
     'IdentityRef',
     'IdentityRefWithVote',
     'ImportRepositoryValidation',

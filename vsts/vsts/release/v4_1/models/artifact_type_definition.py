@@ -14,6 +14,8 @@ class ArtifactTypeDefinition(Model):
 
     :param display_name:
     :type display_name: str
+    :param endpoint_type_id:
+    :type endpoint_type_id: str
     :param input_descriptors:
     :type input_descriptors: list of :class:`InputDescriptor <release.v4_1.models.InputDescriptor>`
     :param name:
@@ -24,14 +26,16 @@ class ArtifactTypeDefinition(Model):
 
     _attribute_map = {
         'display_name': {'key': 'displayName', 'type': 'str'},
+        'endpoint_type_id': {'key': 'endpointTypeId', 'type': 'str'},
         'input_descriptors': {'key': 'inputDescriptors', 'type': '[InputDescriptor]'},
         'name': {'key': 'name', 'type': 'str'},
         'unique_source_identifier': {'key': 'uniqueSourceIdentifier', 'type': 'str'}
     }
 
-    def __init__(self, display_name=None, input_descriptors=None, name=None, unique_source_identifier=None):
+    def __init__(self, display_name=None, endpoint_type_id=None, input_descriptors=None, name=None, unique_source_identifier=None):
         super(ArtifactTypeDefinition, self).__init__()
         self.display_name = display_name
+        self.endpoint_type_id = endpoint_type_id
         self.input_descriptors = input_descriptors
         self.name = name
         self.unique_source_identifier = unique_source_identifier

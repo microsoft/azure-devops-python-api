@@ -22,6 +22,8 @@ class DeploymentAttempt(Model):
     :type has_started: bool
     :param id:
     :type id: int
+    :param issues: All the issues related to the deployment
+    :type issues: list of :class:`Issue <release.v4_1.models.Issue>`
     :param job:
     :type job: :class:`ReleaseTask <release.v4_1.models.ReleaseTask>`
     :param last_modified_by:
@@ -58,6 +60,7 @@ class DeploymentAttempt(Model):
         'error_log': {'key': 'errorLog', 'type': 'str'},
         'has_started': {'key': 'hasStarted', 'type': 'bool'},
         'id': {'key': 'id', 'type': 'int'},
+        'issues': {'key': 'issues', 'type': '[Issue]'},
         'job': {'key': 'job', 'type': 'ReleaseTask'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'IdentityRef'},
         'last_modified_on': {'key': 'lastModifiedOn', 'type': 'iso-8601'},
@@ -74,13 +77,14 @@ class DeploymentAttempt(Model):
         'tasks': {'key': 'tasks', 'type': '[ReleaseTask]'}
     }
 
-    def __init__(self, attempt=None, deployment_id=None, error_log=None, has_started=None, id=None, job=None, last_modified_by=None, last_modified_on=None, operation_status=None, post_deployment_gates=None, pre_deployment_gates=None, queued_on=None, reason=None, release_deploy_phases=None, requested_by=None, requested_for=None, run_plan_id=None, status=None, tasks=None):
+    def __init__(self, attempt=None, deployment_id=None, error_log=None, has_started=None, id=None, issues=None, job=None, last_modified_by=None, last_modified_on=None, operation_status=None, post_deployment_gates=None, pre_deployment_gates=None, queued_on=None, reason=None, release_deploy_phases=None, requested_by=None, requested_for=None, run_plan_id=None, status=None, tasks=None):
         super(DeploymentAttempt, self).__init__()
         self.attempt = attempt
         self.deployment_id = deployment_id
         self.error_log = error_log
         self.has_started = has_started
         self.id = id
+        self.issues = issues
         self.job = job
         self.last_modified_by = last_modified_by
         self.last_modified_on = last_modified_on

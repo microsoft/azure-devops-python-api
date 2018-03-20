@@ -12,9 +12,9 @@ from msrest.serialization import Model
 class MetricsColumnsHeader(Model):
     """MetricsColumnsHeader.
 
-    :param dimensions:
+    :param dimensions: Properties of deployment group for which metrics are provided. E.g. 1: LastJobStatus E.g. 2: TargetState
     :type dimensions: list of :class:`MetricsColumnMetaData <task-agent.v4_1.models.MetricsColumnMetaData>`
-    :param metrics:
+    :param metrics: The types of metrics. E.g. 1: total count of deployment targets. E.g. 2: Average time of deployment to the deployment targets.
     :type metrics: list of :class:`MetricsColumnMetaData <task-agent.v4_1.models.MetricsColumnMetaData>`
     """
 

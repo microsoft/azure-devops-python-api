@@ -14,6 +14,8 @@ class ItemModel(Model):
 
     :param _links:
     :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
+    :param content:
+    :type content: str
     :param content_metadata:
     :type content_metadata: :class:`FileContentMetadata <git.v4_1.models.FileContentMetadata>`
     :param is_folder:
@@ -28,6 +30,7 @@ class ItemModel(Model):
 
     _attribute_map = {
         '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'content': {'key': 'content', 'type': 'str'},
         'content_metadata': {'key': 'contentMetadata', 'type': 'FileContentMetadata'},
         'is_folder': {'key': 'isFolder', 'type': 'bool'},
         'is_sym_link': {'key': 'isSymLink', 'type': 'bool'},
@@ -35,9 +38,10 @@ class ItemModel(Model):
         'url': {'key': 'url', 'type': 'str'}
     }
 
-    def __init__(self, _links=None, content_metadata=None, is_folder=None, is_sym_link=None, path=None, url=None):
+    def __init__(self, _links=None, content=None, content_metadata=None, is_folder=None, is_sym_link=None, path=None, url=None):
         super(ItemModel, self).__init__()
         self._links = _links
+        self.content = content
         self.content_metadata = content_metadata
         self.is_folder = is_folder
         self.is_sym_link = is_sym_link

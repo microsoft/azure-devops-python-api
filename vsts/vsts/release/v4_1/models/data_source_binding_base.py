@@ -6,27 +6,26 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from msrest.serialization import Model
 
 
-class DataSourceBindingBase(Model):
+class DataSourceBindingBase(BaseSecuredObject):
     """DataSourceBindingBase.
 
-    :param data_source_name:
+    :param data_source_name: Gets or sets the name of the data source.
     :type data_source_name: str
-    :param endpoint_id:
+    :param endpoint_id: Gets or sets the endpoint Id.
     :type endpoint_id: str
-    :param endpoint_url:
+    :param endpoint_url: Gets or sets the url of the service endpoint.
     :type endpoint_url: str
-    :param headers:
+    :param headers: Gets or sets the authorization headers.
     :type headers: list of :class:`AuthorizationHeader <microsoft.-team-foundation.-distributed-task.-common.-contracts.v4_1.models.AuthorizationHeader>`
-    :param parameters:
+    :param parameters: Gets or sets the parameters for the data source.
     :type parameters: dict
-    :param result_selector:
+    :param result_selector: Gets or sets the result selector.
     :type result_selector: str
-    :param result_template:
+    :param result_template: Gets or sets the result template.
     :type result_template: str
-    :param target:
+    :param target: Gets or sets the target of the data source.
     :type target: str
     """
 

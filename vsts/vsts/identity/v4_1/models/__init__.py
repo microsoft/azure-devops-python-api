@@ -14,6 +14,7 @@ from .create_scope_info import CreateScopeInfo
 from .framework_identity_info import FrameworkIdentityInfo
 from .group_membership import GroupMembership
 from .identity import Identity
+from .identity_base import IdentityBase
 from .identity_batch_info import IdentityBatchInfo
 from .identity_scope import IdentityScope
 from .identity_self import IdentitySelf
@@ -32,6 +33,7 @@ __all__ = [
     'FrameworkIdentityInfo',
     'GroupMembership',
     'Identity',
+    'IdentityBase',
     'IdentityBatchInfo',
     'IdentityScope',
     'IdentitySelf',

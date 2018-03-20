@@ -62,7 +62,7 @@ class ReleaseClient(VssClient):
             query_parameters['includeMyGroupApprovals'] = self._serialize.query('include_my_group_approvals', include_my_group_approvals, 'bool')
         response = self._send(http_method='GET',
                               location_id='b47c6458-e73b-47cb-a770-4df1e8813a91',
-                              version='4.1-preview.1',
+                              version='4.1-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -84,10 +84,77 @@ class ReleaseClient(VssClient):
         content = self._serialize.body(approval, 'ReleaseApproval')
         response = self._send(http_method='PATCH',
                               location_id='9328e074-59fb-465a-89d9-b09c82ee5109',
-                              version='4.1-preview.1',
+                              version='4.1-preview.3',
                               route_values=route_values,
                               content=content)
         return self._deserialize('ReleaseApproval', response)
+
+    def get_task_attachment_content(self, project, release_id, environment_id, attempt_id, timeline_id, record_id, type, name):
+        """GetTaskAttachmentContent.
+        [Preview API]
+        :param str project: Project ID or project name
+        :param int release_id:
+        :param int environment_id:
+        :param int attempt_id:
+        :param str timeline_id:
+        :param str record_id:
+        :param str type:
+        :param str name:
+        :rtype: object
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if release_id is not None:
+            route_values['releaseId'] = self._serialize.url('release_id', release_id, 'int')
+        if environment_id is not None:
+            route_values['environmentId'] = self._serialize.url('environment_id', environment_id, 'int')
+        if attempt_id is not None:
+            route_values['attemptId'] = self._serialize.url('attempt_id', attempt_id, 'int')
+        if timeline_id is not None:
+            route_values['timelineId'] = self._serialize.url('timeline_id', timeline_id, 'str')
+        if record_id is not None:
+            route_values['recordId'] = self._serialize.url('record_id', record_id, 'str')
+        if type is not None:
+            route_values['type'] = self._serialize.url('type', type, 'str')
+        if name is not None:
+            route_values['name'] = self._serialize.url('name', name, 'str')
+        response = self._send(http_method='GET',
+                              location_id='c4071f6d-3697-46ca-858e-8b10ff09e52f',
+                              version='4.1-preview.1',
+                              route_values=route_values)
+        return self._deserialize('object', response)
+
+    def get_task_attachments(self, project, release_id, environment_id, attempt_id, timeline_id, type):
+        """GetTaskAttachments.
+        [Preview API]
+        :param str project: Project ID or project name
+        :param int release_id:
+        :param int environment_id:
+        :param int attempt_id:
+        :param str timeline_id:
+        :param str type:
+        :rtype: [ReleaseTaskAttachment]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if release_id is not None:
+            route_values['releaseId'] = self._serialize.url('release_id', release_id, 'int')
+        if environment_id is not None:
+            route_values['environmentId'] = self._serialize.url('environment_id', environment_id, 'int')
+        if attempt_id is not None:
+            route_values['attemptId'] = self._serialize.url('attempt_id', attempt_id, 'int')
+        if timeline_id is not None:
+            route_values['timelineId'] = self._serialize.url('timeline_id', timeline_id, 'str')
+        if type is not None:
+            route_values['type'] = self._serialize.url('type', type, 'str')
+        response = self._send(http_method='GET',
+                              location_id='214111ee-2415-4df2-8ed2-74417f7d61f9',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              returns_collection=True)
+        return self._deserialize('[ReleaseTaskAttachment]', response)
 
     def create_release_definition(self, release_definition, project):
         """CreateReleaseDefinition.
@@ -233,7 +300,7 @@ class ReleaseClient(VssClient):
                               content=content)
         return self._deserialize('ReleaseDefinition', response)
 
-    def get_deployments(self, project, definition_id=None, definition_environment_id=None, created_by=None, min_modified_time=None, max_modified_time=None, deployment_status=None, operation_status=None, latest_attempts_only=None, query_order=None, top=None, continuation_token=None, created_for=None):
+    def get_deployments(self, project, definition_id=None, definition_environment_id=None, created_by=None, min_modified_time=None, max_modified_time=None, deployment_status=None, operation_status=None, latest_attempts_only=None, query_order=None, top=None, continuation_token=None, created_for=None, min_started_time=None, max_started_time=None):
         """GetDeployments.
         [Preview API]
         :param str project: Project ID or project name
@@ -249,6 +316,8 @@ class ReleaseClient(VssClient):
         :param int top:
         :param int continuation_token:
         :param str created_for:
+        :param datetime min_started_time:
+        :param datetime max_started_time:
         :rtype: [Deployment]
         """
         route_values = {}
@@ -279,6 +348,10 @@ class ReleaseClient(VssClient):
             query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'int')
         if created_for is not None:
             query_parameters['createdFor'] = self._serialize.query('created_for', created_for, 'str')
+        if min_started_time is not None:
+            query_parameters['minStartedTime'] = self._serialize.query('min_started_time', min_started_time, 'iso-8601')
+        if max_started_time is not None:
+            query_parameters['maxStartedTime'] = self._serialize.query('max_started_time', max_started_time, 'iso-8601')
         response = self._send(http_method='GET',
                               location_id='b005ef73-cddc-448e-9ba2-5193bf36b19f',
                               version='4.1-preview.2',
@@ -329,7 +402,7 @@ class ReleaseClient(VssClient):
                               route_values=route_values)
         return self._deserialize('object', response)
 
-    def get_task_log(self, project, release_id, environment_id, release_deploy_phase_id, task_id):
+    def get_task_log(self, project, release_id, environment_id, release_deploy_phase_id, task_id, start_line=None, end_line=None):
         """GetTaskLog.
         [Preview API] Gets the task log of a release as a plain text file.
         :param str project: Project ID or project name
@@ -337,6 +410,8 @@ class ReleaseClient(VssClient):
         :param int environment_id: Id of release environment.
         :param int release_deploy_phase_id: Release deploy phase Id.
         :param int task_id: ReleaseTask Id for the log.
+        :param long start_line: Starting line number for logs
+        :param long end_line: Ending line number for logs
         :rtype: object
         """
         route_values = {}
@@ -350,10 +425,16 @@ class ReleaseClient(VssClient):
             route_values['releaseDeployPhaseId'] = self._serialize.url('release_deploy_phase_id', release_deploy_phase_id, 'int')
         if task_id is not None:
             route_values['taskId'] = self._serialize.url('task_id', task_id, 'int')
+        query_parameters = {}
+        if start_line is not None:
+            query_parameters['startLine'] = self._serialize.query('start_line', start_line, 'long')
+        if end_line is not None:
+            query_parameters['endLine'] = self._serialize.query('end_line', end_line, 'long')
         response = self._send(http_method='GET',
                               location_id='17c91af7-09fd-4256-bff1-c24ee4f73bc0',
                               version='4.1-preview.2',
-                              route_values=route_values)
+                              route_values=route_values,
+                              query_parameters=query_parameters)
         return self._deserialize('object', response)
 
     def get_manual_intervention(self, project, release_id, manual_intervention_id):
@@ -519,12 +600,12 @@ class ReleaseClient(VssClient):
                               content=content)
         return self._deserialize('Release', response)
 
-    def get_release(self, project, release_id, include_all_approvals=None, property_filters=None):
+    def get_release(self, project, release_id, approval_filters=None, property_filters=None):
         """GetRelease.
         [Preview API] Get a Release
         :param str project: Project ID or project name
         :param int release_id: Id of the release.
-        :param bool include_all_approvals: Include all approvals in the result. Default is 'true'.
+        :param str approval_filters: A filter which would allow fetching approval steps selectively based on whether it is automated, or manual. This would also decide whether we should fetch pre and post approval snapshots. Assumes All by default
         :param [str] property_filters: A comma-delimited list of properties to include in the results.
         :rtype: :class:`<Release> <release.v4_1.models.Release>`
         """
@@ -534,8 +615,8 @@ class ReleaseClient(VssClient):
         if release_id is not None:
             route_values['releaseId'] = self._serialize.url('release_id', release_id, 'int')
         query_parameters = {}
-        if include_all_approvals is not None:
-            query_parameters['includeAllApprovals'] = self._serialize.query('include_all_approvals', include_all_approvals, 'bool')
+        if approval_filters is not None:
+            query_parameters['approvalFilters'] = self._serialize.query('approval_filters', approval_filters, 'str')
         if property_filters is not None:
             property_filters = ",".join(property_filters)
             query_parameters['propertyFilters'] = self._serialize.query('property_filters', property_filters, 'str')

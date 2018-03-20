@@ -6,10 +6,9 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from msrest.serialization import Model
 
 
-class ProcessParameters(Model):
+class ProcessParameters(BaseSecuredObject):
     """ProcessParameters.
 
     :param data_source_bindings:

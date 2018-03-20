@@ -12,25 +12,25 @@ from msrest.serialization import Model
 class VariableGroup(Model):
     """VariableGroup.
 
-    :param created_by:
+    :param created_by: Gets or sets the identity who created the variable group.
     :type created_by: :class:`IdentityRef <task-agent.v4_1.models.IdentityRef>`
-    :param created_on:
+    :param created_on: Gets or sets the time when variable group was created.
     :type created_on: datetime
-    :param description:
+    :param description: Gets or sets description of the variable group.
     :type description: str
-    :param id:
+    :param id: Gets or sets id of the variable group.
     :type id: int
-    :param modified_by:
+    :param modified_by: Gets or sets the identity who modified the variable group.
     :type modified_by: :class:`IdentityRef <task-agent.v4_1.models.IdentityRef>`
-    :param modified_on:
+    :param modified_on: Gets or sets the time when variable group was modified
     :type modified_on: datetime
-    :param name:
+    :param name: Gets or sets name of the variable group.
     :type name: str
-    :param provider_data:
+    :param provider_data: Gets or sets provider data.
     :type provider_data: :class:`VariableGroupProviderData <task-agent.v4_1.models.VariableGroupProviderData>`
-    :param type:
+    :param type: Gets or sets type of the variable group.
     :type type: str
-    :param variables:
+    :param variables: Gets or sets variables contained in the variable group.
     :type variables: dict
     """
 

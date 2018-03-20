@@ -6,10 +6,9 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from msrest.serialization import Model
 
 
-class TaskInputDefinitionBase(Model):
+class TaskInputDefinitionBase(BaseSecuredObject):
     """TaskInputDefinitionBase.
 
     :param aliases:

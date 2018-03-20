@@ -20,6 +20,10 @@ class DataProviderResult(Model):
     :type exceptions: dict
     :param resolved_providers: List of data providers resolved in the data-provider query
     :type resolved_providers: list of :class:`ResolvedDataProvider <contributions.v4_1.models.ResolvedDataProvider>`
+    :param scope_name: Scope name applied to this data provider result.
+    :type scope_name: str
+    :param scope_value: Scope value applied to this data provider result.
+    :type scope_value: str
     :param shared_data: Property bag of shared data that was contributed to by any of the individual data providers
     :type shared_data: dict
     """
@@ -29,13 +33,17 @@ class DataProviderResult(Model):
         'data': {'key': 'data', 'type': '{object}'},
         'exceptions': {'key': 'exceptions', 'type': '{DataProviderExceptionDetails}'},
         'resolved_providers': {'key': 'resolvedProviders', 'type': '[ResolvedDataProvider]'},
+        'scope_name': {'key': 'scopeName', 'type': 'str'},
+        'scope_value': {'key': 'scopeValue', 'type': 'str'},
         'shared_data': {'key': 'sharedData', 'type': '{object}'}
     }
 
-    def __init__(self, client_providers=None, data=None, exceptions=None, resolved_providers=None, shared_data=None):
+    def __init__(self, client_providers=None, data=None, exceptions=None, resolved_providers=None, scope_name=None, scope_value=None, shared_data=None):
         super(DataProviderResult, self).__init__()
         self.client_providers = client_providers
         self.data = data
         self.exceptions = exceptions
         self.resolved_providers = resolved_providers
+        self.scope_name = scope_name
+        self.scope_value = scope_value
         self.shared_data = shared_data

@@ -12,9 +12,9 @@ from msrest.serialization import Model
 class AuthorizationHeader(Model):
     """AuthorizationHeader.
 
-    :param name:
+    :param name: Gets or sets the name of authorization header.
     :type name: str
-    :param value:
+    :param value: Gets or sets the value of authorization header.
     :type value: str
     """
 

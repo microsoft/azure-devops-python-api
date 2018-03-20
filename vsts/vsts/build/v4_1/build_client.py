@@ -111,6 +111,58 @@ class BuildClient(VssClient):
                               returns_collection=True)
         return self._deserialize('[BuildArtifact]', response)
 
+    def get_attachments(self, project, build_id, type):
+        """GetAttachments.
+        [Preview API] Gets the list of attachments of a specific type that are associated with a build.
+        :param str project: Project ID or project name
+        :param int build_id: The ID of the build.
+        :param str type: The type of attachment.
+        :rtype: [Attachment]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
+        if type is not None:
+            route_values['type'] = self._serialize.url('type', type, 'str')
+        response = self._send(http_method='GET',
+                              location_id='f2192269-89fa-4f94-baf6-8fb128c55159',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              returns_collection=True)
+        return self._deserialize('[Attachment]', response)
+
+    def get_attachment(self, project, build_id, timeline_id, record_id, type, name):
+        """GetAttachment.
+        [Preview API] Gets a specific attachment.
+        :param str project: Project ID or project name
+        :param int build_id: The ID of the build.
+        :param str timeline_id: The ID of the timeline.
+        :param str record_id: The ID of the timeline record.
+        :param str type: The type of the attachment.
+        :param str name: The name of the attachment.
+        :rtype: object
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
+        if timeline_id is not None:
+            route_values['timelineId'] = self._serialize.url('timeline_id', timeline_id, 'str')
+        if record_id is not None:
+            route_values['recordId'] = self._serialize.url('record_id', record_id, 'str')
+        if type is not None:
+            route_values['type'] = self._serialize.url('type', type, 'str')
+        if name is not None:
+            route_values['name'] = self._serialize.url('name', name, 'str')
+        response = self._send(http_method='GET',
+                              location_id='af5122d3-3438-485e-a25a-2dbbfde84ee6',
+                              version='4.1-preview.1',
+                              route_values=route_values)
+        return self._deserialize('object', response)
+
     def get_badge(self, project, definition_id, branch_name=None):
         """GetBadge.
         [Preview API] Gets a badge that indicates the status of the most recent build for a definition.
@@ -139,7 +191,7 @@ class BuildClient(VssClient):
         [Preview API] Gets a list of branches for the given source code repository.
         :param str project: Project ID or project name
         :param str provider_name: The name of the source provider.
-        :param str service_endpoint_id: If specified, the ID of the service endpoint to query. Can only be omitted for providers that do use service endpoints, e.g. TFVC or TFGit.
+        :param str service_endpoint_id: If specified, the ID of the service endpoint to query. Can only be omitted for providers that do not use service endpoints, e.g. TFVC or TFGit.
         :param str repository: If specified, the vendor-specific identifier or the name of the repository to get branches. Can only be omitted for providers that do not support multiple repositories.
         :rtype: [str]
         """
@@ -226,15 +278,15 @@ class BuildClient(VssClient):
             route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         self._send(http_method='DELETE',
                    location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                   version='4.1-preview.3',
+                   version='4.1-preview.4',
                    route_values=route_values)
 
     def get_build(self, build_id, project=None, property_filters=None):
         """GetBuild.
-        [Preview API] Gets a build.
-        :param int build_id: The ID of the build.
+        [Preview API] Gets a build
+        :param int build_id:
         :param str project: Project ID or project name
-        :param str property_filters: A comma-delimited list of properties to include in the results.
+        :param str property_filters:
         :rtype: :class:`<Build> <build.v4_1.models.Build>`
         """
         route_values = {}
@@ -247,7 +299,7 @@ class BuildClient(VssClient):
             query_parameters['propertyFilters'] = self._serialize.query('property_filters', property_filters, 'str')
         response = self._send(http_method='GET',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='4.1-preview.3',
+                              version='4.1-preview.4',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('Build', response)
@@ -329,7 +381,7 @@ class BuildClient(VssClient):
             query_parameters['repositoryType'] = self._serialize.query('repository_type', repository_type, 'str')
         response = self._send(http_method='GET',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='4.1-preview.3',
+                              version='4.1-preview.4',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -355,7 +407,7 @@ class BuildClient(VssClient):
         content = self._serialize.body(build, 'Build')
         response = self._send(http_method='POST',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='4.1-preview.3',
+                              version='4.1-preview.4',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -377,7 +429,7 @@ class BuildClient(VssClient):
         content = self._serialize.body(build, 'Build')
         response = self._send(http_method='PATCH',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='4.1-preview.3',
+                              version='4.1-preview.4',
                               route_values=route_values,
                               content=content)
         return self._deserialize('Build', response)
@@ -395,7 +447,7 @@ class BuildClient(VssClient):
         content = self._serialize.body(builds, '[Build]')
         response = self._send(http_method='PATCH',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='4.1-preview.3',
+                              version='4.1-preview.4',
                               route_values=route_values,
                               content=content,
                               returns_collection=True)
@@ -403,11 +455,11 @@ class BuildClient(VssClient):
 
     def get_build_changes(self, project, build_id, continuation_token=None, top=None, include_source_change=None):
         """GetBuildChanges.
-        [Preview API] Gets the changes associated with a build.
+        [Preview API] Gets the changes associated with a build
         :param str project: Project ID or project name
-        :param int build_id: The build ID.
+        :param int build_id:
         :param str continuation_token:
-        :param int top: The maximum number of changes to return.
+        :param int top: The maximum number of changes to return
         :param bool include_source_change:
         :rtype: [Change]
         """
@@ -625,6 +677,54 @@ class BuildClient(VssClient):
                               returns_collection=True)
         return self._deserialize('[BuildDefinitionReference]', response)
 
+    def reset_counter(self, definition_id, counter_id, project=None):
+        """ResetCounter.
+        [Preview API] Resets the counter variable Value back to the Seed.
+        :param int definition_id: The ID of the definition.
+        :param int counter_id: The ID of the counter.
+        :param str project: Project ID or project name
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
+        query_parameters = {}
+        if counter_id is not None:
+            query_parameters['counterId'] = self._serialize.query('counter_id', counter_id, 'int')
+        self._send(http_method='POST',
+                   location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
+                   version='4.1-preview.6',
+                   route_values=route_values,
+                   query_parameters=query_parameters)
+
+    def update_counter_seed(self, definition_id, counter_id, new_seed, reset_value, project=None):
+        """UpdateCounterSeed.
+        [Preview API] Changes the counter variable Seed, and optionally resets the Value to this new Seed. Note that if Seed is being set above Value, then Value will be updated regardless.
+        :param int definition_id: The ID of the definition.
+        :param int counter_id: The ID of the counter.
+        :param long new_seed: The new Seed value.
+        :param bool reset_value: Flag indicating if Value should also be reset.
+        :param str project: Project ID or project name
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
+        query_parameters = {}
+        if counter_id is not None:
+            query_parameters['counterId'] = self._serialize.query('counter_id', counter_id, 'int')
+        if new_seed is not None:
+            query_parameters['newSeed'] = self._serialize.query('new_seed', new_seed, 'long')
+        if reset_value is not None:
+            query_parameters['resetValue'] = self._serialize.query('reset_value', reset_value, 'bool')
+        self._send(http_method='POST',
+                   location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
+                   version='4.1-preview.6',
+                   route_values=route_values,
+                   query_parameters=query_parameters)
+
     def update_definition(self, definition, definition_id, project=None, secrets_source_definition_id=None, secrets_source_definition_revision=None):
         """UpdateDefinition.
         [Preview API] Updates an existing definition.
@@ -653,6 +753,38 @@ class BuildClient(VssClient):
                               query_parameters=query_parameters,
                               content=content)
         return self._deserialize('BuildDefinition', response)
+
+    def get_file_contents(self, project, provider_name, service_endpoint_id=None, repository=None, commit_or_branch=None, path=None):
+        """GetFileContents.
+        [Preview API] Gets the contents of a file in the given source code repository.
+        :param str project: Project ID or project name
+        :param str provider_name: The name of the source provider.
+        :param str service_endpoint_id: If specified, the ID of the service endpoint to query. Can only be omitted for providers that do not use service endpoints, e.g. TFVC or TFGit.
+        :param str repository: If specified, the vendor-specific identifier or the name of the repository to get branches. Can only be omitted for providers that do not support multiple repositories.
+        :param str commit_or_branch: The identifier of the commit or branch from which a file's contents are retrieved.
+        :param str path: The path to the file to retrieve, relative to the root of the repository.
+        :rtype: object
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if provider_name is not None:
+            route_values['providerName'] = self._serialize.url('provider_name', provider_name, 'str')
+        query_parameters = {}
+        if service_endpoint_id is not None:
+            query_parameters['serviceEndpointId'] = self._serialize.query('service_endpoint_id', service_endpoint_id, 'str')
+        if repository is not None:
+            query_parameters['repository'] = self._serialize.query('repository', repository, 'str')
+        if commit_or_branch is not None:
+            query_parameters['commitOrBranch'] = self._serialize.query('commit_or_branch', commit_or_branch, 'str')
+        if path is not None:
+            query_parameters['path'] = self._serialize.query('path', path, 'str')
+        response = self._send(http_method='GET',
+                              location_id='29d12225-b1d9-425f-b668-6c594a981313',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters)
+        return self._deserialize('object', response)
 
     def create_folder(self, folder, project, path):
         """CreateFolder.
@@ -896,6 +1028,39 @@ class BuildClient(VssClient):
                               returns_collection=True)
         return self._deserialize('[BuildOptionDefinition]', response)
 
+    def get_path_contents(self, project, provider_name, service_endpoint_id=None, repository=None, commit_or_branch=None, path=None):
+        """GetPathContents.
+        [Preview API] Gets the contents of a directory in the given source code repository.
+        :param str project: Project ID or project name
+        :param str provider_name: The name of the source provider.
+        :param str service_endpoint_id: If specified, the ID of the service endpoint to query. Can only be omitted for providers that do not use service endpoints, e.g. TFVC or TFGit.
+        :param str repository: If specified, the vendor-specific identifier or the name of the repository to get branches. Can only be omitted for providers that do not support multiple repositories.
+        :param str commit_or_branch: The identifier of the commit or branch from which a file's contents are retrieved.
+        :param str path: The path contents to list, relative to the root of the repository.
+        :rtype: [SourceRepositoryItem]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if provider_name is not None:
+            route_values['providerName'] = self._serialize.url('provider_name', provider_name, 'str')
+        query_parameters = {}
+        if service_endpoint_id is not None:
+            query_parameters['serviceEndpointId'] = self._serialize.query('service_endpoint_id', service_endpoint_id, 'str')
+        if repository is not None:
+            query_parameters['repository'] = self._serialize.query('repository', repository, 'str')
+        if commit_or_branch is not None:
+            query_parameters['commitOrBranch'] = self._serialize.query('commit_or_branch', commit_or_branch, 'str')
+        if path is not None:
+            query_parameters['path'] = self._serialize.query('path', path, 'str')
+        response = self._send(http_method='GET',
+                              location_id='7944d6fb-df01-4709-920a-7a189aa34037',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters,
+                              returns_collection=True)
+        return self._deserialize('[SourceRepositoryItem]', response)
+
     def get_build_properties(self, project, build_id, filter=None):
         """GetBuildProperties.
         [Preview API] Gets properties for a build.
@@ -1034,13 +1199,17 @@ class BuildClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('object', response)
 
-    def list_repositories(self, project, provider_name, service_endpoint_id=None):
+    def list_repositories(self, project, provider_name, service_endpoint_id=None, repository=None, result_set=None, page_results=None, continuation_token=None):
         """ListRepositories.
         [Preview API] Gets a list of source code repositories.
         :param str project: Project ID or project name
         :param str provider_name: The name of the source provider.
-        :param str service_endpoint_id: If specified, the ID of the service endpoint to query. Can only be omitted for providers that do use service endpoints, e.g. TFVC or TFGit.
-        :rtype: [SourceRepository]
+        :param str service_endpoint_id: If specified, the ID of the service endpoint to query. Can only be omitted for providers that do not use service endpoints, e.g. TFVC or TFGit.
+        :param str repository: If specified, the vendor-specific identifier or the name of a single repository to get.
+        :param str result_set: 'top' for the repositories most relevant for the endpoint. If not set, all repositories are returned. Ignored if 'repository' is set.
+        :param bool page_results: If set to true, this will limit the set of results and will return a continuation token to continue the query.
+        :param str continuation_token: When paging results, this is a continuation token, returned by a previous call to this method, that can be used to return the next set of repositories.
+        :rtype: :class:`<SourceRepositories> <build.v4_1.models.SourceRepositories>`
         """
         route_values = {}
         if project is not None:
@@ -1050,13 +1219,20 @@ class BuildClient(VssClient):
         query_parameters = {}
         if service_endpoint_id is not None:
             query_parameters['serviceEndpointId'] = self._serialize.query('service_endpoint_id', service_endpoint_id, 'str')
+        if repository is not None:
+            query_parameters['repository'] = self._serialize.query('repository', repository, 'str')
+        if result_set is not None:
+            query_parameters['resultSet'] = self._serialize.query('result_set', result_set, 'str')
+        if page_results is not None:
+            query_parameters['pageResults'] = self._serialize.query('page_results', page_results, 'bool')
+        if continuation_token is not None:
+            query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
         response = self._send(http_method='GET',
                               location_id='d44d1680-f978-4834-9b93-8c6e132329c9',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[SourceRepository]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('SourceRepositories', response)
 
     def get_resource_usage(self):
         """GetResourceUsage.
@@ -1388,14 +1564,54 @@ class BuildClient(VssClient):
                               content=content)
         return self._deserialize('BuildDefinitionTemplate', response)
 
+    def get_ticketed_artifact_content_zip(self, build_id, project_id, artifact_name, download_ticket):
+        """GetTicketedArtifactContentZip.
+        [Preview API] Gets a Zip file of the artifact with the given name for a build.
+        :param int build_id: The ID of the build.
+        :param str project_id: The project ID.
+        :param str artifact_name: The name of the artifact.
+        :param String download_ticket: A valid ticket that gives permission to download artifacts
+        :rtype: object
+        """
+        route_values = {}
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
+        query_parameters = {}
+        if project_id is not None:
+            query_parameters['projectId'] = self._serialize.query('project_id', project_id, 'str')
+        if artifact_name is not None:
+            query_parameters['artifactName'] = self._serialize.query('artifact_name', artifact_name, 'str')
+        response = self._send(http_method='GET',
+                              location_id='731b7e7a-0b6c-4912-af75-de04fe4899db',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters)
+        return self._deserialize('object', response)
+
+    def get_ticketed_logs_content_zip(self, build_id, download_ticket):
+        """GetTicketedLogsContentZip.
+        [Preview API] Gets a Zip file of the logs for a given build.
+        :param int build_id: The ID of the build.
+        :param String download_ticket: A valid ticket that gives permission to download the logs.
+        :rtype: object
+        """
+        route_values = {}
+        if build_id is not None:
+            route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
+        response = self._send(http_method='GET',
+                              location_id='917890d1-a6b5-432d-832a-6afcf6bb0734',
+                              version='4.1-preview.1',
+                              route_values=route_values)
+        return self._deserialize('object', response)
+
     def get_build_timeline(self, project, build_id, timeline_id=None, change_id=None, plan_id=None):
         """GetBuildTimeline.
-        [Preview API] Gets a timeline for a build.
+        [Preview API] Gets details for a build
         :param str project: Project ID or project name
-        :param int build_id: The ID of the build.
-        :param str timeline_id: The ID of the timeline. If not specified, uses the main timeline for the plan.
+        :param int build_id:
+        :param str timeline_id:
         :param int change_id:
-        :param str plan_id: The ID of the plan. If not specified, uses the primary plan for the build.
+        :param str plan_id:
         :rtype: :class:`<Timeline> <build.v4_1.models.Timeline>`
         """
         route_values = {}
@@ -1416,6 +1632,60 @@ class BuildClient(VssClient):
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('Timeline', response)
+
+    def restore_webhooks(self, trigger_types, project, provider_name, service_endpoint_id=None, repository=None):
+        """RestoreWebhooks.
+        [Preview API] Recreates the webhooks for the specified triggers in the given source code repository.
+        :param [DefinitionTriggerType] trigger_types: The types of triggers to restore webhooks for.
+        :param str project: Project ID or project name
+        :param str provider_name: The name of the source provider.
+        :param str service_endpoint_id: If specified, the ID of the service endpoint to query. Can only be omitted for providers that do not use service endpoints, e.g. TFVC or TFGit.
+        :param str repository: If specified, the vendor-specific identifier or the name of the repository to get webhooks. Can only be omitted for providers that do not support multiple repositories.
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if provider_name is not None:
+            route_values['providerName'] = self._serialize.url('provider_name', provider_name, 'str')
+        query_parameters = {}
+        if service_endpoint_id is not None:
+            query_parameters['serviceEndpointId'] = self._serialize.query('service_endpoint_id', service_endpoint_id, 'str')
+        if repository is not None:
+            query_parameters['repository'] = self._serialize.query('repository', repository, 'str')
+        content = self._serialize.body(trigger_types, '[DefinitionTriggerType]')
+        self._send(http_method='POST',
+                   location_id='793bceb8-9736-4030-bd2f-fb3ce6d6b478',
+                   version='4.1-preview.1',
+                   route_values=route_values,
+                   query_parameters=query_parameters,
+                   content=content)
+
+    def list_webhooks(self, project, provider_name, service_endpoint_id=None, repository=None):
+        """ListWebhooks.
+        [Preview API] Gets a list of webhooks installed in the given source code repository.
+        :param str project: Project ID or project name
+        :param str provider_name: The name of the source provider.
+        :param str service_endpoint_id: If specified, the ID of the service endpoint to query. Can only be omitted for providers that do not use service endpoints, e.g. TFVC or TFGit.
+        :param str repository: If specified, the vendor-specific identifier or the name of the repository to get webhooks. Can only be omitted for providers that do not support multiple repositories.
+        :rtype: [RepositoryWebhook]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if provider_name is not None:
+            route_values['providerName'] = self._serialize.url('provider_name', provider_name, 'str')
+        query_parameters = {}
+        if service_endpoint_id is not None:
+            query_parameters['serviceEndpointId'] = self._serialize.query('service_endpoint_id', service_endpoint_id, 'str')
+        if repository is not None:
+            query_parameters['repository'] = self._serialize.query('repository', repository, 'str')
+        response = self._send(http_method='GET',
+                              location_id='8f20ff82-9498-4812-9f6e-9c01bdc50e99',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters,
+                              returns_collection=True)
+        return self._deserialize('[RepositoryWebhook]', response)
 
     def get_build_work_items_refs(self, project, build_id, top=None):
         """GetBuildWorkItemsRefs.

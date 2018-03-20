@@ -6,10 +6,10 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .work_item_field_reference import WorkItemFieldReference
+from .work_item_type_field_instance_base import WorkItemTypeFieldInstanceBase
 
 
-class WorkItemTypeFieldInstance(WorkItemFieldReference):
+class WorkItemTypeFieldInstance(WorkItemTypeFieldInstanceBase):
     """WorkItemTypeFieldInstance.
 
     :param name: The name of the field.
@@ -20,8 +20,14 @@ class WorkItemTypeFieldInstance(WorkItemFieldReference):
     :type url: str
     :param always_required: Indicates whether field value is always required.
     :type always_required: bool
+    :param dependent_fields: The list of dependent fields.
+    :type dependent_fields: list of :class:`WorkItemFieldReference <work-item-tracking.v4_1.models.WorkItemFieldReference>`
     :param help_text: Gets the help text for the field.
     :type help_text: str
+    :param allowed_values: The list of field allowed values.
+    :type allowed_values: list of str
+    :param default_value: Represents the default value of the field.
+    :type default_value: str
     """
 
     _attribute_map = {
@@ -29,10 +35,13 @@ class WorkItemTypeFieldInstance(WorkItemFieldReference):
         'reference_name': {'key': 'referenceName', 'type': 'str'},
         'url': {'key': 'url', 'type': 'str'},
         'always_required': {'key': 'alwaysRequired', 'type': 'bool'},
-        'help_text': {'key': 'helpText', 'type': 'str'}
+        'dependent_fields': {'key': 'dependentFields', 'type': '[WorkItemFieldReference]'},
+        'help_text': {'key': 'helpText', 'type': 'str'},
+        'allowed_values': {'key': 'allowedValues', 'type': '[str]'},
+        'default_value': {'key': 'defaultValue', 'type': 'str'}
     }
 
-    def __init__(self, name=None, reference_name=None, url=None, always_required=None, help_text=None):
-        super(WorkItemTypeFieldInstance, self).__init__(name=name, reference_name=reference_name, url=url)
-        self.always_required = always_required
-        self.help_text = help_text
+    def __init__(self, name=None, reference_name=None, url=None, always_required=None, dependent_fields=None, help_text=None, allowed_values=None, default_value=None):
+        super(WorkItemTypeFieldInstance, self).__init__(name=name, reference_name=reference_name, url=url, always_required=always_required, dependent_fields=dependent_fields, help_text=help_text)
+        self.allowed_values = allowed_values
+        self.default_value = default_value

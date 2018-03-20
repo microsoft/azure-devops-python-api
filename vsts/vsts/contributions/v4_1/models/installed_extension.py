@@ -14,6 +14,8 @@ class InstalledExtension(ExtensionManifest):
 
     :param base_uri: Uri used as base for other relative uri's defined in extension
     :type base_uri: str
+    :param constraints: List of shared constraints defined by this extension
+    :type constraints: list of :class:`ContributionConstraint <contributions.v4_1.models.ContributionConstraint>`
     :param contributions: List of contributions made by this extension
     :type contributions: list of :class:`Contribution <contributions.v4_1.models.Contribution>`
     :param contribution_types: List of contribution types defined by this extension
@@ -30,6 +32,8 @@ class InstalledExtension(ExtensionManifest):
     :type licensing: :class:`ExtensionLicensing <contributions.v4_1.models.ExtensionLicensing>`
     :param manifest_version: Version of the extension manifest format/content
     :type manifest_version: number
+    :param restricted_to: Default user claims applied to all contributions (except the ones which have been speficied restrictedTo explicitly) to control the visibility of a contribution.
+    :type restricted_to: list of str
     :param scopes: List of all oauth scopes required by this extension
     :type scopes: list of str
     :param service_instance_type: The ServiceInstanceType(Guid) of the VSTS service that must be available to an account in order for the extension to be installed
@@ -58,6 +62,7 @@ class InstalledExtension(ExtensionManifest):
 
     _attribute_map = {
         'base_uri': {'key': 'baseUri', 'type': 'str'},
+        'constraints': {'key': 'constraints', 'type': '[ContributionConstraint]'},
         'contributions': {'key': 'contributions', 'type': '[Contribution]'},
         'contribution_types': {'key': 'contributionTypes', 'type': '[ContributionType]'},
         'demands': {'key': 'demands', 'type': '[str]'},
@@ -66,6 +71,7 @@ class InstalledExtension(ExtensionManifest):
         'language': {'key': 'language', 'type': 'str'},
         'licensing': {'key': 'licensing', 'type': 'ExtensionLicensing'},
         'manifest_version': {'key': 'manifestVersion', 'type': 'number'},
+        'restricted_to': {'key': 'restrictedTo', 'type': '[str]'},
         'scopes': {'key': 'scopes', 'type': '[str]'},
         'service_instance_type': {'key': 'serviceInstanceType', 'type': 'str'},
         'extension_id': {'key': 'extensionId', 'type': 'str'},
@@ -80,8 +86,8 @@ class InstalledExtension(ExtensionManifest):
         'version': {'key': 'version', 'type': 'str'}
     }
 
-    def __init__(self, base_uri=None, contributions=None, contribution_types=None, demands=None, event_callbacks=None, fallback_base_uri=None, language=None, licensing=None, manifest_version=None, scopes=None, service_instance_type=None, extension_id=None, extension_name=None, files=None, flags=None, install_state=None, last_published=None, publisher_id=None, publisher_name=None, registration_id=None, version=None):
-        super(InstalledExtension, self).__init__(base_uri=base_uri, contributions=contributions, contribution_types=contribution_types, demands=demands, event_callbacks=event_callbacks, fallback_base_uri=fallback_base_uri, language=language, licensing=licensing, manifest_version=manifest_version, scopes=scopes, service_instance_type=service_instance_type)
+    def __init__(self, base_uri=None, constraints=None, contributions=None, contribution_types=None, demands=None, event_callbacks=None, fallback_base_uri=None, language=None, licensing=None, manifest_version=None, restricted_to=None, scopes=None, service_instance_type=None, extension_id=None, extension_name=None, files=None, flags=None, install_state=None, last_published=None, publisher_id=None, publisher_name=None, registration_id=None, version=None):
+        super(InstalledExtension, self).__init__(base_uri=base_uri, constraints=constraints, contributions=contributions, contribution_types=contribution_types, demands=demands, event_callbacks=event_callbacks, fallback_base_uri=fallback_base_uri, language=language, licensing=licensing, manifest_version=manifest_version, restricted_to=restricted_to, scopes=scopes, service_instance_type=service_instance_type)
         self.extension_id = extension_id
         self.extension_name = extension_name
         self.files = files
