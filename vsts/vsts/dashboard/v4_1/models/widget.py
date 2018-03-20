@@ -16,6 +16,8 @@ class Widget(Model):
     :type _links: :class:`ReferenceLinks <dashboard.v4_1.models.ReferenceLinks>`
     :param allowed_sizes: Refers to the allowed sizes for the widget. This gets populated when user wants to configure the widget
     :type allowed_sizes: list of :class:`WidgetSize <dashboard.v4_1.models.WidgetSize>`
+    :param are_settings_blocked_for_user: Read-Only Property from Dashboard Service. Indicates if settings are blocked for the current user.
+    :type are_settings_blocked_for_user: bool
     :param artifact_id: Refers to unique identifier of a feature artifact. Used for pinning+unpinning a specific artifact.
     :type artifact_id: str
     :param configuration_contribution_id:
@@ -59,6 +61,7 @@ class Widget(Model):
     _attribute_map = {
         '_links': {'key': '_links', 'type': 'ReferenceLinks'},
         'allowed_sizes': {'key': 'allowedSizes', 'type': '[WidgetSize]'},
+        'are_settings_blocked_for_user': {'key': 'areSettingsBlockedForUser', 'type': 'bool'},
         'artifact_id': {'key': 'artifactId', 'type': 'str'},
         'configuration_contribution_id': {'key': 'configurationContributionId', 'type': 'str'},
         'configuration_contribution_relative_id': {'key': 'configurationContributionRelativeId', 'type': 'str'},
@@ -80,10 +83,11 @@ class Widget(Model):
         'url': {'key': 'url', 'type': 'str'}
     }
 
-    def __init__(self, _links=None, allowed_sizes=None, artifact_id=None, configuration_contribution_id=None, configuration_contribution_relative_id=None, content_uri=None, contribution_id=None, dashboard=None, eTag=None, id=None, is_enabled=None, is_name_configurable=None, lightbox_options=None, loading_image_url=None, name=None, position=None, settings=None, settings_version=None, size=None, type_id=None, url=None):
+    def __init__(self, _links=None, allowed_sizes=None, are_settings_blocked_for_user=None, artifact_id=None, configuration_contribution_id=None, configuration_contribution_relative_id=None, content_uri=None, contribution_id=None, dashboard=None, eTag=None, id=None, is_enabled=None, is_name_configurable=None, lightbox_options=None, loading_image_url=None, name=None, position=None, settings=None, settings_version=None, size=None, type_id=None, url=None):
         super(Widget, self).__init__()
         self._links = _links
         self.allowed_sizes = allowed_sizes
+        self.are_settings_blocked_for_user = are_settings_blocked_for_user
         self.artifact_id = artifact_id
         self.configuration_contribution_id = configuration_contribution_id
         self.configuration_contribution_relative_id = configuration_contribution_relative_id

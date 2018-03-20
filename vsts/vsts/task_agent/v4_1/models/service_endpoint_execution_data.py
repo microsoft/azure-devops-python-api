@@ -12,19 +12,19 @@ from msrest.serialization import Model
 class ServiceEndpointExecutionData(Model):
     """ServiceEndpointExecutionData.
 
-    :param definition:
+    :param definition: Gets the definition of service endpoint execution owner.
     :type definition: :class:`TaskOrchestrationOwner <task-agent.v4_1.models.TaskOrchestrationOwner>`
-    :param finish_time:
+    :param finish_time: Gets the finish time of service endpoint execution.
     :type finish_time: datetime
-    :param id:
+    :param id: Gets the Id of service endpoint execution data.
     :type id: long
-    :param owner:
+    :param owner: Gets the owner of service endpoint execution data.
     :type owner: :class:`TaskOrchestrationOwner <task-agent.v4_1.models.TaskOrchestrationOwner>`
-    :param plan_type:
+    :param plan_type: Gets the plan type of service endpoint execution data.
     :type plan_type: str
-    :param result:
+    :param result: Gets the result of service endpoint execution.
     :type result: object
-    :param start_time:
+    :param start_time: Gets the start time of service endpoint execution.
     :type start_time: datetime
     """
 

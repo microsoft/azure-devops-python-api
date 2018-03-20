@@ -12,9 +12,9 @@ from msrest.serialization import Model
 class MetricsRow(Model):
     """MetricsRow.
 
-    :param dimensions:
+    :param dimensions: The values of the properties mentioned as 'Dimensions' in column header. E.g. 1: For a property 'LastJobStatus' - metrics will be provided for 'passed', 'failed', etc. E.g. 2: For a property 'TargetState' - metrics will be provided for 'online', 'offline' targets.
     :type dimensions: list of str
-    :param metrics:
+    :param metrics: Metrics in serialized format. Should be deserialized based on the data type provided in header.
     :type metrics: list of str
     """
 

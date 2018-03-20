@@ -105,6 +105,39 @@ class ServiceHooksClient(VssClient):
                               returns_collection=True)
         return self._deserialize('[Consumer]', response)
 
+    def get_subscription_diagnostics(self, subscription_id):
+        """GetSubscriptionDiagnostics.
+        [Preview API]
+        :param str subscription_id:
+        :rtype: :class:`<SubscriptionDiagnostics> <service-hooks.v4_1.models.SubscriptionDiagnostics>`
+        """
+        route_values = {}
+        if subscription_id is not None:
+            route_values['subscriptionId'] = self._serialize.url('subscription_id', subscription_id, 'str')
+        response = self._send(http_method='GET',
+                              location_id='3b36bcb5-02ad-43c6-bbfa-6dfc6f8e9d68',
+                              version='4.1-preview.1',
+                              route_values=route_values)
+        return self._deserialize('SubscriptionDiagnostics', response)
+
+    def update_subscription_diagnostics(self, update_parameters, subscription_id):
+        """UpdateSubscriptionDiagnostics.
+        [Preview API]
+        :param :class:`<UpdateSubscripitonDiagnosticsParameters> <service-hooks.v4_1.models.UpdateSubscripitonDiagnosticsParameters>` update_parameters:
+        :param str subscription_id:
+        :rtype: :class:`<SubscriptionDiagnostics> <service-hooks.v4_1.models.SubscriptionDiagnostics>`
+        """
+        route_values = {}
+        if subscription_id is not None:
+            route_values['subscriptionId'] = self._serialize.url('subscription_id', subscription_id, 'str')
+        content = self._serialize.body(update_parameters, 'UpdateSubscripitonDiagnosticsParameters')
+        response = self._send(http_method='PUT',
+                              location_id='3b36bcb5-02ad-43c6-bbfa-6dfc6f8e9d68',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              content=content)
+        return self._deserialize('SubscriptionDiagnostics', response)
+
     def get_event_type(self, publisher_id, event_type_id):
         """GetEventType.
         [Preview API] Get a specific event type.

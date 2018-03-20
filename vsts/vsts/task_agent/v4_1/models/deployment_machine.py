@@ -12,11 +12,11 @@ from msrest.serialization import Model
 class DeploymentMachine(Model):
     """DeploymentMachine.
 
-    :param agent:
+    :param agent: Deployment agent.
     :type agent: :class:`TaskAgent <task-agent.v4_1.models.TaskAgent>`
-    :param id:
+    :param id: Deployment target Identifier.
     :type id: int
-    :param tags:
+    :param tags: Tags of the deployment target.
     :type tags: list of str
     """
 

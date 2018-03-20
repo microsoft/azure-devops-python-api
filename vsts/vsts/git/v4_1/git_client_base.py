@@ -71,7 +71,7 @@ class GitClientBase(VssClient):
         """GetBlob.
         [Preview API] Get a single blob.
         :param str repository_id: The name or ID of the repository.
-        :param str sha1: SHA1 hash of the file. You can get the SHA1 of a file using the “Git/Items/Get Item” endpoint.
+        :param str sha1: SHA1 hash of the file. You can get the SHA1 of a file using the "Git/Items/Get Item" endpoint.
         :param str project: Project ID or project name
         :param bool download: If true, prompt for a download rather than rendering in a browser. Note: this value defaults to true if $format is zip
         :param str file_name: Provide a fileName to use for a download.
@@ -100,7 +100,7 @@ class GitClientBase(VssClient):
         """GetBlobContent.
         [Preview API] Get a single blob.
         :param str repository_id: The name or ID of the repository.
-        :param str sha1: SHA1 hash of the file. You can get the SHA1 of a file using the “Git/Items/Get Item” endpoint.
+        :param str sha1: SHA1 hash of the file. You can get the SHA1 of a file using the "Git/Items/Get Item" endpoint.
         :param str project: Project ID or project name
         :param bool download: If true, prompt for a download rather than rendering in a browser. Note: this value defaults to true if $format is zip
         :param str file_name: Provide a fileName to use for a download.
@@ -155,7 +155,7 @@ class GitClientBase(VssClient):
         """GetBlobZip.
         [Preview API] Get a single blob.
         :param str repository_id: The name or ID of the repository.
-        :param str sha1: SHA1 hash of the file. You can get the SHA1 of a file using the “Git/Items/Get Item” endpoint.
+        :param str sha1: SHA1 hash of the file. You can get the SHA1 of a file using the "Git/Items/Get Item" endpoint.
         :param str project: Project ID or project name
         :param bool download: If true, prompt for a download rather than rendering in a browser. Note: this value defaults to true if $format is zip
         :param str file_name: Provide a fileName to use for a download.
@@ -754,7 +754,7 @@ class GitClientBase(VssClient):
                               content=content)
         return self._deserialize('GitImportRequest', response)
 
-    def get_item(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None):
+    def get_item(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None):
         """GetItem.
         [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.
         :param str repository_id: The Id of the repository.
@@ -766,6 +766,7 @@ class GitClientBase(VssClient):
         :param bool latest_processed_change: Set to true to include the lastest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
         :param :class:`<GitVersionDescriptor> <git.v4_1.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is null.
+        :param bool include_content: Set to true to include item content when requesting json.  Default is false.
         :rtype: :class:`<GitItem> <git.v4_1.models.GitItem>`
         """
         route_values = {}
@@ -793,6 +794,8 @@ class GitClientBase(VssClient):
                 query_parameters['versionDescriptor.Version'] = version_descriptor.version
             if version_descriptor.version_options is not None:
                 query_parameters['versionDescriptor.VersionOptions'] = version_descriptor.version_options
+        if include_content is not None:
+            query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
                               location_id='fb93c0db-47ed-4a31-8c20-47552878fb44',
                               version='4.1-preview.1',
@@ -800,7 +803,7 @@ class GitClientBase(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('GitItem', response)
 
-    def get_item_content(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None):
+    def get_item_content(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None):
         """GetItemContent.
         [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.
         :param str repository_id: The Id of the repository.
@@ -812,6 +815,7 @@ class GitClientBase(VssClient):
         :param bool latest_processed_change: Set to true to include the lastest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
         :param :class:`<GitVersionDescriptor> <git.v4_1.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is null.
+        :param bool include_content: Set to true to include item content when requesting json.  Default is false.
         :rtype: object
         """
         route_values = {}
@@ -839,6 +843,8 @@ class GitClientBase(VssClient):
                 query_parameters['versionDescriptor.Version'] = version_descriptor.version
             if version_descriptor.version_options is not None:
                 query_parameters['versionDescriptor.VersionOptions'] = version_descriptor.version_options
+        if include_content is not None:
+            query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
                               location_id='fb93c0db-47ed-4a31-8c20-47552878fb44',
                               version='4.1-preview.1',
@@ -893,7 +899,7 @@ class GitClientBase(VssClient):
                               returns_collection=True)
         return self._deserialize('[GitItem]', response)
 
-    def get_item_text(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None):
+    def get_item_text(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None):
         """GetItemText.
         [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.
         :param str repository_id: The Id of the repository.
@@ -905,6 +911,7 @@ class GitClientBase(VssClient):
         :param bool latest_processed_change: Set to true to include the lastest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
         :param :class:`<GitVersionDescriptor> <git.v4_1.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is null.
+        :param bool include_content: Set to true to include item content when requesting json.  Default is false.
         :rtype: object
         """
         route_values = {}
@@ -932,6 +939,8 @@ class GitClientBase(VssClient):
                 query_parameters['versionDescriptor.Version'] = version_descriptor.version
             if version_descriptor.version_options is not None:
                 query_parameters['versionDescriptor.VersionOptions'] = version_descriptor.version_options
+        if include_content is not None:
+            query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
                               location_id='fb93c0db-47ed-4a31-8c20-47552878fb44',
                               version='4.1-preview.1',
@@ -939,7 +948,7 @@ class GitClientBase(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('object', response)
 
-    def get_item_zip(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None):
+    def get_item_zip(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None):
         """GetItemZip.
         [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.
         :param str repository_id: The Id of the repository.
@@ -951,6 +960,7 @@ class GitClientBase(VssClient):
         :param bool latest_processed_change: Set to true to include the lastest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
         :param :class:`<GitVersionDescriptor> <git.v4_1.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is null.
+        :param bool include_content: Set to true to include item content when requesting json.  Default is false.
         :rtype: object
         """
         route_values = {}
@@ -978,6 +988,8 @@ class GitClientBase(VssClient):
                 query_parameters['versionDescriptor.Version'] = version_descriptor.version
             if version_descriptor.version_options is not None:
                 query_parameters['versionDescriptor.VersionOptions'] = version_descriptor.version_options
+        if include_content is not None:
+            query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
                               location_id='fb93c0db-47ed-4a31-8c20-47552878fb44',
                               version='4.1-preview.1',
@@ -2402,13 +2414,13 @@ class GitClientBase(VssClient):
                               content=content)
         return self._deserialize('GitPullRequestCommentThread', response)
 
-    def get_pull_request_work_items(self, repository_id, pull_request_id, project=None):
-        """GetPullRequestWorkItems.
+    def get_pull_request_work_item_refs(self, repository_id, pull_request_id, project=None):
+        """GetPullRequestWorkItemRefs.
         [Preview API] Retrieve a list of work items associated with a pull request.
         :param str repository_id: ID or name of the repository.
         :param int pull_request_id: ID of the pull request.
         :param str project: Project ID or project name
-        :rtype: [AssociatedWorkItem]
+        :rtype: [ResourceRef]
         """
         route_values = {}
         if project is not None:
@@ -2422,7 +2434,7 @@ class GitClientBase(VssClient):
                               version='4.1-preview.1',
                               route_values=route_values,
                               returns_collection=True)
-        return self._deserialize('[AssociatedWorkItem]', response)
+        return self._deserialize('[ResourceRef]', response)
 
     def create_push(self, push, repository_id, project=None):
         """CreatePush.
@@ -2514,6 +2526,59 @@ class GitClientBase(VssClient):
                               query_parameters=query_parameters,
                               returns_collection=True)
         return self._deserialize('[GitPush]', response)
+
+    def delete_repository_from_recycle_bin(self, project, repository_id):
+        """DeleteRepositoryFromRecycleBin.
+        [Preview API] Destroy (hard delete) a soft-deleted Git repository.
+        :param str project: Project ID or project name
+        :param str repository_id: The ID of the repository.
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if repository_id is not None:
+            route_values['repositoryId'] = self._serialize.url('repository_id', repository_id, 'str')
+        self._send(http_method='DELETE',
+                   location_id='a663da97-81db-4eb3-8b83-287670f63073',
+                   version='4.1-preview.1',
+                   route_values=route_values)
+
+    def get_recycle_bin_repositories(self, project):
+        """GetRecycleBinRepositories.
+        [Preview API] Retrieve soft-deleted git repositories from the recycle bin.
+        :param str project: Project ID or project name
+        :rtype: [GitDeletedRepository]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        response = self._send(http_method='GET',
+                              location_id='a663da97-81db-4eb3-8b83-287670f63073',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              returns_collection=True)
+        return self._deserialize('[GitDeletedRepository]', response)
+
+    def restore_repository_from_recycle_bin(self, repository_details, project, repository_id):
+        """RestoreRepositoryFromRecycleBin.
+        [Preview API] Recover a soft-deleted Git repository. Recently deleted repositories go into a soft-delete state for a period of time before they are hard deleted and become unrecoverable.
+        :param :class:`<GitRecycleBinRepositoryDetails> <git.v4_1.models.GitRecycleBinRepositoryDetails>` repository_details:
+        :param str project: Project ID or project name
+        :param str repository_id: The ID of the repository.
+        :rtype: :class:`<GitRepository> <git.v4_1.models.GitRepository>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if repository_id is not None:
+            route_values['repositoryId'] = self._serialize.url('repository_id', repository_id, 'str')
+        content = self._serialize.body(repository_details, 'GitRecycleBinRepositoryDetails')
+        response = self._send(http_method='PATCH',
+                              location_id='a663da97-81db-4eb3-8b83-287670f63073',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              content=content)
+        return self._deserialize('GitRepository', response)
 
     def get_refs(self, repository_id, project=None, filter=None, include_links=None, latest_statuses_only=None):
         """GetRefs.

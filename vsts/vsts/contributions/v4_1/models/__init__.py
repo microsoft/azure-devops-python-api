@@ -6,6 +6,9 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
+from .client_contribution import ClientContribution
+from .client_contribution_node import ClientContributionNode
+from .client_contribution_provider_details import ClientContributionProviderDetails
 from .client_data_provider_query import ClientDataProviderQuery
 from .contribution import Contribution
 from .contribution_base import ContributionBase
@@ -13,7 +16,6 @@ from .contribution_constraint import ContributionConstraint
 from .contribution_node_query import ContributionNodeQuery
 from .contribution_node_query_result import ContributionNodeQueryResult
 from .contribution_property_description import ContributionPropertyDescription
-from .contribution_provider_details import ContributionProviderDetails
 from .contribution_type import ContributionType
 from .data_provider_context import DataProviderContext
 from .data_provider_exception_details import DataProviderExceptionDetails
@@ -29,9 +31,11 @@ from .installed_extension_state import InstalledExtensionState
 from .installed_extension_state_issue import InstalledExtensionStateIssue
 from .licensing_override import LicensingOverride
 from .resolved_data_provider import ResolvedDataProvider
-from .serialized_contribution_node import SerializedContributionNode
 
 __all__ = [
+    'ClientContribution',
+    'ClientContributionNode',
+    'ClientContributionProviderDetails',
     'ClientDataProviderQuery',
     'Contribution',
     'ContributionBase',
@@ -39,7 +43,6 @@ __all__ = [
     'ContributionNodeQuery',
     'ContributionNodeQueryResult',
     'ContributionPropertyDescription',
-    'ContributionProviderDetails',
     'ContributionType',
     'DataProviderContext',
     'DataProviderExceptionDetails',
@@ -55,5 +58,4 @@ __all__ = [
     'InstalledExtensionStateIssue',
     'LicensingOverride',
     'ResolvedDataProvider',
-    'SerializedContributionNode',
 ]

@@ -25,6 +25,79 @@ class NotificationClient(VssClient):
 
     resource_area_identifier = None
 
+    def list_logs(self, source, entry_id=None, start_time=None, end_time=None):
+        """ListLogs.
+        [Preview API] List diagnostic logs this service.
+        :param str source:
+        :param str entry_id:
+        :param datetime start_time:
+        :param datetime end_time:
+        :rtype: [INotificationDiagnosticLog]
+        """
+        route_values = {}
+        if source is not None:
+            route_values['source'] = self._serialize.url('source', source, 'str')
+        if entry_id is not None:
+            route_values['entryId'] = self._serialize.url('entry_id', entry_id, 'str')
+        query_parameters = {}
+        if start_time is not None:
+            query_parameters['startTime'] = self._serialize.query('start_time', start_time, 'iso-8601')
+        if end_time is not None:
+            query_parameters['endTime'] = self._serialize.query('end_time', end_time, 'iso-8601')
+        response = self._send(http_method='GET',
+                              location_id='991842f3-eb16-4aea-ac81-81353ef2b75c',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters,
+                              returns_collection=True)
+        return self._deserialize('[INotificationDiagnosticLog]', response)
+
+    def get_subscription_diagnostics(self, subscription_id):
+        """GetSubscriptionDiagnostics.
+        [Preview API]
+        :param str subscription_id:
+        :rtype: :class:`<SubscriptionDiagnostics> <notification.v4_1.models.SubscriptionDiagnostics>`
+        """
+        route_values = {}
+        if subscription_id is not None:
+            route_values['subscriptionId'] = self._serialize.url('subscription_id', subscription_id, 'str')
+        response = self._send(http_method='GET',
+                              location_id='20f1929d-4be7-4c2e-a74e-d47640ff3418',
+                              version='4.1-preview.1',
+                              route_values=route_values)
+        return self._deserialize('SubscriptionDiagnostics', response)
+
+    def update_subscription_diagnostics(self, update_parameters, subscription_id):
+        """UpdateSubscriptionDiagnostics.
+        [Preview API]
+        :param :class:`<UpdateSubscripitonDiagnosticsParameters> <notification.v4_1.models.UpdateSubscripitonDiagnosticsParameters>` update_parameters:
+        :param str subscription_id:
+        :rtype: :class:`<SubscriptionDiagnostics> <notification.v4_1.models.SubscriptionDiagnostics>`
+        """
+        route_values = {}
+        if subscription_id is not None:
+            route_values['subscriptionId'] = self._serialize.url('subscription_id', subscription_id, 'str')
+        content = self._serialize.body(update_parameters, 'UpdateSubscripitonDiagnosticsParameters')
+        response = self._send(http_method='PUT',
+                              location_id='20f1929d-4be7-4c2e-a74e-d47640ff3418',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              content=content)
+        return self._deserialize('SubscriptionDiagnostics', response)
+
+    def publish_event(self, notification_event):
+        """PublishEvent.
+        [Preview API] Publish an event.
+        :param :class:`<VssNotificationEvent> <notification.v4_1.models.VssNotificationEvent>` notification_event:
+        :rtype: :class:`<VssNotificationEvent> <notification.v4_1.models.VssNotificationEvent>`
+        """
+        content = self._serialize.body(notification_event, 'VssNotificationEvent')
+        response = self._send(http_method='POST',
+                              location_id='14c57b7a-c0e6-4555-9f51-e067188fdd8e',
+                              version='4.1-preview.1',
+                              content=content)
+        return self._deserialize('VssNotificationEvent', response)
+
     def get_event_type(self, event_type):
         """GetEventType.
         [Preview API] Get a specific event type.

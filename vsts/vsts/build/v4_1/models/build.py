@@ -88,6 +88,8 @@ class Build(Model):
     :type status: object
     :param tags:
     :type tags: list of str
+    :param triggered_by_build: The build that triggered this build via a Build completion trigger.
+    :type triggered_by_build: :class:`Build <build.v4_1.models.Build>`
     :param trigger_info: Sourceprovider-specific information about what triggered the build
     :type trigger_info: dict
     :param uri: The URI of the build.
@@ -137,13 +139,14 @@ class Build(Model):
         'start_time': {'key': 'startTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'object'},
         'tags': {'key': 'tags', 'type': '[str]'},
+        'triggered_by_build': {'key': 'triggeredByBuild', 'type': 'Build'},
         'trigger_info': {'key': 'triggerInfo', 'type': '{str}'},
         'uri': {'key': 'uri', 'type': 'str'},
         'url': {'key': 'url', 'type': 'str'},
         'validation_results': {'key': 'validationResults', 'type': '[BuildRequestValidationResult]'}
     }
 
-    def __init__(self, _links=None, build_number=None, build_number_revision=None, controller=None, definition=None, deleted=None, deleted_by=None, deleted_date=None, deleted_reason=None, demands=None, finish_time=None, id=None, keep_forever=None, last_changed_by=None, last_changed_date=None, logs=None, orchestration_plan=None, parameters=None, plans=None, priority=None, project=None, properties=None, quality=None, queue=None, queue_options=None, queue_position=None, queue_time=None, reason=None, repository=None, requested_by=None, requested_for=None, result=None, retained_by_release=None, source_branch=None, source_version=None, start_time=None, status=None, tags=None, trigger_info=None, uri=None, url=None, validation_results=None):
+    def __init__(self, _links=None, build_number=None, build_number_revision=None, controller=None, definition=None, deleted=None, deleted_by=None, deleted_date=None, deleted_reason=None, demands=None, finish_time=None, id=None, keep_forever=None, last_changed_by=None, last_changed_date=None, logs=None, orchestration_plan=None, parameters=None, plans=None, priority=None, project=None, properties=None, quality=None, queue=None, queue_options=None, queue_position=None, queue_time=None, reason=None, repository=None, requested_by=None, requested_for=None, result=None, retained_by_release=None, source_branch=None, source_version=None, start_time=None, status=None, tags=None, triggered_by_build=None, trigger_info=None, uri=None, url=None, validation_results=None):
         super(Build, self).__init__()
         self._links = _links
         self.build_number = build_number
@@ -183,6 +186,7 @@ class Build(Model):
         self.start_time = start_time
         self.status = status
         self.tags = tags
+        self.triggered_by_build = triggered_by_build
         self.trigger_info = trigger_info
         self.uri = uri
         self.url = url

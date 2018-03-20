@@ -12,6 +12,7 @@ from .authentication_scheme_reference import AuthenticationSchemeReference
 from .authorization_header import AuthorizationHeader
 from .azure_subscription import AzureSubscription
 from .azure_subscription_query_result import AzureSubscriptionQueryResult
+from .client_certificate import ClientCertificate
 from .data_source import DataSource
 from .data_source_binding import DataSourceBinding
 from .data_source_binding_base import DataSourceBindingBase
@@ -20,14 +21,19 @@ from .dependency_binding import DependencyBinding
 from .dependency_data import DependencyData
 from .depends_on import DependsOn
 from .deployment_group import DeploymentGroup
+from .deployment_group_create_parameter import DeploymentGroupCreateParameter
+from .deployment_group_create_parameter_pool_property import DeploymentGroupCreateParameterPoolProperty
 from .deployment_group_metrics import DeploymentGroupMetrics
 from .deployment_group_reference import DeploymentGroupReference
+from .deployment_group_update_parameter import DeploymentGroupUpdateParameter
 from .deployment_machine import DeploymentMachine
 from .deployment_machine_group import DeploymentMachineGroup
 from .deployment_machine_group_reference import DeploymentMachineGroupReference
 from .deployment_pool_summary import DeploymentPoolSummary
+from .deployment_target_update_parameter import DeploymentTargetUpdateParameter
 from .endpoint_authorization import EndpointAuthorization
 from .endpoint_url import EndpointUrl
+from .graph_subject_base import GraphSubjectBase
 from .help_link import HelpLink
 from .identity_ref import IdentityRef
 from .input_descriptor import InputDescriptor
@@ -39,6 +45,8 @@ from .input_values_error import InputValuesError
 from .metrics_column_meta_data import MetricsColumnMetaData
 from .metrics_columns_header import MetricsColumnsHeader
 from .metrics_row import MetricsRow
+from .oAuth_configuration import OAuthConfiguration
+from .oAuth_configuration_params import OAuthConfigurationParams
 from .package_metadata import PackageMetadata
 from .package_version import PackageVersion
 from .project_reference import ProjectReference
@@ -100,6 +108,7 @@ from .task_source_definition_base import TaskSourceDefinitionBase
 from .task_version import TaskVersion
 from .validation_item import ValidationItem
 from .variable_group import VariableGroup
+from .variable_group_parameters import VariableGroupParameters
 from .variable_group_provider_data import VariableGroupProviderData
 from .variable_value import VariableValue
 
@@ -110,6 +119,7 @@ __all__ = [
     'AuthorizationHeader',
     'AzureSubscription',
     'AzureSubscriptionQueryResult',
+    'ClientCertificate',
     'DataSource',
     'DataSourceBinding',
     'DataSourceBindingBase',
@@ -118,14 +128,19 @@ __all__ = [
     'DependencyData',
     'DependsOn',
     'DeploymentGroup',
+    'DeploymentGroupCreateParameter',
+    'DeploymentGroupCreateParameterPoolProperty',
     'DeploymentGroupMetrics',
     'DeploymentGroupReference',
+    'DeploymentGroupUpdateParameter',
     'DeploymentMachine',
     'DeploymentMachineGroup',
     'DeploymentMachineGroupReference',
     'DeploymentPoolSummary',
+    'DeploymentTargetUpdateParameter',
     'EndpointAuthorization',
     'EndpointUrl',
+    'GraphSubjectBase',
     'HelpLink',
     'IdentityRef',
     'InputDescriptor',
@@ -137,6 +152,8 @@ __all__ = [
     'MetricsColumnMetaData',
     'MetricsColumnsHeader',
     'MetricsRow',
+    'OAuthConfiguration',
+    'OAuthConfigurationParams',
     'PackageMetadata',
     'PackageVersion',
     'ProjectReference',
@@ -198,6 +215,7 @@ __all__ = [
     'TaskVersion',
     'ValidationItem',
     'VariableGroup',
+    'VariableGroupParameters',
     'VariableGroupProviderData',
     'VariableValue',
 ]

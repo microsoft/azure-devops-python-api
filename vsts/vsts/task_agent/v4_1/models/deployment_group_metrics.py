@@ -12,11 +12,11 @@ from msrest.serialization import Model
 class DeploymentGroupMetrics(Model):
     """DeploymentGroupMetrics.
 
-    :param columns_header:
+    :param columns_header: List of deployment group properties. And types of metrics provided for those properties.
     :type columns_header: :class:`MetricsColumnsHeader <task-agent.v4_1.models.MetricsColumnsHeader>`
-    :param deployment_group:
+    :param deployment_group: Deployment group.
     :type deployment_group: :class:`DeploymentGroupReference <task-agent.v4_1.models.DeploymentGroupReference>`
-    :param rows:
+    :param rows: Values of properties and the metrics. E.g. 1: total count of deployment targets for which 'TargetState' is 'offline'. E.g. 2: Average time of deployment to the deployment targets for which 'LastJobStatus' is 'passed' and 'TargetState' is 'online'.
     :type rows: list of :class:`MetricsRow <task-agent.v4_1.models.MetricsRow>`
     """
 

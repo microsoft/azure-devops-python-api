@@ -1557,11 +1557,11 @@ class TestClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -1593,11 +1593,11 @@ class TestClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -1636,11 +1636,11 @@ class TestClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 

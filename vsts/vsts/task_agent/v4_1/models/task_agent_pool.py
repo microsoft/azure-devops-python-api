@@ -30,6 +30,8 @@ class TaskAgentPool(TaskAgentPoolReference):
     :type created_by: :class:`IdentityRef <task-agent.v4_1.models.IdentityRef>`
     :param created_on: Gets the date/time of the pool creation.
     :type created_on: datetime
+    :param owner: Gets the identity who owns or administrates this pool.
+    :type owner: :class:`IdentityRef <task-agent.v4_1.models.IdentityRef>`
     :param properties:
     :type properties: :class:`object <task-agent.v4_1.models.object>`
     """
@@ -44,12 +46,14 @@ class TaskAgentPool(TaskAgentPoolReference):
         'auto_provision': {'key': 'autoProvision', 'type': 'bool'},
         'created_by': {'key': 'createdBy', 'type': 'IdentityRef'},
         'created_on': {'key': 'createdOn', 'type': 'iso-8601'},
+        'owner': {'key': 'owner', 'type': 'IdentityRef'},
         'properties': {'key': 'properties', 'type': 'object'}
     }
 
-    def __init__(self, id=None, is_hosted=None, name=None, pool_type=None, scope=None, size=None, auto_provision=None, created_by=None, created_on=None, properties=None):
+    def __init__(self, id=None, is_hosted=None, name=None, pool_type=None, scope=None, size=None, auto_provision=None, created_by=None, created_on=None, owner=None, properties=None):
         super(TaskAgentPool, self).__init__(id=id, is_hosted=is_hosted, name=name, pool_type=pool_type, scope=scope, size=size)
         self.auto_provision = auto_provision
         self.created_by = created_by
         self.created_on = created_on
+        self.owner = owner
         self.properties = properties

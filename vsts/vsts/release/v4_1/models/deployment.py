@@ -16,6 +16,8 @@ class Deployment(Model):
     :type _links: :class:`ReferenceLinks <release.v4_1.models.ReferenceLinks>`
     :param attempt: Gets attempt number.
     :type attempt: int
+    :param completed_on: Gets the date on which deployment is complete.
+    :type completed_on: datetime
     :param conditions: Gets the list of condition associated with deployment.
     :type conditions: list of :class:`Condition <release.v4_1.models.Condition>`
     :param definition_environment_id: Gets release definition environment id.
@@ -57,6 +59,7 @@ class Deployment(Model):
     _attribute_map = {
         '_links': {'key': '_links', 'type': 'ReferenceLinks'},
         'attempt': {'key': 'attempt', 'type': 'int'},
+        'completed_on': {'key': 'completedOn', 'type': 'iso-8601'},
         'conditions': {'key': 'conditions', 'type': '[Condition]'},
         'definition_environment_id': {'key': 'definitionEnvironmentId', 'type': 'int'},
         'deployment_status': {'key': 'deploymentStatus', 'type': 'object'},
@@ -77,10 +80,11 @@ class Deployment(Model):
         'started_on': {'key': 'startedOn', 'type': 'iso-8601'}
     }
 
-    def __init__(self, _links=None, attempt=None, conditions=None, definition_environment_id=None, deployment_status=None, id=None, last_modified_by=None, last_modified_on=None, operation_status=None, post_deploy_approvals=None, pre_deploy_approvals=None, queued_on=None, reason=None, release=None, release_definition=None, release_environment=None, requested_by=None, requested_for=None, scheduled_deployment_time=None, started_on=None):
+    def __init__(self, _links=None, attempt=None, completed_on=None, conditions=None, definition_environment_id=None, deployment_status=None, id=None, last_modified_by=None, last_modified_on=None, operation_status=None, post_deploy_approvals=None, pre_deploy_approvals=None, queued_on=None, reason=None, release=None, release_definition=None, release_environment=None, requested_by=None, requested_for=None, scheduled_deployment_time=None, started_on=None):
         super(Deployment, self).__init__()
         self._links = _links
         self.attempt = attempt
+        self.completed_on = completed_on
         self.conditions = conditions
         self.definition_environment_id = definition_environment_id
         self.deployment_status = deployment_status

@@ -22,6 +22,10 @@ class WebApiTeam(WebApiTeamRef):
     :type description: str
     :param identity_url: Identity REST API Url to this team
     :type identity_url: str
+    :param project_id:
+    :type project_id: str
+    :param project_name:
+    :type project_name: str
     """
 
     _attribute_map = {
@@ -29,10 +33,14 @@ class WebApiTeam(WebApiTeamRef):
         'name': {'key': 'name', 'type': 'str'},
         'url': {'key': 'url', 'type': 'str'},
         'description': {'key': 'description', 'type': 'str'},
-        'identity_url': {'key': 'identityUrl', 'type': 'str'}
+        'identity_url': {'key': 'identityUrl', 'type': 'str'},
+        'project_id': {'key': 'projectId', 'type': 'str'},
+        'project_name': {'key': 'projectName', 'type': 'str'}
     }
 
-    def __init__(self, id=None, name=None, url=None, description=None, identity_url=None):
+    def __init__(self, id=None, name=None, url=None, description=None, identity_url=None, project_id=None, project_name=None):
         super(WebApiTeam, self).__init__(id=id, name=name, url=url)
         self.description = description
         self.identity_url = identity_url
+        self.project_id = project_id
+        self.project_name = project_name

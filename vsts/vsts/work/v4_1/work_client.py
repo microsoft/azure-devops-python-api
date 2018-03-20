@@ -35,11 +35,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -53,6 +53,100 @@ class WorkClient(VssClient):
                               version='4.1-preview.1',
                               route_values=route_values)
         return self._deserialize('BacklogConfiguration', response)
+
+    def get_backlog_level_work_items(self, team_context, backlog_id):
+        """GetBacklogLevelWorkItems.
+        [Preview API] Get a list of work items within a backlog level
+        :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param str backlog_id:
+        :rtype: :class:`<BacklogLevelWorkItems> <work.v4_1.models.BacklogLevelWorkItems>`
+        """
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.projectId:
+                project = team_context.project_id
+            else:
+                project = team_context.project
+            if team_context.teamId:
+                team = team_context.team_id
+            else:
+                team = team_context.team
+
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
+        if backlog_id is not None:
+            route_values['backlogId'] = self._serialize.url('backlog_id', backlog_id, 'str')
+        response = self._send(http_method='GET',
+                              location_id='7c468d96-ab1d-4294-a360-92f07e9ccd98',
+                              version='4.1-preview.1',
+                              route_values=route_values)
+        return self._deserialize('BacklogLevelWorkItems', response)
+
+    def get_backlog(self, team_context, id):
+        """GetBacklog.
+        [Preview API] Get a backlog level
+        :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param str id: The id of the backlog level
+        :rtype: :class:`<BacklogLevelConfiguration> <work.v4_1.models.BacklogLevelConfiguration>`
+        """
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.projectId:
+                project = team_context.project_id
+            else:
+                project = team_context.project
+            if team_context.teamId:
+                team = team_context.team_id
+            else:
+                team = team_context.team
+
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'str')
+        response = self._send(http_method='GET',
+                              location_id='a93726f9-7867-4e38-b4f2-0bfafc2f6a94',
+                              version='4.1-preview.1',
+                              route_values=route_values)
+        return self._deserialize('BacklogLevelConfiguration', response)
+
+    def get_backlogs(self, team_context):
+        """GetBacklogs.
+        [Preview API] List all backlog levels
+        :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :rtype: [BacklogLevelConfiguration]
+        """
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.projectId:
+                project = team_context.project_id
+            else:
+                project = team_context.project
+            if team_context.teamId:
+                team = team_context.team_id
+            else:
+                team = team_context.team
+
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
+        response = self._send(http_method='GET',
+                              location_id='a93726f9-7867-4e38-b4f2-0bfafc2f6a94',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              returns_collection=True)
+        return self._deserialize('[BacklogLevelConfiguration]', response)
 
     def get_column_suggested_values(self, project=None):
         """GetColumnSuggestedValues.
@@ -82,11 +176,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -136,11 +230,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -167,11 +261,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -199,11 +293,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -234,11 +328,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -267,11 +361,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -301,11 +395,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -335,11 +429,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -370,11 +464,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -407,11 +501,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -443,11 +537,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -476,11 +570,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -510,11 +604,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -543,11 +637,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -578,11 +672,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -612,11 +706,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -647,11 +741,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -683,11 +777,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -717,11 +811,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -780,11 +874,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -811,11 +905,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -843,11 +937,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -878,11 +972,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -1014,11 +1108,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -1048,11 +1142,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -1083,11 +1177,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -1116,11 +1210,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -1149,11 +1243,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -1179,11 +1273,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -1210,11 +1304,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -1240,11 +1334,11 @@ class WorkClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -1260,4 +1354,36 @@ class WorkClient(VssClient):
                               route_values=route_values,
                               content=content)
         return self._deserialize('TeamSetting', response)
+
+    def get_iteration_work_items(self, team_context, iteration_id):
+        """GetIterationWorkItems.
+        [Preview API] Get work items for iteration
+        :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param str iteration_id: ID of the iteration
+        :rtype: :class:`<IterationWorkItems> <work.v4_1.models.IterationWorkItems>`
+        """
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.projectId:
+                project = team_context.project_id
+            else:
+                project = team_context.project
+            if team_context.teamId:
+                team = team_context.team_id
+            else:
+                team = team_context.team
+
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
+        if iteration_id is not None:
+            route_values['iterationId'] = self._serialize.url('iteration_id', iteration_id, 'str')
+        response = self._send(http_method='GET',
+                              location_id='5b3ef1a6-d3ab-44cd-bafd-c7f45db850fa',
+                              version='4.1-preview.1',
+                              route_values=route_values)
+        return self._deserialize('IterationWorkItems', response)
 

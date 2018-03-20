@@ -19,8 +19,8 @@ class ContributionNodeQueryResult(Model):
     """
 
     _attribute_map = {
-        'nodes': {'key': 'nodes', 'type': '{SerializedContributionNode}'},
-        'provider_details': {'key': 'providerDetails', 'type': '{ContributionProviderDetails}'}
+        'nodes': {'key': 'nodes', 'type': '{ClientContributionNode}'},
+        'provider_details': {'key': 'providerDetails', 'type': '{ClientContributionProviderDetails}'}
     }
 
     def __init__(self, nodes=None, provider_details=None):

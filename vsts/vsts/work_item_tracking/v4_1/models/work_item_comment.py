@@ -16,13 +16,13 @@ class WorkItemComment(WorkItemTrackingResource):
     :type url: str
     :param _links: Link references to related REST resources.
     :type _links: :class:`ReferenceLinks <work-item-tracking.v4_1.models.ReferenceLinks>`
-    :param revised_by:
+    :param revised_by: Identity of user who added the comment.
     :type revised_by: :class:`IdentityReference <work-item-tracking.v4_1.models.IdentityReference>`
-    :param revised_date:
+    :param revised_date: The date of comment.
     :type revised_date: datetime
-    :param revision:
+    :param revision: The work item revision number.
     :type revision: int
-    :param text:
+    :param text: The text of the comment.
     :type text: str
     """
 

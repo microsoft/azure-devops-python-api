@@ -33,6 +33,7 @@ from .environment_options import EnvironmentOptions
 from .environment_retention_policy import EnvironmentRetentionPolicy
 from .favorite_item import FavoriteItem
 from .folder import Folder
+from .graph_subject_base import GraphSubjectBase
 from .identity_ref import IdentityRef
 from .input_descriptor import InputDescriptor
 from .input_validation import InputValidation
@@ -45,6 +46,7 @@ from .mail_message import MailMessage
 from .manual_intervention import ManualIntervention
 from .manual_intervention_update_metadata import ManualInterventionUpdateMetadata
 from .metric import Metric
+from .pipeline_process import PipelineProcess
 from .process_parameters import ProcessParameters
 from .project_reference import ProjectReference
 from .queued_release_data import QueuedReleaseData
@@ -80,6 +82,7 @@ from .release_settings import ReleaseSettings
 from .release_shallow_reference import ReleaseShallowReference
 from .release_start_metadata import ReleaseStartMetadata
 from .release_task import ReleaseTask
+from .release_task_attachment import ReleaseTaskAttachment
 from .release_trigger_base import ReleaseTriggerBase
 from .release_update_metadata import ReleaseUpdateMetadata
 from .release_work_item_ref import ReleaseWorkItemRef
@@ -123,6 +126,7 @@ __all__ = [
     'EnvironmentRetentionPolicy',
     'FavoriteItem',
     'Folder',
+    'GraphSubjectBase',
     'IdentityRef',
     'InputDescriptor',
     'InputValidation',
@@ -135,6 +139,7 @@ __all__ = [
     'ManualIntervention',
     'ManualInterventionUpdateMetadata',
     'Metric',
+    'PipelineProcess',
     'ProcessParameters',
     'ProjectReference',
     'QueuedReleaseData',
@@ -170,6 +175,7 @@ __all__ = [
     'ReleaseShallowReference',
     'ReleaseStartMetadata',
     'ReleaseTask',
+    'ReleaseTaskAttachment',
     'ReleaseTriggerBase',
     'ReleaseUpdateMetadata',
     'ReleaseWorkItemRef',
