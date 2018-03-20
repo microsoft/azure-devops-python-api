@@ -14,6 +14,8 @@ class GitRef(Model):
 
     :param _links:
     :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
+    :param creator:
+    :type creator: :class:`IdentityRef <git.v4_1.models.IdentityRef>`
     :param is_locked:
     :type is_locked: bool
     :param is_locked_by:
@@ -32,6 +34,7 @@ class GitRef(Model):
 
     _attribute_map = {
         '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'creator': {'key': 'creator', 'type': 'IdentityRef'},
         'is_locked': {'key': 'isLocked', 'type': 'bool'},
         'is_locked_by': {'key': 'isLockedBy', 'type': 'IdentityRef'},
         'name': {'key': 'name', 'type': 'str'},
@@ -41,9 +44,10 @@ class GitRef(Model):
         'url': {'key': 'url', 'type': 'str'}
     }
 
-    def __init__(self, _links=None, is_locked=None, is_locked_by=None, name=None, object_id=None, peeled_object_id=None, statuses=None, url=None):
+    def __init__(self, _links=None, creator=None, is_locked=None, is_locked_by=None, name=None, object_id=None, peeled_object_id=None, statuses=None, url=None):
         super(GitRef, self).__init__()
         self._links = _links
+        self.creator = creator
         self.is_locked = is_locked
         self.is_locked_by = is_locked_by
         self.name = name

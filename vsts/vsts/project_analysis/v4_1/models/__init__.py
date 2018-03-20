@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .code_change_trend_item import CodeChangeTrendItem
+from .language_metrics_secured_object import LanguageMetricsSecuredObject
 from .language_statistics import LanguageStatistics
 from .project_activity_metrics import ProjectActivityMetrics
 from .project_language_analytics import ProjectLanguageAnalytics
@@ -15,6 +16,7 @@ from .repository_language_analytics import RepositoryLanguageAnalytics
 
 __all__ = [
     'CodeChangeTrendItem',
+    'LanguageMetricsSecuredObject',
     'LanguageStatistics',
     'ProjectActivityMetrics',
     'ProjectLanguageAnalytics',

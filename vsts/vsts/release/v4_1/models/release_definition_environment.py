@@ -12,6 +12,8 @@ from msrest.serialization import Model
 class ReleaseDefinitionEnvironment(Model):
     """ReleaseDefinitionEnvironment.
 
+    :param badge_url:
+    :type badge_url: str
     :param conditions:
     :type conditions: list of :class:`Condition <release.v4_1.models.Condition>`
     :param demands:
@@ -59,6 +61,7 @@ class ReleaseDefinitionEnvironment(Model):
     """
 
     _attribute_map = {
+        'badge_url': {'key': 'badgeUrl', 'type': 'str'},
         'conditions': {'key': 'conditions', 'type': '[Condition]'},
         'demands': {'key': 'demands', 'type': '[object]'},
         'deploy_phases': {'key': 'deployPhases', 'type': '[DeployPhase]'},
@@ -83,8 +86,9 @@ class ReleaseDefinitionEnvironment(Model):
         'variables': {'key': 'variables', 'type': '{ConfigurationVariableValue}'}
     }
 
-    def __init__(self, conditions=None, demands=None, deploy_phases=None, deploy_step=None, environment_options=None, execution_policy=None, id=None, name=None, owner=None, post_deploy_approvals=None, post_deployment_gates=None, pre_deploy_approvals=None, pre_deployment_gates=None, process_parameters=None, properties=None, queue_id=None, rank=None, retention_policy=None, run_options=None, schedules=None, variable_groups=None, variables=None):
+    def __init__(self, badge_url=None, conditions=None, demands=None, deploy_phases=None, deploy_step=None, environment_options=None, execution_policy=None, id=None, name=None, owner=None, post_deploy_approvals=None, post_deployment_gates=None, pre_deploy_approvals=None, pre_deployment_gates=None, process_parameters=None, properties=None, queue_id=None, rank=None, retention_policy=None, run_options=None, schedules=None, variable_groups=None, variables=None):
         super(ReleaseDefinitionEnvironment, self).__init__()
+        self.badge_url = badge_url
         self.conditions = conditions
         self.demands = demands
         self.deploy_phases = deploy_phases

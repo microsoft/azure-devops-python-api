@@ -12,6 +12,7 @@ from .checkin_note import CheckinNote
 from .file_content_metadata import FileContentMetadata
 from .git_repository import GitRepository
 from .git_repository_ref import GitRepositoryRef
+from .graph_subject_base import GraphSubjectBase
 from .identity_ref import IdentityRef
 from .item_content import ItemContent
 from .item_model import ItemModel
@@ -50,6 +51,7 @@ __all__ = [
     'FileContentMetadata',
     'GitRepository',
     'GitRepositoryRef',
+    'GraphSubjectBase',
     'IdentityRef',
     'ItemContent',
     'ItemModel',

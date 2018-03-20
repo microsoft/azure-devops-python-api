@@ -80,11 +80,12 @@ class PolicyClient(VssClient):
                               route_values=route_values)
         return self._deserialize('PolicyConfiguration', response)
 
-    def get_policy_configurations(self, project, scope=None):
+    def get_policy_configurations(self, project, scope=None, policy_type=None):
         """GetPolicyConfigurations.
         [Preview API] Get a list of policy configurations in a project.
         :param str project: Project ID or project name
         :param str scope: The scope on which a subset of policies is applied.
+        :param str policy_type: Filter returned policies to only this type
         :rtype: [PolicyConfiguration]
         """
         route_values = {}
@@ -93,6 +94,8 @@ class PolicyClient(VssClient):
         query_parameters = {}
         if scope is not None:
             query_parameters['scope'] = self._serialize.query('scope', scope, 'str')
+        if policy_type is not None:
+            query_parameters['policyType'] = self._serialize.query('policy_type', policy_type, 'str')
         response = self._send(http_method='GET',
                               location_id='dad91cbe-d183-45f8-9c6e-9c1164472121',
                               version='4.1-preview.1',

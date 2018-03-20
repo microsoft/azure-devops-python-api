@@ -81,11 +81,12 @@ class LicensingClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('ClientRightsContainer', response)
 
-    def assign_available_account_entitlement(self, user_id, dont_notify_user=None):
+    def assign_available_account_entitlement(self, user_id, dont_notify_user=None, origin=None):
         """AssignAvailableAccountEntitlement.
         [Preview API] Assign an available entitilement to a user
         :param str user_id: The user to which to assign the entitilement
         :param bool dont_notify_user:
+        :param str origin:
         :rtype: :class:`<AccountEntitlement> <licensing.v4_1.models.AccountEntitlement>`
         """
         query_parameters = {}
@@ -93,6 +94,8 @@ class LicensingClient(VssClient):
             query_parameters['userId'] = self._serialize.query('user_id', user_id, 'str')
         if dont_notify_user is not None:
             query_parameters['dontNotifyUser'] = self._serialize.query('dont_notify_user', dont_notify_user, 'bool')
+        if origin is not None:
+            query_parameters['origin'] = self._serialize.query('origin', origin, 'str')
         response = self._send(http_method='POST',
                               location_id='c01e9fd5-0d8c-4d5e-9a68-734bd8da6a38',
                               version='4.1-preview.1',
@@ -128,12 +131,13 @@ class LicensingClient(VssClient):
                               returns_collection=True)
         return self._deserialize('[AccountEntitlement]', response)
 
-    def assign_account_entitlement_for_user(self, body, user_id, dont_notify_user=None):
+    def assign_account_entitlement_for_user(self, body, user_id, dont_notify_user=None, origin=None):
         """AssignAccountEntitlementForUser.
         [Preview API] Assign an explicit account entitlement
         :param :class:`<AccountEntitlementUpdateModel> <licensing.v4_1.models.AccountEntitlementUpdateModel>` body: The update model for the entitlement
         :param str user_id: The id of the user
         :param bool dont_notify_user:
+        :param str origin:
         :rtype: :class:`<AccountEntitlement> <licensing.v4_1.models.AccountEntitlement>`
         """
         route_values = {}
@@ -142,6 +146,8 @@ class LicensingClient(VssClient):
         query_parameters = {}
         if dont_notify_user is not None:
             query_parameters['dontNotifyUser'] = self._serialize.query('dont_notify_user', dont_notify_user, 'bool')
+        if origin is not None:
+            query_parameters['origin'] = self._serialize.query('origin', origin, 'str')
         content = self._serialize.body(body, 'AccountEntitlementUpdateModel')
         response = self._send(http_method='PUT',
                               location_id='6490e566-b299-49a7-a4e4-28749752581f',
@@ -394,20 +400,4 @@ class LicensingClient(VssClient):
                               version='4.1-preview.1',
                               returns_collection=True)
         return self._deserialize('[AccountLicenseUsage]', response)
-
-    def get_usage_rights(self, right_name=None):
-        """GetUsageRights.
-        [Preview API]
-        :param str right_name:
-        :rtype: [IUsageRight]
-        """
-        route_values = {}
-        if right_name is not None:
-            route_values['rightName'] = self._serialize.url('right_name', right_name, 'str')
-        response = self._send(http_method='GET',
-                              location_id='d09ac573-58fe-4948-af97-793db40a7e16',
-                              version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[IUsageRight]', response)
 

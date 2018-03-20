@@ -12,9 +12,9 @@ from msrest.serialization import Model
 class ServiceEndpointExecutionRecord(Model):
     """ServiceEndpointExecutionRecord.
 
-    :param data:
+    :param data: Gets the execution data of service endpoint execution.
     :type data: :class:`ServiceEndpointExecutionData <task-agent.v4_1.models.ServiceEndpointExecutionData>`
-    :param endpoint_id:
+    :param endpoint_id: Gets the Id of service endpoint.
     :type endpoint_id: str
     """
 

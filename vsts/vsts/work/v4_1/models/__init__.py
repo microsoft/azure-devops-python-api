@@ -13,6 +13,7 @@ from .backlog_configuration import BacklogConfiguration
 from .backlog_fields import BacklogFields
 from .backlog_level import BacklogLevel
 from .backlog_level_configuration import BacklogLevelConfiguration
+from .backlog_level_work_items import BacklogLevelWorkItems
 from .board import Board
 from .board_card_rule_settings import BoardCardRuleSettings
 from .board_card_settings import BoardCardSettings
@@ -32,7 +33,9 @@ from .delivery_view_data import DeliveryViewData
 from .field_reference import FieldReference
 from .field_setting import FieldSetting
 from .filter_clause import FilterClause
+from .graph_subject_base import GraphSubjectBase
 from .identity_ref import IdentityRef
+from .iteration_work_items import IterationWorkItems
 from .member import Member
 from .parent_child_wIMap import ParentChildWIMap
 from .plan import Plan
@@ -60,6 +63,8 @@ from .timeline_team_status import TimelineTeamStatus
 from .update_plan import UpdatePlan
 from .work_item_color import WorkItemColor
 from .work_item_field_reference import WorkItemFieldReference
+from .work_item_link import WorkItemLink
+from .work_item_reference import WorkItemReference
 from .work_item_tracking_resource_reference import WorkItemTrackingResourceReference
 from .work_item_type_reference import WorkItemTypeReference
 from .work_item_type_state_info import WorkItemTypeStateInfo
@@ -72,6 +77,7 @@ __all__ = [
     'BacklogFields',
     'BacklogLevel',
     'BacklogLevelConfiguration',
+    'BacklogLevelWorkItems',
     'Board',
     'BoardCardRuleSettings',
     'BoardCardSettings',
@@ -91,7 +97,9 @@ __all__ = [
     'FieldReference',
     'FieldSetting',
     'FilterClause',
+    'GraphSubjectBase',
     'IdentityRef',
+    'IterationWorkItems',
     'Member',
     'ParentChildWIMap',
     'Plan',
@@ -119,6 +127,8 @@ __all__ = [
     'UpdatePlan',
     'WorkItemColor',
     'WorkItemFieldReference',
+    'WorkItemLink',
+    'WorkItemReference',
     'WorkItemTrackingResourceReference',
     'WorkItemTypeReference',
     'WorkItemTypeStateInfo',

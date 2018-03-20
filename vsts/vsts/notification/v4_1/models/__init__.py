@@ -17,13 +17,16 @@ from .expression_filter_group import ExpressionFilterGroup
 from .expression_filter_model import ExpressionFilterModel
 from .field_input_values import FieldInputValues
 from .field_values_query import FieldValuesQuery
+from .graph_subject_base import GraphSubjectBase
 from .identity_ref import IdentityRef
+from .iNotification_diagnostic_log import INotificationDiagnosticLog
 from .input_value import InputValue
 from .input_values import InputValues
 from .input_values_error import InputValuesError
 from .input_values_query import InputValuesQuery
 from .iSubscription_channel import ISubscriptionChannel
 from .iSubscription_filter import ISubscriptionFilter
+from .notification_diagnostic_log_message import NotificationDiagnosticLogMessage
 from .notification_event_field import NotificationEventField
 from .notification_event_field_operator import NotificationEventFieldOperator
 from .notification_event_field_type import NotificationEventFieldType
@@ -47,6 +50,7 @@ from .operator_constraint import OperatorConstraint
 from .reference_links import ReferenceLinks
 from .subscription_admin_settings import SubscriptionAdminSettings
 from .subscription_channel_with_address import SubscriptionChannelWithAddress
+from .subscription_diagnostics import SubscriptionDiagnostics
 from .subscription_evaluation_request import SubscriptionEvaluationRequest
 from .subscription_evaluation_result import SubscriptionEvaluationResult
 from .subscription_evaluation_settings import SubscriptionEvaluationSettings
@@ -54,7 +58,10 @@ from .subscription_management import SubscriptionManagement
 from .subscription_query import SubscriptionQuery
 from .subscription_query_condition import SubscriptionQueryCondition
 from .subscription_scope import SubscriptionScope
+from .subscription_tracing import SubscriptionTracing
 from .subscription_user_settings import SubscriptionUserSettings
+from .update_subscripiton_diagnostics_parameters import UpdateSubscripitonDiagnosticsParameters
+from .update_subscripiton_tracing_parameters import UpdateSubscripitonTracingParameters
 from .value_definition import ValueDefinition
 from .vss_notification_event import VssNotificationEvent
 
@@ -70,13 +77,16 @@ __all__ = [
     'ExpressionFilterModel',
     'FieldInputValues',
     'FieldValuesQuery',
+    'GraphSubjectBase',
     'IdentityRef',
+    'INotificationDiagnosticLog',
     'InputValue',
     'InputValues',
     'InputValuesError',
     'InputValuesQuery',
     'ISubscriptionChannel',
     'ISubscriptionFilter',
+    'NotificationDiagnosticLogMessage',
     'NotificationEventField',
     'NotificationEventFieldOperator',
     'NotificationEventFieldType',
@@ -100,6 +110,7 @@ __all__ = [
     'ReferenceLinks',
     'SubscriptionAdminSettings',
     'SubscriptionChannelWithAddress',
+    'SubscriptionDiagnostics',
     'SubscriptionEvaluationRequest',
     'SubscriptionEvaluationResult',
     'SubscriptionEvaluationSettings',
@@ -107,7 +118,10 @@ __all__ = [
     'SubscriptionQuery',
     'SubscriptionQueryCondition',
     'SubscriptionScope',
+    'SubscriptionTracing',
     'SubscriptionUserSettings',
+    'UpdateSubscripitonDiagnosticsParameters',
+    'UpdateSubscripitonTracingParameters',
     'ValueDefinition',
     'VssNotificationEvent',
 ]

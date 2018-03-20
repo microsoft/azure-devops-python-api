@@ -12,13 +12,13 @@ from msrest.serialization import Model
 class DeploymentPoolSummary(Model):
     """DeploymentPoolSummary.
 
-    :param deployment_groups:
+    :param deployment_groups: List of deployment groups referring to the deployment pool.
     :type deployment_groups: list of :class:`DeploymentGroupReference <task-agent.v4_1.models.DeploymentGroupReference>`
-    :param offline_agents_count:
+    :param offline_agents_count: Number of deployment agents that are offline.
     :type offline_agents_count: int
-    :param online_agents_count:
+    :param online_agents_count: Number of deployment agents that are online.
     :type online_agents_count: int
-    :param pool:
+    :param pool: Deployment pool.
     :type pool: :class:`TaskAgentPoolReference <task-agent.v4_1.models.TaskAgentPoolReference>`
     """
 

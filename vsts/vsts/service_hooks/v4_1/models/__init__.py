@@ -12,6 +12,7 @@ from .event import Event
 from .event_type_descriptor import EventTypeDescriptor
 from .external_configuration_descriptor import ExternalConfigurationDescriptor
 from .formatted_event_message import FormattedEventMessage
+from .graph_subject_base import GraphSubjectBase
 from .identity_ref import IdentityRef
 from .input_descriptor import InputDescriptor
 from .input_filter import InputFilter
@@ -33,7 +34,11 @@ from .reference_links import ReferenceLinks
 from .resource_container import ResourceContainer
 from .session_token import SessionToken
 from .subscription import Subscription
+from .subscription_diagnostics import SubscriptionDiagnostics
 from .subscriptions_query import SubscriptionsQuery
+from .subscription_tracing import SubscriptionTracing
+from .update_subscripiton_diagnostics_parameters import UpdateSubscripitonDiagnosticsParameters
+from .update_subscripiton_tracing_parameters import UpdateSubscripitonTracingParameters
 from .versioned_resource import VersionedResource
 
 __all__ = [
@@ -43,6 +48,7 @@ __all__ = [
     'EventTypeDescriptor',
     'ExternalConfigurationDescriptor',
     'FormattedEventMessage',
+    'GraphSubjectBase',
     'IdentityRef',
     'InputDescriptor',
     'InputFilter',
@@ -64,6 +70,10 @@ __all__ = [
     'ResourceContainer',
     'SessionToken',
     'Subscription',
+    'SubscriptionDiagnostics',
     'SubscriptionsQuery',
+    'SubscriptionTracing',
+    'UpdateSubscripitonDiagnosticsParameters',
+    'UpdateSubscripitonTracingParameters',
     'VersionedResource',
 ]

@@ -962,7 +962,7 @@ class TestClient(VssClient):
                               content=content)
         return self._deserialize('TestPointsQuery', response)
 
-    def get_test_result_details_for_build(self, project, build_id, publish_context=None, group_by=None, filter=None, orderby=None):
+    def get_test_result_details_for_build(self, project, build_id, publish_context=None, group_by=None, filter=None, orderby=None, should_include_results=None, query_run_summary_for_in_progress=None):
         """GetTestResultDetailsForBuild.
         [Preview API]
         :param str project: Project ID or project name
@@ -971,6 +971,8 @@ class TestClient(VssClient):
         :param str group_by:
         :param str filter:
         :param str orderby:
+        :param bool should_include_results:
+        :param bool query_run_summary_for_in_progress:
         :rtype: :class:`<TestResultsDetails> <test.v4_1.models.TestResultsDetails>`
         """
         route_values = {}
@@ -987,6 +989,10 @@ class TestClient(VssClient):
             query_parameters['$filter'] = self._serialize.query('filter', filter, 'str')
         if orderby is not None:
             query_parameters['$orderby'] = self._serialize.query('orderby', orderby, 'str')
+        if should_include_results is not None:
+            query_parameters['shouldIncludeResults'] = self._serialize.query('should_include_results', should_include_results, 'bool')
+        if query_run_summary_for_in_progress is not None:
+            query_parameters['queryRunSummaryForInProgress'] = self._serialize.query('query_run_summary_for_in_progress', query_run_summary_for_in_progress, 'bool')
         response = self._send(http_method='GET',
                               location_id='efb387b0-10d5-42e7-be40-95e06ee9430f',
                               version='4.1-preview.1',
@@ -994,7 +1000,7 @@ class TestClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('TestResultsDetails', response)
 
-    def get_test_result_details_for_release(self, project, release_id, release_env_id, publish_context=None, group_by=None, filter=None, orderby=None):
+    def get_test_result_details_for_release(self, project, release_id, release_env_id, publish_context=None, group_by=None, filter=None, orderby=None, should_include_results=None, query_run_summary_for_in_progress=None):
         """GetTestResultDetailsForRelease.
         [Preview API]
         :param str project: Project ID or project name
@@ -1004,6 +1010,8 @@ class TestClient(VssClient):
         :param str group_by:
         :param str filter:
         :param str orderby:
+        :param bool should_include_results:
+        :param bool query_run_summary_for_in_progress:
         :rtype: :class:`<TestResultsDetails> <test.v4_1.models.TestResultsDetails>`
         """
         route_values = {}
@@ -1022,6 +1030,10 @@ class TestClient(VssClient):
             query_parameters['$filter'] = self._serialize.query('filter', filter, 'str')
         if orderby is not None:
             query_parameters['$orderby'] = self._serialize.query('orderby', orderby, 'str')
+        if should_include_results is not None:
+            query_parameters['shouldIncludeResults'] = self._serialize.query('should_include_results', should_include_results, 'bool')
+        if query_run_summary_for_in_progress is not None:
+            query_parameters['queryRunSummaryForInProgress'] = self._serialize.query('query_run_summary_for_in_progress', query_run_summary_for_in_progress, 'bool')
         response = self._send(http_method='GET',
                               location_id='b834ec7e-35bb-450f-a3c8-802e70ca40dd',
                               version='4.1-preview.1',
@@ -1648,11 +1660,11 @@ class TestClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -1684,11 +1696,11 @@ class TestClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -1727,11 +1739,11 @@ class TestClient(VssClient):
         team = None
         if team_context is not None:
             if team_context.projectId:
-                project = team_context.projectId
+                project = team_context.project_id
             else:
                 project = team_context.project
             if team_context.teamId:
-                team = team_context.teamId
+                team = team_context.team_id
             else:
                 team = team_context.team
 
@@ -1841,7 +1853,7 @@ class TestClient(VssClient):
             route_values['testCaseIds'] = self._serialize.url('test_case_ids', test_case_ids, 'str')
         response = self._send(http_method='POST',
                               location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
-                              version='4.1-preview.2',
+                              version='4.1-preview.3',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[SuiteTestCase]', response)
@@ -1866,7 +1878,7 @@ class TestClient(VssClient):
             route_values['testCaseIds'] = self._serialize.url('test_case_ids', test_case_ids, 'int')
         response = self._send(http_method='GET',
                               location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
-                              version='4.1-preview.2',
+                              version='4.1-preview.3',
                               route_values=route_values)
         return self._deserialize('SuiteTestCase', response)
 
@@ -1887,7 +1899,7 @@ class TestClient(VssClient):
             route_values['suiteId'] = self._serialize.url('suite_id', suite_id, 'int')
         response = self._send(http_method='GET',
                               location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
-                              version='4.1-preview.2',
+                              version='4.1-preview.3',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[SuiteTestCase]', response)
@@ -1911,7 +1923,7 @@ class TestClient(VssClient):
             route_values['testCaseIds'] = self._serialize.url('test_case_ids', test_case_ids, 'str')
         self._send(http_method='DELETE',
                    location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
-                   version='4.1-preview.2',
+                   version='4.1-preview.3',
                    route_values=route_values)
 
     def create_test_suite(self, test_suite, project, plan_id, suite_id):
@@ -1933,7 +1945,7 @@ class TestClient(VssClient):
         content = self._serialize.body(test_suite, 'SuiteCreateModel')
         response = self._send(http_method='POST',
                               location_id='7b7619a0-cb54-4ab3-bf22-194056f45dd1',
-                              version='4.1-preview.2',
+                              version='4.1-preview.3',
                               route_values=route_values,
                               content=content,
                               returns_collection=True)
@@ -1955,16 +1967,16 @@ class TestClient(VssClient):
             route_values['suiteId'] = self._serialize.url('suite_id', suite_id, 'int')
         self._send(http_method='DELETE',
                    location_id='7b7619a0-cb54-4ab3-bf22-194056f45dd1',
-                   version='4.1-preview.2',
+                   version='4.1-preview.3',
                    route_values=route_values)
 
-    def get_test_suite_by_id(self, project, plan_id, suite_id, include_child_suites=None):
+    def get_test_suite_by_id(self, project, plan_id, suite_id, expand=None):
         """GetTestSuiteById.
         [Preview API]
         :param str project: Project ID or project name
         :param int plan_id:
         :param int suite_id:
-        :param bool include_child_suites:
+        :param int expand:
         :rtype: :class:`<TestSuite> <test.v4_1.models.TestSuite>`
         """
         route_values = {}
@@ -1975,21 +1987,21 @@ class TestClient(VssClient):
         if suite_id is not None:
             route_values['suiteId'] = self._serialize.url('suite_id', suite_id, 'int')
         query_parameters = {}
-        if include_child_suites is not None:
-            query_parameters['includeChildSuites'] = self._serialize.query('include_child_suites', include_child_suites, 'bool')
+        if expand is not None:
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'int')
         response = self._send(http_method='GET',
                               location_id='7b7619a0-cb54-4ab3-bf22-194056f45dd1',
-                              version='4.1-preview.2',
+                              version='4.1-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('TestSuite', response)
 
-    def get_test_suites_for_plan(self, project, plan_id, include_suites=None, skip=None, top=None, as_tree_view=None):
+    def get_test_suites_for_plan(self, project, plan_id, expand=None, skip=None, top=None, as_tree_view=None):
         """GetTestSuitesForPlan.
         [Preview API]
         :param str project: Project ID or project name
         :param int plan_id:
-        :param bool include_suites:
+        :param int expand:
         :param int skip:
         :param int top:
         :param bool as_tree_view:
@@ -2001,8 +2013,8 @@ class TestClient(VssClient):
         if plan_id is not None:
             route_values['planId'] = self._serialize.url('plan_id', plan_id, 'int')
         query_parameters = {}
-        if include_suites is not None:
-            query_parameters['includeSuites'] = self._serialize.query('include_suites', include_suites, 'bool')
+        if expand is not None:
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'int')
         if skip is not None:
             query_parameters['$skip'] = self._serialize.query('skip', skip, 'int')
         if top is not None:
@@ -2011,7 +2023,7 @@ class TestClient(VssClient):
             query_parameters['$asTreeView'] = self._serialize.query('as_tree_view', as_tree_view, 'bool')
         response = self._send(http_method='GET',
                               location_id='7b7619a0-cb54-4ab3-bf22-194056f45dd1',
-                              version='4.1-preview.2',
+                              version='4.1-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -2036,7 +2048,7 @@ class TestClient(VssClient):
         content = self._serialize.body(suite_update_model, 'SuiteUpdateModel')
         response = self._send(http_method='PATCH',
                               location_id='7b7619a0-cb54-4ab3-bf22-194056f45dd1',
-                              version='4.1-preview.2',
+                              version='4.1-preview.3',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TestSuite', response)
@@ -2052,7 +2064,7 @@ class TestClient(VssClient):
             query_parameters['testCaseId'] = self._serialize.query('test_case_id', test_case_id, 'int')
         response = self._send(http_method='GET',
                               location_id='09a6167b-e969-4775-9247-b94cf3819caf',
-                              version='4.1-preview.1',
+                              version='4.1-preview.3',
                               query_parameters=query_parameters,
                               returns_collection=True)
         return self._deserialize('[TestSuite]', response)

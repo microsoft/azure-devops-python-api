@@ -22,6 +22,8 @@ class TestAttachment(Model):
     :type file_name: str
     :param id:
     :type id: int
+    :param size:
+    :type size: long
     :param url:
     :type url: str
     """
@@ -32,14 +34,16 @@ class TestAttachment(Model):
         'created_date': {'key': 'createdDate', 'type': 'iso-8601'},
         'file_name': {'key': 'fileName', 'type': 'str'},
         'id': {'key': 'id', 'type': 'int'},
+        'size': {'key': 'size', 'type': 'long'},
         'url': {'key': 'url', 'type': 'str'}
     }
 
-    def __init__(self, attachment_type=None, comment=None, created_date=None, file_name=None, id=None, url=None):
+    def __init__(self, attachment_type=None, comment=None, created_date=None, file_name=None, id=None, size=None, url=None):
         super(TestAttachment, self).__init__()
         self.attachment_type = attachment_type
         self.comment = comment
         self.created_date = created_date
         self.file_name = file_name
         self.id = id
+        self.size = size
         self.url = url

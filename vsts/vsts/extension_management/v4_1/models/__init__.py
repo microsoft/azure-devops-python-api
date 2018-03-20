@@ -31,6 +31,7 @@ from .extension_share import ExtensionShare
 from .extension_state import ExtensionState
 from .extension_statistic import ExtensionStatistic
 from .extension_version import ExtensionVersion
+from .graph_subject_base import GraphSubjectBase
 from .identity_ref import IdentityRef
 from .installation_target import InstallationTarget
 from .installed_extension import InstalledExtension
@@ -40,6 +41,7 @@ from .installed_extension_state_issue import InstalledExtensionStateIssue
 from .licensing_override import LicensingOverride
 from .published_extension import PublishedExtension
 from .publisher_facts import PublisherFacts
+from .reference_links import ReferenceLinks
 from .requested_extension import RequestedExtension
 from .user_extension_policy import UserExtensionPolicy
 
@@ -69,6 +71,7 @@ __all__ = [
     'ExtensionState',
     'ExtensionStatistic',
     'ExtensionVersion',
+    'GraphSubjectBase',
     'IdentityRef',
     'InstallationTarget',
     'InstalledExtension',
@@ -78,6 +81,7 @@ __all__ = [
     'LicensingOverride',
     'PublishedExtension',
     'PublisherFacts',
+    'ReferenceLinks',
     'RequestedExtension',
     'UserExtensionPolicy',
 ]

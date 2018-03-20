@@ -12,15 +12,15 @@ from msrest.serialization import Model
 class EndpointUrl(Model):
     """EndpointUrl.
 
-    :param depends_on:
+    :param depends_on: Gets or sets the dependency bindings.
     :type depends_on: :class:`DependsOn <task-agent.v4_1.models.DependsOn>`
-    :param display_name:
+    :param display_name: Gets or sets the display name of service endpoint url.
     :type display_name: str
-    :param help_text:
+    :param help_text: Gets or sets the help text of service endpoint url.
     :type help_text: str
-    :param is_visible:
+    :param is_visible: Gets or sets the visibility of service endpoint url.
     :type is_visible: str
-    :param value:
+    :param value: Gets or sets the value of service endpoint url.
     :type value: str
     """
 

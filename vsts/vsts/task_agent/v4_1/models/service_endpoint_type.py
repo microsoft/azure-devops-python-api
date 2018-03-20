@@ -12,31 +12,31 @@ from msrest.serialization import Model
 class ServiceEndpointType(Model):
     """ServiceEndpointType.
 
-    :param authentication_schemes:
+    :param authentication_schemes: Authentication scheme of service endpoint type.
     :type authentication_schemes: list of :class:`ServiceEndpointAuthenticationScheme <task-agent.v4_1.models.ServiceEndpointAuthenticationScheme>`
-    :param data_sources:
+    :param data_sources: Data sources of service endpoint type.
     :type data_sources: list of :class:`DataSource <task-agent.v4_1.models.DataSource>`
-    :param dependency_data:
+    :param dependency_data: Dependency data of service endpoint type.
     :type dependency_data: list of :class:`DependencyData <task-agent.v4_1.models.DependencyData>`
-    :param description:
+    :param description: Gets or sets the description of service endpoint type.
     :type description: str
-    :param display_name:
+    :param display_name: Gets or sets the display name of service endpoint type.
     :type display_name: str
-    :param endpoint_url:
+    :param endpoint_url: Gets or sets the endpoint url of service endpoint type.
     :type endpoint_url: :class:`EndpointUrl <task-agent.v4_1.models.EndpointUrl>`
-    :param help_link:
+    :param help_link: Gets or sets the help link of service endpoint type.
     :type help_link: :class:`HelpLink <task-agent.v4_1.models.HelpLink>`
     :param help_mark_down:
     :type help_mark_down: str
-    :param icon_url:
+    :param icon_url: Gets or sets the icon url of service endpoint type.
     :type icon_url: str
-    :param input_descriptors:
+    :param input_descriptors: Input descriptor of service endpoint type.
     :type input_descriptors: list of :class:`InputDescriptor <task-agent.v4_1.models.InputDescriptor>`
-    :param name:
+    :param name: Gets or sets the name of service endpoint type.
     :type name: str
-    :param trusted_hosts:
+    :param trusted_hosts: Trusted hosts of a service endpoint type.
     :type trusted_hosts: list of str
-    :param ui_contribution_id:
+    :param ui_contribution_id: Gets or sets the ui contribution id of service endpoint type.
     :type ui_contribution_id: str
     """
 

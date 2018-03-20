@@ -6,12 +6,18 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from msrest.serialization import Model
+from .language_metrics_secured_object import LanguageMetricsSecuredObject
 
 
-class LanguageStatistics(Model):
+class LanguageStatistics(LanguageMetricsSecuredObject):
     """LanguageStatistics.
 
+    :param namespace_id:
+    :type namespace_id: str
+    :param project_id:
+    :type project_id: str
+    :param required_permissions:
+    :type required_permissions: int
     :param bytes:
     :type bytes: long
     :param files:
@@ -25,6 +31,9 @@ class LanguageStatistics(Model):
     """
 
     _attribute_map = {
+        'namespace_id': {'key': 'namespaceId', 'type': 'str'},
+        'project_id': {'key': 'projectId', 'type': 'str'},
+        'required_permissions': {'key': 'requiredPermissions', 'type': 'int'},
         'bytes': {'key': 'bytes', 'type': 'long'},
         'files': {'key': 'files', 'type': 'int'},
         'files_percentage': {'key': 'filesPercentage', 'type': 'number'},
@@ -32,8 +41,8 @@ class LanguageStatistics(Model):
         'name': {'key': 'name', 'type': 'str'}
     }
 
-    def __init__(self, bytes=None, files=None, files_percentage=None, language_percentage=None, name=None):
-        super(LanguageStatistics, self).__init__()
+    def __init__(self, namespace_id=None, project_id=None, required_permissions=None, bytes=None, files=None, files_percentage=None, language_percentage=None, name=None):
+        super(LanguageStatistics, self).__init__(namespace_id=namespace_id, project_id=project_id, required_permissions=required_permissions)
         self.bytes = bytes
         self.files = files
         self.files_percentage = files_percentage
