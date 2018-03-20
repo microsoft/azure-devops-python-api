@@ -12,9 +12,9 @@ from msrest.serialization import Model
 class MetricsColumnMetaData(Model):
     """MetricsColumnMetaData.
 
-    :param column_name:
+    :param column_name: Name.
     :type column_name: str
-    :param column_value_type:
+    :param column_value_type: Data type.
     :type column_value_type: str
     """
 

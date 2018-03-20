@@ -15,6 +15,7 @@ from .artifact_uri_query_result import ArtifactUriQueryResult
 from .attachment_reference import AttachmentReference
 from .field_dependent_rule import FieldDependentRule
 from .fields_to_evaluate import FieldsToEvaluate
+from .graph_subject_base import GraphSubjectBase
 from .identity_ref import IdentityRef
 from .identity_reference import IdentityReference
 from .json_patch_operation import JsonPatchOperation
@@ -38,6 +39,7 @@ from .work_item_comment import WorkItemComment
 from .work_item_comments import WorkItemComments
 from .work_item_delete import WorkItemDelete
 from .work_item_delete_reference import WorkItemDeleteReference
+from .work_item_delete_shallow_reference import WorkItemDeleteShallowReference
 from .work_item_delete_update import WorkItemDeleteUpdate
 from .work_item_field import WorkItemField
 from .work_item_field_operation import WorkItemFieldOperation
@@ -66,6 +68,8 @@ from .work_item_type_category import WorkItemTypeCategory
 from .work_item_type_color import WorkItemTypeColor
 from .work_item_type_color_and_icon import WorkItemTypeColorAndIcon
 from .work_item_type_field_instance import WorkItemTypeFieldInstance
+from .work_item_type_field_instance_base import WorkItemTypeFieldInstanceBase
+from .work_item_type_field_with_references import WorkItemTypeFieldWithReferences
 from .work_item_type_reference import WorkItemTypeReference
 from .work_item_type_state_colors import WorkItemTypeStateColors
 from .work_item_type_template import WorkItemTypeTemplate
@@ -82,6 +86,7 @@ __all__ = [
     'AttachmentReference',
     'FieldDependentRule',
     'FieldsToEvaluate',
+    'GraphSubjectBase',
     'IdentityRef',
     'IdentityReference',
     'JsonPatchOperation',
@@ -105,6 +110,7 @@ __all__ = [
     'WorkItemComments',
     'WorkItemDelete',
     'WorkItemDeleteReference',
+    'WorkItemDeleteShallowReference',
     'WorkItemDeleteUpdate',
     'WorkItemField',
     'WorkItemFieldOperation',
@@ -133,6 +139,8 @@ __all__ = [
     'WorkItemTypeColor',
     'WorkItemTypeColorAndIcon',
     'WorkItemTypeFieldInstance',
+    'WorkItemTypeFieldInstanceBase',
+    'WorkItemTypeFieldWithReferences',
     'WorkItemTypeReference',
     'WorkItemTypeStateColors',
     'WorkItemTypeTemplate',

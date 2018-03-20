@@ -46,29 +46,81 @@ class LocationClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('ConnectionData', response)
 
-    def get_resource_area(self, area_id):
+    def get_resource_area(self, area_id, organization_name=None, account_name=None):
         """GetResourceArea.
         [Preview API]
         :param str area_id:
+        :param str organization_name:
+        :param str account_name:
         :rtype: :class:`<ResourceAreaInfo> <location.v4_1.models.ResourceAreaInfo>`
         """
         route_values = {}
         if area_id is not None:
             route_values['areaId'] = self._serialize.url('area_id', area_id, 'str')
+        query_parameters = {}
+        if organization_name is not None:
+            query_parameters['organizationName'] = self._serialize.query('organization_name', organization_name, 'str')
+        if account_name is not None:
+            query_parameters['accountName'] = self._serialize.query('account_name', account_name, 'str')
         response = self._send(http_method='GET',
                               location_id='e81700f7-3be2-46de-8624-2eb35882fcaa',
                               version='4.1-preview.1',
-                              route_values=route_values)
+                              route_values=route_values,
+                              query_parameters=query_parameters)
         return self._deserialize('ResourceAreaInfo', response)
 
-    def get_resource_areas(self):
-        """GetResourceAreas.
+    def get_resource_area_by_host(self, area_id, host_id):
+        """GetResourceAreaByHost.
         [Preview API]
-        :rtype: [ResourceAreaInfo]
+        :param str area_id:
+        :param str host_id:
+        :rtype: :class:`<ResourceAreaInfo> <location.v4_1.models.ResourceAreaInfo>`
         """
+        route_values = {}
+        if area_id is not None:
+            route_values['areaId'] = self._serialize.url('area_id', area_id, 'str')
+        query_parameters = {}
+        if host_id is not None:
+            query_parameters['hostId'] = self._serialize.query('host_id', host_id, 'str')
         response = self._send(http_method='GET',
                               location_id='e81700f7-3be2-46de-8624-2eb35882fcaa',
                               version='4.1-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters)
+        return self._deserialize('ResourceAreaInfo', response)
+
+    def get_resource_areas(self, organization_name=None, account_name=None):
+        """GetResourceAreas.
+        [Preview API]
+        :param str organization_name:
+        :param str account_name:
+        :rtype: [ResourceAreaInfo]
+        """
+        query_parameters = {}
+        if organization_name is not None:
+            query_parameters['organizationName'] = self._serialize.query('organization_name', organization_name, 'str')
+        if account_name is not None:
+            query_parameters['accountName'] = self._serialize.query('account_name', account_name, 'str')
+        response = self._send(http_method='GET',
+                              location_id='e81700f7-3be2-46de-8624-2eb35882fcaa',
+                              version='4.1-preview.1',
+                              query_parameters=query_parameters,
+                              returns_collection=True)
+        return self._deserialize('[ResourceAreaInfo]', response)
+
+    def get_resource_areas_by_host(self, host_id):
+        """GetResourceAreasByHost.
+        [Preview API]
+        :param str host_id:
+        :rtype: [ResourceAreaInfo]
+        """
+        query_parameters = {}
+        if host_id is not None:
+            query_parameters['hostId'] = self._serialize.query('host_id', host_id, 'str')
+        response = self._send(http_method='GET',
+                              location_id='e81700f7-3be2-46de-8624-2eb35882fcaa',
+                              version='4.1-preview.1',
+                              query_parameters=query_parameters,
                               returns_collection=True)
         return self._deserialize('[ResourceAreaInfo]', response)
 

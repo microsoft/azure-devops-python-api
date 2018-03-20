@@ -327,7 +327,7 @@ class TfvcClient(VssClient):
                               content=content)
         return self._deserialize('object', response)
 
-    def get_item(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None):
+    def get_item(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None, include_content=None):
         """GetItem.
         [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content which is always returned as a download.
         :param str path: Version control path of an individual item to return.
@@ -336,7 +336,8 @@ class TfvcClient(VssClient):
         :param bool download: If true, create a downloadable attachment.
         :param str scope_path: Version control path of a folder to return multiple items.
         :param str recursion_level: None (just the item), or OneLevel (contents of a folder).
-        :param :class:`<TfvcVersionDescriptor> <tfvc.v4_1.models.TfvcVersionDescriptor>` version_descriptor:
+        :param :class:`<TfvcVersionDescriptor> <tfvc.v4_1.models.TfvcVersionDescriptor>` version_descriptor: Version descriptor.  Default is null.
+        :param bool include_content: Set to true to include item content when requesting json.  Default is false.
         :rtype: :class:`<TfvcItem> <tfvc.v4_1.models.TfvcItem>`
         """
         route_values = {}
@@ -360,6 +361,8 @@ class TfvcClient(VssClient):
                 query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
                 query_parameters['versionDescriptor.Version'] = version_descriptor.version
+        if include_content is not None:
+            query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
                               location_id='ba9fc436-9a38-4578-89d6-e4f3241f5040',
                               version='4.1-preview.1',
@@ -367,7 +370,7 @@ class TfvcClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('TfvcItem', response)
 
-    def get_item_content(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None):
+    def get_item_content(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None, include_content=None):
         """GetItemContent.
         [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content which is always returned as a download.
         :param str path: Version control path of an individual item to return.
@@ -376,7 +379,8 @@ class TfvcClient(VssClient):
         :param bool download: If true, create a downloadable attachment.
         :param str scope_path: Version control path of a folder to return multiple items.
         :param str recursion_level: None (just the item), or OneLevel (contents of a folder).
-        :param :class:`<TfvcVersionDescriptor> <tfvc.v4_1.models.TfvcVersionDescriptor>` version_descriptor:
+        :param :class:`<TfvcVersionDescriptor> <tfvc.v4_1.models.TfvcVersionDescriptor>` version_descriptor: Version descriptor.  Default is null.
+        :param bool include_content: Set to true to include item content when requesting json.  Default is false.
         :rtype: object
         """
         route_values = {}
@@ -400,6 +404,8 @@ class TfvcClient(VssClient):
                 query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
                 query_parameters['versionDescriptor.Version'] = version_descriptor.version
+        if include_content is not None:
+            query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
                               location_id='ba9fc436-9a38-4578-89d6-e4f3241f5040',
                               version='4.1-preview.1',
@@ -442,7 +448,7 @@ class TfvcClient(VssClient):
                               returns_collection=True)
         return self._deserialize('[TfvcItem]', response)
 
-    def get_item_text(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None):
+    def get_item_text(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None, include_content=None):
         """GetItemText.
         [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content which is always returned as a download.
         :param str path: Version control path of an individual item to return.
@@ -451,7 +457,8 @@ class TfvcClient(VssClient):
         :param bool download: If true, create a downloadable attachment.
         :param str scope_path: Version control path of a folder to return multiple items.
         :param str recursion_level: None (just the item), or OneLevel (contents of a folder).
-        :param :class:`<TfvcVersionDescriptor> <tfvc.v4_1.models.TfvcVersionDescriptor>` version_descriptor:
+        :param :class:`<TfvcVersionDescriptor> <tfvc.v4_1.models.TfvcVersionDescriptor>` version_descriptor: Version descriptor.  Default is null.
+        :param bool include_content: Set to true to include item content when requesting json.  Default is false.
         :rtype: object
         """
         route_values = {}
@@ -475,6 +482,8 @@ class TfvcClient(VssClient):
                 query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
                 query_parameters['versionDescriptor.Version'] = version_descriptor.version
+        if include_content is not None:
+            query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
                               location_id='ba9fc436-9a38-4578-89d6-e4f3241f5040',
                               version='4.1-preview.1',
@@ -482,7 +491,7 @@ class TfvcClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('object', response)
 
-    def get_item_zip(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None):
+    def get_item_zip(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None, include_content=None):
         """GetItemZip.
         [Preview API] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content which is always returned as a download.
         :param str path: Version control path of an individual item to return.
@@ -491,7 +500,8 @@ class TfvcClient(VssClient):
         :param bool download: If true, create a downloadable attachment.
         :param str scope_path: Version control path of a folder to return multiple items.
         :param str recursion_level: None (just the item), or OneLevel (contents of a folder).
-        :param :class:`<TfvcVersionDescriptor> <tfvc.v4_1.models.TfvcVersionDescriptor>` version_descriptor:
+        :param :class:`<TfvcVersionDescriptor> <tfvc.v4_1.models.TfvcVersionDescriptor>` version_descriptor: Version descriptor.  Default is null.
+        :param bool include_content: Set to true to include item content when requesting json.  Default is false.
         :rtype: object
         """
         route_values = {}
@@ -515,6 +525,8 @@ class TfvcClient(VssClient):
                 query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
                 query_parameters['versionDescriptor.Version'] = version_descriptor.version
+        if include_content is not None:
+            query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
                               location_id='ba9fc436-9a38-4578-89d6-e4f3241f5040',
                               version='4.1-preview.1',

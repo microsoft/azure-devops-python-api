@@ -12,9 +12,9 @@ from msrest.serialization import Model
 class EndpointAuthorization(Model):
     """EndpointAuthorization.
 
-    :param parameters:
+    :param parameters: Gets or sets the parameters for the selected authorization scheme.
     :type parameters: dict
-    :param scheme:
+    :param scheme: Gets or sets the scheme used for service endpoint authentication.
     :type scheme: str
     """
 

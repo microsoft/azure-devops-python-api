@@ -19,10 +19,11 @@ from .extension_license_data import ExtensionLicenseData
 from .extension_operation_result import ExtensionOperationResult
 from .extension_rights_result import ExtensionRightsResult
 from .extension_source import ExtensionSource
+from .graph_subject_base import GraphSubjectBase
 from .identity_ref import IdentityRef
-from .iUsage_right import IUsageRight
 from .license import License
 from .msdn_entitlement import MsdnEntitlement
+from .reference_links import ReferenceLinks
 
 __all__ = [
     'AccountEntitlement',
@@ -38,8 +39,9 @@ __all__ = [
     'ExtensionOperationResult',
     'ExtensionRightsResult',
     'ExtensionSource',
+    'GraphSubjectBase',
     'IdentityRef',
-    'IUsageRight',
     'License',
     'MsdnEntitlement',
+    'ReferenceLinks',
 ]

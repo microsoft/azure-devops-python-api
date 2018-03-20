@@ -10,6 +10,7 @@ from .aggregated_data_for_result_trend import AggregatedDataForResultTrend
 from .aggregated_results_analysis import AggregatedResultsAnalysis
 from .aggregated_results_by_outcome import AggregatedResultsByOutcome
 from .aggregated_results_difference import AggregatedResultsDifference
+from .aggregated_runs_by_state import AggregatedRunsByState
 from .build_configuration import BuildConfiguration
 from .build_coverage import BuildCoverage
 from .build_reference import BuildReference
@@ -26,6 +27,7 @@ from .dtl_environment_details import DtlEnvironmentDetails
 from .failing_since import FailingSince
 from .field_details_for_test_results import FieldDetailsForTestResults
 from .function_coverage import FunctionCoverage
+from .graph_subject_base import GraphSubjectBase
 from .identity_ref import IdentityRef
 from .last_result_details import LastResultDetails
 from .linked_work_items_query import LinkedWorkItemsQuery
@@ -38,6 +40,7 @@ from .points_filter import PointsFilter
 from .point_update_model import PointUpdateModel
 from .property_bag import PropertyBag
 from .query_model import QueryModel
+from .reference_links import ReferenceLinks
 from .release_environment_definition_reference import ReleaseEnvironmentDefinitionReference
 from .release_reference import ReleaseReference
 from .result_retention_settings import ResultRetentionSettings
@@ -47,6 +50,7 @@ from .run_filter import RunFilter
 from .run_statistic import RunStatistic
 from .run_update_model import RunUpdateModel
 from .shallow_reference import ShallowReference
+from .shallow_test_case_result import ShallowTestCaseResult
 from .shared_step_model import SharedStepModel
 from .suite_create_model import SuiteCreateModel
 from .suite_entry import SuiteEntry
@@ -109,6 +113,7 @@ __all__ = [
     'AggregatedResultsAnalysis',
     'AggregatedResultsByOutcome',
     'AggregatedResultsDifference',
+    'AggregatedRunsByState',
     'BuildConfiguration',
     'BuildCoverage',
     'BuildReference',
@@ -125,6 +130,7 @@ __all__ = [
     'FailingSince',
     'FieldDetailsForTestResults',
     'FunctionCoverage',
+    'GraphSubjectBase',
     'IdentityRef',
     'LastResultDetails',
     'LinkedWorkItemsQuery',
@@ -137,6 +143,7 @@ __all__ = [
     'PointUpdateModel',
     'PropertyBag',
     'QueryModel',
+    'ReferenceLinks',
     'ReleaseEnvironmentDefinitionReference',
     'ReleaseReference',
     'ResultRetentionSettings',
@@ -146,6 +153,7 @@ __all__ = [
     'RunStatistic',
     'RunUpdateModel',
     'ShallowReference',
+    'ShallowTestCaseResult',
     'SharedStepModel',
     'SuiteCreateModel',
     'SuiteEntry',

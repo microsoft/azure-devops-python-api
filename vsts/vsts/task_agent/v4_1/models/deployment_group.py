@@ -12,21 +12,21 @@ from .deployment_group_reference import DeploymentGroupReference
 class DeploymentGroup(DeploymentGroupReference):
     """DeploymentGroup.
 
-    :param id:
+    :param id: Deployment group identifier.
     :type id: int
-    :param name:
+    :param name: Name of the deployment group.
     :type name: str
-    :param pool:
+    :param pool: Deployment pool in which deployment agents are registered.
     :type pool: :class:`TaskAgentPoolReference <task-agent.v4_1.models.TaskAgentPoolReference>`
-    :param project:
+    :param project: Project to which the deployment group belongs.
     :type project: :class:`ProjectReference <task-agent.v4_1.models.ProjectReference>`
-    :param description:
+    :param description: Description of the deployment group.
     :type description: str
-    :param machine_count:
+    :param machine_count: Number of deployment targets in the deployment group.
     :type machine_count: int
-    :param machines:
+    :param machines: List of deployment targets in the deployment group.
     :type machines: list of :class:`DeploymentMachine <task-agent.v4_1.models.DeploymentMachine>`
-    :param machine_tags:
+    :param machine_tags: List of unique tags across all deployment targets in the deployment group.
     :type machine_tags: list of str
     """
 

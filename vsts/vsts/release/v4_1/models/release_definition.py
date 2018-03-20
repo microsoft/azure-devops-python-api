@@ -40,6 +40,8 @@ class ReleaseDefinition(Model):
     :type name: str
     :param path: Gets or sets the path.
     :type path: str
+    :param pipeline_process: Gets or sets pipeline process.
+    :type pipeline_process: :class:`PipelineProcess <release.v4_1.models.PipelineProcess>`
     :param properties: Gets or sets properties.
     :type properties: :class:`object <release.v4_1.models.object>`
     :param release_name_format: Gets or sets the release name format.
@@ -77,6 +79,7 @@ class ReleaseDefinition(Model):
         'modified_on': {'key': 'modifiedOn', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
         'path': {'key': 'path', 'type': 'str'},
+        'pipeline_process': {'key': 'pipelineProcess', 'type': 'PipelineProcess'},
         'properties': {'key': 'properties', 'type': 'object'},
         'release_name_format': {'key': 'releaseNameFormat', 'type': 'str'},
         'retention_policy': {'key': 'retentionPolicy', 'type': 'RetentionPolicy'},
@@ -89,7 +92,7 @@ class ReleaseDefinition(Model):
         'variables': {'key': 'variables', 'type': '{ConfigurationVariableValue}'}
     }
 
-    def __init__(self, _links=None, artifacts=None, comment=None, created_by=None, created_on=None, description=None, environments=None, id=None, is_deleted=None, last_release=None, modified_by=None, modified_on=None, name=None, path=None, properties=None, release_name_format=None, retention_policy=None, revision=None, source=None, tags=None, triggers=None, url=None, variable_groups=None, variables=None):
+    def __init__(self, _links=None, artifacts=None, comment=None, created_by=None, created_on=None, description=None, environments=None, id=None, is_deleted=None, last_release=None, modified_by=None, modified_on=None, name=None, path=None, pipeline_process=None, properties=None, release_name_format=None, retention_policy=None, revision=None, source=None, tags=None, triggers=None, url=None, variable_groups=None, variables=None):
         super(ReleaseDefinition, self).__init__()
         self._links = _links
         self.artifacts = artifacts
@@ -105,6 +108,7 @@ class ReleaseDefinition(Model):
         self.modified_on = modified_on
         self.name = name
         self.path = path
+        self.pipeline_process = pipeline_process
         self.properties = properties
         self.release_name_format = release_name_format
         self.retention_policy = retention_policy

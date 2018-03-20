@@ -12,13 +12,13 @@ from msrest.serialization import Model
 class DeploymentGroupReference(Model):
     """DeploymentGroupReference.
 
-    :param id:
+    :param id: Deployment group identifier.
     :type id: int
-    :param name:
+    :param name: Name of the deployment group.
     :type name: str
-    :param pool:
+    :param pool: Deployment pool in which deployment agents are registered.
     :type pool: :class:`TaskAgentPoolReference <task-agent.v4_1.models.TaskAgentPoolReference>`
-    :param project:
+    :param project: Project to which the deployment group belongs.
     :type project: :class:`ProjectReference <task-agent.v4_1.models.ProjectReference>`
     """
 

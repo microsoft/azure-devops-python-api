@@ -24,6 +24,8 @@ class Contribution(ContributionBase):
     :type includes: list of str
     :param properties: Properties/attributes of this contribution
     :type properties: :class:`object <extension-management.v4_1.models.object>`
+    :param restricted_to: List of demanded claims in order for the user to see this contribution (like anonymous, public, member...).
+    :type restricted_to: list of str
     :param targets: The ids of the contribution(s) that this contribution targets. (parent contributions)
     :type targets: list of str
     :param type: Id of the Contribution Type
@@ -37,14 +39,16 @@ class Contribution(ContributionBase):
         'constraints': {'key': 'constraints', 'type': '[ContributionConstraint]'},
         'includes': {'key': 'includes', 'type': '[str]'},
         'properties': {'key': 'properties', 'type': 'object'},
+        'restricted_to': {'key': 'restrictedTo', 'type': '[str]'},
         'targets': {'key': 'targets', 'type': '[str]'},
         'type': {'key': 'type', 'type': 'str'}
     }
 
-    def __init__(self, description=None, id=None, visible_to=None, constraints=None, includes=None, properties=None, targets=None, type=None):
+    def __init__(self, description=None, id=None, visible_to=None, constraints=None, includes=None, properties=None, restricted_to=None, targets=None, type=None):
         super(Contribution, self).__init__(description=description, id=id, visible_to=visible_to)
         self.constraints = constraints
         self.includes = includes
         self.properties = properties
+        self.restricted_to = restricted_to
         self.targets = targets
         self.type = type

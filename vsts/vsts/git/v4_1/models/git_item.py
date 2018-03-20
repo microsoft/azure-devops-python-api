@@ -14,6 +14,8 @@ class GitItem(ItemModel):
 
     :param _links:
     :type _links: :class:`ReferenceLinks <git.v4_1.models.ReferenceLinks>`
+    :param content:
+    :type content: str
     :param content_metadata:
     :type content_metadata: :class:`FileContentMetadata <git.v4_1.models.FileContentMetadata>`
     :param is_folder:
@@ -38,6 +40,7 @@ class GitItem(ItemModel):
 
     _attribute_map = {
         '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'content': {'key': 'content', 'type': 'str'},
         'content_metadata': {'key': 'contentMetadata', 'type': 'FileContentMetadata'},
         'is_folder': {'key': 'isFolder', 'type': 'bool'},
         'is_sym_link': {'key': 'isSymLink', 'type': 'bool'},
@@ -50,8 +53,8 @@ class GitItem(ItemModel):
         'original_object_id': {'key': 'originalObjectId', 'type': 'str'}
     }
 
-    def __init__(self, _links=None, content_metadata=None, is_folder=None, is_sym_link=None, path=None, url=None, commit_id=None, git_object_type=None, latest_processed_change=None, object_id=None, original_object_id=None):
-        super(GitItem, self).__init__(_links=_links, content_metadata=content_metadata, is_folder=is_folder, is_sym_link=is_sym_link, path=path, url=url)
+    def __init__(self, _links=None, content=None, content_metadata=None, is_folder=None, is_sym_link=None, path=None, url=None, commit_id=None, git_object_type=None, latest_processed_change=None, object_id=None, original_object_id=None):
+        super(GitItem, self).__init__(_links=_links, content=content, content_metadata=content_metadata, is_folder=is_folder, is_sym_link=is_sym_link, path=path, url=url)
         self.commit_id = commit_id
         self.git_object_type = git_object_type
         self.latest_processed_change = latest_processed_change

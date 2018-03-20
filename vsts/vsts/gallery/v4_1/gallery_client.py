@@ -888,7 +888,7 @@ class GalleryClient(VssClient):
 
     def get_package(self, publisher_name, extension_name, version, account_token=None, accept_default=None):
         """GetPackage.
-        [Preview API]
+        [Preview API] This endpoint gets hit when you download a VSTS extension from the Web UI
         :param str publisher_name:
         :param str extension_name:
         :param str version:
@@ -949,6 +949,70 @@ class GalleryClient(VssClient):
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('object', response)
+
+    def delete_publisher_asset(self, publisher_name, asset_type=None):
+        """DeletePublisherAsset.
+        [Preview API] Delete publisher asset like logo
+        :param str publisher_name: Internal name of the publisher
+        :param str asset_type: Type of asset. Default value is 'logo'.
+        """
+        route_values = {}
+        if publisher_name is not None:
+            route_values['publisherName'] = self._serialize.url('publisher_name', publisher_name, 'str')
+        query_parameters = {}
+        if asset_type is not None:
+            query_parameters['assetType'] = self._serialize.query('asset_type', asset_type, 'str')
+        self._send(http_method='DELETE',
+                   location_id='21143299-34f9-4c62-8ca8-53da691192f9',
+                   version='4.1-preview.1',
+                   route_values=route_values,
+                   query_parameters=query_parameters)
+
+    def get_publisher_asset(self, publisher_name, asset_type=None):
+        """GetPublisherAsset.
+        [Preview API] Get publisher asset like logo as a stream
+        :param str publisher_name: Internal name of the publisher
+        :param str asset_type: Type of asset. Default value is 'logo'.
+        :rtype: object
+        """
+        route_values = {}
+        if publisher_name is not None:
+            route_values['publisherName'] = self._serialize.url('publisher_name', publisher_name, 'str')
+        query_parameters = {}
+        if asset_type is not None:
+            query_parameters['assetType'] = self._serialize.query('asset_type', asset_type, 'str')
+        response = self._send(http_method='GET',
+                              location_id='21143299-34f9-4c62-8ca8-53da691192f9',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters)
+        return self._deserialize('object', response)
+
+    def update_publisher_asset(self, upload_stream, publisher_name, asset_type=None, file_name=None):
+        """UpdatePublisherAsset.
+        [Preview API] Update publisher asset like logo. It accepts asset file as an octet stream and file name is passed in header values.
+        :param object upload_stream: Stream to upload
+        :param str publisher_name: Internal name of the publisher
+        :param str asset_type: Type of asset. Default value is 'logo'.
+        :param String file_name: Header to pass the filename of the uploaded data
+        :rtype: {str}
+        """
+        route_values = {}
+        if publisher_name is not None:
+            route_values['publisherName'] = self._serialize.url('publisher_name', publisher_name, 'str')
+        query_parameters = {}
+        if asset_type is not None:
+            query_parameters['assetType'] = self._serialize.query('asset_type', asset_type, 'str')
+        content = self._serialize.body(upload_stream, 'object')
+        response = self._send(http_method='PUT',
+                              location_id='21143299-34f9-4c62-8ca8-53da691192f9',
+                              version='4.1-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters,
+                              content=content,
+                              media_type='application/octet-stream',
+                              returns_collection=True)
+        return self._deserialize('{str}', response)
 
     def query_publishers(self, publisher_query):
         """QueryPublishers.

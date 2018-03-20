@@ -20,6 +20,8 @@ class NotificationSubscription(Model):
     :type channel: :class:`ISubscriptionChannel <notification.v4_1.models.ISubscriptionChannel>`
     :param description: Description of the subscription. Typically describes filter criteria which helps identity the subscription.
     :type description: str
+    :param diagnostics: Diagnostics for this subscription.
+    :type diagnostics: :class:`SubscriptionDiagnostics <notification.v4_1.models.SubscriptionDiagnostics>`
     :param extended_properties: Any extra properties like detailed description for different contexts, user/group contexts
     :type extended_properties: dict
     :param filter: Matching criteria for the subscription. ExpressionFilter
@@ -53,6 +55,7 @@ class NotificationSubscription(Model):
         'admin_settings': {'key': 'adminSettings', 'type': 'SubscriptionAdminSettings'},
         'channel': {'key': 'channel', 'type': 'ISubscriptionChannel'},
         'description': {'key': 'description', 'type': 'str'},
+        'diagnostics': {'key': 'diagnostics', 'type': 'SubscriptionDiagnostics'},
         'extended_properties': {'key': 'extendedProperties', 'type': '{str}'},
         'filter': {'key': 'filter', 'type': 'ISubscriptionFilter'},
         'flags': {'key': 'flags', 'type': 'object'},
@@ -68,12 +71,13 @@ class NotificationSubscription(Model):
         'user_settings': {'key': 'userSettings', 'type': 'SubscriptionUserSettings'}
     }
 
-    def __init__(self, _links=None, admin_settings=None, channel=None, description=None, extended_properties=None, filter=None, flags=None, id=None, last_modified_by=None, modified_date=None, permissions=None, scope=None, status=None, status_message=None, subscriber=None, url=None, user_settings=None):
+    def __init__(self, _links=None, admin_settings=None, channel=None, description=None, diagnostics=None, extended_properties=None, filter=None, flags=None, id=None, last_modified_by=None, modified_date=None, permissions=None, scope=None, status=None, status_message=None, subscriber=None, url=None, user_settings=None):
         super(NotificationSubscription, self).__init__()
         self._links = _links
         self.admin_settings = admin_settings
         self.channel = channel
         self.description = description
+        self.diagnostics = diagnostics
         self.extended_properties = extended_properties
         self.filter = filter
         self.flags = flags

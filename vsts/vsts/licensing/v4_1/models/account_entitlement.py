@@ -22,6 +22,8 @@ class AccountEntitlement(Model):
     :type last_accessed_date: datetime
     :param license:
     :type license: :class:`License <licensing.v4_1.models.License>`
+    :param origin: Licensing origin
+    :type origin: object
     :param rights: The computed rights of this user in the account.
     :type rights: :class:`AccountRights <licensing.v4_1.models.AccountRights>`
     :param status: The status of the user in the account
@@ -38,19 +40,21 @@ class AccountEntitlement(Model):
         'assignment_source': {'key': 'assignmentSource', 'type': 'object'},
         'last_accessed_date': {'key': 'lastAccessedDate', 'type': 'iso-8601'},
         'license': {'key': 'license', 'type': 'License'},
+        'origin': {'key': 'origin', 'type': 'object'},
         'rights': {'key': 'rights', 'type': 'AccountRights'},
         'status': {'key': 'status', 'type': 'object'},
         'user': {'key': 'user', 'type': 'IdentityRef'},
         'user_id': {'key': 'userId', 'type': 'str'}
     }
 
-    def __init__(self, account_id=None, assignment_date=None, assignment_source=None, last_accessed_date=None, license=None, rights=None, status=None, user=None, user_id=None):
+    def __init__(self, account_id=None, assignment_date=None, assignment_source=None, last_accessed_date=None, license=None, origin=None, rights=None, status=None, user=None, user_id=None):
         super(AccountEntitlement, self).__init__()
         self.account_id = account_id
         self.assignment_date = assignment_date
         self.assignment_source = assignment_source
         self.last_accessed_date = last_accessed_date
         self.license = license
+        self.origin = origin
         self.rights = rights
         self.status = status
         self.user = user

@@ -45,6 +45,7 @@ from .product_categories_result import ProductCategoriesResult
 from .product_category import ProductCategory
 from .published_extension import PublishedExtension
 from .publisher import Publisher
+from .publisher_base import PublisherBase
 from .publisher_facts import PublisherFacts
 from .publisher_filter_result import PublisherFilterResult
 from .publisher_query import PublisherQuery
@@ -54,6 +55,7 @@ from .query_filter import QueryFilter
 from .question import Question
 from .questions_result import QuestionsResult
 from .rating_count_per_rating import RatingCountPerRating
+from .reference_links import ReferenceLinks
 from .response import Response
 from .review import Review
 from .review_patch import ReviewPatch
@@ -104,6 +106,7 @@ __all__ = [
     'ProductCategory',
     'PublishedExtension',
     'Publisher',
+    'PublisherBase',
     'PublisherFacts',
     'PublisherFilterResult',
     'PublisherQuery',
@@ -113,6 +116,7 @@ __all__ = [
     'Question',
     'QuestionsResult',
     'RatingCountPerRating',
+    'ReferenceLinks',
     'Response',
     'Review',
     'ReviewPatch',

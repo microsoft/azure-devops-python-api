@@ -14,6 +14,8 @@ class TfvcItem(ItemModel):
 
     :param _links:
     :type _links: :class:`ReferenceLinks <tfvc.v4_1.models.ReferenceLinks>`
+    :param content:
+    :type content: str
     :param content_metadata:
     :type content_metadata: :class:`FileContentMetadata <tfvc.v4_1.models.FileContentMetadata>`
     :param is_folder:
@@ -42,6 +44,7 @@ class TfvcItem(ItemModel):
 
     _attribute_map = {
         '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'content': {'key': 'content', 'type': 'str'},
         'content_metadata': {'key': 'contentMetadata', 'type': 'FileContentMetadata'},
         'is_folder': {'key': 'isFolder', 'type': 'bool'},
         'is_sym_link': {'key': 'isSymLink', 'type': 'bool'},
@@ -56,8 +59,8 @@ class TfvcItem(ItemModel):
         'version': {'key': 'version', 'type': 'int'}
     }
 
-    def __init__(self, _links=None, content_metadata=None, is_folder=None, is_sym_link=None, path=None, url=None, change_date=None, deletion_id=None, hash_value=None, is_branch=None, is_pending_change=None, size=None, version=None):
-        super(TfvcItem, self).__init__(_links=_links, content_metadata=content_metadata, is_folder=is_folder, is_sym_link=is_sym_link, path=path, url=url)
+    def __init__(self, _links=None, content=None, content_metadata=None, is_folder=None, is_sym_link=None, path=None, url=None, change_date=None, deletion_id=None, hash_value=None, is_branch=None, is_pending_change=None, size=None, version=None):
+        super(TfvcItem, self).__init__(_links=_links, content=content, content_metadata=content_metadata, is_folder=is_folder, is_sym_link=is_sym_link, path=path, url=url)
         self.change_date = change_date
         self.deletion_id = deletion_id
         self.hash_value = hash_value

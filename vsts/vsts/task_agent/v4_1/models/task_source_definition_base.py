@@ -6,10 +6,9 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from msrest.serialization import Model
 
 
-class TaskSourceDefinitionBase(Model):
+class TaskSourceDefinitionBase(BaseSecuredObject):
     """TaskSourceDefinitionBase.
 
     :param auth_key:

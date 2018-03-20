@@ -32,7 +32,7 @@ class QueryHierarchyItem(WorkItemTrackingResource):
     :type has_children: bool
     :param id: The id of the query item.
     :type id: str
-    :param is_deleted: Indicates if this query item is deleted.
+    :param is_deleted: Indicates if this query item is deleted. Setting this to false on a deleted query item will undelete it. Undeleting a query or folder will not bring back the permission changes that were previously applied to it.
     :type is_deleted: bool
     :param is_folder: Indicates if this is a query folder or a query.
     :type is_folder: bool

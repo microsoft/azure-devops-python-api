@@ -9,6 +9,7 @@
 from .access_mapping import AccessMapping
 from .connection_data import ConnectionData
 from .identity import Identity
+from .identity_base import IdentityBase
 from .location_mapping import LocationMapping
 from .location_service_data import LocationServiceData
 from .resource_area_info import ResourceAreaInfo
@@ -18,6 +19,7 @@ __all__ = [
     'AccessMapping',
     'ConnectionData',
     'Identity',
+    'IdentityBase',
     'LocationMapping',
     'LocationServiceData',
     'ResourceAreaInfo',
