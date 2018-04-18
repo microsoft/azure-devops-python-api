@@ -27,7 +27,7 @@ class WorkClient(VssClient):
 
     def get_backlog_configurations(self, team_context):
         """GetBacklogConfigurations.
-        [Preview API] Gets backlog configuration for a team
+        Gets backlog configuration for a team
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :rtype: :class:`<BacklogConfiguration> <work.v4_1.models.BacklogConfiguration>`
         """
@@ -50,7 +50,7 @@ class WorkClient(VssClient):
             route_values['team'] = self._serialize.url('team', team, 'string')
         response = self._send(http_method='GET',
                               location_id='7799f497-3cb5-4f16-ad4f-5cd06012db64',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('BacklogConfiguration', response)
 
@@ -150,7 +150,7 @@ class WorkClient(VssClient):
 
     def get_column_suggested_values(self, project=None):
         """GetColumnSuggestedValues.
-        [Preview API] Get available board columns in a project
+        Get available board columns in a project
         :param str project: Project ID or project name
         :rtype: [BoardSuggestedValue]
         """
@@ -159,7 +159,7 @@ class WorkClient(VssClient):
             route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='eb7ec5a3-1ba3-4fd1-b834-49a5a387e57d',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[BoardSuggestedValue]', response)
@@ -205,7 +205,7 @@ class WorkClient(VssClient):
 
     def get_row_suggested_values(self, project=None):
         """GetRowSuggestedValues.
-        [Preview API] Get available board rows in a project
+        Get available board rows in a project
         :param str project: Project ID or project name
         :rtype: [BoardSuggestedValue]
         """
@@ -214,14 +214,14 @@ class WorkClient(VssClient):
             route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='bb494cc6-a0f5-4c6c-8dca-ea6912e79eb9',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[BoardSuggestedValue]', response)
 
     def get_board(self, team_context, id):
         """GetBoard.
-        [Preview API] Get board
+        Get board
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str id: identifier for board, either board's backlog level name (Eg:"Stories") or Id
         :rtype: :class:`<Board> <work.v4_1.models.Board>`
@@ -247,13 +247,13 @@ class WorkClient(VssClient):
             route_values['id'] = self._serialize.url('id', id, 'str')
         response = self._send(http_method='GET',
                               location_id='23ad19fc-3b8e-4877-8462-b3f92bc06b40',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('Board', response)
 
     def get_boards(self, team_context):
         """GetBoards.
-        [Preview API] Get boards
+        Get boards
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :rtype: [BoardReference]
         """
@@ -276,14 +276,14 @@ class WorkClient(VssClient):
             route_values['team'] = self._serialize.url('team', team, 'string')
         response = self._send(http_method='GET',
                               location_id='23ad19fc-3b8e-4877-8462-b3f92bc06b40',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[BoardReference]', response)
 
     def set_board_options(self, options, team_context, id):
         """SetBoardOptions.
-        [Preview API] Update board options
+        Update board options
         :param {str} options: options to updated
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str id: identifier for board, either category plural name (Eg:"Stories") or guid
@@ -311,7 +311,7 @@ class WorkClient(VssClient):
         content = self._serialize.body(options, '{str}')
         response = self._send(http_method='PUT',
                               location_id='23ad19fc-3b8e-4877-8462-b3f92bc06b40',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content,
                               returns_collection=True)
@@ -386,7 +386,7 @@ class WorkClient(VssClient):
 
     def get_capacities(self, team_context, iteration_id):
         """GetCapacities.
-        [Preview API] Get a team's capacity
+        Get a team's capacity
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str iteration_id: ID of the iteration
         :rtype: [TeamMemberCapacity]
@@ -412,14 +412,14 @@ class WorkClient(VssClient):
             route_values['iterationId'] = self._serialize.url('iteration_id', iteration_id, 'str')
         response = self._send(http_method='GET',
                               location_id='74412d15-8c1a-4352-a48d-ef1ed5587d57',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[TeamMemberCapacity]', response)
 
     def get_capacity(self, team_context, iteration_id, team_member_id):
         """GetCapacity.
-        [Preview API] Get a team member's capacity
+        Get a team member's capacity
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str iteration_id: ID of the iteration
         :param str team_member_id: ID of the team member
@@ -448,13 +448,13 @@ class WorkClient(VssClient):
             route_values['teamMemberId'] = self._serialize.url('team_member_id', team_member_id, 'str')
         response = self._send(http_method='GET',
                               location_id='74412d15-8c1a-4352-a48d-ef1ed5587d57',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('TeamMemberCapacity', response)
 
     def replace_capacities(self, capacities, team_context, iteration_id):
         """ReplaceCapacities.
-        [Preview API] Replace a team's capacity
+        Replace a team's capacity
         :param [TeamMemberCapacity] capacities: Team capacity to replace
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str iteration_id: ID of the iteration
@@ -482,7 +482,7 @@ class WorkClient(VssClient):
         content = self._serialize.body(capacities, '[TeamMemberCapacity]')
         response = self._send(http_method='PUT',
                               location_id='74412d15-8c1a-4352-a48d-ef1ed5587d57',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content,
                               returns_collection=True)
@@ -490,7 +490,7 @@ class WorkClient(VssClient):
 
     def update_capacity(self, patch, team_context, iteration_id, team_member_id):
         """UpdateCapacity.
-        [Preview API] Update a team member's capacity
+        Update a team member's capacity
         :param :class:`<CapacityPatch> <work.v4_1.models.CapacityPatch>` patch: Updated capacity
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str iteration_id: ID of the iteration
@@ -521,14 +521,14 @@ class WorkClient(VssClient):
         content = self._serialize.body(patch, 'CapacityPatch')
         response = self._send(http_method='PATCH',
                               location_id='74412d15-8c1a-4352-a48d-ef1ed5587d57',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TeamMemberCapacity', response)
 
     def get_board_card_rule_settings(self, team_context, board):
         """GetBoardCardRuleSettings.
-        [Preview API] Get board card Rule settings for the board id or board by name
+        Get board card Rule settings for the board id or board by name
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str board:
         :rtype: :class:`<BoardCardRuleSettings> <work.v4_1.models.BoardCardRuleSettings>`
@@ -554,13 +554,13 @@ class WorkClient(VssClient):
             route_values['board'] = self._serialize.url('board', board, 'str')
         response = self._send(http_method='GET',
                               location_id='b044a3d9-02ea-49c7-91a1-b730949cc896',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('BoardCardRuleSettings', response)
 
     def update_board_card_rule_settings(self, board_card_rule_settings, team_context, board):
         """UpdateBoardCardRuleSettings.
-        [Preview API] Update board card Rule settings for the board id or board by name
+        Update board card Rule settings for the board id or board by name
         :param :class:`<BoardCardRuleSettings> <work.v4_1.models.BoardCardRuleSettings>` board_card_rule_settings:
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str board:
@@ -588,14 +588,14 @@ class WorkClient(VssClient):
         content = self._serialize.body(board_card_rule_settings, 'BoardCardRuleSettings')
         response = self._send(http_method='PATCH',
                               location_id='b044a3d9-02ea-49c7-91a1-b730949cc896',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('BoardCardRuleSettings', response)
 
     def get_board_card_settings(self, team_context, board):
         """GetBoardCardSettings.
-        [Preview API] Get board card settings for the board id or board by name
+        Get board card settings for the board id or board by name
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str board:
         :rtype: :class:`<BoardCardSettings> <work.v4_1.models.BoardCardSettings>`
@@ -621,13 +621,13 @@ class WorkClient(VssClient):
             route_values['board'] = self._serialize.url('board', board, 'str')
         response = self._send(http_method='GET',
                               location_id='07c3b467-bc60-4f05-8e34-599ce288fafc',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('BoardCardSettings', response)
 
     def update_board_card_settings(self, board_card_settings_to_save, team_context, board):
         """UpdateBoardCardSettings.
-        [Preview API] Update board card settings for the board id or board by name
+        Update board card settings for the board id or board by name
         :param :class:`<BoardCardSettings> <work.v4_1.models.BoardCardSettings>` board_card_settings_to_save:
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str board:
@@ -655,14 +655,14 @@ class WorkClient(VssClient):
         content = self._serialize.body(board_card_settings_to_save, 'BoardCardSettings')
         response = self._send(http_method='PUT',
                               location_id='07c3b467-bc60-4f05-8e34-599ce288fafc',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('BoardCardSettings', response)
 
     def get_board_chart(self, team_context, board, name):
         """GetBoardChart.
-        [Preview API] Get a board chart
+        Get a board chart
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str board: Identifier for board, either board's backlog level name (Eg:"Stories") or Id
         :param str name: The chart name
@@ -691,13 +691,13 @@ class WorkClient(VssClient):
             route_values['name'] = self._serialize.url('name', name, 'str')
         response = self._send(http_method='GET',
                               location_id='45fe888c-239e-49fd-958c-df1a1ab21d97',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('BoardChart', response)
 
     def get_board_charts(self, team_context, board):
         """GetBoardCharts.
-        [Preview API] Get board charts
+        Get board charts
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str board: Identifier for board, either board's backlog level name (Eg:"Stories") or Id
         :rtype: [BoardChartReference]
@@ -723,14 +723,14 @@ class WorkClient(VssClient):
             route_values['board'] = self._serialize.url('board', board, 'str')
         response = self._send(http_method='GET',
                               location_id='45fe888c-239e-49fd-958c-df1a1ab21d97',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[BoardChartReference]', response)
 
     def update_board_chart(self, chart, team_context, board, name):
         """UpdateBoardChart.
-        [Preview API] Update a board chart
+        Update a board chart
         :param :class:`<BoardChart> <work.v4_1.models.BoardChart>` chart:
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str board: Identifier for board, either board's backlog level name (Eg:"Stories") or Id
@@ -761,14 +761,14 @@ class WorkClient(VssClient):
         content = self._serialize.body(chart, 'BoardChart')
         response = self._send(http_method='PATCH',
                               location_id='45fe888c-239e-49fd-958c-df1a1ab21d97',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('BoardChart', response)
 
     def get_board_columns(self, team_context, board):
         """GetBoardColumns.
-        [Preview API] Get columns on a board
+        Get columns on a board
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str board: Name or ID of the specific board
         :rtype: [BoardColumn]
@@ -794,14 +794,14 @@ class WorkClient(VssClient):
             route_values['board'] = self._serialize.url('board', board, 'str')
         response = self._send(http_method='GET',
                               location_id='c555d7ff-84e1-47df-9923-a3fe0cd8751b',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[BoardColumn]', response)
 
     def update_board_columns(self, board_columns, team_context, board):
         """UpdateBoardColumns.
-        [Preview API] Update columns on a board
+        Update columns on a board
         :param [BoardColumn] board_columns: List of board columns to update
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str board: Name or ID of the specific board
@@ -829,7 +829,7 @@ class WorkClient(VssClient):
         content = self._serialize.body(board_columns, '[BoardColumn]')
         response = self._send(http_method='PUT',
                               location_id='c555d7ff-84e1-47df-9923-a3fe0cd8751b',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content,
                               returns_collection=True)
@@ -837,7 +837,7 @@ class WorkClient(VssClient):
 
     def get_delivery_timeline_data(self, project, id, revision=None, start_date=None, end_date=None):
         """GetDeliveryTimelineData.
-        [Preview API] Get Delivery View Data
+        Get Delivery View Data
         :param str project: Project ID or project name
         :param str id: Identifier for delivery view
         :param int revision: Revision of the plan for which you want data. If the current plan is a different revision you will get an ViewRevisionMismatchException exception. If you do not supply a revision you will get data for the latest revision.
@@ -859,14 +859,14 @@ class WorkClient(VssClient):
             query_parameters['endDate'] = self._serialize.query('end_date', end_date, 'iso-8601')
         response = self._send(http_method='GET',
                               location_id='bdd0834e-101f-49f0-a6ae-509f384a12b4',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('DeliveryViewData', response)
 
     def delete_team_iteration(self, team_context, id):
         """DeleteTeamIteration.
-        [Preview API] Delete a team's iteration by iterationId
+        Delete a team's iteration by iterationId
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str id: ID of the iteration
         """
@@ -891,12 +891,12 @@ class WorkClient(VssClient):
             route_values['id'] = self._serialize.url('id', id, 'str')
         self._send(http_method='DELETE',
                    location_id='c9175577-28a1-4b06-9197-8636af9f64ad',
-                   version='4.1-preview.1',
+                   version='4.1',
                    route_values=route_values)
 
     def get_team_iteration(self, team_context, id):
         """GetTeamIteration.
-        [Preview API] Get team's iteration by iterationId
+        Get team's iteration by iterationId
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str id: ID of the iteration
         :rtype: :class:`<TeamSettingsIteration> <work.v4_1.models.TeamSettingsIteration>`
@@ -922,13 +922,13 @@ class WorkClient(VssClient):
             route_values['id'] = self._serialize.url('id', id, 'str')
         response = self._send(http_method='GET',
                               location_id='c9175577-28a1-4b06-9197-8636af9f64ad',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('TeamSettingsIteration', response)
 
     def get_team_iterations(self, team_context, timeframe=None):
         """GetTeamIterations.
-        [Preview API] Get a team's iterations using timeframe filter
+        Get a team's iterations using timeframe filter
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str timeframe: A filter for which iterations are returned based on relative time
         :rtype: [TeamSettingsIteration]
@@ -955,7 +955,7 @@ class WorkClient(VssClient):
             query_parameters['$timeframe'] = self._serialize.query('timeframe', timeframe, 'str')
         response = self._send(http_method='GET',
                               location_id='c9175577-28a1-4b06-9197-8636af9f64ad',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -963,7 +963,7 @@ class WorkClient(VssClient):
 
     def post_team_iteration(self, iteration, team_context):
         """PostTeamIteration.
-        [Preview API] Add an iteration to the team
+        Add an iteration to the team
         :param :class:`<TeamSettingsIteration> <work.v4_1.models.TeamSettingsIteration>` iteration: Iteration to add
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :rtype: :class:`<TeamSettingsIteration> <work.v4_1.models.TeamSettingsIteration>`
@@ -988,14 +988,14 @@ class WorkClient(VssClient):
         content = self._serialize.body(iteration, 'TeamSettingsIteration')
         response = self._send(http_method='POST',
                               location_id='c9175577-28a1-4b06-9197-8636af9f64ad',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TeamSettingsIteration', response)
 
     def create_plan(self, posted_plan, project):
         """CreatePlan.
-        [Preview API] Add a new plan for the team
+        Add a new plan for the team
         :param :class:`<CreatePlan> <work.v4_1.models.CreatePlan>` posted_plan: Plan definition
         :param str project: Project ID or project name
         :rtype: :class:`<Plan> <work.v4_1.models.Plan>`
@@ -1006,14 +1006,14 @@ class WorkClient(VssClient):
         content = self._serialize.body(posted_plan, 'CreatePlan')
         response = self._send(http_method='POST',
                               location_id='0b42cb47-cd73-4810-ac90-19c9ba147453',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('Plan', response)
 
     def delete_plan(self, project, id):
         """DeletePlan.
-        [Preview API] Delete the specified plan
+        Delete the specified plan
         :param str project: Project ID or project name
         :param str id: Identifier of the plan
         """
@@ -1024,12 +1024,12 @@ class WorkClient(VssClient):
             route_values['id'] = self._serialize.url('id', id, 'str')
         self._send(http_method='DELETE',
                    location_id='0b42cb47-cd73-4810-ac90-19c9ba147453',
-                   version='4.1-preview.1',
+                   version='4.1',
                    route_values=route_values)
 
     def get_plan(self, project, id):
         """GetPlan.
-        [Preview API] Get the information for the specified plan
+        Get the information for the specified plan
         :param str project: Project ID or project name
         :param str id: Identifier of the plan
         :rtype: :class:`<Plan> <work.v4_1.models.Plan>`
@@ -1041,13 +1041,13 @@ class WorkClient(VssClient):
             route_values['id'] = self._serialize.url('id', id, 'str')
         response = self._send(http_method='GET',
                               location_id='0b42cb47-cd73-4810-ac90-19c9ba147453',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('Plan', response)
 
     def get_plans(self, project):
         """GetPlans.
-        [Preview API] Get the information for all the plans configured for the given team
+        Get the information for all the plans configured for the given team
         :param str project: Project ID or project name
         :rtype: [Plan]
         """
@@ -1056,14 +1056,14 @@ class WorkClient(VssClient):
             route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='0b42cb47-cd73-4810-ac90-19c9ba147453',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[Plan]', response)
 
     def update_plan(self, updated_plan, project, id):
         """UpdatePlan.
-        [Preview API] Update the information for the specified plan
+        Update the information for the specified plan
         :param :class:`<UpdatePlan> <work.v4_1.models.UpdatePlan>` updated_plan: Plan definition to be updated
         :param str project: Project ID or project name
         :param str id: Identifier of the plan
@@ -1077,7 +1077,7 @@ class WorkClient(VssClient):
         content = self._serialize.body(updated_plan, 'UpdatePlan')
         response = self._send(http_method='PUT',
                               location_id='0b42cb47-cd73-4810-ac90-19c9ba147453',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('Plan', response)
@@ -1099,7 +1099,7 @@ class WorkClient(VssClient):
 
     def get_board_rows(self, team_context, board):
         """GetBoardRows.
-        [Preview API] Get rows on a board
+        Get rows on a board
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str board: Name or ID of the specific board
         :rtype: [BoardRow]
@@ -1125,14 +1125,14 @@ class WorkClient(VssClient):
             route_values['board'] = self._serialize.url('board', board, 'str')
         response = self._send(http_method='GET',
                               location_id='0863355d-aefd-4d63-8669-984c9b7b0e78',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[BoardRow]', response)
 
     def update_board_rows(self, board_rows, team_context, board):
         """UpdateBoardRows.
-        [Preview API] Update rows on a board
+        Update rows on a board
         :param [BoardRow] board_rows: List of board rows to update
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str board: Name or ID of the specific board
@@ -1160,7 +1160,7 @@ class WorkClient(VssClient):
         content = self._serialize.body(board_rows, '[BoardRow]')
         response = self._send(http_method='PUT',
                               location_id='0863355d-aefd-4d63-8669-984c9b7b0e78',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content,
                               returns_collection=True)
@@ -1168,7 +1168,7 @@ class WorkClient(VssClient):
 
     def get_team_days_off(self, team_context, iteration_id):
         """GetTeamDaysOff.
-        [Preview API] Get team's days off for an iteration
+        Get team's days off for an iteration
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str iteration_id: ID of the iteration
         :rtype: :class:`<TeamSettingsDaysOff> <work.v4_1.models.TeamSettingsDaysOff>`
@@ -1194,13 +1194,13 @@ class WorkClient(VssClient):
             route_values['iterationId'] = self._serialize.url('iteration_id', iteration_id, 'str')
         response = self._send(http_method='GET',
                               location_id='2d4faa2e-9150-4cbf-a47a-932b1b4a0773',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('TeamSettingsDaysOff', response)
 
     def update_team_days_off(self, days_off_patch, team_context, iteration_id):
         """UpdateTeamDaysOff.
-        [Preview API] Set a team's days off for an iteration
+        Set a team's days off for an iteration
         :param :class:`<TeamSettingsDaysOffPatch> <work.v4_1.models.TeamSettingsDaysOffPatch>` days_off_patch: Team's days off patch containting a list of start and end dates
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :param str iteration_id: ID of the iteration
@@ -1228,14 +1228,14 @@ class WorkClient(VssClient):
         content = self._serialize.body(days_off_patch, 'TeamSettingsDaysOffPatch')
         response = self._send(http_method='PATCH',
                               location_id='2d4faa2e-9150-4cbf-a47a-932b1b4a0773',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TeamSettingsDaysOff', response)
 
     def get_team_field_values(self, team_context):
         """GetTeamFieldValues.
-        [Preview API] Get a collection of team field values
+        Get a collection of team field values
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :rtype: :class:`<TeamFieldValues> <work.v4_1.models.TeamFieldValues>`
         """
@@ -1258,13 +1258,13 @@ class WorkClient(VssClient):
             route_values['team'] = self._serialize.url('team', team, 'string')
         response = self._send(http_method='GET',
                               location_id='07ced576-58ed-49e6-9c1e-5cb53ab8bf2a',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('TeamFieldValues', response)
 
     def update_team_field_values(self, patch, team_context):
         """UpdateTeamFieldValues.
-        [Preview API] Update team field values
+        Update team field values
         :param :class:`<TeamFieldValuesPatch> <work.v4_1.models.TeamFieldValuesPatch>` patch:
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :rtype: :class:`<TeamFieldValues> <work.v4_1.models.TeamFieldValues>`
@@ -1289,14 +1289,14 @@ class WorkClient(VssClient):
         content = self._serialize.body(patch, 'TeamFieldValuesPatch')
         response = self._send(http_method='PATCH',
                               location_id='07ced576-58ed-49e6-9c1e-5cb53ab8bf2a',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TeamFieldValues', response)
 
     def get_team_settings(self, team_context):
         """GetTeamSettings.
-        [Preview API] Get a team's settings
+        Get a team's settings
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :rtype: :class:`<TeamSetting> <work.v4_1.models.TeamSetting>`
         """
@@ -1319,13 +1319,13 @@ class WorkClient(VssClient):
             route_values['team'] = self._serialize.url('team', team, 'string')
         response = self._send(http_method='GET',
                               location_id='c3c1012b-bea7-49d7-b45e-1664e566f84c',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('TeamSetting', response)
 
     def update_team_settings(self, team_settings_patch, team_context):
         """UpdateTeamSettings.
-        [Preview API] Update a team's settings
+        Update a team's settings
         :param :class:`<TeamSettingsPatch> <work.v4_1.models.TeamSettingsPatch>` team_settings_patch: TeamSettings changes
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
         :rtype: :class:`<TeamSetting> <work.v4_1.models.TeamSetting>`
@@ -1350,7 +1350,7 @@ class WorkClient(VssClient):
         content = self._serialize.body(team_settings_patch, 'TeamSettingsPatch')
         response = self._send(http_method='PATCH',
                               location_id='c3c1012b-bea7-49d7-b45e-1664e566f84c',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TeamSetting', response)
