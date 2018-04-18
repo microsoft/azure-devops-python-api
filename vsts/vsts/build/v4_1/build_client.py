@@ -27,7 +27,7 @@ class BuildClient(VssClient):
 
     def create_artifact(self, artifact, build_id, project=None):
         """CreateArtifact.
-        [Preview API] Associates an artifact with a build.
+        Associates an artifact with a build.
         :param :class:`<BuildArtifact> <build.v4_1.models.BuildArtifact>` artifact: The artifact.
         :param int build_id: The ID of the build.
         :param str project: Project ID or project name
@@ -41,14 +41,14 @@ class BuildClient(VssClient):
         content = self._serialize.body(artifact, 'BuildArtifact')
         response = self._send(http_method='POST',
                               location_id='1db06c96-014e-44e1-ac91-90b2d4b3e984',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('BuildArtifact', response)
 
     def get_artifact(self, build_id, artifact_name, project=None):
         """GetArtifact.
-        [Preview API] Gets a specific artifact for a build.
+        Gets a specific artifact for a build.
         :param int build_id: The ID of the build.
         :param str artifact_name: The name of the artifact.
         :param str project: Project ID or project name
@@ -64,14 +64,14 @@ class BuildClient(VssClient):
             query_parameters['artifactName'] = self._serialize.query('artifact_name', artifact_name, 'str')
         response = self._send(http_method='GET',
                               location_id='1db06c96-014e-44e1-ac91-90b2d4b3e984',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('BuildArtifact', response)
 
     def get_artifact_content_zip(self, build_id, artifact_name, project=None):
         """GetArtifactContentZip.
-        [Preview API] Gets a specific artifact for a build.
+        Gets a specific artifact for a build.
         :param int build_id: The ID of the build.
         :param str artifact_name: The name of the artifact.
         :param str project: Project ID or project name
@@ -87,14 +87,14 @@ class BuildClient(VssClient):
             query_parameters['artifactName'] = self._serialize.query('artifact_name', artifact_name, 'str')
         response = self._send(http_method='GET',
                               location_id='1db06c96-014e-44e1-ac91-90b2d4b3e984',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('object', response)
 
     def get_artifacts(self, build_id, project=None):
         """GetArtifacts.
-        [Preview API] Gets all artifacts for a build.
+        Gets all artifacts for a build.
         :param int build_id: The ID of the build.
         :param str project: Project ID or project name
         :rtype: [BuildArtifact]
@@ -106,7 +106,7 @@ class BuildClient(VssClient):
             route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         response = self._send(http_method='GET',
                               location_id='1db06c96-014e-44e1-ac91-90b2d4b3e984',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[BuildArtifact]', response)
@@ -165,7 +165,7 @@ class BuildClient(VssClient):
 
     def get_badge(self, project, definition_id, branch_name=None):
         """GetBadge.
-        [Preview API] Gets a badge that indicates the status of the most recent build for a definition.
+        Gets a badge that indicates the status of the most recent build for a definition.
         :param str project: The project ID or name.
         :param int definition_id: The ID of the definition.
         :param str branch_name: The name of the branch.
@@ -181,7 +181,7 @@ class BuildClient(VssClient):
             query_parameters['branchName'] = self._serialize.query('branch_name', branch_name, 'str')
         response = self._send(http_method='GET',
                               location_id='de6a4df8-22cd-44ee-af2d-39f6aa7a4261',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('str', response)
@@ -267,7 +267,7 @@ class BuildClient(VssClient):
 
     def delete_build(self, build_id, project=None):
         """DeleteBuild.
-        [Preview API] Deletes a build.
+        Deletes a build.
         :param int build_id: The ID of the build.
         :param str project: Project ID or project name
         """
@@ -278,12 +278,12 @@ class BuildClient(VssClient):
             route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         self._send(http_method='DELETE',
                    location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                   version='4.1-preview.4',
+                   version='4.1',
                    route_values=route_values)
 
     def get_build(self, build_id, project=None, property_filters=None):
         """GetBuild.
-        [Preview API] Gets a build
+        Gets a build
         :param int build_id:
         :param str project: Project ID or project name
         :param str property_filters:
@@ -299,14 +299,14 @@ class BuildClient(VssClient):
             query_parameters['propertyFilters'] = self._serialize.query('property_filters', property_filters, 'str')
         response = self._send(http_method='GET',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='4.1-preview.4',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('Build', response)
 
     def get_builds(self, project=None, definitions=None, queues=None, build_number=None, min_time=None, max_time=None, requested_for=None, reason_filter=None, status_filter=None, result_filter=None, tag_filters=None, properties=None, top=None, continuation_token=None, max_builds_per_definition=None, deleted_filter=None, query_order=None, branch_name=None, build_ids=None, repository_id=None, repository_type=None):
         """GetBuilds.
-        [Preview API] Gets a list of builds.
+        Gets a list of builds.
         :param str project: Project ID or project name
         :param [int] definitions: A comma-delimited list of definition IDs. If specified, filters to builds for these definitions.
         :param [int] queues: A comma-delimited list of queue IDs. If specified, filters to builds that ran against these queues.
@@ -381,7 +381,7 @@ class BuildClient(VssClient):
             query_parameters['repositoryType'] = self._serialize.query('repository_type', repository_type, 'str')
         response = self._send(http_method='GET',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='4.1-preview.4',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -389,7 +389,7 @@ class BuildClient(VssClient):
 
     def queue_build(self, build, project=None, ignore_warnings=None, check_in_ticket=None):
         """QueueBuild.
-        [Preview API] Queues a build
+        Queues a build
         :param :class:`<Build> <build.v4_1.models.Build>` build:
         :param str project: Project ID or project name
         :param bool ignore_warnings:
@@ -407,7 +407,7 @@ class BuildClient(VssClient):
         content = self._serialize.body(build, 'Build')
         response = self._send(http_method='POST',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='4.1-preview.4',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -415,7 +415,7 @@ class BuildClient(VssClient):
 
     def update_build(self, build, build_id, project=None):
         """UpdateBuild.
-        [Preview API] Updates a build.
+        Updates a build.
         :param :class:`<Build> <build.v4_1.models.Build>` build: The build.
         :param int build_id: The ID of the build.
         :param str project: Project ID or project name
@@ -429,14 +429,14 @@ class BuildClient(VssClient):
         content = self._serialize.body(build, 'Build')
         response = self._send(http_method='PATCH',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='4.1-preview.4',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('Build', response)
 
     def update_builds(self, builds, project=None):
         """UpdateBuilds.
-        [Preview API] Updates multiple builds.
+        Updates multiple builds.
         :param [Build] builds: The builds to update.
         :param str project: Project ID or project name
         :rtype: [Build]
@@ -447,7 +447,7 @@ class BuildClient(VssClient):
         content = self._serialize.body(builds, '[Build]')
         response = self._send(http_method='PATCH',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='4.1-preview.4',
+                              version='4.1',
                               route_values=route_values,
                               content=content,
                               returns_collection=True)
@@ -455,7 +455,7 @@ class BuildClient(VssClient):
 
     def get_build_changes(self, project, build_id, continuation_token=None, top=None, include_source_change=None):
         """GetBuildChanges.
-        [Preview API] Gets the changes associated with a build
+        Gets the changes associated with a build
         :param str project: Project ID or project name
         :param int build_id:
         :param str continuation_token:
@@ -477,7 +477,7 @@ class BuildClient(VssClient):
             query_parameters['includeSourceChange'] = self._serialize.query('include_source_change', include_source_change, 'bool')
         response = self._send(http_method='GET',
                               location_id='54572c7b-bbd3-45d4-80dc-28be08941620',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -512,7 +512,7 @@ class BuildClient(VssClient):
 
     def get_build_controller(self, controller_id):
         """GetBuildController.
-        [Preview API] Gets a controller
+        Gets a controller
         :param int controller_id:
         :rtype: :class:`<BuildController> <build.v4_1.models.BuildController>`
         """
@@ -521,13 +521,13 @@ class BuildClient(VssClient):
             route_values['controllerId'] = self._serialize.url('controller_id', controller_id, 'int')
         response = self._send(http_method='GET',
                               location_id='fcac1932-2ee1-437f-9b6f-7f696be858f6',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('BuildController', response)
 
     def get_build_controllers(self, name=None):
         """GetBuildControllers.
-        [Preview API] Gets controller, optionally filtered by name
+        Gets controller, optionally filtered by name
         :param str name:
         :rtype: [BuildController]
         """
@@ -536,14 +536,14 @@ class BuildClient(VssClient):
             query_parameters['name'] = self._serialize.query('name', name, 'str')
         response = self._send(http_method='GET',
                               location_id='fcac1932-2ee1-437f-9b6f-7f696be858f6',
-                              version='4.1-preview.2',
+                              version='4.1',
                               query_parameters=query_parameters,
                               returns_collection=True)
         return self._deserialize('[BuildController]', response)
 
     def create_definition(self, definition, project=None, definition_to_clone_id=None, definition_to_clone_revision=None):
         """CreateDefinition.
-        [Preview API] Creates a new definition.
+        Creates a new definition.
         :param :class:`<BuildDefinition> <build.v4_1.models.BuildDefinition>` definition: The definition.
         :param str project: Project ID or project name
         :param int definition_to_clone_id:
@@ -561,7 +561,7 @@ class BuildClient(VssClient):
         content = self._serialize.body(definition, 'BuildDefinition')
         response = self._send(http_method='POST',
                               location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
-                              version='4.1-preview.6',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -569,7 +569,7 @@ class BuildClient(VssClient):
 
     def delete_definition(self, definition_id, project=None):
         """DeleteDefinition.
-        [Preview API] Deletes a definition and all associated builds.
+        Deletes a definition and all associated builds.
         :param int definition_id: The ID of the definition.
         :param str project: Project ID or project name
         """
@@ -580,12 +580,12 @@ class BuildClient(VssClient):
             route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
         self._send(http_method='DELETE',
                    location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
-                   version='4.1-preview.6',
+                   version='4.1',
                    route_values=route_values)
 
     def get_definition(self, definition_id, project=None, revision=None, min_metrics_time=None, property_filters=None, include_latest_builds=None):
         """GetDefinition.
-        [Preview API] Gets a definition, optionally at a specific revision.
+        Gets a definition, optionally at a specific revision.
         :param int definition_id: The ID of the definition.
         :param str project: Project ID or project name
         :param int revision: The revision number to retrieve. If this is not specified, the latest version will be returned.
@@ -611,14 +611,14 @@ class BuildClient(VssClient):
             query_parameters['includeLatestBuilds'] = self._serialize.query('include_latest_builds', include_latest_builds, 'bool')
         response = self._send(http_method='GET',
                               location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
-                              version='4.1-preview.6',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('BuildDefinition', response)
 
     def get_definitions(self, project=None, name=None, repository_id=None, repository_type=None, query_order=None, top=None, continuation_token=None, min_metrics_time=None, definition_ids=None, path=None, built_after=None, not_built_after=None, include_all_properties=None, include_latest_builds=None, task_id_filter=None):
         """GetDefinitions.
-        [Preview API] Gets a list of definitions.
+        Gets a list of definitions.
         :param str project: Project ID or project name
         :param str name: If specified, filters to definitions whose names match this pattern.
         :param str repository_id: A repository ID. If specified, filters to definitions that use this repository.
@@ -671,7 +671,7 @@ class BuildClient(VssClient):
             query_parameters['taskIdFilter'] = self._serialize.query('task_id_filter', task_id_filter, 'str')
         response = self._send(http_method='GET',
                               location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
-                              version='4.1-preview.6',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -679,7 +679,7 @@ class BuildClient(VssClient):
 
     def reset_counter(self, definition_id, counter_id, project=None):
         """ResetCounter.
-        [Preview API] Resets the counter variable Value back to the Seed.
+        Resets the counter variable Value back to the Seed.
         :param int definition_id: The ID of the definition.
         :param int counter_id: The ID of the counter.
         :param str project: Project ID or project name
@@ -694,13 +694,13 @@ class BuildClient(VssClient):
             query_parameters['counterId'] = self._serialize.query('counter_id', counter_id, 'int')
         self._send(http_method='POST',
                    location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
-                   version='4.1-preview.6',
+                   version='4.1',
                    route_values=route_values,
                    query_parameters=query_parameters)
 
     def update_counter_seed(self, definition_id, counter_id, new_seed, reset_value, project=None):
         """UpdateCounterSeed.
-        [Preview API] Changes the counter variable Seed, and optionally resets the Value to this new Seed. Note that if Seed is being set above Value, then Value will be updated regardless.
+        Changes the counter variable Seed, and optionally resets the Value to this new Seed. Note that if Seed is being set above Value, then Value will be updated regardless.
         :param int definition_id: The ID of the definition.
         :param int counter_id: The ID of the counter.
         :param long new_seed: The new Seed value.
@@ -721,13 +721,13 @@ class BuildClient(VssClient):
             query_parameters['resetValue'] = self._serialize.query('reset_value', reset_value, 'bool')
         self._send(http_method='POST',
                    location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
-                   version='4.1-preview.6',
+                   version='4.1',
                    route_values=route_values,
                    query_parameters=query_parameters)
 
     def update_definition(self, definition, definition_id, project=None, secrets_source_definition_id=None, secrets_source_definition_revision=None):
         """UpdateDefinition.
-        [Preview API] Updates an existing definition.
+        Updates an existing definition.
         :param :class:`<BuildDefinition> <build.v4_1.models.BuildDefinition>` definition: The new version of the defintion.
         :param int definition_id: The ID of the definition.
         :param str project: Project ID or project name
@@ -748,7 +748,7 @@ class BuildClient(VssClient):
         content = self._serialize.body(definition, 'BuildDefinition')
         response = self._send(http_method='PUT',
                               location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
-                              version='4.1-preview.6',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -870,7 +870,7 @@ class BuildClient(VssClient):
 
     def get_build_log(self, project, build_id, log_id, start_line=None, end_line=None):
         """GetBuildLog.
-        [Preview API] Gets an individual log file for a build.
+        Gets an individual log file for a build.
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
         :param int log_id: The ID of the log file.
@@ -892,14 +892,14 @@ class BuildClient(VssClient):
             query_parameters['endLine'] = self._serialize.query('end_line', end_line, 'long')
         response = self._send(http_method='GET',
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('object', response)
 
     def get_build_log_lines(self, project, build_id, log_id, start_line=None, end_line=None):
         """GetBuildLogLines.
-        [Preview API] Gets an individual log file for a build.
+        Gets an individual log file for a build.
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
         :param int log_id: The ID of the log file.
@@ -921,7 +921,7 @@ class BuildClient(VssClient):
             query_parameters['endLine'] = self._serialize.query('end_line', end_line, 'long')
         response = self._send(http_method='GET',
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -929,7 +929,7 @@ class BuildClient(VssClient):
 
     def get_build_logs(self, project, build_id):
         """GetBuildLogs.
-        [Preview API] Gets the logs for a build.
+        Gets the logs for a build.
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
         :rtype: [BuildLog]
@@ -941,14 +941,14 @@ class BuildClient(VssClient):
             route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         response = self._send(http_method='GET',
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[BuildLog]', response)
 
     def get_build_logs_zip(self, project, build_id):
         """GetBuildLogsZip.
-        [Preview API] Gets the logs for a build.
+        Gets the logs for a build.
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
         :rtype: object
@@ -960,7 +960,7 @@ class BuildClient(VssClient):
             route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         response = self._send(http_method='GET',
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('object', response)
 
@@ -1014,7 +1014,7 @@ class BuildClient(VssClient):
 
     def get_build_option_definitions(self, project=None):
         """GetBuildOptionDefinitions.
-        [Preview API] Gets all build definition options supported by the system.
+        Gets all build definition options supported by the system.
         :param str project: Project ID or project name
         :rtype: [BuildOptionDefinition]
         """
@@ -1023,7 +1023,7 @@ class BuildClient(VssClient):
             route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='591cb5a4-2d46-4f3a-a697-5cd42b6bd332',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[BuildOptionDefinition]', response)
@@ -1246,7 +1246,7 @@ class BuildClient(VssClient):
 
     def get_definition_revisions(self, project, definition_id):
         """GetDefinitionRevisions.
-        [Preview API] Gets all revisions of a definition.
+        Gets all revisions of a definition.
         :param str project: Project ID or project name
         :param int definition_id: The ID of the definition.
         :rtype: [BuildDefinitionRevision]
@@ -1258,31 +1258,31 @@ class BuildClient(VssClient):
             route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
         response = self._send(http_method='GET',
                               location_id='7c116775-52e5-453e-8c5d-914d9762d8c4',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[BuildDefinitionRevision]', response)
 
     def get_build_settings(self):
         """GetBuildSettings.
-        [Preview API] Gets the build settings.
+        Gets the build settings.
         :rtype: :class:`<BuildSettings> <build.v4_1.models.BuildSettings>`
         """
         response = self._send(http_method='GET',
                               location_id='aa8c1c9c-ef8b-474a-b8c4-785c7b191d0d',
-                              version='4.1-preview.1')
+                              version='4.1')
         return self._deserialize('BuildSettings', response)
 
     def update_build_settings(self, settings):
         """UpdateBuildSettings.
-        [Preview API] Updates the build settings.
+        Updates the build settings.
         :param :class:`<BuildSettings> <build.v4_1.models.BuildSettings>` settings: The new settings.
         :rtype: :class:`<BuildSettings> <build.v4_1.models.BuildSettings>`
         """
         content = self._serialize.body(settings, 'BuildSettings')
         response = self._send(http_method='PATCH',
                               location_id='aa8c1c9c-ef8b-474a-b8c4-785c7b191d0d',
-                              version='4.1-preview.1',
+                              version='4.1',
                               content=content)
         return self._deserialize('BuildSettings', response)
 
@@ -1304,7 +1304,7 @@ class BuildClient(VssClient):
 
     def add_build_tag(self, project, build_id, tag):
         """AddBuildTag.
-        [Preview API] Adds a tag to a build.
+        Adds a tag to a build.
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
         :param str tag: The tag to add.
@@ -1319,14 +1319,14 @@ class BuildClient(VssClient):
             route_values['tag'] = self._serialize.url('tag', tag, 'str')
         response = self._send(http_method='PUT',
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[str]', response)
 
     def add_build_tags(self, tags, project, build_id):
         """AddBuildTags.
-        [Preview API] Adds tags to a build.
+        Adds tags to a build.
         :param [str] tags: The tags to add.
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
@@ -1340,7 +1340,7 @@ class BuildClient(VssClient):
         content = self._serialize.body(tags, '[str]')
         response = self._send(http_method='POST',
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               content=content,
                               returns_collection=True)
@@ -1348,7 +1348,7 @@ class BuildClient(VssClient):
 
     def delete_build_tag(self, project, build_id, tag):
         """DeleteBuildTag.
-        [Preview API] Removes a tag from a build.
+        Removes a tag from a build.
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
         :param str tag: The tag to remove.
@@ -1363,14 +1363,14 @@ class BuildClient(VssClient):
             route_values['tag'] = self._serialize.url('tag', tag, 'str')
         response = self._send(http_method='DELETE',
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[str]', response)
 
     def get_build_tags(self, project, build_id):
         """GetBuildTags.
-        [Preview API] Gets the tags for a build.
+        Gets the tags for a build.
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
         :rtype: [str]
@@ -1382,7 +1382,23 @@ class BuildClient(VssClient):
             route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         response = self._send(http_method='GET',
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
-                              version='4.1-preview.2',
+                              version='4.1',
+                              route_values=route_values,
+                              returns_collection=True)
+        return self._deserialize('[str]', response)
+
+    def get_tags(self, project):
+        """GetTags.
+        Gets a list of all build and definition tags in the project.
+        :param str project: Project ID or project name
+        :rtype: [str]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        response = self._send(http_method='GET',
+                              location_id='d84ac5c6-edc7-43d5-adc9-1b34be5dea09',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[str]', response)
@@ -1477,25 +1493,9 @@ class BuildClient(VssClient):
                               returns_collection=True)
         return self._deserialize('[str]', response)
 
-    def get_tags(self, project):
-        """GetTags.
-        [Preview API] Gets a list of all build and definition tags in the project.
-        :param str project: Project ID or project name
-        :rtype: [str]
-        """
-        route_values = {}
-        if project is not None:
-            route_values['project'] = self._serialize.url('project', project, 'str')
-        response = self._send(http_method='GET',
-                              location_id='d84ac5c6-edc7-43d5-adc9-1b34be5dea09',
-                              version='4.1-preview.2',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
-
     def delete_template(self, project, template_id):
         """DeleteTemplate.
-        [Preview API] Deletes a build definition template.
+        Deletes a build definition template.
         :param str project: Project ID or project name
         :param str template_id: The ID of the template.
         """
@@ -1506,12 +1506,12 @@ class BuildClient(VssClient):
             route_values['templateId'] = self._serialize.url('template_id', template_id, 'str')
         self._send(http_method='DELETE',
                    location_id='e884571e-7f92-4d6a-9274-3f5649900835',
-                   version='4.1-preview.3',
+                   version='4.1',
                    route_values=route_values)
 
     def get_template(self, project, template_id):
         """GetTemplate.
-        [Preview API] Gets a specific build definition template.
+        Gets a specific build definition template.
         :param str project: Project ID or project name
         :param str template_id: The ID of the requested template.
         :rtype: :class:`<BuildDefinitionTemplate> <build.v4_1.models.BuildDefinitionTemplate>`
@@ -1523,13 +1523,13 @@ class BuildClient(VssClient):
             route_values['templateId'] = self._serialize.url('template_id', template_id, 'str')
         response = self._send(http_method='GET',
                               location_id='e884571e-7f92-4d6a-9274-3f5649900835',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('BuildDefinitionTemplate', response)
 
     def get_templates(self, project):
         """GetTemplates.
-        [Preview API] Gets all definition templates.
+        Gets all definition templates.
         :param str project: Project ID or project name
         :rtype: [BuildDefinitionTemplate]
         """
@@ -1538,14 +1538,14 @@ class BuildClient(VssClient):
             route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='e884571e-7f92-4d6a-9274-3f5649900835',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[BuildDefinitionTemplate]', response)
 
     def save_template(self, template, project, template_id):
         """SaveTemplate.
-        [Preview API] Updates an existing build definition template.
+        Updates an existing build definition template.
         :param :class:`<BuildDefinitionTemplate> <build.v4_1.models.BuildDefinitionTemplate>` template: The new version of the template.
         :param str project: Project ID or project name
         :param str template_id: The ID of the template.
@@ -1559,7 +1559,7 @@ class BuildClient(VssClient):
         content = self._serialize.body(template, 'BuildDefinitionTemplate')
         response = self._send(http_method='PUT',
                               location_id='e884571e-7f92-4d6a-9274-3f5649900835',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('BuildDefinitionTemplate', response)
@@ -1588,25 +1588,30 @@ class BuildClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('object', response)
 
-    def get_ticketed_logs_content_zip(self, build_id, download_ticket):
+    def get_ticketed_logs_content_zip(self, build_id, project_id, download_ticket):
         """GetTicketedLogsContentZip.
         [Preview API] Gets a Zip file of the logs for a given build.
         :param int build_id: The ID of the build.
+        :param str project_id: The project ID.
         :param String download_ticket: A valid ticket that gives permission to download the logs.
         :rtype: object
         """
         route_values = {}
         if build_id is not None:
             route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
+        query_parameters = {}
+        if project_id is not None:
+            query_parameters['projectId'] = self._serialize.query('project_id', project_id, 'str')
         response = self._send(http_method='GET',
                               location_id='917890d1-a6b5-432d-832a-6afcf6bb0734',
                               version='4.1-preview.1',
-                              route_values=route_values)
+                              route_values=route_values,
+                              query_parameters=query_parameters)
         return self._deserialize('object', response)
 
     def get_build_timeline(self, project, build_id, timeline_id=None, change_id=None, plan_id=None):
         """GetBuildTimeline.
-        [Preview API] Gets details for a build
+        Gets details for a build
         :param str project: Project ID or project name
         :param int build_id:
         :param str timeline_id:
@@ -1628,7 +1633,7 @@ class BuildClient(VssClient):
             query_parameters['planId'] = self._serialize.query('plan_id', plan_id, 'str')
         response = self._send(http_method='GET',
                               location_id='8baac422-4c6e-4de5-8532-db96d92acffa',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('Timeline', response)
@@ -1689,7 +1694,7 @@ class BuildClient(VssClient):
 
     def get_build_work_items_refs(self, project, build_id, top=None):
         """GetBuildWorkItemsRefs.
-        [Preview API] Gets the work items associated with a build.
+        Gets the work items associated with a build.
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
         :param int top: The maximum number of work items to return.
@@ -1705,7 +1710,7 @@ class BuildClient(VssClient):
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         response = self._send(http_method='GET',
                               location_id='5a21f5d2-5642-47e4-a0bd-1356e6731bee',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -1713,7 +1718,7 @@ class BuildClient(VssClient):
 
     def get_build_work_items_refs_from_commits(self, commit_ids, project, build_id, top=None):
         """GetBuildWorkItemsRefsFromCommits.
-        [Preview API] Gets the work items associated with a build, filtered to specific commits.
+        Gets the work items associated with a build, filtered to specific commits.
         :param [str] commit_ids: A comma-delimited list of commit IDs.
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
@@ -1731,7 +1736,7 @@ class BuildClient(VssClient):
         content = self._serialize.body(commit_ids, '[str]')
         response = self._send(http_method='POST',
                               location_id='5a21f5d2-5642-47e4-a0bd-1356e6731bee',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content,

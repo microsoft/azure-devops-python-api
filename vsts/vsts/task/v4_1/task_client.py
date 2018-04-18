@@ -186,7 +186,6 @@ class TaskClient(VssClient):
 
     def append_log_content(self, upload_stream, scope_identifier, hub_name, plan_id, log_id):
         """AppendLogContent.
-        [Preview API]
         :param object upload_stream: Stream to upload
         :param str scope_identifier: The project GUID to scope the request
         :param str hub_name: The name of the server hub: "build" for the Build server or "rm" for the Release Management server
@@ -206,7 +205,7 @@ class TaskClient(VssClient):
         content = self._serialize.body(upload_stream, 'object')
         response = self._send(http_method='POST',
                               location_id='46f5667d-263a-4684-91b1-dff7fdcf64e2',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content,
                               media_type='application/octet-stream')
@@ -214,7 +213,6 @@ class TaskClient(VssClient):
 
     def create_log(self, log, scope_identifier, hub_name, plan_id):
         """CreateLog.
-        [Preview API]
         :param :class:`<TaskLog> <task.v4_1.models.TaskLog>` log:
         :param str scope_identifier: The project GUID to scope the request
         :param str hub_name: The name of the server hub: "build" for the Build server or "rm" for the Release Management server
@@ -231,14 +229,13 @@ class TaskClient(VssClient):
         content = self._serialize.body(log, 'TaskLog')
         response = self._send(http_method='POST',
                               location_id='46f5667d-263a-4684-91b1-dff7fdcf64e2',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TaskLog', response)
 
     def get_log(self, scope_identifier, hub_name, plan_id, log_id, start_line=None, end_line=None):
         """GetLog.
-        [Preview API]
         :param str scope_identifier: The project GUID to scope the request
         :param str hub_name: The name of the server hub: "build" for the Build server or "rm" for the Release Management server
         :param str plan_id:
@@ -263,7 +260,7 @@ class TaskClient(VssClient):
             query_parameters['endLine'] = self._serialize.query('end_line', end_line, 'long')
         response = self._send(http_method='GET',
                               location_id='46f5667d-263a-4684-91b1-dff7fdcf64e2',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -271,7 +268,6 @@ class TaskClient(VssClient):
 
     def get_logs(self, scope_identifier, hub_name, plan_id):
         """GetLogs.
-        [Preview API]
         :param str scope_identifier: The project GUID to scope the request
         :param str hub_name: The name of the server hub: "build" for the Build server or "rm" for the Release Management server
         :param str plan_id:
@@ -286,14 +282,13 @@ class TaskClient(VssClient):
             route_values['planId'] = self._serialize.url('plan_id', plan_id, 'str')
         response = self._send(http_method='GET',
                               location_id='46f5667d-263a-4684-91b1-dff7fdcf64e2',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[TaskLog]', response)
 
     def get_records(self, scope_identifier, hub_name, plan_id, timeline_id, change_id=None):
         """GetRecords.
-        [Preview API]
         :param str scope_identifier: The project GUID to scope the request
         :param str hub_name: The name of the server hub: "build" for the Build server or "rm" for the Release Management server
         :param str plan_id:
@@ -315,7 +310,7 @@ class TaskClient(VssClient):
             query_parameters['changeId'] = self._serialize.query('change_id', change_id, 'int')
         response = self._send(http_method='GET',
                               location_id='8893bc5b-35b2-4be7-83cb-99e683551db4',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -323,7 +318,6 @@ class TaskClient(VssClient):
 
     def update_records(self, records, scope_identifier, hub_name, plan_id, timeline_id):
         """UpdateRecords.
-        [Preview API]
         :param :class:`<VssJsonCollectionWrapper> <task.v4_1.models.VssJsonCollectionWrapper>` records:
         :param str scope_identifier: The project GUID to scope the request
         :param str hub_name: The name of the server hub: "build" for the Build server or "rm" for the Release Management server
@@ -343,7 +337,7 @@ class TaskClient(VssClient):
         content = self._serialize.body(records, 'VssJsonCollectionWrapper')
         response = self._send(http_method='PATCH',
                               location_id='8893bc5b-35b2-4be7-83cb-99e683551db4',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content,
                               returns_collection=True)
@@ -351,7 +345,6 @@ class TaskClient(VssClient):
 
     def create_timeline(self, timeline, scope_identifier, hub_name, plan_id):
         """CreateTimeline.
-        [Preview API]
         :param :class:`<Timeline> <task.v4_1.models.Timeline>` timeline:
         :param str scope_identifier: The project GUID to scope the request
         :param str hub_name: The name of the server hub: "build" for the Build server or "rm" for the Release Management server
@@ -368,14 +361,13 @@ class TaskClient(VssClient):
         content = self._serialize.body(timeline, 'Timeline')
         response = self._send(http_method='POST',
                               location_id='83597576-cc2c-453c-bea6-2882ae6a1653',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('Timeline', response)
 
     def delete_timeline(self, scope_identifier, hub_name, plan_id, timeline_id):
         """DeleteTimeline.
-        [Preview API]
         :param str scope_identifier: The project GUID to scope the request
         :param str hub_name: The name of the server hub: "build" for the Build server or "rm" for the Release Management server
         :param str plan_id:
@@ -392,12 +384,11 @@ class TaskClient(VssClient):
             route_values['timelineId'] = self._serialize.url('timeline_id', timeline_id, 'str')
         self._send(http_method='DELETE',
                    location_id='83597576-cc2c-453c-bea6-2882ae6a1653',
-                   version='4.1-preview.1',
+                   version='4.1',
                    route_values=route_values)
 
     def get_timeline(self, scope_identifier, hub_name, plan_id, timeline_id, change_id=None, include_records=None):
         """GetTimeline.
-        [Preview API]
         :param str scope_identifier: The project GUID to scope the request
         :param str hub_name: The name of the server hub: "build" for the Build server or "rm" for the Release Management server
         :param str plan_id:
@@ -422,14 +413,13 @@ class TaskClient(VssClient):
             query_parameters['includeRecords'] = self._serialize.query('include_records', include_records, 'bool')
         response = self._send(http_method='GET',
                               location_id='83597576-cc2c-453c-bea6-2882ae6a1653',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('Timeline', response)
 
     def get_timelines(self, scope_identifier, hub_name, plan_id):
         """GetTimelines.
-        [Preview API]
         :param str scope_identifier: The project GUID to scope the request
         :param str hub_name: The name of the server hub: "build" for the Build server or "rm" for the Release Management server
         :param str plan_id:
@@ -444,7 +434,7 @@ class TaskClient(VssClient):
             route_values['planId'] = self._serialize.url('plan_id', plan_id, 'str')
         response = self._send(http_method='GET',
                               location_id='83597576-cc2c-453c-bea6-2882ae6a1653',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[Timeline]', response)
