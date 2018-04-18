@@ -27,7 +27,6 @@ class TestClient(VssClient):
 
     def get_action_results(self, project, run_id, test_case_result_id, iteration_id, action_path=None):
         """GetActionResults.
-        [Preview API]
         :param str project: Project ID or project name
         :param int run_id:
         :param int test_case_result_id:
@@ -48,7 +47,7 @@ class TestClient(VssClient):
             route_values['actionPath'] = self._serialize.url('action_path', action_path, 'str')
         response = self._send(http_method='GET',
                               location_id='eaf40c31-ff84-4062-aafd-d5664be11a37',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[TestActionResultModel]', response)
@@ -606,7 +605,6 @@ class TestClient(VssClient):
 
     def get_test_iteration(self, project, run_id, test_case_result_id, iteration_id, include_action_results=None):
         """GetTestIteration.
-        [Preview API]
         :param str project: Project ID or project name
         :param int run_id:
         :param int test_case_result_id:
@@ -628,14 +626,13 @@ class TestClient(VssClient):
             query_parameters['includeActionResults'] = self._serialize.query('include_action_results', include_action_results, 'bool')
         response = self._send(http_method='GET',
                               location_id='73eb9074-3446-4c44-8296-2f811950ff8d',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('TestIterationDetailsModel', response)
 
     def get_test_iterations(self, project, run_id, test_case_result_id, include_action_results=None):
         """GetTestIterations.
-        [Preview API]
         :param str project: Project ID or project name
         :param int run_id:
         :param int test_case_result_id:
@@ -654,7 +651,7 @@ class TestClient(VssClient):
             query_parameters['includeActionResults'] = self._serialize.query('include_action_results', include_action_results, 'bool')
         response = self._send(http_method='GET',
                               location_id='73eb9074-3446-4c44-8296-2f811950ff8d',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -700,7 +697,6 @@ class TestClient(VssClient):
 
     def get_result_parameters(self, project, run_id, test_case_result_id, iteration_id, param_name=None):
         """GetResultParameters.
-        [Preview API]
         :param str project: Project ID or project name
         :param int run_id:
         :param int test_case_result_id:
@@ -722,7 +718,7 @@ class TestClient(VssClient):
             query_parameters['paramName'] = self._serialize.query('param_name', param_name, 'str')
         response = self._send(http_method='GET',
                               location_id='7c69810d-3354-4af3-844a-180bd25db08a',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -730,7 +726,6 @@ class TestClient(VssClient):
 
     def create_test_plan(self, test_plan, project):
         """CreateTestPlan.
-        [Preview API]
         :param :class:`<PlanUpdateModel> <test.v4_1.models.PlanUpdateModel>` test_plan:
         :param str project: Project ID or project name
         :rtype: :class:`<TestPlan> <test.v4_1.models.TestPlan>`
@@ -741,14 +736,13 @@ class TestClient(VssClient):
         content = self._serialize.body(test_plan, 'PlanUpdateModel')
         response = self._send(http_method='POST',
                               location_id='51712106-7278-4208-8563-1c96f40cf5e4',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TestPlan', response)
 
     def delete_test_plan(self, project, plan_id):
         """DeleteTestPlan.
-        [Preview API]
         :param str project: Project ID or project name
         :param int plan_id:
         """
@@ -759,12 +753,11 @@ class TestClient(VssClient):
             route_values['planId'] = self._serialize.url('plan_id', plan_id, 'int')
         self._send(http_method='DELETE',
                    location_id='51712106-7278-4208-8563-1c96f40cf5e4',
-                   version='4.1-preview.2',
+                   version='4.1',
                    route_values=route_values)
 
     def get_plan_by_id(self, project, plan_id):
         """GetPlanById.
-        [Preview API]
         :param str project: Project ID or project name
         :param int plan_id:
         :rtype: :class:`<TestPlan> <test.v4_1.models.TestPlan>`
@@ -776,13 +769,12 @@ class TestClient(VssClient):
             route_values['planId'] = self._serialize.url('plan_id', plan_id, 'int')
         response = self._send(http_method='GET',
                               location_id='51712106-7278-4208-8563-1c96f40cf5e4',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('TestPlan', response)
 
     def get_plans(self, project, owner=None, skip=None, top=None, include_plan_details=None, filter_active_plans=None):
         """GetPlans.
-        [Preview API]
         :param str project: Project ID or project name
         :param str owner:
         :param int skip:
@@ -807,7 +799,7 @@ class TestClient(VssClient):
             query_parameters['filterActivePlans'] = self._serialize.query('filter_active_plans', filter_active_plans, 'bool')
         response = self._send(http_method='GET',
                               location_id='51712106-7278-4208-8563-1c96f40cf5e4',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -815,7 +807,6 @@ class TestClient(VssClient):
 
     def update_test_plan(self, plan_update_model, project, plan_id):
         """UpdateTestPlan.
-        [Preview API]
         :param :class:`<PlanUpdateModel> <test.v4_1.models.PlanUpdateModel>` plan_update_model:
         :param str project: Project ID or project name
         :param int plan_id:
@@ -829,14 +820,13 @@ class TestClient(VssClient):
         content = self._serialize.body(plan_update_model, 'PlanUpdateModel')
         response = self._send(http_method='PATCH',
                               location_id='51712106-7278-4208-8563-1c96f40cf5e4',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TestPlan', response)
 
     def get_point(self, project, plan_id, suite_id, point_ids, wit_fields=None):
         """GetPoint.
-        [Preview API]
         :param str project: Project ID or project name
         :param int plan_id:
         :param int suite_id:
@@ -858,14 +848,13 @@ class TestClient(VssClient):
             query_parameters['witFields'] = self._serialize.query('wit_fields', wit_fields, 'str')
         response = self._send(http_method='GET',
                               location_id='3bcfd5c8-be62-488e-b1da-b8289ce9299c',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('TestPoint', response)
 
     def get_points(self, project, plan_id, suite_id, wit_fields=None, configuration_id=None, test_case_id=None, test_point_ids=None, include_point_details=None, skip=None, top=None):
         """GetPoints.
-        [Preview API]
         :param str project: Project ID or project name
         :param int plan_id:
         :param int suite_id:
@@ -902,7 +891,7 @@ class TestClient(VssClient):
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         response = self._send(http_method='GET',
                               location_id='3bcfd5c8-be62-488e-b1da-b8289ce9299c',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -910,7 +899,6 @@ class TestClient(VssClient):
 
     def update_test_points(self, point_update_model, project, plan_id, suite_id, point_ids):
         """UpdateTestPoints.
-        [Preview API]
         :param :class:`<PointUpdateModel> <test.v4_1.models.PointUpdateModel>` point_update_model:
         :param str project: Project ID or project name
         :param int plan_id:
@@ -930,7 +918,7 @@ class TestClient(VssClient):
         content = self._serialize.body(point_update_model, 'PointUpdateModel')
         response = self._send(http_method='PATCH',
                               location_id='3bcfd5c8-be62-488e-b1da-b8289ce9299c',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               content=content,
                               returns_collection=True)
@@ -1154,7 +1142,6 @@ class TestClient(VssClient):
 
     def add_test_results_to_test_run(self, results, project, run_id):
         """AddTestResultsToTestRun.
-        [Preview API]
         :param [TestCaseResult] results:
         :param str project: Project ID or project name
         :param int run_id:
@@ -1168,7 +1155,7 @@ class TestClient(VssClient):
         content = self._serialize.body(results, '[TestCaseResult]')
         response = self._send(http_method='POST',
                               location_id='4637d869-3a76-4468-8057-0bb02aa385cf',
-                              version='4.1-preview.4',
+                              version='4.1',
                               route_values=route_values,
                               content=content,
                               returns_collection=True)
@@ -1176,7 +1163,6 @@ class TestClient(VssClient):
 
     def get_test_result_by_id(self, project, run_id, test_case_result_id, details_to_include=None):
         """GetTestResultById.
-        [Preview API]
         :param str project: Project ID or project name
         :param int run_id:
         :param int test_case_result_id:
@@ -1195,14 +1181,14 @@ class TestClient(VssClient):
             query_parameters['detailsToInclude'] = self._serialize.query('details_to_include', details_to_include, 'str')
         response = self._send(http_method='GET',
                               location_id='4637d869-3a76-4468-8057-0bb02aa385cf',
-                              version='4.1-preview.4',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('TestCaseResult', response)
 
     def get_test_results(self, project, run_id, details_to_include=None, skip=None, top=None, outcomes=None):
         """GetTestResults.
-        [Preview API] Get Test Results for a run based on filters.
+        Get Test Results for a run based on filters.
         :param str project: Project ID or project name
         :param int run_id: Test Run Id for which results need to be fetched.
         :param str details_to_include: enum indicates details need to be fetched.
@@ -1228,7 +1214,7 @@ class TestClient(VssClient):
             query_parameters['outcomes'] = self._serialize.query('outcomes', outcomes, 'str')
         response = self._send(http_method='GET',
                               location_id='4637d869-3a76-4468-8057-0bb02aa385cf',
-                              version='4.1-preview.4',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -1236,7 +1222,6 @@ class TestClient(VssClient):
 
     def update_test_results(self, results, project, run_id):
         """UpdateTestResults.
-        [Preview API]
         :param [TestCaseResult] results:
         :param str project: Project ID or project name
         :param int run_id:
@@ -1250,7 +1235,7 @@ class TestClient(VssClient):
         content = self._serialize.body(results, '[TestCaseResult]')
         response = self._send(http_method='PATCH',
                               location_id='4637d869-3a76-4468-8057-0bb02aa385cf',
-                              version='4.1-preview.4',
+                              version='4.1',
                               route_values=route_values,
                               content=content,
                               returns_collection=True)
@@ -1445,7 +1430,6 @@ class TestClient(VssClient):
 
     def get_test_run_statistics(self, project, run_id):
         """GetTestRunStatistics.
-        [Preview API]
         :param str project: Project ID or project name
         :param int run_id:
         :rtype: :class:`<TestRunStatistic> <test.v4_1.models.TestRunStatistic>`
@@ -1457,13 +1441,12 @@ class TestClient(VssClient):
             route_values['runId'] = self._serialize.url('run_id', run_id, 'int')
         response = self._send(http_method='GET',
                               location_id='0a42c424-d764-4a16-a2d5-5c85f87d0ae8',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('TestRunStatistic', response)
 
     def create_test_run(self, test_run, project):
         """CreateTestRun.
-        [Preview API]
         :param :class:`<RunCreateModel> <test.v4_1.models.RunCreateModel>` test_run:
         :param str project: Project ID or project name
         :rtype: :class:`<TestRun> <test.v4_1.models.TestRun>`
@@ -1474,14 +1457,13 @@ class TestClient(VssClient):
         content = self._serialize.body(test_run, 'RunCreateModel')
         response = self._send(http_method='POST',
                               location_id='cadb3810-d47d-4a3c-a234-fe5f3be50138',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TestRun', response)
 
     def delete_test_run(self, project, run_id):
         """DeleteTestRun.
-        [Preview API]
         :param str project: Project ID or project name
         :param int run_id:
         """
@@ -1492,12 +1474,11 @@ class TestClient(VssClient):
             route_values['runId'] = self._serialize.url('run_id', run_id, 'int')
         self._send(http_method='DELETE',
                    location_id='cadb3810-d47d-4a3c-a234-fe5f3be50138',
-                   version='4.1-preview.2',
+                   version='4.1',
                    route_values=route_values)
 
     def get_test_run_by_id(self, project, run_id):
         """GetTestRunById.
-        [Preview API]
         :param str project: Project ID or project name
         :param int run_id:
         :rtype: :class:`<TestRun> <test.v4_1.models.TestRun>`
@@ -1509,13 +1490,12 @@ class TestClient(VssClient):
             route_values['runId'] = self._serialize.url('run_id', run_id, 'int')
         response = self._send(http_method='GET',
                               location_id='cadb3810-d47d-4a3c-a234-fe5f3be50138',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('TestRun', response)
 
     def get_test_runs(self, project, build_uri=None, owner=None, tmi_run_id=None, plan_id=None, include_run_details=None, automated=None, skip=None, top=None):
         """GetTestRuns.
-        [Preview API]
         :param str project: Project ID or project name
         :param str build_uri:
         :param str owner:
@@ -1549,7 +1529,7 @@ class TestClient(VssClient):
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         response = self._send(http_method='GET',
                               location_id='cadb3810-d47d-4a3c-a234-fe5f3be50138',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -1557,7 +1537,7 @@ class TestClient(VssClient):
 
     def query_test_runs(self, project, min_last_updated_date, max_last_updated_date, state=None, plan_ids=None, is_automated=None, publish_context=None, build_ids=None, build_def_ids=None, branch_name=None, release_ids=None, release_def_ids=None, release_env_ids=None, release_env_def_ids=None, run_title=None, top=None, continuation_token=None):
         """QueryTestRuns.
-        [Preview API] Query Test Runs based on filters.
+        Query Test Runs based on filters.
         :param str project: Project ID or project name
         :param datetime min_last_updated_date: Minimum Last Modified Date of run to be queried (Mandatory).
         :param datetime max_last_updated_date: Maximum Last Modified Date of run to be queried (Mandatory, difference between min and max date can be atmost 7 days).
@@ -1622,7 +1602,7 @@ class TestClient(VssClient):
             query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
         response = self._send(http_method='GET',
                               location_id='cadb3810-d47d-4a3c-a234-fe5f3be50138',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -1630,7 +1610,6 @@ class TestClient(VssClient):
 
     def update_test_run(self, run_update_model, project, run_id):
         """UpdateTestRun.
-        [Preview API]
         :param :class:`<RunUpdateModel> <test.v4_1.models.RunUpdateModel>` run_update_model:
         :param str project: Project ID or project name
         :param int run_id:
@@ -1644,7 +1623,7 @@ class TestClient(VssClient):
         content = self._serialize.body(run_update_model, 'RunUpdateModel')
         response = self._send(http_method='PATCH',
                               location_id='cadb3810-d47d-4a3c-a234-fe5f3be50138',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TestRun', response)
@@ -1835,7 +1814,6 @@ class TestClient(VssClient):
 
     def add_test_cases_to_suite(self, project, plan_id, suite_id, test_case_ids):
         """AddTestCasesToSuite.
-        [Preview API]
         :param str project: Project ID or project name
         :param int plan_id:
         :param int suite_id:
@@ -1853,14 +1831,13 @@ class TestClient(VssClient):
             route_values['testCaseIds'] = self._serialize.url('test_case_ids', test_case_ids, 'str')
         response = self._send(http_method='POST',
                               location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[SuiteTestCase]', response)
 
     def get_test_case_by_id(self, project, plan_id, suite_id, test_case_ids):
         """GetTestCaseById.
-        [Preview API]
         :param str project: Project ID or project name
         :param int plan_id:
         :param int suite_id:
@@ -1878,13 +1855,12 @@ class TestClient(VssClient):
             route_values['testCaseIds'] = self._serialize.url('test_case_ids', test_case_ids, 'int')
         response = self._send(http_method='GET',
                               location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('SuiteTestCase', response)
 
     def get_test_cases(self, project, plan_id, suite_id):
         """GetTestCases.
-        [Preview API]
         :param str project: Project ID or project name
         :param int plan_id:
         :param int suite_id:
@@ -1899,14 +1875,13 @@ class TestClient(VssClient):
             route_values['suiteId'] = self._serialize.url('suite_id', suite_id, 'int')
         response = self._send(http_method='GET',
                               location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               returns_collection=True)
         return self._deserialize('[SuiteTestCase]', response)
 
     def remove_test_cases_from_suite_url(self, project, plan_id, suite_id, test_case_ids):
         """RemoveTestCasesFromSuiteUrl.
-        [Preview API]
         :param str project: Project ID or project name
         :param int plan_id:
         :param int suite_id:
@@ -1923,12 +1898,11 @@ class TestClient(VssClient):
             route_values['testCaseIds'] = self._serialize.url('test_case_ids', test_case_ids, 'str')
         self._send(http_method='DELETE',
                    location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
-                   version='4.1-preview.3',
+                   version='4.1',
                    route_values=route_values)
 
     def create_test_suite(self, test_suite, project, plan_id, suite_id):
         """CreateTestSuite.
-        [Preview API]
         :param :class:`<SuiteCreateModel> <test.v4_1.models.SuiteCreateModel>` test_suite:
         :param str project: Project ID or project name
         :param int plan_id:
@@ -1945,7 +1919,7 @@ class TestClient(VssClient):
         content = self._serialize.body(test_suite, 'SuiteCreateModel')
         response = self._send(http_method='POST',
                               location_id='7b7619a0-cb54-4ab3-bf22-194056f45dd1',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               content=content,
                               returns_collection=True)
@@ -1953,7 +1927,6 @@ class TestClient(VssClient):
 
     def delete_test_suite(self, project, plan_id, suite_id):
         """DeleteTestSuite.
-        [Preview API]
         :param str project: Project ID or project name
         :param int plan_id:
         :param int suite_id:
@@ -1967,12 +1940,11 @@ class TestClient(VssClient):
             route_values['suiteId'] = self._serialize.url('suite_id', suite_id, 'int')
         self._send(http_method='DELETE',
                    location_id='7b7619a0-cb54-4ab3-bf22-194056f45dd1',
-                   version='4.1-preview.3',
+                   version='4.1',
                    route_values=route_values)
 
     def get_test_suite_by_id(self, project, plan_id, suite_id, expand=None):
         """GetTestSuiteById.
-        [Preview API]
         :param str project: Project ID or project name
         :param int plan_id:
         :param int suite_id:
@@ -1991,14 +1963,13 @@ class TestClient(VssClient):
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'int')
         response = self._send(http_method='GET',
                               location_id='7b7619a0-cb54-4ab3-bf22-194056f45dd1',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('TestSuite', response)
 
     def get_test_suites_for_plan(self, project, plan_id, expand=None, skip=None, top=None, as_tree_view=None):
         """GetTestSuitesForPlan.
-        [Preview API]
         :param str project: Project ID or project name
         :param int plan_id:
         :param int expand:
@@ -2023,7 +1994,7 @@ class TestClient(VssClient):
             query_parameters['$asTreeView'] = self._serialize.query('as_tree_view', as_tree_view, 'bool')
         response = self._send(http_method='GET',
                               location_id='7b7619a0-cb54-4ab3-bf22-194056f45dd1',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -2031,7 +2002,6 @@ class TestClient(VssClient):
 
     def update_test_suite(self, suite_update_model, project, plan_id, suite_id):
         """UpdateTestSuite.
-        [Preview API]
         :param :class:`<SuiteUpdateModel> <test.v4_1.models.SuiteUpdateModel>` suite_update_model:
         :param str project: Project ID or project name
         :param int plan_id:
@@ -2048,14 +2018,13 @@ class TestClient(VssClient):
         content = self._serialize.body(suite_update_model, 'SuiteUpdateModel')
         response = self._send(http_method='PATCH',
                               location_id='7b7619a0-cb54-4ab3-bf22-194056f45dd1',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TestSuite', response)
 
     def get_suites_by_test_case_id(self, test_case_id):
         """GetSuitesByTestCaseId.
-        [Preview API]
         :param int test_case_id:
         :rtype: [TestSuite]
         """
@@ -2064,7 +2033,7 @@ class TestClient(VssClient):
             query_parameters['testCaseId'] = self._serialize.query('test_case_id', test_case_id, 'int')
         response = self._send(http_method='GET',
                               location_id='09a6167b-e969-4775-9247-b94cf3819caf',
-                              version='4.1-preview.3',
+                              version='4.1',
                               query_parameters=query_parameters,
                               returns_collection=True)
         return self._deserialize('[TestSuite]', response)
@@ -2087,7 +2056,6 @@ class TestClient(VssClient):
 
     def create_test_settings(self, test_settings, project):
         """CreateTestSettings.
-        [Preview API]
         :param :class:`<TestSettings> <test.v4_1.models.TestSettings>` test_settings:
         :param str project: Project ID or project name
         :rtype: int
@@ -2098,14 +2066,13 @@ class TestClient(VssClient):
         content = self._serialize.body(test_settings, 'TestSettings')
         response = self._send(http_method='POST',
                               location_id='8133ce14-962f-42af-a5f9-6aa9defcb9c8',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('int', response)
 
     def delete_test_settings(self, project, test_settings_id):
         """DeleteTestSettings.
-        [Preview API]
         :param str project: Project ID or project name
         :param int test_settings_id:
         """
@@ -2116,12 +2083,11 @@ class TestClient(VssClient):
             route_values['testSettingsId'] = self._serialize.url('test_settings_id', test_settings_id, 'int')
         self._send(http_method='DELETE',
                    location_id='8133ce14-962f-42af-a5f9-6aa9defcb9c8',
-                   version='4.1-preview.1',
+                   version='4.1',
                    route_values=route_values)
 
     def get_test_settings_by_id(self, project, test_settings_id):
         """GetTestSettingsById.
-        [Preview API]
         :param str project: Project ID or project name
         :param int test_settings_id:
         :rtype: :class:`<TestSettings> <test.v4_1.models.TestSettings>`
@@ -2133,7 +2099,7 @@ class TestClient(VssClient):
             route_values['testSettingsId'] = self._serialize.url('test_settings_id', test_settings_id, 'int')
         response = self._send(http_method='GET',
                               location_id='8133ce14-962f-42af-a5f9-6aa9defcb9c8',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('TestSettings', response)
 
