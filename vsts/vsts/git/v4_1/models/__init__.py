@@ -8,7 +8,6 @@
 
 from .attachment import Attachment
 from .change import Change
-from .change_count_dictionary import ChangeCountDictionary
 from .comment import Comment
 from .comment_iteration_context import CommentIterationContext
 from .comment_position import CommentPosition
@@ -108,7 +107,6 @@ from .web_api_tag_definition import WebApiTagDefinition
 __all__ = [
     'Attachment',
     'Change',
-    'ChangeCountDictionary',
     'Comment',
     'CommentIterationContext',
     'CommentPosition',

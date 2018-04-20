@@ -73,7 +73,7 @@ class BuildDefinition(BuildDefinitionReference):
     :param options:
     :type options: list of :class:`BuildOption <build.v4_1.models.BuildOption>`
     :param process: The build process.
-    :type process: :class:`BuildProcess <build.v4_1.models.BuildProcess>`
+    :type process: :class:`object <build.v4_1.models.object>`
     :param process_parameters: The process parameters for this definition.
     :type process_parameters: :class:`ProcessParameters <build.v4_1.models.ProcessParameters>`
     :param properties:
@@ -85,7 +85,7 @@ class BuildDefinition(BuildDefinitionReference):
     :param tags:
     :type tags: list of str
     :param triggers:
-    :type triggers: list of :class:`BuildTrigger <build.v4_1.models.BuildTrigger>`
+    :type triggers: list of :class:`object <build.v4_1.models.object>`
     :param variable_groups:
     :type variable_groups: list of :class:`VariableGroup <build.v4_1.models.VariableGroup>`
     :param variables:
@@ -123,13 +123,13 @@ class BuildDefinition(BuildDefinitionReference):
         'job_cancel_timeout_in_minutes': {'key': 'jobCancelTimeoutInMinutes', 'type': 'int'},
         'job_timeout_in_minutes': {'key': 'jobTimeoutInMinutes', 'type': 'int'},
         'options': {'key': 'options', 'type': '[BuildOption]'},
-        'process': {'key': 'process', 'type': 'BuildProcess'},
+        'process': {'key': 'process', 'type': 'object'},
         'process_parameters': {'key': 'processParameters', 'type': 'ProcessParameters'},
         'properties': {'key': 'properties', 'type': 'object'},
         'repository': {'key': 'repository', 'type': 'BuildRepository'},
         'retention_rules': {'key': 'retentionRules', 'type': '[RetentionPolicy]'},
         'tags': {'key': 'tags', 'type': '[str]'},
-        'triggers': {'key': 'triggers', 'type': '[BuildTrigger]'},
+        'triggers': {'key': 'triggers', 'type': '[object]'},
         'variable_groups': {'key': 'variableGroups', 'type': '[VariableGroup]'},
         'variables': {'key': 'variables', 'type': '{BuildDefinitionVariable}'}
     }

@@ -9,7 +9,6 @@
 from .associated_work_item import AssociatedWorkItem
 from .attachment import Attachment
 from .change import Change
-from .change_count_dictionary import ChangeCountDictionary
 from .comment import Comment
 from .comment_iteration_context import CommentIterationContext
 from .comment_position import CommentPosition
@@ -106,7 +105,6 @@ __all__ = [
     'AssociatedWorkItem',
     'Attachment',
     'Change',
-    'ChangeCountDictionary',
     'Comment',
     'CommentIterationContext',
     'CommentPosition',

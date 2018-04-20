@@ -21,7 +21,7 @@ class Rule(Model):
     :param name:
     :type name: str
     :param settings:
-    :type settings: :class:`attribute <work.v4_0.models.attribute>`
+    :type settings: dict
     """
 
     _attribute_map = {
@@ -29,7 +29,7 @@ class Rule(Model):
         'filter': {'key': 'filter', 'type': 'str'},
         'is_enabled': {'key': 'isEnabled', 'type': 'str'},
         'name': {'key': 'name', 'type': 'str'},
-        'settings': {'key': 'settings', 'type': 'attribute'}
+        'settings': {'key': 'settings', 'type': '{str}'}
     }
 
     def __init__(self, clauses=None, filter=None, is_enabled=None, name=None, settings=None):
