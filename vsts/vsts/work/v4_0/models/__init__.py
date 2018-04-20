@@ -7,7 +7,6 @@
 # --------------------------------------------------------------------------------------------
 
 from .activity import Activity
-from .attribute import attribute
 from .backlog_column import BacklogColumn
 from .backlog_configuration import BacklogConfiguration
 from .backlog_fields import BacklogFields
@@ -31,7 +30,6 @@ from .create_plan import CreatePlan
 from .date_range import DateRange
 from .delivery_view_data import DeliveryViewData
 from .field_reference import FieldReference
-from .field_setting import FieldSetting
 from .filter_clause import FilterClause
 from .filter_group import FilterGroup
 from .filter_model import FilterModel
@@ -69,7 +67,6 @@ from .work_item_type_state_info import WorkItemTypeStateInfo
 
 __all__ = [
     'Activity',
-    'attribute',
     'BacklogColumn',
     'BacklogConfiguration',
     'BacklogFields',
@@ -93,7 +90,6 @@ __all__ = [
     'DateRange',
     'DeliveryViewData',
     'FieldReference',
-    'FieldSetting',
     'FilterClause',
     'FilterGroup',
     'FilterModel',
