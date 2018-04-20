@@ -28,13 +28,11 @@ from .build_option_definition import BuildOptionDefinition
 from .build_option_definition_reference import BuildOptionDefinitionReference
 from .build_option_group_definition import BuildOptionGroupDefinition
 from .build_option_input_definition import BuildOptionInputDefinition
-from .build_process import BuildProcess
 from .build_report_metadata import BuildReportMetadata
 from .build_repository import BuildRepository
 from .build_request_validation_result import BuildRequestValidationResult
 from .build_resource_usage import BuildResourceUsage
 from .build_settings import BuildSettings
-from .build_trigger import BuildTrigger
 from .change import Change
 from .data_source_binding_base import DataSourceBindingBase
 from .definition_reference import DefinitionReference
@@ -86,13 +84,11 @@ __all__ = [
     'BuildOptionDefinitionReference',
     'BuildOptionGroupDefinition',
     'BuildOptionInputDefinition',
-    'BuildProcess',
     'BuildReportMetadata',
     'BuildRepository',
     'BuildRequestValidationResult',
     'BuildResourceUsage',
     'BuildSettings',
-    'BuildTrigger',
     'Change',
     'DataSourceBindingBase',
     'DefinitionReference',
