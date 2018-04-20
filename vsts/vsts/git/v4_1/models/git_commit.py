@@ -17,7 +17,7 @@ class GitCommit(GitCommitRef):
     :param author: Author of the commit.
     :type author: :class:`GitUserDate <git.v4_1.models.GitUserDate>`
     :param change_counts: Counts of the types of changes (edits, deletes, etc.) included with the commit.
-    :type change_counts: :class:`ChangeCountDictionary <git.v4_1.models.ChangeCountDictionary>`
+    :type change_counts: dict
     :param changes: An enumeration of the changes included with the commit.
     :type changes: list of :class:`GitChange <git.v4_1.models.GitChange>`
     :param comment: Comment or message of the commit.
@@ -47,7 +47,7 @@ class GitCommit(GitCommitRef):
     _attribute_map = {
         '_links': {'key': '_links', 'type': 'ReferenceLinks'},
         'author': {'key': 'author', 'type': 'GitUserDate'},
-        'change_counts': {'key': 'changeCounts', 'type': 'ChangeCountDictionary'},
+        'change_counts': {'key': 'changeCounts', 'type': '{int}'},
         'changes': {'key': 'changes', 'type': '[GitChange]'},
         'comment': {'key': 'comment', 'type': 'str'},
         'comment_truncated': {'key': 'commentTruncated', 'type': 'bool'},
