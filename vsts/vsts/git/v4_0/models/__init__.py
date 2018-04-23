@@ -24,7 +24,6 @@ from .git_async_ref_operation_source import GitAsyncRefOperationSource
 from .git_base_version_descriptor import GitBaseVersionDescriptor
 from .git_blob_ref import GitBlobRef
 from .git_branch_stats import GitBranchStats
-from .git_change import GitChange
 from .git_cherry_pick import GitCherryPick
 from .git_commit import GitCommit
 from .git_commit_changes import GitCommitChanges
@@ -120,7 +119,6 @@ __all__ = [
     'GitBaseVersionDescriptor',
     'GitBlobRef',
     'GitBranchStats',
-    'GitChange',
     'GitCherryPick',
     'GitCommit',
     'GitCommitChanges',
