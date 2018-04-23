@@ -17,7 +17,7 @@ class GitCommitRef(Model):
     :param author:
     :type author: :class:`GitUserDate <git.v4_0.models.GitUserDate>`
     :param change_counts:
-    :type change_counts: :class:`ChangeCountDictionary <git.v4_0.models.ChangeCountDictionary>`
+    :type change_counts: dict
     :param changes:
     :type changes: list of :class:`GitChange <git.v4_0.models.GitChange>`
     :param comment:
@@ -43,7 +43,7 @@ class GitCommitRef(Model):
     _attribute_map = {
         '_links': {'key': '_links', 'type': 'ReferenceLinks'},
         'author': {'key': 'author', 'type': 'GitUserDate'},
-        'change_counts': {'key': 'changeCounts', 'type': 'ChangeCountDictionary'},
+        'change_counts': {'key': 'changeCounts', 'type': '{int}'},
         'changes': {'key': 'changes', 'type': '[GitChange]'},
         'comment': {'key': 'comment', 'type': 'str'},
         'comment_truncated': {'key': 'commentTruncated', 'type': 'bool'},

@@ -16,6 +16,8 @@ class BuildDefinitionTemplate(Model):
     :type can_delete: bool
     :param category: The template category.
     :type category: str
+    :param default_hosted_queue: An optional hosted agent queue for the template to use by default.
+    :type default_hosted_queue: str
     :param description: A description of the template.
     :type description: str
     :param icons:
@@ -33,6 +35,7 @@ class BuildDefinitionTemplate(Model):
     _attribute_map = {
         'can_delete': {'key': 'canDelete', 'type': 'bool'},
         'category': {'key': 'category', 'type': 'str'},
+        'default_hosted_queue': {'key': 'defaultHostedQueue', 'type': 'str'},
         'description': {'key': 'description', 'type': 'str'},
         'icons': {'key': 'icons', 'type': '{str}'},
         'icon_task_id': {'key': 'iconTaskId', 'type': 'str'},
@@ -41,10 +44,11 @@ class BuildDefinitionTemplate(Model):
         'template': {'key': 'template', 'type': 'BuildDefinition'}
     }
 
-    def __init__(self, can_delete=None, category=None, description=None, icons=None, icon_task_id=None, id=None, name=None, template=None):
+    def __init__(self, can_delete=None, category=None, default_hosted_queue=None, description=None, icons=None, icon_task_id=None, id=None, name=None, template=None):
         super(BuildDefinitionTemplate, self).__init__()
         self.can_delete = can_delete
         self.category = category
+        self.default_hosted_queue = default_hosted_queue
         self.description = description
         self.icons = icons
         self.icon_task_id = icon_task_id

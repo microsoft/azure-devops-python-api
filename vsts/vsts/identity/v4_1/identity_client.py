@@ -23,7 +23,7 @@ class IdentityClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = '8A3D49B8-91F0-46EF-B33D-DDA338C25DB3'
+    resource_area_identifier = '8a3d49b8-91f0-46ef-b33d-dda338c25db3'
 
     def create_or_bind_with_claims(self, source_identity):
         """CreateOrBindWithClaims.
@@ -60,21 +60,19 @@ class IdentityClient(VssClient):
 
     def create_groups(self, container):
         """CreateGroups.
-        [Preview API]
         :param :class:`<object> <identity.v4_1.models.object>` container:
         :rtype: [Identity]
         """
         content = self._serialize.body(container, 'object')
         response = self._send(http_method='POST',
                               location_id='5966283b-4196-4d57-9211-1b68f41ec1c2',
-                              version='4.1-preview.1',
+                              version='4.1',
                               content=content,
                               returns_collection=True)
         return self._deserialize('[Identity]', response)
 
     def delete_group(self, group_id):
         """DeleteGroup.
-        [Preview API]
         :param str group_id:
         """
         route_values = {}
@@ -82,12 +80,11 @@ class IdentityClient(VssClient):
             route_values['groupId'] = self._serialize.url('group_id', group_id, 'str')
         self._send(http_method='DELETE',
                    location_id='5966283b-4196-4d57-9211-1b68f41ec1c2',
-                   version='4.1-preview.1',
+                   version='4.1',
                    route_values=route_values)
 
     def list_groups(self, scope_ids=None, recurse=None, deleted=None, properties=None):
         """ListGroups.
-        [Preview API]
         :param str scope_ids:
         :param bool recurse:
         :param bool deleted:
@@ -105,14 +102,13 @@ class IdentityClient(VssClient):
             query_parameters['properties'] = self._serialize.query('properties', properties, 'str')
         response = self._send(http_method='GET',
                               location_id='5966283b-4196-4d57-9211-1b68f41ec1c2',
-                              version='4.1-preview.1',
+                              version='4.1',
                               query_parameters=query_parameters,
                               returns_collection=True)
         return self._deserialize('[Identity]', response)
 
     def get_identity_changes(self, identity_sequence_id, group_sequence_id, scope_id=None):
         """GetIdentityChanges.
-        [Preview API]
         :param int identity_sequence_id:
         :param int group_sequence_id:
         :param str scope_id:
@@ -127,13 +123,12 @@ class IdentityClient(VssClient):
             query_parameters['scopeId'] = self._serialize.query('scope_id', scope_id, 'str')
         response = self._send(http_method='GET',
                               location_id='28010c54-d0c0-4c89-a5b0-1c9e188b9fb7',
-                              version='4.1-preview.1',
+                              version='4.1',
                               query_parameters=query_parameters)
         return self._deserialize('ChangedIdentities', response)
 
     def get_user_identity_ids_by_domain_id(self, domain_id):
         """GetUserIdentityIdsByDomainId.
-        [Preview API]
         :param str domain_id:
         :rtype: [str]
         """
@@ -142,22 +137,21 @@ class IdentityClient(VssClient):
             query_parameters['domainId'] = self._serialize.query('domain_id', domain_id, 'str')
         response = self._send(http_method='GET',
                               location_id='28010c54-d0c0-4c89-a5b0-1c9e188b9fb7',
-                              version='4.1-preview.1',
+                              version='4.1',
                               query_parameters=query_parameters,
                               returns_collection=True)
         return self._deserialize('[str]', response)
 
     def read_identities(self, descriptors=None, identity_ids=None, search_filter=None, filter_value=None, query_membership=None, properties=None, include_restricted_visibility=None, options=None):
         """ReadIdentities.
-        [Preview API]
         :param str descriptors:
         :param str identity_ids:
         :param str search_filter:
         :param str filter_value:
-        :param QueryMembership query_membership:
+        :param str query_membership:
         :param str properties:
         :param bool include_restricted_visibility:
-        :param ReadIdentitiesOptions options:
+        :param str options:
         :rtype: [Identity]
         """
         query_parameters = {}
@@ -170,25 +164,24 @@ class IdentityClient(VssClient):
         if filter_value is not None:
             query_parameters['filterValue'] = self._serialize.query('filter_value', filter_value, 'str')
         if query_membership is not None:
-            query_parameters['queryMembership'] = self._serialize.query('query_membership', query_membership, 'QueryMembership')
+            query_parameters['queryMembership'] = self._serialize.query('query_membership', query_membership, 'str')
         if properties is not None:
             query_parameters['properties'] = self._serialize.query('properties', properties, 'str')
         if include_restricted_visibility is not None:
             query_parameters['includeRestrictedVisibility'] = self._serialize.query('include_restricted_visibility', include_restricted_visibility, 'bool')
         if options is not None:
-            query_parameters['options'] = self._serialize.query('options', options, 'ReadIdentitiesOptions')
+            query_parameters['options'] = self._serialize.query('options', options, 'str')
         response = self._send(http_method='GET',
                               location_id='28010c54-d0c0-4c89-a5b0-1c9e188b9fb7',
-                              version='4.1-preview.1',
+                              version='4.1',
                               query_parameters=query_parameters,
                               returns_collection=True)
         return self._deserialize('[Identity]', response)
 
     def read_identities_by_scope(self, scope_id, query_membership=None, properties=None):
         """ReadIdentitiesByScope.
-        [Preview API]
         :param str scope_id:
-        :param QueryMembership query_membership:
+        :param str query_membership:
         :param str properties:
         :rtype: [Identity]
         """
@@ -196,21 +189,20 @@ class IdentityClient(VssClient):
         if scope_id is not None:
             query_parameters['scopeId'] = self._serialize.query('scope_id', scope_id, 'str')
         if query_membership is not None:
-            query_parameters['queryMembership'] = self._serialize.query('query_membership', query_membership, 'QueryMembership')
+            query_parameters['queryMembership'] = self._serialize.query('query_membership', query_membership, 'str')
         if properties is not None:
             query_parameters['properties'] = self._serialize.query('properties', properties, 'str')
         response = self._send(http_method='GET',
                               location_id='28010c54-d0c0-4c89-a5b0-1c9e188b9fb7',
-                              version='4.1-preview.1',
+                              version='4.1',
                               query_parameters=query_parameters,
                               returns_collection=True)
         return self._deserialize('[Identity]', response)
 
     def read_identity(self, identity_id, query_membership=None, properties=None):
         """ReadIdentity.
-        [Preview API]
         :param str identity_id:
-        :param QueryMembership query_membership:
+        :param str query_membership:
         :param str properties:
         :rtype: :class:`<Identity> <identity.v4_1.models.Identity>`
         """
@@ -219,33 +211,31 @@ class IdentityClient(VssClient):
             route_values['identityId'] = self._serialize.url('identity_id', identity_id, 'str')
         query_parameters = {}
         if query_membership is not None:
-            query_parameters['queryMembership'] = self._serialize.query('query_membership', query_membership, 'QueryMembership')
+            query_parameters['queryMembership'] = self._serialize.query('query_membership', query_membership, 'str')
         if properties is not None:
             query_parameters['properties'] = self._serialize.query('properties', properties, 'str')
         response = self._send(http_method='GET',
                               location_id='28010c54-d0c0-4c89-a5b0-1c9e188b9fb7',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('Identity', response)
 
     def update_identities(self, identities):
         """UpdateIdentities.
-        [Preview API]
         :param :class:`<VssJsonCollectionWrapper> <identity.v4_1.models.VssJsonCollectionWrapper>` identities:
         :rtype: [IdentityUpdateData]
         """
         content = self._serialize.body(identities, 'VssJsonCollectionWrapper')
         response = self._send(http_method='PUT',
                               location_id='28010c54-d0c0-4c89-a5b0-1c9e188b9fb7',
-                              version='4.1-preview.1',
+                              version='4.1',
                               content=content,
                               returns_collection=True)
         return self._deserialize('[IdentityUpdateData]', response)
 
     def update_identity(self, identity, identity_id):
         """UpdateIdentity.
-        [Preview API]
         :param :class:`<Identity> <identity.v4_1.models.Identity>` identity:
         :param str identity_id:
         """
@@ -255,20 +245,19 @@ class IdentityClient(VssClient):
         content = self._serialize.body(identity, 'Identity')
         self._send(http_method='PUT',
                    location_id='28010c54-d0c0-4c89-a5b0-1c9e188b9fb7',
-                   version='4.1-preview.1',
+                   version='4.1',
                    route_values=route_values,
                    content=content)
 
     def create_identity(self, framework_identity_info):
         """CreateIdentity.
-        [Preview API]
         :param :class:`<FrameworkIdentityInfo> <identity.v4_1.models.FrameworkIdentityInfo>` framework_identity_info:
         :rtype: :class:`<Identity> <identity.v4_1.models.Identity>`
         """
         content = self._serialize.body(framework_identity_info, 'FrameworkIdentityInfo')
         response = self._send(http_method='PUT',
                               location_id='dd55f0eb-6ea2-4fe4-9ebe-919e7dd1dfb4',
-                              version='4.1-preview.1',
+                              version='4.1',
                               content=content)
         return self._deserialize('Identity', response)
 
@@ -303,22 +292,22 @@ class IdentityClient(VssClient):
 
     def get_max_sequence_id(self):
         """GetMaxSequenceId.
-        [Preview API] Read the max sequence id of all the identities.
+        Read the max sequence id of all the identities.
         :rtype: long
         """
         response = self._send(http_method='GET',
                               location_id='e4a70778-cb2c-4e85-b7cc-3f3c7ae2d408',
-                              version='4.1-preview.1')
+                              version='4.1')
         return self._deserialize('long', response)
 
     def get_self(self):
         """GetSelf.
-        [Preview API] Read identity of the home tenant request user.
+        Read identity of the home tenant request user.
         :rtype: :class:`<IdentitySelf> <identity.v4_1.models.IdentitySelf>`
         """
         response = self._send(http_method='GET',
                               location_id='4bb02b5b-c120-4be2-b68e-21f7c50a4b82',
-                              version='4.1-preview.1')
+                              version='4.1')
         return self._deserialize('IdentitySelf', response)
 
     def add_member(self, container_id, member_id):
@@ -344,7 +333,7 @@ class IdentityClient(VssClient):
         [Preview API]
         :param str container_id:
         :param str member_id:
-        :param QueryMembership query_membership:
+        :param str query_membership:
         :rtype: :class:`<str> <identity.v4_1.models.str>`
         """
         route_values = {}
@@ -354,7 +343,7 @@ class IdentityClient(VssClient):
             route_values['memberId'] = self._serialize.url('member_id', member_id, 'str')
         query_parameters = {}
         if query_membership is not None:
-            query_parameters['queryMembership'] = self._serialize.query('query_membership', query_membership, 'QueryMembership')
+            query_parameters['queryMembership'] = self._serialize.query('query_membership', query_membership, 'str')
         response = self._send(http_method='GET',
                               location_id='8ba35978-138e-41f8-8963-7b1ea2c5f775',
                               version='4.1-preview.1',
@@ -366,7 +355,7 @@ class IdentityClient(VssClient):
         """ReadMembers.
         [Preview API]
         :param str container_id:
-        :param QueryMembership query_membership:
+        :param str query_membership:
         :rtype: [str]
         """
         route_values = {}
@@ -374,7 +363,7 @@ class IdentityClient(VssClient):
             route_values['containerId'] = self._serialize.url('container_id', container_id, 'str')
         query_parameters = {}
         if query_membership is not None:
-            query_parameters['queryMembership'] = self._serialize.query('query_membership', query_membership, 'QueryMembership')
+            query_parameters['queryMembership'] = self._serialize.query('query_membership', query_membership, 'str')
         response = self._send(http_method='GET',
                               location_id='8ba35978-138e-41f8-8963-7b1ea2c5f775',
                               version='4.1-preview.1',
@@ -406,7 +395,7 @@ class IdentityClient(VssClient):
         [Preview API]
         :param str member_id:
         :param str container_id:
-        :param QueryMembership query_membership:
+        :param str query_membership:
         :rtype: :class:`<str> <identity.v4_1.models.str>`
         """
         route_values = {}
@@ -416,7 +405,7 @@ class IdentityClient(VssClient):
             route_values['containerId'] = self._serialize.url('container_id', container_id, 'str')
         query_parameters = {}
         if query_membership is not None:
-            query_parameters['queryMembership'] = self._serialize.query('query_membership', query_membership, 'QueryMembership')
+            query_parameters['queryMembership'] = self._serialize.query('query_membership', query_membership, 'str')
         response = self._send(http_method='GET',
                               location_id='22865b02-9e4a-479e-9e18-e35b8803b8a0',
                               version='4.1-preview.1',
@@ -428,7 +417,7 @@ class IdentityClient(VssClient):
         """ReadMembersOf.
         [Preview API]
         :param str member_id:
-        :param QueryMembership query_membership:
+        :param str query_membership:
         :rtype: [str]
         """
         route_values = {}
@@ -436,7 +425,7 @@ class IdentityClient(VssClient):
             route_values['memberId'] = self._serialize.url('member_id', member_id, 'str')
         query_parameters = {}
         if query_membership is not None:
-            query_parameters['queryMembership'] = self._serialize.query('query_membership', query_membership, 'QueryMembership')
+            query_parameters['queryMembership'] = self._serialize.query('query_membership', query_membership, 'str')
         response = self._send(http_method='GET',
                               location_id='22865b02-9e4a-479e-9e18-e35b8803b8a0',
                               version='4.1-preview.1',

@@ -14,14 +14,8 @@ class GitRepository(Model):
 
     :param _links:
     :type _links: :class:`ReferenceLinks <git.v4_0.models.ReferenceLinks>`
-    :param created_by_forking: True if the repository was created as a fork
-    :type created_by_forking: bool
     :param default_branch:
     :type default_branch: str
-    :param fork_options: If set, options for creating this repo as a fork of another one. If unset, this repo is unrelated to any existing forks.
-    :type fork_options: :class:`GitForkSyncRequestParameters <git.v4_0.models.GitForkSyncRequestParameters>`
-    :param fork_parent: Only set when querying repositories. If set, the "parent" fork of this repository.
-    :type fork_parent: :class:`GlobalGitRepositoryKey <git.v4_0.models.GlobalGitRepositoryKey>`
     :param id:
     :type id: str
     :param is_fork: True if the repository was created as a fork
@@ -42,10 +36,7 @@ class GitRepository(Model):
 
     _attribute_map = {
         '_links': {'key': '_links', 'type': 'ReferenceLinks'},
-        'created_by_forking': {'key': 'createdByForking', 'type': 'bool'},
         'default_branch': {'key': 'defaultBranch', 'type': 'str'},
-        'fork_options': {'key': 'forkOptions', 'type': 'GitForkSyncRequestParameters'},
-        'fork_parent': {'key': 'forkParent', 'type': 'GlobalGitRepositoryKey'},
         'id': {'key': 'id', 'type': 'str'},
         'is_fork': {'key': 'isFork', 'type': 'bool'},
         'name': {'key': 'name', 'type': 'str'},
@@ -56,13 +47,10 @@ class GitRepository(Model):
         'valid_remote_urls': {'key': 'validRemoteUrls', 'type': '[str]'}
     }
 
-    def __init__(self, _links=None, created_by_forking=None, default_branch=None, fork_options=None, fork_parent=None, id=None, is_fork=None, name=None, parent_repository=None, project=None, remote_url=None, url=None, valid_remote_urls=None):
+    def __init__(self, _links=None, default_branch=None, id=None, is_fork=None, name=None, parent_repository=None, project=None, remote_url=None, url=None, valid_remote_urls=None):
         super(GitRepository, self).__init__()
         self._links = _links
-        self.created_by_forking = created_by_forking
         self.default_branch = default_branch
-        self.fork_options = fork_options
-        self.fork_parent = fork_parent
         self.id = id
         self.is_fork = is_fork
         self.name = name

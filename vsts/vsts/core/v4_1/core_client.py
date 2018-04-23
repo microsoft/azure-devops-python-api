@@ -65,7 +65,7 @@ class CoreClient(VssClient):
         """GetConnectedServices.
         [Preview API]
         :param str project_id:
-        :param ConnectedServiceKind kind:
+        :param str kind:
         :rtype: [WebApiConnectedService]
         """
         route_values = {}
@@ -73,7 +73,7 @@ class CoreClient(VssClient):
             route_values['projectId'] = self._serialize.url('project_id', project_id, 'str')
         query_parameters = {}
         if kind is not None:
-            query_parameters['kind'] = self._serialize.query('kind', kind, 'ConnectedServiceKind')
+            query_parameters['kind'] = self._serialize.query('kind', kind, 'str')
         response = self._send(http_method='GET',
                               location_id='b4f70219-e18b-42c5-abe3-98b07d35525e',
                               version='4.1-preview.1',
@@ -82,57 +82,9 @@ class CoreClient(VssClient):
                               returns_collection=True)
         return self._deserialize('[WebApiConnectedService]', response)
 
-    def create_identity_mru(self, mru_data, mru_name):
-        """CreateIdentityMru.
-        [Preview API]
-        :param :class:`<IdentityData> <core.v4_1.models.IdentityData>` mru_data:
-        :param str mru_name:
-        """
-        route_values = {}
-        if mru_name is not None:
-            route_values['mruName'] = self._serialize.url('mru_name', mru_name, 'str')
-        content = self._serialize.body(mru_data, 'IdentityData')
-        self._send(http_method='POST',
-                   location_id='5ead0b70-2572-4697-97e9-f341069a783a',
-                   version='4.1-preview.1',
-                   route_values=route_values,
-                   content=content)
-
-    def get_identity_mru(self, mru_name):
-        """GetIdentityMru.
-        [Preview API]
-        :param str mru_name:
-        :rtype: [IdentityRef]
-        """
-        route_values = {}
-        if mru_name is not None:
-            route_values['mruName'] = self._serialize.url('mru_name', mru_name, 'str')
-        response = self._send(http_method='GET',
-                              location_id='5ead0b70-2572-4697-97e9-f341069a783a',
-                              version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[IdentityRef]', response)
-
-    def update_identity_mru(self, mru_data, mru_name):
-        """UpdateIdentityMru.
-        [Preview API]
-        :param :class:`<IdentityData> <core.v4_1.models.IdentityData>` mru_data:
-        :param str mru_name:
-        """
-        route_values = {}
-        if mru_name is not None:
-            route_values['mruName'] = self._serialize.url('mru_name', mru_name, 'str')
-        content = self._serialize.body(mru_data, 'IdentityData')
-        self._send(http_method='PATCH',
-                   location_id='5ead0b70-2572-4697-97e9-f341069a783a',
-                   version='4.1-preview.1',
-                   route_values=route_values,
-                   content=content)
-
     def get_team_members_with_extended_properties(self, project_id, team_id, top=None, skip=None):
         """GetTeamMembersWithExtendedProperties.
-        [Preview API] Get a list of members for a specific team.
+        Get a list of members for a specific team.
         :param str project_id: The name or ID (GUID) of the team project the team belongs to.
         :param str team_id: The name or ID (GUID) of the team .
         :param int top:
@@ -151,7 +103,7 @@ class CoreClient(VssClient):
             query_parameters['$skip'] = self._serialize.query('skip', skip, 'int')
         response = self._send(http_method='GET',
                               location_id='294c494c-2600-4d7e-b76c-3dd50c3c95be',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               returns_collection=True)
@@ -159,7 +111,7 @@ class CoreClient(VssClient):
 
     def get_process_by_id(self, process_id):
         """GetProcessById.
-        [Preview API] Get a process by ID.
+        Get a process by ID.
         :param str process_id: ID for a process.
         :rtype: :class:`<Process> <core.v4_1.models.Process>`
         """
@@ -168,24 +120,24 @@ class CoreClient(VssClient):
             route_values['processId'] = self._serialize.url('process_id', process_id, 'str')
         response = self._send(http_method='GET',
                               location_id='93878975-88c5-4e6a-8abb-7ddd77a8a7d8',
-                              version='4.1-preview.1',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('Process', response)
 
     def get_processes(self):
         """GetProcesses.
-        [Preview API] Get a list of processes.
+        Get a list of processes.
         :rtype: [Process]
         """
         response = self._send(http_method='GET',
                               location_id='93878975-88c5-4e6a-8abb-7ddd77a8a7d8',
-                              version='4.1-preview.1',
+                              version='4.1',
                               returns_collection=True)
         return self._deserialize('[Process]', response)
 
     def get_project_collection(self, collection_id):
         """GetProjectCollection.
-        [Preview API] Get project collection with the specified id or name.
+        Get project collection with the specified id or name.
         :param str collection_id:
         :rtype: :class:`<TeamProjectCollection> <core.v4_1.models.TeamProjectCollection>`
         """
@@ -194,13 +146,13 @@ class CoreClient(VssClient):
             route_values['collectionId'] = self._serialize.url('collection_id', collection_id, 'str')
         response = self._send(http_method='GET',
                               location_id='8031090f-ef1d-4af6-85fc-698cd75d42bf',
-                              version='4.1-preview.2',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('TeamProjectCollection', response)
 
     def get_project_collections(self, top=None, skip=None):
         """GetProjectCollections.
-        [Preview API] Get project collection references for this application.
+        Get project collection references for this application.
         :param int top:
         :param int skip:
         :rtype: [TeamProjectCollectionReference]
@@ -212,7 +164,7 @@ class CoreClient(VssClient):
             query_parameters['$skip'] = self._serialize.query('skip', skip, 'int')
         response = self._send(http_method='GET',
                               location_id='8031090f-ef1d-4af6-85fc-698cd75d42bf',
-                              version='4.1-preview.2',
+                              version='4.1',
                               query_parameters=query_parameters,
                               returns_collection=True)
         return self._deserialize('[TeamProjectCollectionReference]', response)
@@ -235,7 +187,7 @@ class CoreClient(VssClient):
 
     def get_project(self, project_id, include_capabilities=None, include_history=None):
         """GetProject.
-        [Preview API] Get project with the specified id or name, optionally including capabilities.
+        Get project with the specified id or name, optionally including capabilities.
         :param str project_id:
         :param bool include_capabilities: Include capabilities (such as source control) in the team project result (default: false).
         :param bool include_history: Search within renamed projects (that had such name in the past).
@@ -251,15 +203,15 @@ class CoreClient(VssClient):
             query_parameters['includeHistory'] = self._serialize.query('include_history', include_history, 'bool')
         response = self._send(http_method='GET',
                               location_id='603fe2ac-9723-48b9-88ad-09305aa6c6e1',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('TeamProject', response)
 
     def get_projects(self, state_filter=None, top=None, skip=None, continuation_token=None):
         """GetProjects.
-        [Preview API] Get project references with the specified state
-        :param object state_filter: Filter on team projects in a specific team project state (default: WellFormed).
+        Get project references with the specified state
+        :param str state_filter: Filter on team projects in a specific team project state (default: WellFormed).
         :param int top:
         :param int skip:
         :param str continuation_token:
@@ -267,7 +219,7 @@ class CoreClient(VssClient):
         """
         query_parameters = {}
         if state_filter is not None:
-            query_parameters['stateFilter'] = self._serialize.query('state_filter', state_filter, 'object')
+            query_parameters['stateFilter'] = self._serialize.query('state_filter', state_filter, 'str')
         if top is not None:
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         if skip is not None:
@@ -276,27 +228,27 @@ class CoreClient(VssClient):
             query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
         response = self._send(http_method='GET',
                               location_id='603fe2ac-9723-48b9-88ad-09305aa6c6e1',
-                              version='4.1-preview.3',
+                              version='4.1',
                               query_parameters=query_parameters,
                               returns_collection=True)
         return self._deserialize('[TeamProjectReference]', response)
 
     def queue_create_project(self, project_to_create):
         """QueueCreateProject.
-        [Preview API] Queue a project creation.
+        Queue a project creation.
         :param :class:`<TeamProject> <core.v4_1.models.TeamProject>` project_to_create: The project to create.
         :rtype: :class:`<OperationReference> <core.v4_1.models.OperationReference>`
         """
         content = self._serialize.body(project_to_create, 'TeamProject')
         response = self._send(http_method='POST',
                               location_id='603fe2ac-9723-48b9-88ad-09305aa6c6e1',
-                              version='4.1-preview.3',
+                              version='4.1',
                               content=content)
         return self._deserialize('OperationReference', response)
 
     def queue_delete_project(self, project_id):
         """QueueDeleteProject.
-        [Preview API] Queue a project deletion.
+        Queue a project deletion.
         :param str project_id: The project id of the project to delete.
         :rtype: :class:`<OperationReference> <core.v4_1.models.OperationReference>`
         """
@@ -305,13 +257,13 @@ class CoreClient(VssClient):
             route_values['projectId'] = self._serialize.url('project_id', project_id, 'str')
         response = self._send(http_method='DELETE',
                               location_id='603fe2ac-9723-48b9-88ad-09305aa6c6e1',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values)
         return self._deserialize('OperationReference', response)
 
     def update_project(self, project_update, project_id):
         """UpdateProject.
-        [Preview API] Update an existing project's name, abbreviation, or description.
+        Update an existing project's name, abbreviation, or description.
         :param :class:`<TeamProject> <core.v4_1.models.TeamProject>` project_update: The updates for the project.
         :param str project_id: The project id of the project to update.
         :rtype: :class:`<OperationReference> <core.v4_1.models.OperationReference>`
@@ -322,7 +274,7 @@ class CoreClient(VssClient):
         content = self._serialize.body(project_update, 'TeamProject')
         response = self._send(http_method='PATCH',
                               location_id='603fe2ac-9723-48b9-88ad-09305aa6c6e1',
-                              version='4.1-preview.3',
+                              version='4.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('OperationReference', response)
@@ -411,6 +363,106 @@ class CoreClient(VssClient):
                               returns_collection=True)
         return self._deserialize('[Proxy]', response)
 
+    def create_team(self, team, project_id):
+        """CreateTeam.
+        Create a team in a team project.
+        :param :class:`<WebApiTeam> <core.v4_1.models.WebApiTeam>` team: The team data used to create the team.
+        :param str project_id: The name or ID (GUID) of the team project in which to create the team.
+        :rtype: :class:`<WebApiTeam> <core.v4_1.models.WebApiTeam>`
+        """
+        route_values = {}
+        if project_id is not None:
+            route_values['projectId'] = self._serialize.url('project_id', project_id, 'str')
+        content = self._serialize.body(team, 'WebApiTeam')
+        response = self._send(http_method='POST',
+                              location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
+                              version='4.1',
+                              route_values=route_values,
+                              content=content)
+        return self._deserialize('WebApiTeam', response)
+
+    def delete_team(self, project_id, team_id):
+        """DeleteTeam.
+        Delete a team.
+        :param str project_id: The name or ID (GUID) of the team project containing the team to delete.
+        :param str team_id: The name of ID of the team to delete.
+        """
+        route_values = {}
+        if project_id is not None:
+            route_values['projectId'] = self._serialize.url('project_id', project_id, 'str')
+        if team_id is not None:
+            route_values['teamId'] = self._serialize.url('team_id', team_id, 'str')
+        self._send(http_method='DELETE',
+                   location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
+                   version='4.1',
+                   route_values=route_values)
+
+    def get_team(self, project_id, team_id):
+        """GetTeam.
+        Get a specific team.
+        :param str project_id: The name or ID (GUID) of the team project containing the team.
+        :param str team_id: The name or ID (GUID) of the team.
+        :rtype: :class:`<WebApiTeam> <core.v4_1.models.WebApiTeam>`
+        """
+        route_values = {}
+        if project_id is not None:
+            route_values['projectId'] = self._serialize.url('project_id', project_id, 'str')
+        if team_id is not None:
+            route_values['teamId'] = self._serialize.url('team_id', team_id, 'str')
+        response = self._send(http_method='GET',
+                              location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
+                              version='4.1',
+                              route_values=route_values)
+        return self._deserialize('WebApiTeam', response)
+
+    def get_teams(self, project_id, mine=None, top=None, skip=None):
+        """GetTeams.
+        Get a list of teams.
+        :param str project_id:
+        :param bool mine: If true return all the teams requesting user is member, otherwise return all the teams user has read access
+        :param int top: Maximum number of teams to return.
+        :param int skip: Number of teams to skip.
+        :rtype: [WebApiTeam]
+        """
+        route_values = {}
+        if project_id is not None:
+            route_values['projectId'] = self._serialize.url('project_id', project_id, 'str')
+        query_parameters = {}
+        if mine is not None:
+            query_parameters['$mine'] = self._serialize.query('mine', mine, 'bool')
+        if top is not None:
+            query_parameters['$top'] = self._serialize.query('top', top, 'int')
+        if skip is not None:
+            query_parameters['$skip'] = self._serialize.query('skip', skip, 'int')
+        response = self._send(http_method='GET',
+                              location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
+                              version='4.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters,
+                              returns_collection=True)
+        return self._deserialize('[WebApiTeam]', response)
+
+    def update_team(self, team_data, project_id, team_id):
+        """UpdateTeam.
+        Update a team's name and/or description.
+        :param :class:`<WebApiTeam> <core.v4_1.models.WebApiTeam>` team_data:
+        :param str project_id: The name or ID (GUID) of the team project containing the team to update.
+        :param str team_id: The name of ID of the team to update.
+        :rtype: :class:`<WebApiTeam> <core.v4_1.models.WebApiTeam>`
+        """
+        route_values = {}
+        if project_id is not None:
+            route_values['projectId'] = self._serialize.url('project_id', project_id, 'str')
+        if team_id is not None:
+            route_values['teamId'] = self._serialize.url('team_id', team_id, 'str')
+        content = self._serialize.body(team_data, 'WebApiTeam')
+        response = self._send(http_method='PATCH',
+                              location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
+                              version='4.1',
+                              route_values=route_values,
+                              content=content)
+        return self._deserialize('WebApiTeam', response)
+
     def get_all_teams(self, mine=None, top=None, skip=None):
         """GetAllTeams.
         [Preview API] Get a list of all teams.
@@ -432,104 +484,4 @@ class CoreClient(VssClient):
                               query_parameters=query_parameters,
                               returns_collection=True)
         return self._deserialize('[WebApiTeam]', response)
-
-    def create_team(self, team, project_id):
-        """CreateTeam.
-        [Preview API] Create a team in a team project.
-        :param :class:`<WebApiTeam> <core.v4_1.models.WebApiTeam>` team: The team data used to create the team.
-        :param str project_id: The name or ID (GUID) of the team project in which to create the team.
-        :rtype: :class:`<WebApiTeam> <core.v4_1.models.WebApiTeam>`
-        """
-        route_values = {}
-        if project_id is not None:
-            route_values['projectId'] = self._serialize.url('project_id', project_id, 'str')
-        content = self._serialize.body(team, 'WebApiTeam')
-        response = self._send(http_method='POST',
-                              location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
-                              version='4.1-preview.2',
-                              route_values=route_values,
-                              content=content)
-        return self._deserialize('WebApiTeam', response)
-
-    def delete_team(self, project_id, team_id):
-        """DeleteTeam.
-        [Preview API] Delete a team.
-        :param str project_id: The name or ID (GUID) of the team project containing the team to delete.
-        :param str team_id: The name of ID of the team to delete.
-        """
-        route_values = {}
-        if project_id is not None:
-            route_values['projectId'] = self._serialize.url('project_id', project_id, 'str')
-        if team_id is not None:
-            route_values['teamId'] = self._serialize.url('team_id', team_id, 'str')
-        self._send(http_method='DELETE',
-                   location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
-                   version='4.1-preview.2',
-                   route_values=route_values)
-
-    def get_team(self, project_id, team_id):
-        """GetTeam.
-        [Preview API] Get a specific team.
-        :param str project_id: The name or ID (GUID) of the team project containing the team.
-        :param str team_id: The name or ID (GUID) of the team.
-        :rtype: :class:`<WebApiTeam> <core.v4_1.models.WebApiTeam>`
-        """
-        route_values = {}
-        if project_id is not None:
-            route_values['projectId'] = self._serialize.url('project_id', project_id, 'str')
-        if team_id is not None:
-            route_values['teamId'] = self._serialize.url('team_id', team_id, 'str')
-        response = self._send(http_method='GET',
-                              location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
-                              version='4.1-preview.2',
-                              route_values=route_values)
-        return self._deserialize('WebApiTeam', response)
-
-    def get_teams(self, project_id, mine=None, top=None, skip=None):
-        """GetTeams.
-        [Preview API] Get a list of teams.
-        :param str project_id:
-        :param bool mine: If true return all the teams requesting user is member, otherwise return all the teams user has read access
-        :param int top: Maximum number of teams to return.
-        :param int skip: Number of teams to skip.
-        :rtype: [WebApiTeam]
-        """
-        route_values = {}
-        if project_id is not None:
-            route_values['projectId'] = self._serialize.url('project_id', project_id, 'str')
-        query_parameters = {}
-        if mine is not None:
-            query_parameters['$mine'] = self._serialize.query('mine', mine, 'bool')
-        if top is not None:
-            query_parameters['$top'] = self._serialize.query('top', top, 'int')
-        if skip is not None:
-            query_parameters['$skip'] = self._serialize.query('skip', skip, 'int')
-        response = self._send(http_method='GET',
-                              location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
-                              version='4.1-preview.2',
-                              route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WebApiTeam]', response)
-
-    def update_team(self, team_data, project_id, team_id):
-        """UpdateTeam.
-        [Preview API] Update a team's name and/or description.
-        :param :class:`<WebApiTeam> <core.v4_1.models.WebApiTeam>` team_data:
-        :param str project_id: The name or ID (GUID) of the team project containing the team to update.
-        :param str team_id: The name of ID of the team to update.
-        :rtype: :class:`<WebApiTeam> <core.v4_1.models.WebApiTeam>`
-        """
-        route_values = {}
-        if project_id is not None:
-            route_values['projectId'] = self._serialize.url('project_id', project_id, 'str')
-        if team_id is not None:
-            route_values['teamId'] = self._serialize.url('team_id', team_id, 'str')
-        content = self._serialize.body(team_data, 'WebApiTeam')
-        response = self._send(http_method='PATCH',
-                              location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
-                              version='4.1-preview.2',
-                              route_values=route_values,
-                              content=content)
-        return self._deserialize('WebApiTeam', response)
 
