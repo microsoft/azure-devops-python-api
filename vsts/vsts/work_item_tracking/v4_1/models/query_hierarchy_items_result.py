@@ -12,11 +12,11 @@ from msrest.serialization import Model
 class QueryHierarchyItemsResult(Model):
     """QueryHierarchyItemsResult.
 
-    :param count:
+    :param count: The count of items.
     :type count: int
-    :param has_more:
+    :param has_more: Indicates if the max return limit was hit but there are still more items
     :type has_more: bool
-    :param value:
+    :param value: The list of items
     :type value: list of :class:`QueryHierarchyItem <work-item-tracking.v4_1.models.QueryHierarchyItem>`
     """
 

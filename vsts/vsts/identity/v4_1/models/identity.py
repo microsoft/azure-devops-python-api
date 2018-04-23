@@ -6,10 +6,10 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from msrest.serialization import Model
+from .identity_base import IdentityBase
 
 
-class Identity(Model):
+class Identity(IdentityBase):
     """Identity.
 
     :param custom_display_name: The custom display name for the identity (if any). Setting this property to an empty string will clear the existing custom display name. Setting this property to null will not affect the existing persisted value (since null values do not get sent over the wire or to the database)
@@ -59,23 +59,8 @@ class Identity(Model):
         'provider_display_name': {'key': 'providerDisplayName', 'type': 'str'},
         'resource_version': {'key': 'resourceVersion', 'type': 'int'},
         'subject_descriptor': {'key': 'subjectDescriptor', 'type': 'str'},
-        'unique_user_id': {'key': 'uniqueUserId', 'type': 'int'}
+        'unique_user_id': {'key': 'uniqueUserId', 'type': 'int'},
     }
 
     def __init__(self, custom_display_name=None, descriptor=None, id=None, is_active=None, is_container=None, master_id=None, member_ids=None, member_of=None, members=None, meta_type_id=None, properties=None, provider_display_name=None, resource_version=None, subject_descriptor=None, unique_user_id=None):
-        super(Identity, self).__init__()
-        self.custom_display_name = custom_display_name
-        self.descriptor = descriptor
-        self.id = id
-        self.is_active = is_active
-        self.is_container = is_container
-        self.master_id = master_id
-        self.member_ids = member_ids
-        self.member_of = member_of
-        self.members = members
-        self.meta_type_id = meta_type_id
-        self.properties = properties
-        self.provider_display_name = provider_display_name
-        self.resource_version = resource_version
-        self.subject_descriptor = subject_descriptor
-        self.unique_user_id = unique_user_id
+        super(Identity, self).__init__(custom_display_name=custom_display_name, descriptor=descriptor, id=id, is_active=is_active, is_container=is_container, master_id=master_id, member_ids=member_ids, member_of=member_of, members=members, meta_type_id=meta_type_id, properties=properties, provider_display_name=provider_display_name, resource_version=resource_version, subject_descriptor=subject_descriptor, unique_user_id=unique_user_id)

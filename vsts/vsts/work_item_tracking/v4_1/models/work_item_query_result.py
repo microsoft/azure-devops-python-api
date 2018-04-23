@@ -12,19 +12,19 @@ from msrest.serialization import Model
 class WorkItemQueryResult(Model):
     """WorkItemQueryResult.
 
-    :param as_of:
+    :param as_of: The date the query was run in the context of.
     :type as_of: datetime
-    :param columns:
+    :param columns: The columns of the query.
     :type columns: list of :class:`WorkItemFieldReference <work-item-tracking.v4_1.models.WorkItemFieldReference>`
-    :param query_result_type:
+    :param query_result_type: The result type
     :type query_result_type: object
-    :param query_type:
+    :param query_type: The type of the query
     :type query_type: object
-    :param sort_columns:
+    :param sort_columns: The sort columns of the query.
     :type sort_columns: list of :class:`WorkItemQuerySortColumn <work-item-tracking.v4_1.models.WorkItemQuerySortColumn>`
-    :param work_item_relations:
+    :param work_item_relations: The work item links returned by the query.
     :type work_item_relations: list of :class:`WorkItemLink <work-item-tracking.v4_1.models.WorkItemLink>`
-    :param work_items:
+    :param work_items: The work items returned by the query.
     :type work_items: list of :class:`WorkItemReference <work-item-tracking.v4_1.models.WorkItemReference>`
     """
 

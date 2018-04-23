@@ -81,7 +81,7 @@ class BuildDefinition3_2(BuildDefinitionReference):
     :param tags:
     :type tags: list of str
     :param triggers:
-    :type triggers: list of :class:`BuildTrigger <build.v4_0.models.BuildTrigger>`
+    :type triggers: list of :class:`object <build.v4_0.models.object>`
     :param variables:
     :type variables: dict
     """
@@ -121,7 +121,7 @@ class BuildDefinition3_2(BuildDefinitionReference):
         'repository': {'key': 'repository', 'type': 'BuildRepository'},
         'retention_rules': {'key': 'retentionRules', 'type': '[RetentionPolicy]'},
         'tags': {'key': 'tags', 'type': '[str]'},
-        'triggers': {'key': 'triggers', 'type': '[BuildTrigger]'},
+        'triggers': {'key': 'triggers', 'type': '[object]'},
         'variables': {'key': 'variables', 'type': '{BuildDefinitionVariable}'}
     }
 

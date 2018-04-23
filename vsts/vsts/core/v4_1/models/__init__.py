@@ -6,6 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
+from .graph_subject_base import GraphSubjectBase
 from .identity_data import IdentityData
 from .identity_ref import IdentityRef
 from .json_patch_operation import JsonPatchOperation
@@ -30,6 +31,7 @@ from .web_api_team import WebApiTeam
 from .web_api_team_ref import WebApiTeamRef
 
 __all__ = [
+    'GraphSubjectBase',
     'IdentityData',
     'IdentityRef',
     'JsonPatchOperation',

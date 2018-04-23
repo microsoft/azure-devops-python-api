@@ -6,10 +6,10 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .build_definition_reference import BuildDefinitionReference
+from .build_definition_reference3_2 import BuildDefinitionReference3_2
 
 
-class BuildDefinition3_2(BuildDefinitionReference):
+class BuildDefinition3_2(BuildDefinitionReference3_2):
     """BuildDefinition3_2.
 
     :param created_date: The date the definition was created.
@@ -83,7 +83,7 @@ class BuildDefinition3_2(BuildDefinitionReference):
     :param tags:
     :type tags: list of str
     :param triggers:
-    :type triggers: list of :class:`BuildTrigger <build.v4_1.models.BuildTrigger>`
+    :type triggers: list of :class:`object <build.v4_1.models.object>`
     :param variables:
     :type variables: dict
     """
@@ -124,7 +124,7 @@ class BuildDefinition3_2(BuildDefinitionReference):
         'repository': {'key': 'repository', 'type': 'BuildRepository'},
         'retention_rules': {'key': 'retentionRules', 'type': '[RetentionPolicy]'},
         'tags': {'key': 'tags', 'type': '[str]'},
-        'triggers': {'key': 'triggers', 'type': '[BuildTrigger]'},
+        'triggers': {'key': 'triggers', 'type': '[object]'},
         'variables': {'key': 'variables', 'type': '{BuildDefinitionVariable}'}
     }
 

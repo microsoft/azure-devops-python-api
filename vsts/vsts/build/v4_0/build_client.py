@@ -234,16 +234,16 @@ class BuildClient(VssClient):
         :param datetime min_finish_time:
         :param datetime max_finish_time:
         :param str requested_for:
-        :param BuildReason reason_filter:
-        :param BuildStatus status_filter:
-        :param BuildResult result_filter:
+        :param str reason_filter:
+        :param str status_filter:
+        :param str result_filter:
         :param [str] tag_filters: A comma-delimited list of tags
         :param [str] properties: A comma-delimited list of properties to include in the results
         :param int top: The maximum number of builds to retrieve
         :param str continuation_token:
         :param int max_builds_per_definition:
-        :param QueryDeletedOption deleted_filter:
-        :param BuildQueryOrder query_order:
+        :param str deleted_filter:
+        :param str query_order:
         :param str branch_name:
         :param [int] build_ids:
         :param str repository_id:
@@ -269,11 +269,11 @@ class BuildClient(VssClient):
         if requested_for is not None:
             query_parameters['requestedFor'] = self._serialize.query('requested_for', requested_for, 'str')
         if reason_filter is not None:
-            query_parameters['reasonFilter'] = self._serialize.query('reason_filter', reason_filter, 'BuildReason')
+            query_parameters['reasonFilter'] = self._serialize.query('reason_filter', reason_filter, 'str')
         if status_filter is not None:
-            query_parameters['statusFilter'] = self._serialize.query('status_filter', status_filter, 'BuildStatus')
+            query_parameters['statusFilter'] = self._serialize.query('status_filter', status_filter, 'str')
         if result_filter is not None:
-            query_parameters['resultFilter'] = self._serialize.query('result_filter', result_filter, 'BuildResult')
+            query_parameters['resultFilter'] = self._serialize.query('result_filter', result_filter, 'str')
         if tag_filters is not None:
             tag_filters = ",".join(tag_filters)
             query_parameters['tagFilters'] = self._serialize.query('tag_filters', tag_filters, 'str')
@@ -287,9 +287,9 @@ class BuildClient(VssClient):
         if max_builds_per_definition is not None:
             query_parameters['maxBuildsPerDefinition'] = self._serialize.query('max_builds_per_definition', max_builds_per_definition, 'int')
         if deleted_filter is not None:
-            query_parameters['deletedFilter'] = self._serialize.query('deleted_filter', deleted_filter, 'QueryDeletedOption')
+            query_parameters['deletedFilter'] = self._serialize.query('deleted_filter', deleted_filter, 'str')
         if query_order is not None:
-            query_parameters['queryOrder'] = self._serialize.query('query_order', query_order, 'BuildQueryOrder')
+            query_parameters['queryOrder'] = self._serialize.query('query_order', query_order, 'str')
         if branch_name is not None:
             query_parameters['branchName'] = self._serialize.query('branch_name', branch_name, 'str')
         if build_ids is not None:
@@ -543,7 +543,7 @@ class BuildClient(VssClient):
         :param str name:
         :param str repository_id:
         :param str repository_type:
-        :param DefinitionQueryOrder query_order:
+        :param str query_order:
         :param int top:
         :param str continuation_token:
         :param datetime min_metrics_time:
@@ -567,7 +567,7 @@ class BuildClient(VssClient):
         if repository_type is not None:
             query_parameters['repositoryType'] = self._serialize.query('repository_type', repository_type, 'str')
         if query_order is not None:
-            query_parameters['queryOrder'] = self._serialize.query('query_order', query_order, 'DefinitionQueryOrder')
+            query_parameters['queryOrder'] = self._serialize.query('query_order', query_order, 'str')
         if top is not None:
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         if continuation_token is not None:
@@ -668,7 +668,7 @@ class BuildClient(VssClient):
         [Preview API] Gets folders
         :param str project: Project ID or project name
         :param str path:
-        :param FolderQueryOrder query_order:
+        :param str query_order:
         :rtype: [Folder]
         """
         route_values = {}
@@ -678,7 +678,7 @@ class BuildClient(VssClient):
             route_values['path'] = self._serialize.url('path', path, 'str')
         query_parameters = {}
         if query_order is not None:
-            query_parameters['queryOrder'] = self._serialize.query('query_order', query_order, 'FolderQueryOrder')
+            query_parameters['queryOrder'] = self._serialize.query('query_order', query_order, 'str')
         response = self._send(http_method='GET',
                               location_id='a906531b-d2da-4f55-bda7-f3e676cc50d9',
                               version='4.0-preview.1',

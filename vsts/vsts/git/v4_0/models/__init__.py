@@ -9,7 +9,6 @@
 from .associated_work_item import AssociatedWorkItem
 from .attachment import Attachment
 from .change import Change
-from .change_count_dictionary import ChangeCountDictionary
 from .comment import Comment
 from .comment_iteration_context import CommentIterationContext
 from .comment_position import CommentPosition
@@ -90,6 +89,7 @@ from .global_git_repository_key import GlobalGitRepositoryKey
 from .identity_ref import IdentityRef
 from .identity_ref_with_vote import IdentityRefWithVote
 from .import_repository_validation import ImportRepositoryValidation
+from .item_content import ItemContent
 from .item_model import ItemModel
 from .reference_links import ReferenceLinks
 from .resource_ref import ResourceRef
@@ -105,7 +105,6 @@ __all__ = [
     'AssociatedWorkItem',
     'Attachment',
     'Change',
-    'ChangeCountDictionary',
     'Comment',
     'CommentIterationContext',
     'CommentPosition',
@@ -186,6 +185,7 @@ __all__ = [
     'IdentityRef',
     'IdentityRefWithVote',
     'ImportRepositoryValidation',
+    'ItemContent',
     'ItemModel',
     'ReferenceLinks',
     'ResourceRef',
