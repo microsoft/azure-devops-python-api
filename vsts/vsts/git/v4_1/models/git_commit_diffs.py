@@ -23,7 +23,7 @@ class GitCommitDiffs(Model):
     :param change_counts:
     :type change_counts: dict
     :param changes:
-    :type changes: list of :class:`GitChange <git.v4_1.models.GitChange>`
+    :type changes: list of :class:`object <git.v4_1.models.object>`
     :param common_commit:
     :type common_commit: str
     :param target_commit:
@@ -36,7 +36,7 @@ class GitCommitDiffs(Model):
         'base_commit': {'key': 'baseCommit', 'type': 'str'},
         'behind_count': {'key': 'behindCount', 'type': 'int'},
         'change_counts': {'key': 'changeCounts', 'type': '{int}'},
-        'changes': {'key': 'changes', 'type': '[GitChange]'},
+        'changes': {'key': 'changes', 'type': '[object]'},
         'common_commit': {'key': 'commonCommit', 'type': 'str'},
         'target_commit': {'key': 'targetCommit', 'type': 'str'}
     }

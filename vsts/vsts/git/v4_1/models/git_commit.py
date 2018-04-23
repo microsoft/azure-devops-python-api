@@ -19,7 +19,7 @@ class GitCommit(GitCommitRef):
     :param change_counts: Counts of the types of changes (edits, deletes, etc.) included with the commit.
     :type change_counts: dict
     :param changes: An enumeration of the changes included with the commit.
-    :type changes: list of :class:`GitChange <git.v4_1.models.GitChange>`
+    :type changes: list of :class:`object <git.v4_1.models.object>`
     :param comment: Comment or message of the commit.
     :type comment: str
     :param comment_truncated: Indicates if the comment is truncated from the full Git commit comment message.
@@ -48,7 +48,7 @@ class GitCommit(GitCommitRef):
         '_links': {'key': '_links', 'type': 'ReferenceLinks'},
         'author': {'key': 'author', 'type': 'GitUserDate'},
         'change_counts': {'key': 'changeCounts', 'type': '{int}'},
-        'changes': {'key': 'changes', 'type': '[GitChange]'},
+        'changes': {'key': 'changes', 'type': '[object]'},
         'comment': {'key': 'comment', 'type': 'str'},
         'comment_truncated': {'key': 'commentTruncated', 'type': 'bool'},
         'commit_id': {'key': 'commitId', 'type': 'str'},
