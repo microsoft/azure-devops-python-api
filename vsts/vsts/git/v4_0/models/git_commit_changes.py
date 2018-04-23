@@ -15,12 +15,12 @@ class GitCommitChanges(Model):
     :param change_counts:
     :type change_counts: dict
     :param changes:
-    :type changes: list of :class:`GitChange <git.v4_0.models.GitChange>`
+    :type changes: list of :class:`object <git.v4_0.models.object>`
     """
 
     _attribute_map = {
         'change_counts': {'key': 'changeCounts', 'type': '{int}'},
-        'changes': {'key': 'changes', 'type': '[GitChange]'}
+        'changes': {'key': 'changes', 'type': '[object]'}
     }
 
     def __init__(self, change_counts=None, changes=None):
