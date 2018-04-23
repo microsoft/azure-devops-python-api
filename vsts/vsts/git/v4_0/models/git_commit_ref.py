@@ -19,7 +19,7 @@ class GitCommitRef(Model):
     :param change_counts:
     :type change_counts: dict
     :param changes:
-    :type changes: list of :class:`GitChange <git.v4_0.models.GitChange>`
+    :type changes: list of :class:`object <git.v4_0.models.object>`
     :param comment:
     :type comment: str
     :param comment_truncated:
@@ -44,7 +44,7 @@ class GitCommitRef(Model):
         '_links': {'key': '_links', 'type': 'ReferenceLinks'},
         'author': {'key': 'author', 'type': 'GitUserDate'},
         'change_counts': {'key': 'changeCounts', 'type': '{int}'},
-        'changes': {'key': 'changes', 'type': '[GitChange]'},
+        'changes': {'key': 'changes', 'type': '[object]'},
         'comment': {'key': 'comment', 'type': 'str'},
         'comment_truncated': {'key': 'commentTruncated', 'type': 'bool'},
         'commit_id': {'key': 'commitId', 'type': 'str'},
