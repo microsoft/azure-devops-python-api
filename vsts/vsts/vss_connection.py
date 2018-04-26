@@ -77,14 +77,14 @@ class VssConnection(object):
             location_client = LocationClient(self.base_url, self._creds)
             if not force and RESOURCE_FILE_CACHE[location_client.normalized_url]:
                 try:
-                    logging.info('File cache hit for resources on: %s', location_client.normalized_url)
+                    logging.debug('File cache hit for resources on: %s', location_client.normalized_url)
                     self._resource_areas = location_client._base_deserialize.deserialize_data(RESOURCE_FILE_CACHE[location_client.normalized_url],
                                                                                               '[ResourceAreaInfo]')
                     return self._resource_areas
                 except Exception as ex:
                     logging.exception(str(ex))
             elif not force:
-                logging.info('File cache miss for resources on: %s', location_client.normalized_url)
+                logging.debug('File cache miss for resources on: %s', location_client.normalized_url)
             self._resource_areas = location_client.get_resource_areas()
             if self._resource_areas is None:
                 # For OnPrem environments we get an empty collection wrapper.
