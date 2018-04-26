@@ -6,9 +6,10 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
+from msrest.serialization import Model
 
 
-class DataSourceBindingBase(BaseSecuredObject):
+class DataSourceBindingBase(Model):
     """DataSourceBindingBase.
 
     :param data_source_name: Gets or sets the name of the data source.
