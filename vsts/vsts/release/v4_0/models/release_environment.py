@@ -67,7 +67,7 @@ class ReleaseEnvironment(Model):
     :param status: Gets environment status.
     :type status: object
     :param time_to_deploy: Gets time to deploy.
-    :type time_to_deploy: number
+    :type time_to_deploy: float
     :param trigger_reason: Gets trigger reason.
     :type trigger_reason: str
     :param variables: Gets the dictionary of variables.
@@ -104,7 +104,7 @@ class ReleaseEnvironment(Model):
         'scheduled_deployment_time': {'key': 'scheduledDeploymentTime', 'type': 'iso-8601'},
         'schedules': {'key': 'schedules', 'type': '[ReleaseSchedule]'},
         'status': {'key': 'status', 'type': 'object'},
-        'time_to_deploy': {'key': 'timeToDeploy', 'type': 'number'},
+        'time_to_deploy': {'key': 'timeToDeploy', 'type': 'float'},
         'trigger_reason': {'key': 'triggerReason', 'type': 'str'},
         'variables': {'key': 'variables', 'type': '{ConfigurationVariableValue}'},
         'workflow_tasks': {'key': 'workflowTasks', 'type': '[WorkflowTask]'}

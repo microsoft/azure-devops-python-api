@@ -13,7 +13,7 @@ class ResolvedDataProvider(Model):
     """ResolvedDataProvider.
 
     :param duration: The total time the data provider took to resolve its data (in milliseconds)
-    :type duration: number
+    :type duration: int
     :param error:
     :type error: str
     :param id:
@@ -21,7 +21,7 @@ class ResolvedDataProvider(Model):
     """
 
     _attribute_map = {
-        'duration': {'key': 'duration', 'type': 'number'},
+        'duration': {'key': 'duration', 'type': 'int'},
         'error': {'key': 'error', 'type': 'str'},
         'id': {'key': 'id', 'type': 'str'}
     }
