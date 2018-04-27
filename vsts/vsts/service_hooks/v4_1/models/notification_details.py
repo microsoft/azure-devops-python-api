@@ -43,7 +43,7 @@ class NotificationDetails(Model):
     :param request_attempts: Number of requests attempted to be sent to the consumer
     :type request_attempts: int
     :param request_duration: Duration of the request to the consumer in seconds
-    :type request_duration: number
+    :type request_duration: float
     :param response: Gets or sets this notification detail's reponse.
     :type response: str
     """
@@ -64,7 +64,7 @@ class NotificationDetails(Model):
         'queued_date': {'key': 'queuedDate', 'type': 'iso-8601'},
         'request': {'key': 'request', 'type': 'str'},
         'request_attempts': {'key': 'requestAttempts', 'type': 'int'},
-        'request_duration': {'key': 'requestDuration', 'type': 'number'},
+        'request_duration': {'key': 'requestDuration', 'type': 'float'},
         'response': {'key': 'response', 'type': 'str'}
     }
 

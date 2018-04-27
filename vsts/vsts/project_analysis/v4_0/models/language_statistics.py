@@ -15,24 +15,24 @@ class LanguageStatistics(Model):
     :param bytes:
     :type bytes: long
     :param bytes_percentage:
-    :type bytes_percentage: number
+    :type bytes_percentage: float
     :param files:
     :type files: int
     :param files_percentage:
-    :type files_percentage: number
+    :type files_percentage: float
     :param name:
     :type name: str
     :param weighted_bytes_percentage:
-    :type weighted_bytes_percentage: number
+    :type weighted_bytes_percentage: float
     """
 
     _attribute_map = {
         'bytes': {'key': 'bytes', 'type': 'long'},
-        'bytes_percentage': {'key': 'bytesPercentage', 'type': 'number'},
+        'bytes_percentage': {'key': 'bytesPercentage', 'type': 'float'},
         'files': {'key': 'files', 'type': 'int'},
-        'files_percentage': {'key': 'filesPercentage', 'type': 'number'},
+        'files_percentage': {'key': 'filesPercentage', 'type': 'float'},
         'name': {'key': 'name', 'type': 'str'},
-        'weighted_bytes_percentage': {'key': 'weightedBytesPercentage', 'type': 'number'}
+        'weighted_bytes_percentage': {'key': 'weightedBytesPercentage', 'type': 'float'}
     }
 
     def __init__(self, bytes=None, bytes_percentage=None, files=None, files_percentage=None, name=None, weighted_bytes_percentage=None):
