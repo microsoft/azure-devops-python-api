@@ -29,7 +29,7 @@ class InstalledExtension(ExtensionManifest):
     :param licensing: How this extension behaves with respect to licensing
     :type licensing: :class:`ExtensionLicensing <extension-management.v4_0.models.ExtensionLicensing>`
     :param manifest_version: Version of the extension manifest format/content
-    :type manifest_version: number
+    :type manifest_version: float
     :param scopes: List of all oauth scopes required by this extension
     :type scopes: list of str
     :param service_instance_type: The ServiceInstanceType(Guid) of the VSTS service that must be available to an account in order for the extension to be installed
@@ -65,7 +65,7 @@ class InstalledExtension(ExtensionManifest):
         'fallback_base_uri': {'key': 'fallbackBaseUri', 'type': 'str'},
         'language': {'key': 'language', 'type': 'str'},
         'licensing': {'key': 'licensing', 'type': 'ExtensionLicensing'},
-        'manifest_version': {'key': 'manifestVersion', 'type': 'number'},
+        'manifest_version': {'key': 'manifestVersion', 'type': 'float'},
         'scopes': {'key': 'scopes', 'type': '[str]'},
         'service_instance_type': {'key': 'serviceInstanceType', 'type': 'str'},
         'extension_id': {'key': 'extensionId', 'type': 'str'},

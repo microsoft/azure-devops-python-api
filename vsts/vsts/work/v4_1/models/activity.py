@@ -13,13 +13,13 @@ class Activity(Model):
     """Activity.
 
     :param capacity_per_day:
-    :type capacity_per_day: number
+    :type capacity_per_day: int
     :param name:
     :type name: str
     """
 
     _attribute_map = {
-        'capacity_per_day': {'key': 'capacityPerDay', 'type': 'number'},
+        'capacity_per_day': {'key': 'capacityPerDay', 'type': 'int'},
         'name': {'key': 'name', 'type': 'str'}
     }
 

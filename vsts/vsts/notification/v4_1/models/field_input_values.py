@@ -27,7 +27,7 @@ class FieldInputValues(InputValues):
     :param possible_values: Possible values that this input can take
     :type possible_values: list of :class:`InputValue <notification.v4_1.models.InputValue>`
     :param operators:
-    :type operators: list of number
+    :type operators: list of int
     """
 
     _attribute_map = {
@@ -38,7 +38,7 @@ class FieldInputValues(InputValues):
         'is_limited_to_possible_values': {'key': 'isLimitedToPossibleValues', 'type': 'bool'},
         'is_read_only': {'key': 'isReadOnly', 'type': 'bool'},
         'possible_values': {'key': 'possibleValues', 'type': '[InputValue]'},
-        'operators': {'key': 'operators', 'type': '[number]'}
+        'operators': {'key': 'operators', 'type': '[int]'}
     }
 
     def __init__(self, default_value=None, error=None, input_id=None, is_disabled=None, is_limited_to_possible_values=None, is_read_only=None, possible_values=None, operators=None):

@@ -13,7 +13,7 @@ class EventCounts(Model):
     """EventCounts.
 
     :param average_rating: Average rating on the day for extension
-    :type average_rating: number
+    :type average_rating: int
     :param buy_count: Number of times the extension was bought in hosted scenario (applies only to VSTS extensions)
     :type buy_count: int
     :param connected_buy_count: Number of times the extension was bought in connected scenario (applies only to VSTS extensions)
@@ -33,7 +33,7 @@ class EventCounts(Model):
     """
 
     _attribute_map = {
-        'average_rating': {'key': 'averageRating', 'type': 'number'},
+        'average_rating': {'key': 'averageRating', 'type': 'int'},
         'buy_count': {'key': 'buyCount', 'type': 'int'},
         'connected_buy_count': {'key': 'connectedBuyCount', 'type': 'int'},
         'connected_install_count': {'key': 'connectedInstallCount', 'type': 'int'},

@@ -19,7 +19,7 @@ class GitAsyncRefOperationDetail(Model):
     :param failure_message:
     :type failure_message: str
     :param progress:
-    :type progress: number
+    :type progress: float
     :param status:
     :type status: object
     :param timedout:
@@ -30,7 +30,7 @@ class GitAsyncRefOperationDetail(Model):
         'conflict': {'key': 'conflict', 'type': 'bool'},
         'current_commit_id': {'key': 'currentCommitId', 'type': 'str'},
         'failure_message': {'key': 'failureMessage', 'type': 'str'},
-        'progress': {'key': 'progress', 'type': 'number'},
+        'progress': {'key': 'progress', 'type': 'float'},
         'status': {'key': 'status', 'type': 'object'},
         'timedout': {'key': 'timedout', 'type': 'bool'}
     }

@@ -37,7 +37,7 @@ class Subscription(Model):
     :param modified_date:
     :type modified_date: datetime
     :param probation_retries:
-    :type probation_retries: number
+    :type probation_retries: int
     :param publisher_id:
     :type publisher_id: str
     :param publisher_inputs: Publisher input values
@@ -65,7 +65,7 @@ class Subscription(Model):
         'id': {'key': 'id', 'type': 'str'},
         'modified_by': {'key': 'modifiedBy', 'type': 'IdentityRef'},
         'modified_date': {'key': 'modifiedDate', 'type': 'iso-8601'},
-        'probation_retries': {'key': 'probationRetries', 'type': 'number'},
+        'probation_retries': {'key': 'probationRetries', 'type': 'int'},
         'publisher_id': {'key': 'publisherId', 'type': 'str'},
         'publisher_inputs': {'key': 'publisherInputs', 'type': '{str}'},
         'resource_version': {'key': 'resourceVersion', 'type': 'str'},

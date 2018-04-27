@@ -23,9 +23,9 @@ class LanguageStatistics(LanguageMetricsSecuredObject):
     :param files:
     :type files: int
     :param files_percentage:
-    :type files_percentage: number
+    :type files_percentage: float
     :param language_percentage:
-    :type language_percentage: number
+    :type language_percentage: float
     :param name:
     :type name: str
     """
@@ -36,8 +36,8 @@ class LanguageStatistics(LanguageMetricsSecuredObject):
         'required_permissions': {'key': 'requiredPermissions', 'type': 'int'},
         'bytes': {'key': 'bytes', 'type': 'long'},
         'files': {'key': 'files', 'type': 'int'},
-        'files_percentage': {'key': 'filesPercentage', 'type': 'number'},
-        'language_percentage': {'key': 'languagePercentage', 'type': 'number'},
+        'files_percentage': {'key': 'filesPercentage', 'type': 'float'},
+        'language_percentage': {'key': 'languagePercentage', 'type': 'float'},
         'name': {'key': 'name', 'type': 'str'}
     }
 

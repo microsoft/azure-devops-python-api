@@ -45,7 +45,7 @@ class TestCaseResult(Model):
     :param custom_fields:
     :type custom_fields: list of :class:`CustomTestField <test.v4_0.models.CustomTestField>`
     :param duration_in_ms:
-    :type duration_in_ms: number
+    :type duration_in_ms: float
     :param error_message:
     :type error_message: str
     :param failing_since:
@@ -123,7 +123,7 @@ class TestCaseResult(Model):
         'configuration': {'key': 'configuration', 'type': 'ShallowReference'},
         'created_date': {'key': 'createdDate', 'type': 'iso-8601'},
         'custom_fields': {'key': 'customFields', 'type': '[CustomTestField]'},
-        'duration_in_ms': {'key': 'durationInMs', 'type': 'number'},
+        'duration_in_ms': {'key': 'durationInMs', 'type': 'float'},
         'error_message': {'key': 'errorMessage', 'type': 'str'},
         'failing_since': {'key': 'failingSince', 'type': 'FailingSince'},
         'failure_type': {'key': 'failureType', 'type': 'str'},
