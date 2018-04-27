@@ -15,12 +15,12 @@ class ExtensionStatistic(Model):
     :param statistic_name:
     :type statistic_name: str
     :param value:
-    :type value: number
+    :type value: float
     """
 
     _attribute_map = {
         'statistic_name': {'key': 'statisticName', 'type': 'str'},
-        'value': {'key': 'value', 'type': 'number'}
+        'value': {'key': 'value', 'type': 'float'}
     }
 
     def __init__(self, statistic_name=None, value=None):

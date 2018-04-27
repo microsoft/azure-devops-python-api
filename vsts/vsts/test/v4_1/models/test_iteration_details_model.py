@@ -21,7 +21,7 @@ class TestIterationDetailsModel(Model):
     :param completed_date:
     :type completed_date: datetime
     :param duration_in_ms:
-    :type duration_in_ms: number
+    :type duration_in_ms: float
     :param error_message:
     :type error_message: str
     :param id:
@@ -41,7 +41,7 @@ class TestIterationDetailsModel(Model):
         'attachments': {'key': 'attachments', 'type': '[TestCaseResultAttachmentModel]'},
         'comment': {'key': 'comment', 'type': 'str'},
         'completed_date': {'key': 'completedDate', 'type': 'iso-8601'},
-        'duration_in_ms': {'key': 'durationInMs', 'type': 'number'},
+        'duration_in_ms': {'key': 'durationInMs', 'type': 'float'},
         'error_message': {'key': 'errorMessage', 'type': 'str'},
         'id': {'key': 'id', 'type': 'int'},
         'outcome': {'key': 'outcome', 'type': 'str'},

@@ -19,7 +19,7 @@ class GitAsyncRefOperationDetail(Model):
     :param failure_message: Detailed information about why the cherry pick or revert failed to complete.
     :type failure_message: str
     :param progress: A number between 0 and 1 indicating the percent complete of the operation.
-    :type progress: number
+    :type progress: float
     :param status: Provides a status code that indicates the reason the cherry pick or revert failed.
     :type status: object
     :param timedout: Indicates if the operation went beyond the maximum time allowed for a cherry pick or revert operation.
@@ -30,7 +30,7 @@ class GitAsyncRefOperationDetail(Model):
         'conflict': {'key': 'conflict', 'type': 'bool'},
         'current_commit_id': {'key': 'currentCommitId', 'type': 'str'},
         'failure_message': {'key': 'failureMessage', 'type': 'str'},
-        'progress': {'key': 'progress', 'type': 'number'},
+        'progress': {'key': 'progress', 'type': 'float'},
         'status': {'key': 'status', 'type': 'object'},
         'timedout': {'key': 'timedout', 'type': 'bool'}
     }
