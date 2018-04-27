@@ -13,7 +13,7 @@ class ReviewSummary(Model):
     """ReviewSummary.
 
     :param average_rating: Average Rating
-    :type average_rating: number
+    :type average_rating: int
     :param rating_count: Count of total ratings
     :type rating_count: long
     :param rating_split: Split of count accross rating
@@ -21,7 +21,7 @@ class ReviewSummary(Model):
     """
 
     _attribute_map = {
-        'average_rating': {'key': 'averageRating', 'type': 'number'},
+        'average_rating': {'key': 'averageRating', 'type': 'int'},
         'rating_count': {'key': 'ratingCount', 'type': 'long'},
         'rating_split': {'key': 'ratingSplit', 'type': '[RatingCountPerRating]'}
     }

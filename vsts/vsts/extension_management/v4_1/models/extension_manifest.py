@@ -31,7 +31,7 @@ class ExtensionManifest(Model):
     :param licensing: How this extension behaves with respect to licensing
     :type licensing: :class:`ExtensionLicensing <extension-management.v4_1.models.ExtensionLicensing>`
     :param manifest_version: Version of the extension manifest format/content
-    :type manifest_version: number
+    :type manifest_version: float
     :param restricted_to: Default user claims applied to all contributions (except the ones which have been speficied restrictedTo explicitly) to control the visibility of a contribution.
     :type restricted_to: list of str
     :param scopes: List of all oauth scopes required by this extension
@@ -50,7 +50,7 @@ class ExtensionManifest(Model):
         'fallback_base_uri': {'key': 'fallbackBaseUri', 'type': 'str'},
         'language': {'key': 'language', 'type': 'str'},
         'licensing': {'key': 'licensing', 'type': 'ExtensionLicensing'},
-        'manifest_version': {'key': 'manifestVersion', 'type': 'number'},
+        'manifest_version': {'key': 'manifestVersion', 'type': 'float'},
         'restricted_to': {'key': 'restrictedTo', 'type': '[str]'},
         'scopes': {'key': 'scopes', 'type': '[str]'},
         'service_instance_type': {'key': 'serviceInstanceType', 'type': 'str'}

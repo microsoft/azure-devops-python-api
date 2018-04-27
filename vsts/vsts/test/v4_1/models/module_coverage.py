@@ -15,7 +15,7 @@ class ModuleCoverage(Model):
     :param block_count:
     :type block_count: int
     :param block_data:
-    :type block_data: list of number
+    :type block_data: list of int
     :param functions:
     :type functions: list of :class:`FunctionCoverage <test.v4_1.models.FunctionCoverage>`
     :param name:
@@ -30,7 +30,7 @@ class ModuleCoverage(Model):
 
     _attribute_map = {
         'block_count': {'key': 'blockCount', 'type': 'int'},
-        'block_data': {'key': 'blockData', 'type': '[number]'},
+        'block_data': {'key': 'blockData', 'type': '[int]'},
         'functions': {'key': 'functions', 'type': '[FunctionCoverage]'},
         'name': {'key': 'name', 'type': 'str'},
         'signature': {'key': 'signature', 'type': 'str'},

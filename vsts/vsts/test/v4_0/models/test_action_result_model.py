@@ -17,7 +17,7 @@ class TestActionResultModel(TestResultModelBase):
     :param completed_date:
     :type completed_date: datetime
     :param duration_in_ms:
-    :type duration_in_ms: number
+    :type duration_in_ms: float
     :param error_message:
     :type error_message: str
     :param outcome:
@@ -39,7 +39,7 @@ class TestActionResultModel(TestResultModelBase):
     _attribute_map = {
         'comment': {'key': 'comment', 'type': 'str'},
         'completed_date': {'key': 'completedDate', 'type': 'iso-8601'},
-        'duration_in_ms': {'key': 'durationInMs', 'type': 'number'},
+        'duration_in_ms': {'key': 'durationInMs', 'type': 'float'},
         'error_message': {'key': 'errorMessage', 'type': 'str'},
         'outcome': {'key': 'outcome', 'type': 'str'},
         'started_date': {'key': 'startedDate', 'type': 'iso-8601'},

@@ -15,7 +15,7 @@ class CodeCoverageStatistics(Model):
     :param covered: Covered units
     :type covered: int
     :param delta: Delta of coverage
-    :type delta: number
+    :type delta: float
     :param is_delta_available: Is delta valid
     :type is_delta_available: bool
     :param label: Label of coverage data ("Blocks", "Statements", "Modules", etc.)
@@ -28,7 +28,7 @@ class CodeCoverageStatistics(Model):
 
     _attribute_map = {
         'covered': {'key': 'covered', 'type': 'int'},
-        'delta': {'key': 'delta', 'type': 'number'},
+        'delta': {'key': 'delta', 'type': 'float'},
         'is_delta_available': {'key': 'isDeltaAvailable', 'type': 'bool'},
         'label': {'key': 'label', 'type': 'str'},
         'position': {'key': 'position', 'type': 'int'},

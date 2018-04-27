@@ -50,8 +50,11 @@ class VssClient(object):
         """
         if TRACE_ENV_VAR in os.environ and os.environ[TRACE_ENV_VAR] == 'true':
             print(request.method + ' ' + request.url)
+        logging.debug('%s %s', request.method, request.url)
+        logging.debug('Request content: %s', content)
         response = self._client.send(request=request, headers=headers,
                                      content=content, **operation_config)
+        logging.debug('Response content: %s', response.content)
         if response.status_code < 200 or response.status_code >= 300:
             self._handle_error(request, response)
         return response
@@ -66,6 +69,14 @@ class VssClient(object):
         negotiated_version = self._negotiate_request_version(
             self._get_resource_location(location_id),
             version)
+
+        if version != negotiated_version:
+            logging.info("Negotiated api version from '%s' down to '%s'. This means the client is newer than the server.",
+                         version,
+                         negotiated_version)
+        else:
+            logging.debug("Api version '%s'", negotiated_version)
+
         # Construct headers
         headers = {'Content-Type': media_type + '; charset=utf-8',
                    'Accept': 'application/json;api-version=' + negotiated_version}
@@ -139,14 +150,14 @@ class VssClient(object):
         # Next check for options cached on disk
         if not all_host_types and OPTIONS_FILE_CACHE[self.normalized_url]:
             try:
-                logging.info('File cache hit for options on: %s', self.normalized_url)
+                logging.debug('File cache hit for options on: %s', self.normalized_url)
                 self._locations = self._base_deserialize.deserialize_data(OPTIONS_FILE_CACHE[self.normalized_url],
                                                                           '[ApiResourceLocation]')
                 return self._locations
             except DeserializationError as ex:
                 logging.exception(str(ex))
         else:
-            logging.info('File cache miss for options on: %s', self.normalized_url)
+            logging.debug('File cache miss for options on: %s', self.normalized_url)
 
         # Last resort, make the call to the server
         options_uri = self._combine_url(self.config.base_url, '_apis')

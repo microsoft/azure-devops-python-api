@@ -13,14 +13,14 @@ class PublicKey(Model):
     """PublicKey.
 
     :param exponent: Gets or sets the exponent for the public key.
-    :type exponent: list of number
+    :type exponent: list of int
     :param modulus: Gets or sets the modulus for the public key.
-    :type modulus: list of number
+    :type modulus: list of int
     """
 
     _attribute_map = {
-        'exponent': {'key': 'exponent', 'type': '[number]'},
-        'modulus': {'key': 'modulus', 'type': '[number]'}
+        'exponent': {'key': 'exponent', 'type': '[int]'},
+        'modulus': {'key': 'modulus', 'type': '[int]'}
     }
 
     def __init__(self, exponent=None, modulus=None):
