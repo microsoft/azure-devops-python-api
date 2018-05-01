@@ -17,7 +17,7 @@ class ReleaseDefinitionEnvironment(Model):
     :param demands:
     :type demands: list of :class:`object <release.v4_0.models.object>`
     :param deploy_phases:
-    :type deploy_phases: list of :class:`DeployPhase <release.v4_0.models.DeployPhase>`
+    :type deploy_phases: list of :class:`object <release.v4_0.models.object>`
     :param deploy_step:
     :type deploy_step: :class:`ReleaseDefinitionDeployStep <release.v4_0.models.ReleaseDefinitionDeployStep>`
     :param environment_options:
@@ -55,7 +55,7 @@ class ReleaseDefinitionEnvironment(Model):
     _attribute_map = {
         'conditions': {'key': 'conditions', 'type': '[Condition]'},
         'demands': {'key': 'demands', 'type': '[object]'},
-        'deploy_phases': {'key': 'deployPhases', 'type': '[DeployPhase]'},
+        'deploy_phases': {'key': 'deployPhases', 'type': '[object]'},
         'deploy_step': {'key': 'deployStep', 'type': 'ReleaseDefinitionDeployStep'},
         'environment_options': {'key': 'environmentOptions', 'type': 'EnvironmentOptions'},
         'execution_policy': {'key': 'executionPolicy', 'type': 'EnvironmentExecutionPolicy'},
