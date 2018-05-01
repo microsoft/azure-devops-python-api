@@ -26,7 +26,6 @@ from .deployment import Deployment
 from .deployment_attempt import DeploymentAttempt
 from .deployment_job import DeploymentJob
 from .deployment_query_parameters import DeploymentQueryParameters
-from .deploy_phase import DeployPhase
 from .email_recipients import EmailRecipients
 from .environment_execution_policy import EnvironmentExecutionPolicy
 from .environment_options import EnvironmentOptions
@@ -119,7 +118,6 @@ __all__ = [
     'DeploymentAttempt',
     'DeploymentJob',
     'DeploymentQueryParameters',
-    'DeployPhase',
     'EmailRecipients',
     'EnvironmentExecutionPolicy',
     'EnvironmentOptions',
