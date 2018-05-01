@@ -21,7 +21,7 @@ class ReleaseEnvironment(Model):
     :param demands: Gets demands.
     :type demands: list of :class:`object <release.v4_1.models.object>`
     :param deploy_phases_snapshot: Gets list of deploy phases snapshot.
-    :type deploy_phases_snapshot: list of :class:`DeployPhase <release.v4_1.models.DeployPhase>`
+    :type deploy_phases_snapshot: list of :class:`object <release.v4_1.models.object>`
     :param deploy_steps: Gets deploy steps.
     :type deploy_steps: list of :class:`DeploymentAttempt <release.v4_1.models.DeploymentAttempt>`
     :param environment_options: Gets environment options.
@@ -87,7 +87,7 @@ class ReleaseEnvironment(Model):
         'created_on': {'key': 'createdOn', 'type': 'iso-8601'},
         'definition_environment_id': {'key': 'definitionEnvironmentId', 'type': 'int'},
         'demands': {'key': 'demands', 'type': '[object]'},
-        'deploy_phases_snapshot': {'key': 'deployPhasesSnapshot', 'type': '[DeployPhase]'},
+        'deploy_phases_snapshot': {'key': 'deployPhasesSnapshot', 'type': '[object]'},
         'deploy_steps': {'key': 'deploySteps', 'type': '[DeploymentAttempt]'},
         'environment_options': {'key': 'environmentOptions', 'type': 'EnvironmentOptions'},
         'id': {'key': 'id', 'type': 'int'},
