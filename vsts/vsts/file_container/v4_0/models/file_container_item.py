@@ -15,7 +15,7 @@ class FileContainerItem(Model):
     :param container_id: Container Id.
     :type container_id: long
     :param content_id:
-    :type content_id: list of int
+    :type content_id: str
     :param content_location: Download Url for the content of this item.
     :type content_location: str
     :param created_by: Creator.
@@ -27,7 +27,7 @@ class FileContainerItem(Model):
     :param file_encoding: Encoding of the file. Zero if not a file.
     :type file_encoding: int
     :param file_hash: Hash value of the file. Null if not a file.
-    :type file_hash: list of int
+    :type file_hash: str
     :param file_id: Id of the file content.
     :type file_id: int
     :param file_length: Length of the file. Zero if not of a file.
@@ -52,13 +52,13 @@ class FileContainerItem(Model):
 
     _attribute_map = {
         'container_id': {'key': 'containerId', 'type': 'long'},
-        'content_id': {'key': 'contentId', 'type': '[int]'},
+        'content_id': {'key': 'contentId', 'type': 'str'},
         'content_location': {'key': 'contentLocation', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'str'},
         'date_created': {'key': 'dateCreated', 'type': 'iso-8601'},
         'date_last_modified': {'key': 'dateLastModified', 'type': 'iso-8601'},
         'file_encoding': {'key': 'fileEncoding', 'type': 'int'},
-        'file_hash': {'key': 'fileHash', 'type': '[int]'},
+        'file_hash': {'key': 'fileHash', 'type': 'str'},
         'file_id': {'key': 'fileId', 'type': 'int'},
         'file_length': {'key': 'fileLength', 'type': 'long'},
         'file_type': {'key': 'fileType', 'type': 'int'},
