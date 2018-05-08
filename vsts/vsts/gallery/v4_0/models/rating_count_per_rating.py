@@ -13,13 +13,13 @@ class RatingCountPerRating(Model):
     """RatingCountPerRating.
 
     :param rating: Rating value
-    :type rating: int
+    :type rating: str
     :param rating_count: Count of total ratings
     :type rating_count: long
     """
 
     _attribute_map = {
-        'rating': {'key': 'rating', 'type': 'int'},
+        'rating': {'key': 'rating', 'type': 'str'},
         'rating_count': {'key': 'ratingCount', 'type': 'long'}
     }
 

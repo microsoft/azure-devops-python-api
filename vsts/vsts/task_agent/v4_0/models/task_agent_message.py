@@ -15,7 +15,7 @@ class TaskAgentMessage(Model):
     :param body: Gets or sets the body of the message. If the <c>IV</c> property is provided the body will need to be decrypted using the <c>TaskAgentSession.EncryptionKey</c> value in addition to the <c>IV</c>.
     :type body: str
     :param iV: Gets or sets the intialization vector used to encrypt this message.
-    :type iV: list of int
+    :type iV: str
     :param message_id: Gets or sets the message identifier.
     :type message_id: long
     :param message_type: Gets or sets the message type, describing the data contract found in <c>TaskAgentMessage.Body</c>.
@@ -24,7 +24,7 @@ class TaskAgentMessage(Model):
 
     _attribute_map = {
         'body': {'key': 'body', 'type': 'str'},
-        'iV': {'key': 'iV', 'type': '[int]'},
+        'iV': {'key': 'iV', 'type': 'str'},
         'message_id': {'key': 'messageId', 'type': 'long'},
         'message_type': {'key': 'messageType', 'type': 'str'}
     }
