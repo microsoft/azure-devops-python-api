@@ -23,7 +23,7 @@ class Review(Model):
     :param product_version: Version of the product for which review was submitted
     :type product_version: str
     :param rating: Rating procided by the user
-    :type rating: int
+    :type rating: str
     :param reply: Reply, if any, for this review
     :type reply: :class:`ReviewReply <gallery.v4_1.models.ReviewReply>`
     :param text: Text description of the review
@@ -44,7 +44,7 @@ class Review(Model):
         'is_deleted': {'key': 'isDeleted', 'type': 'bool'},
         'is_ignored': {'key': 'isIgnored', 'type': 'bool'},
         'product_version': {'key': 'productVersion', 'type': 'str'},
-        'rating': {'key': 'rating', 'type': 'int'},
+        'rating': {'key': 'rating', 'type': 'str'},
         'reply': {'key': 'reply', 'type': 'ReviewReply'},
         'text': {'key': 'text', 'type': 'str'},
         'title': {'key': 'title', 'type': 'str'},

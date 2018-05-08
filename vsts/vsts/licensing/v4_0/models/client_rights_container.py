@@ -13,13 +13,13 @@ class ClientRightsContainer(Model):
     """ClientRightsContainer.
 
     :param certificate_bytes:
-    :type certificate_bytes: list of int
+    :type certificate_bytes: str
     :param token:
     :type token: str
     """
 
     _attribute_map = {
-        'certificate_bytes': {'key': 'certificateBytes', 'type': '[int]'},
+        'certificate_bytes': {'key': 'certificateBytes', 'type': 'str'},
         'token': {'key': 'token', 'type': 'str'}
     }
 
