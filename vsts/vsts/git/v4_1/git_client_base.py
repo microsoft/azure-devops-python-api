@@ -360,18 +360,18 @@ class GitClientBase(VssClient):
             query_parameters['$skip'] = self._serialize.query('skip', skip, 'int')
         if base_version_descriptor is not None:
             if base_version_descriptor.base_version_type is not None:
-                query_parameters['baseVersionDescriptor.baseVersionType'] = base_version_descriptor.base_version_type
+                query_parameters['baseVersionType'] = base_version_descriptor.base_version_type
             if base_version_descriptor.base_version is not None:
-                query_parameters['baseVersionDescriptor.baseVersion'] = base_version_descriptor.base_version
+                query_parameters['baseVersion'] = base_version_descriptor.base_version
             if base_version_descriptor.base_version_options is not None:
-                query_parameters['baseVersionDescriptor.baseVersionOptions'] = base_version_descriptor.base_version_options
+                query_parameters['baseVersionOptions'] = base_version_descriptor.base_version_options
         if target_version_descriptor is not None:
             if target_version_descriptor.target_version_type is not None:
-                query_parameters['targetVersionDescriptor.targetVersionType'] = target_version_descriptor.target_version_type
+                query_parameters['targetVersionType'] = target_version_descriptor.target_version_type
             if target_version_descriptor.target_version is not None:
-                query_parameters['targetVersionDescriptor.targetVersion'] = target_version_descriptor.target_version
+                query_parameters['targetVersion'] = target_version_descriptor.target_version
             if target_version_descriptor.target_version_options is not None:
-                query_parameters['targetVersionDescriptor.targetVersionOptions'] = target_version_descriptor.target_version_options
+                query_parameters['targetVersionOptions'] = target_version_descriptor.target_version_options
         response = self._send(http_method='GET',
                               location_id='615588d5-c0c7-4b88-88f8-e625306446e8',
                               version='4.1',
