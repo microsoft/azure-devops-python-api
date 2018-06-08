@@ -1747,6 +1747,7 @@ class TestClient(VssClient):
             route_values['suiteId'] = self._serialize.url('suite_id', suite_id, 'int')
         if test_case_ids is not None:
             route_values['testCaseIds'] = self._serialize.url('test_case_ids', test_case_ids, 'str')
+        route_values['action'] = 'TestCases'
         response = self._send(http_method='POST',
                               location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
                               version='4.0',
@@ -1771,6 +1772,7 @@ class TestClient(VssClient):
             route_values['suiteId'] = self._serialize.url('suite_id', suite_id, 'int')
         if test_case_ids is not None:
             route_values['testCaseIds'] = self._serialize.url('test_case_ids', test_case_ids, 'int')
+        route_values['action'] = 'TestCases'
         response = self._send(http_method='GET',
                               location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
                               version='4.0',
@@ -1791,6 +1793,7 @@ class TestClient(VssClient):
             route_values['planId'] = self._serialize.url('plan_id', plan_id, 'int')
         if suite_id is not None:
             route_values['suiteId'] = self._serialize.url('suite_id', suite_id, 'int')
+        route_values['action'] = 'TestCases'
         response = self._send(http_method='GET',
                               location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
                               version='4.0',
@@ -1814,6 +1817,7 @@ class TestClient(VssClient):
             route_values['suiteId'] = self._serialize.url('suite_id', suite_id, 'int')
         if test_case_ids is not None:
             route_values['testCaseIds'] = self._serialize.url('test_case_ids', test_case_ids, 'str')
+        route_values['action'] = 'TestCases'
         self._send(http_method='DELETE',
                    location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
                    version='4.0',
