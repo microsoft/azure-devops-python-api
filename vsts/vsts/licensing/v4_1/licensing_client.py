@@ -197,6 +197,7 @@ class LicensingClient(VssClient):
         :rtype: [AccountEntitlement]
         """
         route_values = {}
+        route_values['action'] = 'GetUsersEntitlements'
         content = self._serialize.body(user_ids, '[str]')
         response = self._send(http_method='POST',
                               location_id='cc3a0130-78ad-4a00-b1ca-49bef42f4656',
@@ -213,6 +214,7 @@ class LicensingClient(VssClient):
         :rtype: [AccountEntitlement]
         """
         route_values = {}
+        route_values['action'] = 'GetAvailableUsersEntitlements'
         content = self._serialize.body(user_ids, '[str]')
         response = self._send(http_method='POST',
                               location_id='cc3a0130-78ad-4a00-b1ca-49bef42f4656',
