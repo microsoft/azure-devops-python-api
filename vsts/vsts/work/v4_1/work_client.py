@@ -930,7 +930,7 @@ class WorkClient(VssClient):
         """GetTeamIterations.
         Get a team's iterations using timeframe filter
         :param :class:`<TeamContext> <work.v4_1.models.TeamContext>` team_context: The team context for the operation
-        :param str timeframe: A filter for which iterations are returned based on relative time
+        :param str timeframe: A filter for which iterations are returned based on relative time. Only Current is supported currently.
         :rtype: [TeamSettingsIteration]
         """
         project = None
