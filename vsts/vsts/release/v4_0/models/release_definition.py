@@ -51,7 +51,7 @@ class ReleaseDefinition(Model):
     :param tags: Gets or sets list of tags.
     :type tags: list of str
     :param triggers: Gets or sets the list of triggers.
-    :type triggers: list of :class:`ReleaseTriggerBase <release.v4_0.models.ReleaseTriggerBase>`
+    :type triggers: list of :class:`object <release.v4_0.models.object>`
     :param url: Gets url to access the release definition.
     :type url: str
     :param variable_groups: Gets or sets the list of variable groups.
@@ -80,7 +80,7 @@ class ReleaseDefinition(Model):
         'revision': {'key': 'revision', 'type': 'int'},
         'source': {'key': 'source', 'type': 'object'},
         'tags': {'key': 'tags', 'type': '[str]'},
-        'triggers': {'key': 'triggers', 'type': '[ReleaseTriggerBase]'},
+        'triggers': {'key': 'triggers', 'type': '[object]'},
         'url': {'key': 'url', 'type': 'str'},
         'variable_groups': {'key': 'variableGroups', 'type': '[int]'},
         'variables': {'key': 'variables', 'type': '{ConfigurationVariableValue}'}
