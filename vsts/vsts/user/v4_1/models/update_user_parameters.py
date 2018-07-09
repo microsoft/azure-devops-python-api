@@ -9,17 +9,17 @@
 from msrest.serialization import Model
 
 
-class ReleaseTriggerBase(Model):
-    """ReleaseTriggerBase.
+class UpdateUserParameters(Model):
+    """UpdateUserParameters.
 
-    :param trigger_type:
-    :type trigger_type: object
+    :param properties: The collection of properties to set.  See "User" for valid fields.
+    :type properties: :class:`object <user.v4_1.models.object>`
     """
 
     _attribute_map = {
-        'trigger_type': {'key': 'triggerType', 'type': 'object'}
+        'properties': {'key': 'properties', 'type': 'object'}
     }
 
-    def __init__(self, trigger_type=None):
-        super(ReleaseTriggerBase, self).__init__()
-        self.trigger_type = trigger_type
+    def __init__(self, properties=None):
+        super(UpdateUserParameters, self).__init__()
+        self.properties = properties

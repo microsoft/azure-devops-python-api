@@ -9,17 +9,17 @@
 from msrest.serialization import Model
 
 
-class ReleaseTriggerBase(Model):
-    """ReleaseTriggerBase.
+class ReferenceLinks(Model):
+    """ReferenceLinks.
 
-    :param trigger_type:
-    :type trigger_type: object
+    :param links: The readonly view of the links.  Because Reference links are readonly, we only want to expose them as read only.
+    :type links: dict
     """
 
     _attribute_map = {
-        'trigger_type': {'key': 'triggerType', 'type': 'object'}
+        'links': {'key': 'links', 'type': '{object}'}
     }
 
-    def __init__(self, trigger_type=None):
-        super(ReleaseTriggerBase, self).__init__()
-        self.trigger_type = trigger_type
+    def __init__(self, links=None):
+        super(ReferenceLinks, self).__init__()
+        self.links = links
