@@ -82,7 +82,6 @@ from .release_shallow_reference import ReleaseShallowReference
 from .release_start_metadata import ReleaseStartMetadata
 from .release_task import ReleaseTask
 from .release_task_attachment import ReleaseTaskAttachment
-from .release_trigger_base import ReleaseTriggerBase
 from .release_update_metadata import ReleaseUpdateMetadata
 from .release_work_item_ref import ReleaseWorkItemRef
 from .retention_policy import RetentionPolicy
@@ -174,7 +173,6 @@ __all__ = [
     'ReleaseStartMetadata',
     'ReleaseTask',
     'ReleaseTaskAttachment',
-    'ReleaseTriggerBase',
     'ReleaseUpdateMetadata',
     'ReleaseWorkItemRef',
     'RetentionPolicy',
