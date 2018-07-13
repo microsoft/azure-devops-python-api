@@ -23,7 +23,7 @@ class WikiClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = 'bf7d82a0-8aa5-4613-94ef-6172a5ea01f3'
 
     def get_page_text(self, project, wiki_identifier, path=None, recursion_level=None, version_descriptor=None, include_content=None):
         """GetPageText.

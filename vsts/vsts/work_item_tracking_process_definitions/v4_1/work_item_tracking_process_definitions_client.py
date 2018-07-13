@@ -23,7 +23,7 @@ class WorkItemTrackingClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = '5264459e-e5e0-4bd8-b118-0985e68a4ec5'
 
     def create_behavior(self, behavior, process_id):
         """CreateBehavior.
