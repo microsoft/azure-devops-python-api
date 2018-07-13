@@ -23,7 +23,7 @@ class CloudLoadTestClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = '7ae6d0a6-cda5-44cf-a261-28c392bed25c'
 
     def create_agent_group(self, group):
         """CreateAgentGroup.
