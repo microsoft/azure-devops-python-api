@@ -23,7 +23,7 @@ class MemberEntitlementManagementClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = '68ddce18-2501-45f1-a17b-7931a9922690'
 
     def add_group_entitlement(self, group_entitlement, rule_option=None):
         """AddGroupEntitlement.

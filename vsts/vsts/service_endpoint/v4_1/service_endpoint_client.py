@@ -23,7 +23,7 @@ class ServiceEndpointClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = '1814ab31-2f4f-4a9f-8761-f4d77dc5a5d7'
 
     def execute_service_endpoint_request(self, service_endpoint_request, project, endpoint_id):
         """ExecuteServiceEndpointRequest.
