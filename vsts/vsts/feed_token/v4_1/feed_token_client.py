@@ -8,7 +8,6 @@
 
 from msrest import Serializer, Deserializer
 from ...vss_client import VssClient
-from . import models
 
 
 class FeedTokenClient(VssClient):
@@ -19,9 +18,8 @@ class FeedTokenClient(VssClient):
 
     def __init__(self, base_url=None, creds=None):
         super(FeedTokenClient, self).__init__(base_url, creds)
-        client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
-        self._serialize = Serializer(client_models)
-        self._deserialize = Deserializer(client_models)
+        self._serialize = Serializer()
+        self._deserialize = Deserializer()
 
     resource_area_identifier = 'cdeb6c7d-6b25-4d6f-b664-c2e3ede202e8'
 
