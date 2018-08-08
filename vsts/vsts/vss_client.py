@@ -20,6 +20,9 @@ from . import models
 from ._file_cache import OPTIONS_CACHE as OPTIONS_FILE_CACHE
 
 
+logger = logging.getLogger(__name__)
+
+
 class VssClient(object):
     """VssClient.
     :param str base_url: Service URL
@@ -50,11 +53,11 @@ class VssClient(object):
         """
         if TRACE_ENV_VAR in os.environ and os.environ[TRACE_ENV_VAR] == 'true':
             print(request.method + ' ' + request.url)
-        logging.debug('%s %s', request.method, request.url)
-        logging.debug('Request content: %s', content)
+        logger.debug('%s %s', request.method, request.url)
+        logger.debug('Request content: %s', content)
         response = self._client.send(request=request, headers=headers,
                                      content=content, **operation_config)
-        logging.debug('Response content: %s', response.content)
+        logger.debug('Response content: %s', response.content)
         if response.status_code < 200 or response.status_code >= 300:
             self._handle_error(request, response)
         return response
@@ -71,11 +74,11 @@ class VssClient(object):
             version)
 
         if version != negotiated_version:
-            logging.info("Negotiated api version from '%s' down to '%s'. This means the client is newer than the server.",
-                         version,
-                         negotiated_version)
+            logger.info("Negotiated api version from '%s' down to '%s'. This means the client is newer than the server.",
+                        version,
+                        negotiated_version)
         else:
-            logging.debug("Api version '%s'", negotiated_version)
+            logger.debug("Api version '%s'", negotiated_version)
 
         # Construct headers
         headers = {'Content-Type': media_type + '; charset=utf-8',
@@ -112,7 +115,7 @@ class VssClient(object):
         route_values['resource'] = location.resource_name
         route_template = self._remove_optional_route_parameters(location.route_template,
                                                                 route_values)
-        logging.debug('Route template: %s', location.route_template)
+        logger.debug('Route template: %s', location.route_template)
         url = self._client.format_url(route_template, **route_values)
         request = ClientRequest()
         request.url = self._client.format_url(url)
@@ -150,14 +153,14 @@ class VssClient(object):
         # Next check for options cached on disk
         if not all_host_types and OPTIONS_FILE_CACHE[self.normalized_url]:
             try:
-                logging.debug('File cache hit for options on: %s', self.normalized_url)
+                logger.debug('File cache hit for options on: %s', self.normalized_url)
                 self._locations = self._base_deserialize.deserialize_data(OPTIONS_FILE_CACHE[self.normalized_url],
                                                                           '[ApiResourceLocation]')
                 return self._locations
             except DeserializationError as ex:
-                logging.exception(str(ex))
+                logger.debug(ex, exc_info=True)
         else:
-            logging.debug('File cache miss for options on: %s', self.normalized_url)
+            logger.debug('File cache miss for options on: %s', self.normalized_url)
 
         # Last resort, make the call to the server
         options_uri = self._combine_url(self.config.base_url, '_apis')
@@ -184,7 +187,7 @@ class VssClient(object):
             try:
                 OPTIONS_FILE_CACHE[self.normalized_url] = wrapper.value
             except SerializationError as ex:
-                logging.exception(str(ex))
+                logger.debug(ex, exc_info=True)
         return returned_locations
 
     @staticmethod
