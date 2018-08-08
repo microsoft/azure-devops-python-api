@@ -5,7 +5,6 @@
 
 from msrest.exceptions import (
     ClientException,
-    TokenExpiredError,
     ClientRequestError,
     AuthenticationError,
 )
