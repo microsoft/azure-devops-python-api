@@ -11,6 +11,8 @@ from .exceptions import VstsClientRequestError
 from .location.v4_0.location_client import LocationClient
 from .vss_client_configuration import VssClientConfiguration
 
+logger = logging.getLogger(__name__)
+
 
 class VssConnection(object):
     """VssConnection.
@@ -77,14 +79,14 @@ class VssConnection(object):
             location_client = LocationClient(self.base_url, self._creds)
             if not force and RESOURCE_FILE_CACHE[location_client.normalized_url]:
                 try:
-                    logging.debug('File cache hit for resources on: %s', location_client.normalized_url)
+                    logger.debug('File cache hit for resources on: %s', location_client.normalized_url)
                     self._resource_areas = location_client._base_deserialize.deserialize_data(RESOURCE_FILE_CACHE[location_client.normalized_url],
                                                                                               '[ResourceAreaInfo]')
                     return self._resource_areas
                 except Exception as ex:
-                    logging.exception(str(ex))
+                    logger.debug(ex, exc_info=True)
             elif not force:
-                logging.debug('File cache miss for resources on: %s', location_client.normalized_url)
+                logger.debug('File cache miss for resources on: %s', location_client.normalized_url)
             self._resource_areas = location_client.get_resource_areas()
             if self._resource_areas is None:
                 # For OnPrem environments we get an empty collection wrapper.
@@ -94,7 +96,7 @@ class VssConnection(object):
                                                                             '[ResourceAreaInfo]')
                 RESOURCE_FILE_CACHE[location_client.normalized_url] = serialized
             except Exception as ex:
-                logging.exception(str(ex))
+                logger.debug(ex, exc_info=True)
         return self._resource_areas
 
     @staticmethod
