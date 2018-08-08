@@ -14,6 +14,9 @@ except ImportError:
     import collections
 
 
+logger = logging.getLogger(__name__)
+
+
 class FileCache(collections.MutableMapping):
     """A simple dict-like class that is backed by a JSON file.
 
@@ -33,20 +36,20 @@ class FileCache(collections.MutableMapping):
         try:
             if os.path.isfile(self.file_name):
                 if self.max_age > 0 and os.stat(self.file_name).st_mtime + self.max_age < time.clock():
-                    logging.debug('Cache file expired: %s', file=self.file_name)
+                    logger.debug('Cache file expired: %s', file=self.file_name)
                     os.remove(self.file_name)
                 else:
-                    logging.debug('Loading cache file: %s', self.file_name)
+                    logger.debug('Loading cache file: %s', self.file_name)
                     self.data = get_file_json(self.file_name, throw_on_empty=False) or {}
             else:
-                logging.debug('Cache file does not exist: %s', self.file_name)
+                logger.debug('Cache file does not exist: %s', self.file_name)
         except Exception as ex:
-            logging.exception(ex)
+            logger.debug(ex, exc_info=True)
             # file is missing or corrupt so attempt to delete it
             try:
                 os.remove(self.file_name)
             except Exception as ex2:
-                logging.exception(ex2)
+                logger.debug(ex2, exc_info=True)
         self.initial_load_occurred = True
 
     def save(self):
@@ -71,10 +74,10 @@ class FileCache(collections.MutableMapping):
 
     def clear(self):
         if os.path.isfile(self.file_name):
-            logging.info("Deleting file: " + self.file_name)
+            logger.info("Deleting file: " + self.file_name)
             os.remove(self.file_name)
         else:
-            logging.info("File does not exist: " + self.file_name)
+            logger.info("File does not exist: " + self.file_name)
 
     def get(self, key, default=None):
         self._check_for_initial_load()
@@ -144,12 +147,12 @@ def read_file_content(file_path, allow_binary=False):
     for encoding in ['utf-8-sig', 'utf-8', 'utf-16', 'utf-16le', 'utf-16be']:
         try:
             with codecs_open(file_path, encoding=encoding) as f:
-                logging.debug("attempting to read file %s as %s", file_path, encoding)
+                logger.debug("attempting to read file %s as %s", file_path, encoding)
                 return f.read()
         except UnicodeDecodeError:
             if allow_binary:
                 with open(file_path, 'rb') as input_file:
-                    logging.debug("attempting to read file %s as binary", file_path)
+                    logger.debug("attempting to read file %s as binary", file_path)
                     return base64.b64encode(input_file.read()).decode("utf-8")
             else:
                 raise
