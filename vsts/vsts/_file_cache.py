@@ -35,7 +35,7 @@ class FileCache(collections.MutableMapping):
         self.data = {}
         try:
             if os.path.isfile(self.file_name):
-                if self.max_age > 0 and os.stat(self.file_name).st_mtime + self.max_age < time.clock():
+                if self.max_age > 0 and os.stat(self.file_name).st_mtime + self.max_age < time.time():
                     logger.debug('Cache file expired: %s', file=self.file_name)
                     os.remove(self.file_name)
                 else:
