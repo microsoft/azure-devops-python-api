@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -210,7 +210,7 @@ class CoreClient(VssClient):
 
     def get_projects(self, state_filter=None, top=None, skip=None, continuation_token=None):
         """GetProjects.
-        Get project references with the specified state
+        Get all projects in the organization that the authenticated user has access to.
         :param str state_filter: Filter on team projects in a specific team project state (default: WellFormed).
         :param int top:
         :param int skip:
@@ -235,7 +235,7 @@ class CoreClient(VssClient):
 
     def queue_create_project(self, project_to_create):
         """QueueCreateProject.
-        Queue a project creation.
+        Queues a project to be created. Use the [GetOperation](../../operations/operations/get) to periodically check for create project status.
         :param :class:`<TeamProject> <core.v4_1.models.TeamProject>` project_to_create: The project to create.
         :rtype: :class:`<OperationReference> <core.v4_1.models.OperationReference>`
         """
@@ -248,7 +248,7 @@ class CoreClient(VssClient):
 
     def queue_delete_project(self, project_id):
         """QueueDeleteProject.
-        Queue a project deletion.
+        Queues a project to be deleted. Use the [GetOperation](../../operations/operations/get) to periodically check for delete project status.
         :param str project_id: The project id of the project to delete.
         :rtype: :class:`<OperationReference> <core.v4_1.models.OperationReference>`
         """
