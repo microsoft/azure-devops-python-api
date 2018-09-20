@@ -654,11 +654,11 @@ class WorkItemTrackingClient(VssClient):
         project = None
         team = None
         if team_context is not None:
-            if team_context.projectId:
+            if team_context.project_id:
                 project = team_context.project_id
             else:
                 project = team_context.project
-            if team_context.teamId:
+            if team_context.team_id:
                 team = team_context.team_id
             else:
                 team = team_context.team
@@ -686,11 +686,11 @@ class WorkItemTrackingClient(VssClient):
         project = None
         team = None
         if team_context is not None:
-            if team_context.projectId:
+            if team_context.project_id:
                 project = team_context.project_id
             else:
                 project = team_context.project
-            if team_context.teamId:
+            if team_context.team_id:
                 team = team_context.team_id
             else:
                 team = team_context.team
@@ -720,11 +720,11 @@ class WorkItemTrackingClient(VssClient):
         project = None
         team = None
         if team_context is not None:
-            if team_context.projectId:
+            if team_context.project_id:
                 project = team_context.project_id
             else:
                 project = team_context.project
-            if team_context.teamId:
+            if team_context.team_id:
                 team = team_context.team_id
             else:
                 team = team_context.team
@@ -751,11 +751,11 @@ class WorkItemTrackingClient(VssClient):
         project = None
         team = None
         if team_context is not None:
-            if team_context.projectId:
+            if team_context.project_id:
                 project = team_context.project_id
             else:
                 project = team_context.project
-            if team_context.teamId:
+            if team_context.team_id:
                 team = team_context.team_id
             else:
                 team = team_context.team
@@ -784,11 +784,11 @@ class WorkItemTrackingClient(VssClient):
         project = None
         team = None
         if team_context is not None:
-            if team_context.projectId:
+            if team_context.project_id:
                 project = team_context.project_id
             else:
                 project = team_context.project
-            if team_context.teamId:
+            if team_context.team_id:
                 team = team_context.team_id
             else:
                 team = team_context.team
@@ -862,11 +862,11 @@ class WorkItemTrackingClient(VssClient):
         project = None
         team = None
         if team_context is not None:
-            if team_context.projectId:
+            if team_context.project_id:
                 project = team_context.project_id
             else:
                 project = team_context.project
-            if team_context.teamId:
+            if team_context.team_id:
                 team = team_context.team_id
             else:
                 team = team_context.team
@@ -901,11 +901,11 @@ class WorkItemTrackingClient(VssClient):
         project = None
         team = None
         if team_context is not None:
-            if team_context.projectId:
+            if team_context.project_id:
                 project = team_context.project_id
             else:
                 project = team_context.project
-            if team_context.teamId:
+            if team_context.team_id:
                 team = team_context.team_id
             else:
                 team = team_context.team
@@ -938,11 +938,11 @@ class WorkItemTrackingClient(VssClient):
         project = None
         team = None
         if team_context is not None:
-            if team_context.projectId:
+            if team_context.project_id:
                 project = team_context.project_id
             else:
                 project = team_context.project
-            if team_context.teamId:
+            if team_context.team_id:
                 team = team_context.team_id
             else:
                 team = team_context.team
