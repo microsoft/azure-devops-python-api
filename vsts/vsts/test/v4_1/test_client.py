@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -1638,11 +1638,11 @@ class TestClient(VssClient):
         project = None
         team = None
         if team_context is not None:
-            if team_context.projectId:
+            if team_context.project_Id:
                 project = team_context.project_id
             else:
                 project = team_context.project
-            if team_context.teamId:
+            if team_context.team_Id:
                 team = team_context.team_id
             else:
                 team = team_context.team
@@ -1674,11 +1674,11 @@ class TestClient(VssClient):
         project = None
         team = None
         if team_context is not None:
-            if team_context.projectId:
+            if team_context.project_Id:
                 project = team_context.project_id
             else:
                 project = team_context.project
-            if team_context.teamId:
+            if team_context.team_Id:
                 team = team_context.team_id
             else:
                 team = team_context.team
@@ -1717,11 +1717,11 @@ class TestClient(VssClient):
         project = None
         team = None
         if team_context is not None:
-            if team_context.projectId:
+            if team_context.project_Id:
                 project = team_context.project_id
             else:
                 project = team_context.project
-            if team_context.teamId:
+            if team_context.team_Id:
                 team = team_context.team_id
             else:
                 team = team_context.team
