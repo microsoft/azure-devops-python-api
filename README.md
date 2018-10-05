@@ -44,6 +44,10 @@ for project in team_projects:
 
 This Python library provides a thin wrapper around the Azure DevOps REST APIs. See the [Azure DevOps REST API reference](https://docs.microsoft.com/en-us/rest/api/vsts/?view=vsts-rest-5.0) for details on calling different APIs.
 
+## Samples
+
+Learn how to call different APIs by viewing the samples in the [Microsoft/azure-devops-python-samples](https://github.com/Microsoft/azure-devops-python-samples) repo.
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
