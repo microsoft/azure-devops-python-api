@@ -18,15 +18,21 @@ from vsts.vss_connection import VssConnection
 from msrest.authentication import BasicAuthentication
 import pprint
 
-token='REDACTED'
-team_instance='https://REDACTED.visualstudio.com'
+# Fill in with your personal access token and org URL
+personal_access_token = 'YOURPAT'
+organization_url = 'https://dev.azure.com/YOURORG'
 
-credentials = BasicAuthentication('', token)
-connection = VssConnection(base_url=team_instance, creds=credentials)
+# Create a connection to the org
+credentials = BasicAuthentication('', personal_access_token)
+connection = VssConnection(base_url=organization_url, creds=credentials)
+
+# Get a client (the "core" client provides access to projects, teams, etc)
 core_client = connection.get_client('vsts.core.v4_0.core_client.CoreClient')
 
-team_projects = core_client.get_projects()
+# Get the list of projects in the org
+projects = core_client.get_projects()
 
+# Show details about each project in the console
 for project in team_projects:
     pprint.pprint(project.__dict__)
 ```
