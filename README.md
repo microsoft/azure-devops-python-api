@@ -5,13 +5,16 @@
 
 This repository contains Python APIs for interacting with and managing Azure DevOps. These APIs power the Visual Studio Team Services CLI. To learn more about the VSTS CLI, visit the [Microsoft/vsts-cli](https://github.com/Microsoft/vsts-cli) repo.
 
-# Installation
+## Install 
 
-```pip install vsts```
+```
+pip install vsts
+```
 
-# Getting Started
+## Get started
 
-Following is an example how to use the API directly:
+
+To use the API, establish a connection using a [personal access token](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) and the URL to your Azure DevOps organization. Then get a client from the connection and make API calls.
 
 ```python
 from vsts.vss_connection import VssConnection
@@ -37,11 +40,11 @@ for project in team_projects:
     pprint.pprint(project.__dict__)
 ```
 
-# Azure DevOps REST API Documentation
+## API documentation
 
 This Python library provides a thin wrapper around the Azure DevOps REST APIs. See the [Azure DevOps REST API reference](https://docs.microsoft.com/en-us/rest/api/vsts/?view=vsts-rest-5.0) for details on calling different APIs.
 
-# Contributing
+## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
