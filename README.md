@@ -36,7 +36,7 @@ core_client = connection.get_client('vsts.core.v4_0.core_client.CoreClient')
 projects = core_client.get_projects()
 
 # Show details about each project in the console
-for project in team_projects:
+for project in projects:
     pprint.pprint(project.__dict__)
 ```
 
