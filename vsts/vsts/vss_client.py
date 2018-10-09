@@ -12,7 +12,7 @@ import uuid
 
 from msrest import Deserializer, Serializer
 from msrest.exceptions import DeserializationError, SerializationError
-from msrest.pipeline import ClientRequest
+from msrest.universal_http.requests import ClientRequest
 from msrest.service_client import ServiceClient
 from .exceptions import VstsAuthenticationError, VstsClientRequestError, VstsServiceError
 from .vss_client_configuration import VssClientConfiguration
