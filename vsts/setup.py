@@ -16,7 +16,7 @@ VERSION = "0.1.17"
 # http://pypi.python.org/pypi/setuptools
 
 REQUIRES = [
-    "msrest>=0.5.0"
+    "msrest>=0.5.0,<0.6.0"
 ]
 
 CLASSIFIERS = [
