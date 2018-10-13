@@ -38,6 +38,7 @@ class VssClient(object):
         self._all_host_types_locations = None
         self._locations = None
         self._suppress_fedauth_redirect = True
+        self._force_msa_pass_through = True
         self.normalized_url = VssClient._normalize_url(base_url)
 
     def add_user_agent(self, user_agent):
@@ -88,6 +89,8 @@ class VssClient(object):
                 headers[key] = self.config.additional_headers[key]
         if self._suppress_fedauth_redirect:
             headers['X-TFS-FedAuthRedirect'] = 'Suppress'
+        if self._force_msa_pass_through:
+            headers['X-VSS-ForceMsaPassThrough'] = 'true'
         if VssClient._session_header_key in VssClient._session_data and VssClient._session_header_key not in headers:
             headers[VssClient._session_header_key] = VssClient._session_data[VssClient._session_header_key]
         response = self._send_request(request=request, headers=headers, content=content)
@@ -173,6 +176,8 @@ class VssClient(object):
         headers = {'Accept': 'application/json'}
         if self._suppress_fedauth_redirect:
             headers['X-TFS-FedAuthRedirect'] = 'Suppress'
+        if self._force_msa_pass_through:
+            headers['X-VSS-ForceMsaPassThrough'] = 'true'
         response = self._send_request(request, headers=headers)
         wrapper = self._base_deserialize('VssJsonCollectionWrapper', response)
         if wrapper is None:
