@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -199,11 +199,11 @@ class GitClientBase(VssClient):
             query_parameters['name'] = self._serialize.query('name', name, 'str')
         if base_version_descriptor is not None:
             if base_version_descriptor.version_type is not None:
-                query_parameters['baseVersionDescriptor.VersionType'] = base_version_descriptor.version_type
+                query_parameters['baseVersionDescriptor.versionType'] = base_version_descriptor.version_type
             if base_version_descriptor.version is not None:
-                query_parameters['baseVersionDescriptor.Version'] = base_version_descriptor.version
+                query_parameters['baseVersionDescriptor.version'] = base_version_descriptor.version
             if base_version_descriptor.version_options is not None:
-                query_parameters['baseVersionDescriptor.VersionOptions'] = base_version_descriptor.version_options
+                query_parameters['baseVersionDescriptor.versionOptions'] = base_version_descriptor.version_options
         response = self._send(http_method='GET',
                               location_id='d5b216de-d8d5-4d32-ae76-51df755b16d3',
                               version='4.1',
@@ -227,11 +227,11 @@ class GitClientBase(VssClient):
         query_parameters = {}
         if base_version_descriptor is not None:
             if base_version_descriptor.version_type is not None:
-                query_parameters['baseVersionDescriptor.VersionType'] = base_version_descriptor.version_type
+                query_parameters['baseVersionDescriptor.versionType'] = base_version_descriptor.version_type
             if base_version_descriptor.version is not None:
-                query_parameters['baseVersionDescriptor.Version'] = base_version_descriptor.version
+                query_parameters['baseVersionDescriptor.version'] = base_version_descriptor.version
             if base_version_descriptor.version_options is not None:
-                query_parameters['baseVersionDescriptor.VersionOptions'] = base_version_descriptor.version_options
+                query_parameters['baseVersionDescriptor.versionOptions'] = base_version_descriptor.version_options
         response = self._send(http_method='GET',
                               location_id='d5b216de-d8d5-4d32-ae76-51df755b16d3',
                               version='4.1',
@@ -430,18 +430,18 @@ class GitClientBase(VssClient):
                 query_parameters['searchCriteria.toDate'] = search_criteria.to_date
             if search_criteria.item_version is not None:
                 if search_criteria.item_version.version_type is not None:
-                    query_parameters['search_criteria.item_version.VersionType'] = search_criteria.item_version.version_type
+                    query_parameters['searchCriteria.itemVersion.versionType'] = search_criteria.item_version.version_type
                 if search_criteria.item_version.version is not None:
-                    query_parameters['search_criteria.item_version.Version'] = search_criteria.item_version.version
+                    query_parameters['searchCriteria.itemVersion.version'] = search_criteria.item_version.version
                 if search_criteria.item_version.version_options is not None:
-                    query_parameters['search_criteria.item_version.VersionOptions'] = search_criteria.item_version.version_options
+                    query_parameters['searchCriteria.itemVersion.versionOptions'] = search_criteria.item_version.version_options
             if search_criteria.compare_version is not None:
                 if search_criteria.compare_version.version_type is not None:
-                    query_parameters['search_criteria.compare_version.VersionType'] = search_criteria.compare_version.version_type
+                    query_parameters['searchCriteria.compareVersion.versionType'] = search_criteria.compare_version.version_type
                 if search_criteria.compare_version.version is not None:
-                    query_parameters['search_criteria.compare_version.Version'] = search_criteria.compare_version.version
+                    query_parameters['searchCriteria.compareVersion.version'] = search_criteria.compare_version.version
                 if search_criteria.compare_version.version_options is not None:
-                    query_parameters['search_criteria.compare_version.VersionOptions'] = search_criteria.compare_version.version_options
+                    query_parameters['searchCriteria.compareVersion.versionOptions'] = search_criteria.compare_version.version_options
             if search_criteria.from_commit_id is not None:
                 query_parameters['searchCriteria.fromCommitId'] = search_criteria.from_commit_id
             if search_criteria.to_commit_id is not None:
@@ -789,11 +789,11 @@ class GitClientBase(VssClient):
             query_parameters['download'] = self._serialize.query('download', download, 'bool')
         if version_descriptor is not None:
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
             if version_descriptor.version_options is not None:
-                query_parameters['versionDescriptor.VersionOptions'] = version_descriptor.version_options
+                query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         if include_content is not None:
             query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
@@ -838,11 +838,11 @@ class GitClientBase(VssClient):
             query_parameters['download'] = self._serialize.query('download', download, 'bool')
         if version_descriptor is not None:
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
             if version_descriptor.version_options is not None:
-                query_parameters['versionDescriptor.VersionOptions'] = version_descriptor.version_options
+                query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         if include_content is not None:
             query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
@@ -886,11 +886,11 @@ class GitClientBase(VssClient):
             query_parameters['includeLinks'] = self._serialize.query('include_links', include_links, 'bool')
         if version_descriptor is not None:
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
             if version_descriptor.version_options is not None:
-                query_parameters['versionDescriptor.VersionOptions'] = version_descriptor.version_options
+                query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         response = self._send(http_method='GET',
                               location_id='fb93c0db-47ed-4a31-8c20-47552878fb44',
                               version='4.1',
@@ -934,11 +934,11 @@ class GitClientBase(VssClient):
             query_parameters['download'] = self._serialize.query('download', download, 'bool')
         if version_descriptor is not None:
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
             if version_descriptor.version_options is not None:
-                query_parameters['versionDescriptor.VersionOptions'] = version_descriptor.version_options
+                query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         if include_content is not None:
             query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
@@ -983,11 +983,11 @@ class GitClientBase(VssClient):
             query_parameters['download'] = self._serialize.query('download', download, 'bool')
         if version_descriptor is not None:
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
             if version_descriptor.version_options is not None:
-                query_parameters['versionDescriptor.VersionOptions'] = version_descriptor.version_options
+                query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         if include_content is not None:
             query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
