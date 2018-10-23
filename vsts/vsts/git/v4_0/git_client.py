@@ -27,6 +27,8 @@ class GitClient(GitClientBase):
         headers = {'Accept': 'application/json'}
         if self._suppress_fedauth_redirect:
             headers['X-TFS-FedAuthRedirect'] = 'Suppress'
+        if self._force_msa_pass_through:
+            headers['X-VSS-ForceMsaPassThrough'] = 'true'
         response = self._send_request(request, headers)
         return self._deserialize('VstsInfo', response)
 
