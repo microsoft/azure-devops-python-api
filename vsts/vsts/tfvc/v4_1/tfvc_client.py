@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -356,11 +356,11 @@ class TfvcClient(VssClient):
             query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'str')
         if version_descriptor is not None:
             if version_descriptor.version_option is not None:
-                query_parameters['versionDescriptor.VersionOption'] = version_descriptor.version_option
+                query_parameters['versionDescriptor.versionOption'] = version_descriptor.version_option
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
         if include_content is not None:
             query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
@@ -399,11 +399,11 @@ class TfvcClient(VssClient):
             query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'str')
         if version_descriptor is not None:
             if version_descriptor.version_option is not None:
-                query_parameters['versionDescriptor.VersionOption'] = version_descriptor.version_option
+                query_parameters['versionDescriptor.versionOption'] = version_descriptor.version_option
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
         if include_content is not None:
             query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
@@ -435,11 +435,11 @@ class TfvcClient(VssClient):
             query_parameters['includeLinks'] = self._serialize.query('include_links', include_links, 'bool')
         if version_descriptor is not None:
             if version_descriptor.version_option is not None:
-                query_parameters['versionDescriptor.VersionOption'] = version_descriptor.version_option
+                query_parameters['versionDescriptor.versionOption'] = version_descriptor.version_option
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
         response = self._send(http_method='GET',
                               location_id='ba9fc436-9a38-4578-89d6-e4f3241f5040',
                               version='4.1',
@@ -477,11 +477,11 @@ class TfvcClient(VssClient):
             query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'str')
         if version_descriptor is not None:
             if version_descriptor.version_option is not None:
-                query_parameters['versionDescriptor.VersionOption'] = version_descriptor.version_option
+                query_parameters['versionDescriptor.versionOption'] = version_descriptor.version_option
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
         if include_content is not None:
             query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
@@ -520,11 +520,11 @@ class TfvcClient(VssClient):
             query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'str')
         if version_descriptor is not None:
             if version_descriptor.version_option is not None:
-                query_parameters['versionDescriptor.VersionOption'] = version_descriptor.version_option
+                query_parameters['versionDescriptor.versionOption'] = version_descriptor.version_option
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
         if include_content is not None:
             query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
@@ -574,15 +574,15 @@ class TfvcClient(VssClient):
         query_parameters = {}
         if request_data is not None:
             if request_data.label_scope is not None:
-                query_parameters['requestData.LabelScope'] = request_data.label_scope
+                query_parameters['requestData.labelScope'] = request_data.label_scope
             if request_data.name is not None:
-                query_parameters['requestData.Name'] = request_data.name
+                query_parameters['requestData.name'] = request_data.name
             if request_data.owner is not None:
-                query_parameters['requestData.Owner'] = request_data.owner
+                query_parameters['requestData.owner'] = request_data.owner
             if request_data.item_label_filter is not None:
-                query_parameters['requestData.ItemLabelFilter'] = request_data.item_label_filter
+                query_parameters['requestData.itemLabelFilter'] = request_data.item_label_filter
             if request_data.max_item_count is not None:
-                query_parameters['requestData.MaxItemCount'] = request_data.max_item_count
+                query_parameters['requestData.maxItemCount'] = request_data.max_item_count
             if request_data.include_links is not None:
                 query_parameters['requestData.includeLinks'] = request_data.include_links
         response = self._send(http_method='GET',
@@ -607,15 +607,15 @@ class TfvcClient(VssClient):
         query_parameters = {}
         if request_data is not None:
             if request_data.label_scope is not None:
-                query_parameters['requestData.LabelScope'] = request_data.label_scope
+                query_parameters['requestData.labelScope'] = request_data.label_scope
             if request_data.name is not None:
-                query_parameters['requestData.Name'] = request_data.name
+                query_parameters['requestData.name'] = request_data.name
             if request_data.owner is not None:
-                query_parameters['requestData.Owner'] = request_data.owner
+                query_parameters['requestData.owner'] = request_data.owner
             if request_data.item_label_filter is not None:
-                query_parameters['requestData.ItemLabelFilter'] = request_data.item_label_filter
+                query_parameters['requestData.itemLabelFilter'] = request_data.item_label_filter
             if request_data.max_item_count is not None:
-                query_parameters['requestData.MaxItemCount'] = request_data.max_item_count
+                query_parameters['requestData.maxItemCount'] = request_data.max_item_count
             if request_data.include_links is not None:
                 query_parameters['requestData.includeLinks'] = request_data.include_links
         if top is not None:
@@ -664,17 +664,17 @@ class TfvcClient(VssClient):
             query_parameters['shelvesetId'] = self._serialize.query('shelveset_id', shelveset_id, 'str')
         if request_data is not None:
             if request_data.name is not None:
-                query_parameters['requestData.Name'] = request_data.name
+                query_parameters['requestData.name'] = request_data.name
             if request_data.owner is not None:
-                query_parameters['requestData.Owner'] = request_data.owner
+                query_parameters['requestData.owner'] = request_data.owner
             if request_data.max_comment_length is not None:
-                query_parameters['requestData.MaxCommentLength'] = request_data.max_comment_length
+                query_parameters['requestData.maxCommentLength'] = request_data.max_comment_length
             if request_data.max_change_count is not None:
-                query_parameters['requestData.MaxChangeCount'] = request_data.max_change_count
+                query_parameters['requestData.maxChangeCount'] = request_data.max_change_count
             if request_data.include_details is not None:
-                query_parameters['requestData.IncludeDetails'] = request_data.include_details
+                query_parameters['requestData.includeDetails'] = request_data.include_details
             if request_data.include_work_items is not None:
-                query_parameters['requestData.IncludeWorkItems'] = request_data.include_work_items
+                query_parameters['requestData.includeWorkItems'] = request_data.include_work_items
             if request_data.include_links is not None:
                 query_parameters['requestData.includeLinks'] = request_data.include_links
         response = self._send(http_method='GET',
@@ -694,17 +694,17 @@ class TfvcClient(VssClient):
         query_parameters = {}
         if request_data is not None:
             if request_data.name is not None:
-                query_parameters['requestData.Name'] = request_data.name
+                query_parameters['requestData.name'] = request_data.name
             if request_data.owner is not None:
-                query_parameters['requestData.Owner'] = request_data.owner
+                query_parameters['requestData.owner'] = request_data.owner
             if request_data.max_comment_length is not None:
-                query_parameters['requestData.MaxCommentLength'] = request_data.max_comment_length
+                query_parameters['requestData.maxCommentLength'] = request_data.max_comment_length
             if request_data.max_change_count is not None:
-                query_parameters['requestData.MaxChangeCount'] = request_data.max_change_count
+                query_parameters['requestData.maxChangeCount'] = request_data.max_change_count
             if request_data.include_details is not None:
-                query_parameters['requestData.IncludeDetails'] = request_data.include_details
+                query_parameters['requestData.includeDetails'] = request_data.include_details
             if request_data.include_work_items is not None:
-                query_parameters['requestData.IncludeWorkItems'] = request_data.include_work_items
+                query_parameters['requestData.includeWorkItems'] = request_data.include_work_items
             if request_data.include_links is not None:
                 query_parameters['requestData.includeLinks'] = request_data.include_links
         if top is not None:
