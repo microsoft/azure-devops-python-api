@@ -430,18 +430,18 @@ class GitClientBase(VssClient):
                 query_parameters['searchCriteria.toDate'] = search_criteria.to_date
             if search_criteria.item_version is not None:
                 if search_criteria.item_version.version_type is not None:
-                    query_parameters['search_criteria.item_version.VersionType'] = search_criteria.item_version.version_type
+                    query_parameters['searchCriteria.itemVersion.VersionType'] = search_criteria.item_version.version_type
                 if search_criteria.item_version.version is not None:
-                    query_parameters['search_criteria.item_version.Version'] = search_criteria.item_version.version
+                    query_parameters['searchCriteria.itemVersion.Version'] = search_criteria.item_version.version
                 if search_criteria.item_version.version_options is not None:
-                    query_parameters['search_criteria.item_version.VersionOptions'] = search_criteria.item_version.version_options
+                    query_parameters['searchCriteria.itemVersion.VersionOptions'] = search_criteria.item_version.version_options
             if search_criteria.compare_version is not None:
                 if search_criteria.compare_version.version_type is not None:
-                    query_parameters['search_criteria.compare_version.VersionType'] = search_criteria.compare_version.version_type
+                    query_parameters['searchCriteria.compareVersion.VersionType'] = search_criteria.compare_version.version_type
                 if search_criteria.compare_version.version is not None:
-                    query_parameters['search_criteria.compare_version.Version'] = search_criteria.compare_version.version
+                    query_parameters['searchCriteria.compareVersion.Version'] = search_criteria.compare_version.version
                 if search_criteria.compare_version.version_options is not None:
-                    query_parameters['search_criteria.compare_version.VersionOptions'] = search_criteria.compare_version.version_options
+                    query_parameters['searchCriteria.compareVersion.VersionOptions'] = search_criteria.compare_version.version_options
             if search_criteria.from_commit_id is not None:
                 query_parameters['searchCriteria.fromCommitId'] = search_criteria.from_commit_id
             if search_criteria.to_commit_id is not None:
