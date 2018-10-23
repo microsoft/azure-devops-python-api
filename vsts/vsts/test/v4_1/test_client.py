@@ -1281,19 +1281,19 @@ class TestClient(VssClient):
             query_parameters['includeFailureDetails'] = self._serialize.query('include_failure_details', include_failure_details, 'bool')
         if build_to_compare is not None:
             if build_to_compare.id is not None:
-                query_parameters['buildToCompare.Id'] = build_to_compare.id
+                query_parameters['buildToCompare.id'] = build_to_compare.id
             if build_to_compare.definition_id is not None:
-                query_parameters['buildToCompare.DefinitionId'] = build_to_compare.definition_id
+                query_parameters['buildToCompare.definitionId'] = build_to_compare.definition_id
             if build_to_compare.number is not None:
-                query_parameters['buildToCompare.Number'] = build_to_compare.number
+                query_parameters['buildToCompare.number'] = build_to_compare.number
             if build_to_compare.uri is not None:
-                query_parameters['buildToCompare.Uri'] = build_to_compare.uri
+                query_parameters['buildToCompare.uri'] = build_to_compare.uri
             if build_to_compare.build_system is not None:
-                query_parameters['buildToCompare.BuildSystem'] = build_to_compare.build_system
+                query_parameters['buildToCompare.buildSystem'] = build_to_compare.build_system
             if build_to_compare.branch_name is not None:
-                query_parameters['buildToCompare.BranchName'] = build_to_compare.branch_name
+                query_parameters['buildToCompare.branchName'] = build_to_compare.branch_name
             if build_to_compare.repository_id is not None:
-                query_parameters['buildToCompare.RepositoryId'] = build_to_compare.repository_id
+                query_parameters['buildToCompare.repositoryId'] = build_to_compare.repository_id
         response = self._send(http_method='GET',
                               location_id='000ef77b-fea2-498d-a10d-ad1a037f559f',
                               version='4.1-preview.1',
@@ -1326,19 +1326,19 @@ class TestClient(VssClient):
             query_parameters['includeFailureDetails'] = self._serialize.query('include_failure_details', include_failure_details, 'bool')
         if release_to_compare is not None:
             if release_to_compare.id is not None:
-                query_parameters['releaseToCompare.Id'] = release_to_compare.id
+                query_parameters['releaseToCompare.id'] = release_to_compare.id
             if release_to_compare.name is not None:
-                query_parameters['releaseToCompare.Name'] = release_to_compare.name
+                query_parameters['releaseToCompare.name'] = release_to_compare.name
             if release_to_compare.environment_id is not None:
-                query_parameters['releaseToCompare.EnvironmentId'] = release_to_compare.environment_id
+                query_parameters['releaseToCompare.environmentId'] = release_to_compare.environment_id
             if release_to_compare.environment_name is not None:
-                query_parameters['releaseToCompare.EnvironmentName'] = release_to_compare.environment_name
+                query_parameters['releaseToCompare.environmentName'] = release_to_compare.environment_name
             if release_to_compare.definition_id is not None:
-                query_parameters['releaseToCompare.DefinitionId'] = release_to_compare.definition_id
+                query_parameters['releaseToCompare.definitionId'] = release_to_compare.definition_id
             if release_to_compare.environment_definition_id is not None:
-                query_parameters['releaseToCompare.EnvironmentDefinitionId'] = release_to_compare.environment_definition_id
+                query_parameters['releaseToCompare.environmentDefinitionId'] = release_to_compare.environment_definition_id
             if release_to_compare.environment_definition_name is not None:
-                query_parameters['releaseToCompare.EnvironmentDefinitionName'] = release_to_compare.environment_definition_name
+                query_parameters['releaseToCompare.environmentDefinitionName'] = release_to_compare.environment_definition_name
         response = self._send(http_method='GET',
                               location_id='85765790-ac68-494e-b268-af36c3929744',
                               version='4.1-preview.1',

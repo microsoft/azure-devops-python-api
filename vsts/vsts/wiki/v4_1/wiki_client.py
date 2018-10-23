@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -48,11 +48,11 @@ class WikiClient(VssClient):
             query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'str')
         if version_descriptor is not None:
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
             if version_descriptor.version_options is not None:
-                query_parameters['versionDescriptor.VersionOptions'] = version_descriptor.version_options
+                query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         if include_content is not None:
             query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
@@ -85,11 +85,11 @@ class WikiClient(VssClient):
             query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'str')
         if version_descriptor is not None:
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
             if version_descriptor.version_options is not None:
-                query_parameters['versionDescriptor.VersionOptions'] = version_descriptor.version_options
+                query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         if include_content is not None:
             query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         response = self._send(http_method='GET',
