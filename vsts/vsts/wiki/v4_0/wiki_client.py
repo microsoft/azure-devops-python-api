@@ -47,11 +47,11 @@ class WikiClient(VssClient):
             query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'str')
         if version_descriptor is not None:
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
             if version_descriptor.version_options is not None:
-                query_parameters['versionDescriptor.VersionOptions'] = version_descriptor.version_options
+                query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         response = self._send(http_method='GET',
                               location_id='25d3fbc7-fe3d-46cb-b5a5-0b6f79caf27b',
                               version='4.0-preview.1',
@@ -82,11 +82,11 @@ class WikiClient(VssClient):
             query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'str')
         if version_descriptor is not None:
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
             if version_descriptor.version_options is not None:
-                query_parameters['versionDescriptor.VersionOptions'] = version_descriptor.version_options
+                query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         response = self._send(http_method='GET',
                               location_id='25d3fbc7-fe3d-46cb-b5a5-0b6f79caf27b',
                               version='4.0-preview.1',
@@ -116,11 +116,11 @@ class WikiClient(VssClient):
             query_parameters['recursionLevel'] = self._serialize.query('recursion_level', recursion_level, 'str')
         if version_descriptor is not None:
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
             if version_descriptor.version_options is not None:
-                query_parameters['versionDescriptor.VersionOptions'] = version_descriptor.version_options
+                query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         response = self._send(http_method='GET',
                               location_id='25d3fbc7-fe3d-46cb-b5a5-0b6f79caf27b',
                               version='4.0-preview.1',
@@ -145,11 +145,11 @@ class WikiClient(VssClient):
         query_parameters = {}
         if version_descriptor is not None:
             if version_descriptor.version_type is not None:
-                query_parameters['versionDescriptor.VersionType'] = version_descriptor.version_type
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
             if version_descriptor.version is not None:
-                query_parameters['versionDescriptor.Version'] = version_descriptor.version
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
             if version_descriptor.version_options is not None:
-                query_parameters['versionDescriptor.VersionOptions'] = version_descriptor.version_options
+                query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         content = self._serialize.body(update, 'WikiUpdate')
         response = self._send(http_method='POST',
                               location_id='d015d701-8038-4e7b-8623-3d5ca6813a6c',
