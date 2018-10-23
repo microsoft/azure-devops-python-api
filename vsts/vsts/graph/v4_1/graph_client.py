@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ class GraphClient(VssClient):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = 'bb1e7ec9-e901-4b68-999a-de7012b920f8'
 
     def get_descriptor(self, storage_key):
         """GetDescriptor.
