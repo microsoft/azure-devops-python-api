@@ -1,43 +1,54 @@
 [![Visual Studio Team services](https://mseng.visualstudio.com/_apis/public/build/definitions/698eacea-9ea2-4eb8-80a4-d06170edf6bc/5904/badge)]()
 [![Python](https://img.shields.io/pypi/pyversions/vsts-cli.svg)](https://pypi.python.org/pypi/vsts)
 
-# Microsoft Visual Studio Team Services Python API
+# Azure DevOps Python API
 
-This repository contains Microsoft Visual Studio Team Services Python API. This API is used to build the Visual Studio Team Services CLI. To learn more about the VSTS CLI, check out our [github repo](https://github.com/Microsoft/vsts-cli).
+This repository contains Python APIs for interacting with and managing Azure DevOps. These APIs power the Visual Studio Team Services CLI. To learn more about the VSTS CLI, visit the [Microsoft/vsts-cli](https://github.com/Microsoft/vsts-cli) repo.
 
-# Installation
-
-```pip install vsts```
-
-# Getting Started
-
-Following is an example how to use the API directly:
+## Install 
 
 ```
+pip install vsts
+```
+
+## Get started
+
+
+To use the API, establish a connection using a [personal access token](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) and the URL to your Azure DevOps organization. Then get a client from the connection and make API calls.
+
+```python
 from vsts.vss_connection import VssConnection
 from msrest.authentication import BasicAuthentication
 import pprint
 
-token='REDACTED'
-team_instance='https://REDACTED.visualstudio.com'
+# Fill in with your personal access token and org URL
+personal_access_token = 'YOURPAT'
+organization_url = 'https://dev.azure.com/YOURORG'
 
-credentials = BasicAuthentication('', token)
-connection = VssConnection(base_url=team_instance, creds=credentials)
+# Create a connection to the org
+credentials = BasicAuthentication('', personal_access_token)
+connection = VssConnection(base_url=organization_url, creds=credentials)
+
+# Get a client (the "core" client provides access to projects, teams, etc)
 core_client = connection.get_client('vsts.core.v4_0.core_client.CoreClient')
 
-team_projects = core_client.get_projects()
+# Get the list of projects in the org
+projects = core_client.get_projects()
 
-for project in team_projects:
+# Show details about each project in the console
+for project in projects:
     pprint.pprint(project.__dict__)
 ```
 
-# VSTS REST API Documentation
+## API documentation
 
-The python SDK is a thin wrapper around the VSTS REST APIs. Please consult our REST API documentation for API specific details while working with this python SDK.
+This Python library provides a thin wrapper around the Azure DevOps REST APIs. See the [Azure DevOps REST API reference](https://docs.microsoft.com/en-us/rest/api/vsts/?view=vsts-rest-5.0) for details on calling different APIs.
 
-[VSTS REST API Documentation](https://docs.microsoft.com/en-us/rest/api/vsts)
+## Samples
 
-# Contributing
+Learn how to call different APIs by viewing the samples in the [Microsoft/azure-devops-python-samples](https://github.com/Microsoft/azure-devops-python-samples) repo.
+
+## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
