@@ -12,7 +12,7 @@ import uuid
 
 from msrest import Deserializer, Serializer
 from msrest.exceptions import DeserializationError, SerializationError
-from msrest.pipeline import ClientRequest
+from msrest.universal_http import ClientRequest
 from msrest.service_client import ServiceClient
 from .exceptions import VstsAuthenticationError, VstsClientRequestError, VstsServiceError
 from .vss_client_configuration import VssClientConfiguration
@@ -120,11 +120,9 @@ class VssClient(object):
                                                                 route_values)
         logger.debug('Route template: %s', location.route_template)
         url = self._client.format_url(route_template, **route_values)
-        request = ClientRequest()
-        request.url = self._client.format_url(url)
+        request = ClientRequest(method=http_method, url=self._client.format_url(url))
         if query_parameters:
             request.format_parameters(query_parameters)
-        request.method = http_method
         return request
 
     @staticmethod
@@ -167,12 +165,10 @@ class VssClient(object):
 
         # Last resort, make the call to the server
         options_uri = self._combine_url(self.config.base_url, '_apis')
-        request = ClientRequest()
-        request.url = self._client.format_url(options_uri)
+        request = ClientRequest(method='OPTIONS', url=self._client.format_url(options_uri))
         if all_host_types:
             query_parameters = {'allHostTypes': True}
             request.format_parameters(query_parameters)
-        request.method = 'OPTIONS'
         headers = {'Accept': 'application/json'}
         if self._suppress_fedauth_redirect:
             headers['X-TFS-FedAuthRedirect'] = 'Suppress'
