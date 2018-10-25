@@ -6,7 +6,7 @@
 from setuptools import setup, find_packages
 
 NAME = "vsts"
-VERSION = "0.1.19"
+VERSION = "0.1.20"
 
 # To install the library, run the following
 #
@@ -16,7 +16,7 @@ VERSION = "0.1.19"
 # http://pypi.python.org/pypi/setuptools
 
 REQUIRES = [
-    "msrest>=0.5.0,<0.6.0"
+    "msrest>=0.6.0,<0.7.0"
 ]
 
 CLASSIFIERS = [
