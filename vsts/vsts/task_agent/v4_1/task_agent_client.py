@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -118,9 +118,8 @@ class TaskAgentClient(VssClient):
                               location_id='083c4d89-ab35-45af-aa11-7cf66895c53e',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[DeploymentGroup]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[DeploymentGroup]', self._unwrap_collection(response))
 
     def update_deployment_group(self, deployment_group, project, deployment_group_id):
         """UpdateDeploymentGroup.
@@ -230,9 +229,8 @@ class TaskAgentClient(VssClient):
                               location_id='2f0aa599-c121-4256-a5fd-ba370e0ae7b6',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[DeploymentMachine]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[DeploymentMachine]', self._unwrap_collection(response))
 
     def update_deployment_targets(self, machines, project, deployment_group_id):
         """UpdateDeploymentTargets.
@@ -252,9 +250,8 @@ class TaskAgentClient(VssClient):
                               location_id='2f0aa599-c121-4256-a5fd-ba370e0ae7b6',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[DeploymentMachine]', response)
+                              content=content)
+        return self._deserialize('[DeploymentMachine]', self._unwrap_collection(response))
 
     def add_task_group(self, task_group, project):
         """AddTaskGroup.
@@ -330,9 +327,8 @@ class TaskAgentClient(VssClient):
                               location_id='6c08ffbf-dbf1-4f9a-94e5-a1cbd47005e7',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TaskGroup]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TaskGroup]', self._unwrap_collection(response))
 
     def update_task_group(self, task_group, project, task_group_id=None):
         """UpdateTaskGroup.
@@ -436,9 +432,8 @@ class TaskAgentClient(VssClient):
                               location_id='f5b09dd5-9d54-45a1-8b5a-1c8287d634cc',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[VariableGroup]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[VariableGroup]', self._unwrap_collection(response))
 
     def get_variable_groups_by_id(self, project, group_ids):
         """GetVariableGroupsById.
@@ -458,9 +453,8 @@ class TaskAgentClient(VssClient):
                               location_id='f5b09dd5-9d54-45a1-8b5a-1c8287d634cc',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[VariableGroup]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[VariableGroup]', self._unwrap_collection(response))
 
     def update_variable_group(self, group, project, group_id):
         """UpdateVariableGroup.

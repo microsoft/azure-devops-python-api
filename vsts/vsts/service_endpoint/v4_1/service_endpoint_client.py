@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -128,9 +128,8 @@ class ServiceEndpointClient(VssClient):
                               location_id='e85f1c62-adfc-4b74-b618-11a150fb195e',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ServiceEndpoint]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ServiceEndpoint]', self._unwrap_collection(response))
 
     def get_service_endpoints_by_names(self, project, endpoint_names, type=None, auth_schemes=None, include_failed=None):
         """GetServiceEndpointsByNames.
@@ -160,9 +159,8 @@ class ServiceEndpointClient(VssClient):
                               location_id='e85f1c62-adfc-4b74-b618-11a150fb195e',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ServiceEndpoint]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ServiceEndpoint]', self._unwrap_collection(response))
 
     def update_service_endpoint(self, endpoint, project, endpoint_id, operation=None):
         """UpdateServiceEndpoint.
@@ -205,9 +203,8 @@ class ServiceEndpointClient(VssClient):
                               location_id='e85f1c62-adfc-4b74-b618-11a150fb195e',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[ServiceEndpoint]', response)
+                              content=content)
+        return self._deserialize('[ServiceEndpoint]', self._unwrap_collection(response))
 
     def get_service_endpoint_execution_records(self, project, endpoint_id, top=None):
         """GetServiceEndpointExecutionRecords.
@@ -229,9 +226,8 @@ class ServiceEndpointClient(VssClient):
                               location_id='10a16738-9299-4cd1-9a81-fd23ad6200d0',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ServiceEndpointExecutionRecord]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ServiceEndpointExecutionRecord]', self._unwrap_collection(response))
 
     def get_service_endpoint_types(self, type=None, scheme=None):
         """GetServiceEndpointTypes.
@@ -248,7 +244,6 @@ class ServiceEndpointClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='5a7938a4-655e-486c-b562-b78c54a7e87b',
                               version='4.1-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ServiceEndpointType]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ServiceEndpointType]', self._unwrap_collection(response))
 

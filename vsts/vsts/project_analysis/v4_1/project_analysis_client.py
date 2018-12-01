@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -89,9 +89,8 @@ class ProjectAnalysisClient(VssClient):
                               location_id='df7fbbca-630a-40e3-8aa3-7a3faf66947e',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[RepositoryActivityMetrics]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[RepositoryActivityMetrics]', self._unwrap_collection(response))
 
     def get_repository_activity_metrics(self, project, repository_id, from_date, aggregation_type):
         """GetRepositoryActivityMetrics.

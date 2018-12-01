@@ -63,9 +63,8 @@ class ServiceHooksClient(VssClient):
                               location_id='c3428e90-7a69-4194-8ed8-0f153185ee0d',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ConsumerAction]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ConsumerAction]', self._unwrap_collection(response))
 
     def get_consumer(self, consumer_id, publisher_id=None):
         """GetConsumer.
@@ -97,9 +96,8 @@ class ServiceHooksClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='4301c514-5f34-4f5d-a145-f0ea7b5b7d19',
                               version='4.0',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Consumer]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Consumer]', self._unwrap_collection(response))
 
     def get_event_type(self, publisher_id, event_type_id):
         """GetEventType.
@@ -129,9 +127,8 @@ class ServiceHooksClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='db4777cd-8e08-4a84-8ba3-c974ea033718',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[EventTypeDescriptor]', response)
+                              route_values=route_values)
+        return self._deserialize('[EventTypeDescriptor]', self._unwrap_collection(response))
 
     def publish_external_event(self, publisher_id, channel_id=None):
         """PublishExternalEvent.
@@ -147,9 +144,8 @@ class ServiceHooksClient(VssClient):
         response = self._send(http_method='POST',
                               location_id='e0e0a1c9-beeb-4fb7-a8c8-b18e3161a50e',
                               version='4.0',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[PublisherEvent]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[PublisherEvent]', self._unwrap_collection(response))
 
     def get_notification(self, subscription_id, notification_id):
         """GetNotification.
@@ -190,9 +186,8 @@ class ServiceHooksClient(VssClient):
                               location_id='0c62d343-21b0-4732-997b-017fde84dc28',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Notification]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Notification]', self._unwrap_collection(response))
 
     def query_notifications(self, query):
         """QueryNotifications.
@@ -243,9 +238,8 @@ class ServiceHooksClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='1e83a210-5b53-43bc-90f0-d476a4e5d731',
-                              version='4.0',
-                              returns_collection=True)
-        return self._deserialize('[Publisher]', response)
+                              version='4.0')
+        return self._deserialize('[Publisher]', self._unwrap_collection(response))
 
     def query_publishers(self, query):
         """QueryPublishers.
@@ -317,9 +311,8 @@ class ServiceHooksClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='fc50d02a-849f-41fb-8af1-0a5216103269',
                               version='4.0',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Subscription]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Subscription]', self._unwrap_collection(response))
 
     def replace_subscription(self, subscription, subscription_id=None):
         """ReplaceSubscription.
