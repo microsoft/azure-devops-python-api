@@ -64,8 +64,7 @@ class VssClient(object):
         return response
 
     def _send(self, http_method, location_id, version, route_values=None,
-              query_parameters=None, content=None, media_type='application/json',
-              returns_collection=False):
+              query_parameters=None, content=None, media_type='application/json'):
         request = self._create_request_message(http_method=http_method,
                                                location_id=location_id,
                                                route_values=route_values,
@@ -96,15 +95,16 @@ class VssClient(object):
         response = self._send_request(request=request, headers=headers, content=content)
         if VssClient._session_header_key in response.headers:
             VssClient._session_data[VssClient._session_header_key] = response.headers[VssClient._session_header_key]
-        if returns_collection:
-            if response.headers.get("transfer-encoding") == 'chunked':
-                wrapper = self._base_deserialize.deserialize_data(response.json(), 'VssJsonCollectionWrapper')
-            else:
-                wrapper = self._base_deserialize('VssJsonCollectionWrapper', response)
-            collection = wrapper.value
-            return collection
+        return response
+
+    def _unwrap_collection(self, response):
+        if response.headers.get("transfer-encoding") == 'chunked':
+            wrapper = self._base_deserialize.deserialize_data(response.json(), 'VssJsonCollectionWrapper')
         else:
-            return response
+            wrapper = self._base_deserialize('VssJsonCollectionWrapper', response)
+        collection = wrapper.value
+        return collection
+
 
     def _create_request_message(self, http_method, location_id, route_values=None,
                                 query_parameters=None):

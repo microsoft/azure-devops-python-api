@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -128,9 +128,8 @@ class CloudLoadTestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='2c986dce-8e8d-4142-b541-d016d5aff764',
                               version='4.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Application]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Application]', self._unwrap_collection(response))
 
     def get_counters(self, test_run_id, group_names, include_summary=None):
         """GetCounters.
@@ -151,9 +150,8 @@ class CloudLoadTestClient(VssClient):
                               location_id='29265ea4-b5a5-4b2e-b054-47f5f6f00183',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TestRunCounterInstance]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TestRunCounterInstance]', self._unwrap_collection(response))
 
     def get_application_counters(self, application_id=None, plugintype=None):
         """GetApplicationCounters.
@@ -169,9 +167,8 @@ class CloudLoadTestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='c1275ce9-6d26-4bc6-926b-b846502e812d',
                               version='4.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ApplicationCounters]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ApplicationCounters]', self._unwrap_collection(response))
 
     def get_counter_samples(self, counter_sample_query_details, test_run_id):
         """GetCounterSamples.
@@ -226,9 +223,8 @@ class CloudLoadTestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='2e7ba122-f522-4205-845b-2d270e59850a',
                               version='4.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[Microsoft.VisualStudio.TestService.WebApiModel.TestRunMessage]', response)
+                              route_values=route_values)
+        return self._deserialize('[Microsoft.VisualStudio.TestService.WebApiModel.TestRunMessage]', self._unwrap_collection(response))
 
     def get_plugin(self, type):
         """GetPlugin.
@@ -250,9 +246,8 @@ class CloudLoadTestClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='7dcb0bb2-42d5-4729-9958-c0401d5e7693',
-                              version='4.1',
-                              returns_collection=True)
-        return self._deserialize('[ApplicationType]', response)
+                              version='4.1')
+        return self._deserialize('[ApplicationType]', self._unwrap_collection(response))
 
     def get_load_test_result(self, test_run_id):
         """GetLoadTestResult.
@@ -311,9 +306,8 @@ class CloudLoadTestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='a8f9b135-f604-41ea-9d74-d9a5fd32fcd8',
                               version='4.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TestDefinitionBasic]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TestDefinitionBasic]', self._unwrap_collection(response))
 
     def update_test_definition(self, test_definition):
         """UpdateTestDefinition.

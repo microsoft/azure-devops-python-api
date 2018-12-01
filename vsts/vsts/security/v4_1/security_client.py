@@ -63,9 +63,8 @@ class SecurityClient(VssClient):
                               location_id='ac08c8ff-4323-4b08-af90-bcd018d380ce',
                               version='4.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[AccessControlEntry]', response)
+                              content=content)
+        return self._deserialize('[AccessControlEntry]', self._unwrap_collection(response))
 
     def query_access_control_lists(self, security_namespace_id, token=None, descriptors=None, include_extended_info=None, recurse=None):
         """QueryAccessControlLists.
@@ -93,9 +92,8 @@ class SecurityClient(VssClient):
                               location_id='18a2ad18-7571-46ae-bec7-0c7da1495885',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[AccessControlList]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[AccessControlList]', self._unwrap_collection(response))
 
     def remove_access_control_lists(self, security_namespace_id, tokens=None, recurse=None):
         """RemoveAccessControlLists.
@@ -175,9 +173,8 @@ class SecurityClient(VssClient):
                               location_id='dd3b8bd6-c7fc-4cbd-929a-933d9c011c9d',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[bool]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[bool]', self._unwrap_collection(response))
 
     def remove_permission(self, security_namespace_id, permissions=None, token=None, descriptor=None):
         """RemovePermission.
@@ -221,7 +218,6 @@ class SecurityClient(VssClient):
                               location_id='ce7b9f95-fde9-4be8-a86d-83b366f0b87a',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[SecurityNamespaceDescription]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[SecurityNamespaceDescription]', self._unwrap_collection(response))
 

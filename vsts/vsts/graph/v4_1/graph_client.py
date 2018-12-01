@@ -90,6 +90,31 @@ class GraphClient(VssClient):
                               route_values=route_values)
         return self._deserialize('GraphGroup', response)
 
+    def list_groups(self, scope_descriptor=None, subject_types=None, continuation_token=None):
+        """ListGroups.
+        [Preview API] Gets a list of all groups in the current scope (usually organization or account).
+        :param str scope_descriptor: Specify a non-default scope (collection, project) to search for groups.
+        :param [str] subject_types: A comma separated list of user subject subtypes to reduce the retrieved results, e.g. Microsoft.IdentityModel.Claims.ClaimsIdentity
+        :param str continuation_token: An opaque data blob that allows the next page of data to resume immediately after where the previous page ended. The only reliable way to know if there is more data left is the presence of a continuation token.
+        :rtype: :class:`<PagedGraphGroups> <graph.v4_1.models.PagedGraphGroups>`
+        """
+        query_parameters = {}
+        if scope_descriptor is not None:
+            query_parameters['scopeDescriptor'] = self._serialize.query('scope_descriptor', scope_descriptor, 'str')
+        if subject_types is not None:
+            subject_types = ",".join(subject_types)
+            query_parameters['subjectTypes'] = self._serialize.query('subject_types', subject_types, 'str')
+        if continuation_token is not None:
+            query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
+        response = self._send(http_method='GET',
+                              location_id='ebbe6af8-0b91-4c13-8cf1-777c14858188',
+                              version='4.1-preview.1',
+                              query_parameters=query_parameters)
+        response_object = models.PagedGraphGroups()
+        response_object.graph_groups = self._deserialize('[GraphGroup]', self._unwrap_collection(response))
+        response_object.continuation_token = response.headers.get('X-MS-ContinuationToken')
+        return response_object
+
     def update_group(self, group_descriptor, patch_document):
         """UpdateGroup.
         [Preview API] Update the properties of a VSTS group.
@@ -197,9 +222,8 @@ class GraphClient(VssClient):
                               location_id='e34b6394-6b30-4435-94a9-409a5eef3e31',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GraphMembership]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GraphMembership]', self._unwrap_collection(response))
 
     def get_membership_state(self, subject_descriptor):
         """GetMembershipState.
@@ -241,9 +265,8 @@ class GraphClient(VssClient):
         response = self._send(http_method='POST',
                               location_id='4dd4d168-11f2-48c4-83e8-756fa0de027c',
                               version='4.1-preview.1',
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('{GraphSubject}', response)
+                              content=content)
+        return self._deserialize('{GraphSubject}', self._unwrap_collection(response))
 
     def create_user(self, creation_context, group_descriptors=None):
         """CreateUser.
@@ -291,4 +314,26 @@ class GraphClient(VssClient):
                               version='4.1-preview.1',
                               route_values=route_values)
         return self._deserialize('GraphUser', response)
+
+    def list_users(self, subject_types=None, continuation_token=None):
+        """ListUsers.
+        [Preview API] Get a list of all users in a given scope.
+        :param [str] subject_types: A comma separated list of user subject subtypes to reduce the retrieved results, e.g. msa’, ‘aad’, ‘svc’ (service identity), ‘imp’ (imported identity), etc.
+        :param str continuation_token: An opaque data blob that allows the next page of data to resume immediately after where the previous page ended. The only reliable way to know if there is more data left is the presence of a continuation token.
+        :rtype: :class:`<PagedGraphUsers> <graph.v4_1.models.PagedGraphUsers>`
+        """
+        query_parameters = {}
+        if subject_types is not None:
+            subject_types = ",".join(subject_types)
+            query_parameters['subjectTypes'] = self._serialize.query('subject_types', subject_types, 'str')
+        if continuation_token is not None:
+            query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
+        response = self._send(http_method='GET',
+                              location_id='005e26ec-6b77-4e4f-a986-b3827bf241f5',
+                              version='4.1-preview.1',
+                              query_parameters=query_parameters)
+        response_object = models.PagedGraphUsers()
+        response_object.graph_users = self._deserialize('[GraphUser]', self._unwrap_collection(response))
+        response_object.continuation_token = response.headers.get('X-MS-ContinuationToken')
+        return response_object
 

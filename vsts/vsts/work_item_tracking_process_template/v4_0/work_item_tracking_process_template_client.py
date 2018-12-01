@@ -57,9 +57,8 @@ class WorkItemTrackingProcessTemplateClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='90bf9317-3571-487b-bc8c-a523ba0e05d7',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[AdminBehavior]', response)
+                              route_values=route_values)
+        return self._deserialize('[AdminBehavior]', self._unwrap_collection(response))
 
     def check_template_existence(self, upload_stream):
         """CheckTemplateExistence.

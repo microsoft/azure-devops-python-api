@@ -107,9 +107,8 @@ class BuildClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='1db06c96-014e-44e1-ac91-90b2d4b3e984',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[BuildArtifact]', response)
+                              route_values=route_values)
+        return self._deserialize('[BuildArtifact]', self._unwrap_collection(response))
 
     def get_badge(self, project, definition_id, branch_name=None):
         """GetBadge.
@@ -303,9 +302,8 @@ class BuildClient(VssClient):
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Build]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Build]', self._unwrap_collection(response))
 
     def queue_build(self, build, project=None, ignore_warnings=None, check_in_ticket=None):
         """QueueBuild.
@@ -369,9 +367,8 @@ class BuildClient(VssClient):
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
                               version='4.0',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[Build]', response)
+                              content=content)
+        return self._deserialize('[Build]', self._unwrap_collection(response))
 
     def get_build_changes(self, project, build_id, continuation_token=None, top=None, include_source_change=None):
         """GetBuildChanges.
@@ -399,9 +396,8 @@ class BuildClient(VssClient):
                               location_id='54572c7b-bbd3-45d4-80dc-28be08941620',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Change]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Change]', self._unwrap_collection(response))
 
     def get_changes_between_builds(self, project, from_build_id=None, to_build_id=None, top=None):
         """GetChangesBetweenBuilds.
@@ -426,9 +422,8 @@ class BuildClient(VssClient):
                               location_id='f10f0ea5-18a1-43ec-a8fb-2042c7be9b43',
                               version='4.0-preview.2',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Change]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Change]', self._unwrap_collection(response))
 
     def get_build_controller(self, controller_id):
         """GetBuildController.
@@ -457,9 +452,8 @@ class BuildClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='fcac1932-2ee1-437f-9b6f-7f696be858f6',
                               version='4.0',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[BuildController]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[BuildController]', self._unwrap_collection(response))
 
     def create_definition(self, definition, project=None, definition_to_clone_id=None, definition_to_clone_revision=None):
         """CreateDefinition.
@@ -593,9 +587,8 @@ class BuildClient(VssClient):
                               location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[BuildDefinitionReference]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[BuildDefinitionReference]', self._unwrap_collection(response))
 
     def update_definition(self, definition, definition_id, project=None, secrets_source_definition_id=None, secrets_source_definition_revision=None):
         """UpdateDefinition.
@@ -683,9 +676,8 @@ class BuildClient(VssClient):
                               location_id='a906531b-d2da-4f55-bda7-f3e676cc50d9',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Folder]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Folder]', self._unwrap_collection(response))
 
     def update_folder(self, folder, project, path):
         """UpdateFolder.
@@ -763,9 +755,8 @@ class BuildClient(VssClient):
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def get_build_logs(self, project, build_id):
         """GetBuildLogs.
@@ -782,9 +773,8 @@ class BuildClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[BuildLog]', response)
+                              route_values=route_values)
+        return self._deserialize('[BuildLog]', self._unwrap_collection(response))
 
     def get_build_logs_zip(self, project, build_id):
         """GetBuildLogsZip.
@@ -824,9 +814,8 @@ class BuildClient(VssClient):
                               location_id='7433fae7-a6bc-41dc-a6e2-eef9005ce41a',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[BuildMetric]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[BuildMetric]', self._unwrap_collection(response))
 
     def get_definition_metrics(self, project, definition_id, min_metrics_time=None):
         """GetDefinitionMetrics.
@@ -848,9 +837,8 @@ class BuildClient(VssClient):
                               location_id='d973b939-0ce0-4fec-91d8-da3940fa1827',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[BuildMetric]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[BuildMetric]', self._unwrap_collection(response))
 
     def get_build_option_definitions(self, project=None):
         """GetBuildOptionDefinitions.
@@ -864,9 +852,8 @@ class BuildClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='591cb5a4-2d46-4f3a-a697-5cd42b6bd332',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[BuildOptionDefinition]', response)
+                              route_values=route_values)
+        return self._deserialize('[BuildOptionDefinition]', self._unwrap_collection(response))
 
     def get_build_properties(self, project, build_id, filter=None):
         """GetBuildProperties.
@@ -1031,9 +1018,8 @@ class BuildClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='7c116775-52e5-453e-8c5d-914d9762d8c4',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[BuildDefinitionRevision]', response)
+                              route_values=route_values)
+        return self._deserialize('[BuildDefinitionRevision]', self._unwrap_collection(response))
 
     def get_build_settings(self):
         """GetBuildSettings.
@@ -1076,9 +1062,8 @@ class BuildClient(VssClient):
         response = self._send(http_method='PUT',
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              route_values=route_values)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def add_build_tags(self, tags, project, build_id):
         """AddBuildTags.
@@ -1098,9 +1083,8 @@ class BuildClient(VssClient):
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
                               version='4.0',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              content=content)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def delete_build_tag(self, project, build_id, tag):
         """DeleteBuildTag.
@@ -1120,9 +1104,8 @@ class BuildClient(VssClient):
         response = self._send(http_method='DELETE',
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              route_values=route_values)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def get_build_tags(self, project, build_id):
         """GetBuildTags.
@@ -1139,9 +1122,8 @@ class BuildClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              route_values=route_values)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def get_tags(self, project):
         """GetTags.
@@ -1155,9 +1137,8 @@ class BuildClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='d84ac5c6-edc7-43d5-adc9-1b34be5dea09',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              route_values=route_values)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def add_definition_tag(self, project, definition_id, tag):
         """AddDefinitionTag.
@@ -1177,9 +1158,8 @@ class BuildClient(VssClient):
         response = self._send(http_method='PUT',
                               location_id='cb894432-134a-4d31-a839-83beceaace4b',
                               version='4.0-preview.2',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              route_values=route_values)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def add_definition_tags(self, tags, project, definition_id):
         """AddDefinitionTags.
@@ -1199,9 +1179,8 @@ class BuildClient(VssClient):
                               location_id='cb894432-134a-4d31-a839-83beceaace4b',
                               version='4.0-preview.2',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              content=content)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def delete_definition_tag(self, project, definition_id, tag):
         """DeleteDefinitionTag.
@@ -1221,9 +1200,8 @@ class BuildClient(VssClient):
         response = self._send(http_method='DELETE',
                               location_id='cb894432-134a-4d31-a839-83beceaace4b',
                               version='4.0-preview.2',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              route_values=route_values)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def get_definition_tags(self, project, definition_id, revision=None):
         """GetDefinitionTags.
@@ -1245,9 +1223,8 @@ class BuildClient(VssClient):
                               location_id='cb894432-134a-4d31-a839-83beceaace4b',
                               version='4.0-preview.2',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def delete_template(self, project, template_id):
         """DeleteTemplate.
@@ -1295,9 +1272,8 @@ class BuildClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='e884571e-7f92-4d6a-9274-3f5649900835',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[BuildDefinitionTemplate]', response)
+                              route_values=route_values)
+        return self._deserialize('[BuildDefinitionTemplate]', self._unwrap_collection(response))
 
     def save_template(self, template, project, template_id):
         """SaveTemplate.
@@ -1369,9 +1345,8 @@ class BuildClient(VssClient):
                               location_id='5a21f5d2-5642-47e4-a0bd-1356e6731bee',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ResourceRef]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ResourceRef]', self._unwrap_collection(response))
 
     def get_build_work_items_refs_from_commits(self, commit_ids, project, build_id, top=None):
         """GetBuildWorkItemsRefsFromCommits.
@@ -1396,9 +1371,8 @@ class BuildClient(VssClient):
                               version='4.0',
                               route_values=route_values,
                               query_parameters=query_parameters,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[ResourceRef]', response)
+                              content=content)
+        return self._deserialize('[ResourceRef]', self._unwrap_collection(response))
 
     def get_work_items_between_builds(self, project, from_build_id, to_build_id, top=None):
         """GetWorkItemsBetweenBuilds.
@@ -1423,7 +1397,6 @@ class BuildClient(VssClient):
                               location_id='52ba8915-5518-42e3-a4bb-b0182d159e2d',
                               version='4.0-preview.2',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ResourceRef]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ResourceRef]', self._unwrap_collection(response))
 

@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -89,9 +89,8 @@ class SymbolClient(VssClient):
                               version='4.1-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[DebugEntry]', response)
+                              content=content)
+        return self._deserialize('[DebugEntry]', self._unwrap_collection(response))
 
     def create_requests_request_name_debug_entries(self, batch, request_name, collection):
         """CreateRequestsRequestNameDebugEntries.
@@ -111,9 +110,8 @@ class SymbolClient(VssClient):
                               location_id='ebc09fe3-1b20-4667-abc5-f2b60fe8de52',
                               version='4.1-preview.1',
                               query_parameters=query_parameters,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[DebugEntry]', response)
+                              content=content)
+        return self._deserialize('[DebugEntry]', self._unwrap_collection(response))
 
     def delete_requests_request_id(self, request_id, synchronous=None):
         """DeleteRequestsRequestId.

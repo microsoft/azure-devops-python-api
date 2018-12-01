@@ -52,9 +52,8 @@ class FeatureManagementClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='c4209f25-7a27-41dd-9f04-06080c7b6afd',
                               version='4.0-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ContributedFeature]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ContributedFeature]', self._unwrap_collection(response))
 
     def get_feature_state(self, feature_id, user_scope):
         """GetFeatureState.
