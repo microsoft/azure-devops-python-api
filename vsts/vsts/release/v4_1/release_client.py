@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -64,9 +64,8 @@ class ReleaseClient(VssClient):
                               location_id='b47c6458-e73b-47cb-a770-4df1e8813a91',
                               version='4.1-preview.3',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ReleaseApproval]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ReleaseApproval]', self._unwrap_collection(response))
 
     def update_release_approval(self, approval, project, approval_id):
         """UpdateReleaseApproval.
@@ -152,9 +151,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='214111ee-2415-4df2-8ed2-74417f7d61f9',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[ReleaseTaskAttachment]', response)
+                              route_values=route_values)
+        return self._deserialize('[ReleaseTaskAttachment]', self._unwrap_collection(response))
 
     def create_release_definition(self, release_definition, project):
         """CreateReleaseDefinition.
@@ -278,9 +276,8 @@ class ReleaseClient(VssClient):
                               location_id='d8f96f24-8ea7-4cb6-baab-2df8fc515665',
                               version='4.1-preview.3',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ReleaseDefinition]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ReleaseDefinition]', self._unwrap_collection(response))
 
     def update_release_definition(self, release_definition, project):
         """UpdateReleaseDefinition.
@@ -356,9 +353,8 @@ class ReleaseClient(VssClient):
                               location_id='b005ef73-cddc-448e-9ba2-5193bf36b19f',
                               version='4.1-preview.2',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Deployment]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Deployment]', self._unwrap_collection(response))
 
     def update_release_environment(self, environment_update_data, project, release_id, environment_id):
         """UpdateReleaseEnvironment.
@@ -473,9 +469,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='616c46e4-f370-4456-adaa-fbaf79c7b79e',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[ManualIntervention]', response)
+                              route_values=route_values)
+        return self._deserialize('[ManualIntervention]', self._unwrap_collection(response))
 
     def update_manual_intervention(self, manual_intervention_update_metadata, project, release_id, manual_intervention_id):
         """UpdateManualIntervention.
@@ -578,9 +573,8 @@ class ReleaseClient(VssClient):
                               location_id='a166fde7-27ad-408e-ba75-703c2cc9d500',
                               version='4.1-preview.6',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Release]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Release]', self._unwrap_collection(response))
 
     def create_release(self, release_start_metadata, project):
         """CreateRelease.
@@ -758,7 +752,6 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='258b82e0-9d41-43f3-86d6-fef14ddd44bc',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[ReleaseDefinitionRevision]', response)
+                              route_values=route_values)
+        return self._deserialize('[ReleaseDefinitionRevision]', self._unwrap_collection(response))
 

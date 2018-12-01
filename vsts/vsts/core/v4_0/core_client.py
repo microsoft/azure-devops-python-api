@@ -78,9 +78,8 @@ class CoreClient(VssClient):
                               location_id='b4f70219-e18b-42c5-abe3-98b07d35525e',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WebApiConnectedService]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WebApiConnectedService]', self._unwrap_collection(response))
 
     def create_identity_mru(self, mru_data, mru_name):
         """CreateIdentityMru.
@@ -110,9 +109,8 @@ class CoreClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='5ead0b70-2572-4697-97e9-f341069a783a',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[IdentityRef]', response)
+                              route_values=route_values)
+        return self._deserialize('[IdentityRef]', self._unwrap_collection(response))
 
     def update_identity_mru(self, mru_data, mru_name):
         """UpdateIdentityMru.
@@ -152,9 +150,8 @@ class CoreClient(VssClient):
                               location_id='294c494c-2600-4d7e-b76c-3dd50c3c95be',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[IdentityRef]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[IdentityRef]', self._unwrap_collection(response))
 
     def get_process_by_id(self, process_id):
         """GetProcessById.
@@ -178,9 +175,8 @@ class CoreClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='93878975-88c5-4e6a-8abb-7ddd77a8a7d8',
-                              version='4.0',
-                              returns_collection=True)
-        return self._deserialize('[Process]', response)
+                              version='4.0')
+        return self._deserialize('[Process]', self._unwrap_collection(response))
 
     def get_project_collection(self, collection_id):
         """GetProjectCollection.
@@ -212,9 +208,8 @@ class CoreClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='8031090f-ef1d-4af6-85fc-698cd75d42bf',
                               version='4.0',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TeamProjectCollectionReference]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TeamProjectCollectionReference]', self._unwrap_collection(response))
 
     def get_project_history_entries(self, min_revision=None):
         """GetProjectHistoryEntries.
@@ -228,9 +223,8 @@ class CoreClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='6488a877-4749-4954-82ea-7340d36be9f2',
                               version='4.0-preview.2',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ProjectInfo]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ProjectInfo]', self._unwrap_collection(response))
 
     def get_project(self, project_id, include_capabilities=None, include_history=None):
         """GetProject.
@@ -276,9 +270,8 @@ class CoreClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='603fe2ac-9723-48b9-88ad-09305aa6c6e1',
                               version='4.0',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TeamProjectReference]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TeamProjectReference]', self._unwrap_collection(response))
 
     def queue_create_project(self, project_to_create):
         """QueueCreateProject.
@@ -344,9 +337,8 @@ class CoreClient(VssClient):
                               location_id='4976a71a-4487-49aa-8aab-a1eda469037a',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ProjectProperty]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ProjectProperty]', self._unwrap_collection(response))
 
     def set_project_properties(self, project_id, patch_document):
         """SetProjectProperties.
@@ -406,9 +398,8 @@ class CoreClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='ec1f4311-f2b4-4c15-b2b8-8990b80d2908',
                               version='4.0-preview.2',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Proxy]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Proxy]', self._unwrap_collection(response))
 
     def create_team(self, team, project_id):
         """CreateTeam.
@@ -481,9 +472,8 @@ class CoreClient(VssClient):
                               location_id='d30a3dd1-f8ba-442a-b86a-bd0c0c383e59',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WebApiTeam]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WebApiTeam]', self._unwrap_collection(response))
 
     def update_team(self, team_data, project_id, team_id):
         """UpdateTeam.

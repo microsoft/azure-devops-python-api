@@ -52,9 +52,8 @@ class NotificationClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='cc84fb5f-6247-4c7a-aeae-e5a3c3fddb21',
                               version='4.0-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[NotificationEventType]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[NotificationEventType]', self._unwrap_collection(response))
 
     def get_notification_reasons(self, notification_id):
         """GetNotificationReasons.
@@ -83,9 +82,8 @@ class NotificationClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='19824fa9-1c76-40e6-9cce-cf0b9ca1cb60',
                               version='4.0-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[NotificationReason]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[NotificationReason]', self._unwrap_collection(response))
 
     def get_subscriber(self, subscriber_id):
         """GetSubscriber.
@@ -130,9 +128,8 @@ class NotificationClient(VssClient):
         response = self._send(http_method='POST',
                               location_id='6864db85-08c0-4006-8e8e-cc1bebe31675',
                               version='4.0-preview.1',
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[NotificationSubscription]', response)
+                              content=content)
+        return self._deserialize('[NotificationSubscription]', self._unwrap_collection(response))
 
     def create_subscription(self, create_parameters):
         """CreateSubscription.
@@ -199,9 +196,8 @@ class NotificationClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='70f911d6-abac-488c-85b3-a206bf57e165',
                               version='4.0-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[NotificationSubscription]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[NotificationSubscription]', self._unwrap_collection(response))
 
     def update_subscription(self, update_parameters, subscription_id):
         """UpdateSubscription.

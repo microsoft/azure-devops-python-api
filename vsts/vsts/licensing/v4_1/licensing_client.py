@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -32,9 +32,8 @@ class LicensingClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='01bce8d3-c130-480f-a332-474ae3f6662e',
-                              version='4.1-preview.1',
-                              returns_collection=True)
-        return self._deserialize('[AccountLicenseExtensionUsage]', response)
+                              version='4.1-preview.1')
+        return self._deserialize('[AccountLicenseExtensionUsage]', self._unwrap_collection(response))
 
     def get_certificate(self):
         """GetCertificate.
@@ -127,9 +126,8 @@ class LicensingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='ea37be6f-8cd7-48dd-983d-2b72d6e3da0f',
                               version='4.1-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[AccountEntitlement]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[AccountEntitlement]', self._unwrap_collection(response))
 
     def assign_account_entitlement_for_user(self, body, user_id, dont_notify_user=None, origin=None):
         """AssignAccountEntitlementForUser.
@@ -203,9 +201,8 @@ class LicensingClient(VssClient):
                               location_id='cc3a0130-78ad-4a00-b1ca-49bef42f4656',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[AccountEntitlement]', response)
+                              content=content)
+        return self._deserialize('[AccountEntitlement]', self._unwrap_collection(response))
 
     def obtain_available_account_entitlements(self, user_ids):
         """ObtainAvailableAccountEntitlements.
@@ -220,9 +217,8 @@ class LicensingClient(VssClient):
                               location_id='cc3a0130-78ad-4a00-b1ca-49bef42f4656',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[AccountEntitlement]', response)
+                              content=content)
+        return self._deserialize('[AccountEntitlement]', self._unwrap_collection(response))
 
     def assign_extension_to_all_eligible_users(self, extension_id):
         """AssignExtensionToAllEligibleUsers.
@@ -236,9 +232,8 @@ class LicensingClient(VssClient):
         response = self._send(http_method='PUT',
                               location_id='5434f182-7f32-4135-8326-9340d887c08a',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[ExtensionOperationResult]', response)
+                              route_values=route_values)
+        return self._deserialize('[ExtensionOperationResult]', self._unwrap_collection(response))
 
     def get_eligible_users_for_extension(self, extension_id, options):
         """GetEligibleUsersForExtension.
@@ -257,9 +252,8 @@ class LicensingClient(VssClient):
                               location_id='5434f182-7f32-4135-8326-9340d887c08a',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def get_extension_status_for_users(self, extension_id):
         """GetExtensionStatusForUsers.
@@ -273,9 +267,8 @@ class LicensingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='5434f182-7f32-4135-8326-9340d887c08a',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('{ExtensionAssignmentDetails}', response)
+                              route_values=route_values)
+        return self._deserialize('{ExtensionAssignmentDetails}', self._unwrap_collection(response))
 
     def assign_extension_to_users(self, body):
         """AssignExtensionToUsers.
@@ -287,9 +280,8 @@ class LicensingClient(VssClient):
         response = self._send(http_method='PUT',
                               location_id='8cec75ea-044f-4245-ab0d-a82dafcc85ea',
                               version='4.1-preview.1',
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[ExtensionOperationResult]', response)
+                              content=content)
+        return self._deserialize('[ExtensionOperationResult]', self._unwrap_collection(response))
 
     def get_extensions_assigned_to_user(self, user_id):
         """GetExtensionsAssignedToUser.
@@ -303,9 +295,8 @@ class LicensingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='8cec75ea-044f-4245-ab0d-a82dafcc85ea',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('{LicensingSource}', response)
+                              route_values=route_values)
+        return self._deserialize('{LicensingSource}', self._unwrap_collection(response))
 
     def bulk_get_extensions_assigned_to_users(self, user_ids):
         """BulkGetExtensionsAssignedToUsers.
@@ -317,9 +308,8 @@ class LicensingClient(VssClient):
         response = self._send(http_method='PUT',
                               location_id='1d42ddc2-3e7d-4daa-a0eb-e12c1dbd7c72',
                               version='4.1-preview.2',
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('{[ExtensionSource]}', response)
+                              content=content)
+        return self._deserialize('{[ExtensionSource]}', self._unwrap_collection(response))
 
     def get_extension_license_data(self, extension_id):
         """GetExtensionLicenseData.
@@ -359,9 +349,8 @@ class LicensingClient(VssClient):
         response = self._send(http_method='POST',
                               location_id='5f1dbe21-f748-47c7-b5fd-3770c8bc2c08',
                               version='4.1-preview.1',
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('{bool}', response)
+                              content=content)
+        return self._deserialize('{bool}', self._unwrap_collection(response))
 
     def get_extension_rights(self):
         """GetExtensionRights.
@@ -388,9 +377,8 @@ class LicensingClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='1cc6137e-12d5-4d44-a4f2-765006c9e85d',
-                              version='4.1-preview.1',
-                              returns_collection=True)
-        return self._deserialize('[MsdnEntitlement]', response)
+                              version='4.1-preview.1')
+        return self._deserialize('[MsdnEntitlement]', self._unwrap_collection(response))
 
     def get_account_licenses_usage(self):
         """GetAccountLicensesUsage.
@@ -399,7 +387,6 @@ class LicensingClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='d3266b87-d395-4e91-97a5-0215b81a0b7d',
-                              version='4.1-preview.1',
-                              returns_collection=True)
-        return self._deserialize('[AccountLicenseUsage]', response)
+                              version='4.1-preview.1')
+        return self._deserialize('[AccountLicenseUsage]', self._unwrap_collection(response))
 

@@ -48,9 +48,8 @@ class TestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='eaf40c31-ff84-4062-aafd-d5664be11a37',
                               version='4.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[TestActionResultModel]', response)
+                              route_values=route_values)
+        return self._deserialize('[TestActionResultModel]', self._unwrap_collection(response))
 
     def create_test_iteration_result_attachment(self, attachment_request_model, project, run_id, test_case_result_id, iteration_id, action_path=None):
         """CreateTestIterationResultAttachment.
@@ -150,9 +149,8 @@ class TestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='2bffebe9-2f0f-4639-9af8-56129e9fed2d',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[TestAttachment]', response)
+                              route_values=route_values)
+        return self._deserialize('[TestAttachment]', self._unwrap_collection(response))
 
     def get_test_result_attachment_zip(self, project, run_id, test_case_result_id, attachment_id):
         """GetTestResultAttachmentZip.
@@ -235,9 +233,8 @@ class TestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='4f004af4-a507-489c-9b13-cb62060beb11',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[TestAttachment]', response)
+                              route_values=route_values)
+        return self._deserialize('[TestAttachment]', self._unwrap_collection(response))
 
     def get_test_run_attachment_zip(self, project, run_id, attachment_id):
         """GetTestRunAttachmentZip.
@@ -278,9 +275,8 @@ class TestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='6de20ca2-67de-4faf-97fa-38c5d585eb00',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemReference]', response)
+                              route_values=route_values)
+        return self._deserialize('[WorkItemReference]', self._unwrap_collection(response))
 
     def get_clone_information(self, project, clone_operation_id, include_details=None):
         """GetCloneInformation.
@@ -370,9 +366,8 @@ class TestClient(VssClient):
                               location_id='77560e8a-4e8c-4d59-894e-a5f264c24444',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[BuildCoverage]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[BuildCoverage]', self._unwrap_collection(response))
 
     def get_code_coverage_summary(self, project, build_id, delta_build_id=None):
         """GetCodeCoverageSummary.
@@ -438,9 +433,8 @@ class TestClient(VssClient):
                               location_id='9629116f-3b89-4ed8-b358-d4694efda160',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TestRunCoverage]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TestRunCoverage]', self._unwrap_collection(response))
 
     def create_test_configuration(self, test_configuration, project):
         """CreateTestConfiguration.
@@ -520,9 +514,8 @@ class TestClient(VssClient):
                               location_id='d667591b-b9fd-4263-997a-9a084cca848f',
                               version='4.1-preview.2',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TestConfiguration]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TestConfiguration]', self._unwrap_collection(response))
 
     def update_test_configuration(self, test_configuration, project, test_configuration_id):
         """UpdateTestConfiguration.
@@ -560,9 +553,8 @@ class TestClient(VssClient):
                               location_id='8ce1923b-f4c7-4e22-b93b-f6284e525ec2',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[CustomTestFieldDefinition]', response)
+                              content=content)
+        return self._deserialize('[CustomTestFieldDefinition]', self._unwrap_collection(response))
 
     def query_custom_fields(self, project, scope_filter):
         """QueryCustomFields.
@@ -581,9 +573,8 @@ class TestClient(VssClient):
                               location_id='8ce1923b-f4c7-4e22-b93b-f6284e525ec2',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[CustomTestFieldDefinition]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[CustomTestFieldDefinition]', self._unwrap_collection(response))
 
     def query_test_result_history(self, filter, project):
         """QueryTestResultHistory.
@@ -653,9 +644,8 @@ class TestClient(VssClient):
                               location_id='73eb9074-3446-4c44-8296-2f811950ff8d',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TestIterationDetailsModel]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TestIterationDetailsModel]', self._unwrap_collection(response))
 
     def get_linked_work_items_by_query(self, work_item_query, project):
         """GetLinkedWorkItemsByQuery.
@@ -672,9 +662,8 @@ class TestClient(VssClient):
                               location_id='a4dcb25b-9878-49ea-abfd-e440bd9b1dcd',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[LinkedWorkItemsQueryResult]', response)
+                              content=content)
+        return self._deserialize('[LinkedWorkItemsQueryResult]', self._unwrap_collection(response))
 
     def get_test_run_logs(self, project, run_id):
         """GetTestRunLogs.
@@ -691,9 +680,8 @@ class TestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='a1e55200-637e-42e9-a7c0-7e5bfdedb1b3',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[TestMessageLogDetails]', response)
+                              route_values=route_values)
+        return self._deserialize('[TestMessageLogDetails]', self._unwrap_collection(response))
 
     def get_result_parameters(self, project, run_id, test_case_result_id, iteration_id, param_name=None):
         """GetResultParameters.
@@ -720,9 +708,8 @@ class TestClient(VssClient):
                               location_id='7c69810d-3354-4af3-844a-180bd25db08a',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TestResultParameterModel]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TestResultParameterModel]', self._unwrap_collection(response))
 
     def create_test_plan(self, test_plan, project):
         """CreateTestPlan.
@@ -801,9 +788,8 @@ class TestClient(VssClient):
                               location_id='51712106-7278-4208-8563-1c96f40cf5e4',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TestPlan]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TestPlan]', self._unwrap_collection(response))
 
     def update_test_plan(self, plan_update_model, project, plan_id):
         """UpdateTestPlan.
@@ -893,9 +879,8 @@ class TestClient(VssClient):
                               location_id='3bcfd5c8-be62-488e-b1da-b8289ce9299c',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TestPoint]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TestPoint]', self._unwrap_collection(response))
 
     def update_test_points(self, point_update_model, project, plan_id, suite_id, point_ids):
         """UpdateTestPoints.
@@ -920,9 +905,8 @@ class TestClient(VssClient):
                               location_id='3bcfd5c8-be62-488e-b1da-b8289ce9299c',
                               version='4.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[TestPoint]', response)
+                              content=content)
+        return self._deserialize('[TestPoint]', self._unwrap_collection(response))
 
     def get_points_by_query(self, query, project, skip=None, top=None):
         """GetPointsByQuery.
@@ -1157,9 +1141,8 @@ class TestClient(VssClient):
                               location_id='4637d869-3a76-4468-8057-0bb02aa385cf',
                               version='4.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[TestCaseResult]', response)
+                              content=content)
+        return self._deserialize('[TestCaseResult]', self._unwrap_collection(response))
 
     def get_test_result_by_id(self, project, run_id, test_case_result_id, details_to_include=None):
         """GetTestResultById.
@@ -1216,9 +1199,8 @@ class TestClient(VssClient):
                               location_id='4637d869-3a76-4468-8057-0bb02aa385cf',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TestCaseResult]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TestCaseResult]', self._unwrap_collection(response))
 
     def update_test_results(self, results, project, run_id):
         """UpdateTestResults.
@@ -1237,9 +1219,8 @@ class TestClient(VssClient):
                               location_id='4637d869-3a76-4468-8057-0bb02aa385cf',
                               version='4.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[TestCaseResult]', response)
+                              content=content)
+        return self._deserialize('[TestCaseResult]', self._unwrap_collection(response))
 
     def get_test_results_by_query(self, query, project):
         """GetTestResultsByQuery.
@@ -1361,9 +1342,8 @@ class TestClient(VssClient):
                               location_id='85765790-ac68-494e-b268-af36c3929744',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[TestResultSummary]', response)
+                              content=content)
+        return self._deserialize('[TestResultSummary]', self._unwrap_collection(response))
 
     def query_test_summary_by_requirement(self, results_context, project, work_item_ids=None):
         """QueryTestSummaryByRequirement.
@@ -1386,9 +1366,8 @@ class TestClient(VssClient):
                               version='4.1-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[TestSummaryForWorkItem]', response)
+                              content=content)
+        return self._deserialize('[TestSummaryForWorkItem]', self._unwrap_collection(response))
 
     def query_result_trend_for_build(self, filter, project):
         """QueryResultTrendForBuild.
@@ -1405,9 +1384,8 @@ class TestClient(VssClient):
                               location_id='fbc82a85-0786-4442-88bb-eb0fda6b01b0',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[AggregatedDataForResultTrend]', response)
+                              content=content)
+        return self._deserialize('[AggregatedDataForResultTrend]', self._unwrap_collection(response))
 
     def query_result_trend_for_release(self, filter, project):
         """QueryResultTrendForRelease.
@@ -1424,9 +1402,8 @@ class TestClient(VssClient):
                               location_id='dd178e93-d8dd-4887-9635-d6b9560b7b6e',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[AggregatedDataForResultTrend]', response)
+                              content=content)
+        return self._deserialize('[AggregatedDataForResultTrend]', self._unwrap_collection(response))
 
     def get_test_run_statistics(self, project, run_id):
         """GetTestRunStatistics.
@@ -1531,9 +1508,8 @@ class TestClient(VssClient):
                               location_id='cadb3810-d47d-4a3c-a234-fe5f3be50138',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TestRun]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TestRun]', self._unwrap_collection(response))
 
     def query_test_runs(self, project, min_last_updated_date, max_last_updated_date, state=None, plan_ids=None, is_automated=None, publish_context=None, build_ids=None, build_def_ids=None, branch_name=None, release_ids=None, release_def_ids=None, release_env_ids=None, release_env_def_ids=None, run_title=None, top=None, continuation_token=None):
         """QueryTestRuns.
@@ -1604,9 +1580,8 @@ class TestClient(VssClient):
                               location_id='cadb3810-d47d-4a3c-a234-fe5f3be50138',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TestRun]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TestRun]', self._unwrap_collection(response))
 
     def update_test_run(self, run_update_model, project, run_id):
         """UpdateTestRun.
@@ -1703,9 +1678,8 @@ class TestClient(VssClient):
                               location_id='1500b4b4-6c69-4ca6-9b18-35e9e97fe2ac',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TestSession]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TestSession]', self._unwrap_collection(response))
 
     def update_test_session(self, test_session, team_context):
         """UpdateTestSession.
@@ -1786,9 +1760,8 @@ class TestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='bf8b7f78-0c1f-49cb-89e9-d1a17bcaaad3',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[SuiteEntry]', response)
+                              route_values=route_values)
+        return self._deserialize('[SuiteEntry]', self._unwrap_collection(response))
 
     def reorder_suite_entries(self, suite_entries, project, suite_id):
         """ReorderSuiteEntries.
@@ -1808,9 +1781,8 @@ class TestClient(VssClient):
                               location_id='bf8b7f78-0c1f-49cb-89e9-d1a17bcaaad3',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[SuiteEntry]', response)
+                              content=content)
+        return self._deserialize('[SuiteEntry]', self._unwrap_collection(response))
 
     def add_test_cases_to_suite(self, project, plan_id, suite_id, test_case_ids):
         """AddTestCasesToSuite.
@@ -1833,9 +1805,8 @@ class TestClient(VssClient):
         response = self._send(http_method='POST',
                               location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
                               version='4.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[SuiteTestCase]', response)
+                              route_values=route_values)
+        return self._deserialize('[SuiteTestCase]', self._unwrap_collection(response))
 
     def get_test_case_by_id(self, project, plan_id, suite_id, test_case_ids):
         """GetTestCaseById.
@@ -1879,9 +1850,8 @@ class TestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
                               version='4.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[SuiteTestCase]', response)
+                              route_values=route_values)
+        return self._deserialize('[SuiteTestCase]', self._unwrap_collection(response))
 
     def remove_test_cases_from_suite_url(self, project, plan_id, suite_id, test_case_ids):
         """RemoveTestCasesFromSuiteUrl.
@@ -1925,9 +1895,8 @@ class TestClient(VssClient):
                               location_id='7b7619a0-cb54-4ab3-bf22-194056f45dd1',
                               version='4.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[TestSuite]', response)
+                              content=content)
+        return self._deserialize('[TestSuite]', self._unwrap_collection(response))
 
     def delete_test_suite(self, project, plan_id, suite_id):
         """DeleteTestSuite.
@@ -2000,9 +1969,8 @@ class TestClient(VssClient):
                               location_id='7b7619a0-cb54-4ab3-bf22-194056f45dd1',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TestSuite]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TestSuite]', self._unwrap_collection(response))
 
     def update_test_suite(self, suite_update_model, project, plan_id, suite_id):
         """UpdateTestSuite.
@@ -2038,9 +2006,8 @@ class TestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='09a6167b-e969-4775-9247-b94cf3819caf',
                               version='4.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TestSuite]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TestSuite]', self._unwrap_collection(response))
 
     def delete_test_case(self, project, test_case_id):
         """DeleteTestCase.
@@ -2179,9 +2146,8 @@ class TestClient(VssClient):
                               location_id='be3fcb2b-995b-47bf-90e5-ca3cf9980912',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TestVariable]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TestVariable]', self._unwrap_collection(response))
 
     def update_test_variable(self, test_variable, project, test_variable_id):
         """UpdateTestVariable.
@@ -2297,7 +2263,6 @@ class TestClient(VssClient):
                               location_id='926ff5dc-137f-45f0-bd51-9412fa9810ce',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemReference]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WorkItemReference]', self._unwrap_collection(response))
 

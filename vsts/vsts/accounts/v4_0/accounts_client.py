@@ -74,9 +74,8 @@ class AccountsClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='229a6a53-b428-4ffb-a835-e8f36b5b4b1e',
                               version='4.0',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Account]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Account]', self._unwrap_collection(response))
 
     def get_account_settings(self):
         """GetAccountSettings.
@@ -85,7 +84,6 @@ class AccountsClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='4e012dd4-f8e1-485d-9bb3-c50d83c5b71b',
-                              version='4.0-preview.1',
-                              returns_collection=True)
-        return self._deserialize('{str}', response)
+                              version='4.0-preview.1')
+        return self._deserialize('{str}', self._unwrap_collection(response))
 

@@ -85,9 +85,8 @@ class MemberEntitlementManagementClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='ec7fb08f-5dcc-481c-9bf6-122001b1caa6',
-                              version='4.0-preview.1',
-                              returns_collection=True)
-        return self._deserialize('[GroupEntitlement]', response)
+                              version='4.0-preview.1')
+        return self._deserialize('[GroupEntitlement]', self._unwrap_collection(response))
 
     def update_group_entitlement(self, document, group_id, rule_option=None):
         """UpdateGroupEntitlement.
@@ -175,9 +174,8 @@ class MemberEntitlementManagementClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='1e8cabfb-1fda-461e-860f-eeeae54d06bb',
                               version='4.0-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[MemberEntitlement]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[MemberEntitlement]', self._unwrap_collection(response))
 
     def update_member_entitlement(self, document, member_id):
         """UpdateMemberEntitlement.

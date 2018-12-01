@@ -77,9 +77,8 @@ class TfvcClient(VssClient):
                               location_id='bc1f417e-239d-42e7-85e1-76e80cb2d6eb',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TfvcBranch]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TfvcBranch]', self._unwrap_collection(response))
 
     def get_branch_refs(self, scope_path, project=None, include_deleted=None, include_links=None):
         """GetBranchRefs.
@@ -104,9 +103,8 @@ class TfvcClient(VssClient):
                               location_id='bc1f417e-239d-42e7-85e1-76e80cb2d6eb',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TfvcBranchRef]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TfvcBranchRef]', self._unwrap_collection(response))
 
     def get_changeset_changes(self, id=None, skip=None, top=None):
         """GetChangesetChanges.
@@ -128,9 +126,8 @@ class TfvcClient(VssClient):
                               location_id='f32b86f2-15b9-4fe6-81b1-6f8938617ee5',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TfvcChange]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TfvcChange]', self._unwrap_collection(response))
 
     def create_changeset(self, changeset, project=None):
         """CreateChangeset.
@@ -256,9 +253,8 @@ class TfvcClient(VssClient):
                               location_id='0bc8f0a4-6bfb-42a9-ba84-139da7b99c49',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TfvcChangesetRef]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TfvcChangesetRef]', self._unwrap_collection(response))
 
     def get_batched_changesets(self, changesets_request_data):
         """GetBatchedChangesets.
@@ -269,9 +265,8 @@ class TfvcClient(VssClient):
         response = self._send(http_method='POST',
                               location_id='b7e7c173-803c-4fea-9ec8-31ee35c5502a',
                               version='4.0',
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[TfvcChangesetRef]', response)
+                              content=content)
+        return self._deserialize('[TfvcChangesetRef]', self._unwrap_collection(response))
 
     def get_changeset_work_items(self, id=None):
         """GetChangesetWorkItems.
@@ -284,9 +279,8 @@ class TfvcClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='64ae0bea-1d71-47c9-a9e5-fe73f5ea0ff4',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[AssociatedWorkItem]', response)
+                              route_values=route_values)
+        return self._deserialize('[AssociatedWorkItem]', self._unwrap_collection(response))
 
     def get_items_batch(self, item_request_data, project=None):
         """GetItemsBatch.
@@ -303,9 +297,8 @@ class TfvcClient(VssClient):
                               location_id='fe6f827b-5f64-480f-b8af-1eca3b80e833',
                               version='4.0',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[[TfvcItem]]', response)
+                              content=content)
+        return self._deserialize('[[TfvcItem]]', self._unwrap_collection(response))
 
     def get_items_batch_zip(self, item_request_data, project=None):
         """GetItemsBatchZip.
@@ -436,9 +429,8 @@ class TfvcClient(VssClient):
                               location_id='ba9fc436-9a38-4578-89d6-e4f3241f5040',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TfvcItem]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TfvcItem]', self._unwrap_collection(response))
 
     def get_item_text(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None):
         """GetItemText.
@@ -540,9 +532,8 @@ class TfvcClient(VssClient):
                               location_id='06166e34-de17-4b60-8cd1-23182a346fda',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TfvcItem]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TfvcItem]', self._unwrap_collection(response))
 
     def get_label(self, label_id, request_data, project=None):
         """GetLabel.
@@ -612,9 +603,8 @@ class TfvcClient(VssClient):
                               location_id='a5d9bd7f-b661-4d0e-b9be-d9c16affae54',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TfvcLabelRef]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TfvcLabelRef]', self._unwrap_collection(response))
 
     def get_shelveset_changes(self, shelveset_id, top=None, skip=None):
         """GetShelvesetChanges.
@@ -634,9 +624,8 @@ class TfvcClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='dbaf075b-0445-4c34-9e5b-82292f856522',
                               version='4.0',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TfvcChange]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TfvcChange]', self._unwrap_collection(response))
 
     def get_shelveset(self, shelveset_id, request_data=None):
         """GetShelveset.
@@ -700,9 +689,8 @@ class TfvcClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='e36d44fb-e907-4b0a-b194-f83f1ed32ad3',
                               version='4.0',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TfvcShelvesetRef]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TfvcShelvesetRef]', self._unwrap_collection(response))
 
     def get_shelveset_work_items(self, shelveset_id):
         """GetShelvesetWorkItems.
@@ -716,7 +704,6 @@ class TfvcClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='a7a0c1c1-373e-425a-b031-a519474d743d',
                               version='4.0',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[AssociatedWorkItem]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[AssociatedWorkItem]', self._unwrap_collection(response))
 

@@ -192,9 +192,8 @@ class ExtensionManagementClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='bbe06c18-1c8b-4fcd-b9c6-1535aaab8749',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[object]', response)
+                              route_values=route_values)
+        return self._deserialize('[object]', self._unwrap_collection(response))
 
     def set_document_by_name(self, doc, publisher_name, extension_name, scope_type, scope_value, collection_name):
         """SetDocumentByName.
@@ -274,9 +273,8 @@ class ExtensionManagementClient(VssClient):
                               location_id='56c331f1-ce53-4318-adfd-4db5c52a7a2e',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[ExtensionDataCollection]', response)
+                              content=content)
+        return self._deserialize('[ExtensionDataCollection]', self._unwrap_collection(response))
 
     def get_states(self, include_disabled=None, include_errors=None, include_installation_issues=None):
         """GetStates.
@@ -296,9 +294,8 @@ class ExtensionManagementClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='92755d3d-9a8a-42b3-8a4d-87359fe5aa93',
                               version='4.0-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ExtensionState]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ExtensionState]', self._unwrap_collection(response))
 
     def query_extensions(self, query):
         """QueryExtensions.
@@ -310,9 +307,8 @@ class ExtensionManagementClient(VssClient):
         response = self._send(http_method='POST',
                               location_id='046c980f-1345-4ce2-bf85-b46d10ff4cfd',
                               version='4.0-preview.1',
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[InstalledExtension]', response)
+                              content=content)
+        return self._deserialize('[InstalledExtension]', self._unwrap_collection(response))
 
     def get_installed_extensions(self, include_disabled_extensions=None, include_errors=None, asset_types=None, include_installation_issues=None):
         """GetInstalledExtensions.
@@ -336,9 +332,8 @@ class ExtensionManagementClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='275424d0-c844-4fe2-bda6-04933a1357d8',
                               version='4.0-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[InstalledExtension]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[InstalledExtension]', self._unwrap_collection(response))
 
     def update_installed_extension(self, extension):
         """UpdateInstalledExtension.
@@ -473,9 +468,8 @@ class ExtensionManagementClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='216b978f-b164-424e-ada2-b77561e842b7',
-                              version='4.0-preview.1',
-                              returns_collection=True)
-        return self._deserialize('[RequestedExtension]', response)
+                              version='4.0-preview.1')
+        return self._deserialize('[RequestedExtension]', self._unwrap_collection(response))
 
     def resolve_all_requests(self, reject_message, publisher_name, extension_name, state):
         """ResolveAllRequests.
