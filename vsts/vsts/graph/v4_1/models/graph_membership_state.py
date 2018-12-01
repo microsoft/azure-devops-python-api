@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -14,7 +14,7 @@ class GraphMembershipState(Model):
 
     :param _links: This field contains zero or more interesting links about the graph membership state. These links may be invoked to obtain additional relationships or more detailed information about this graph membership state.
     :type _links: :class:`ReferenceLinks <graph.v4_1.models.ReferenceLinks>`
-    :param active:
+    :param active: When true, the membership is active
     :type active: bool
     """
 
