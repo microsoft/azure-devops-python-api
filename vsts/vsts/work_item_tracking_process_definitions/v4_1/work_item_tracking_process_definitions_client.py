@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -910,7 +910,7 @@ class WorkItemTrackingClient(VssClient):
 
     def get_work_item_type_field(self, process_id, wit_ref_name_for_fields, field_ref_name):
         """GetWorkItemTypeField.
-        [Preview API] Retuens a single field in the work item type of the process.
+        [Preview API] Returns a single field in the work item type of the process.
         :param str process_id: The ID of the process
         :param str wit_ref_name_for_fields: Work item type reference name for fields
         :param str field_ref_name: The reference name of the field
