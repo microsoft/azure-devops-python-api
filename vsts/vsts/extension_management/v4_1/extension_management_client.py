@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -47,9 +47,8 @@ class ExtensionManagementClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='275424d0-c844-4fe2-bda6-04933a1357d8',
                               version='4.1-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[InstalledExtension]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[InstalledExtension]', self._unwrap_collection(response))
 
     def update_installed_extension(self, extension):
         """UpdateInstalledExtension.

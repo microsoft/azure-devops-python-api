@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -46,9 +46,8 @@ class TaskClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='eb55e5d6-2f30-4295-b5ed-38da50b1fc52',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[TaskAttachment]', response)
+                              route_values=route_values)
+        return self._deserialize('[TaskAttachment]', self._unwrap_collection(response))
 
     def create_attachment(self, upload_stream, scope_identifier, hub_name, plan_id, timeline_id, record_id, type, name):
         """CreateAttachment.
@@ -180,9 +179,8 @@ class TaskClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='7898f959-9cdf-4096-b29e-7f293031629e',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[TaskAttachment]', response)
+                              route_values=route_values)
+        return self._deserialize('[TaskAttachment]', self._unwrap_collection(response))
 
     def append_log_content(self, upload_stream, scope_identifier, hub_name, plan_id, log_id):
         """AppendLogContent.
@@ -262,9 +260,8 @@ class TaskClient(VssClient):
                               location_id='46f5667d-263a-4684-91b1-dff7fdcf64e2',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def get_logs(self, scope_identifier, hub_name, plan_id):
         """GetLogs.
@@ -283,9 +280,8 @@ class TaskClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='46f5667d-263a-4684-91b1-dff7fdcf64e2',
                               version='4.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[TaskLog]', response)
+                              route_values=route_values)
+        return self._deserialize('[TaskLog]', self._unwrap_collection(response))
 
     def get_records(self, scope_identifier, hub_name, plan_id, timeline_id, change_id=None):
         """GetRecords.
@@ -312,9 +308,8 @@ class TaskClient(VssClient):
                               location_id='8893bc5b-35b2-4be7-83cb-99e683551db4',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TimelineRecord]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TimelineRecord]', self._unwrap_collection(response))
 
     def update_records(self, records, scope_identifier, hub_name, plan_id, timeline_id):
         """UpdateRecords.
@@ -339,9 +334,8 @@ class TaskClient(VssClient):
                               location_id='8893bc5b-35b2-4be7-83cb-99e683551db4',
                               version='4.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[TimelineRecord]', response)
+                              content=content)
+        return self._deserialize('[TimelineRecord]', self._unwrap_collection(response))
 
     def create_timeline(self, timeline, scope_identifier, hub_name, plan_id):
         """CreateTimeline.
@@ -435,7 +429,6 @@ class TaskClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='83597576-cc2c-453c-bea6-2882ae6a1653',
                               version='4.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[Timeline]', response)
+                              route_values=route_values)
+        return self._deserialize('[Timeline]', self._unwrap_collection(response))
 

@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -140,9 +140,8 @@ class FeedClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='c65009a7-474a-4ad1-8b42-7d852107ef8c',
                               version='4.1-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Feed]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Feed]', self._unwrap_collection(response))
 
     def update_feed(self, feed, feed_id):
         """UpdateFeed.
@@ -169,9 +168,8 @@ class FeedClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='a74419ef-b477-43df-8758-3cd1cd5f56c6',
-                              version='4.1-preview.1',
-                              returns_collection=True)
-        return self._deserialize('[GlobalPermission]', response)
+                              version='4.1-preview.1')
+        return self._deserialize('[GlobalPermission]', self._unwrap_collection(response))
 
     def set_global_permissions(self, global_permissions):
         """SetGlobalPermissions.
@@ -183,9 +181,8 @@ class FeedClient(VssClient):
         response = self._send(http_method='PATCH',
                               location_id='a74419ef-b477-43df-8758-3cd1cd5f56c6',
                               version='4.1-preview.1',
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[GlobalPermission]', response)
+                              content=content)
+        return self._deserialize('[GlobalPermission]', self._unwrap_collection(response))
 
     def get_package_changes(self, feed_id, continuation_token=None, batch_size=None):
         """GetPackageChanges.
@@ -304,9 +301,8 @@ class FeedClient(VssClient):
                               location_id='7a20d846-c929-4acc-9ea2-0d5a7df1b197',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Package]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Package]', self._unwrap_collection(response))
 
     def get_feed_permissions(self, feed_id, include_ids=None, exclude_inherited_permissions=None):
         """GetFeedPermissions.
@@ -328,9 +324,8 @@ class FeedClient(VssClient):
                               location_id='be8c1476-86a7-44ed-b19d-aec0e9275cd8',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[FeedPermission]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[FeedPermission]', self._unwrap_collection(response))
 
     def set_feed_permissions(self, feed_permission, feed_id):
         """SetFeedPermissions.
@@ -347,9 +342,8 @@ class FeedClient(VssClient):
                               location_id='be8c1476-86a7-44ed-b19d-aec0e9275cd8',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[FeedPermission]', response)
+                              content=content)
+        return self._deserialize('[FeedPermission]', self._unwrap_collection(response))
 
     def get_recycle_bin_package(self, feed_id, package_id, include_urls=None):
         """GetRecycleBinPackage.
@@ -406,9 +400,8 @@ class FeedClient(VssClient):
                               location_id='2704e72c-f541-4141-99be-2004b50b05fa',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Package]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Package]', self._unwrap_collection(response))
 
     def get_recycle_bin_package_version(self, feed_id, package_id, package_version_id, include_urls=None):
         """GetRecycleBinPackageVersion.
@@ -456,9 +449,8 @@ class FeedClient(VssClient):
                               location_id='aceb4be7-8737-4820-834c-4c549e10fdc7',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[RecycleBinPackageVersion]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[RecycleBinPackageVersion]', self._unwrap_collection(response))
 
     def delete_feed_retention_policies(self, feed_id):
         """DeleteFeedRetentionPolicies.
@@ -564,9 +556,8 @@ class FeedClient(VssClient):
                               location_id='3b331909-6a86-44cc-b9ec-c1834c35498f',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[PackageVersion]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[PackageVersion]', self._unwrap_collection(response))
 
     def create_feed_view(self, view, feed_id):
         """CreateFeedView.
@@ -632,9 +623,8 @@ class FeedClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='42a8502a-6785-41bc-8c16-89477d930877',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[FeedView]', response)
+                              route_values=route_values)
+        return self._deserialize('[FeedView]', self._unwrap_collection(response))
 
     def update_feed_view(self, view, feed_id, view_id):
         """UpdateFeedView.

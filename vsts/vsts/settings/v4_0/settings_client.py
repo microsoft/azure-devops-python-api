@@ -38,9 +38,8 @@ class SettingsClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='cd006711-163d-4cd4-a597-b05bad2556ff',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('{object}', response)
+                              route_values=route_values)
+        return self._deserialize('{object}', self._unwrap_collection(response))
 
     def remove_entries(self, user_scope, key):
         """RemoveEntries.
@@ -95,9 +94,8 @@ class SettingsClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='4cbaafaf-e8af-4570-98d1-79ee99c56327',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('{object}', response)
+                              route_values=route_values)
+        return self._deserialize('{object}', self._unwrap_collection(response))
 
     def remove_entries_for_scope(self, user_scope, scope_name, scope_value, key):
         """RemoveEntriesForScope.

@@ -37,9 +37,8 @@ class FeatureAvailabilityClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='3e2b80f8-9e6f-441e-8393-005610692d9c',
                               version='4.0-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[FeatureFlag]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[FeatureFlag]', self._unwrap_collection(response))
 
     def get_feature_flag_by_name(self, name):
         """GetFeatureFlagByName.

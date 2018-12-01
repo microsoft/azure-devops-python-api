@@ -56,9 +56,8 @@ class WikiClient(VssClient):
                               location_id='25d3fbc7-fe3d-46cb-b5a5-0b6f79caf27b',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WikiPage]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WikiPage]', self._unwrap_collection(response))
 
     def get_page_text(self, project, wiki_id, path=None, recursion_level=None, version_descriptor=None):
         """GetPageText.
@@ -189,7 +188,6 @@ class WikiClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='288d122c-dbd4-451d-aa5f-7dbbba070728',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[WikiRepository]', response)
+                              route_values=route_values)
+        return self._deserialize('[WikiRepository]', self._unwrap_collection(response))
 

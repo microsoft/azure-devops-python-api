@@ -65,9 +65,8 @@ class WorkClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='eb7ec5a3-1ba3-4fd1-b834-49a5a387e57d',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[BoardSuggestedValue]', response)
+                              route_values=route_values)
+        return self._deserialize('[BoardSuggestedValue]', self._unwrap_collection(response))
 
     def get_board_mapping_parent_items(self, team_context, child_backlog_context_category_ref_name, workitem_ids):
         """GetBoardMappingParentItems.
@@ -104,9 +103,8 @@ class WorkClient(VssClient):
                               location_id='186abea3-5c35-432f-9e28-7a15b4312a0e',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ParentChildWIMap]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ParentChildWIMap]', self._unwrap_collection(response))
 
     def get_row_suggested_values(self, project=None):
         """GetRowSuggestedValues.
@@ -119,9 +117,8 @@ class WorkClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='bb494cc6-a0f5-4c6c-8dca-ea6912e79eb9',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[BoardSuggestedValue]', response)
+                              route_values=route_values)
+        return self._deserialize('[BoardSuggestedValue]', self._unwrap_collection(response))
 
     def get_board(self, team_context, id):
         """GetBoard.
@@ -181,9 +178,8 @@ class WorkClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='23ad19fc-3b8e-4877-8462-b3f92bc06b40',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[BoardReference]', response)
+                              route_values=route_values)
+        return self._deserialize('[BoardReference]', self._unwrap_collection(response))
 
     def set_board_options(self, options, team_context, id):
         """SetBoardOptions.
@@ -217,9 +213,8 @@ class WorkClient(VssClient):
                               location_id='23ad19fc-3b8e-4877-8462-b3f92bc06b40',
                               version='4.0',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('{str}', response)
+                              content=content)
+        return self._deserialize('{str}', self._unwrap_collection(response))
 
     def get_board_user_settings(self, team_context, board):
         """GetBoardUserSettings.
@@ -316,9 +311,8 @@ class WorkClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='74412d15-8c1a-4352-a48d-ef1ed5587d57',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[TeamMemberCapacity]', response)
+                              route_values=route_values)
+        return self._deserialize('[TeamMemberCapacity]', self._unwrap_collection(response))
 
     def get_capacity(self, team_context, iteration_id, team_member_id):
         """GetCapacity.
@@ -385,9 +379,8 @@ class WorkClient(VssClient):
                               location_id='74412d15-8c1a-4352-a48d-ef1ed5587d57',
                               version='4.0',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[TeamMemberCapacity]', response)
+                              content=content)
+        return self._deserialize('[TeamMemberCapacity]', self._unwrap_collection(response))
 
     def update_capacity(self, patch, team_context, iteration_id, team_member_id):
         """UpdateCapacity.
@@ -624,9 +617,8 @@ class WorkClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='45fe888c-239e-49fd-958c-df1a1ab21d97',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[BoardChartReference]', response)
+                              route_values=route_values)
+        return self._deserialize('[BoardChartReference]', self._unwrap_collection(response))
 
     def update_board_chart(self, chart, team_context, board, name):
         """UpdateBoardChart.
@@ -694,9 +686,8 @@ class WorkClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='c555d7ff-84e1-47df-9923-a3fe0cd8751b',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[BoardColumn]', response)
+                              route_values=route_values)
+        return self._deserialize('[BoardColumn]', self._unwrap_collection(response))
 
     def update_board_columns(self, board_columns, team_context, board):
         """UpdateBoardColumns.
@@ -729,9 +720,8 @@ class WorkClient(VssClient):
                               location_id='c555d7ff-84e1-47df-9923-a3fe0cd8751b',
                               version='4.0',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[BoardColumn]', response)
+                              content=content)
+        return self._deserialize('[BoardColumn]', self._unwrap_collection(response))
 
     def get_delivery_timeline_data(self, project, id, revision=None, start_date=None, end_date=None):
         """GetDeliveryTimelineData.
@@ -852,9 +842,8 @@ class WorkClient(VssClient):
                               location_id='c9175577-28a1-4b06-9197-8636af9f64ad',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TeamSettingsIteration]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TeamSettingsIteration]', self._unwrap_collection(response))
 
     def post_team_iteration(self, iteration, team_context):
         """PostTeamIteration.
@@ -951,9 +940,8 @@ class WorkClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='0b42cb47-cd73-4810-ac90-19c9ba147453',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[Plan]', response)
+                              route_values=route_values)
+        return self._deserialize('[Plan]', self._unwrap_collection(response))
 
     def update_plan(self, updated_plan, project, id):
         """UpdatePlan.
@@ -1019,9 +1007,8 @@ class WorkClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='0863355d-aefd-4d63-8669-984c9b7b0e78',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[BoardRow]', response)
+                              route_values=route_values)
+        return self._deserialize('[BoardRow]', self._unwrap_collection(response))
 
     def update_board_rows(self, board_rows, team_context, board):
         """UpdateBoardRows.
@@ -1054,9 +1041,8 @@ class WorkClient(VssClient):
                               location_id='0863355d-aefd-4d63-8669-984c9b7b0e78',
                               version='4.0',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[BoardRow]', response)
+                              content=content)
+        return self._deserialize('[BoardRow]', self._unwrap_collection(response))
 
     def get_team_days_off(self, team_context, iteration_id):
         """GetTeamDaysOff.
