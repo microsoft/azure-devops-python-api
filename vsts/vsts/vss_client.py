@@ -105,7 +105,6 @@ class VssClient(object):
         collection = wrapper.value
         return collection
 
-
     def _create_request_message(self, http_method, location_id, route_values=None,
                                 query_parameters=None):
         location = self._get_resource_location(location_id)
