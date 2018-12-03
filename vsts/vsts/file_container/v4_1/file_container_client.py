@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -45,9 +45,8 @@ class FileContainerClient(VssClient):
                               version='4.1-preview.4',
                               route_values=route_values,
                               query_parameters=query_parameters,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[FileContainerItem]', response)
+                              content=content)
+        return self._deserialize('[FileContainerItem]', self._unwrap_collection(response))
 
     def delete_item(self, container_id, item_path, scope=None):
         """DeleteItem.
@@ -85,9 +84,8 @@ class FileContainerClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='e4f5c81e-e250-447b-9fef-bd48471bea5e',
                               version='4.1-preview.4',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[FileContainer]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[FileContainer]', self._unwrap_collection(response))
 
     def get_items(self, container_id, scope=None, item_path=None, metadata=None, format=None, download_file_name=None, include_download_tickets=None, is_shallow=None):
         """GetItems.
@@ -124,7 +122,6 @@ class FileContainerClient(VssClient):
                               location_id='e4f5c81e-e250-447b-9fef-bd48471bea5e',
                               version='4.1-preview.4',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[FileContainerItem]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[FileContainerItem]', self._unwrap_collection(response))
 

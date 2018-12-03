@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -88,9 +88,8 @@ class MemberEntitlementManagementClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='2280bffa-58a2-49da-822e-0764a1bb44f7',
-                              version='4.1-preview.1',
-                              returns_collection=True)
-        return self._deserialize('[GroupEntitlement]', response)
+                              version='4.1-preview.1')
+        return self._deserialize('[GroupEntitlement]', self._unwrap_collection(response))
 
     def update_group_entitlement(self, document, group_id, rule_option=None):
         """UpdateGroupEntitlement.
@@ -205,9 +204,8 @@ class MemberEntitlementManagementClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='387f832c-dbf2-4643-88e9-c1aa94dbb737',
                               version='4.1-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[UserEntitlement]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[UserEntitlement]', self._unwrap_collection(response))
 
     def update_user_entitlements(self, document, do_not_send_invite_for_new_users=None):
         """UpdateUserEntitlements.

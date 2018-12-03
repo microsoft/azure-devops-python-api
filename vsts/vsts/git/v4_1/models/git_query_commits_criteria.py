@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -18,7 +18,7 @@ class GitQueryCommitsCriteria(Model):
     :type top: int
     :param author: Alias or display name of the author
     :type author: str
-    :param compare_version: If provided, the earliest commit in the graph to search
+    :param compare_version: Only applicable when ItemVersion specified. If provided, start walking history starting at this commit.
     :type compare_version: :class:`GitVersionDescriptor <git.v4_1.models.GitVersionDescriptor>`
     :param exclude_deletes: If true, don't include delete history entries
     :type exclude_deletes: bool

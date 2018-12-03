@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -100,9 +100,8 @@ class PolicyClient(VssClient):
                               location_id='dad91cbe-d183-45f8-9c6e-9c1164472121',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[PolicyConfiguration]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[PolicyConfiguration]', self._unwrap_collection(response))
 
     def update_policy_configuration(self, configuration, project, configuration_id):
         """UpdatePolicyConfiguration.
@@ -187,9 +186,8 @@ class PolicyClient(VssClient):
                               location_id='c23ddff5-229c-4d04-a80b-0fdce9f360c8',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[PolicyEvaluationRecord]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[PolicyEvaluationRecord]', self._unwrap_collection(response))
 
     def get_policy_configuration_revision(self, project, configuration_id, revision_id):
         """GetPolicyConfigurationRevision.
@@ -235,9 +233,8 @@ class PolicyClient(VssClient):
                               location_id='fe1e68a2-60d3-43cb-855b-85e41ae97c95',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[PolicyConfiguration]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[PolicyConfiguration]', self._unwrap_collection(response))
 
     def get_policy_type(self, project, type_id):
         """GetPolicyType.
@@ -269,7 +266,6 @@ class PolicyClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='44096322-2d3d-466a-bb30-d1b7de69f61f',
                               version='4.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[PolicyType]', response)
+                              route_values=route_values)
+        return self._deserialize('[PolicyType]', self._unwrap_collection(response))
 

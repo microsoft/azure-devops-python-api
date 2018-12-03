@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -48,9 +48,8 @@ class NotificationClient(VssClient):
                               location_id='991842f3-eb16-4aea-ac81-81353ef2b75c',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[INotificationDiagnosticLog]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[INotificationDiagnosticLog]', self._unwrap_collection(response))
 
     def get_subscription_diagnostics(self, subscription_id):
         """GetSubscriptionDiagnostics.
@@ -125,9 +124,8 @@ class NotificationClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='cc84fb5f-6247-4c7a-aeae-e5a3c3fddb21',
                               version='4.1-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[NotificationEventType]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[NotificationEventType]', self._unwrap_collection(response))
 
     def get_subscriber(self, subscriber_id):
         """GetSubscriber.
@@ -172,9 +170,8 @@ class NotificationClient(VssClient):
         response = self._send(http_method='POST',
                               location_id='6864db85-08c0-4006-8e8e-cc1bebe31675',
                               version='4.1-preview.1',
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[NotificationSubscription]', response)
+                              content=content)
+        return self._deserialize('[NotificationSubscription]', self._unwrap_collection(response))
 
     def create_subscription(self, create_parameters):
         """CreateSubscription.
@@ -241,9 +238,8 @@ class NotificationClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='70f911d6-abac-488c-85b3-a206bf57e165',
                               version='4.1-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[NotificationSubscription]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[NotificationSubscription]', self._unwrap_collection(response))
 
     def update_subscription(self, update_parameters, subscription_id):
         """UpdateSubscription.
@@ -270,9 +266,8 @@ class NotificationClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='fa5d24ba-7484-4f3d-888d-4ec6b1974082',
-                              version='4.1-preview.1',
-                              returns_collection=True)
-        return self._deserialize('[NotificationSubscriptionTemplate]', response)
+                              version='4.1-preview.1')
+        return self._deserialize('[NotificationSubscriptionTemplate]', self._unwrap_collection(response))
 
     def update_subscription_user_settings(self, user_settings, subscription_id, user_id):
         """UpdateSubscriptionUserSettings.

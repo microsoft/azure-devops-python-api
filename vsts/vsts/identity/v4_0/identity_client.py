@@ -67,9 +67,8 @@ class IdentityClient(VssClient):
         response = self._send(http_method='POST',
                               location_id='5966283b-4196-4d57-9211-1b68f41ec1c2',
                               version='4.0',
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[Identity]', response)
+                              content=content)
+        return self._deserialize('[Identity]', self._unwrap_collection(response))
 
     def delete_group(self, group_id):
         """DeleteGroup.
@@ -103,9 +102,8 @@ class IdentityClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='5966283b-4196-4d57-9211-1b68f41ec1c2',
                               version='4.0',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Identity]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Identity]', self._unwrap_collection(response))
 
     def get_identity_changes(self, identity_sequence_id, group_sequence_id, scope_id=None):
         """GetIdentityChanges.
@@ -138,9 +136,8 @@ class IdentityClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='28010c54-d0c0-4c89-a5b0-1c9e188b9fb7',
                               version='4.0',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def read_identities(self, descriptors=None, identity_ids=None, search_filter=None, filter_value=None, query_membership=None, properties=None, include_restricted_visibility=None, options=None):
         """ReadIdentities.
@@ -174,9 +171,8 @@ class IdentityClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='28010c54-d0c0-4c89-a5b0-1c9e188b9fb7',
                               version='4.0',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Identity]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Identity]', self._unwrap_collection(response))
 
     def read_identities_by_scope(self, scope_id, query_membership=None, properties=None):
         """ReadIdentitiesByScope.
@@ -195,9 +191,8 @@ class IdentityClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='28010c54-d0c0-4c89-a5b0-1c9e188b9fb7',
                               version='4.0',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Identity]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Identity]', self._unwrap_collection(response))
 
     def read_identity(self, identity_id, query_membership=None, properties=None):
         """ReadIdentity.
@@ -230,9 +225,8 @@ class IdentityClient(VssClient):
         response = self._send(http_method='PUT',
                               location_id='28010c54-d0c0-4c89-a5b0-1c9e188b9fb7',
                               version='4.0',
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[IdentityUpdateData]', response)
+                              content=content)
+        return self._deserialize('[IdentityUpdateData]', self._unwrap_collection(response))
 
     def update_identity(self, identity, identity_id):
         """UpdateIdentity.
@@ -271,9 +265,8 @@ class IdentityClient(VssClient):
         response = self._send(http_method='POST',
                               location_id='299e50df-fe45-4d3a-8b5b-a5836fac74dc',
                               version='4.0-preview.1',
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[Identity]', response)
+                              content=content)
+        return self._deserialize('[Identity]', self._unwrap_collection(response))
 
     def get_identity_snapshot(self, scope_id):
         """GetIdentitySnapshot.
@@ -368,9 +361,8 @@ class IdentityClient(VssClient):
                               location_id='8ba35978-138e-41f8-8963-7b1ea2c5f775',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def remove_member(self, container_id, member_id):
         """RemoveMember.
@@ -430,9 +422,8 @@ class IdentityClient(VssClient):
                               location_id='22865b02-9e4a-479e-9e18-e35b8803b8a0',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def create_scope(self, info, scope_id):
         """CreateScope.

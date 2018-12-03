@@ -236,9 +236,8 @@ class GitClientBase(VssClient):
                               location_id='d5b216de-d8d5-4d32-ae76-51df755b16d3',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitBranchStats]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitBranchStats]', self._unwrap_collection(response))
 
     def get_branch_stats_batch(self, search_criteria, repository_id, project=None):
         """GetBranchStatsBatch.
@@ -258,9 +257,8 @@ class GitClientBase(VssClient):
                               location_id='d5b216de-d8d5-4d32-ae76-51df755b16d3',
                               version='4.0',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[GitBranchStats]', response)
+                              content=content)
+        return self._deserialize('[GitBranchStats]', self._unwrap_collection(response))
 
     def get_changes(self, commit_id, repository_id, project=None, top=None, skip=None):
         """GetChanges.
@@ -494,9 +492,8 @@ class GitClientBase(VssClient):
                               location_id='c2570c3b-5b3f-41b8-98bf-5407bfde8d58',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitCommitRef]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitCommitRef]', self._unwrap_collection(response))
 
     def get_push_commits(self, repository_id, push_id, project=None, top=None, skip=None, include_links=None):
         """GetPushCommits.
@@ -527,9 +524,8 @@ class GitClientBase(VssClient):
                               location_id='c2570c3b-5b3f-41b8-98bf-5407bfde8d58',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitCommitRef]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitCommitRef]', self._unwrap_collection(response))
 
     def get_commits_batch(self, search_criteria, repository_id, project=None, skip=None, top=None, include_statuses=None):
         """GetCommitsBatch.
@@ -560,9 +556,8 @@ class GitClientBase(VssClient):
                               version='4.0',
                               route_values=route_values,
                               query_parameters=query_parameters,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[GitCommitRef]', response)
+                              content=content)
+        return self._deserialize('[GitCommitRef]', self._unwrap_collection(response))
 
     def get_deleted_repositories(self, project):
         """GetDeletedRepositories.
@@ -576,9 +571,8 @@ class GitClientBase(VssClient):
         response = self._send(http_method='GET',
                               location_id='2b6869c4-cb25-42b5-b7a3-0d3e6be0a11a',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[GitDeletedRepository]', response)
+                              route_values=route_values)
+        return self._deserialize('[GitDeletedRepository]', self._unwrap_collection(response))
 
     def get_forks(self, repository_name_or_id, collection_id, project=None, include_links=None):
         """GetForks.
@@ -603,9 +597,8 @@ class GitClientBase(VssClient):
                               location_id='158c0340-bf6f-489c-9625-d572a1480d57',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitRepositoryRef]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitRepositoryRef]', self._unwrap_collection(response))
 
     def create_fork_sync_request(self, sync_params, repository_name_or_id, project=None, include_links=None):
         """CreateForkSyncRequest.
@@ -682,9 +675,8 @@ class GitClientBase(VssClient):
                               location_id='1703f858-b9d1-46af-ab62-483e9e1055b5',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitForkSyncRequest]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitForkSyncRequest]', self._unwrap_collection(response))
 
     def create_import_request(self, import_request, project, repository_id):
         """CreateImportRequest.
@@ -748,9 +740,8 @@ class GitClientBase(VssClient):
                               location_id='01828ddc-3600-4a41-8633-99b3a73a0eb3',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitImportRequest]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitImportRequest]', self._unwrap_collection(response))
 
     def update_import_request(self, import_request_to_update, project, repository_id, import_request_id):
         """UpdateImportRequest.
@@ -911,9 +902,8 @@ class GitClientBase(VssClient):
                               location_id='fb93c0db-47ed-4a31-8c20-47552878fb44',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitItem]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitItem]', self._unwrap_collection(response))
 
     def get_item_text(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None):
         """GetItemText.
@@ -1025,9 +1015,8 @@ class GitClientBase(VssClient):
                               location_id='630fd2e4-fb88-4f85-ad21-13f3fd1fbca9',
                               version='4.0',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[[GitItem]]', response)
+                              content=content)
+        return self._deserialize('[[GitItem]]', self._unwrap_collection(response))
 
     def create_attachment(self, upload_stream, file_name, repository_id, pull_request_id, project=None):
         """CreateAttachment.
@@ -1121,9 +1110,8 @@ class GitClientBase(VssClient):
         response = self._send(http_method='GET',
                               location_id='965d9361-878b-413b-a494-45d5b5fd8ab7',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[Attachment]', response)
+                              route_values=route_values)
+        return self._deserialize('[Attachment]', self._unwrap_collection(response))
 
     def get_attachment_zip(self, file_name, repository_id, pull_request_id, project=None):
         """GetAttachmentZip.
@@ -1223,9 +1211,8 @@ class GitClientBase(VssClient):
         response = self._send(http_method='GET',
                               location_id='5f2e2851-1389-425b-a00b-fb2adb3ef31b',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[IdentityRef]', response)
+                              route_values=route_values)
+        return self._deserialize('[IdentityRef]', self._unwrap_collection(response))
 
     def get_pull_request_iteration_commits(self, repository_id, pull_request_id, iteration_id, project=None):
         """GetPullRequestIterationCommits.
@@ -1248,9 +1235,8 @@ class GitClientBase(VssClient):
         response = self._send(http_method='GET',
                               location_id='e7ea0883-095f-4926-b5fb-f24691c26fb9',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[GitCommitRef]', response)
+                              route_values=route_values)
+        return self._deserialize('[GitCommitRef]', self._unwrap_collection(response))
 
     def get_pull_request_commits(self, repository_id, pull_request_id, project=None):
         """GetPullRequestCommits.
@@ -1270,9 +1256,8 @@ class GitClientBase(VssClient):
         response = self._send(http_method='GET',
                               location_id='52823034-34a8-4576-922c-8d8b77e9e4c4',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[GitCommitRef]', response)
+                              route_values=route_values)
+        return self._deserialize('[GitCommitRef]', self._unwrap_collection(response))
 
     def get_pull_request_iteration_changes(self, repository_id, pull_request_id, iteration_id, project=None, top=None, skip=None, compare_to=None):
         """GetPullRequestIterationChanges.
@@ -1353,9 +1338,8 @@ class GitClientBase(VssClient):
                               location_id='d43911ee-6958-46b0-a42b-8445b8a0d004',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitPullRequestIteration]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitPullRequestIteration]', self._unwrap_collection(response))
 
     def create_pull_request_iteration_status(self, status, repository_id, pull_request_id, iteration_id, project=None):
         """CreatePullRequestIterationStatus.
@@ -1432,9 +1416,8 @@ class GitClientBase(VssClient):
         response = self._send(http_method='GET',
                               location_id='75cf11c5-979f-4038-a76e-058a06adf2bf',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[GitPullRequestStatus]', response)
+                              route_values=route_values)
+        return self._deserialize('[GitPullRequestStatus]', self._unwrap_collection(response))
 
     def create_pull_request_label(self, label, repository_id, pull_request_id, project=None, project_id=None):
         """CreatePullRequestLabel.
@@ -1544,9 +1527,8 @@ class GitClientBase(VssClient):
                               location_id='f22387e3-984e-4c52-9c6d-fbb8f14c812d',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WebApiTagDefinition]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WebApiTagDefinition]', self._unwrap_collection(response))
 
     def get_pull_request_query(self, queries, repository_id, project=None):
         """GetPullRequestQuery.
@@ -1617,9 +1599,8 @@ class GitClientBase(VssClient):
                               location_id='4b6702c7-aa35-4b89-9c96-b9abf6d3e540',
                               version='4.0',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[IdentityRefWithVote]', response)
+                              content=content)
+        return self._deserialize('[IdentityRefWithVote]', self._unwrap_collection(response))
 
     def delete_pull_request_reviewer(self, repository_id, pull_request_id, reviewer_id, project=None):
         """DeletePullRequestReviewer.
@@ -1685,9 +1666,8 @@ class GitClientBase(VssClient):
         response = self._send(http_method='GET',
                               location_id='4b6702c7-aa35-4b89-9c96-b9abf6d3e540',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[IdentityRefWithVote]', response)
+                              route_values=route_values)
+        return self._deserialize('[IdentityRefWithVote]', self._unwrap_collection(response))
 
     def update_pull_request_reviewers(self, patch_votes, repository_id, pull_request_id, project=None):
         """UpdatePullRequestReviewers.
@@ -1767,9 +1747,8 @@ class GitClientBase(VssClient):
                               location_id='a5d28130-9cd2-40fa-9f08-902e7daa9efb',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitPullRequest]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitPullRequest]', self._unwrap_collection(response))
 
     def create_pull_request(self, git_pull_request_to_create, repository_id, project=None, supports_iterations=None):
         """CreatePullRequest.
@@ -1879,9 +1858,8 @@ class GitClientBase(VssClient):
                               location_id='9946fd70-0d40-406e-b686-b4744cbbcc37',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitPullRequest]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitPullRequest]', self._unwrap_collection(response))
 
     def update_pull_request(self, git_pull_request_to_update, repository_id, pull_request_id, project=None):
         """UpdatePullRequest.
@@ -1995,9 +1973,8 @@ class GitClientBase(VssClient):
         response = self._send(http_method='GET',
                               location_id='b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[GitPullRequestStatus]', response)
+                              route_values=route_values)
+        return self._deserialize('[GitPullRequestStatus]', self._unwrap_collection(response))
 
     def create_comment(self, comment, repository_id, pull_request_id, thread_id, project=None):
         """CreateComment.
@@ -2099,9 +2076,8 @@ class GitClientBase(VssClient):
         response = self._send(http_method='GET',
                               location_id='965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[Comment]', response)
+                              route_values=route_values)
+        return self._deserialize('[Comment]', self._unwrap_collection(response))
 
     def update_comment(self, comment, repository_id, pull_request_id, thread_id, comment_id, project=None):
         """UpdateComment.
@@ -2215,9 +2191,8 @@ class GitClientBase(VssClient):
                               location_id='ab6e2e5d-a0b7-4153-b64a-a4efe0d49449',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitPullRequestCommentThread]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitPullRequestCommentThread]', self._unwrap_collection(response))
 
     def update_thread(self, comment_thread, repository_id, pull_request_id, thread_id, project=None):
         """UpdateThread.
@@ -2264,9 +2239,8 @@ class GitClientBase(VssClient):
         response = self._send(http_method='GET',
                               location_id='0a637fcc-5370-4ce8-b0e8-98091f5f9482',
                               version='4.0',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[AssociatedWorkItem]', response)
+                              route_values=route_values)
+        return self._deserialize('[AssociatedWorkItem]', self._unwrap_collection(response))
 
     def create_push(self, push, repository_id, project=None):
         """CreatePush.
@@ -2355,9 +2329,8 @@ class GitClientBase(VssClient):
                               location_id='ea98d07b-3c87-4971-8ede-a613694ffb55',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitPush]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitPush]', self._unwrap_collection(response))
 
     def get_refs(self, repository_id, project=None, filter=None, include_links=None, latest_statuses_only=None):
         """GetRefs.
@@ -2385,9 +2358,8 @@ class GitClientBase(VssClient):
                               location_id='2d874a60-a811-4f62-9c9f-963a6ea0a55b',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitRef]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitRef]', self._unwrap_collection(response))
 
     def update_ref(self, new_ref_info, repository_id, filter, project=None, project_id=None):
         """UpdateRef.
@@ -2440,9 +2412,8 @@ class GitClientBase(VssClient):
                               version='4.0',
                               route_values=route_values,
                               query_parameters=query_parameters,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[GitRefUpdateResult]', response)
+                              content=content)
+        return self._deserialize('[GitRefUpdateResult]', self._unwrap_collection(response))
 
     def create_favorite(self, favorite, project):
         """CreateFavorite.
@@ -2516,9 +2487,8 @@ class GitClientBase(VssClient):
                               location_id='876f70af-5792-485a-a1c7-d0a7b2f42bbb',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitRefFavorite]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitRefFavorite]', self._unwrap_collection(response))
 
     def create_repository(self, git_repository_to_create, project=None, source_ref=None):
         """CreateRepository.
@@ -2579,9 +2549,8 @@ class GitClientBase(VssClient):
                               location_id='225f7195-f9c7-4d14-ab28-a83f7ff77e1f',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitRepository]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitRepository]', self._unwrap_collection(response))
 
     def get_repository(self, repository_id, project=None, include_parent=None):
         """GetRepository.
@@ -2742,9 +2711,8 @@ class GitClientBase(VssClient):
                               location_id='428dd4fb-fda5-4722-af02-9313b80305da',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[GitStatus]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[GitStatus]', self._unwrap_collection(response))
 
     def get_suggestions(self, repository_id, project=None):
         """GetSuggestions.
@@ -2761,9 +2729,8 @@ class GitClientBase(VssClient):
         response = self._send(http_method='GET',
                               location_id='9393b4fb-4445-4919-972b-9ad16f442d83',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[GitSuggestion]', response)
+                              route_values=route_values)
+        return self._deserialize('[GitSuggestion]', self._unwrap_collection(response))
 
     def get_tree(self, repository_id, sha1, project=None, project_id=None, recursive=None, file_name=None):
         """GetTree.

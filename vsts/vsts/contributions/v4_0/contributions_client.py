@@ -71,9 +71,8 @@ class ContributionsClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='2648442b-fd63-4b9a-902f-0c913510f139',
                               version='4.0-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[InstalledExtension]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[InstalledExtension]', self._unwrap_collection(response))
 
     def get_installed_extension_by_name(self, publisher_name, extension_name, asset_types=None):
         """GetInstalledExtensionByName.

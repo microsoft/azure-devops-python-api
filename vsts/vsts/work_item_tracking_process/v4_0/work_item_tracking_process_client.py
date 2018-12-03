@@ -65,9 +65,8 @@ class WorkItemTrackingClient(VssClient):
                               location_id='d1800200-f184-4e75-a5f2-ad0b04b4373e',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemBehavior]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WorkItemBehavior]', self._unwrap_collection(response))
 
     def get_fields(self, process_id):
         """GetFields.
@@ -81,9 +80,8 @@ class WorkItemTrackingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='7a0e7a1a-0b34-4ae0-9744-0aaffb7d0ed1',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[FieldModel]', response)
+                              route_values=route_values)
+        return self._deserialize('[FieldModel]', self._unwrap_collection(response))
 
     def get_work_item_type_fields(self, process_id, wit_ref_name):
         """GetWorkItemTypeFields.
@@ -100,9 +98,8 @@ class WorkItemTrackingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='bc0ad8dc-e3f3-46b0-b06c-5bf861793196',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[FieldModel]', response)
+                              route_values=route_values)
+        return self._deserialize('[FieldModel]', self._unwrap_collection(response))
 
     def create_process(self, create_request):
         """CreateProcess.
@@ -162,9 +159,8 @@ class WorkItemTrackingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='02cc6a73-5cfb-427d-8c8e-b49fb086e8af',
                               version='4.0-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ProcessModel]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ProcessModel]', self._unwrap_collection(response))
 
     def update_process(self, update_request, process_type_id):
         """UpdateProcess.
@@ -260,9 +256,8 @@ class WorkItemTrackingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='76fe3432-d825-479d-a5f6-983bbb78b4f3',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[FieldRuleModel]', response)
+                              route_values=route_values)
+        return self._deserialize('[FieldRuleModel]', self._unwrap_collection(response))
 
     def update_work_item_type_rule(self, field_rule, process_id, wit_ref_name, rule_id):
         """UpdateWorkItemTypeRule.
@@ -324,9 +319,8 @@ class WorkItemTrackingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='31015d57-2dff-4a46-adb3-2fb4ee3dcec9',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemStateResultModel]', response)
+                              route_values=route_values)
+        return self._deserialize('[WorkItemStateResultModel]', self._unwrap_collection(response))
 
     def get_work_item_type(self, process_id, wit_ref_name, expand=None):
         """GetWorkItemType.
@@ -368,7 +362,6 @@ class WorkItemTrackingClient(VssClient):
                               location_id='e2e9d1a6-432d-4062-8870-bfcb8c324ad7',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemTypeModel]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WorkItemTypeModel]', self._unwrap_collection(response))
 

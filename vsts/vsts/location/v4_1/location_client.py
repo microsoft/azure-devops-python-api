@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -104,9 +104,8 @@ class LocationClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='e81700f7-3be2-46de-8624-2eb35882fcaa',
                               version='4.1-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ResourceAreaInfo]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ResourceAreaInfo]', self._unwrap_collection(response))
 
     def get_resource_areas_by_host(self, host_id):
         """GetResourceAreasByHost.
@@ -120,9 +119,8 @@ class LocationClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='e81700f7-3be2-46de-8624-2eb35882fcaa',
                               version='4.1-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ResourceAreaInfo]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ResourceAreaInfo]', self._unwrap_collection(response))
 
     def delete_service_definition(self, service_type, identifier):
         """DeleteServiceDefinition.
@@ -178,9 +176,8 @@ class LocationClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='d810a47d-f4f4-4a62-a03f-fa1860585c4c',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[ServiceDefinition]', response)
+                              route_values=route_values)
+        return self._deserialize('[ServiceDefinition]', self._unwrap_collection(response))
 
     def update_service_definitions(self, service_definitions):
         """UpdateServiceDefinitions.

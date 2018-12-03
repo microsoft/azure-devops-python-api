@@ -40,9 +40,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='f2571c27-bf50-4938-b396-32d109ddef26',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[AgentArtifactDefinition]', response)
+                              route_values=route_values)
+        return self._deserialize('[AgentArtifactDefinition]', self._unwrap_collection(response))
 
     def get_approvals(self, project, assigned_to_filter=None, status_filter=None, release_ids_filter=None, type_filter=None, top=None, continuation_token=None, query_order=None, include_my_group_approvals=None):
         """GetApprovals.
@@ -83,9 +82,8 @@ class ReleaseClient(VssClient):
                               location_id='b47c6458-e73b-47cb-a770-4df1e8813a91',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ReleaseApproval]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ReleaseApproval]', self._unwrap_collection(response))
 
     def get_approval_history(self, project, approval_step_id):
         """GetApprovalHistory.
@@ -164,9 +162,8 @@ class ReleaseClient(VssClient):
                               location_id='c957584a-82aa-4131-8222-6d47f78bfa7a',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[ReleaseApproval]', response)
+                              content=content)
+        return self._deserialize('[ReleaseApproval]', self._unwrap_collection(response))
 
     def get_auto_trigger_issues(self, artifact_type, source_id, artifact_version_id):
         """GetAutoTriggerIssues.
@@ -186,9 +183,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='c1a68497-69da-40fb-9423-cab19cfeeca9',
                               version='4.0-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[AutoTriggerIssue]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[AutoTriggerIssue]', self._unwrap_collection(response))
 
     def get_release_changes(self, project, release_id, base_release_id=None, top=None):
         """GetReleaseChanges.
@@ -213,9 +209,8 @@ class ReleaseClient(VssClient):
                               location_id='8dcf9fe9-ca37-4113-8ee1-37928e98407c',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Change]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Change]', self._unwrap_collection(response))
 
     def get_definition_environments(self, project, task_group_id=None, property_filters=None):
         """GetDefinitionEnvironments.
@@ -238,9 +233,8 @@ class ReleaseClient(VssClient):
                               location_id='12b5d21a-f54c-430e-a8c1-7515d196890e',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[DefinitionEnvironmentReference]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[DefinitionEnvironmentReference]', self._unwrap_collection(response))
 
     def create_release_definition(self, release_definition, project):
         """CreateReleaseDefinition.
@@ -376,9 +370,8 @@ class ReleaseClient(VssClient):
                               location_id='d8f96f24-8ea7-4cb6-baab-2df8fc515665',
                               version='4.0-preview.3',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ReleaseDefinition]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ReleaseDefinition]', self._unwrap_collection(response))
 
     def update_release_definition(self, release_definition, project):
         """UpdateReleaseDefinition.
@@ -448,9 +441,8 @@ class ReleaseClient(VssClient):
                               location_id='b005ef73-cddc-448e-9ba2-5193bf36b19f',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Deployment]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Deployment]', self._unwrap_collection(response))
 
     def get_deployments_for_multiple_environments(self, query_parameters, project):
         """GetDeploymentsForMultipleEnvironments.
@@ -467,9 +459,8 @@ class ReleaseClient(VssClient):
                               location_id='b005ef73-cddc-448e-9ba2-5193bf36b19f',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[Deployment]', response)
+                              content=content)
+        return self._deserialize('[Deployment]', self._unwrap_collection(response))
 
     def get_release_environment(self, project, release_id, environment_id):
         """GetReleaseEnvironment.
@@ -584,9 +575,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='6b03b696-824e-4479-8eb2-6644a51aba89',
                               version='4.0-preview.2',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[ReleaseDefinitionEnvironmentTemplate]', response)
+                              route_values=route_values)
+        return self._deserialize('[ReleaseDefinitionEnvironmentTemplate]', self._unwrap_collection(response))
 
     def create_favorites(self, favorite_items, project, scope, identity_id=None):
         """CreateFavorites.
@@ -611,9 +601,8 @@ class ReleaseClient(VssClient):
                               version='4.0-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[FavoriteItem]', response)
+                              content=content)
+        return self._deserialize('[FavoriteItem]', self._unwrap_collection(response))
 
     def delete_favorites(self, project, scope, identity_id=None, favorite_item_ids=None):
         """DeleteFavorites.
@@ -659,9 +648,8 @@ class ReleaseClient(VssClient):
                               location_id='938f7222-9acb-48fe-b8a3-4eda04597171',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[FavoriteItem]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[FavoriteItem]', self._unwrap_collection(response))
 
     def create_folder(self, folder, project, path):
         """CreateFolder.
@@ -720,9 +708,8 @@ class ReleaseClient(VssClient):
                               location_id='f7ddf76d-ce0c-4d68-94ff-becaec5d9dea',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Folder]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Folder]', self._unwrap_collection(response))
 
     def update_folder(self, folder, project, path):
         """UpdateFolder.
@@ -760,9 +747,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='23f461c8-629a-4144-a076-3054fa5f268a',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[ReleaseRevision]', response)
+                              route_values=route_values)
+        return self._deserialize('[ReleaseRevision]', self._unwrap_collection(response))
 
     def get_input_values(self, query, project):
         """GetInputValues.
@@ -802,9 +788,8 @@ class ReleaseClient(VssClient):
                               location_id='cd42261a-f5c6-41c8-9259-f078989b9f25',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[AutoTriggerIssue]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[AutoTriggerIssue]', self._unwrap_collection(response))
 
     def get_log(self, project, release_id, environment_id, task_id, attempt_id=None):
         """GetLog.
@@ -916,9 +901,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='616c46e4-f370-4456-adaa-fbaf79c7b79e',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[ManualIntervention]', response)
+                              route_values=route_values)
+        return self._deserialize('[ManualIntervention]', self._unwrap_collection(response))
 
     def update_manual_intervention(self, manual_intervention_update_metadata, project, release_id, manual_intervention_id):
         """UpdateManualIntervention.
@@ -961,9 +945,8 @@ class ReleaseClient(VssClient):
                               location_id='cd1502bb-3c73-4e11-80a6-d11308dceae5',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Metric]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Metric]', self._unwrap_collection(response))
 
     def get_release_projects(self, artifact_type, artifact_source_id):
         """GetReleaseProjects.
@@ -980,9 +963,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='917ace4a-79d1-45a7-987c-7be4db4268fa',
                               version='4.0-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ProjectReference]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ProjectReference]', self._unwrap_collection(response))
 
     def get_releases(self, project=None, definition_id=None, definition_environment_id=None, search_text=None, created_by=None, status_filter=None, environment_status_filter=None, min_created_time=None, max_created_time=None, query_order=None, top=None, continuation_token=None, expand=None, artifact_type_id=None, source_id=None, artifact_version_id=None, source_branch_filter=None, is_deleted=None, tag_filter=None, property_filters=None):
         """GetReleases.
@@ -1057,9 +1039,8 @@ class ReleaseClient(VssClient):
                               location_id='a166fde7-27ad-408e-ba75-703c2cc9d500',
                               version='4.0-preview.4',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Release]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Release]', self._unwrap_collection(response))
 
     def create_release(self, release_start_metadata, project):
         """CreateRelease.
@@ -1312,9 +1293,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='258b82e0-9d41-43f3-86d6-fef14ddd44bc',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[ReleaseDefinitionRevision]', response)
+                              route_values=route_values)
+        return self._deserialize('[ReleaseDefinitionRevision]', self._unwrap_collection(response))
 
     def get_summary_mail_sections(self, project, release_id):
         """GetSummaryMailSections.
@@ -1331,9 +1311,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='224e92b2-8d13-4c14-b120-13d877c516f8',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[SummaryMailSection]', response)
+                              route_values=route_values)
+        return self._deserialize('[SummaryMailSection]', self._unwrap_collection(response))
 
     def send_summary_mail(self, mail_message, project, release_id):
         """SendSummaryMail.
@@ -1369,9 +1348,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='0e5def23-78b3-461f-8198-1558f25041c8',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              route_values=route_values)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def add_definition_tag(self, project, release_definition_id, tag):
         """AddDefinitionTag.
@@ -1391,9 +1369,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='PATCH',
                               location_id='3d21b4c8-c32e-45b2-a7cb-770a369012f4',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              route_values=route_values)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def add_definition_tags(self, tags, project, release_definition_id):
         """AddDefinitionTags.
@@ -1413,9 +1390,8 @@ class ReleaseClient(VssClient):
                               location_id='3d21b4c8-c32e-45b2-a7cb-770a369012f4',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              content=content)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def delete_definition_tag(self, project, release_definition_id, tag):
         """DeleteDefinitionTag.
@@ -1435,9 +1411,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='DELETE',
                               location_id='3d21b4c8-c32e-45b2-a7cb-770a369012f4',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              route_values=route_values)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def get_definition_tags(self, project, release_definition_id):
         """GetDefinitionTags.
@@ -1454,9 +1429,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='3d21b4c8-c32e-45b2-a7cb-770a369012f4',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              route_values=route_values)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def add_release_tag(self, project, release_id, tag):
         """AddReleaseTag.
@@ -1476,9 +1450,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='PATCH',
                               location_id='c5b602b6-d1b3-4363-8a51-94384f78068f',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              route_values=route_values)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def add_release_tags(self, tags, project, release_id):
         """AddReleaseTags.
@@ -1498,9 +1471,8 @@ class ReleaseClient(VssClient):
                               location_id='c5b602b6-d1b3-4363-8a51-94384f78068f',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              content=content)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def delete_release_tag(self, project, release_id, tag):
         """DeleteReleaseTag.
@@ -1520,9 +1492,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='DELETE',
                               location_id='c5b602b6-d1b3-4363-8a51-94384f78068f',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              route_values=route_values)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def get_release_tags(self, project, release_id):
         """GetReleaseTags.
@@ -1539,9 +1510,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='c5b602b6-d1b3-4363-8a51-94384f78068f',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              route_values=route_values)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def get_tags(self, project):
         """GetTags.
@@ -1555,9 +1525,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='86cee25a-68ba-4ba3-9171-8ad6ffc6df93',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              route_values=route_values)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def get_tasks(self, project, release_id, environment_id, attempt_id=None):
         """GetTasks.
@@ -1582,9 +1551,8 @@ class ReleaseClient(VssClient):
                               location_id='36b276e0-3c70-4320-a63c-1a2e1466a0d1',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ReleaseTask]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ReleaseTask]', self._unwrap_collection(response))
 
     def get_tasks_for_task_group(self, project, release_id, environment_id, release_deploy_phase_id):
         """GetTasksForTaskGroup.
@@ -1607,9 +1575,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='4259191d-4b0a-4409-9fb3-09f22ab9bc47',
                               version='4.0-preview.2',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[ReleaseTask]', response)
+                              route_values=route_values)
+        return self._deserialize('[ReleaseTask]', self._unwrap_collection(response))
 
     def get_artifact_type_definitions(self, project):
         """GetArtifactTypeDefinitions.
@@ -1623,9 +1590,8 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='8efc2a3c-1fc8-4f6d-9822-75e98cecb48f',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[ArtifactTypeDefinition]', response)
+                              route_values=route_values)
+        return self._deserialize('[ArtifactTypeDefinition]', self._unwrap_collection(response))
 
     def get_artifact_versions(self, project, release_definition_id):
         """GetArtifactVersions.
@@ -1688,7 +1654,6 @@ class ReleaseClient(VssClient):
                               location_id='4f165cc0-875c-4768-b148-f12f78769fab',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ReleaseWorkItemRef]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ReleaseWorkItemRef]', self._unwrap_collection(response))
 

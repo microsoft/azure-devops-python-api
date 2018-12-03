@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -43,7 +43,6 @@ class AccountsClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='229a6a53-b428-4ffb-a835-e8f36b5b4b1e',
                               version='4.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Account]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Account]', self._unwrap_collection(response))
 
