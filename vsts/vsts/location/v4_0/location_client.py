@@ -68,9 +68,8 @@ class LocationClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='e81700f7-3be2-46de-8624-2eb35882fcaa',
-                              version='4.0-preview.1',
-                              returns_collection=True)
-        return self._deserialize('[ResourceAreaInfo]', response)
+                              version='4.0-preview.1')
+        return self._deserialize('[ResourceAreaInfo]', self._unwrap_collection(response))
 
     def delete_service_definition(self, service_type, identifier):
         """DeleteServiceDefinition.
@@ -123,9 +122,8 @@ class LocationClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='d810a47d-f4f4-4a62-a03f-fa1860585c4c',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[ServiceDefinition]', response)
+                              route_values=route_values)
+        return self._deserialize('[ServiceDefinition]', self._unwrap_collection(response))
 
     def update_service_definitions(self, service_definitions):
         """UpdateServiceDefinitions.

@@ -32,9 +32,8 @@ class WorkItemTrackingClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='1a31de40-e318-41cd-a6c6-881077df52e3',
-                              version='4.1-preview.1',
-                              returns_collection=True)
-        return self._deserialize('[WorkArtifactLink]', response)
+                              version='4.1-preview.1')
+        return self._deserialize('[WorkArtifactLink]', self._unwrap_collection(response))
 
     def query_work_items_for_artifact_uris(self, artifact_uri_query, project=None):
         """QueryWorkItemsForArtifactUris.
@@ -160,9 +159,8 @@ class WorkItemTrackingClient(VssClient):
                               location_id='a70579d1-f53a-48ee-a5be-7be8659023b9',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemClassificationNode]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WorkItemClassificationNode]', self._unwrap_collection(response))
 
     def get_root_nodes(self, project, depth=None):
         """GetRootNodes.
@@ -181,9 +179,8 @@ class WorkItemTrackingClient(VssClient):
                               location_id='a70579d1-f53a-48ee-a5be-7be8659023b9',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemClassificationNode]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WorkItemClassificationNode]', self._unwrap_collection(response))
 
     def create_or_update_classification_node(self, posted_node, project, structure_group, path=None):
         """CreateOrUpdateClassificationNode.
@@ -384,9 +381,8 @@ class WorkItemTrackingClient(VssClient):
                               location_id='b51fd764-e5c2-4b9b-aaf7-3395cf4bdd94',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemField]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WorkItemField]', self._unwrap_collection(response))
 
     def update_field(self, work_item_field, field_name_or_ref_name, project=None):
         """UpdateField.
@@ -467,9 +463,8 @@ class WorkItemTrackingClient(VssClient):
                               location_id='a67d190c-c41f-424b-814d-0e906f659301',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[QueryHierarchyItem]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[QueryHierarchyItem]', self._unwrap_collection(response))
 
     def get_query(self, project, query, expand=None, depth=None, include_deleted=None):
         """GetQuery.
@@ -607,9 +602,8 @@ class WorkItemTrackingClient(VssClient):
                               location_id='b70d8d39-926c-465e-b927-b1bf0e5ca0e0',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemDeleteReference]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WorkItemDeleteReference]', self._unwrap_collection(response))
 
     def get_deleted_work_item_shallow_references(self, project=None):
         """GetDeletedWorkItemShallowReferences.
@@ -623,9 +617,8 @@ class WorkItemTrackingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='b70d8d39-926c-465e-b927-b1bf0e5ca0e0',
                               version='4.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemDeleteShallowReference]', response)
+                              route_values=route_values)
+        return self._deserialize('[WorkItemDeleteShallowReference]', self._unwrap_collection(response))
 
     def restore_work_item(self, payload, id, project=None):
         """RestoreWorkItem.
@@ -694,9 +687,8 @@ class WorkItemTrackingClient(VssClient):
                               location_id='a00c85a5-80fa-4565-99c3-bcd2181434bb',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WorkItem]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WorkItem]', self._unwrap_collection(response))
 
     def create_template(self, template, team_context):
         """CreateTemplate.
@@ -761,9 +753,8 @@ class WorkItemTrackingClient(VssClient):
                               location_id='6a90345f-a676-4969-afce-8e163e1d5642',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemTemplateReference]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WorkItemTemplateReference]', self._unwrap_collection(response))
 
     def delete_template(self, team_context, template_id):
         """DeleteTemplate.
@@ -900,9 +891,8 @@ class WorkItemTrackingClient(VssClient):
                               location_id='6570bf97-d02c-4a91-8d93-3abe9895b1a9',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemUpdate]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WorkItemUpdate]', self._unwrap_collection(response))
 
     def query_by_wiql(self, wiql, team_context=None, time_precision=None, top=None):
         """QueryByWiql.
@@ -1048,9 +1038,8 @@ class WorkItemTrackingClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='4e1eb4a5-1970-4228-a682-ec48eb2dca30',
-                              version='4.1-preview.1',
-                              returns_collection=True)
-        return self._deserialize('[WorkItemIcon]', response)
+                              version='4.1-preview.1')
+        return self._deserialize('[WorkItemIcon]', self._unwrap_collection(response))
 
     def get_work_item_icon_svg(self, icon, color=None, v=None):
         """GetWorkItemIconSvg.
@@ -1128,9 +1117,8 @@ class WorkItemTrackingClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='f5d33bc9-5b49-4a3c-a9bd-f3cd46dd2165',
-                              version='4.1',
-                              returns_collection=True)
-        return self._deserialize('[WorkItemRelationType]', response)
+                              version='4.1')
+        return self._deserialize('[WorkItemRelationType]', self._unwrap_collection(response))
 
     def read_reporting_revisions_get(self, project=None, fields=None, types=None, continuation_token=None, start_date_time=None, include_identity_ref=None, include_deleted=None, include_tag_ref=None, include_latest_only=None, expand=None, include_discussion_changes_only=None, max_page_size=None):
         """ReadReportingRevisionsGet.
@@ -1359,9 +1347,8 @@ class WorkItemTrackingClient(VssClient):
                               location_id='72c7ddf8-2cdc-4f60-90cd-ab71c14a399b',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WorkItem]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WorkItem]', self._unwrap_collection(response))
 
     def update_work_item(self, document, id, project=None, validate_only=None, bypass_rules=None, suppress_notifications=None):
         """UpdateWorkItem.
@@ -1412,9 +1399,8 @@ class WorkItemTrackingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='afae844b-e2f6-44c2-8053-17b3bb936a40',
                               version='4.1-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemNextStateOnTransition]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WorkItemNextStateOnTransition]', self._unwrap_collection(response))
 
     def get_work_item_type_categories(self, project):
         """GetWorkItemTypeCategories.
@@ -1428,9 +1414,8 @@ class WorkItemTrackingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='9b9f5734-36c8-415e-ba67-f83b45c31408',
                               version='4.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemTypeCategory]', response)
+                              route_values=route_values)
+        return self._deserialize('[WorkItemTypeCategory]', self._unwrap_collection(response))
 
     def get_work_item_type_category(self, project, category):
         """GetWorkItemTypeCategory.
@@ -1480,9 +1465,8 @@ class WorkItemTrackingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='7c8d7a76-4a09-43e8-b5df-bd792f4ac6aa',
                               version='4.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemType]', response)
+                              route_values=route_values)
+        return self._deserialize('[WorkItemType]', self._unwrap_collection(response))
 
     def get_work_item_type_fields_with_references(self, project, type, expand=None):
         """GetWorkItemTypeFieldsWithReferences.
@@ -1504,9 +1488,8 @@ class WorkItemTrackingClient(VssClient):
                               location_id='bd293ce5-3d25-4192-8e67-e8092e879efb',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemTypeFieldWithReferences]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WorkItemTypeFieldWithReferences]', self._unwrap_collection(response))
 
     def get_work_item_type_field_with_references(self, project, type, field, expand=None):
         """GetWorkItemTypeFieldWithReferences.
@@ -1549,7 +1532,6 @@ class WorkItemTrackingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='7c9d7a76-4a09-43e8-b5df-bd792f4ac6aa',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemStateColor]', response)
+                              route_values=route_values)
+        return self._deserialize('[WorkItemStateColor]', self._unwrap_collection(response))
 

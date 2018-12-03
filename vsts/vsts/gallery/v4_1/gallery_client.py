@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -271,9 +271,8 @@ class GalleryClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='e0a5a71e-3ac3-43a0-ae7d-0bb5c3046a2a',
                               version='4.1-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def get_category_details(self, category_name, languages=None, product=None):
         """GetCategoryDetails.
@@ -1010,9 +1009,8 @@ class GalleryClient(VssClient):
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content,
-                              media_type='application/octet-stream',
-                              returns_collection=True)
-        return self._deserialize('{str}', response)
+                              media_type='application/octet-stream')
+        return self._deserialize('{str}', self._unwrap_collection(response))
 
     def query_publishers(self, publisher_query):
         """QueryPublishers.
@@ -1460,9 +1458,8 @@ class GalleryClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='9b75ece3-7960-401c-848b-148ac01ca350',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('{object}', response)
+                              route_values=route_values)
+        return self._deserialize('{object}', self._unwrap_collection(response))
 
     def set_gallery_user_settings(self, entries, user_scope):
         """SetGalleryUserSettings.

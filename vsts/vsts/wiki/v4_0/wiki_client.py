@@ -25,6 +25,62 @@ class WikiClient(VssClient):
 
     resource_area_identifier = 'bf7d82a0-8aa5-4613-94ef-6172a5ea01f3'
 
+    def create_attachment(self, upload_stream, project, wiki_id, name):
+        """CreateAttachment.
+        [Preview API] Use this API to create an attachment in the wiki.
+        :param object upload_stream: Stream to upload
+        :param str project: Project ID or project name
+        :param str wiki_id: ID of the wiki in which the attachment is to be created.
+        :param str name: Name of the attachment that is to be created.
+        :rtype: :class:`<WikiAttachmentResponse> <wiki.v4_0.models.WikiAttachmentResponse>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if wiki_id is not None:
+            route_values['wikiId'] = self._serialize.url('wiki_id', wiki_id, 'str')
+        query_parameters = {}
+        if name is not None:
+            query_parameters['name'] = self._serialize.query('name', name, 'str')
+        content = self._serialize.body(upload_stream, 'object')
+        response = self._send(http_method='PUT',
+                              location_id='c4382d8d-fefc-40e0-92c5-49852e9e17c0',
+                              version='4.0-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters,
+                              content=content,
+                              media_type='application/octet-stream')
+        response_object = models.WikiAttachmentResponse()
+        response_object.attachment = self._deserialize('WikiAttachment', response)
+        response_object.eTag = response.headers.get('ETag')
+        return response_object
+
+    def get_attachment(self, project, wiki_id, name):
+        """GetAttachment.
+        [Preview API] Temp API
+        :param str project: Project ID or project name
+        :param str wiki_id:
+        :param str name:
+        :rtype: :class:`<WikiAttachmentResponse> <wiki.v4_0.models.WikiAttachmentResponse>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if wiki_id is not None:
+            route_values['wikiId'] = self._serialize.url('wiki_id', wiki_id, 'str')
+        query_parameters = {}
+        if name is not None:
+            query_parameters['name'] = self._serialize.query('name', name, 'str')
+        response = self._send(http_method='GET',
+                              location_id='c4382d8d-fefc-40e0-92c5-49852e9e17c0',
+                              version='4.0-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters)
+        response_object = models.WikiAttachmentResponse()
+        response_object.attachment = self._deserialize('WikiAttachment', response)
+        response_object.eTag = response.headers.get('ETag')
+        return response_object
+
     def get_pages(self, project, wiki_id, path=None, recursion_level=None, version_descriptor=None):
         """GetPages.
         [Preview API] Gets metadata or content of the wiki pages under the provided page path.
@@ -56,9 +112,8 @@ class WikiClient(VssClient):
                               location_id='25d3fbc7-fe3d-46cb-b5a5-0b6f79caf27b',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WikiPage]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WikiPage]', self._unwrap_collection(response))
 
     def get_page_text(self, project, wiki_id, path=None, recursion_level=None, version_descriptor=None):
         """GetPageText.
@@ -189,7 +244,6 @@ class WikiClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='288d122c-dbd4-451d-aa5f-7dbbba070728',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[WikiRepository]', response)
+                              route_values=route_values)
+        return self._deserialize('[WikiRepository]', self._unwrap_collection(response))
 

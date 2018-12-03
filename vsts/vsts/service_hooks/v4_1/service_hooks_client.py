@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -65,9 +65,8 @@ class ServiceHooksClient(VssClient):
                               location_id='c3428e90-7a69-4194-8ed8-0f153185ee0d',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ConsumerAction]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ConsumerAction]', self._unwrap_collection(response))
 
     def get_consumer(self, consumer_id, publisher_id=None):
         """GetConsumer.
@@ -101,9 +100,8 @@ class ServiceHooksClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='4301c514-5f34-4f5d-a145-f0ea7b5b7d19',
                               version='4.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Consumer]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Consumer]', self._unwrap_collection(response))
 
     def get_subscription_diagnostics(self, subscription_id):
         """GetSubscriptionDiagnostics.
@@ -168,9 +166,8 @@ class ServiceHooksClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='db4777cd-8e08-4a84-8ba3-c974ea033718',
                               version='4.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[EventTypeDescriptor]', response)
+                              route_values=route_values)
+        return self._deserialize('[EventTypeDescriptor]', self._unwrap_collection(response))
 
     def get_notification(self, subscription_id, notification_id):
         """GetNotification.
@@ -213,9 +210,8 @@ class ServiceHooksClient(VssClient):
                               location_id='0c62d343-21b0-4732-997b-017fde84dc28',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Notification]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Notification]', self._unwrap_collection(response))
 
     def query_notifications(self, query):
         """QueryNotifications.
@@ -269,9 +265,8 @@ class ServiceHooksClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='1e83a210-5b53-43bc-90f0-d476a4e5d731',
-                              version='4.1',
-                              returns_collection=True)
-        return self._deserialize('[Publisher]', response)
+                              version='4.1')
+        return self._deserialize('[Publisher]', self._unwrap_collection(response))
 
     def query_publishers(self, query):
         """QueryPublishers.
@@ -348,9 +343,8 @@ class ServiceHooksClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='fc50d02a-849f-41fb-8af1-0a5216103269',
                               version='4.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[Subscription]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[Subscription]', self._unwrap_collection(response))
 
     def replace_subscription(self, subscription, subscription_id=None):
         """ReplaceSubscription.

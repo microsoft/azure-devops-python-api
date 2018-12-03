@@ -116,9 +116,8 @@ class TaskAgentClient(VssClient):
                               location_id='e298ef32-5878-4cab-993c-043836571f42',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TaskAgent]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TaskAgent]', self._unwrap_collection(response))
 
     def replace_agent(self, agent, pool_id, agent_id):
         """ReplaceAgent.
@@ -281,9 +280,8 @@ class TaskAgentClient(VssClient):
                               location_id='083c4d89-ab35-45af-aa11-7cf66895c53e',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[DeploymentGroup]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[DeploymentGroup]', self._unwrap_collection(response))
 
     def update_deployment_group(self, deployment_group, project, deployment_group_id):
         """UpdateDeploymentGroup.
@@ -329,9 +327,8 @@ class TaskAgentClient(VssClient):
                               location_id='281c6308-427a-49e1-b83a-dac0f4862189',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[DeploymentGroupMetrics]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[DeploymentGroupMetrics]', self._unwrap_collection(response))
 
     def get_agent_requests_for_deployment_machine(self, project, deployment_group_id, machine_id, completed_request_count=None):
         """GetAgentRequestsForDeploymentMachine.
@@ -356,9 +353,8 @@ class TaskAgentClient(VssClient):
                               location_id='a3540e5b-f0dc-4668-963b-b752459be545',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TaskAgentJobRequest]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TaskAgentJobRequest]', self._unwrap_collection(response))
 
     def get_agent_requests_for_deployment_machines(self, project, deployment_group_id, machine_ids=None, completed_request_count=None):
         """GetAgentRequestsForDeploymentMachines.
@@ -384,9 +380,8 @@ class TaskAgentClient(VssClient):
                               location_id='a3540e5b-f0dc-4668-963b-b752459be545',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TaskAgentJobRequest]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TaskAgentJobRequest]', self._unwrap_collection(response))
 
     def refresh_deployment_machines(self, project, deployment_group_id):
         """RefreshDeploymentMachines.
@@ -414,9 +409,8 @@ class TaskAgentClient(VssClient):
         response = self._send(http_method='POST',
                               location_id='f223b809-8c33-4b7d-b53f-07232569b5d6',
                               version='4.0',
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[str]', response)
+                              content=content)
+        return self._deserialize('[str]', self._unwrap_collection(response))
 
     def get_service_endpoint_execution_records(self, project, endpoint_id, top=None):
         """GetServiceEndpointExecutionRecords.
@@ -438,9 +432,8 @@ class TaskAgentClient(VssClient):
                               location_id='3ad71e20-7586-45f9-a6c8-0342e00835ac',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ServiceEndpointExecutionRecord]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ServiceEndpointExecutionRecord]', self._unwrap_collection(response))
 
     def add_service_endpoint_execution_records(self, input, project):
         """AddServiceEndpointExecutionRecords.
@@ -457,9 +450,8 @@ class TaskAgentClient(VssClient):
                               location_id='11a45c69-2cce-4ade-a361-c9f5a37239ee',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[ServiceEndpointExecutionRecord]', response)
+                              content=content)
+        return self._deserialize('[ServiceEndpointExecutionRecord]', self._unwrap_collection(response))
 
     def get_task_hub_license_details(self, hub_name, include_enterprise_users_count=None, include_hosted_agent_minutes_count=None):
         """GetTaskHubLicenseDetails.
@@ -574,9 +566,8 @@ class TaskAgentClient(VssClient):
                               location_id='fc825784-c92a-4299-9221-998a02d1b54f',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TaskAgentJobRequest]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TaskAgentJobRequest]', self._unwrap_collection(response))
 
     def get_agent_requests_for_agents(self, pool_id, agent_ids=None, completed_request_count=None):
         """GetAgentRequestsForAgents.
@@ -598,9 +589,8 @@ class TaskAgentClient(VssClient):
                               location_id='fc825784-c92a-4299-9221-998a02d1b54f',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TaskAgentJobRequest]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TaskAgentJobRequest]', self._unwrap_collection(response))
 
     def get_agent_requests_for_plan(self, pool_id, plan_id, job_id=None):
         """GetAgentRequestsForPlan.
@@ -621,9 +611,8 @@ class TaskAgentClient(VssClient):
                               location_id='fc825784-c92a-4299-9221-998a02d1b54f',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TaskAgentJobRequest]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TaskAgentJobRequest]', self._unwrap_collection(response))
 
     def queue_agent_request(self, request, pool_id):
         """QueueAgentRequest.
@@ -762,9 +751,8 @@ class TaskAgentClient(VssClient):
                               location_id='d4adf50f-80c6-4ac8-9ca1-6e4e544286e9',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[DeploymentMachineGroup]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[DeploymentMachineGroup]', self._unwrap_collection(response))
 
     def update_deployment_machine_group(self, machine_group, project, machine_group_id):
         """UpdateDeploymentMachineGroup.
@@ -808,9 +796,8 @@ class TaskAgentClient(VssClient):
                               location_id='966c3874-c347-4b18-a90c-d509116717fd',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[DeploymentMachine]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[DeploymentMachine]', self._unwrap_collection(response))
 
     def update_deployment_machine_group_machines(self, deployment_machines, project, machine_group_id):
         """UpdateDeploymentMachineGroupMachines.
@@ -830,9 +817,8 @@ class TaskAgentClient(VssClient):
                               location_id='966c3874-c347-4b18-a90c-d509116717fd',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[DeploymentMachine]', response)
+                              content=content)
+        return self._deserialize('[DeploymentMachine]', self._unwrap_collection(response))
 
     def add_deployment_machine(self, machine, project, deployment_group_id):
         """AddDeploymentMachine.
@@ -927,9 +913,8 @@ class TaskAgentClient(VssClient):
                               location_id='6f6d406f-cfe6-409c-9327-7009928077e7',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[DeploymentMachine]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[DeploymentMachine]', self._unwrap_collection(response))
 
     def replace_deployment_machine(self, machine, project, deployment_group_id, machine_id):
         """ReplaceDeploymentMachine.
@@ -997,9 +982,8 @@ class TaskAgentClient(VssClient):
                               location_id='6f6d406f-cfe6-409c-9327-7009928077e7',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[DeploymentMachine]', response)
+                              content=content)
+        return self._deserialize('[DeploymentMachine]', self._unwrap_collection(response))
 
     def create_agent_pool_maintenance_definition(self, definition, pool_id):
         """CreateAgentPoolMaintenanceDefinition.
@@ -1065,9 +1049,8 @@ class TaskAgentClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='80572e16-58f0-4419-ac07-d19fde32195c',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[TaskAgentPoolMaintenanceDefinition]', response)
+                              route_values=route_values)
+        return self._deserialize('[TaskAgentPoolMaintenanceDefinition]', self._unwrap_collection(response))
 
     def update_agent_pool_maintenance_definition(self, definition, pool_id, definition_id):
         """UpdateAgentPoolMaintenanceDefinition.
@@ -1159,9 +1142,8 @@ class TaskAgentClient(VssClient):
                               location_id='15e7ab6e-abce-4601-a6d8-e111fe148f46',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TaskAgentPoolMaintenanceJob]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TaskAgentPoolMaintenanceJob]', self._unwrap_collection(response))
 
     def queue_agent_pool_maintenance_job(self, job, pool_id):
         """QueueAgentPoolMaintenanceJob.
@@ -1332,9 +1314,8 @@ class TaskAgentClient(VssClient):
                               location_id='8ffcd551-079c-493a-9c02-54346299d144',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[PackageMetadata]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[PackageMetadata]', self._unwrap_collection(response))
 
     def get_agent_pool_roles(self, pool_id=None):
         """GetAgentPoolRoles.
@@ -1348,9 +1329,8 @@ class TaskAgentClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='381dd2bb-35cf-4103-ae8c-3c815b25763c',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[IdentityRef]', response)
+                              route_values=route_values)
+        return self._deserialize('[IdentityRef]', self._unwrap_collection(response))
 
     def add_agent_pool(self, pool):
         """AddAgentPool.
@@ -1420,9 +1400,8 @@ class TaskAgentClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='a8c47e17-4d56-4a56-92bb-de7ea7dc65be',
                               version='4.0',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TaskAgentPool]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TaskAgentPool]', self._unwrap_collection(response))
 
     def update_agent_pool(self, pool, pool_id):
         """UpdateAgentPool.
@@ -1453,9 +1432,8 @@ class TaskAgentClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='b0c6d64d-c9fa-4946-b8de-77de623ee585',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[IdentityRef]', response)
+                              route_values=route_values)
+        return self._deserialize('[IdentityRef]', self._unwrap_collection(response))
 
     def add_agent_queue(self, queue, project=None):
         """AddAgentQueue.
@@ -1547,9 +1525,8 @@ class TaskAgentClient(VssClient):
                               location_id='900fa995-c559-4923-aae7-f8424fe4fbea',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TaskAgentQueue]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TaskAgentQueue]', self._unwrap_collection(response))
 
     def get_task_group_history(self, project, task_group_id):
         """GetTaskGroupHistory.
@@ -1566,9 +1543,8 @@ class TaskAgentClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='100cc92a-b255-47fa-9ab3-e44a2985a3ac',
                               version='4.0-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[TaskGroupRevision]', response)
+                              route_values=route_values)
+        return self._deserialize('[TaskGroupRevision]', self._unwrap_collection(response))
 
     def delete_secure_file(self, project, secure_file_id):
         """DeleteSecureFile.
@@ -1658,9 +1634,8 @@ class TaskAgentClient(VssClient):
                               location_id='adcfd8bc-b184-43ba-bd84-7c8c6a2ff421',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[SecureFile]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[SecureFile]', self._unwrap_collection(response))
 
     def get_secure_files_by_ids(self, project, secure_file_ids, include_download_tickets=None):
         """GetSecureFilesByIds.
@@ -1683,9 +1658,8 @@ class TaskAgentClient(VssClient):
                               location_id='adcfd8bc-b184-43ba-bd84-7c8c6a2ff421',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[SecureFile]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[SecureFile]', self._unwrap_collection(response))
 
     def query_secure_files_by_properties(self, condition, project, name_pattern=None):
         """QuerySecureFilesByProperties.
@@ -1707,9 +1681,8 @@ class TaskAgentClient(VssClient):
                               version='4.0-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[SecureFile]', response)
+                              content=content)
+        return self._deserialize('[SecureFile]', self._unwrap_collection(response))
 
     def update_secure_file(self, secure_file, project, secure_file_id):
         """UpdateSecureFile.
@@ -1747,9 +1720,8 @@ class TaskAgentClient(VssClient):
                               location_id='adcfd8bc-b184-43ba-bd84-7c8c6a2ff421',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[SecureFile]', response)
+                              content=content)
+        return self._deserialize('[SecureFile]', self._unwrap_collection(response))
 
     def upload_secure_file(self, upload_stream, project, name):
         """UploadSecureFile.
@@ -1878,9 +1850,8 @@ class TaskAgentClient(VssClient):
                               location_id='dca61d2f-3444-410a-b5ec-db2fc4efb4c5',
                               version='4.0-preview.2',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ServiceEndpoint]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ServiceEndpoint]', self._unwrap_collection(response))
 
     def update_service_endpoint(self, endpoint, project, endpoint_id, operation=None):
         """UpdateServiceEndpoint.
@@ -1923,9 +1894,8 @@ class TaskAgentClient(VssClient):
                               location_id='dca61d2f-3444-410a-b5ec-db2fc4efb4c5',
                               version='4.0-preview.2',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[ServiceEndpoint]', response)
+                              content=content)
+        return self._deserialize('[ServiceEndpoint]', self._unwrap_collection(response))
 
     def get_service_endpoint_types(self, type=None, scheme=None):
         """GetServiceEndpointTypes.
@@ -1942,9 +1912,8 @@ class TaskAgentClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='7c74af83-8605-45c1-a30b-7a05d5d7f8c1',
                               version='4.0-preview.1',
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[ServiceEndpointType]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[ServiceEndpointType]', self._unwrap_collection(response))
 
     def create_agent_session(self, session, pool_id):
         """CreateAgentSession.
@@ -2092,9 +2061,8 @@ class TaskAgentClient(VssClient):
                               location_id='6c08ffbf-dbf1-4f9a-94e5-a1cbd47005e7',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TaskGroup]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TaskGroup]', self._unwrap_collection(response))
 
     def publish_preview_task_group(self, task_group, project, task_group_id, disable_prior_versions=None):
         """PublishPreviewTaskGroup.
@@ -2119,9 +2087,8 @@ class TaskAgentClient(VssClient):
                               version='4.0-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[TaskGroup]', response)
+                              content=content)
+        return self._deserialize('[TaskGroup]', self._unwrap_collection(response))
 
     def publish_task_group(self, task_group_metadata, project, parent_task_group_id):
         """PublishTaskGroup.
@@ -2143,9 +2110,8 @@ class TaskAgentClient(VssClient):
                               version='4.0-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[TaskGroup]', response)
+                              content=content)
+        return self._deserialize('[TaskGroup]', self._unwrap_collection(response))
 
     def undelete_task_group(self, task_group, project):
         """UndeleteTaskGroup.
@@ -2162,9 +2128,8 @@ class TaskAgentClient(VssClient):
                               location_id='6c08ffbf-dbf1-4f9a-94e5-a1cbd47005e7',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              content=content,
-                              returns_collection=True)
-        return self._deserialize('[TaskGroup]', response)
+                              content=content)
+        return self._deserialize('[TaskGroup]', self._unwrap_collection(response))
 
     def update_task_group(self, task_group, project):
         """UpdateTaskGroup.
@@ -2265,9 +2230,8 @@ class TaskAgentClient(VssClient):
                               location_id='60aac929-f0cd-4bc8-9ce4-6b30e8f1b1bd',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[TaskDefinition]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[TaskDefinition]', self._unwrap_collection(response))
 
     def update_agent_update_state(self, pool_id, agent_id, current_state):
         """UpdateAgentUpdateState.
@@ -2384,9 +2348,8 @@ class TaskAgentClient(VssClient):
                               location_id='f5b09dd5-9d54-45a1-8b5a-1c8287d634cc',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[VariableGroup]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[VariableGroup]', self._unwrap_collection(response))
 
     def get_variable_groups_by_id(self, project, group_ids):
         """GetVariableGroupsById.
@@ -2406,9 +2369,8 @@ class TaskAgentClient(VssClient):
                               location_id='f5b09dd5-9d54-45a1-8b5a-1c8287d634cc',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[VariableGroup]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[VariableGroup]', self._unwrap_collection(response))
 
     def update_variable_group(self, group, project, group_id):
         """UpdateVariableGroup.

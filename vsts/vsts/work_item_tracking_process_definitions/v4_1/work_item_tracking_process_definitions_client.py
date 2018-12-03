@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -89,9 +89,8 @@ class WorkItemTrackingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='47a651f4-fb70-43bf-b96b-7c0ba947142b',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[BehaviorModel]', response)
+                              route_values=route_values)
+        return self._deserialize('[BehaviorModel]', self._unwrap_collection(response))
 
     def replace_behavior(self, behavior_data, process_id, behavior_id):
         """ReplaceBehavior.
@@ -435,9 +434,8 @@ class WorkItemTrackingClient(VssClient):
         """
         response = self._send(http_method='GET',
                               location_id='b45cc931-98e3-44a1-b1cd-2e8e9c6dc1c6',
-                              version='4.1-preview.1',
-                              returns_collection=True)
-        return self._deserialize('[PickListMetadataModel]', response)
+                              version='4.1-preview.1')
+        return self._deserialize('[PickListMetadataModel]', self._unwrap_collection(response))
 
     def create_list(self, picklist):
         """CreateList.
@@ -635,9 +633,8 @@ class WorkItemTrackingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='4303625d-08f4-4461-b14b-32c65bba5599',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemStateResultModel]', response)
+                              route_values=route_values)
+        return self._deserialize('[WorkItemStateResultModel]', self._unwrap_collection(response))
 
     def hide_state_definition(self, hide_state_model, process_id, wit_ref_name, state_id):
         """HideStateDefinition.
@@ -744,9 +741,8 @@ class WorkItemTrackingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='921dfb88-ef57-4c69-94e5-dd7da2d7031d',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemTypeBehavior]', response)
+                              route_values=route_values)
+        return self._deserialize('[WorkItemTypeBehavior]', self._unwrap_collection(response))
 
     def remove_behavior_from_work_item_type(self, process_id, wit_ref_name_for_behaviors, behavior_ref_name):
         """RemoveBehaviorFromWorkItemType.
@@ -862,9 +858,8 @@ class WorkItemTrackingClient(VssClient):
                               location_id='1ce0acad-4638-49c3-969c-04aa65ba6bea',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemTypeModel]', response)
+                              query_parameters=query_parameters)
+        return self._deserialize('[WorkItemTypeModel]', self._unwrap_collection(response))
 
     def update_work_item_type(self, work_item_type_update, process_id, wit_ref_name):
         """UpdateWorkItemType.
@@ -910,7 +905,7 @@ class WorkItemTrackingClient(VssClient):
 
     def get_work_item_type_field(self, process_id, wit_ref_name_for_fields, field_ref_name):
         """GetWorkItemTypeField.
-        [Preview API] Retuens a single field in the work item type of the process.
+        [Preview API] Returns a single field in the work item type of the process.
         :param str process_id: The ID of the process
         :param str wit_ref_name_for_fields: Work item type reference name for fields
         :param str field_ref_name: The reference name of the field
@@ -944,9 +939,8 @@ class WorkItemTrackingClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='976713b4-a62e-499e-94dc-eeb869ea9126',
                               version='4.1-preview.1',
-                              route_values=route_values,
-                              returns_collection=True)
-        return self._deserialize('[WorkItemTypeFieldModel]', response)
+                              route_values=route_values)
+        return self._deserialize('[WorkItemTypeFieldModel]', self._unwrap_collection(response))
 
     def remove_field_from_work_item_type(self, process_id, wit_ref_name_for_fields, field_ref_name):
         """RemoveFieldFromWorkItemType.

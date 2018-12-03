@@ -320,6 +320,42 @@ class DashboardClient(VssClient):
                               route_values=route_values)
         return self._deserialize('Widget', response)
 
+    def get_widgets(self, team_context, dashboard_id, eTag=None):
+        """GetWidgets.
+        [Preview API] Get widgets contained on the specified dashboard.
+        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param str dashboard_id: ID of the dashboard to read.
+        :param String eTag: Dashboard Widgets Version
+        :rtype: :class:`<WidgetsVersionedList> <dashboard.v4_1.models.WidgetsVersionedList>`
+        """
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.project_id:
+                project = team_context.project_id
+            else:
+                project = team_context.project
+            if team_context.team_id:
+                team = team_context.team_id
+            else:
+                team = team_context.team
+
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
+        if dashboard_id is not None:
+            route_values['dashboardId'] = self._serialize.url('dashboard_id', dashboard_id, 'str')
+        response = self._send(http_method='GET',
+                              location_id='bdcff53a-8355-4172-a00a-40497ea23afc',
+                              version='4.1-preview.2',
+                              route_values=route_values)
+        response_object = models.WidgetsVersionedList()
+        response_object.widgets = self._deserialize('[Widget]', self._unwrap_collection(response))
+        response_object.eTag = response.headers.get('ETag')
+        return response_object
+
     def replace_widget(self, widget, team_context, dashboard_id, widget_id):
         """ReplaceWidget.
         [Preview API] Override the  state of the specified widget.
@@ -358,6 +394,45 @@ class DashboardClient(VssClient):
                               content=content)
         return self._deserialize('Widget', response)
 
+    def replace_widgets(self, widgets, team_context, dashboard_id, eTag=None):
+        """ReplaceWidgets.
+        [Preview API] Replace the widgets on specified dashboard with the supplied widgets.
+        :param [Widget] widgets: Revised state of widgets to store for the dashboard.
+        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param str dashboard_id: ID of the Dashboard to modify.
+        :param String eTag: Dashboard Widgets Version
+        :rtype: :class:`<WidgetsVersionedList> <dashboard.v4_1.models.WidgetsVersionedList>`
+        """
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.project_id:
+                project = team_context.project_id
+            else:
+                project = team_context.project
+            if team_context.team_id:
+                team = team_context.team_id
+            else:
+                team = team_context.team
+
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
+        if dashboard_id is not None:
+            route_values['dashboardId'] = self._serialize.url('dashboard_id', dashboard_id, 'str')
+        content = self._serialize.body(widgets, '[Widget]')
+        response = self._send(http_method='PUT',
+                              location_id='bdcff53a-8355-4172-a00a-40497ea23afc',
+                              version='4.1-preview.2',
+                              route_values=route_values,
+                              content=content)
+        response_object = models.WidgetsVersionedList()
+        response_object.widgets = self._deserialize('[Widget]', self._unwrap_collection(response))
+        response_object.eTag = response.headers.get('ETag')
+        return response_object
+
     def update_widget(self, widget, team_context, dashboard_id, widget_id):
         """UpdateWidget.
         [Preview API] Perform a partial update of the specified widget.
@@ -395,6 +470,45 @@ class DashboardClient(VssClient):
                               route_values=route_values,
                               content=content)
         return self._deserialize('Widget', response)
+
+    def update_widgets(self, widgets, team_context, dashboard_id, eTag=None):
+        """UpdateWidgets.
+        [Preview API] Update the supplied widgets on the dashboard using supplied state. State of existing Widgets not passed in the widget list is preserved.
+        :param [Widget] widgets: The set of widget states to update on the dashboard.
+        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param str dashboard_id: ID of the Dashboard to modify.
+        :param String eTag: Dashboard Widgets Version
+        :rtype: :class:`<WidgetsVersionedList> <dashboard.v4_1.models.WidgetsVersionedList>`
+        """
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.project_id:
+                project = team_context.project_id
+            else:
+                project = team_context.project
+            if team_context.team_id:
+                team = team_context.team_id
+            else:
+                team = team_context.team
+
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
+        if dashboard_id is not None:
+            route_values['dashboardId'] = self._serialize.url('dashboard_id', dashboard_id, 'str')
+        content = self._serialize.body(widgets, '[Widget]')
+        response = self._send(http_method='PATCH',
+                              location_id='bdcff53a-8355-4172-a00a-40497ea23afc',
+                              version='4.1-preview.2',
+                              route_values=route_values,
+                              content=content)
+        response_object = models.WidgetsVersionedList()
+        response_object.widgets = self._deserialize('[Widget]', self._unwrap_collection(response))
+        response_object.eTag = response.headers.get('ETag')
+        return response_object
 
     def get_widget_metadata(self, contribution_id):
         """GetWidgetMetadata.
