@@ -6,7 +6,7 @@
 from setuptools import setup, find_packages
 
 NAME = "vsts"
-VERSION = "0.1.22"
+VERSION = "0.1.23"
 
 # To install the library, run the following
 #
