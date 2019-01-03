@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -27,7 +27,7 @@ class TeamSetting(TeamSettingsDataContractBase):
     :param default_iteration_macro: Default Iteration macro (if any)
     :type default_iteration_macro: str
     :param working_days: Days that the team is working
-    :type working_days: list of DayOfWeek
+    :type working_days: list of str
     """
 
     _attribute_map = {
@@ -38,7 +38,7 @@ class TeamSetting(TeamSettingsDataContractBase):
         'bugs_behavior': {'key': 'bugsBehavior', 'type': 'object'},
         'default_iteration': {'key': 'defaultIteration', 'type': 'TeamSettingsIteration'},
         'default_iteration_macro': {'key': 'defaultIterationMacro', 'type': 'str'},
-        'working_days': {'key': 'workingDays', 'type': '[DayOfWeek]'}
+        'working_days': {'key': 'workingDays', 'type': '[str]'}
     }
 
     def __init__(self, _links=None, url=None, backlog_iteration=None, backlog_visibilities=None, bugs_behavior=None, default_iteration=None, default_iteration_macro=None, working_days=None):
