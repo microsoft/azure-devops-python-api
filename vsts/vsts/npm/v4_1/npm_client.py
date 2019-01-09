@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -25,7 +25,7 @@ class NpmClient(VssClient):
 
     resource_area_identifier = '4c83cfc1-f33a-477e-a789-29d38ffca52e'
 
-    def get_content_scoped_package(self, feed_id, package_scope, unscoped_package_name, package_version):
+    def get_content_scoped_package(self, feed_id, package_scope, unscoped_package_name, package_version, **kwargs):
         """GetContentScopedPackage.
         [Preview API]
         :param str feed_id:
@@ -46,10 +46,15 @@ class NpmClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='09a4eafd-123a-495c-979c-0eda7bdb9a14',
                               version='4.1-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
-    def get_content_unscoped_package(self, feed_id, package_name, package_version):
+    def get_content_unscoped_package(self, feed_id, package_name, package_version, **kwargs):
         """GetContentUnscopedPackage.
         [Preview API]
         :param str feed_id:
@@ -67,8 +72,13 @@ class NpmClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='75caa482-cb1e-47cd-9f2c-c048a4b7a43e',
                               version='4.1-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def update_packages(self, batch_request, feed_id):
         """UpdatePackages.
@@ -86,7 +96,7 @@ class NpmClient(VssClient):
                    route_values=route_values,
                    content=content)
 
-    def get_readme_scoped_package(self, feed_id, package_scope, unscoped_package_name, package_version):
+    def get_readme_scoped_package(self, feed_id, package_scope, unscoped_package_name, package_version, **kwargs):
         """GetReadmeScopedPackage.
         [Preview API]
         :param str feed_id:
@@ -107,10 +117,15 @@ class NpmClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='6d4db777-7e4a-43b2-afad-779a1d197301',
                               version='4.1-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='text/plain')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
-    def get_readme_unscoped_package(self, feed_id, package_name, package_version):
+    def get_readme_unscoped_package(self, feed_id, package_name, package_version, **kwargs):
         """GetReadmeUnscopedPackage.
         [Preview API]
         :param str feed_id:
@@ -128,8 +143,13 @@ class NpmClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='1099a396-b310-41d4-a4b6-33d134ce3fcf',
                               version='4.1-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='text/plain')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def delete_scoped_package_version_from_recycle_bin(self, feed_id, package_scope, unscoped_package_name, package_version):
         """DeleteScopedPackageVersionFromRecycleBin.

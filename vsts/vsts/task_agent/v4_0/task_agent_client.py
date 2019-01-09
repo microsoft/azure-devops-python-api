@@ -1107,7 +1107,7 @@ class TaskAgentClient(VssClient):
                               route_values=route_values)
         return self._deserialize('TaskAgentPoolMaintenanceJob', response)
 
-    def get_agent_pool_maintenance_job_logs(self, pool_id, job_id):
+    def get_agent_pool_maintenance_job_logs(self, pool_id, job_id, **kwargs):
         """GetAgentPoolMaintenanceJobLogs.
         [Preview API]
         :param int pool_id:
@@ -1122,8 +1122,13 @@ class TaskAgentClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='15e7ab6e-abce-4601-a6d8-e111fe148f46',
                               version='4.0-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_agent_pool_maintenance_jobs(self, pool_id, definition_id=None):
         """GetAgentPoolMaintenanceJobs.
@@ -1562,7 +1567,7 @@ class TaskAgentClient(VssClient):
                    version='4.0-preview.1',
                    route_values=route_values)
 
-    def download_secure_file(self, project, secure_file_id, ticket, download=None):
+    def download_secure_file(self, project, secure_file_id, ticket, download=None, **kwargs):
         """DownloadSecureFile.
         [Preview API] Download a secure file by Id
         :param str project: Project ID or project name
@@ -1585,8 +1590,13 @@ class TaskAgentClient(VssClient):
                               location_id='adcfd8bc-b184-43ba-bd84-7c8c6a2ff421',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_secure_file(self, project, secure_file_id, include_download_ticket=None):
         """GetSecureFile.
@@ -2012,7 +2022,7 @@ class TaskAgentClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('TaskGroup', response)
 
-    def get_task_group_revision(self, project, task_group_id, revision):
+    def get_task_group_revision(self, project, task_group_id, revision, **kwargs):
         """GetTaskGroupRevision.
         [Preview API]
         :param str project: Project ID or project name
@@ -2032,8 +2042,13 @@ class TaskAgentClient(VssClient):
                               location_id='6c08ffbf-dbf1-4f9a-94e5-a1cbd47005e7',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='text/plain')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_task_groups(self, project, task_group_id=None, expanded=None, task_id_filter=None, deleted=None):
         """GetTaskGroups.
@@ -2161,7 +2176,7 @@ class TaskAgentClient(VssClient):
                    version='4.0',
                    route_values=route_values)
 
-    def get_task_content_zip(self, task_id, version_string, visibility=None, scope_local=None):
+    def get_task_content_zip(self, task_id, version_string, visibility=None, scope_local=None, **kwargs):
         """GetTaskContentZip.
         :param str task_id:
         :param str version_string:
@@ -2183,8 +2198,13 @@ class TaskAgentClient(VssClient):
                               location_id='60aac929-f0cd-4bc8-9ce4-6b30e8f1b1bd',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_task_definition(self, task_id, version_string, visibility=None, scope_local=None):
         """GetTaskDefinition.
