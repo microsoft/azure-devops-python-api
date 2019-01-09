@@ -107,7 +107,7 @@ class TestClient(VssClient):
                               content=content)
         return self._deserialize('TestAttachmentReference', response)
 
-    def get_test_result_attachment_content(self, project, run_id, test_case_result_id, attachment_id):
+    def get_test_result_attachment_content(self, project, run_id, test_case_result_id, attachment_id, **kwargs):
         """GetTestResultAttachmentContent.
         [Preview API] Returns a test result attachment
         :param str project: Project ID or project name
@@ -128,8 +128,13 @@ class TestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='2bffebe9-2f0f-4639-9af8-56129e9fed2d',
                               version='4.1-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_test_result_attachments(self, project, run_id, test_case_result_id):
         """GetTestResultAttachments.
@@ -152,7 +157,7 @@ class TestClient(VssClient):
                               route_values=route_values)
         return self._deserialize('[TestAttachment]', self._unwrap_collection(response))
 
-    def get_test_result_attachment_zip(self, project, run_id, test_case_result_id, attachment_id):
+    def get_test_result_attachment_zip(self, project, run_id, test_case_result_id, attachment_id, **kwargs):
         """GetTestResultAttachmentZip.
         [Preview API] Returns a test result attachment
         :param str project: Project ID or project name
@@ -173,8 +178,13 @@ class TestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='2bffebe9-2f0f-4639-9af8-56129e9fed2d',
                               version='4.1-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def create_test_run_attachment(self, attachment_request_model, project, run_id):
         """CreateTestRunAttachment.
@@ -197,7 +207,7 @@ class TestClient(VssClient):
                               content=content)
         return self._deserialize('TestAttachmentReference', response)
 
-    def get_test_run_attachment_content(self, project, run_id, attachment_id):
+    def get_test_run_attachment_content(self, project, run_id, attachment_id, **kwargs):
         """GetTestRunAttachmentContent.
         [Preview API] Returns a test run attachment
         :param str project: Project ID or project name
@@ -215,8 +225,13 @@ class TestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='4f004af4-a507-489c-9b13-cb62060beb11',
                               version='4.1-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_test_run_attachments(self, project, run_id):
         """GetTestRunAttachments.
@@ -236,7 +251,7 @@ class TestClient(VssClient):
                               route_values=route_values)
         return self._deserialize('[TestAttachment]', self._unwrap_collection(response))
 
-    def get_test_run_attachment_zip(self, project, run_id, attachment_id):
+    def get_test_run_attachment_zip(self, project, run_id, attachment_id, **kwargs):
         """GetTestRunAttachmentZip.
         [Preview API] Returns a test run attachment
         :param str project: Project ID or project name
@@ -254,8 +269,13 @@ class TestClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='4f004af4-a507-489c-9b13-cb62060beb11',
                               version='4.1-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_bugs_linked_to_test_result(self, project, run_id, test_case_result_id):
         """GetBugsLinkedToTestResult.

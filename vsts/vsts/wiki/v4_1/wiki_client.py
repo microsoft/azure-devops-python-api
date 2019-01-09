@@ -184,7 +184,7 @@ class WikiClient(VssClient):
         response_object.eTag = response.headers.get('ETag')
         return response_object
 
-    def get_page_text(self, project, wiki_identifier, path=None, recursion_level=None, version_descriptor=None, include_content=None):
+    def get_page_text(self, project, wiki_identifier, path=None, recursion_level=None, version_descriptor=None, include_content=None, **kwargs):
         """GetPageText.
         Gets metadata or content of the wiki page for the provided path. Content negotiation is done based on the `Accept` header sent in the request.
         :param str project: Project ID or project name
@@ -218,10 +218,15 @@ class WikiClient(VssClient):
                               location_id='25d3fbc7-fe3d-46cb-b5a5-0b6f79caf27b',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='text/plain')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
-    def get_page_zip(self, project, wiki_identifier, path=None, recursion_level=None, version_descriptor=None, include_content=None):
+    def get_page_zip(self, project, wiki_identifier, path=None, recursion_level=None, version_descriptor=None, include_content=None, **kwargs):
         """GetPageZip.
         Gets metadata or content of the wiki page for the provided path. Content negotiation is done based on the `Accept` header sent in the request.
         :param str project: Project ID or project name
@@ -255,8 +260,13 @@ class WikiClient(VssClient):
                               location_id='25d3fbc7-fe3d-46cb-b5a5-0b6f79caf27b',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def create_wiki(self, wiki_create_params, project=None):
         """CreateWiki.

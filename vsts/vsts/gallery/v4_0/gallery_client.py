@@ -134,7 +134,7 @@ class GalleryClient(VssClient):
                               content=content)
         return self._deserialize('ExtensionAcquisitionRequest', response)
 
-    def get_asset_by_name(self, publisher_name, extension_name, version, asset_type, account_token=None, accept_default=None):
+    def get_asset_by_name(self, publisher_name, extension_name, version, asset_type, account_token=None, accept_default=None, **kwargs):
         """GetAssetByName.
         [Preview API]
         :param str publisher_name:
@@ -163,10 +163,15 @@ class GalleryClient(VssClient):
                               location_id='7529171f-a002-4180-93ba-685f358a0482',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
-    def get_asset(self, extension_id, version, asset_type, account_token=None, accept_default=None):
+    def get_asset(self, extension_id, version, asset_type, account_token=None, accept_default=None, **kwargs):
         """GetAsset.
         [Preview API]
         :param str extension_id:
@@ -192,10 +197,15 @@ class GalleryClient(VssClient):
                               location_id='5d545f3d-ef47-488b-8be3-f5ee1517856c',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
-    def get_asset_authenticated(self, publisher_name, extension_name, version, asset_type, account_token=None):
+    def get_asset_authenticated(self, publisher_name, extension_name, version, asset_type, account_token=None, **kwargs):
         """GetAssetAuthenticated.
         [Preview API]
         :param str publisher_name:
@@ -221,8 +231,13 @@ class GalleryClient(VssClient):
                               location_id='506aff36-2622-4f70-8063-77cce6366d20',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def associate_azure_publisher(self, publisher_name, azure_publisher_id):
         """AssociateAzurePublisher.
@@ -364,7 +379,7 @@ class GalleryClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('ProductCategoriesResult', response)
 
-    def get_certificate(self, publisher_name, extension_name, version=None):
+    def get_certificate(self, publisher_name, extension_name, version=None, **kwargs):
         """GetCertificate.
         [Preview API]
         :param str publisher_name:
@@ -382,8 +397,13 @@ class GalleryClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='e905ad6a-3f1f-4d08-9f6d-7d357ff8b7d0',
                               version='4.0-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_extension_events(self, publisher_name, extension_name, count=None, after_date=None, include=None, include_property=None):
         """GetExtensionEvents.
@@ -652,7 +672,7 @@ class GalleryClient(VssClient):
                    version='4.0-preview.1',
                    content=content)
 
-    def get_package(self, publisher_name, extension_name, version, account_token=None, accept_default=None):
+    def get_package(self, publisher_name, extension_name, version, account_token=None, accept_default=None, **kwargs):
         """GetPackage.
         [Preview API]
         :param str publisher_name:
@@ -678,10 +698,15 @@ class GalleryClient(VssClient):
                               location_id='7cb576f8-1cae-4c4b-b7b1-e4af5759e965',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
-    def get_asset_with_token(self, publisher_name, extension_name, version, asset_type, asset_token=None, account_token=None, accept_default=None):
+    def get_asset_with_token(self, publisher_name, extension_name, version, asset_type, asset_token=None, account_token=None, accept_default=None, **kwargs):
         """GetAssetWithToken.
         [Preview API]
         :param str publisher_name:
@@ -713,8 +738,13 @@ class GalleryClient(VssClient):
                               location_id='364415a1-0077-4a41-a7a0-06edd4497492',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def query_publishers(self, publisher_query):
         """QueryPublishers.
@@ -1307,7 +1337,7 @@ class GalleryClient(VssClient):
                    route_values=route_values,
                    query_parameters=query_parameters)
 
-    def get_verification_log(self, publisher_name, extension_name, version):
+    def get_verification_log(self, publisher_name, extension_name, version, **kwargs):
         """GetVerificationLog.
         [Preview API]
         :param str publisher_name:
@@ -1325,6 +1355,11 @@ class GalleryClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='c5523abe-b843-437f-875b-5833064efe4d',
                               version='4.0-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
