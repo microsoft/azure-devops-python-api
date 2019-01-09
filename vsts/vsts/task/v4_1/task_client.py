@@ -119,7 +119,7 @@ class TaskClient(VssClient):
                               route_values=route_values)
         return self._deserialize('TaskAttachment', response)
 
-    def get_attachment_content(self, scope_identifier, hub_name, plan_id, timeline_id, record_id, type, name):
+    def get_attachment_content(self, scope_identifier, hub_name, plan_id, timeline_id, record_id, type, name, **kwargs):
         """GetAttachmentContent.
         [Preview API]
         :param str scope_identifier: The project GUID to scope the request
@@ -149,8 +149,13 @@ class TaskClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='7898f959-9cdf-4096-b29e-7f293031629e',
                               version='4.1-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_attachments(self, scope_identifier, hub_name, plan_id, timeline_id, record_id, type):
         """GetAttachments.

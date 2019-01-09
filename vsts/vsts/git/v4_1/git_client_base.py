@@ -96,7 +96,7 @@ class GitClientBase(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('GitBlobRef', response)
 
-    def get_blob_content(self, repository_id, sha1, project=None, download=None, file_name=None):
+    def get_blob_content(self, repository_id, sha1, project=None, download=None, file_name=None, **kwargs):
         """GetBlobContent.
         Get a single blob.
         :param str repository_id: The name or ID of the repository.
@@ -122,10 +122,15 @@ class GitClientBase(VssClient):
                               location_id='7b28e929-2c99-405d-9c5c-6167a06e6816',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
-    def get_blobs_zip(self, blob_ids, repository_id, project=None, filename=None):
+    def get_blobs_zip(self, blob_ids, repository_id, project=None, filename=None, **kwargs):
         """GetBlobsZip.
         Gets one or more blobs in a zip file download.
         :param [str] blob_ids: Blob IDs (SHA1 hashes) to be returned in the zip file.
@@ -148,10 +153,15 @@ class GitClientBase(VssClient):
                               version='4.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
-                              content=content)
-        return self._deserialize('object', response)
+                              content=content,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
-    def get_blob_zip(self, repository_id, sha1, project=None, download=None, file_name=None):
+    def get_blob_zip(self, repository_id, sha1, project=None, download=None, file_name=None, **kwargs):
         """GetBlobZip.
         Get a single blob.
         :param str repository_id: The name or ID of the repository.
@@ -177,8 +187,13 @@ class GitClientBase(VssClient):
                               location_id='7b28e929-2c99-405d-9c5c-6167a06e6816',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_branch(self, repository_id, name, project=None, base_version_descriptor=None):
         """GetBranch.
@@ -795,7 +810,7 @@ class GitClientBase(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('GitItem', response)
 
-    def get_item_content(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None):
+    def get_item_content(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None, **kwargs):
         """GetItemContent.
         Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.
         :param str repository_id: The Id of the repository.
@@ -841,8 +856,13 @@ class GitClientBase(VssClient):
                               location_id='fb93c0db-47ed-4a31-8c20-47552878fb44',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_items(self, repository_id, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, include_links=None, version_descriptor=None):
         """GetItems.
@@ -890,7 +910,7 @@ class GitClientBase(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('[GitItem]', self._unwrap_collection(response))
 
-    def get_item_text(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None):
+    def get_item_text(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None, **kwargs):
         """GetItemText.
         Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.
         :param str repository_id: The Id of the repository.
@@ -936,10 +956,15 @@ class GitClientBase(VssClient):
                               location_id='fb93c0db-47ed-4a31-8c20-47552878fb44',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='text/plain')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
-    def get_item_zip(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None):
+    def get_item_zip(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None, **kwargs):
         """GetItemZip.
         Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.
         :param str repository_id: The Id of the repository.
@@ -985,8 +1010,13 @@ class GitClientBase(VssClient):
                               location_id='fb93c0db-47ed-4a31-8c20-47552878fb44',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_items_batch(self, request_data, repository_id, project=None):
         """GetItemsBatch.
@@ -1091,7 +1121,7 @@ class GitClientBase(VssClient):
                    version='4.1-preview.1',
                    route_values=route_values)
 
-    def get_attachment_content(self, file_name, repository_id, pull_request_id, project=None):
+    def get_attachment_content(self, file_name, repository_id, pull_request_id, project=None, **kwargs):
         """GetAttachmentContent.
         [Preview API] Get the file content of a pull request attachment.
         :param str file_name: The name of the attachment.
@@ -1112,8 +1142,13 @@ class GitClientBase(VssClient):
         response = self._send(http_method='GET',
                               location_id='965d9361-878b-413b-a494-45d5b5fd8ab7',
                               version='4.1-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_attachments(self, repository_id, pull_request_id, project=None):
         """GetAttachments.
@@ -1136,7 +1171,7 @@ class GitClientBase(VssClient):
                               route_values=route_values)
         return self._deserialize('[Attachment]', self._unwrap_collection(response))
 
-    def get_attachment_zip(self, file_name, repository_id, pull_request_id, project=None):
+    def get_attachment_zip(self, file_name, repository_id, pull_request_id, project=None, **kwargs):
         """GetAttachmentZip.
         [Preview API] Get the file content of a pull request attachment.
         :param str file_name: The name of the attachment.
@@ -1157,8 +1192,13 @@ class GitClientBase(VssClient):
         response = self._send(http_method='GET',
                               location_id='965d9361-878b-413b-a494-45d5b5fd8ab7',
                               version='4.1-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def create_like(self, repository_id, pull_request_id, thread_id, comment_id, project=None):
         """CreateLike.
@@ -2991,7 +3031,7 @@ class GitClientBase(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('GitTreeRef', response)
 
-    def get_tree_zip(self, repository_id, sha1, project=None, project_id=None, recursive=None, file_name=None):
+    def get_tree_zip(self, repository_id, sha1, project=None, project_id=None, recursive=None, file_name=None, **kwargs):
         """GetTreeZip.
         The Tree endpoint returns the collection of objects underneath the specified tree. Trees are folders in a Git repository.
         :param str repository_id: Repository Id.
@@ -3020,6 +3060,11 @@ class GitClientBase(VssClient):
                               location_id='729f6437-6f92-44ec-8bee-273a7111063c',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 

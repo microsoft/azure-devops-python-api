@@ -69,7 +69,7 @@ class BuildClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('BuildArtifact', response)
 
-    def get_artifact_content_zip(self, build_id, artifact_name, project=None):
+    def get_artifact_content_zip(self, build_id, artifact_name, project=None, **kwargs):
         """GetArtifactContentZip.
         Gets a specific artifact for a build.
         :param int build_id: The ID of the build.
@@ -89,8 +89,13 @@ class BuildClient(VssClient):
                               location_id='1db06c96-014e-44e1-ac91-90b2d4b3e984',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_artifacts(self, build_id, project=None):
         """GetArtifacts.
@@ -131,7 +136,7 @@ class BuildClient(VssClient):
                               route_values=route_values)
         return self._deserialize('[Attachment]', self._unwrap_collection(response))
 
-    def get_attachment(self, project, build_id, timeline_id, record_id, type, name):
+    def get_attachment(self, project, build_id, timeline_id, record_id, type, name, **kwargs):
         """GetAttachment.
         [Preview API] Gets a specific attachment.
         :param str project: Project ID or project name
@@ -158,8 +163,13 @@ class BuildClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='af5122d3-3438-485e-a25a-2dbbfde84ee6',
                               version='4.1-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_badge(self, project, definition_id, branch_name=None):
         """GetBadge.
@@ -668,54 +678,6 @@ class BuildClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('[BuildDefinitionReference]', self._unwrap_collection(response))
 
-    def reset_counter(self, definition_id, counter_id, project=None):
-        """ResetCounter.
-        Resets the counter variable Value back to the Seed.
-        :param int definition_id: The ID of the definition.
-        :param int counter_id: The ID of the counter.
-        :param str project: Project ID or project name
-        """
-        route_values = {}
-        if project is not None:
-            route_values['project'] = self._serialize.url('project', project, 'str')
-        if definition_id is not None:
-            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
-        query_parameters = {}
-        if counter_id is not None:
-            query_parameters['counterId'] = self._serialize.query('counter_id', counter_id, 'int')
-        self._send(http_method='POST',
-                   location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
-                   version='4.1',
-                   route_values=route_values,
-                   query_parameters=query_parameters)
-
-    def update_counter_seed(self, definition_id, counter_id, new_seed, reset_value, project=None):
-        """UpdateCounterSeed.
-        Changes the counter variable Seed, and optionally resets the Value to this new Seed. Note that if Seed is being set above Value, then Value will be updated regardless.
-        :param int definition_id: The ID of the definition.
-        :param int counter_id: The ID of the counter.
-        :param long new_seed: The new Seed value.
-        :param bool reset_value: Flag indicating if Value should also be reset.
-        :param str project: Project ID or project name
-        """
-        route_values = {}
-        if project is not None:
-            route_values['project'] = self._serialize.url('project', project, 'str')
-        if definition_id is not None:
-            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
-        query_parameters = {}
-        if counter_id is not None:
-            query_parameters['counterId'] = self._serialize.query('counter_id', counter_id, 'int')
-        if new_seed is not None:
-            query_parameters['newSeed'] = self._serialize.query('new_seed', new_seed, 'long')
-        if reset_value is not None:
-            query_parameters['resetValue'] = self._serialize.query('reset_value', reset_value, 'bool')
-        self._send(http_method='POST',
-                   location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
-                   version='4.1',
-                   route_values=route_values,
-                   query_parameters=query_parameters)
-
     def update_definition(self, definition, definition_id, project=None, secrets_source_definition_id=None, secrets_source_definition_revision=None):
         """UpdateDefinition.
         Updates an existing definition.
@@ -745,7 +707,7 @@ class BuildClient(VssClient):
                               content=content)
         return self._deserialize('BuildDefinition', response)
 
-    def get_file_contents(self, project, provider_name, service_endpoint_id=None, repository=None, commit_or_branch=None, path=None):
+    def get_file_contents(self, project, provider_name, service_endpoint_id=None, repository=None, commit_or_branch=None, path=None, **kwargs):
         """GetFileContents.
         [Preview API] Gets the contents of a file in the given source code repository.
         :param str project: Project ID or project name
@@ -774,8 +736,13 @@ class BuildClient(VssClient):
                               location_id='29d12225-b1d9-425f-b668-6c594a981313',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='text/plain')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def create_folder(self, folder, project, path):
         """CreateFolder.
@@ -858,7 +825,7 @@ class BuildClient(VssClient):
                               content=content)
         return self._deserialize('Folder', response)
 
-    def get_build_log(self, project, build_id, log_id, start_line=None, end_line=None):
+    def get_build_log(self, project, build_id, log_id, start_line=None, end_line=None, **kwargs):
         """GetBuildLog.
         Gets an individual log file for a build.
         :param str project: Project ID or project name
@@ -884,8 +851,13 @@ class BuildClient(VssClient):
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='text/plain')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_build_log_lines(self, project, build_id, log_id, start_line=None, end_line=None):
         """GetBuildLogLines.
@@ -934,7 +906,7 @@ class BuildClient(VssClient):
                               route_values=route_values)
         return self._deserialize('[BuildLog]', self._unwrap_collection(response))
 
-    def get_build_logs_zip(self, project, build_id):
+    def get_build_logs_zip(self, project, build_id, **kwargs):
         """GetBuildLogsZip.
         Gets the logs for a build.
         :param str project: Project ID or project name
@@ -949,8 +921,13 @@ class BuildClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
                               version='4.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_project_metrics(self, project, metric_aggregation_type=None, min_metrics_time=None):
         """GetProjectMetrics.
@@ -1160,7 +1137,7 @@ class BuildClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('BuildReportMetadata', response)
 
-    def get_build_report_html_content(self, project, build_id, type=None):
+    def get_build_report_html_content(self, project, build_id, type=None, **kwargs):
         """GetBuildReportHtmlContent.
         [Preview API] Gets a build report.
         :param str project: Project ID or project name
@@ -1180,8 +1157,13 @@ class BuildClient(VssClient):
                               location_id='45bcaa88-67e1-4042-a035-56d3b4a7d44c',
                               version='4.1-preview.2',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='text/html')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def list_repositories(self, project, provider_name, service_endpoint_id=None, repository=None, result_set=None, page_results=None, continuation_token=None):
         """ListRepositories.
@@ -1536,7 +1518,7 @@ class BuildClient(VssClient):
                               content=content)
         return self._deserialize('BuildDefinitionTemplate', response)
 
-    def get_ticketed_artifact_content_zip(self, build_id, project_id, artifact_name, download_ticket):
+    def get_ticketed_artifact_content_zip(self, build_id, project_id, artifact_name, download_ticket, **kwargs):
         """GetTicketedArtifactContentZip.
         [Preview API] Gets a Zip file of the artifact with the given name for a build.
         :param int build_id: The ID of the build.
@@ -1557,10 +1539,15 @@ class BuildClient(VssClient):
                               location_id='731b7e7a-0b6c-4912-af75-de04fe4899db',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
-    def get_ticketed_logs_content_zip(self, build_id, project_id, download_ticket):
+    def get_ticketed_logs_content_zip(self, build_id, project_id, download_ticket, **kwargs):
         """GetTicketedLogsContentZip.
         [Preview API] Gets a Zip file of the logs for a given build.
         :param int build_id: The ID of the build.
@@ -1578,8 +1565,13 @@ class BuildClient(VssClient):
                               location_id='917890d1-a6b5-432d-832a-6afcf6bb0734',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_build_timeline(self, project, build_id, timeline_id=None, change_id=None, plan_id=None):
         """GetBuildTimeline.
