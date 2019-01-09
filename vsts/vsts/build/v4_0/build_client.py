@@ -69,7 +69,7 @@ class BuildClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('BuildArtifact', response)
 
-    def get_artifact_content_zip(self, build_id, artifact_name, project=None):
+    def get_artifact_content_zip(self, build_id, artifact_name, project=None, **kwargs):
         """GetArtifactContentZip.
         Gets a specific artifact for a build
         :param int build_id:
@@ -89,8 +89,13 @@ class BuildClient(VssClient):
                               location_id='1db06c96-014e-44e1-ac91-90b2d4b3e984',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_artifacts(self, build_id, project=None):
         """GetArtifacts.
@@ -700,7 +705,7 @@ class BuildClient(VssClient):
                               content=content)
         return self._deserialize('Folder', response)
 
-    def get_build_log(self, project, build_id, log_id, start_line=None, end_line=None):
+    def get_build_log(self, project, build_id, log_id, start_line=None, end_line=None, **kwargs):
         """GetBuildLog.
         Gets a log
         :param str project: Project ID or project name
@@ -726,8 +731,13 @@ class BuildClient(VssClient):
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
                               version='4.0',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='text/plain')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_build_log_lines(self, project, build_id, log_id, start_line=None, end_line=None):
         """GetBuildLogLines.
@@ -776,7 +786,7 @@ class BuildClient(VssClient):
                               route_values=route_values)
         return self._deserialize('[BuildLog]', self._unwrap_collection(response))
 
-    def get_build_logs_zip(self, project, build_id):
+    def get_build_logs_zip(self, project, build_id, **kwargs):
         """GetBuildLogsZip.
         Gets logs for a build
         :param str project: Project ID or project name
@@ -791,8 +801,13 @@ class BuildClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
                               version='4.0',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_project_metrics(self, project, metric_aggregation_type=None, min_metrics_time=None):
         """GetProjectMetrics.
@@ -970,7 +985,7 @@ class BuildClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('BuildReportMetadata', response)
 
-    def get_build_report_html_content(self, project, build_id, type=None):
+    def get_build_report_html_content(self, project, build_id, type=None, **kwargs):
         """GetBuildReportHtmlContent.
         [Preview API] Gets report for a build
         :param str project: Project ID or project name
@@ -990,8 +1005,13 @@ class BuildClient(VssClient):
                               location_id='45bcaa88-67e1-4042-a035-56d3b4a7d44c',
                               version='4.0-preview.2',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='text/html')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_resource_usage(self):
         """GetResourceUsage.
