@@ -302,7 +302,7 @@ class TfvcClient(VssClient):
                               content=content)
         return self._deserialize('[[TfvcItem]]', self._unwrap_collection(response))
 
-    def get_items_batch_zip(self, item_request_data, project=None):
+    def get_items_batch_zip(self, item_request_data, project=None, **kwargs):
         """GetItemsBatchZip.
         Post for retrieving a set of items given a list of paths or a long path. Allows for specifying the recursionLevel and version descriptors for each path.
         :param :class:`<TfvcItemRequestData> <tfvc.v4_1.models.TfvcItemRequestData>` item_request_data:
@@ -317,8 +317,13 @@ class TfvcClient(VssClient):
                               location_id='fe6f827b-5f64-480f-b8af-1eca3b80e833',
                               version='4.1',
                               route_values=route_values,
-                              content=content)
-        return self._deserialize('object', response)
+                              content=content,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_item(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None, include_content=None):
         """GetItem.
@@ -363,7 +368,7 @@ class TfvcClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('TfvcItem', response)
 
-    def get_item_content(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None, include_content=None):
+    def get_item_content(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None, include_content=None, **kwargs):
         """GetItemContent.
         Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content which is always returned as a download.
         :param str path: Version control path of an individual item to return.
@@ -403,8 +408,13 @@ class TfvcClient(VssClient):
                               location_id='ba9fc436-9a38-4578-89d6-e4f3241f5040',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_items(self, project=None, scope_path=None, recursion_level=None, include_links=None, version_descriptor=None):
         """GetItems.
@@ -440,7 +450,7 @@ class TfvcClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('[TfvcItem]', self._unwrap_collection(response))
 
-    def get_item_text(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None, include_content=None):
+    def get_item_text(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None, include_content=None, **kwargs):
         """GetItemText.
         Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content which is always returned as a download.
         :param str path: Version control path of an individual item to return.
@@ -480,10 +490,15 @@ class TfvcClient(VssClient):
                               location_id='ba9fc436-9a38-4578-89d6-e4f3241f5040',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='text/plain')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
-    def get_item_zip(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None, include_content=None):
+    def get_item_zip(self, path, project=None, file_name=None, download=None, scope_path=None, recursion_level=None, version_descriptor=None, include_content=None, **kwargs):
         """GetItemZip.
         Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content which is always returned as a download.
         :param str path: Version control path of an individual item to return.
@@ -523,8 +538,13 @@ class TfvcClient(VssClient):
                               location_id='ba9fc436-9a38-4578-89d6-e4f3241f5040',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_label_items(self, label_id, top=None, skip=None):
         """GetLabelItems.

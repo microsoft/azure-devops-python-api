@@ -31,7 +31,8 @@ class VssClient(object):
 
     def __init__(self, base_url=None, creds=None):
         self.config = VssClientConfiguration(base_url)
-        self._client = ServiceClient(creds, self.config)
+        self.config.credentials = creds
+        self._client = ServiceClient(creds, config=self.config)
         _base_client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._base_deserialize = Deserializer(_base_client_models)
         self._base_serialize = Serializer(_base_client_models)
@@ -64,7 +65,7 @@ class VssClient(object):
         return response
 
     def _send(self, http_method, location_id, version, route_values=None,
-              query_parameters=None, content=None, media_type='application/json'):
+              query_parameters=None, content=None, media_type='application/json', accept_media_type='application/json'):
         request = self._create_request_message(http_method=http_method,
                                                location_id=location_id,
                                                route_values=route_values,
@@ -82,7 +83,7 @@ class VssClient(object):
 
         # Construct headers
         headers = {'Content-Type': media_type + '; charset=utf-8',
-                   'Accept': 'application/json;api-version=' + negotiated_version}
+                   'Accept': accept_media_type + ';api-version=' + negotiated_version}
         if self.config.additional_headers is not None:
             for key in self.config.additional_headers:
                 headers[key] = self.config.additional_headers[key]
