@@ -83,7 +83,7 @@ class WorkItemTrackingClient(VssClient):
                               media_type='application/octet-stream')
         return self._deserialize('AttachmentReference', response)
 
-    def get_attachment_content(self, id, project=None, file_name=None, download=None):
+    def get_attachment_content(self, id, project=None, file_name=None, download=None, **kwargs):
         """GetAttachmentContent.
         Downloads an attachment.
         :param str id: Attachment ID
@@ -106,10 +106,15 @@ class WorkItemTrackingClient(VssClient):
                               location_id='e07b5fa4-1499-494d-a496-64b860fd64ff',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
-    def get_attachment_zip(self, id, project=None, file_name=None, download=None):
+    def get_attachment_zip(self, id, project=None, file_name=None, download=None, **kwargs):
         """GetAttachmentZip.
         Downloads an attachment.
         :param str id: Attachment ID
@@ -132,8 +137,13 @@ class WorkItemTrackingClient(VssClient):
                               location_id='e07b5fa4-1499-494d-a496-64b860fd64ff',
                               version='4.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_classification_nodes(self, project, ids, depth=None, error_policy=None):
         """GetClassificationNodes.
@@ -1041,7 +1051,7 @@ class WorkItemTrackingClient(VssClient):
                               version='4.1-preview.1')
         return self._deserialize('[WorkItemIcon]', self._unwrap_collection(response))
 
-    def get_work_item_icon_svg(self, icon, color=None, v=None):
+    def get_work_item_icon_svg(self, icon, color=None, v=None, **kwargs):
         """GetWorkItemIconSvg.
         [Preview API] Get a work item icon given the friendly name and icon color.
         :param str icon: The name of the icon
@@ -1061,8 +1071,13 @@ class WorkItemTrackingClient(VssClient):
                               location_id='4e1eb4a5-1970-4228-a682-ec48eb2dca30',
                               version='4.1-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='image/svg+xml')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_reporting_links_by_link_type(self, project=None, link_types=None, types=None, continuation_token=None, start_date_time=None):
         """GetReportingLinksByLinkType.

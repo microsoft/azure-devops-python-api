@@ -77,7 +77,7 @@ class WorkItemTrackingProcessTemplateClient(VssClient):
                               media_type='application/octet-stream')
         return self._deserialize('CheckTemplateExistenceResult', response)
 
-    def export_process_template(self, id):
+    def export_process_template(self, id, **kwargs):
         """ExportProcessTemplate.
         [Preview API] Returns requested process template
         :param str id:
@@ -92,8 +92,13 @@ class WorkItemTrackingProcessTemplateClient(VssClient):
                               location_id='29e1f38d-9e9c-4358-86a5-cdf9896a5759',
                               version='4.0-preview.1',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def import_process_template(self, upload_stream, ignore_warnings=None):
         """ImportProcessTemplate.
