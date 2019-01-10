@@ -35,15 +35,20 @@ class LicensingClient(VssClient):
                               version='4.1-preview.1')
         return self._deserialize('[AccountLicenseExtensionUsage]', self._unwrap_collection(response))
 
-    def get_certificate(self):
+    def get_certificate(self, **kwargs):
         """GetCertificate.
         [Preview API]
         :rtype: object
         """
         response = self._send(http_method='GET',
                               location_id='2e0dbce7-a327-4bc0-a291-056139393f6d',
-                              version='4.1-preview.1')
-        return self._deserialize('object', response)
+                              version='4.1-preview.1',
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_client_rights(self, right_name=None, product_version=None, edition=None, rel_type=None, include_certificate=None, canary=None, machine_id=None):
         """GetClientRights.

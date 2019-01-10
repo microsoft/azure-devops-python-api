@@ -88,7 +88,7 @@ class ReleaseClient(VssClient):
                               content=content)
         return self._deserialize('ReleaseApproval', response)
 
-    def get_task_attachment_content(self, project, release_id, environment_id, attempt_id, timeline_id, record_id, type, name):
+    def get_task_attachment_content(self, project, release_id, environment_id, attempt_id, timeline_id, record_id, type, name, **kwargs):
         """GetTaskAttachmentContent.
         [Preview API]
         :param str project: Project ID or project name
@@ -121,8 +121,13 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='c4071f6d-3697-46ca-858e-8b10ff09e52f',
                               version='4.1-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_task_attachments(self, project, release_id, environment_id, attempt_id, timeline_id, type):
         """GetTaskAttachments.
@@ -380,7 +385,7 @@ class ReleaseClient(VssClient):
                               content=content)
         return self._deserialize('ReleaseEnvironment', response)
 
-    def get_logs(self, project, release_id):
+    def get_logs(self, project, release_id, **kwargs):
         """GetLogs.
         [Preview API] Get logs for a release Id.
         :param str project: Project ID or project name
@@ -395,10 +400,15 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='c37fbab5-214b-48e4-a55b-cb6b4f6e4038',
                               version='4.1-preview.2',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
-    def get_task_log(self, project, release_id, environment_id, release_deploy_phase_id, task_id, start_line=None, end_line=None):
+    def get_task_log(self, project, release_id, environment_id, release_deploy_phase_id, task_id, start_line=None, end_line=None, **kwargs):
         """GetTaskLog.
         [Preview API] Gets the task log of a release as a plain text file.
         :param str project: Project ID or project name
@@ -430,8 +440,13 @@ class ReleaseClient(VssClient):
                               location_id='17c91af7-09fd-4256-bff1-c24ee4f73bc0',
                               version='4.1-preview.2',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='text/plain')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_manual_intervention(self, project, release_id, manual_intervention_id):
         """GetManualIntervention.
@@ -651,7 +666,7 @@ class ReleaseClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('ReleaseDefinitionSummary', response)
 
-    def get_release_revision(self, project, release_id, definition_snapshot_revision):
+    def get_release_revision(self, project, release_id, definition_snapshot_revision, **kwargs):
         """GetReleaseRevision.
         [Preview API] Get release for a given revision number.
         :param str project: Project ID or project name
@@ -671,8 +686,13 @@ class ReleaseClient(VssClient):
                               location_id='a166fde7-27ad-408e-ba75-703c2cc9d500',
                               version='4.1-preview.6',
                               route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('object', response)
+                              query_parameters=query_parameters,
+                              accept_media_type='text/plain')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def update_release(self, release, project, release_id):
         """UpdateRelease.
@@ -716,7 +736,7 @@ class ReleaseClient(VssClient):
                               content=content)
         return self._deserialize('Release', response)
 
-    def get_definition_revision(self, project, definition_id, revision):
+    def get_definition_revision(self, project, definition_id, revision, **kwargs):
         """GetDefinitionRevision.
         [Preview API] Get release definition for a given definitionId and revision
         :param str project: Project ID or project name
@@ -734,8 +754,13 @@ class ReleaseClient(VssClient):
         response = self._send(http_method='GET',
                               location_id='258b82e0-9d41-43f3-86d6-fef14ddd44bc',
                               version='4.1-preview.1',
-                              route_values=route_values)
-        return self._deserialize('object', response)
+                              route_values=route_values,
+                              accept_media_type='text/plain')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_release_definition_history(self, project, definition_id):
         """GetReleaseDefinitionHistory.
