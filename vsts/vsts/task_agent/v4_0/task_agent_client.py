@@ -1733,7 +1733,7 @@ class TaskAgentClient(VssClient):
                               content=content)
         return self._deserialize('[SecureFile]', self._unwrap_collection(response))
 
-    def upload_secure_file(self, upload_stream, project, name):
+    def upload_secure_file(self, upload_stream, project, name, **kwargs):
         """UploadSecureFile.
         [Preview API] Upload a secure file, include the file stream in the request body
         :param object upload_stream: Stream to upload
@@ -1747,7 +1747,11 @@ class TaskAgentClient(VssClient):
         query_parameters = {}
         if name is not None:
             query_parameters['name'] = self._serialize.query('name', name, 'str')
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='POST',
                               location_id='adcfd8bc-b184-43ba-bd84-7c8c6a2ff421',
                               version='4.0-preview.1',

@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -21,7 +21,6 @@ from .build_badge import BuildBadge
 from .build_controller import BuildController
 from .build_definition import BuildDefinition
 from .build_definition3_2 import BuildDefinition3_2
-from .build_definition_counter import BuildDefinitionCounter
 from .build_definition_reference import BuildDefinitionReference
 from .build_definition_reference3_2 import BuildDefinitionReference3_2
 from .build_definition_revision import BuildDefinitionRevision
@@ -95,7 +94,6 @@ __all__ = [
     'BuildController',
     'BuildDefinition',
     'BuildDefinition3_2',
-    'BuildDefinitionCounter',
     'BuildDefinitionReference',
     'BuildDefinitionReference3_2',
     'BuildDefinitionRevision',
