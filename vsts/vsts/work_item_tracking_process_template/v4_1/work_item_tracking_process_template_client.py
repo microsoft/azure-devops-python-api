@@ -60,7 +60,7 @@ class WorkItemTrackingProcessTemplateClient(VssClient):
                               route_values=route_values)
         return self._deserialize('[AdminBehavior]', self._unwrap_collection(response))
 
-    def check_template_existence(self, upload_stream):
+    def check_template_existence(self, upload_stream, **kwargs):
         """CheckTemplateExistence.
         [Preview API] Check if process template exists.
         :param object upload_stream: Stream to upload
@@ -68,7 +68,11 @@ class WorkItemTrackingProcessTemplateClient(VssClient):
         """
         route_values = {}
         route_values['action'] = 'CheckTemplateExistence'
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='POST',
                               location_id='29e1f38d-9e9c-4358-86a5-cdf9896a5759',
                               version='4.1-preview.1',
@@ -98,7 +102,7 @@ class WorkItemTrackingProcessTemplateClient(VssClient):
             callback = None
         return self._client.stream_download(response, callback=callback)
 
-    def import_process_template(self, upload_stream, ignore_warnings=None):
+    def import_process_template(self, upload_stream, ignore_warnings=None, **kwargs):
         """ImportProcessTemplate.
         [Preview API] Imports a process from zip file.
         :param object upload_stream: Stream to upload
@@ -110,7 +114,11 @@ class WorkItemTrackingProcessTemplateClient(VssClient):
         query_parameters = {}
         if ignore_warnings is not None:
             query_parameters['ignoreWarnings'] = self._serialize.query('ignore_warnings', ignore_warnings, 'bool')
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='POST',
                               location_id='29e1f38d-9e9c-4358-86a5-cdf9896a5759',
                               version='4.1-preview.1',
