@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -56,8 +56,6 @@ class BuildDefinition(BuildDefinitionReference):
     :type build_number_format: str
     :param comment: A save-time comment for the definition.
     :type comment: str
-    :param counters:
-    :type counters: dict
     :param demands:
     :type demands: list of :class:`object <build.v4_1.models.object>`
     :param description: The description.
@@ -115,7 +113,6 @@ class BuildDefinition(BuildDefinitionReference):
         'badge_enabled': {'key': 'badgeEnabled', 'type': 'bool'},
         'build_number_format': {'key': 'buildNumberFormat', 'type': 'str'},
         'comment': {'key': 'comment', 'type': 'str'},
-        'counters': {'key': 'counters', 'type': '{BuildDefinitionCounter}'},
         'demands': {'key': 'demands', 'type': '[object]'},
         'description': {'key': 'description', 'type': 'str'},
         'drop_location': {'key': 'dropLocation', 'type': 'str'},
@@ -134,12 +131,11 @@ class BuildDefinition(BuildDefinitionReference):
         'variables': {'key': 'variables', 'type': '{BuildDefinitionVariable}'}
     }
 
-    def __init__(self, created_date=None, id=None, name=None, path=None, project=None, queue_status=None, revision=None, type=None, uri=None, url=None, _links=None, authored_by=None, draft_of=None, drafts=None, latest_build=None, latest_completed_build=None, metrics=None, quality=None, queue=None, badge_enabled=None, build_number_format=None, comment=None, counters=None, demands=None, description=None, drop_location=None, job_authorization_scope=None, job_cancel_timeout_in_minutes=None, job_timeout_in_minutes=None, options=None, process=None, process_parameters=None, properties=None, repository=None, retention_rules=None, tags=None, triggers=None, variable_groups=None, variables=None):
+    def __init__(self, created_date=None, id=None, name=None, path=None, project=None, queue_status=None, revision=None, type=None, uri=None, url=None, _links=None, authored_by=None, draft_of=None, drafts=None, latest_build=None, latest_completed_build=None, metrics=None, quality=None, queue=None, badge_enabled=None, build_number_format=None, comment=None, demands=None, description=None, drop_location=None, job_authorization_scope=None, job_cancel_timeout_in_minutes=None, job_timeout_in_minutes=None, options=None, process=None, process_parameters=None, properties=None, repository=None, retention_rules=None, tags=None, triggers=None, variable_groups=None, variables=None):
         super(BuildDefinition, self).__init__(created_date=created_date, id=id, name=name, path=path, project=project, queue_status=queue_status, revision=revision, type=type, uri=uri, url=url, _links=_links, authored_by=authored_by, draft_of=draft_of, drafts=drafts, latest_build=latest_build, latest_completed_build=latest_completed_build, metrics=metrics, quality=quality, queue=queue)
         self.badge_enabled = badge_enabled
         self.build_number_format = build_number_format
         self.comment = comment
-        self.counters = counters
         self.demands = demands
         self.description = description
         self.drop_location = drop_location

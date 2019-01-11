@@ -48,7 +48,7 @@ class WorkItemTrackingClient(VssClient):
                               content=content)
         return self._deserialize('ArtifactUriQueryResult', response)
 
-    def create_attachment(self, upload_stream, file_name=None, upload_type=None, area_path=None):
+    def create_attachment(self, upload_stream, file_name=None, upload_type=None, area_path=None, **kwargs):
         """CreateAttachment.
         Creates an attachment.
         :param object upload_stream: Stream to upload
@@ -64,7 +64,11 @@ class WorkItemTrackingClient(VssClient):
             query_parameters['uploadType'] = self._serialize.query('upload_type', upload_type, 'str')
         if area_path is not None:
             query_parameters['areaPath'] = self._serialize.query('area_path', area_path, 'str')
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='POST',
                               location_id='e07b5fa4-1499-494d-a496-64b860fd64ff',
                               version='4.0',
