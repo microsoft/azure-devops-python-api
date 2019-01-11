@@ -25,7 +25,7 @@ class WikiClient(VssClient):
 
     resource_area_identifier = 'bf7d82a0-8aa5-4613-94ef-6172a5ea01f3'
 
-    def create_attachment(self, upload_stream, project, wiki_id, name):
+    def create_attachment(self, upload_stream, project, wiki_id, name, **kwargs):
         """CreateAttachment.
         [Preview API] Use this API to create an attachment in the wiki.
         :param object upload_stream: Stream to upload
@@ -42,7 +42,11 @@ class WikiClient(VssClient):
         query_parameters = {}
         if name is not None:
             query_parameters['name'] = self._serialize.query('name', name, 'str')
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='PUT',
                               location_id='c4382d8d-fefc-40e0-92c5-49852e9e17c0',
                               version='4.0-preview.1',

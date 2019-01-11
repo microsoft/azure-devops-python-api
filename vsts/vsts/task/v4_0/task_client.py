@@ -49,7 +49,7 @@ class TaskClient(VssClient):
                               route_values=route_values)
         return self._deserialize('[TaskAttachment]', self._unwrap_collection(response))
 
-    def create_attachment(self, upload_stream, scope_identifier, hub_name, plan_id, timeline_id, record_id, type, name):
+    def create_attachment(self, upload_stream, scope_identifier, hub_name, plan_id, timeline_id, record_id, type, name, **kwargs):
         """CreateAttachment.
         [Preview API]
         :param object upload_stream: Stream to upload
@@ -77,7 +77,11 @@ class TaskClient(VssClient):
             route_values['type'] = self._serialize.url('type', type, 'str')
         if name is not None:
             route_values['name'] = self._serialize.url('name', name, 'str')
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='PUT',
                               location_id='7898f959-9cdf-4096-b29e-7f293031629e',
                               version='4.0-preview.1',
@@ -214,7 +218,7 @@ class TaskClient(VssClient):
                    route_values=route_values,
                    content=content)
 
-    def append_log_content(self, upload_stream, scope_identifier, hub_name, plan_id, log_id):
+    def append_log_content(self, upload_stream, scope_identifier, hub_name, plan_id, log_id, **kwargs):
         """AppendLogContent.
         :param object upload_stream: Stream to upload
         :param str scope_identifier: The project GUID to scope the request
@@ -232,7 +236,11 @@ class TaskClient(VssClient):
             route_values['planId'] = self._serialize.url('plan_id', plan_id, 'str')
         if log_id is not None:
             route_values['logId'] = self._serialize.url('log_id', log_id, 'int')
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='POST',
                               location_id='46f5667d-263a-4684-91b1-dff7fdcf64e2',
                               version='4.0',

@@ -447,7 +447,7 @@ class GalleryClient(VssClient):
                               content=content)
         return self._deserialize('ExtensionDraft', response)
 
-    def update_payload_in_draft_for_edit_extension(self, upload_stream, publisher_name, extension_name, draft_id, file_name=None):
+    def update_payload_in_draft_for_edit_extension(self, upload_stream, publisher_name, extension_name, draft_id, file_name=None, **kwargs):
         """UpdatePayloadInDraftForEditExtension.
         [Preview API]
         :param object upload_stream: Stream to upload
@@ -464,7 +464,11 @@ class GalleryClient(VssClient):
             route_values['extensionName'] = self._serialize.url('extension_name', extension_name, 'str')
         if draft_id is not None:
             route_values['draftId'] = self._serialize.url('draft_id', draft_id, 'str')
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='PUT',
                               location_id='02b33873-4e61-496e-83a2-59d1df46b7d8',
                               version='4.1-preview.1',
@@ -473,7 +477,7 @@ class GalleryClient(VssClient):
                               media_type='application/octet-stream')
         return self._deserialize('ExtensionDraft', response)
 
-    def add_asset_for_edit_extension_draft(self, upload_stream, publisher_name, extension_name, draft_id, asset_type):
+    def add_asset_for_edit_extension_draft(self, upload_stream, publisher_name, extension_name, draft_id, asset_type, **kwargs):
         """AddAssetForEditExtensionDraft.
         [Preview API]
         :param object upload_stream: Stream to upload
@@ -492,7 +496,11 @@ class GalleryClient(VssClient):
             route_values['draftId'] = self._serialize.url('draft_id', draft_id, 'str')
         if asset_type is not None:
             route_values['assetType'] = self._serialize.url('asset_type', asset_type, 'str')
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='PUT',
                               location_id='f1db9c47-6619-4998-a7e5-d7f9f41a4617',
                               version='4.1-preview.1',
@@ -501,7 +509,7 @@ class GalleryClient(VssClient):
                               media_type='application/octet-stream')
         return self._deserialize('ExtensionDraftAsset', response)
 
-    def create_draft_for_new_extension(self, upload_stream, publisher_name, product, file_name=None):
+    def create_draft_for_new_extension(self, upload_stream, publisher_name, product, file_name=None, **kwargs):
         """CreateDraftForNewExtension.
         [Preview API]
         :param object upload_stream: Stream to upload
@@ -513,7 +521,11 @@ class GalleryClient(VssClient):
         route_values = {}
         if publisher_name is not None:
             route_values['publisherName'] = self._serialize.url('publisher_name', publisher_name, 'str')
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='POST',
                               location_id='b3ab127d-ebb9-4d22-b611-4e09593c8d79',
                               version='4.1-preview.1',
@@ -543,7 +555,7 @@ class GalleryClient(VssClient):
                               content=content)
         return self._deserialize('ExtensionDraft', response)
 
-    def update_payload_in_draft_for_new_extension(self, upload_stream, publisher_name, draft_id, file_name=None):
+    def update_payload_in_draft_for_new_extension(self, upload_stream, publisher_name, draft_id, file_name=None, **kwargs):
         """UpdatePayloadInDraftForNewExtension.
         [Preview API]
         :param object upload_stream: Stream to upload
@@ -557,7 +569,11 @@ class GalleryClient(VssClient):
             route_values['publisherName'] = self._serialize.url('publisher_name', publisher_name, 'str')
         if draft_id is not None:
             route_values['draftId'] = self._serialize.url('draft_id', draft_id, 'str')
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='PUT',
                               location_id='b3ab127d-ebb9-4d22-b611-4e09593c8d79',
                               version='4.1-preview.1',
@@ -566,7 +582,7 @@ class GalleryClient(VssClient):
                               media_type='application/octet-stream')
         return self._deserialize('ExtensionDraft', response)
 
-    def add_asset_for_new_extension_draft(self, upload_stream, publisher_name, draft_id, asset_type):
+    def add_asset_for_new_extension_draft(self, upload_stream, publisher_name, draft_id, asset_type, **kwargs):
         """AddAssetForNewExtensionDraft.
         [Preview API]
         :param object upload_stream: Stream to upload
@@ -582,7 +598,11 @@ class GalleryClient(VssClient):
             route_values['draftId'] = self._serialize.url('draft_id', draft_id, 'str')
         if asset_type is not None:
             route_values['assetType'] = self._serialize.url('asset_type', asset_type, 'str')
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='PUT',
                               location_id='88c0b1c8-b4f1-498a-9b2a-8446ef9f32e7',
                               version='4.1-preview.1',
@@ -709,13 +729,17 @@ class GalleryClient(VssClient):
                               content=content)
         return self._deserialize('ExtensionQueryResult', response)
 
-    def create_extension(self, upload_stream):
+    def create_extension(self, upload_stream, **kwargs):
         """CreateExtension.
         [Preview API]
         :param object upload_stream: Stream to upload
         :rtype: :class:`<PublishedExtension> <gallery.v4_1.models.PublishedExtension>`
         """
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='POST',
                               location_id='a41192c8-9525-4b58-bc86-179fa549d80d',
                               version='4.1-preview.2',
@@ -779,7 +803,7 @@ class GalleryClient(VssClient):
                               route_values=route_values)
         return self._deserialize('PublishedExtension', response)
 
-    def create_extension_with_publisher(self, upload_stream, publisher_name):
+    def create_extension_with_publisher(self, upload_stream, publisher_name, **kwargs):
         """CreateExtensionWithPublisher.
         [Preview API]
         :param object upload_stream: Stream to upload
@@ -789,7 +813,11 @@ class GalleryClient(VssClient):
         route_values = {}
         if publisher_name is not None:
             route_values['publisherName'] = self._serialize.url('publisher_name', publisher_name, 'str')
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='POST',
                               location_id='e11ea35a-16fe-4b80-ab11-c4cab88a0966',
                               version='4.1-preview.2',
@@ -848,7 +876,7 @@ class GalleryClient(VssClient):
                               query_parameters=query_parameters)
         return self._deserialize('PublishedExtension', response)
 
-    def update_extension(self, upload_stream, publisher_name, extension_name):
+    def update_extension(self, upload_stream, publisher_name, extension_name, **kwargs):
         """UpdateExtension.
         [Preview API]
         :param object upload_stream: Stream to upload
@@ -861,7 +889,11 @@ class GalleryClient(VssClient):
             route_values['publisherName'] = self._serialize.url('publisher_name', publisher_name, 'str')
         if extension_name is not None:
             route_values['extensionName'] = self._serialize.url('extension_name', extension_name, 'str')
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='PUT',
                               location_id='e11ea35a-16fe-4b80-ab11-c4cab88a0966',
                               version='4.1-preview.2',
@@ -1032,7 +1064,7 @@ class GalleryClient(VssClient):
             callback = None
         return self._client.stream_download(response, callback=callback)
 
-    def update_publisher_asset(self, upload_stream, publisher_name, asset_type=None, file_name=None):
+    def update_publisher_asset(self, upload_stream, publisher_name, asset_type=None, file_name=None, **kwargs):
         """UpdatePublisherAsset.
         [Preview API] Update publisher asset like logo. It accepts asset file as an octet stream and file name is passed in header values.
         :param object upload_stream: Stream to upload
@@ -1047,7 +1079,11 @@ class GalleryClient(VssClient):
         query_parameters = {}
         if asset_type is not None:
             query_parameters['assetType'] = self._serialize.query('asset_type', asset_type, 'str')
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='PUT',
                               location_id='21143299-34f9-4c62-8ca8-53da691192f9',
                               version='4.1-preview.1',
