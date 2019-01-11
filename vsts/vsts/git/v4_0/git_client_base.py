@@ -1048,7 +1048,7 @@ class GitClientBase(VssClient):
                               content=content)
         return self._deserialize('[[GitItem]]', self._unwrap_collection(response))
 
-    def create_attachment(self, upload_stream, file_name, repository_id, pull_request_id, project=None):
+    def create_attachment(self, upload_stream, file_name, repository_id, pull_request_id, project=None, **kwargs):
         """CreateAttachment.
         [Preview API] Create a new attachment
         :param object upload_stream: Stream to upload
@@ -1067,7 +1067,11 @@ class GitClientBase(VssClient):
             route_values['repositoryId'] = self._serialize.url('repository_id', repository_id, 'str')
         if pull_request_id is not None:
             route_values['pullRequestId'] = self._serialize.url('pull_request_id', pull_request_id, 'int')
-        content = self._serialize.body(upload_stream, 'object')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='POST',
                               location_id='965d9361-878b-413b-a494-45d5b5fd8ab7',
                               version='4.0-preview.1',
