@@ -32,7 +32,7 @@ class TeamSettingsPatch(Model):
         'bugs_behavior': {'key': 'bugsBehavior', 'type': 'object'},
         'default_iteration': {'key': 'defaultIteration', 'type': 'str'},
         'default_iteration_macro': {'key': 'defaultIterationMacro', 'type': 'str'},
-        'working_days': {'key': 'workingDays', 'type': '[str]'}
+        'working_days': {'key': 'workingDays', 'type': '[object]'}
     }
 
     def __init__(self, backlog_iteration=None, backlog_visibilities=None, bugs_behavior=None, default_iteration=None, default_iteration_macro=None, working_days=None):
