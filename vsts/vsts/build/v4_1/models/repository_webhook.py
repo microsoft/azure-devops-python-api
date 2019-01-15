@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -22,7 +22,7 @@ class RepositoryWebhook(Model):
 
     _attribute_map = {
         'name': {'key': 'name', 'type': 'str'},
-        'types': {'key': 'types', 'type': '[DefinitionTriggerType]'},
+        'types': {'key': 'types', 'type': '[object]'},
         'url': {'key': 'url', 'type': 'str'}
     }
 
