@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -25,7 +25,7 @@ class SupportedTrigger(Model):
     _attribute_map = {
         'default_polling_interval': {'key': 'defaultPollingInterval', 'type': 'int'},
         'notification_type': {'key': 'notificationType', 'type': 'str'},
-        'supported_capabilities': {'key': 'supportedCapabilities', 'type': '{SupportLevel}'},
+        'supported_capabilities': {'key': 'supportedCapabilities', 'type': '{object}'},
         'type': {'key': 'type', 'type': 'object'}
     }
 
