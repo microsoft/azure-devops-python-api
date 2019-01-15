@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ class WebApiLoadTestMachineInput(Model):
         'machine_group_id': {'key': 'machineGroupId', 'type': 'str'},
         'machine_type': {'key': 'machineType', 'type': 'object'},
         'setup_configuration': {'key': 'setupConfiguration', 'type': 'WebApiSetupParamaters'},
-        'supported_run_types': {'key': 'supportedRunTypes', 'type': '[TestRunType]'}
+        'supported_run_types': {'key': 'supportedRunTypes', 'type': '[object]'}
     }
 
     def __init__(self, machine_group_id=None, machine_type=None, setup_configuration=None, supported_run_types=None):
