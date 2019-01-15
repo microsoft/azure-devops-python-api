@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -41,7 +41,7 @@ class MailMessage(Model):
         'message_id': {'key': 'messageId', 'type': 'str'},
         'reply_by': {'key': 'replyBy', 'type': 'iso-8601'},
         'reply_to': {'key': 'replyTo', 'type': 'EmailRecipients'},
-        'sections': {'key': 'sections', 'type': '[MailSectionType]'},
+        'sections': {'key': 'sections', 'type': '[object]'},
         'sender_type': {'key': 'senderType', 'type': 'object'},
         'subject': {'key': 'subject', 'type': 'str'},
         'to': {'key': 'to', 'type': 'EmailRecipients'}

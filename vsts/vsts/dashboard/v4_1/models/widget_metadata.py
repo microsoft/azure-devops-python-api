@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------------------------
+﻿# --------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
@@ -75,7 +75,7 @@ class WidgetMetadata(Model):
         'loading_image_url': {'key': 'loadingImageUrl', 'type': 'str'},
         'name': {'key': 'name', 'type': 'str'},
         'publisher_name': {'key': 'publisherName', 'type': 'str'},
-        'supported_scopes': {'key': 'supportedScopes', 'type': '[WidgetScope]'},
+        'supported_scopes': {'key': 'supportedScopes', 'type': '[object]'},
         'targets': {'key': 'targets', 'type': '[str]'},
         'type_id': {'key': 'typeId', 'type': 'str'}
     }
