@@ -6,12 +6,12 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .admin_behavior import AdminBehavior
-from .admin_behavior_field import AdminBehaviorField
-from .check_template_existence_result import CheckTemplateExistenceResult
-from .process_import_result import ProcessImportResult
-from .process_promote_status import ProcessPromoteStatus
-from .validation_issue import ValidationIssue
+from .models import AdminBehavior
+from .models import AdminBehaviorField
+from .models import CheckTemplateExistenceResult
+from .models import_result import ProcessImportResult
+from .models import ProcessPromoteStatus
+from .models import ValidationIssue
 
 __all__ = [
     'AdminBehavior',

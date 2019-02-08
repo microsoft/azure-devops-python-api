@@ -6,29 +6,29 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .graph_subject_base import GraphSubjectBase
-from .identity_data import IdentityData
-from .identity_ref import IdentityRef
-from .json_patch_operation import JsonPatchOperation
-from .operation_reference import OperationReference
-from .process import Process
-from .process_reference import ProcessReference
-from .project_info import ProjectInfo
-from .project_property import ProjectProperty
-from .proxy import Proxy
-from .proxy_authorization import ProxyAuthorization
-from .public_key import PublicKey
-from .reference_links import ReferenceLinks
-from .team_member import TeamMember
-from .team_project import TeamProject
-from .team_project_collection import TeamProjectCollection
-from .team_project_collection_reference import TeamProjectCollectionReference
-from .team_project_reference import TeamProjectReference
-from .web_api_connected_service import WebApiConnectedService
-from .web_api_connected_service_details import WebApiConnectedServiceDetails
-from .web_api_connected_service_ref import WebApiConnectedServiceRef
-from .web_api_team import WebApiTeam
-from .web_api_team_ref import WebApiTeamRef
+from .models import GraphSubjectBase
+from .models import IdentityData
+from .models import IdentityRef
+from .models import JsonPatchOperation
+from .models import OperationReference
+from .models import Process
+from .models import ProcessReference
+from .models import ProjectInfo
+from .models import ProjectProperty
+from .models import Proxy
+from .models import ProxyAuthorization
+from .models import PublicKey
+from .models import ReferenceLinks
+from .models import TeamMember
+from .models import TeamProject
+from .models import TeamProjectCollection
+from .models import TeamProjectCollectionReference
+from .models import TeamProjectReference
+from .models import WebApiConnectedService
+from .models import WebApiConnectedServiceDetails
+from .models import WebApiConnectedServiceRef
+from .models import WebApiTeam
+from .models import WebApiTeamRef
 
 __all__ = [
     'GraphSubjectBase',

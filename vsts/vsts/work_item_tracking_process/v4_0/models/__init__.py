@@ -6,28 +6,28 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .control import Control
-from .create_process_model import CreateProcessModel
-from .extension import Extension
-from .field_model import FieldModel
-from .field_rule_model import FieldRuleModel
-from .form_layout import FormLayout
-from .group import Group
-from .page import Page
-from .process_model import ProcessModel
-from .process_properties import ProcessProperties
-from .project_reference import ProjectReference
-from .rule_action_model import RuleActionModel
-from .rule_condition_model import RuleConditionModel
-from .section import Section
-from .update_process_model import UpdateProcessModel
-from .wit_contribution import WitContribution
-from .work_item_behavior import WorkItemBehavior
-from .work_item_behavior_field import WorkItemBehaviorField
-from .work_item_behavior_reference import WorkItemBehaviorReference
-from .work_item_state_result_model import WorkItemStateResultModel
-from .work_item_type_behavior import WorkItemTypeBehavior
-from .work_item_type_model import WorkItemTypeModel
+from .models import Control
+from .models import CreateProcessModel
+from .models import Extension
+from .models import FieldModel
+from .models import FieldRuleModel
+from .models import FormLayout
+from .models import Group
+from .models import Page
+from .models import ProcessModel
+from .models import ProcessProperties
+from .models import ProjectReference
+from .models import RuleActionModel
+from .models import RuleConditionModel
+from .models import Section
+from .models import UpdateProcessModel
+from .models import WitContribution
+from .models import WorkItemBehavior
+from .models import WorkItemBehaviorField
+from .models import WorkItemBehaviorReference
+from .models import WorkItemStateResultModel
+from .models import WorkItemTypeBehavior
+from .models import WorkItemTypeModel
 
 __all__ = [
     'Control',

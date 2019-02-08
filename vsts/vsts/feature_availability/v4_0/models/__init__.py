@@ -6,8 +6,8 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .feature_flag import FeatureFlag
-from .feature_flag_patch import FeatureFlagPatch
+from .models import FeatureFlag
+from .models import FeatureFlagPatch
 
 __all__ = [
     'FeatureFlag',

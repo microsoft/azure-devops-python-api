@@ -6,14 +6,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .identity_ref import IdentityRef
-from .policy_configuration import PolicyConfiguration
-from .policy_configuration_ref import PolicyConfigurationRef
-from .policy_evaluation_record import PolicyEvaluationRecord
-from .policy_type import PolicyType
-from .policy_type_ref import PolicyTypeRef
-from .reference_links import ReferenceLinks
-from .versioned_policy_configuration_ref import VersionedPolicyConfigurationRef
+from .models import IdentityRef
+from .models import PolicyConfiguration
+from .models import PolicyConfigurationRef
+from .models import PolicyEvaluationRecord
+from .models import PolicyType
+from .models import PolicyTypeRef
+from .models import ReferenceLinks
+from .models import VersionedPolicyConfigurationRef
 
 __all__ = [
     'IdentityRef',

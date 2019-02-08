@@ -6,9 +6,9 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .account import Account
-from .account_create_info_internal import AccountCreateInfoInternal
-from .account_preferences_internal import AccountPreferencesInternal
+from .models import Account
+from .models import AccountCreateInfoInternal
+from .models import AccountPreferencesInternal
 
 __all__ = [
     'Account',

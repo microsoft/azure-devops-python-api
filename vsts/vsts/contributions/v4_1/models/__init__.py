@@ -6,31 +6,31 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .client_contribution import ClientContribution
-from .client_contribution_node import ClientContributionNode
-from .client_contribution_provider_details import ClientContributionProviderDetails
-from .client_data_provider_query import ClientDataProviderQuery
-from .contribution import Contribution
-from .contribution_base import ContributionBase
-from .contribution_constraint import ContributionConstraint
-from .contribution_node_query import ContributionNodeQuery
-from .contribution_node_query_result import ContributionNodeQueryResult
-from .contribution_property_description import ContributionPropertyDescription
-from .contribution_type import ContributionType
-from .data_provider_context import DataProviderContext
-from .data_provider_exception_details import DataProviderExceptionDetails
-from .data_provider_query import DataProviderQuery
-from .data_provider_result import DataProviderResult
-from .extension_event_callback import ExtensionEventCallback
-from .extension_event_callback_collection import ExtensionEventCallbackCollection
-from .extension_file import ExtensionFile
-from .extension_licensing import ExtensionLicensing
-from .extension_manifest import ExtensionManifest
-from .installed_extension import InstalledExtension
-from .installed_extension_state import InstalledExtensionState
-from .installed_extension_state_issue import InstalledExtensionStateIssue
-from .licensing_override import LicensingOverride
-from .resolved_data_provider import ResolvedDataProvider
+from .models import ClientContribution
+from .models import ClientContributionNode
+from .models import ClientContributionProviderDetails
+from .models import ClientDataProviderQuery
+from .models import Contribution
+from .models import ContributionBase
+from .models import ContributionConstraint
+from .models import ContributionNodeQuery
+from .models import ContributionNodeQueryResult
+from .models import ContributionPropertyDescription
+from .models import ContributionType
+from .models import DataProviderContext
+from .models import DataProviderExceptionDetails
+from .models import DataProviderQuery
+from .models import DataProviderResult
+from .models import ExtensionEventCallback
+from .models import ExtensionEventCallbackCollection
+from .models import ExtensionFile
+from .models import ExtensionLicensing
+from .models import ExtensionManifest
+from .models import InstalledExtension
+from .models import InstalledExtensionState
+from .models import InstalledExtensionStateIssue
+from .models import LicensingOverride
+from .models import ResolvedDataProvider
 
 __all__ = [
     'ClientContribution',

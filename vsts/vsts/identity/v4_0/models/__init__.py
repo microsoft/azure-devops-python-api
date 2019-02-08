@@ -6,22 +6,22 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .access_token_result import AccessTokenResult
-from .authorization_grant import AuthorizationGrant
-from .changed_identities import ChangedIdentities
-from .changed_identities_context import ChangedIdentitiesContext
-from .create_scope_info import CreateScopeInfo
-from .framework_identity_info import FrameworkIdentityInfo
-from .group_membership import GroupMembership
-from .identity import Identity
-from .identity_batch_info import IdentityBatchInfo
-from .identity_scope import IdentityScope
-from .identity_self import IdentitySelf
-from .identity_snapshot import IdentitySnapshot
-from .identity_update_data import IdentityUpdateData
-from .json_web_token import JsonWebToken
-from .refresh_token_grant import RefreshTokenGrant
-from .tenant_info import TenantInfo
+from .models import AccessTokenResult
+from .models import AuthorizationGrant
+from .models import ChangedIdentities
+from .models import ChangedIdentitiesContext
+from .models import CreateScopeInfo
+from .models import FrameworkIdentityInfo
+from .models import GroupMembership
+from .models import Identity
+from .models import IdentityBatchInfo
+from .models import IdentityScope
+from .models import IdentitySelf
+from .models import IdentitySnapshot
+from .models import IdentityUpdateData
+from .models import JsonWebToken
+from .models import RefreshTokenGrant
+from .models import TenantInfo
 
 __all__ = [
     'AccessTokenResult',

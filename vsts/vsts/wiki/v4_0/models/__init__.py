@@ -6,30 +6,30 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .change import Change
-from .file_content_metadata import FileContentMetadata
-from .git_commit_ref import GitCommitRef
-from .git_item import GitItem
-from .git_push import GitPush
-from .git_push_ref import GitPushRef
-from .git_ref_update import GitRefUpdate
-from .git_repository import GitRepository
-from .git_repository_ref import GitRepositoryRef
-from .git_status import GitStatus
-from .git_status_context import GitStatusContext
-from .git_template import GitTemplate
-from .git_user_date import GitUserDate
-from .git_version_descriptor import GitVersionDescriptor
-from .item_content import ItemContent
-from .item_model import ItemModel
-from .wiki_attachment import WikiAttachment
-from .wiki_attachment_change import WikiAttachmentChange
-from .wiki_attachment_response import WikiAttachmentResponse
-from .wiki_change import WikiChange
-from .wiki_page import WikiPage
-from .wiki_page_change import WikiPageChange
-from .wiki_repository import WikiRepository
-from .wiki_update import WikiUpdate
+from .models import Change
+from .models import FileContentMetadata
+from .models import GitCommitRef
+from .models import GitItem
+from .models import GitPush
+from .models import GitPushRef
+from .models import GitRefUpdate
+from .models import GitRepository
+from .models import GitRepositoryRef
+from .models import GitStatus
+from .models import GitStatusContext
+from .models import GitTemplate
+from .models import GitUserDate
+from .models import GitVersionDescriptor
+from .models import ItemContent
+from .models import ItemModel
+from .models import WikiAttachment
+from .models import WikiAttachmentChange
+from .models import WikiAttachmentResponse
+from .models import WikiChange
+from .models import WikiPage
+from .models import WikiPageChange
+from .models import WikiRepository
+from .models import WikiUpdate
 
 __all__ = [
     'Change',

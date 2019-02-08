@@ -6,23 +6,23 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .dashboard import Dashboard
-from .dashboard_group import DashboardGroup
-from .dashboard_group_entry import DashboardGroupEntry
-from .dashboard_group_entry_response import DashboardGroupEntryResponse
-from .dashboard_response import DashboardResponse
-from .lightbox_options import LightboxOptions
-from .reference_links import ReferenceLinks
-from .semantic_version import SemanticVersion
-from .team_context import TeamContext
-from .widget import Widget
-from .widget_metadata import WidgetMetadata
-from .widget_metadata_response import WidgetMetadataResponse
-from .widget_position import WidgetPosition
-from .widget_response import WidgetResponse
-from .widget_size import WidgetSize
-from .widgets_versioned_list import WidgetsVersionedList
-from .widget_types_response import WidgetTypesResponse
+from .models import Dashboard
+from .models import DashboardGroup
+from .models import DashboardGroupEntry
+from .models import DashboardGroupEntryResponse
+from .models import DashboardResponse
+from .models import LightboxOptions
+from .models import ReferenceLinks
+from .models import SemanticVersion
+from .models import TeamContext
+from .models import Widget
+from .models import WidgetMetadata
+from .models import WidgetMetadataResponse
+from .models import WidgetPosition
+from .models import WidgetResponse
+from .models import WidgetSize
+from .models import WidgetsVersionedList
+from .models import WidgetTypesResponse
 
 __all__ = [
     'Dashboard',

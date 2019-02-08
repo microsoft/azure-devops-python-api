@@ -6,22 +6,22 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .git_repository import GitRepository
-from .git_repository_ref import GitRepositoryRef
-from .git_version_descriptor import GitVersionDescriptor
-from .wiki_attachment import WikiAttachment
-from .wiki_attachment_response import WikiAttachmentResponse
-from .wiki_create_base_parameters import WikiCreateBaseParameters
-from .wiki_create_parameters_v2 import WikiCreateParametersV2
-from .wiki_page import WikiPage
-from .wiki_page_create_or_update_parameters import WikiPageCreateOrUpdateParameters
-from .wiki_page_move import WikiPageMove
-from .wiki_page_move_parameters import WikiPageMoveParameters
-from .wiki_page_move_response import WikiPageMoveResponse
-from .wiki_page_response import WikiPageResponse
-from .wiki_page_view_stats import WikiPageViewStats
-from .wiki_update_parameters import WikiUpdateParameters
-from .wiki_v2 import WikiV2
+from .models import GitRepository
+from .models import GitRepositoryRef
+from .models import GitVersionDescriptor
+from .models import WikiAttachment
+from .models import WikiAttachmentResponse
+from .models import WikiCreateBaseParameters
+from .models import WikiCreateParametersV2
+from .models import WikiPage
+from .models import WikiPageCreateOrUpdateParameters
+from .models import WikiPageMove
+from .models import WikiPageMoveParameters
+from .models import WikiPageMoveResponse
+from .models import WikiPageResponse
+from .models import WikiPageViewStats
+from .models import WikiUpdateParameters
+from .models import WikiV2
 
 __all__ = [
     'GitRepository',

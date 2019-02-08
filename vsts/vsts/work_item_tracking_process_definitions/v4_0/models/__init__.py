@@ -6,29 +6,29 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .behavior_create_model import BehaviorCreateModel
-from .behavior_model import BehaviorModel
-from .behavior_replace_model import BehaviorReplaceModel
-from .control import Control
-from .extension import Extension
-from .field_model import FieldModel
-from .field_update import FieldUpdate
-from .form_layout import FormLayout
-from .group import Group
-from .hide_state_model import HideStateModel
-from .page import Page
-from .pick_list_item_model import PickListItemModel
-from .pick_list_metadata_model import PickListMetadataModel
-from .pick_list_model import PickListModel
-from .section import Section
-from .wit_contribution import WitContribution
-from .work_item_behavior_reference import WorkItemBehaviorReference
-from .work_item_state_input_model import WorkItemStateInputModel
-from .work_item_state_result_model import WorkItemStateResultModel
-from .work_item_type_behavior import WorkItemTypeBehavior
-from .work_item_type_field_model import WorkItemTypeFieldModel
-from .work_item_type_model import WorkItemTypeModel
-from .work_item_type_update_model import WorkItemTypeUpdateModel
+from .models import BehaviorCreateModel
+from .models import BehaviorModel
+from .models import BehaviorReplaceModel
+from .models import Control
+from .models import Extension
+from .models import FieldModel
+from .models import FieldUpdate
+from .models import FormLayout
+from .models import Group
+from .models import HideStateModel
+from .models import Page
+from .models import PickListItemModel
+from .models import PickListMetadataModel
+from .models import PickListModel
+from .models import Section
+from .models import WitContribution
+from .models import WorkItemBehaviorReference
+from .models import WorkItemStateInputModel
+from .models import WorkItemStateResultModel
+from .models import WorkItemTypeBehavior
+from .models import WorkItemTypeFieldModel
+from .models import WorkItemTypeModel
+from .models import WorkItemTypeUpdateModel
 
 __all__ = [
     'BehaviorCreateModel',

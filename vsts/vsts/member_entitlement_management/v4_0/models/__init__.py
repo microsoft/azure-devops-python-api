@@ -6,28 +6,28 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .access_level import AccessLevel
-from .base_operation_result import BaseOperationResult
-from .extension import Extension
-from .graph_group import GraphGroup
-from .graph_member import GraphMember
-from .graph_subject import GraphSubject
-from .group import Group
-from .group_entitlement import GroupEntitlement
-from .group_entitlement_operation_reference import GroupEntitlementOperationReference
-from .group_operation_result import GroupOperationResult
-from .json_patch_operation import JsonPatchOperation
-from .member_entitlement import MemberEntitlement
-from .member_entitlement_operation_reference import MemberEntitlementOperationReference
-from .member_entitlements_patch_response import MemberEntitlementsPatchResponse
-from .member_entitlements_post_response import MemberEntitlementsPostResponse
-from .member_entitlements_response_base import MemberEntitlementsResponseBase
-from .operation_reference import OperationReference
-from .operation_result import OperationResult
-from .project_entitlement import ProjectEntitlement
-from .project_ref import ProjectRef
-from .reference_links import ReferenceLinks
-from .team_ref import TeamRef
+from .models import AccessLevel
+from .models import BaseOperationResult
+from .models import Extension
+from .models import GraphGroup
+from .models import GraphMember
+from .models import GraphSubject
+from .models import Group
+from .models import GroupEntitlement
+from .models import GroupEntitlementOperationReference
+from .models import GroupOperationResult
+from .models import JsonPatchOperation
+from .models import MemberEntitlement
+from .models import MemberEntitlementOperationReference
+from .models import MemberEntitlementsPatchResponse
+from .models import MemberEntitlementsPostResponse
+from .models import MemberEntitlementsResponseBase
+from .models import OperationReference
+from .models import OperationResult
+from .models import ProjectEntitlement
+from .models import ProjectRef
+from .models import ReferenceLinks
+from .models import TeamRef
 
 __all__ = [
     'AccessLevel',

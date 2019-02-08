@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .client_trace_event import ClientTraceEvent
+from .models import ClientTraceEvent
 
 __all__ = [
     'ClientTraceEvent',

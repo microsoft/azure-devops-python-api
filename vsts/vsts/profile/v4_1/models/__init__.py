@@ -6,18 +6,18 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .attribute_descriptor import AttributeDescriptor
-from .attributes_container import AttributesContainer
-from .avatar import Avatar
-from .core_profile_attribute import CoreProfileAttribute
-from .create_profile_context import CreateProfileContext
-from .geo_region import GeoRegion
-from .profile import Profile
-from .profile_attribute import ProfileAttribute
-from .profile_attribute_base import ProfileAttributeBase
-from .profile_region import ProfileRegion
-from .profile_regions import ProfileRegions
-from .remote_profile import RemoteProfile
+from .models import AttributeDescriptor
+from .models import AttributesContainer
+from .models import Avatar
+from .models import CoreProfileAttribute
+from .models import CreateProfileContext
+from .models import GeoRegion
+from .models import Profile
+from .models import ProfileAttribute
+from .models import ProfileAttributeBase
+from .models import ProfileRegion
+from .models import ProfileRegions
+from .models import RemoteProfile
 
 __all__ = [
     'AttributeDescriptor',

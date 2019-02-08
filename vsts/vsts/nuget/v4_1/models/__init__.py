@@ -6,16 +6,16 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .batch_list_data import BatchListData
-from .batch_operation_data import BatchOperationData
-from .json_patch_operation import JsonPatchOperation
-from .minimal_package_details import MinimalPackageDetails
-from .nuGet_packages_batch_request import NuGetPackagesBatchRequest
-from .nuGet_package_version_deletion_state import NuGetPackageVersionDeletionState
-from .nuGet_recycle_bin_package_version_details import NuGetRecycleBinPackageVersionDetails
-from .package import Package
-from .package_version_details import PackageVersionDetails
-from .reference_links import ReferenceLinks
+from .models import BatchListData
+from .models import BatchOperationData
+from .models import JsonPatchOperation
+from .models import MinimalPackageDetails
+from .models import NuGetPackagesBatchRequest
+from .models import NuGetPackageVersionDeletionState
+from .models import NuGetRecycleBinPackageVersionDetails
+from .models import Package
+from .models import PackageVersionDetails
+from .models import ReferenceLinks
 
 __all__ = [
     'BatchListData',

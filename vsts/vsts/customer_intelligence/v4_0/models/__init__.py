@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .customer_intelligence_event import CustomerIntelligenceEvent
+from .models import CustomerIntelligenceEvent
 
 __all__ = [
     'CustomerIntelligenceEvent',

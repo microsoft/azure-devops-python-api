@@ -6,28 +6,28 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .feed import Feed
-from .feed_change import FeedChange
-from .feed_changes_response import FeedChangesResponse
-from .feed_core import FeedCore
-from .feed_permission import FeedPermission
-from .feed_retention_policy import FeedRetentionPolicy
-from .feed_update import FeedUpdate
-from .feed_view import FeedView
-from .global_permission import GlobalPermission
-from .json_patch_operation import JsonPatchOperation
-from .minimal_package_version import MinimalPackageVersion
-from .package import Package
-from .package_change import PackageChange
-from .package_changes_response import PackageChangesResponse
-from .package_dependency import PackageDependency
-from .package_file import PackageFile
-from .package_version import PackageVersion
-from .package_version_change import PackageVersionChange
-from .protocol_metadata import ProtocolMetadata
-from .recycle_bin_package_version import RecycleBinPackageVersion
-from .reference_links import ReferenceLinks
-from .upstream_source import UpstreamSource
+from .models import Feed
+from .models import FeedChange
+from .models import FeedChangesResponse
+from .models import FeedCore
+from .models import FeedPermission
+from .models import FeedRetentionPolicy
+from .models import FeedUpdate
+from .models import FeedView
+from .models import GlobalPermission
+from .models import JsonPatchOperation
+from .models import MinimalPackageVersion
+from .models import Package
+from .models import PackageChange
+from .models import PackageChangesResponse
+from .models import PackageDependency
+from .models import PackageFile
+from .models import PackageVersion
+from .models import PackageVersionChange
+from .models import ProtocolMetadata
+from .models import RecycleBinPackageVersion
+from .models import ReferenceLinks
+from .models import UpstreamSource
 
 __all__ = [
     'Feed',

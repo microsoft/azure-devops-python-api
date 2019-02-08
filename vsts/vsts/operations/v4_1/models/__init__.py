@@ -6,10 +6,10 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .operation import Operation
-from .operation_reference import OperationReference
-from .operation_result_reference import OperationResultReference
-from .reference_links import ReferenceLinks
+from .models import Operation
+from .models import OperationReference
+from .models import OperationResultReference
+from .models import ReferenceLinks
 
 __all__ = [
     'Operation',

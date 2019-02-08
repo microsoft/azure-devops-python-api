@@ -6,31 +6,31 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .batch_operation_data import BatchOperationData
-from .maven_minimal_package_details import MavenMinimalPackageDetails
-from .maven_package import MavenPackage
-from .maven_packages_batch_request import MavenPackagesBatchRequest
-from .maven_package_version_deletion_state import MavenPackageVersionDeletionState
-from .maven_pom_build import MavenPomBuild
-from .maven_pom_ci import MavenPomCi
-from .maven_pom_ci_notifier import MavenPomCiNotifier
-from .maven_pom_dependency import MavenPomDependency
-from .maven_pom_dependency_management import MavenPomDependencyManagement
-from .maven_pom_gav import MavenPomGav
-from .maven_pom_issue_management import MavenPomIssueManagement
-from .maven_pom_license import MavenPomLicense
-from .maven_pom_mailing_list import MavenPomMailingList
-from .maven_pom_metadata import MavenPomMetadata
-from .maven_pom_organization import MavenPomOrganization
-from .maven_pom_parent import MavenPomParent
-from .maven_pom_person import MavenPomPerson
-from .maven_pom_scm import MavenPomScm
-from .maven_recycle_bin_package_version_details import MavenRecycleBinPackageVersionDetails
-from .package import Package
-from .plugin import Plugin
-from .plugin_configuration import PluginConfiguration
-from .reference_link import ReferenceLink
-from .reference_links import ReferenceLinks
+from .models import BatchOperationData
+from .models import MavenMinimalPackageDetails
+from .models import MavenPackage
+from .models import MavenPackagesBatchRequest
+from .models import MavenPackageVersionDeletionState
+from .models import MavenPomBuild
+from .models import MavenPomCi
+from .models import MavenPomCiNotifier
+from .models import MavenPomDependency
+from .models import MavenPomDependencyManagement
+from .models import MavenPomGav
+from .models import MavenPomIssueManagement
+from .models import MavenPomLicense
+from .models import MavenPomMailingList
+from .models import MavenPomMetadata
+from .models import MavenPomOrganization
+from .models import MavenPomParent
+from .models import MavenPomPerson
+from .models import MavenPomScm
+from .models import MavenRecycleBinPackageVersionDetails
+from .models import Package
+from .models import Plugin
+from .models import PluginConfiguration
+from .models import ReferenceLink
+from .models import ReferenceLinks
 
 __all__ = [
     'BatchOperationData',

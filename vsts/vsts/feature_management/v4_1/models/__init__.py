@@ -6,12 +6,12 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .contributed_feature import ContributedFeature
-from .contributed_feature_setting_scope import ContributedFeatureSettingScope
-from .contributed_feature_state import ContributedFeatureState
-from .contributed_feature_state_query import ContributedFeatureStateQuery
-from .contributed_feature_value_rule import ContributedFeatureValueRule
-from .reference_links import ReferenceLinks
+from .models import ContributedFeature
+from .models import ContributedFeatureSettingScope
+from .models import ContributedFeatureState
+from .models import ContributedFeatureStateQuery
+from .models import ContributedFeatureValueRule
+from .models import ReferenceLinks
 
 __all__ = [
     'ContributedFeature',

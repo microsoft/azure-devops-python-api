@@ -6,13 +6,13 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .debug_entry import DebugEntry
-from .debug_entry_create_batch import DebugEntryCreateBatch
-from .json_blob_block_hash import JsonBlobBlockHash
-from .json_blob_identifier import JsonBlobIdentifier
-from .json_blob_identifier_with_blocks import JsonBlobIdentifierWithBlocks
-from .request import Request
-from .resource_base import ResourceBase
+from .models import DebugEntry
+from .models import DebugEntryCreateBatch
+from .models import JsonBlobBlockHash
+from .models import JsonBlobIdentifier
+from .models import JsonBlobIdentifierWithBlocks
+from .models import Request
+from .models import ResourceBase
 
 __all__ = [
     'DebugEntry',

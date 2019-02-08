@@ -6,17 +6,17 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .batch_deprecate_data import BatchDeprecateData
-from .batch_operation_data import BatchOperationData
-from .json_patch_operation import JsonPatchOperation
-from .minimal_package_details import MinimalPackageDetails
-from .npm_packages_batch_request import NpmPackagesBatchRequest
-from .npm_package_version_deletion_state import NpmPackageVersionDeletionState
-from .npm_recycle_bin_package_version_details import NpmRecycleBinPackageVersionDetails
-from .package import Package
-from .package_version_details import PackageVersionDetails
-from .reference_links import ReferenceLinks
-from .upstream_source_info import UpstreamSourceInfo
+from .models import BatchDeprecateData
+from .models import BatchOperationData
+from .models import JsonPatchOperation
+from .models import MinimalPackageDetails
+from .models import NpmPackagesBatchRequest
+from .models import NpmPackageVersionDeletionState
+from .models import NpmRecycleBinPackageVersionDetails
+from .models import Package
+from .models import PackageVersionDetails
+from .models import ReferenceLinks
+from .models import UpstreamSourceInfo
 
 __all__ = [
     'BatchDeprecateData',

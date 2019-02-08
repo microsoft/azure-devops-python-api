@@ -6,23 +6,23 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .account_entitlement import AccountEntitlement
-from .account_entitlement_update_model import AccountEntitlementUpdateModel
-from .account_license_extension_usage import AccountLicenseExtensionUsage
-from .account_license_usage import AccountLicenseUsage
-from .account_rights import AccountRights
-from .account_user_license import AccountUserLicense
-from .client_rights_container import ClientRightsContainer
-from .extension_assignment import ExtensionAssignment
-from .extension_assignment_details import ExtensionAssignmentDetails
-from .extension_license_data import ExtensionLicenseData
-from .extension_operation_result import ExtensionOperationResult
-from .extension_rights_result import ExtensionRightsResult
-from .extension_source import ExtensionSource
-from .identity_ref import IdentityRef
-from .iUsage_right import IUsageRight
-from .license import License
-from .msdn_entitlement import MsdnEntitlement
+from .models import AccountEntitlement
+from .models import AccountEntitlementUpdateModel
+from .models import AccountLicenseExtensionUsage
+from .models import AccountLicenseUsage
+from .models import AccountRights
+from .models import AccountUserLicense
+from .models import ClientRightsContainer
+from .models import ExtensionAssignment
+from .models import ExtensionAssignmentDetails
+from .models import ExtensionLicenseData
+from .models import ExtensionOperationResult
+from .models import ExtensionRightsResult
+from .models import ExtensionSource
+from .models import IdentityRef
+from .models import IUsageRight
+from .models import License
+from .models import MsdnEntitlement
 
 __all__ = [
     'AccountEntitlement',

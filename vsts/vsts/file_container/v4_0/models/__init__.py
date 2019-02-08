@@ -6,8 +6,8 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .file_container import FileContainer
-from .file_container_item import FileContainerItem
+from .models import FileContainer
+from .models import FileContainerItem
 
 __all__ = [
     'FileContainer',

@@ -5,14 +5,14 @@
 # regenerated.
 # --------------------------------------------------------------------------
 
-from .api_resource_location import ApiResourceLocation
-from ..customer_intelligence.v4_0.models.customer_intelligence_event import CustomerIntelligenceEvent
-from .improper_exception import ImproperException
-from ..location.v4_0.models.resource_area_info import ResourceAreaInfo
-from .system_exception import SystemException
-from .vss_json_collection_wrapper_base import VssJsonCollectionWrapperBase
-from .vss_json_collection_wrapper import VssJsonCollectionWrapper
-from .wrapped_exception import WrappedException
+from .models import ApiResourceLocation
+from .models import CustomerIntelligenceEvent
+from .models import ImproperException
+from .models import ResourceAreaInfo
+from .models import SystemException
+from .models import VssJsonCollectionWrapperBase
+from .models import VssJsonCollectionWrapper
+from .models import WrappedException
 
 __all__ = [
     'ApiResourceLocation',

@@ -6,13 +6,13 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .access_mapping import AccessMapping
-from .connection_data import ConnectionData
-from .identity import Identity
-from .location_mapping import LocationMapping
-from .location_service_data import LocationServiceData
-from .resource_area_info import ResourceAreaInfo
-from .service_definition import ServiceDefinition
+from .models import AccessMapping
+from .models import ConnectionData
+from .models import Identity
+from .models import LocationMapping
+from .models import LocationServiceData
+from .models import ResourceAreaInfo
+from .models import ServiceDefinition
 
 __all__ = [
     'AccessMapping',
