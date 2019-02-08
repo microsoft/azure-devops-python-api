@@ -6,9 +6,9 @@
 # --------------------------------------------------------------------------
 
 from .models import ApiResourceLocation
-from .models import CustomerIntelligenceEvent
+from ..customer_intelligence.v4_0.models.models import CustomerIntelligenceEvent
 from .models import ImproperException
-from .models import ResourceAreaInfo
+from ..location.v4_0.models.models import ResourceAreaInfo
 from .models import SystemException
 from .models import VssJsonCollectionWrapperBase
 from .models import VssJsonCollectionWrapper
