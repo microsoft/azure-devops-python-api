@@ -10,6 +10,8 @@ import glob
 import os
 from subprocess import check_call, CalledProcessError
 
+from azure.devops.client import *
+
 
 def exec_command(command):
     try:
@@ -34,7 +36,7 @@ if os.path.isfile('./requirements.txt'):
     exec_command('pip install -r requirements.txt')
 
 # install dev packages
-exec_command('pip install -e vsts')
+exec_command('pip install -e azure-devops')
 
 # install packaging requirements
 if os.path.isfile('./scripts/packaging_requirements.txt'):
