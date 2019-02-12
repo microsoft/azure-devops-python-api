@@ -3,12 +3,12 @@
 
 # Azure DevOps Python API
 
-This repository contains Python APIs for interacting with and managing Azure DevOps. These APIs power the Visual Studio Team Services CLI. To learn more about the VSTS CLI, visit the [Microsoft/vsts-cli](https://github.com/Microsoft/vsts-cli) repo.
+This repository contains Python APIs for interacting with and managing Azure DevOps. These APIs power the Azure DevOps Extension for Azure CLI. To learn more about the Azure DevOps Extension for Azure CLI, visit the [Microsoft/azure-devops-cli-extension](https://github.com/Microsoft/azure-devops-cli-extension) repo.
 
 ## Install 
 
 ```
-pip install vsts
+pip install azure-devops
 ```
 
 ## Get started
