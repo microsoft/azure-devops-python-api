@@ -288,7 +288,7 @@ __pycache__/
 # Telerik's JustMock configuration file
 *.jmconfig
 
-# BizTalk build output
+# BizTalk build outputv
 *.btp.cs
 *.btm.cs
 *.odx.cs
@@ -296,5 +296,6 @@ __pycache__/
 .vscode/
 vsts/build/bdist.win32/
 
-# don't ignore release managment client
-!vsts/vsts/release
+# don't ignore release management client
+!azure-devops/azure/devops/v4_0/release
+!azure-devops/azure/devops/v4_1/release

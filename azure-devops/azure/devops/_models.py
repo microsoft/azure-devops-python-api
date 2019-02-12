@@ -106,7 +106,7 @@ class SystemException(Model):
     :param class_name:
     :type class_name: str
     :param inner_exception:
-    :type inner_exception: :class:`SystemException <vsts.models.SystemException>`
+    :type inner_exception: :class:`SystemException`
     :param message:
     :type message: str
     """
@@ -164,7 +164,7 @@ class WrappedException(Model):
     :param exception_id:
     :type exception_id: str
     :param inner_exception:
-    :type inner_exception: :class:`WrappedException <vsts.models.WrappedException>`
+    :type inner_exception: :class:`WrappedException`
     :param message:
     :type message: str
     :param type_name:
