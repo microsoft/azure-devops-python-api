@@ -17,7 +17,7 @@ pip install vsts
 To use the API, establish a connection using a [personal access token](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) and the URL to your Azure DevOps organization. Then get a client from the connection and make API calls.
 
 ```python
-from vsts.vss_connection import VssConnection
+from azure.devops.connection import Connection
 from msrest.authentication import BasicAuthentication
 import pprint
 
@@ -27,10 +27,10 @@ organization_url = 'https://dev.azure.com/YOURORG'
 
 # Create a connection to the org
 credentials = BasicAuthentication('', personal_access_token)
-connection = VssConnection(base_url=organization_url, creds=credentials)
+connection = Connection(base_url=organization_url, creds=credentials)
 
 # Get a client (the "core" client provides access to projects, teams, etc)
-core_client = connection.get_client('vsts.core.v4_0.core_client.CoreClient')
+core_client = connection.get_client('azure.devops.v4_0.core.core_client.CoreClient')
 
 # Get the list of projects in the org
 projects = core_client.get_projects()
