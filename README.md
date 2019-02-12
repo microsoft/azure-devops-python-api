@@ -30,7 +30,7 @@ credentials = BasicAuthentication('', personal_access_token)
 connection = Connection(base_url=organization_url, creds=credentials)
 
 # Get a client (the "core" client provides access to projects, teams, etc)
-core_client = connection.get_client('azure.devops.v4_0.core.core_client.CoreClient')
+core_client = connection.get_client('azure.devops.v5_0.core.core_client.CoreClient')
 
 # Get the list of projects in the org
 projects = core_client.get_projects()
