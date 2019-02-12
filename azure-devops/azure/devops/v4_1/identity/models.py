@@ -13,7 +13,7 @@ class AccessTokenResult(Model):
     """AccessTokenResult.
 
     :param access_token:
-    :type access_token: :class:`JsonWebToken <microsoft.-visual-studio.-services.-web-api.v4_1.models.JsonWebToken>`
+    :type access_token: :class:`JsonWebToken <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.JsonWebToken>`
     :param access_token_error:
     :type access_token_error: object
     :param authorization_id:
@@ -23,7 +23,7 @@ class AccessTokenResult(Model):
     :param has_error:
     :type has_error: bool
     :param refresh_token:
-    :type refresh_token: :class:`RefreshTokenGrant <microsoft.-visual-studio.-services.-web-api.v4_1.models.RefreshTokenGrant>`
+    :type refresh_token: :class:`RefreshTokenGrant <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.RefreshTokenGrant>`
     :param token_type:
     :type token_type: str
     :param valid_to:
@@ -73,9 +73,9 @@ class ChangedIdentities(Model):
     """ChangedIdentities.
 
     :param identities: Changed Identities
-    :type identities: list of :class:`Identity <identities.v4_1.models.Identity>`
+    :type identities: list of :class:`Identity <azure.devops.v4_1.identities.models.Identity>`
     :param sequence_context: Last Identity SequenceId
-    :type sequence_context: :class:`ChangedIdentitiesContext <identities.v4_1.models.ChangedIdentitiesContext>`
+    :type sequence_context: :class:`ChangedIdentitiesContext <azure.devops.v4_1.identities.models.ChangedIdentitiesContext>`
     """
 
     _attribute_map = {
@@ -179,7 +179,7 @@ class GroupMembership(Model):
     :param active:
     :type active: bool
     :param descriptor:
-    :type descriptor: :class:`str <identities.v4_1.models.str>`
+    :type descriptor: :class:`str <azure.devops.v4_1.identities.models.str>`
     :param id:
     :type id: str
     :param queried_id:
@@ -207,7 +207,7 @@ class IdentityBase(Model):
     :param custom_display_name: The custom display name for the identity (if any). Setting this property to an empty string will clear the existing custom display name. Setting this property to null will not affect the existing persisted value (since null values do not get sent over the wire or to the database)
     :type custom_display_name: str
     :param descriptor:
-    :type descriptor: :class:`str <identities.v4_1.models.str>`
+    :type descriptor: :class:`str <azure.devops.v4_1.identities.models.str>`
     :param id:
     :type id: str
     :param is_active:
@@ -219,19 +219,19 @@ class IdentityBase(Model):
     :param member_ids:
     :type member_ids: list of str
     :param member_of:
-    :type member_of: list of :class:`str <identities.v4_1.models.str>`
+    :type member_of: list of :class:`str <azure.devops.v4_1.identities.models.str>`
     :param members:
-    :type members: list of :class:`str <identities.v4_1.models.str>`
+    :type members: list of :class:`str <azure.devops.v4_1.identities.models.str>`
     :param meta_type_id:
     :type meta_type_id: int
     :param properties:
-    :type properties: :class:`object <identities.v4_1.models.object>`
+    :type properties: :class:`object <azure.devops.v4_1.identities.models.object>`
     :param provider_display_name: The display name for the identity as specified by the source identity provider.
     :type provider_display_name: str
     :param resource_version:
     :type resource_version: int
     :param subject_descriptor:
-    :type subject_descriptor: :class:`str <identities.v4_1.models.str>`
+    :type subject_descriptor: :class:`str <azure.devops.v4_1.identities.models.str>`
     :param unique_user_id:
     :type unique_user_id: int
     """
@@ -277,7 +277,7 @@ class IdentityBatchInfo(Model):
     """IdentityBatchInfo.
 
     :param descriptors:
-    :type descriptors: list of :class:`str <identities.v4_1.models.str>`
+    :type descriptors: list of :class:`str <azure.devops.v4_1.identities.models.str>`
     :param identity_ids:
     :type identity_ids: list of str
     :param include_restricted_visibility:
@@ -309,7 +309,7 @@ class IdentityScope(Model):
     """IdentityScope.
 
     :param administrators:
-    :type administrators: :class:`str <identities.v4_1.models.str>`
+    :type administrators: :class:`str <azure.devops.v4_1.identities.models.str>`
     :param id:
     :type id: str
     :param is_active:
@@ -327,7 +327,7 @@ class IdentityScope(Model):
     :param securing_host_id:
     :type securing_host_id: str
     :param subject_descriptor:
-    :type subject_descriptor: :class:`str <identities.v4_1.models.str>`
+    :type subject_descriptor: :class:`str <azure.devops.v4_1.identities.models.str>`
     """
 
     _attribute_map = {
@@ -367,7 +367,7 @@ class IdentitySelf(Model):
     :param id:
     :type id: str
     :param tenants:
-    :type tenants: list of :class:`TenantInfo <identities.v4_1.models.TenantInfo>`
+    :type tenants: list of :class:`TenantInfo <azure.devops.v4_1.identities.models.TenantInfo>`
     """
 
     _attribute_map = {
@@ -389,15 +389,15 @@ class IdentitySnapshot(Model):
     """IdentitySnapshot.
 
     :param groups:
-    :type groups: list of :class:`Identity <identities.v4_1.models.Identity>`
+    :type groups: list of :class:`Identity <azure.devops.v4_1.identities.models.Identity>`
     :param identity_ids:
     :type identity_ids: list of str
     :param memberships:
-    :type memberships: list of :class:`GroupMembership <identities.v4_1.models.GroupMembership>`
+    :type memberships: list of :class:`GroupMembership <azure.devops.v4_1.identities.models.GroupMembership>`
     :param scope_id:
     :type scope_id: str
     :param scopes:
-    :type scopes: list of :class:`IdentityScope <identities.v4_1.models.IdentityScope>`
+    :type scopes: list of :class:`IdentityScope <azure.devops.v4_1.identities.models.IdentityScope>`
     """
 
     _attribute_map = {
@@ -459,7 +459,7 @@ class RefreshTokenGrant(AuthorizationGrant):
     :param grant_type:
     :type grant_type: object
     :param jwt:
-    :type jwt: :class:`JsonWebToken <microsoft.-visual-studio.-services.-web-api.v4_1.models.JsonWebToken>`
+    :type jwt: :class:`JsonWebToken <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.JsonWebToken>`
     """
 
     _attribute_map = {
@@ -502,7 +502,7 @@ class Identity(IdentityBase):
     :param custom_display_name: The custom display name for the identity (if any). Setting this property to an empty string will clear the existing custom display name. Setting this property to null will not affect the existing persisted value (since null values do not get sent over the wire or to the database)
     :type custom_display_name: str
     :param descriptor:
-    :type descriptor: :class:`str <identities.v4_1.models.str>`
+    :type descriptor: :class:`str <azure.devops.v4_1.identities.models.str>`
     :param id:
     :type id: str
     :param is_active:
@@ -514,19 +514,19 @@ class Identity(IdentityBase):
     :param member_ids:
     :type member_ids: list of str
     :param member_of:
-    :type member_of: list of :class:`str <identities.v4_1.models.str>`
+    :type member_of: list of :class:`str <azure.devops.v4_1.identities.models.str>`
     :param members:
-    :type members: list of :class:`str <identities.v4_1.models.str>`
+    :type members: list of :class:`str <azure.devops.v4_1.identities.models.str>`
     :param meta_type_id:
     :type meta_type_id: int
     :param properties:
-    :type properties: :class:`object <identities.v4_1.models.object>`
+    :type properties: :class:`object <azure.devops.v4_1.identities.models.object>`
     :param provider_display_name: The display name for the identity as specified by the source identity provider.
     :type provider_display_name: str
     :param resource_version:
     :type resource_version: int
     :param subject_descriptor:
-    :type subject_descriptor: :class:`str <identities.v4_1.models.str>`
+    :type subject_descriptor: :class:`str <azure.devops.v4_1.identities.models.str>`
     :param unique_user_id:
     :type unique_user_id: int
     """

@@ -28,9 +28,9 @@ class DashboardClient(Client):
     def create_dashboard(self, dashboard, team_context):
         """CreateDashboard.
         [Preview API] Create the supplied dashboard.
-        :param :class:`<Dashboard> <dashboard.v4_1.models.Dashboard>` dashboard: The initial state of the dashboard
-        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
-        :rtype: :class:`<Dashboard> <dashboard.v4_1.models.Dashboard>`
+        :param :class:`<Dashboard> <azure.devops.v4_1.dashboard.models.Dashboard>` dashboard: The initial state of the dashboard
+        :param :class:`<TeamContext> <azure.devops.v4_1.dashboard.models.TeamContext>` team_context: The team context for the operation
+        :rtype: :class:`<Dashboard> <azure.devops.v4_1.dashboard.models.Dashboard>`
         """
         project = None
         team = None
@@ -60,7 +60,7 @@ class DashboardClient(Client):
     def delete_dashboard(self, team_context, dashboard_id):
         """DeleteDashboard.
         [Preview API] Delete a dashboard given its ID. This also deletes the widgets associated with this dashboard.
-        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_1.dashboard.models.TeamContext>` team_context: The team context for the operation
         :param str dashboard_id: ID of the dashboard to delete.
         """
         project = None
@@ -90,9 +90,9 @@ class DashboardClient(Client):
     def get_dashboard(self, team_context, dashboard_id):
         """GetDashboard.
         [Preview API] Get a dashboard by its ID.
-        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_1.dashboard.models.TeamContext>` team_context: The team context for the operation
         :param str dashboard_id:
-        :rtype: :class:`<Dashboard> <dashboard.v4_1.models.Dashboard>`
+        :rtype: :class:`<Dashboard> <azure.devops.v4_1.dashboard.models.Dashboard>`
         """
         project = None
         team = None
@@ -122,8 +122,8 @@ class DashboardClient(Client):
     def get_dashboards(self, team_context):
         """GetDashboards.
         [Preview API] Get a list of dashboards.
-        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
-        :rtype: :class:`<DashboardGroup> <dashboard.v4_1.models.DashboardGroup>`
+        :param :class:`<TeamContext> <azure.devops.v4_1.dashboard.models.TeamContext>` team_context: The team context for the operation
+        :rtype: :class:`<DashboardGroup> <azure.devops.v4_1.dashboard.models.DashboardGroup>`
         """
         project = None
         team = None
@@ -151,10 +151,10 @@ class DashboardClient(Client):
     def replace_dashboard(self, dashboard, team_context, dashboard_id):
         """ReplaceDashboard.
         [Preview API] Replace configuration for the specified dashboard.
-        :param :class:`<Dashboard> <dashboard.v4_1.models.Dashboard>` dashboard: The Configuration of the dashboard to replace.
-        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<Dashboard> <azure.devops.v4_1.dashboard.models.Dashboard>` dashboard: The Configuration of the dashboard to replace.
+        :param :class:`<TeamContext> <azure.devops.v4_1.dashboard.models.TeamContext>` team_context: The team context for the operation
         :param str dashboard_id: ID of the dashboard to replace.
-        :rtype: :class:`<Dashboard> <dashboard.v4_1.models.Dashboard>`
+        :rtype: :class:`<Dashboard> <azure.devops.v4_1.dashboard.models.Dashboard>`
         """
         project = None
         team = None
@@ -186,9 +186,9 @@ class DashboardClient(Client):
     def replace_dashboards(self, group, team_context):
         """ReplaceDashboards.
         [Preview API] Update the name and position of dashboards in the supplied group, and remove omitted dashboards. Does not modify dashboard content.
-        :param :class:`<DashboardGroup> <dashboard.v4_1.models.DashboardGroup>` group:
-        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
-        :rtype: :class:`<DashboardGroup> <dashboard.v4_1.models.DashboardGroup>`
+        :param :class:`<DashboardGroup> <azure.devops.v4_1.dashboard.models.DashboardGroup>` group:
+        :param :class:`<TeamContext> <azure.devops.v4_1.dashboard.models.TeamContext>` team_context: The team context for the operation
+        :rtype: :class:`<DashboardGroup> <azure.devops.v4_1.dashboard.models.DashboardGroup>`
         """
         project = None
         team = None
@@ -218,10 +218,10 @@ class DashboardClient(Client):
     def create_widget(self, widget, team_context, dashboard_id):
         """CreateWidget.
         [Preview API] Create a widget on the specified dashboard.
-        :param :class:`<Widget> <dashboard.v4_1.models.Widget>` widget: State of the widget to add
-        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<Widget> <azure.devops.v4_1.dashboard.models.Widget>` widget: State of the widget to add
+        :param :class:`<TeamContext> <azure.devops.v4_1.dashboard.models.TeamContext>` team_context: The team context for the operation
         :param str dashboard_id: ID of dashboard the widget will be added to.
-        :rtype: :class:`<Widget> <dashboard.v4_1.models.Widget>`
+        :rtype: :class:`<Widget> <azure.devops.v4_1.dashboard.models.Widget>`
         """
         project = None
         team = None
@@ -253,10 +253,10 @@ class DashboardClient(Client):
     def delete_widget(self, team_context, dashboard_id, widget_id):
         """DeleteWidget.
         [Preview API] Delete the specified widget.
-        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_1.dashboard.models.TeamContext>` team_context: The team context for the operation
         :param str dashboard_id: ID of the dashboard containing the widget.
         :param str widget_id: ID of the widget to update.
-        :rtype: :class:`<Dashboard> <dashboard.v4_1.models.Dashboard>`
+        :rtype: :class:`<Dashboard> <azure.devops.v4_1.dashboard.models.Dashboard>`
         """
         project = None
         team = None
@@ -288,10 +288,10 @@ class DashboardClient(Client):
     def get_widget(self, team_context, dashboard_id, widget_id):
         """GetWidget.
         [Preview API] Get the current state of the specified widget.
-        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_1.dashboard.models.TeamContext>` team_context: The team context for the operation
         :param str dashboard_id: ID of the dashboard containing the widget.
         :param str widget_id: ID of the widget to read.
-        :rtype: :class:`<Widget> <dashboard.v4_1.models.Widget>`
+        :rtype: :class:`<Widget> <azure.devops.v4_1.dashboard.models.Widget>`
         """
         project = None
         team = None
@@ -323,10 +323,10 @@ class DashboardClient(Client):
     def get_widgets(self, team_context, dashboard_id, eTag=None):
         """GetWidgets.
         [Preview API] Get widgets contained on the specified dashboard.
-        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_1.dashboard.models.TeamContext>` team_context: The team context for the operation
         :param str dashboard_id: ID of the dashboard to read.
         :param String eTag: Dashboard Widgets Version
-        :rtype: :class:`<WidgetsVersionedList> <dashboard.v4_1.models.WidgetsVersionedList>`
+        :rtype: :class:`<WidgetsVersionedList> <azure.devops.v4_1.dashboard.models.WidgetsVersionedList>`
         """
         project = None
         team = None
@@ -359,11 +359,11 @@ class DashboardClient(Client):
     def replace_widget(self, widget, team_context, dashboard_id, widget_id):
         """ReplaceWidget.
         [Preview API] Override the  state of the specified widget.
-        :param :class:`<Widget> <dashboard.v4_1.models.Widget>` widget: State to be written for the widget.
-        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<Widget> <azure.devops.v4_1.dashboard.models.Widget>` widget: State to be written for the widget.
+        :param :class:`<TeamContext> <azure.devops.v4_1.dashboard.models.TeamContext>` team_context: The team context for the operation
         :param str dashboard_id: ID of the dashboard containing the widget.
         :param str widget_id: ID of the widget to update.
-        :rtype: :class:`<Widget> <dashboard.v4_1.models.Widget>`
+        :rtype: :class:`<Widget> <azure.devops.v4_1.dashboard.models.Widget>`
         """
         project = None
         team = None
@@ -398,10 +398,10 @@ class DashboardClient(Client):
         """ReplaceWidgets.
         [Preview API] Replace the widgets on specified dashboard with the supplied widgets.
         :param [Widget] widgets: Revised state of widgets to store for the dashboard.
-        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_1.dashboard.models.TeamContext>` team_context: The team context for the operation
         :param str dashboard_id: ID of the Dashboard to modify.
         :param String eTag: Dashboard Widgets Version
-        :rtype: :class:`<WidgetsVersionedList> <dashboard.v4_1.models.WidgetsVersionedList>`
+        :rtype: :class:`<WidgetsVersionedList> <azure.devops.v4_1.dashboard.models.WidgetsVersionedList>`
         """
         project = None
         team = None
@@ -436,11 +436,11 @@ class DashboardClient(Client):
     def update_widget(self, widget, team_context, dashboard_id, widget_id):
         """UpdateWidget.
         [Preview API] Perform a partial update of the specified widget.
-        :param :class:`<Widget> <dashboard.v4_1.models.Widget>` widget: Description of the widget changes to apply. All non-null fields will be replaced.
-        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<Widget> <azure.devops.v4_1.dashboard.models.Widget>` widget: Description of the widget changes to apply. All non-null fields will be replaced.
+        :param :class:`<TeamContext> <azure.devops.v4_1.dashboard.models.TeamContext>` team_context: The team context for the operation
         :param str dashboard_id: ID of the dashboard containing the widget.
         :param str widget_id: ID of the widget to update.
-        :rtype: :class:`<Widget> <dashboard.v4_1.models.Widget>`
+        :rtype: :class:`<Widget> <azure.devops.v4_1.dashboard.models.Widget>`
         """
         project = None
         team = None
@@ -475,10 +475,10 @@ class DashboardClient(Client):
         """UpdateWidgets.
         [Preview API] Update the supplied widgets on the dashboard using supplied state. State of existing Widgets not passed in the widget list is preserved.
         :param [Widget] widgets: The set of widget states to update on the dashboard.
-        :param :class:`<TeamContext> <dashboard.v4_1.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_1.dashboard.models.TeamContext>` team_context: The team context for the operation
         :param str dashboard_id: ID of the Dashboard to modify.
         :param String eTag: Dashboard Widgets Version
-        :rtype: :class:`<WidgetsVersionedList> <dashboard.v4_1.models.WidgetsVersionedList>`
+        :rtype: :class:`<WidgetsVersionedList> <azure.devops.v4_1.dashboard.models.WidgetsVersionedList>`
         """
         project = None
         team = None
@@ -514,7 +514,7 @@ class DashboardClient(Client):
         """GetWidgetMetadata.
         [Preview API] Get the widget metadata satisfying the specified contribution ID.
         :param str contribution_id: The ID of Contribution for the Widget
-        :rtype: :class:`<WidgetMetadataResponse> <dashboard.v4_1.models.WidgetMetadataResponse>`
+        :rtype: :class:`<WidgetMetadataResponse> <azure.devops.v4_1.dashboard.models.WidgetMetadataResponse>`
         """
         route_values = {}
         if contribution_id is not None:
@@ -529,7 +529,7 @@ class DashboardClient(Client):
         """GetWidgetTypes.
         [Preview API] Get all available widget metadata in alphabetical order.
         :param str scope:
-        :rtype: :class:`<WidgetTypesResponse> <dashboard.v4_1.models.WidgetTypesResponse>`
+        :rtype: :class:`<WidgetTypesResponse> <azure.devops.v4_1.dashboard.models.WidgetTypesResponse>`
         """
         query_parameters = {}
         if scope is not None:

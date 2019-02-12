@@ -47,7 +47,7 @@ class FeedClient(Client):
         """GetFeedChange.
         [Preview API]
         :param str feed_id:
-        :rtype: :class:`<FeedChange> <feed.v4_1.models.FeedChange>`
+        :rtype: :class:`<FeedChange> <azure.devops.v4_1.feed.models.FeedChange>`
         """
         route_values = {}
         if feed_id is not None:
@@ -64,7 +64,7 @@ class FeedClient(Client):
         :param bool include_deleted:
         :param long continuation_token:
         :param int batch_size:
-        :rtype: :class:`<FeedChangesResponse> <feed.v4_1.models.FeedChangesResponse>`
+        :rtype: :class:`<FeedChangesResponse> <azure.devops.v4_1.feed.models.FeedChangesResponse>`
         """
         query_parameters = {}
         if include_deleted is not None:
@@ -82,8 +82,8 @@ class FeedClient(Client):
     def create_feed(self, feed):
         """CreateFeed.
         [Preview API]
-        :param :class:`<Feed> <feed.v4_1.models.Feed>` feed:
-        :rtype: :class:`<Feed> <feed.v4_1.models.Feed>`
+        :param :class:`<Feed> <azure.devops.v4_1.feed.models.Feed>` feed:
+        :rtype: :class:`<Feed> <azure.devops.v4_1.feed.models.Feed>`
         """
         content = self._serialize.body(feed, 'Feed')
         response = self._send(http_method='POST',
@@ -110,7 +110,7 @@ class FeedClient(Client):
         [Preview API]
         :param str feed_id:
         :param bool include_deleted_upstreams:
-        :rtype: :class:`<Feed> <feed.v4_1.models.Feed>`
+        :rtype: :class:`<Feed> <azure.devops.v4_1.feed.models.Feed>`
         """
         route_values = {}
         if feed_id is not None:
@@ -146,9 +146,9 @@ class FeedClient(Client):
     def update_feed(self, feed, feed_id):
         """UpdateFeed.
         [Preview API]
-        :param :class:`<FeedUpdate> <feed.v4_1.models.FeedUpdate>` feed:
+        :param :class:`<FeedUpdate> <azure.devops.v4_1.feed.models.FeedUpdate>` feed:
         :param str feed_id:
-        :rtype: :class:`<Feed> <feed.v4_1.models.Feed>`
+        :rtype: :class:`<Feed> <azure.devops.v4_1.feed.models.Feed>`
         """
         route_values = {}
         if feed_id is not None:
@@ -190,7 +190,7 @@ class FeedClient(Client):
         :param str feed_id:
         :param long continuation_token:
         :param int batch_size:
-        :rtype: :class:`<PackageChangesResponse> <feed.v4_1.models.PackageChangesResponse>`
+        :rtype: :class:`<PackageChangesResponse> <azure.devops.v4_1.feed.models.PackageChangesResponse>`
         """
         route_values = {}
         if feed_id is not None:
@@ -218,7 +218,7 @@ class FeedClient(Client):
         :param bool is_release:
         :param bool include_deleted:
         :param bool include_description:
-        :rtype: :class:`<Package> <feed.v4_1.models.Package>`
+        :rtype: :class:`<Package> <azure.devops.v4_1.feed.models.Package>`
         """
         route_values = {}
         if feed_id is not None:
@@ -351,7 +351,7 @@ class FeedClient(Client):
         :param str feed_id:
         :param str package_id:
         :param bool include_urls:
-        :rtype: :class:`<Package> <feed.v4_1.models.Package>`
+        :rtype: :class:`<Package> <azure.devops.v4_1.feed.models.Package>`
         """
         route_values = {}
         if feed_id is not None:
@@ -410,7 +410,7 @@ class FeedClient(Client):
         :param str package_id:
         :param str package_version_id:
         :param bool include_urls:
-        :rtype: :class:`<RecycleBinPackageVersion> <feed.v4_1.models.RecycleBinPackageVersion>`
+        :rtype: :class:`<RecycleBinPackageVersion> <azure.devops.v4_1.feed.models.RecycleBinPackageVersion>`
         """
         route_values = {}
         if feed_id is not None:
@@ -469,7 +469,7 @@ class FeedClient(Client):
         """GetFeedRetentionPolicies.
         [Preview API]
         :param str feed_id:
-        :rtype: :class:`<FeedRetentionPolicy> <feed.v4_1.models.FeedRetentionPolicy>`
+        :rtype: :class:`<FeedRetentionPolicy> <azure.devops.v4_1.feed.models.FeedRetentionPolicy>`
         """
         route_values = {}
         if feed_id is not None:
@@ -483,9 +483,9 @@ class FeedClient(Client):
     def set_feed_retention_policies(self, policy, feed_id):
         """SetFeedRetentionPolicies.
         [Preview API]
-        :param :class:`<FeedRetentionPolicy> <feed.v4_1.models.FeedRetentionPolicy>` policy:
+        :param :class:`<FeedRetentionPolicy> <azure.devops.v4_1.feed.models.FeedRetentionPolicy>` policy:
         :param str feed_id:
-        :rtype: :class:`<FeedRetentionPolicy> <feed.v4_1.models.FeedRetentionPolicy>`
+        :rtype: :class:`<FeedRetentionPolicy> <azure.devops.v4_1.feed.models.FeedRetentionPolicy>`
         """
         route_values = {}
         if feed_id is not None:
@@ -507,7 +507,7 @@ class FeedClient(Client):
         :param bool include_urls:
         :param bool is_listed:
         :param bool is_deleted:
-        :rtype: :class:`<PackageVersion> <feed.v4_1.models.PackageVersion>`
+        :rtype: :class:`<PackageVersion> <azure.devops.v4_1.feed.models.PackageVersion>`
         """
         route_values = {}
         if feed_id is not None:
@@ -562,9 +562,9 @@ class FeedClient(Client):
     def create_feed_view(self, view, feed_id):
         """CreateFeedView.
         [Preview API]
-        :param :class:`<FeedView> <feed.v4_1.models.FeedView>` view:
+        :param :class:`<FeedView> <azure.devops.v4_1.feed.models.FeedView>` view:
         :param str feed_id:
-        :rtype: :class:`<FeedView> <feed.v4_1.models.FeedView>`
+        :rtype: :class:`<FeedView> <azure.devops.v4_1.feed.models.FeedView>`
         """
         route_values = {}
         if feed_id is not None:
@@ -598,7 +598,7 @@ class FeedClient(Client):
         [Preview API]
         :param str feed_id:
         :param str view_id:
-        :rtype: :class:`<FeedView> <feed.v4_1.models.FeedView>`
+        :rtype: :class:`<FeedView> <azure.devops.v4_1.feed.models.FeedView>`
         """
         route_values = {}
         if feed_id is not None:
@@ -629,10 +629,10 @@ class FeedClient(Client):
     def update_feed_view(self, view, feed_id, view_id):
         """UpdateFeedView.
         [Preview API]
-        :param :class:`<FeedView> <feed.v4_1.models.FeedView>` view:
+        :param :class:`<FeedView> <azure.devops.v4_1.feed.models.FeedView>` view:
         :param str feed_id:
         :param str view_id:
-        :rtype: :class:`<FeedView> <feed.v4_1.models.FeedView>`
+        :rtype: :class:`<FeedView> <azure.devops.v4_1.feed.models.FeedView>`
         """
         route_values = {}
         if feed_id is not None:

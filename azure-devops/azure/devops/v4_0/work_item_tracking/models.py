@@ -15,7 +15,7 @@ class AccountMyWorkResult(Model):
     :param query_size_limit_exceeded: True, when length of WorkItemDetails is same as the limit
     :type query_size_limit_exceeded: bool
     :param work_item_details: WorkItem Details
-    :type work_item_details: list of :class:`AccountWorkWorkItemModel <work-item-tracking.v4_0.models.AccountWorkWorkItemModel>`
+    :type work_item_details: list of :class:`AccountWorkWorkItemModel <azure.devops.v4_0.work-item-tracking.models.AccountWorkWorkItemModel>`
     """
 
     _attribute_map = {
@@ -398,7 +398,7 @@ class ProjectWorkItemStateColors(Model):
     :param project_name: Project name
     :type project_name: str
     :param work_item_type_state_colors: State colors for all work item type in a project
-    :type work_item_type_state_colors: list of :class:`WorkItemTypeStateColors <work-item-tracking.v4_0.models.WorkItemTypeStateColors>`
+    :type work_item_type_state_colors: list of :class:`WorkItemTypeStateColors <azure.devops.v4_0.work-item-tracking.models.WorkItemTypeStateColors>`
     """
 
     _attribute_map = {
@@ -436,7 +436,7 @@ class QueryHierarchyItemsResult(Model):
     :param has_more:
     :type has_more: bool
     :param value:
-    :type value: list of :class:`QueryHierarchyItem <work-item-tracking.v4_0.models.QueryHierarchyItem>`
+    :type value: list of :class:`QueryHierarchyItem <azure.devops.v4_0.work-item-tracking.models.QueryHierarchyItem>`
     """
 
     _attribute_map = {
@@ -472,7 +472,7 @@ class ReportingWorkItemLink(Model):
     """ReportingWorkItemLink.
 
     :param changed_by:
-    :type changed_by: :class:`IdentityRef <work-item-tracking.v4_0.models.IdentityRef>`
+    :type changed_by: :class:`IdentityRef <azure.devops.v4_0.work-item-tracking.models.IdentityRef>`
     :param changed_date:
     :type changed_date: datetime
     :param changed_operation:
@@ -652,7 +652,7 @@ class WorkItemComments(Model):
     """WorkItemComments.
 
     :param comments:
-    :type comments: list of :class:`WorkItemComment <work-item-tracking.v4_0.models.WorkItemComment>`
+    :type comments: list of :class:`WorkItemComment <azure.devops.v4_0.work-item-tracking.models.WorkItemComment>`
     :param count:
     :type count: int
     :param from_revision_count:
@@ -850,9 +850,9 @@ class WorkItemLink(Model):
     :param rel:
     :type rel: str
     :param source:
-    :type source: :class:`WorkItemReference <work-item-tracking.v4_0.models.WorkItemReference>`
+    :type source: :class:`WorkItemReference <azure.devops.v4_0.work-item-tracking.models.WorkItemReference>`
     :param target:
-    :type target: :class:`WorkItemReference <work-item-tracking.v4_0.models.WorkItemReference>`
+    :type target: :class:`WorkItemReference <azure.devops.v4_0.work-item-tracking.models.WorkItemReference>`
     """
 
     _attribute_map = {
@@ -872,17 +872,17 @@ class WorkItemQueryClause(Model):
     """WorkItemQueryClause.
 
     :param clauses:
-    :type clauses: list of :class:`WorkItemQueryClause <work-item-tracking.v4_0.models.WorkItemQueryClause>`
+    :type clauses: list of :class:`WorkItemQueryClause <azure.devops.v4_0.work-item-tracking.models.WorkItemQueryClause>`
     :param field:
-    :type field: :class:`WorkItemFieldReference <work-item-tracking.v4_0.models.WorkItemFieldReference>`
+    :type field: :class:`WorkItemFieldReference <azure.devops.v4_0.work-item-tracking.models.WorkItemFieldReference>`
     :param field_value:
-    :type field_value: :class:`WorkItemFieldReference <work-item-tracking.v4_0.models.WorkItemFieldReference>`
+    :type field_value: :class:`WorkItemFieldReference <azure.devops.v4_0.work-item-tracking.models.WorkItemFieldReference>`
     :param is_field_value:
     :type is_field_value: bool
     :param logical_operator:
     :type logical_operator: object
     :param operator:
-    :type operator: :class:`WorkItemFieldOperation <work-item-tracking.v4_0.models.WorkItemFieldOperation>`
+    :type operator: :class:`WorkItemFieldOperation <azure.devops.v4_0.work-item-tracking.models.WorkItemFieldOperation>`
     :param value:
     :type value: str
     """
@@ -914,17 +914,17 @@ class WorkItemQueryResult(Model):
     :param as_of:
     :type as_of: datetime
     :param columns:
-    :type columns: list of :class:`WorkItemFieldReference <work-item-tracking.v4_0.models.WorkItemFieldReference>`
+    :type columns: list of :class:`WorkItemFieldReference <azure.devops.v4_0.work-item-tracking.models.WorkItemFieldReference>`
     :param query_result_type:
     :type query_result_type: object
     :param query_type:
     :type query_type: object
     :param sort_columns:
-    :type sort_columns: list of :class:`WorkItemQuerySortColumn <work-item-tracking.v4_0.models.WorkItemQuerySortColumn>`
+    :type sort_columns: list of :class:`WorkItemQuerySortColumn <azure.devops.v4_0.work-item-tracking.models.WorkItemQuerySortColumn>`
     :param work_item_relations:
-    :type work_item_relations: list of :class:`WorkItemLink <work-item-tracking.v4_0.models.WorkItemLink>`
+    :type work_item_relations: list of :class:`WorkItemLink <azure.devops.v4_0.work-item-tracking.models.WorkItemLink>`
     :param work_items:
-    :type work_items: list of :class:`WorkItemReference <work-item-tracking.v4_0.models.WorkItemReference>`
+    :type work_items: list of :class:`WorkItemReference <azure.devops.v4_0.work-item-tracking.models.WorkItemReference>`
     """
 
     _attribute_map = {
@@ -954,7 +954,7 @@ class WorkItemQuerySortColumn(Model):
     :param descending:
     :type descending: bool
     :param field:
-    :type field: :class:`WorkItemFieldReference <work-item-tracking.v4_0.models.WorkItemFieldReference>`
+    :type field: :class:`WorkItemFieldReference <azure.devops.v4_0.work-item-tracking.models.WorkItemFieldReference>`
     """
 
     _attribute_map = {
@@ -1013,11 +1013,11 @@ class WorkItemRelationUpdates(Model):
     """WorkItemRelationUpdates.
 
     :param added:
-    :type added: list of :class:`WorkItemRelation <work-item-tracking.v4_0.models.WorkItemRelation>`
+    :type added: list of :class:`WorkItemRelation <azure.devops.v4_0.work-item-tracking.models.WorkItemRelation>`
     :param removed:
-    :type removed: list of :class:`WorkItemRelation <work-item-tracking.v4_0.models.WorkItemRelation>`
+    :type removed: list of :class:`WorkItemRelation <azure.devops.v4_0.work-item-tracking.models.WorkItemRelation>`
     :param updated:
-    :type updated: list of :class:`WorkItemRelation <work-item-tracking.v4_0.models.WorkItemRelation>`
+    :type updated: list of :class:`WorkItemRelation <azure.devops.v4_0.work-item-tracking.models.WorkItemRelation>`
     """
 
     _attribute_map = {
@@ -1149,7 +1149,7 @@ class WorkItemTypeFieldInstance(WorkItemFieldReference):
     :param always_required:
     :type always_required: bool
     :param field:
-    :type field: :class:`WorkItemFieldReference <work-item-tracking.v4_0.models.WorkItemFieldReference>`
+    :type field: :class:`WorkItemFieldReference <azure.devops.v4_0.work-item-tracking.models.WorkItemFieldReference>`
     :param help_text:
     :type help_text: str
     """
@@ -1193,7 +1193,7 @@ class WorkItemTypeStateColors(Model):
     """WorkItemTypeStateColors.
 
     :param state_colors: Work item type state colors
-    :type state_colors: list of :class:`WorkItemStateColor <work-item-tracking.v4_0.models.WorkItemStateColor>`
+    :type state_colors: list of :class:`WorkItemStateColor <azure.devops.v4_0.work-item-tracking.models.WorkItemStateColor>`
     :param work_item_type_name: Work item type name
     :type work_item_type_name: str
     """
@@ -1263,11 +1263,11 @@ class WorkItemUpdate(WorkItemTrackingResourceReference):
     :param id:
     :type id: int
     :param relations:
-    :type relations: :class:`WorkItemRelationUpdates <work-item-tracking.v4_0.models.WorkItemRelationUpdates>`
+    :type relations: :class:`WorkItemRelationUpdates <azure.devops.v4_0.work-item-tracking.models.WorkItemRelationUpdates>`
     :param rev:
     :type rev: int
     :param revised_by:
-    :type revised_by: :class:`IdentityReference <work-item-tracking.v4_0.models.IdentityReference>`
+    :type revised_by: :class:`IdentityReference <azure.devops.v4_0.work-item-tracking.models.IdentityReference>`
     :param revised_date:
     :type revised_date: datetime
     :param work_item_id:
@@ -1342,7 +1342,7 @@ class WorkItemDelete(WorkItemDeleteReference):
     :param url:
     :type url: str
     :param resource:
-    :type resource: :class:`WorkItem <work-item-tracking.v4_0.models.WorkItem>`
+    :type resource: :class:`WorkItem <azure.devops.v4_0.work-item-tracking.models.WorkItem>`
     """
 
     _attribute_map = {
@@ -1369,7 +1369,7 @@ class WorkItemTrackingResource(WorkItemTrackingResourceReference):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.work-item-tracking.models.ReferenceLinks>`
     """
 
     _attribute_map = {
@@ -1388,17 +1388,17 @@ class WorkItemType(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.work-item-tracking.models.ReferenceLinks>`
     :param color:
     :type color: str
     :param description:
     :type description: str
     :param field_instances:
-    :type field_instances: list of :class:`WorkItemTypeFieldInstance <work-item-tracking.v4_0.models.WorkItemTypeFieldInstance>`
+    :type field_instances: list of :class:`WorkItemTypeFieldInstance <azure.devops.v4_0.work-item-tracking.models.WorkItemTypeFieldInstance>`
     :param fields:
-    :type fields: list of :class:`WorkItemTypeFieldInstance <work-item-tracking.v4_0.models.WorkItemTypeFieldInstance>`
+    :type fields: list of :class:`WorkItemTypeFieldInstance <azure.devops.v4_0.work-item-tracking.models.WorkItemTypeFieldInstance>`
     :param icon:
-    :type icon: :class:`WorkItemIcon <work-item-tracking.v4_0.models.WorkItemIcon>`
+    :type icon: :class:`WorkItemIcon <azure.devops.v4_0.work-item-tracking.models.WorkItemIcon>`
     :param name:
     :type name: str
     :param transitions:
@@ -1438,15 +1438,15 @@ class WorkItemTypeCategory(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.work-item-tracking.models.ReferenceLinks>`
     :param default_work_item_type:
-    :type default_work_item_type: :class:`WorkItemTypeReference <work-item-tracking.v4_0.models.WorkItemTypeReference>`
+    :type default_work_item_type: :class:`WorkItemTypeReference <azure.devops.v4_0.work-item-tracking.models.WorkItemTypeReference>`
     :param name:
     :type name: str
     :param reference_name:
     :type reference_name: str
     :param work_item_types:
-    :type work_item_types: list of :class:`WorkItemTypeReference <work-item-tracking.v4_0.models.WorkItemTypeReference>`
+    :type work_item_types: list of :class:`WorkItemTypeReference <azure.devops.v4_0.work-item-tracking.models.WorkItemTypeReference>`
     """
 
     _attribute_map = {
@@ -1472,9 +1472,9 @@ class FieldDependentRule(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.work-item-tracking.models.ReferenceLinks>`
     :param dependent_fields:
-    :type dependent_fields: list of :class:`WorkItemFieldReference <work-item-tracking.v4_0.models.WorkItemFieldReference>`
+    :type dependent_fields: list of :class:`WorkItemFieldReference <azure.devops.v4_0.work-item-tracking.models.WorkItemFieldReference>`
     """
 
     _attribute_map = {
@@ -1494,15 +1494,15 @@ class QueryHierarchyItem(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.work-item-tracking.models.ReferenceLinks>`
     :param children:
-    :type children: list of :class:`QueryHierarchyItem <work-item-tracking.v4_0.models.QueryHierarchyItem>`
+    :type children: list of :class:`QueryHierarchyItem <azure.devops.v4_0.work-item-tracking.models.QueryHierarchyItem>`
     :param clauses:
-    :type clauses: :class:`WorkItemQueryClause <work-item-tracking.v4_0.models.WorkItemQueryClause>`
+    :type clauses: :class:`WorkItemQueryClause <azure.devops.v4_0.work-item-tracking.models.WorkItemQueryClause>`
     :param columns:
-    :type columns: list of :class:`WorkItemFieldReference <work-item-tracking.v4_0.models.WorkItemFieldReference>`
+    :type columns: list of :class:`WorkItemFieldReference <azure.devops.v4_0.work-item-tracking.models.WorkItemFieldReference>`
     :param created_by:
-    :type created_by: :class:`IdentityReference <work-item-tracking.v4_0.models.IdentityReference>`
+    :type created_by: :class:`IdentityReference <azure.devops.v4_0.work-item-tracking.models.IdentityReference>`
     :param created_date:
     :type created_date: datetime
     :param filter_options:
@@ -1520,11 +1520,11 @@ class QueryHierarchyItem(WorkItemTrackingResource):
     :param is_public:
     :type is_public: bool
     :param last_modified_by:
-    :type last_modified_by: :class:`IdentityReference <work-item-tracking.v4_0.models.IdentityReference>`
+    :type last_modified_by: :class:`IdentityReference <azure.devops.v4_0.work-item-tracking.models.IdentityReference>`
     :param last_modified_date:
     :type last_modified_date: datetime
     :param link_clauses:
-    :type link_clauses: :class:`WorkItemQueryClause <work-item-tracking.v4_0.models.WorkItemQueryClause>`
+    :type link_clauses: :class:`WorkItemQueryClause <azure.devops.v4_0.work-item-tracking.models.WorkItemQueryClause>`
     :param name:
     :type name: str
     :param path:
@@ -1532,11 +1532,11 @@ class QueryHierarchyItem(WorkItemTrackingResource):
     :param query_type:
     :type query_type: object
     :param sort_columns:
-    :type sort_columns: list of :class:`WorkItemQuerySortColumn <work-item-tracking.v4_0.models.WorkItemQuerySortColumn>`
+    :type sort_columns: list of :class:`WorkItemQuerySortColumn <azure.devops.v4_0.work-item-tracking.models.WorkItemQuerySortColumn>`
     :param source_clauses:
-    :type source_clauses: :class:`WorkItemQueryClause <work-item-tracking.v4_0.models.WorkItemQueryClause>`
+    :type source_clauses: :class:`WorkItemQueryClause <azure.devops.v4_0.work-item-tracking.models.WorkItemQueryClause>`
     :param target_clauses:
-    :type target_clauses: :class:`WorkItemQueryClause <work-item-tracking.v4_0.models.WorkItemQueryClause>`
+    :type target_clauses: :class:`WorkItemQueryClause <azure.devops.v4_0.work-item-tracking.models.WorkItemQueryClause>`
     :param wiql:
     :type wiql: str
     """
@@ -1600,13 +1600,13 @@ class WorkItem(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.work-item-tracking.models.ReferenceLinks>`
     :param fields:
     :type fields: dict
     :param id:
     :type id: int
     :param relations:
-    :type relations: list of :class:`WorkItemRelation <work-item-tracking.v4_0.models.WorkItemRelation>`
+    :type relations: list of :class:`WorkItemRelation <azure.devops.v4_0.work-item-tracking.models.WorkItemRelation>`
     :param rev:
     :type rev: int
     """
@@ -1634,11 +1634,11 @@ class WorkItemClassificationNode(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.work-item-tracking.models.ReferenceLinks>`
     :param attributes:
     :type attributes: dict
     :param children:
-    :type children: list of :class:`WorkItemClassificationNode <work-item-tracking.v4_0.models.WorkItemClassificationNode>`
+    :type children: list of :class:`WorkItemClassificationNode <azure.devops.v4_0.work-item-tracking.models.WorkItemClassificationNode>`
     :param id:
     :type id: int
     :param identifier:
@@ -1676,9 +1676,9 @@ class WorkItemComment(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.work-item-tracking.models.ReferenceLinks>`
     :param revised_by:
-    :type revised_by: :class:`IdentityReference <work-item-tracking.v4_0.models.IdentityReference>`
+    :type revised_by: :class:`IdentityReference <azure.devops.v4_0.work-item-tracking.models.IdentityReference>`
     :param revised_date:
     :type revised_date: datetime
     :param revision:
@@ -1710,7 +1710,7 @@ class WorkItemField(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.work-item-tracking.models.ReferenceLinks>`
     :param description:
     :type description: str
     :param is_identity:
@@ -1726,7 +1726,7 @@ class WorkItemField(WorkItemTrackingResource):
     :param reference_name:
     :type reference_name: str
     :param supported_operations:
-    :type supported_operations: list of :class:`WorkItemFieldOperation <work-item-tracking.v4_0.models.WorkItemFieldOperation>`
+    :type supported_operations: list of :class:`WorkItemFieldOperation <azure.devops.v4_0.work-item-tracking.models.WorkItemFieldOperation>`
     :param type:
     :type type: object
     """
@@ -1764,11 +1764,11 @@ class WorkItemHistory(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.work-item-tracking.models.ReferenceLinks>`
     :param rev:
     :type rev: int
     :param revised_by:
-    :type revised_by: :class:`IdentityReference <work-item-tracking.v4_0.models.IdentityReference>`
+    :type revised_by: :class:`IdentityReference <azure.devops.v4_0.work-item-tracking.models.IdentityReference>`
     :param revised_date:
     :type revised_date: datetime
     :param value:
@@ -1798,7 +1798,7 @@ class WorkItemTemplateReference(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.work-item-tracking.models.ReferenceLinks>`
     :param description:
     :type description: str
     :param id:
@@ -1832,7 +1832,7 @@ class WorkItemTrackingReference(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.work-item-tracking.models.ReferenceLinks>`
     :param name:
     :type name: str
     :param reference_name:
@@ -1858,7 +1858,7 @@ class WorkItemRelationType(WorkItemTrackingReference):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.work-item-tracking.models.ReferenceLinks>`
     :param name:
     :type name: str
     :param reference_name:
@@ -1886,7 +1886,7 @@ class WorkItemTemplate(WorkItemTemplateReference):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <work-item-tracking.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.work-item-tracking.models.ReferenceLinks>`
     :param description:
     :type description: str
     :param id:

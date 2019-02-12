@@ -31,7 +31,7 @@ class ServiceHooksClient(Client):
         :param str consumer_id: ID for a consumer.
         :param str consumer_action_id: ID for a consumerActionId.
         :param str publisher_id:
-        :rtype: :class:`<ConsumerAction> <service-hooks.v4_1.models.ConsumerAction>`
+        :rtype: :class:`<ConsumerAction> <azure.devops.v4_1.service-hooks.models.ConsumerAction>`
         """
         route_values = {}
         if consumer_id is not None:
@@ -73,7 +73,7 @@ class ServiceHooksClient(Client):
         Get a specific consumer service. Optionally filter out consumer actions that do not support any event types for the specified publisher.
         :param str consumer_id: ID for a consumer.
         :param str publisher_id:
-        :rtype: :class:`<Consumer> <service-hooks.v4_1.models.Consumer>`
+        :rtype: :class:`<Consumer> <azure.devops.v4_1.service-hooks.models.Consumer>`
         """
         route_values = {}
         if consumer_id is not None:
@@ -107,7 +107,7 @@ class ServiceHooksClient(Client):
         """GetSubscriptionDiagnostics.
         [Preview API]
         :param str subscription_id:
-        :rtype: :class:`<SubscriptionDiagnostics> <service-hooks.v4_1.models.SubscriptionDiagnostics>`
+        :rtype: :class:`<SubscriptionDiagnostics> <azure.devops.v4_1.service-hooks.models.SubscriptionDiagnostics>`
         """
         route_values = {}
         if subscription_id is not None:
@@ -121,9 +121,9 @@ class ServiceHooksClient(Client):
     def update_subscription_diagnostics(self, update_parameters, subscription_id):
         """UpdateSubscriptionDiagnostics.
         [Preview API]
-        :param :class:`<UpdateSubscripitonDiagnosticsParameters> <service-hooks.v4_1.models.UpdateSubscripitonDiagnosticsParameters>` update_parameters:
+        :param :class:`<UpdateSubscripitonDiagnosticsParameters> <azure.devops.v4_1.service-hooks.models.UpdateSubscripitonDiagnosticsParameters>` update_parameters:
         :param str subscription_id:
-        :rtype: :class:`<SubscriptionDiagnostics> <service-hooks.v4_1.models.SubscriptionDiagnostics>`
+        :rtype: :class:`<SubscriptionDiagnostics> <azure.devops.v4_1.service-hooks.models.SubscriptionDiagnostics>`
         """
         route_values = {}
         if subscription_id is not None:
@@ -141,7 +141,7 @@ class ServiceHooksClient(Client):
         Get a specific event type.
         :param str publisher_id: ID for a publisher.
         :param str event_type_id:
-        :rtype: :class:`<EventTypeDescriptor> <service-hooks.v4_1.models.EventTypeDescriptor>`
+        :rtype: :class:`<EventTypeDescriptor> <azure.devops.v4_1.service-hooks.models.EventTypeDescriptor>`
         """
         route_values = {}
         if publisher_id is not None:
@@ -174,7 +174,7 @@ class ServiceHooksClient(Client):
         Get a specific notification for a subscription.
         :param str subscription_id: ID for a subscription.
         :param int notification_id:
-        :rtype: :class:`<Notification> <service-hooks.v4_1.models.Notification>`
+        :rtype: :class:`<Notification> <azure.devops.v4_1.service-hooks.models.Notification>`
         """
         route_values = {}
         if subscription_id is not None:
@@ -216,8 +216,8 @@ class ServiceHooksClient(Client):
     def query_notifications(self, query):
         """QueryNotifications.
         Query for notifications. A notification includes details about the event, the request to and the response from the consumer service.
-        :param :class:`<NotificationsQuery> <service-hooks.v4_1.models.NotificationsQuery>` query:
-        :rtype: :class:`<NotificationsQuery> <service-hooks.v4_1.models.NotificationsQuery>`
+        :param :class:`<NotificationsQuery> <azure.devops.v4_1.service-hooks.models.NotificationsQuery>` query:
+        :rtype: :class:`<NotificationsQuery> <azure.devops.v4_1.service-hooks.models.NotificationsQuery>`
         """
         content = self._serialize.body(query, 'NotificationsQuery')
         response = self._send(http_method='POST',
@@ -228,9 +228,9 @@ class ServiceHooksClient(Client):
 
     def query_input_values(self, input_values_query, publisher_id):
         """QueryInputValues.
-        :param :class:`<InputValuesQuery> <service-hooks.v4_1.models.InputValuesQuery>` input_values_query:
+        :param :class:`<InputValuesQuery> <azure.devops.v4_1.service-hooks.models.InputValuesQuery>` input_values_query:
         :param str publisher_id:
-        :rtype: :class:`<InputValuesQuery> <service-hooks.v4_1.models.InputValuesQuery>`
+        :rtype: :class:`<InputValuesQuery> <azure.devops.v4_1.service-hooks.models.InputValuesQuery>`
         """
         route_values = {}
         if publisher_id is not None:
@@ -247,7 +247,7 @@ class ServiceHooksClient(Client):
         """GetPublisher.
         Get a specific service hooks publisher.
         :param str publisher_id: ID for a publisher.
-        :rtype: :class:`<Publisher> <service-hooks.v4_1.models.Publisher>`
+        :rtype: :class:`<Publisher> <azure.devops.v4_1.service-hooks.models.Publisher>`
         """
         route_values = {}
         if publisher_id is not None:
@@ -271,8 +271,8 @@ class ServiceHooksClient(Client):
     def query_publishers(self, query):
         """QueryPublishers.
         Query for service hook publishers.
-        :param :class:`<PublishersQuery> <service-hooks.v4_1.models.PublishersQuery>` query:
-        :rtype: :class:`<PublishersQuery> <service-hooks.v4_1.models.PublishersQuery>`
+        :param :class:`<PublishersQuery> <azure.devops.v4_1.service-hooks.models.PublishersQuery>` query:
+        :rtype: :class:`<PublishersQuery> <azure.devops.v4_1.service-hooks.models.PublishersQuery>`
         """
         content = self._serialize.body(query, 'PublishersQuery')
         response = self._send(http_method='POST',
@@ -284,8 +284,8 @@ class ServiceHooksClient(Client):
     def create_subscription(self, subscription):
         """CreateSubscription.
         Create a subscription.
-        :param :class:`<Subscription> <service-hooks.v4_1.models.Subscription>` subscription: Subscription to be created.
-        :rtype: :class:`<Subscription> <service-hooks.v4_1.models.Subscription>`
+        :param :class:`<Subscription> <azure.devops.v4_1.service-hooks.models.Subscription>` subscription: Subscription to be created.
+        :rtype: :class:`<Subscription> <azure.devops.v4_1.service-hooks.models.Subscription>`
         """
         content = self._serialize.body(subscription, 'Subscription')
         response = self._send(http_method='POST',
@@ -311,7 +311,7 @@ class ServiceHooksClient(Client):
         """GetSubscription.
         Get a specific service hooks subscription.
         :param str subscription_id: ID for a subscription.
-        :rtype: :class:`<Subscription> <service-hooks.v4_1.models.Subscription>`
+        :rtype: :class:`<Subscription> <azure.devops.v4_1.service-hooks.models.Subscription>`
         """
         route_values = {}
         if subscription_id is not None:
@@ -349,9 +349,9 @@ class ServiceHooksClient(Client):
     def replace_subscription(self, subscription, subscription_id=None):
         """ReplaceSubscription.
         Update a subscription. <param name="subscriptionId">ID for a subscription that you wish to update.</param>
-        :param :class:`<Subscription> <service-hooks.v4_1.models.Subscription>` subscription:
+        :param :class:`<Subscription> <azure.devops.v4_1.service-hooks.models.Subscription>` subscription:
         :param str subscription_id:
-        :rtype: :class:`<Subscription> <service-hooks.v4_1.models.Subscription>`
+        :rtype: :class:`<Subscription> <azure.devops.v4_1.service-hooks.models.Subscription>`
         """
         route_values = {}
         if subscription_id is not None:
@@ -367,8 +367,8 @@ class ServiceHooksClient(Client):
     def create_subscriptions_query(self, query):
         """CreateSubscriptionsQuery.
         Query for service hook subscriptions.
-        :param :class:`<SubscriptionsQuery> <service-hooks.v4_1.models.SubscriptionsQuery>` query:
-        :rtype: :class:`<SubscriptionsQuery> <service-hooks.v4_1.models.SubscriptionsQuery>`
+        :param :class:`<SubscriptionsQuery> <azure.devops.v4_1.service-hooks.models.SubscriptionsQuery>` query:
+        :rtype: :class:`<SubscriptionsQuery> <azure.devops.v4_1.service-hooks.models.SubscriptionsQuery>`
         """
         content = self._serialize.body(query, 'SubscriptionsQuery')
         response = self._send(http_method='POST',
@@ -380,9 +380,9 @@ class ServiceHooksClient(Client):
     def create_test_notification(self, test_notification, use_real_data=None):
         """CreateTestNotification.
         Sends a test notification. This is useful for verifying the configuration of an updated or new service hooks subscription.
-        :param :class:`<Notification> <service-hooks.v4_1.models.Notification>` test_notification:
+        :param :class:`<Notification> <azure.devops.v4_1.service-hooks.models.Notification>` test_notification:
         :param bool use_real_data: Only allow testing with real data in existing subscriptions.
-        :rtype: :class:`<Notification> <service-hooks.v4_1.models.Notification>`
+        :rtype: :class:`<Notification> <azure.devops.v4_1.service-hooks.models.Notification>`
         """
         query_parameters = {}
         if use_real_data is not None:

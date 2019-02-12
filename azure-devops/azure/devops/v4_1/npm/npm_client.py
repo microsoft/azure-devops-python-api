@@ -83,7 +83,7 @@ class NpmClient(Client):
     def update_packages(self, batch_request, feed_id):
         """UpdatePackages.
         [Preview API] Update several packages from a single feed in a single request. The updates to the packages do not happen atomically.
-        :param :class:`<NpmPackagesBatchRequest> <npm.v4_1.models.NpmPackagesBatchRequest>` batch_request: Information about the packages to update, the operation to perform, and its associated data.
+        :param :class:`<NpmPackagesBatchRequest> <azure.devops.v4_1.npm.models.NpmPackagesBatchRequest>` batch_request: Information about the packages to update, the operation to perform, and its associated data.
         :param str feed_id: Feed which contains the packages to update.
         """
         route_values = {}
@@ -180,7 +180,7 @@ class NpmClient(Client):
         :param str package_scope:
         :param str unscoped_package_name:
         :param str package_version:
-        :rtype: :class:`<NpmPackageVersionDeletionState> <npm.v4_1.models.NpmPackageVersionDeletionState>`
+        :rtype: :class:`<NpmPackageVersionDeletionState> <azure.devops.v4_1.npm.models.NpmPackageVersionDeletionState>`
         """
         route_values = {}
         if feed_id is not None:
@@ -200,7 +200,7 @@ class NpmClient(Client):
     def restore_scoped_package_version_from_recycle_bin(self, package_version_details, feed_id, package_scope, unscoped_package_name, package_version):
         """RestoreScopedPackageVersionFromRecycleBin.
         [Preview API]
-        :param :class:`<NpmRecycleBinPackageVersionDetails> <npm.v4_1.models.NpmRecycleBinPackageVersionDetails>` package_version_details:
+        :param :class:`<NpmRecycleBinPackageVersionDetails> <azure.devops.v4_1.npm.models.NpmRecycleBinPackageVersionDetails>` package_version_details:
         :param str feed_id:
         :param str package_scope:
         :param str unscoped_package_name:
@@ -247,7 +247,7 @@ class NpmClient(Client):
         :param str feed_id:
         :param str package_name:
         :param str package_version:
-        :rtype: :class:`<NpmPackageVersionDeletionState> <npm.v4_1.models.NpmPackageVersionDeletionState>`
+        :rtype: :class:`<NpmPackageVersionDeletionState> <azure.devops.v4_1.npm.models.NpmPackageVersionDeletionState>`
         """
         route_values = {}
         if feed_id is not None:
@@ -265,7 +265,7 @@ class NpmClient(Client):
     def restore_package_version_from_recycle_bin(self, package_version_details, feed_id, package_name, package_version):
         """RestorePackageVersionFromRecycleBin.
         [Preview API]
-        :param :class:`<NpmRecycleBinPackageVersionDetails> <npm.v4_1.models.NpmRecycleBinPackageVersionDetails>` package_version_details:
+        :param :class:`<NpmRecycleBinPackageVersionDetails> <azure.devops.v4_1.npm.models.NpmRecycleBinPackageVersionDetails>` package_version_details:
         :param str feed_id:
         :param str package_name:
         :param str package_version:
@@ -291,7 +291,7 @@ class NpmClient(Client):
         :param str package_scope:
         :param str unscoped_package_name:
         :param str package_version:
-        :rtype: :class:`<Package> <npm.v4_1.models.Package>`
+        :rtype: :class:`<Package> <azure.devops.v4_1.npm.models.Package>`
         """
         route_values = {}
         if feed_id is not None:
@@ -315,7 +315,7 @@ class NpmClient(Client):
         :param str package_scope:
         :param str unscoped_package_name:
         :param str package_version:
-        :rtype: :class:`<Package> <npm.v4_1.models.Package>`
+        :rtype: :class:`<Package> <azure.devops.v4_1.npm.models.Package>`
         """
         route_values = {}
         if feed_id is not None:
@@ -335,12 +335,12 @@ class NpmClient(Client):
     def update_scoped_package(self, package_version_details, feed_id, package_scope, unscoped_package_name, package_version):
         """UpdateScopedPackage.
         [Preview API]
-        :param :class:`<PackageVersionDetails> <npm.v4_1.models.PackageVersionDetails>` package_version_details:
+        :param :class:`<PackageVersionDetails> <azure.devops.v4_1.npm.models.PackageVersionDetails>` package_version_details:
         :param str feed_id:
         :param str package_scope:
         :param str unscoped_package_name:
         :param str package_version:
-        :rtype: :class:`<Package> <npm.v4_1.models.Package>`
+        :rtype: :class:`<Package> <azure.devops.v4_1.npm.models.Package>`
         """
         route_values = {}
         if feed_id is not None:
@@ -365,7 +365,7 @@ class NpmClient(Client):
         :param str feed_id:
         :param str package_name:
         :param str package_version:
-        :rtype: :class:`<Package> <npm.v4_1.models.Package>`
+        :rtype: :class:`<Package> <azure.devops.v4_1.npm.models.Package>`
         """
         route_values = {}
         if feed_id is not None:
@@ -386,7 +386,7 @@ class NpmClient(Client):
         :param str feed_id:
         :param str package_name:
         :param str package_version:
-        :rtype: :class:`<Package> <npm.v4_1.models.Package>`
+        :rtype: :class:`<Package> <azure.devops.v4_1.npm.models.Package>`
         """
         route_values = {}
         if feed_id is not None:
@@ -404,11 +404,11 @@ class NpmClient(Client):
     def update_package(self, package_version_details, feed_id, package_name, package_version):
         """UpdatePackage.
         [Preview API]
-        :param :class:`<PackageVersionDetails> <npm.v4_1.models.PackageVersionDetails>` package_version_details:
+        :param :class:`<PackageVersionDetails> <azure.devops.v4_1.npm.models.PackageVersionDetails>` package_version_details:
         :param str feed_id:
         :param str package_name:
         :param str package_version:
-        :rtype: :class:`<Package> <npm.v4_1.models.Package>`
+        :rtype: :class:`<Package> <azure.devops.v4_1.npm.models.Package>`
         """
         route_values = {}
         if feed_id is not None:

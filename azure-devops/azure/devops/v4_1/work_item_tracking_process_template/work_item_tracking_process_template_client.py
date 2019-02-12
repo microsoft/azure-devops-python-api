@@ -30,7 +30,7 @@ class WorkItemTrackingProcessTemplateClient(Client):
         [Preview API] Returns a behavior for the process.
         :param str process_id: The ID of the process
         :param str behavior_ref_name: The reference name of the behavior
-        :rtype: :class:`<AdminBehavior> <work-item-tracking-process-template.v4_1.models.AdminBehavior>`
+        :rtype: :class:`<AdminBehavior> <azure.devops.v4_1.work-item-tracking-process-template.models.AdminBehavior>`
         """
         route_values = {}
         if process_id is not None:
@@ -64,7 +64,7 @@ class WorkItemTrackingProcessTemplateClient(Client):
         """CheckTemplateExistence.
         [Preview API] Check if process template exists.
         :param object upload_stream: Stream to upload
-        :rtype: :class:`<CheckTemplateExistenceResult> <work-item-tracking-process-template.v4_1.models.CheckTemplateExistenceResult>`
+        :rtype: :class:`<CheckTemplateExistenceResult> <azure.devops.v4_1.work-item-tracking-process-template.models.CheckTemplateExistenceResult>`
         """
         route_values = {}
         route_values['action'] = 'CheckTemplateExistence'
@@ -107,7 +107,7 @@ class WorkItemTrackingProcessTemplateClient(Client):
         [Preview API] Imports a process from zip file.
         :param object upload_stream: Stream to upload
         :param bool ignore_warnings: Default value is false
-        :rtype: :class:`<ProcessImportResult> <work-item-tracking-process-template.v4_1.models.ProcessImportResult>`
+        :rtype: :class:`<ProcessImportResult> <azure.devops.v4_1.work-item-tracking-process-template.models.ProcessImportResult>`
         """
         route_values = {}
         route_values['action'] = 'Import'
@@ -132,7 +132,7 @@ class WorkItemTrackingProcessTemplateClient(Client):
         """ImportProcessTemplateStatus.
         [Preview API] Tells whether promote has completed for the specified promote job ID.
         :param str id: The ID of the promote job operation
-        :rtype: :class:`<ProcessPromoteStatus> <work-item-tracking-process-template.v4_1.models.ProcessPromoteStatus>`
+        :rtype: :class:`<ProcessPromoteStatus> <azure.devops.v4_1.work-item-tracking-process-template.models.ProcessPromoteStatus>`
         """
         route_values = {}
         if id is not None:

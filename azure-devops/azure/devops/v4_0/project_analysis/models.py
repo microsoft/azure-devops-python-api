@@ -73,7 +73,7 @@ class ProjectActivityMetrics(Model):
     :param code_changes_count:
     :type code_changes_count: int
     :param code_changes_trend:
-    :type code_changes_trend: list of :class:`CodeChangeTrendItem <project-analysis.v4_0.models.CodeChangeTrendItem>`
+    :type code_changes_trend: list of :class:`CodeChangeTrendItem <azure.devops.v4_0.project-analysis.models.CodeChangeTrendItem>`
     :param project_id:
     :type project_id: str
     :param pull_requests_completed_count:
@@ -107,9 +107,9 @@ class ProjectLanguageAnalytics(Model):
     :param id:
     :type id: str
     :param language_breakdown:
-    :type language_breakdown: list of :class:`LanguageStatistics <project-analysis.v4_0.models.LanguageStatistics>`
+    :type language_breakdown: list of :class:`LanguageStatistics <azure.devops.v4_0.project-analysis.models.LanguageStatistics>`
     :param repository_language_analytics:
-    :type repository_language_analytics: list of :class:`RepositoryLanguageAnalytics <project-analysis.v4_0.models.RepositoryLanguageAnalytics>`
+    :type repository_language_analytics: list of :class:`RepositoryLanguageAnalytics <azure.devops.v4_0.project-analysis.models.RepositoryLanguageAnalytics>`
     :param result_phase:
     :type result_phase: object
     :param url:
@@ -139,7 +139,7 @@ class RepositoryLanguageAnalytics(Model):
     :param id:
     :type id: str
     :param language_breakdown:
-    :type language_breakdown: list of :class:`LanguageStatistics <project-analysis.v4_0.models.LanguageStatistics>`
+    :type language_breakdown: list of :class:`LanguageStatistics <azure.devops.v4_0.project-analysis.models.LanguageStatistics>`
     :param name:
     :type name: str
     :param result_phase:

@@ -13,7 +13,7 @@ class Dashboard(Model):
     """Dashboard.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <dashboard.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.dashboard.models.ReferenceLinks>`
     :param description: Description of the dashboard.
     :type description: str
     :param eTag: Server defined version tracking value, used for edit collision detection.
@@ -31,7 +31,7 @@ class Dashboard(Model):
     :param url:
     :type url: str
     :param widgets: The set of Widgets on the dashboard.
-    :type widgets: list of :class:`Widget <dashboard.v4_1.models.Widget>`
+    :type widgets: list of :class:`Widget <azure.devops.v4_1.dashboard.models.Widget>`
     """
 
     _attribute_map = {
@@ -65,9 +65,9 @@ class DashboardGroup(Model):
     """DashboardGroup.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <dashboard.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.dashboard.models.ReferenceLinks>`
     :param dashboard_entries: A list of Dashboards held by the Dashboard Group
-    :type dashboard_entries: list of :class:`DashboardGroupEntry <dashboard.v4_1.models.DashboardGroupEntry>`
+    :type dashboard_entries: list of :class:`DashboardGroupEntry <azure.devops.v4_1.dashboard.models.DashboardGroupEntry>`
     :param permission: Deprecated: The old permission model describing the level of permissions for the current team. Pre-M125.
     :type permission: object
     :param team_dashboard_permission: A permissions bit mask describing the security permissions of the current team for dashboards. When this permission is the value None, use GroupMemberPermission. Permissions are evaluated based on the presence of a value other than None, else the GroupMemberPermission will be saved.
@@ -97,7 +97,7 @@ class DashboardGroupEntry(Dashboard):
     """DashboardGroupEntry.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <dashboard.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.dashboard.models.ReferenceLinks>`
     :param description: Description of the dashboard.
     :type description: str
     :param eTag: Server defined version tracking value, used for edit collision detection.
@@ -115,7 +115,7 @@ class DashboardGroupEntry(Dashboard):
     :param url:
     :type url: str
     :param widgets: The set of Widgets on the dashboard.
-    :type widgets: list of :class:`Widget <dashboard.v4_1.models.Widget>`
+    :type widgets: list of :class:`Widget <azure.devops.v4_1.dashboard.models.Widget>`
     """
 
     _attribute_map = {
@@ -139,7 +139,7 @@ class DashboardGroupEntryResponse(DashboardGroupEntry):
     """DashboardGroupEntryResponse.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <dashboard.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.dashboard.models.ReferenceLinks>`
     :param description: Description of the dashboard.
     :type description: str
     :param eTag: Server defined version tracking value, used for edit collision detection.
@@ -157,7 +157,7 @@ class DashboardGroupEntryResponse(DashboardGroupEntry):
     :param url:
     :type url: str
     :param widgets: The set of Widgets on the dashboard.
-    :type widgets: list of :class:`Widget <dashboard.v4_1.models.Widget>`
+    :type widgets: list of :class:`Widget <azure.devops.v4_1.dashboard.models.Widget>`
     """
 
     _attribute_map = {
@@ -181,7 +181,7 @@ class DashboardResponse(DashboardGroupEntry):
     """DashboardResponse.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <dashboard.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.dashboard.models.ReferenceLinks>`
     :param description: Description of the dashboard.
     :type description: str
     :param eTag: Server defined version tracking value, used for edit collision detection.
@@ -199,7 +199,7 @@ class DashboardResponse(DashboardGroupEntry):
     :param url:
     :type url: str
     :param widgets: The set of Widgets on the dashboard.
-    :type widgets: list of :class:`Widget <dashboard.v4_1.models.Widget>`
+    :type widgets: list of :class:`Widget <azure.devops.v4_1.dashboard.models.Widget>`
     """
 
     _attribute_map = {
@@ -315,9 +315,9 @@ class Widget(Model):
     """Widget.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <dashboard.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.dashboard.models.ReferenceLinks>`
     :param allowed_sizes: Refers to the allowed sizes for the widget. This gets populated when user wants to configure the widget
-    :type allowed_sizes: list of :class:`WidgetSize <dashboard.v4_1.models.WidgetSize>`
+    :type allowed_sizes: list of :class:`WidgetSize <azure.devops.v4_1.dashboard.models.WidgetSize>`
     :param are_settings_blocked_for_user: Read-Only Property from Dashboard Service. Indicates if settings are blocked for the current user.
     :type are_settings_blocked_for_user: bool
     :param artifact_id: Refers to unique identifier of a feature artifact. Used for pinning+unpinning a specific artifact.
@@ -331,7 +331,7 @@ class Widget(Model):
     :param contribution_id: The id of the underlying contribution defining the supplied Widget Configuration.
     :type contribution_id: str
     :param dashboard: Optional partial dashboard content, to support exchanging dashboard-level version ETag for widget-level APIs
-    :type dashboard: :class:`Dashboard <dashboard.v4_1.models.Dashboard>`
+    :type dashboard: :class:`Dashboard <azure.devops.v4_1.dashboard.models.Dashboard>`
     :param eTag:
     :type eTag: str
     :param id:
@@ -341,19 +341,19 @@ class Widget(Model):
     :param is_name_configurable:
     :type is_name_configurable: bool
     :param lightbox_options:
-    :type lightbox_options: :class:`LightboxOptions <dashboard.v4_1.models.LightboxOptions>`
+    :type lightbox_options: :class:`LightboxOptions <azure.devops.v4_1.dashboard.models.LightboxOptions>`
     :param loading_image_url:
     :type loading_image_url: str
     :param name:
     :type name: str
     :param position:
-    :type position: :class:`WidgetPosition <dashboard.v4_1.models.WidgetPosition>`
+    :type position: :class:`WidgetPosition <azure.devops.v4_1.dashboard.models.WidgetPosition>`
     :param settings:
     :type settings: str
     :param settings_version:
-    :type settings_version: :class:`SemanticVersion <dashboard.v4_1.models.SemanticVersion>`
+    :type settings_version: :class:`SemanticVersion <azure.devops.v4_1.dashboard.models.SemanticVersion>`
     :param size:
-    :type size: :class:`WidgetSize <dashboard.v4_1.models.WidgetSize>`
+    :type size: :class:`WidgetSize <azure.devops.v4_1.dashboard.models.WidgetSize>`
     :param type_id:
     :type type_id: str
     :param url:
@@ -415,7 +415,7 @@ class WidgetMetadata(Model):
     """WidgetMetadata.
 
     :param allowed_sizes: Sizes supported by the Widget.
-    :type allowed_sizes: list of :class:`WidgetSize <dashboard.v4_1.models.WidgetSize>`
+    :type allowed_sizes: list of :class:`WidgetSize <azure.devops.v4_1.dashboard.models.WidgetSize>`
     :param analytics_service_required: Opt-in boolean that indicates if the widget requires the Analytics Service to function. Widgets requiring the analytics service are hidden from the catalog if the Analytics Service is not available.
     :type analytics_service_required: bool
     :param catalog_icon_url: Resource for an icon in the widget catalog.
@@ -443,7 +443,7 @@ class WidgetMetadata(Model):
     :param is_visible_from_catalog: Opt-out boolean indicating if the widget is hidden from the catalog. Commonly, this is used to allow developers to disable creation of a deprecated widget. A widget must have a functional default state, or have a configuration experience, in order to be visible from the catalog.
     :type is_visible_from_catalog: bool
     :param lightbox_options: Opt-in properties for customizing widget presentation in a "lightbox" dialog.
-    :type lightbox_options: :class:`LightboxOptions <dashboard.v4_1.models.LightboxOptions>`
+    :type lightbox_options: :class:`LightboxOptions <azure.devops.v4_1.dashboard.models.LightboxOptions>`
     :param loading_image_url: Resource for a loading placeholder image on dashboard
     :type loading_image_url: str
     :param name: User facing name of the widget type. Each widget must use a unique value here.
@@ -513,7 +513,7 @@ class WidgetMetadataResponse(Model):
     :param uri:
     :type uri: str
     :param widget_metadata:
-    :type widget_metadata: :class:`WidgetMetadata <dashboard.v4_1.models.WidgetMetadata>`
+    :type widget_metadata: :class:`WidgetMetadata <azure.devops.v4_1.dashboard.models.WidgetMetadata>`
     """
 
     _attribute_map = {
@@ -551,9 +551,9 @@ class WidgetResponse(Widget):
     """WidgetResponse.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <dashboard.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.dashboard.models.ReferenceLinks>`
     :param allowed_sizes: Refers to the allowed sizes for the widget. This gets populated when user wants to configure the widget
-    :type allowed_sizes: list of :class:`WidgetSize <dashboard.v4_1.models.WidgetSize>`
+    :type allowed_sizes: list of :class:`WidgetSize <azure.devops.v4_1.dashboard.models.WidgetSize>`
     :param are_settings_blocked_for_user: Read-Only Property from Dashboard Service. Indicates if settings are blocked for the current user.
     :type are_settings_blocked_for_user: bool
     :param artifact_id: Refers to unique identifier of a feature artifact. Used for pinning+unpinning a specific artifact.
@@ -567,7 +567,7 @@ class WidgetResponse(Widget):
     :param contribution_id: The id of the underlying contribution defining the supplied Widget Configuration.
     :type contribution_id: str
     :param dashboard: Optional partial dashboard content, to support exchanging dashboard-level version ETag for widget-level APIs
-    :type dashboard: :class:`Dashboard <dashboard.v4_1.models.Dashboard>`
+    :type dashboard: :class:`Dashboard <azure.devops.v4_1.dashboard.models.Dashboard>`
     :param eTag:
     :type eTag: str
     :param id:
@@ -577,19 +577,19 @@ class WidgetResponse(Widget):
     :param is_name_configurable:
     :type is_name_configurable: bool
     :param lightbox_options:
-    :type lightbox_options: :class:`LightboxOptions <dashboard.v4_1.models.LightboxOptions>`
+    :type lightbox_options: :class:`LightboxOptions <azure.devops.v4_1.dashboard.models.LightboxOptions>`
     :param loading_image_url:
     :type loading_image_url: str
     :param name:
     :type name: str
     :param position:
-    :type position: :class:`WidgetPosition <dashboard.v4_1.models.WidgetPosition>`
+    :type position: :class:`WidgetPosition <azure.devops.v4_1.dashboard.models.WidgetPosition>`
     :param settings:
     :type settings: str
     :param settings_version:
-    :type settings_version: :class:`SemanticVersion <dashboard.v4_1.models.SemanticVersion>`
+    :type settings_version: :class:`SemanticVersion <azure.devops.v4_1.dashboard.models.SemanticVersion>`
     :param size:
-    :type size: :class:`WidgetSize <dashboard.v4_1.models.WidgetSize>`
+    :type size: :class:`WidgetSize <azure.devops.v4_1.dashboard.models.WidgetSize>`
     :param type_id:
     :type type_id: str
     :param url:
@@ -651,7 +651,7 @@ class WidgetsVersionedList(Model):
     :param eTag:
     :type eTag: list of str
     :param widgets:
-    :type widgets: list of :class:`Widget <dashboard.v4_1.models.Widget>`
+    :type widgets: list of :class:`Widget <azure.devops.v4_1.dashboard.models.Widget>`
     """
 
     _attribute_map = {
@@ -669,11 +669,11 @@ class WidgetTypesResponse(Model):
     """WidgetTypesResponse.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <dashboard.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.dashboard.models.ReferenceLinks>`
     :param uri:
     :type uri: str
     :param widget_types:
-    :type widget_types: list of :class:`WidgetMetadata <dashboard.v4_1.models.WidgetMetadata>`
+    :type widget_types: list of :class:`WidgetMetadata <azure.devops.v4_1.dashboard.models.WidgetMetadata>`
     """
 
     _attribute_map = {

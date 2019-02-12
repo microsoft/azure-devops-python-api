@@ -54,7 +54,7 @@ class MavenClient(Client):
         :param str group_id:
         :param str artifact_id:
         :param str version:
-        :rtype: :class:`<MavenPackageVersionDeletionState> <maven.v4_1.models.MavenPackageVersionDeletionState>`
+        :rtype: :class:`<MavenPackageVersionDeletionState> <azure.devops.v4_1.maven.models.MavenPackageVersionDeletionState>`
         """
         route_values = {}
         if feed is not None:
@@ -74,7 +74,7 @@ class MavenClient(Client):
     def restore_package_version_from_recycle_bin(self, package_version_details, feed, group_id, artifact_id, version):
         """RestorePackageVersionFromRecycleBin.
         [Preview API]
-        :param :class:`<MavenRecycleBinPackageVersionDetails> <maven.v4_1.models.MavenRecycleBinPackageVersionDetails>` package_version_details:
+        :param :class:`<MavenRecycleBinPackageVersionDetails> <azure.devops.v4_1.maven.models.MavenRecycleBinPackageVersionDetails>` package_version_details:
         :param str feed:
         :param str group_id:
         :param str artifact_id:
@@ -104,7 +104,7 @@ class MavenClient(Client):
         :param str artifact_id:
         :param str version:
         :param bool show_deleted:
-        :rtype: :class:`<Package> <maven.v4_1.models.Package>`
+        :rtype: :class:`<Package> <azure.devops.v4_1.maven.models.Package>`
         """
         route_values = {}
         if feed is not None:

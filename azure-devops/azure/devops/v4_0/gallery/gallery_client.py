@@ -102,7 +102,7 @@ class GalleryClient(Client):
         :param str installation_target:
         :param bool test_commerce:
         :param bool is_free_or_trial_install:
-        :rtype: :class:`<AcquisitionOptions> <gallery.v4_0.models.AcquisitionOptions>`
+        :rtype: :class:`<AcquisitionOptions> <azure.devops.v4_0.gallery.models.AcquisitionOptions>`
         """
         route_values = {}
         if item_id is not None:
@@ -124,8 +124,8 @@ class GalleryClient(Client):
     def request_acquisition(self, acquisition_request):
         """RequestAcquisition.
         [Preview API]
-        :param :class:`<ExtensionAcquisitionRequest> <gallery.v4_0.models.ExtensionAcquisitionRequest>` acquisition_request:
-        :rtype: :class:`<ExtensionAcquisitionRequest> <gallery.v4_0.models.ExtensionAcquisitionRequest>`
+        :param :class:`<ExtensionAcquisitionRequest> <azure.devops.v4_0.gallery.models.ExtensionAcquisitionRequest>` acquisition_request:
+        :rtype: :class:`<ExtensionAcquisitionRequest> <azure.devops.v4_0.gallery.models.ExtensionAcquisitionRequest>`
         """
         content = self._serialize.body(acquisition_request, 'ExtensionAcquisitionRequest')
         response = self._send(http_method='POST',
@@ -244,7 +244,7 @@ class GalleryClient(Client):
         [Preview API]
         :param str publisher_name:
         :param str azure_publisher_id:
-        :rtype: :class:`<AzurePublisher> <gallery.v4_0.models.AzurePublisher>`
+        :rtype: :class:`<AzurePublisher> <azure.devops.v4_0.gallery.models.AzurePublisher>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -263,7 +263,7 @@ class GalleryClient(Client):
         """QueryAssociatedAzurePublisher.
         [Preview API]
         :param str publisher_name:
-        :rtype: :class:`<AzurePublisher> <gallery.v4_0.models.AzurePublisher>`
+        :rtype: :class:`<AzurePublisher> <azure.devops.v4_0.gallery.models.AzurePublisher>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -295,7 +295,7 @@ class GalleryClient(Client):
         :param str category_name:
         :param str languages:
         :param str product:
-        :rtype: :class:`<CategoriesResult> <gallery.v4_0.models.CategoriesResult>`
+        :rtype: :class:`<CategoriesResult> <azure.devops.v4_0.gallery.models.CategoriesResult>`
         """
         route_values = {}
         if category_name is not None:
@@ -322,7 +322,7 @@ class GalleryClient(Client):
         :param str product_version:
         :param str skus:
         :param str sub_skus:
-        :rtype: :class:`<ProductCategory> <gallery.v4_0.models.ProductCategory>`
+        :rtype: :class:`<ProductCategory> <azure.devops.v4_0.gallery.models.ProductCategory>`
         """
         route_values = {}
         if product is not None:
@@ -356,7 +356,7 @@ class GalleryClient(Client):
         :param str product_version:
         :param str skus:
         :param str sub_skus:
-        :rtype: :class:`<ProductCategoriesResult> <gallery.v4_0.models.ProductCategoriesResult>`
+        :rtype: :class:`<ProductCategoriesResult> <azure.devops.v4_0.gallery.models.ProductCategoriesResult>`
         """
         route_values = {}
         if product is not None:
@@ -414,7 +414,7 @@ class GalleryClient(Client):
         :param datetime after_date: Fetch events that occurred on or after this date
         :param str include: Filter options. Supported values: install, uninstall, review, acquisition, sales. Default is to fetch all types of events
         :param str include_property: Event properties to include. Currently only 'lastContactDetails' is supported for uninstall events
-        :rtype: :class:`<ExtensionEvents> <gallery.v4_0.models.ExtensionEvents>`
+        :rtype: :class:`<ExtensionEvents> <azure.devops.v4_0.gallery.models.ExtensionEvents>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -451,9 +451,9 @@ class GalleryClient(Client):
     def query_extensions(self, extension_query, account_token=None):
         """QueryExtensions.
         [Preview API]
-        :param :class:`<ExtensionQuery> <gallery.v4_0.models.ExtensionQuery>` extension_query:
+        :param :class:`<ExtensionQuery> <azure.devops.v4_0.gallery.models.ExtensionQuery>` extension_query:
         :param str account_token:
-        :rtype: :class:`<ExtensionQueryResult> <gallery.v4_0.models.ExtensionQueryResult>`
+        :rtype: :class:`<ExtensionQueryResult> <azure.devops.v4_0.gallery.models.ExtensionQueryResult>`
         """
         query_parameters = {}
         if account_token is not None:
@@ -470,7 +470,7 @@ class GalleryClient(Client):
         """CreateExtension.
         [Preview API]
         :param object upload_stream: Stream to upload
-        :rtype: :class:`<PublishedExtension> <gallery.v4_0.models.PublishedExtension>`
+        :rtype: :class:`<PublishedExtension> <azure.devops.v4_0.gallery.models.PublishedExtension>`
         """
         if "callback" in kwargs:
             callback = kwargs["callback"]
@@ -508,7 +508,7 @@ class GalleryClient(Client):
         :param str extension_id:
         :param str version:
         :param str flags:
-        :rtype: :class:`<PublishedExtension> <gallery.v4_0.models.PublishedExtension>`
+        :rtype: :class:`<PublishedExtension> <azure.devops.v4_0.gallery.models.PublishedExtension>`
         """
         route_values = {}
         if extension_id is not None:
@@ -529,7 +529,7 @@ class GalleryClient(Client):
         """UpdateExtensionById.
         [Preview API]
         :param str extension_id:
-        :rtype: :class:`<PublishedExtension> <gallery.v4_0.models.PublishedExtension>`
+        :rtype: :class:`<PublishedExtension> <azure.devops.v4_0.gallery.models.PublishedExtension>`
         """
         route_values = {}
         if extension_id is not None:
@@ -545,7 +545,7 @@ class GalleryClient(Client):
         [Preview API]
         :param object upload_stream: Stream to upload
         :param str publisher_name:
-        :rtype: :class:`<PublishedExtension> <gallery.v4_0.models.PublishedExtension>`
+        :rtype: :class:`<PublishedExtension> <azure.devops.v4_0.gallery.models.PublishedExtension>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -592,7 +592,7 @@ class GalleryClient(Client):
         :param str version:
         :param str flags:
         :param str account_token:
-        :rtype: :class:`<PublishedExtension> <gallery.v4_0.models.PublishedExtension>`
+        :rtype: :class:`<PublishedExtension> <azure.devops.v4_0.gallery.models.PublishedExtension>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -619,7 +619,7 @@ class GalleryClient(Client):
         :param object upload_stream: Stream to upload
         :param str publisher_name:
         :param str extension_name:
-        :rtype: :class:`<PublishedExtension> <gallery.v4_0.models.PublishedExtension>`
+        :rtype: :class:`<PublishedExtension> <azure.devops.v4_0.gallery.models.PublishedExtension>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -645,7 +645,7 @@ class GalleryClient(Client):
         :param str publisher_name:
         :param str extension_name:
         :param str flags:
-        :rtype: :class:`<PublishedExtension> <gallery.v4_0.models.PublishedExtension>`
+        :rtype: :class:`<PublishedExtension> <azure.devops.v4_0.gallery.models.PublishedExtension>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -665,7 +665,7 @@ class GalleryClient(Client):
     def extension_validator(self, azure_rest_api_request_model):
         """ExtensionValidator.
         [Preview API]
-        :param :class:`<AzureRestApiRequestModel> <gallery.v4_0.models.AzureRestApiRequestModel>` azure_rest_api_request_model:
+        :param :class:`<AzureRestApiRequestModel> <azure.devops.v4_0.gallery.models.AzureRestApiRequestModel>` azure_rest_api_request_model:
         """
         content = self._serialize.body(azure_rest_api_request_model, 'AzureRestApiRequestModel')
         self._send(http_method='POST',
@@ -676,7 +676,7 @@ class GalleryClient(Client):
     def send_notifications(self, notification_data):
         """SendNotifications.
         [Preview API] Send Notification
-        :param :class:`<NotificationsData> <gallery.v4_0.models.NotificationsData>` notification_data: Denoting the data needed to send notification
+        :param :class:`<NotificationsData> <azure.devops.v4_0.gallery.models.NotificationsData>` notification_data: Denoting the data needed to send notification
         """
         content = self._serialize.body(notification_data, 'NotificationsData')
         self._send(http_method='POST',
@@ -761,8 +761,8 @@ class GalleryClient(Client):
     def query_publishers(self, publisher_query):
         """QueryPublishers.
         [Preview API]
-        :param :class:`<PublisherQuery> <gallery.v4_0.models.PublisherQuery>` publisher_query:
-        :rtype: :class:`<PublisherQueryResult> <gallery.v4_0.models.PublisherQueryResult>`
+        :param :class:`<PublisherQuery> <azure.devops.v4_0.gallery.models.PublisherQuery>` publisher_query:
+        :rtype: :class:`<PublisherQueryResult> <azure.devops.v4_0.gallery.models.PublisherQueryResult>`
         """
         content = self._serialize.body(publisher_query, 'PublisherQuery')
         response = self._send(http_method='POST',
@@ -774,8 +774,8 @@ class GalleryClient(Client):
     def create_publisher(self, publisher):
         """CreatePublisher.
         [Preview API]
-        :param :class:`<Publisher> <gallery.v4_0.models.Publisher>` publisher:
-        :rtype: :class:`<Publisher> <gallery.v4_0.models.Publisher>`
+        :param :class:`<Publisher> <azure.devops.v4_0.gallery.models.Publisher>` publisher:
+        :rtype: :class:`<Publisher> <azure.devops.v4_0.gallery.models.Publisher>`
         """
         content = self._serialize.body(publisher, 'Publisher')
         response = self._send(http_method='POST',
@@ -802,7 +802,7 @@ class GalleryClient(Client):
         [Preview API]
         :param str publisher_name:
         :param int flags:
-        :rtype: :class:`<Publisher> <gallery.v4_0.models.Publisher>`
+        :rtype: :class:`<Publisher> <azure.devops.v4_0.gallery.models.Publisher>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -820,9 +820,9 @@ class GalleryClient(Client):
     def update_publisher(self, publisher, publisher_name):
         """UpdatePublisher.
         [Preview API]
-        :param :class:`<Publisher> <gallery.v4_0.models.Publisher>` publisher:
+        :param :class:`<Publisher> <azure.devops.v4_0.gallery.models.Publisher>` publisher:
         :param str publisher_name:
-        :rtype: :class:`<Publisher> <gallery.v4_0.models.Publisher>`
+        :rtype: :class:`<Publisher> <azure.devops.v4_0.gallery.models.Publisher>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -843,7 +843,7 @@ class GalleryClient(Client):
         :param int count: Number of questions to retrieve (defaults to 10).
         :param int page: Page number from which set of questions are to be retrieved.
         :param datetime after_date: If provided, results questions are returned which were posted after this date
-        :rtype: :class:`<QuestionsResult> <gallery.v4_0.models.QuestionsResult>`
+        :rtype: :class:`<QuestionsResult> <azure.devops.v4_0.gallery.models.QuestionsResult>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -867,11 +867,11 @@ class GalleryClient(Client):
     def report_question(self, concern, pub_name, ext_name, question_id):
         """ReportQuestion.
         [Preview API] Flags a concern with an existing question for an extension.
-        :param :class:`<Concern> <gallery.v4_0.models.Concern>` concern: User reported concern with a question for the extension.
+        :param :class:`<Concern> <azure.devops.v4_0.gallery.models.Concern>` concern: User reported concern with a question for the extension.
         :param str pub_name: Name of the publisher who published the extension.
         :param str ext_name: Name of the extension.
         :param long question_id: Identifier of the question to be updated for the extension.
-        :rtype: :class:`<Concern> <gallery.v4_0.models.Concern>`
+        :rtype: :class:`<Concern> <azure.devops.v4_0.gallery.models.Concern>`
         """
         route_values = {}
         if pub_name is not None:
@@ -891,10 +891,10 @@ class GalleryClient(Client):
     def create_question(self, question, publisher_name, extension_name):
         """CreateQuestion.
         [Preview API] Creates a new question for an extension.
-        :param :class:`<Question> <gallery.v4_0.models.Question>` question: Question to be created for the extension.
+        :param :class:`<Question> <azure.devops.v4_0.gallery.models.Question>` question: Question to be created for the extension.
         :param str publisher_name: Name of the publisher who published the extension.
         :param str extension_name: Name of the extension.
-        :rtype: :class:`<Question> <gallery.v4_0.models.Question>`
+        :rtype: :class:`<Question> <azure.devops.v4_0.gallery.models.Question>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -931,11 +931,11 @@ class GalleryClient(Client):
     def update_question(self, question, publisher_name, extension_name, question_id):
         """UpdateQuestion.
         [Preview API] Updates an existing question for an extension.
-        :param :class:`<Question> <gallery.v4_0.models.Question>` question: Updated question to be set for the extension.
+        :param :class:`<Question> <azure.devops.v4_0.gallery.models.Question>` question: Updated question to be set for the extension.
         :param str publisher_name: Name of the publisher who published the extension.
         :param str extension_name: Name of the extension.
         :param long question_id: Identifier of the question to be updated for the extension.
-        :rtype: :class:`<Question> <gallery.v4_0.models.Question>`
+        :rtype: :class:`<Question> <azure.devops.v4_0.gallery.models.Question>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -955,11 +955,11 @@ class GalleryClient(Client):
     def create_response(self, response, publisher_name, extension_name, question_id):
         """CreateResponse.
         [Preview API] Creates a new response for a given question for an extension.
-        :param :class:`<Response> <gallery.v4_0.models.Response>` response: Response to be created for the extension.
+        :param :class:`<Response> <azure.devops.v4_0.gallery.models.Response>` response: Response to be created for the extension.
         :param str publisher_name: Name of the publisher who published the extension.
         :param str extension_name: Name of the extension.
         :param long question_id: Identifier of the question for which response is to be created for the extension.
-        :rtype: :class:`<Response> <gallery.v4_0.models.Response>`
+        :rtype: :class:`<Response> <azure.devops.v4_0.gallery.models.Response>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -1001,12 +1001,12 @@ class GalleryClient(Client):
     def update_response(self, response, publisher_name, extension_name, question_id, response_id):
         """UpdateResponse.
         [Preview API] Updates an existing response for a given question for an extension.
-        :param :class:`<Response> <gallery.v4_0.models.Response>` response: Updated response to be set for the extension.
+        :param :class:`<Response> <azure.devops.v4_0.gallery.models.Response>` response: Updated response to be set for the extension.
         :param str publisher_name: Name of the publisher who published the extension.
         :param str extension_name: Name of the extension.
         :param long question_id: Identifier of the question for which response is to be updated for the extension.
         :param long response_id: Identifier of the response which has to be updated.
-        :rtype: :class:`<Response> <gallery.v4_0.models.Response>`
+        :rtype: :class:`<Response> <azure.devops.v4_0.gallery.models.Response>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -1063,7 +1063,7 @@ class GalleryClient(Client):
         :param str filter_options: FilterOptions to filter out empty reviews etcetera, defaults to none
         :param datetime before_date: Use if you want to fetch reviews older than the specified date, defaults to null
         :param datetime after_date: Use if you want to fetch reviews newer than the specified date, defaults to null
-        :rtype: :class:`<ReviewsResult> <gallery.v4_0.models.ReviewsResult>`
+        :rtype: :class:`<ReviewsResult> <azure.devops.v4_0.gallery.models.ReviewsResult>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -1093,7 +1093,7 @@ class GalleryClient(Client):
         :param str ext_name: Name of the extension
         :param datetime before_date: Use if you want to fetch summary of reviews older than the specified date, defaults to null
         :param datetime after_date: Use if you want to fetch summary of reviews newer than the specified date, defaults to null
-        :rtype: :class:`<ReviewSummary> <gallery.v4_0.models.ReviewSummary>`
+        :rtype: :class:`<ReviewSummary> <azure.devops.v4_0.gallery.models.ReviewSummary>`
         """
         route_values = {}
         if pub_name is not None:
@@ -1115,10 +1115,10 @@ class GalleryClient(Client):
     def create_review(self, review, pub_name, ext_name):
         """CreateReview.
         [Preview API] Creates a new review for an extension
-        :param :class:`<Review> <gallery.v4_0.models.Review>` review: Review to be created for the extension
+        :param :class:`<Review> <azure.devops.v4_0.gallery.models.Review>` review: Review to be created for the extension
         :param str pub_name: Name of the publisher who published the extension
         :param str ext_name: Name of the extension
-        :rtype: :class:`<Review> <gallery.v4_0.models.Review>`
+        :rtype: :class:`<Review> <azure.devops.v4_0.gallery.models.Review>`
         """
         route_values = {}
         if pub_name is not None:
@@ -1155,11 +1155,11 @@ class GalleryClient(Client):
     def update_review(self, review_patch, pub_name, ext_name, review_id):
         """UpdateReview.
         [Preview API] Updates or Flags a review
-        :param :class:`<ReviewPatch> <gallery.v4_0.models.ReviewPatch>` review_patch: ReviewPatch object which contains the changes to be applied to the review
+        :param :class:`<ReviewPatch> <azure.devops.v4_0.gallery.models.ReviewPatch>` review_patch: ReviewPatch object which contains the changes to be applied to the review
         :param str pub_name: Name of the pubilsher who published the extension
         :param str ext_name: Name of the extension
         :param long review_id: Id of the review which needs to be updated
-        :rtype: :class:`<ReviewPatch> <gallery.v4_0.models.ReviewPatch>`
+        :rtype: :class:`<ReviewPatch> <azure.devops.v4_0.gallery.models.ReviewPatch>`
         """
         route_values = {}
         if pub_name is not None:
@@ -1179,8 +1179,8 @@ class GalleryClient(Client):
     def create_category(self, category):
         """CreateCategory.
         [Preview API]
-        :param :class:`<ExtensionCategory> <gallery.v4_0.models.ExtensionCategory>` category:
-        :rtype: :class:`<ExtensionCategory> <gallery.v4_0.models.ExtensionCategory>`
+        :param :class:`<ExtensionCategory> <azure.devops.v4_0.gallery.models.ExtensionCategory>` category:
+        :rtype: :class:`<ExtensionCategory> <azure.devops.v4_0.gallery.models.ExtensionCategory>`
         """
         content = self._serialize.body(category, 'ExtensionCategory')
         response = self._send(http_method='POST',
@@ -1259,7 +1259,7 @@ class GalleryClient(Client):
     def update_extension_statistics(self, extension_statistics_update, publisher_name, extension_name):
         """UpdateExtensionStatistics.
         [Preview API]
-        :param :class:`<ExtensionStatisticUpdate> <gallery.v4_0.models.ExtensionStatisticUpdate>` extension_statistics_update:
+        :param :class:`<ExtensionStatisticUpdate> <azure.devops.v4_0.gallery.models.ExtensionStatisticUpdate>` extension_statistics_update:
         :param str publisher_name:
         :param str extension_name:
         """
@@ -1283,7 +1283,7 @@ class GalleryClient(Client):
         :param int days:
         :param str aggregate:
         :param datetime after_date:
-        :rtype: :class:`<ExtensionDailyStats> <gallery.v4_0.models.ExtensionDailyStats>`
+        :rtype: :class:`<ExtensionDailyStats> <azure.devops.v4_0.gallery.models.ExtensionDailyStats>`
         """
         route_values = {}
         if publisher_name is not None:
@@ -1310,7 +1310,7 @@ class GalleryClient(Client):
         :param str publisher_name: Name of the publisher
         :param str extension_name: Name of the extension
         :param str version: Version of the extension
-        :rtype: :class:`<ExtensionDailyStats> <gallery.v4_0.models.ExtensionDailyStats>`
+        :rtype: :class:`<ExtensionDailyStats> <azure.devops.v4_0.gallery.models.ExtensionDailyStats>`
         """
         route_values = {}
         if publisher_name is not None:

@@ -28,8 +28,8 @@ class ContributionsClient(Client):
     def query_contribution_nodes(self, query):
         """QueryContributionNodes.
         [Preview API] Query for contribution nodes and provider details according the parameters in the passed in query object.
-        :param :class:`<ContributionNodeQuery> <contributions.v4_0.models.ContributionNodeQuery>` query:
-        :rtype: :class:`<ContributionNodeQueryResult> <contributions.v4_0.models.ContributionNodeQueryResult>`
+        :param :class:`<ContributionNodeQuery> <azure.devops.v4_0.contributions.models.ContributionNodeQuery>` query:
+        :rtype: :class:`<ContributionNodeQueryResult> <azure.devops.v4_0.contributions.models.ContributionNodeQueryResult>`
         """
         content = self._serialize.body(query, 'ContributionNodeQuery')
         response = self._send(http_method='POST',
@@ -41,8 +41,8 @@ class ContributionsClient(Client):
     def query_data_providers(self, query):
         """QueryDataProviders.
         [Preview API]
-        :param :class:`<DataProviderQuery> <contributions.v4_0.models.DataProviderQuery>` query:
-        :rtype: :class:`<DataProviderResult> <contributions.v4_0.models.DataProviderResult>`
+        :param :class:`<DataProviderQuery> <azure.devops.v4_0.contributions.models.DataProviderQuery>` query:
+        :rtype: :class:`<DataProviderResult> <azure.devops.v4_0.contributions.models.DataProviderResult>`
         """
         content = self._serialize.body(query, 'DataProviderQuery')
         response = self._send(http_method='POST',
@@ -80,7 +80,7 @@ class ContributionsClient(Client):
         :param str publisher_name:
         :param str extension_name:
         :param [str] asset_types:
-        :rtype: :class:`<InstalledExtension> <contributions.v4_0.models.InstalledExtension>`
+        :rtype: :class:`<InstalledExtension> <azure.devops.v4_0.contributions.models.InstalledExtension>`
         """
         route_values = {}
         if publisher_name is not None:

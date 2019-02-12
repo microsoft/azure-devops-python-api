@@ -17,9 +17,9 @@ class AccessControlEntry(Model):
     :param deny: The set of permission bits that represent the actions that the associated descriptor is not allowed to perform.
     :type deny: int
     :param descriptor: The descriptor for the user this AccessControlEntry applies to.
-    :type descriptor: :class:`str <security.v4_1.models.str>`
+    :type descriptor: :class:`str <azure.devops.v4_1.security.models.str>`
     :param extended_info: This value, when set, reports the inherited and effective information for the associated descriptor. This value is only set on AccessControlEntries returned by the QueryAccessControlList(s) call when its includeExtendedInfo parameter is set to true.
-    :type extended_info: :class:`AceExtendedInformation <security.v4_1.models.AceExtendedInformation>`
+    :type extended_info: :class:`AceExtendedInformation <azure.devops.v4_1.security.models.AceExtendedInformation>`
     """
 
     _attribute_map = {
@@ -155,7 +155,7 @@ class PermissionEvaluationBatch(Model):
     :param always_allow_administrators:
     :type always_allow_administrators: bool
     :param evaluations: Array of permission evaluations to evaluate.
-    :type evaluations: list of :class:`PermissionEvaluation <security.v4_1.models.PermissionEvaluation>`
+    :type evaluations: list of :class:`PermissionEvaluation <azure.devops.v4_1.security.models.PermissionEvaluation>`
     """
 
     _attribute_map = {
@@ -173,7 +173,7 @@ class SecurityNamespaceDescription(Model):
     """SecurityNamespaceDescription.
 
     :param actions: The list of actions that this Security Namespace is responsible for securing.
-    :type actions: list of :class:`ActionDefinition <security.v4_1.models.ActionDefinition>`
+    :type actions: list of :class:`ActionDefinition <azure.devops.v4_1.security.models.ActionDefinition>`
     :param dataspace_category: This is the dataspace category that describes where the security information for this SecurityNamespace should be stored.
     :type dataspace_category: str
     :param display_name: This localized name for this namespace.

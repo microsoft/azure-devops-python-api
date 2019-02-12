@@ -32,7 +32,7 @@ class WikiClient(Client):
         :param str project: Project ID or project name
         :param str wiki_identifier: Wiki Id or name.
         :param str name: Wiki attachment name.
-        :rtype: :class:`<WikiAttachmentResponse> <wiki.v4_1.models.WikiAttachmentResponse>`
+        :rtype: :class:`<WikiAttachmentResponse> <azure.devops.v4_1.wiki.models.WikiAttachmentResponse>`
         """
         route_values = {}
         if project is not None:
@@ -60,11 +60,11 @@ class WikiClient(Client):
     def create_page_move(self, page_move_parameters, project, wiki_identifier, comment=None):
         """CreatePageMove.
         Creates a page move operation that updates the path and order of the page as provided in the parameters.
-        :param :class:`<WikiPageMoveParameters> <wiki.v4_1.models.WikiPageMoveParameters>` page_move_parameters: Page more operation parameters.
+        :param :class:`<WikiPageMoveParameters> <azure.devops.v4_1.wiki.models.WikiPageMoveParameters>` page_move_parameters: Page more operation parameters.
         :param str project: Project ID or project name
         :param str wiki_identifier: Wiki Id or name.
         :param str comment: Comment that is to be associated with this page move.
-        :rtype: :class:`<WikiPageMoveResponse> <wiki.v4_1.models.WikiPageMoveResponse>`
+        :rtype: :class:`<WikiPageMoveResponse> <azure.devops.v4_1.wiki.models.WikiPageMoveResponse>`
         """
         route_values = {}
         if project is not None:
@@ -89,13 +89,13 @@ class WikiClient(Client):
     def create_or_update_page(self, parameters, project, wiki_identifier, path, version, comment=None):
         """CreateOrUpdatePage.
         Creates or edits a wiki page.
-        :param :class:`<WikiPageCreateOrUpdateParameters> <wiki.v4_1.models.WikiPageCreateOrUpdateParameters>` parameters: Wiki create or update operation parameters.
+        :param :class:`<WikiPageCreateOrUpdateParameters> <azure.devops.v4_1.wiki.models.WikiPageCreateOrUpdateParameters>` parameters: Wiki create or update operation parameters.
         :param str project: Project ID or project name
         :param str wiki_identifier: Wiki Id or name.
         :param str path: Wiki page path.
         :param String version: Version of the page on which the change is to be made. Mandatory for `Edit` scenario. To be populated in the If-Match header of the request.
         :param str comment: Comment to be associated with the page operation.
-        :rtype: :class:`<WikiPageResponse> <wiki.v4_1.models.WikiPageResponse>`
+        :rtype: :class:`<WikiPageResponse> <azure.devops.v4_1.wiki.models.WikiPageResponse>`
         """
         route_values = {}
         if project is not None:
@@ -126,7 +126,7 @@ class WikiClient(Client):
         :param str wiki_identifier: Wiki Id or name.
         :param str path: Wiki page path.
         :param str comment: Comment to be associated with this page delete.
-        :rtype: :class:`<WikiPageResponse> <wiki.v4_1.models.WikiPageResponse>`
+        :rtype: :class:`<WikiPageResponse> <azure.devops.v4_1.wiki.models.WikiPageResponse>`
         """
         route_values = {}
         if project is not None:
@@ -155,9 +155,9 @@ class WikiClient(Client):
         :param str wiki_identifier: Wiki Id or name.
         :param str path: Wiki page path.
         :param str recursion_level: Recursion level for subpages retrieval. Defaults to `None` (Optional).
-        :param :class:`<GitVersionDescriptor> <wiki.v4_1.models.GitVersionDescriptor>` version_descriptor: GitVersionDescriptor for the page. Defaults to the default branch (Optional).
+        :param :class:`<GitVersionDescriptor> <azure.devops.v4_1.wiki.models.GitVersionDescriptor>` version_descriptor: GitVersionDescriptor for the page. Defaults to the default branch (Optional).
         :param bool include_content: True to include the content of the page in the response for Json content type. Defaults to false (Optional)
-        :rtype: :class:`<WikiPageResponse> <wiki.v4_1.models.WikiPageResponse>`
+        :rtype: :class:`<WikiPageResponse> <azure.devops.v4_1.wiki.models.WikiPageResponse>`
         """
         route_values = {}
         if project is not None:
@@ -195,7 +195,7 @@ class WikiClient(Client):
         :param str wiki_identifier: Wiki Id or name.
         :param str path: Wiki page path.
         :param str recursion_level: Recursion level for subpages retrieval. Defaults to `None` (Optional).
-        :param :class:`<GitVersionDescriptor> <wiki.v4_1.models.GitVersionDescriptor>` version_descriptor: GitVersionDescriptor for the page. Defaults to the default branch (Optional).
+        :param :class:`<GitVersionDescriptor> <azure.devops.v4_1.wiki.models.GitVersionDescriptor>` version_descriptor: GitVersionDescriptor for the page. Defaults to the default branch (Optional).
         :param bool include_content: True to include the content of the page in the response for Json content type. Defaults to false (Optional)
         :rtype: object
         """
@@ -237,7 +237,7 @@ class WikiClient(Client):
         :param str wiki_identifier: Wiki Id or name.
         :param str path: Wiki page path.
         :param str recursion_level: Recursion level for subpages retrieval. Defaults to `None` (Optional).
-        :param :class:`<GitVersionDescriptor> <wiki.v4_1.models.GitVersionDescriptor>` version_descriptor: GitVersionDescriptor for the page. Defaults to the default branch (Optional).
+        :param :class:`<GitVersionDescriptor> <azure.devops.v4_1.wiki.models.GitVersionDescriptor>` version_descriptor: GitVersionDescriptor for the page. Defaults to the default branch (Optional).
         :param bool include_content: True to include the content of the page in the response for Json content type. Defaults to false (Optional)
         :rtype: object
         """
@@ -275,9 +275,9 @@ class WikiClient(Client):
     def create_wiki(self, wiki_create_params, project=None):
         """CreateWiki.
         Creates the wiki resource.
-        :param :class:`<WikiCreateParametersV2> <wiki.v4_1.models.WikiCreateParametersV2>` wiki_create_params: Parameters for the wiki creation.
+        :param :class:`<WikiCreateParametersV2> <azure.devops.v4_1.wiki.models.WikiCreateParametersV2>` wiki_create_params: Parameters for the wiki creation.
         :param str project: Project ID or project name
-        :rtype: :class:`<WikiV2> <wiki.v4_1.models.WikiV2>`
+        :rtype: :class:`<WikiV2> <azure.devops.v4_1.wiki.models.WikiV2>`
         """
         route_values = {}
         if project is not None:
@@ -295,7 +295,7 @@ class WikiClient(Client):
         Deletes the wiki corresponding to the wiki name or Id provided.
         :param str wiki_identifier: Wiki name or Id.
         :param str project: Project ID or project name
-        :rtype: :class:`<WikiV2> <wiki.v4_1.models.WikiV2>`
+        :rtype: :class:`<WikiV2> <azure.devops.v4_1.wiki.models.WikiV2>`
         """
         route_values = {}
         if project is not None:
@@ -328,7 +328,7 @@ class WikiClient(Client):
         Gets the wiki corresponding to the wiki name or Id provided.
         :param str wiki_identifier: Wiki name or id.
         :param str project: Project ID or project name
-        :rtype: :class:`<WikiV2> <wiki.v4_1.models.WikiV2>`
+        :rtype: :class:`<WikiV2> <azure.devops.v4_1.wiki.models.WikiV2>`
         """
         route_values = {}
         if project is not None:
@@ -344,10 +344,10 @@ class WikiClient(Client):
     def update_wiki(self, update_parameters, wiki_identifier, project=None):
         """UpdateWiki.
         Updates the wiki corresponding to the wiki Id or name provided using the update parameters.
-        :param :class:`<WikiUpdateParameters> <wiki.v4_1.models.WikiUpdateParameters>` update_parameters: Update parameters.
+        :param :class:`<WikiUpdateParameters> <azure.devops.v4_1.wiki.models.WikiUpdateParameters>` update_parameters: Update parameters.
         :param str wiki_identifier: Wiki name or Id.
         :param str project: Project ID or project name
-        :rtype: :class:`<WikiV2> <wiki.v4_1.models.WikiV2>`
+        :rtype: :class:`<WikiV2> <azure.devops.v4_1.wiki.models.WikiV2>`
         """
         route_values = {}
         if project is not None:

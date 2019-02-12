@@ -29,7 +29,7 @@ class GraphClient(Client):
         """GetDescriptor.
         [Preview API] Resolve a storage key to a descriptor
         :param str storage_key: Storage key of the subject (user, group, scope, etc.) to resolve
-        :rtype: :class:`<GraphDescriptorResult> <graph.v4_1.models.GraphDescriptorResult>`
+        :rtype: :class:`<GraphDescriptorResult> <azure.devops.v4_1.graph.models.GraphDescriptorResult>`
         """
         route_values = {}
         if storage_key is not None:
@@ -43,10 +43,10 @@ class GraphClient(Client):
     def create_group(self, creation_context, scope_descriptor=None, group_descriptors=None):
         """CreateGroup.
         [Preview API] Create a new VSTS group or materialize an existing AAD group.
-        :param :class:`<GraphGroupCreationContext> <graph.v4_1.models.GraphGroupCreationContext>` creation_context: The subset of the full graph group used to uniquely find the graph subject in an external provider.
+        :param :class:`<GraphGroupCreationContext> <azure.devops.v4_1.graph.models.GraphGroupCreationContext>` creation_context: The subset of the full graph group used to uniquely find the graph subject in an external provider.
         :param str scope_descriptor: A descriptor referencing the scope (collection, project) in which the group should be created. If omitted, will be created in the scope of the enclosing account or organization. Valid only for VSTS groups.
         :param [str] group_descriptors: A comma separated list of descriptors referencing groups you want the graph group to join
-        :rtype: :class:`<GraphGroup> <graph.v4_1.models.GraphGroup>`
+        :rtype: :class:`<GraphGroup> <azure.devops.v4_1.graph.models.GraphGroup>`
         """
         query_parameters = {}
         if scope_descriptor is not None:
@@ -79,7 +79,7 @@ class GraphClient(Client):
         """GetGroup.
         [Preview API] Get a group by its descriptor.
         :param str group_descriptor: The descriptor of the desired graph group.
-        :rtype: :class:`<GraphGroup> <graph.v4_1.models.GraphGroup>`
+        :rtype: :class:`<GraphGroup> <azure.devops.v4_1.graph.models.GraphGroup>`
         """
         route_values = {}
         if group_descriptor is not None:
@@ -96,7 +96,7 @@ class GraphClient(Client):
         :param str scope_descriptor: Specify a non-default scope (collection, project) to search for groups.
         :param [str] subject_types: A comma separated list of user subject subtypes to reduce the retrieved results, e.g. Microsoft.IdentityModel.Claims.ClaimsIdentity
         :param str continuation_token: An opaque data blob that allows the next page of data to resume immediately after where the previous page ended. The only reliable way to know if there is more data left is the presence of a continuation token.
-        :rtype: :class:`<PagedGraphGroups> <graph.v4_1.models.PagedGraphGroups>`
+        :rtype: :class:`<PagedGraphGroups> <azure.devops.v4_1.graph.models.PagedGraphGroups>`
         """
         query_parameters = {}
         if scope_descriptor is not None:
@@ -119,8 +119,8 @@ class GraphClient(Client):
         """UpdateGroup.
         [Preview API] Update the properties of a VSTS group.
         :param str group_descriptor: The descriptor of the group to modify.
-        :param :class:`<[JsonPatchOperation]> <graph.v4_1.models.[JsonPatchOperation]>` patch_document: The JSON+Patch document containing the fields to alter.
-        :rtype: :class:`<GraphGroup> <graph.v4_1.models.GraphGroup>`
+        :param :class:`<[JsonPatchOperation]> <azure.devops.v4_1.graph.models.[JsonPatchOperation]>` patch_document: The JSON+Patch document containing the fields to alter.
+        :rtype: :class:`<GraphGroup> <azure.devops.v4_1.graph.models.GraphGroup>`
         """
         route_values = {}
         if group_descriptor is not None:
@@ -139,7 +139,7 @@ class GraphClient(Client):
         [Preview API] Create a new membership between a container and subject.
         :param str subject_descriptor: A descriptor to a group or user that can be the child subject in the relationship.
         :param str container_descriptor: A descriptor to a group that can be the container in the relationship.
-        :rtype: :class:`<GraphMembership> <graph.v4_1.models.GraphMembership>`
+        :rtype: :class:`<GraphMembership> <azure.devops.v4_1.graph.models.GraphMembership>`
         """
         route_values = {}
         if subject_descriptor is not None:
@@ -173,7 +173,7 @@ class GraphClient(Client):
         [Preview API] Get a membership relationship between a container and subject.
         :param str subject_descriptor: A descriptor to the child subject in the relationship.
         :param str container_descriptor: A descriptor to the container in the relationship.
-        :rtype: :class:`<GraphMembership> <graph.v4_1.models.GraphMembership>`
+        :rtype: :class:`<GraphMembership> <azure.devops.v4_1.graph.models.GraphMembership>`
         """
         route_values = {}
         if subject_descriptor is not None:
@@ -229,7 +229,7 @@ class GraphClient(Client):
         """GetMembershipState.
         [Preview API] Check whether a subject is active or inactive.
         :param str subject_descriptor: Descriptor of the subject (user, group, scope, etc.) to check state of
-        :rtype: :class:`<GraphMembershipState> <graph.v4_1.models.GraphMembershipState>`
+        :rtype: :class:`<GraphMembershipState> <azure.devops.v4_1.graph.models.GraphMembershipState>`
         """
         route_values = {}
         if subject_descriptor is not None:
@@ -244,7 +244,7 @@ class GraphClient(Client):
         """GetStorageKey.
         [Preview API] Resolve a descriptor to a storage key.
         :param str subject_descriptor:
-        :rtype: :class:`<GraphStorageKeyResult> <graph.v4_1.models.GraphStorageKeyResult>`
+        :rtype: :class:`<GraphStorageKeyResult> <azure.devops.v4_1.graph.models.GraphStorageKeyResult>`
         """
         route_values = {}
         if subject_descriptor is not None:
@@ -258,7 +258,7 @@ class GraphClient(Client):
     def lookup_subjects(self, subject_lookup):
         """LookupSubjects.
         [Preview API] Resolve descriptors to users, groups or scopes (Subjects) in a batch.
-        :param :class:`<GraphSubjectLookup> <graph.v4_1.models.GraphSubjectLookup>` subject_lookup: A list of descriptors that specifies a subset of subjects to retrieve. Each descriptor uniquely identifies the subject across all instance scopes, but only at a single point in time.
+        :param :class:`<GraphSubjectLookup> <azure.devops.v4_1.graph.models.GraphSubjectLookup>` subject_lookup: A list of descriptors that specifies a subset of subjects to retrieve. Each descriptor uniquely identifies the subject across all instance scopes, but only at a single point in time.
         :rtype: {GraphSubject}
         """
         content = self._serialize.body(subject_lookup, 'GraphSubjectLookup')
@@ -271,9 +271,9 @@ class GraphClient(Client):
     def create_user(self, creation_context, group_descriptors=None):
         """CreateUser.
         [Preview API] Materialize an existing AAD or MSA user into the VSTS account.
-        :param :class:`<GraphUserCreationContext> <graph.v4_1.models.GraphUserCreationContext>` creation_context: The subset of the full graph user used to uniquely find the graph subject in an external provider.
+        :param :class:`<GraphUserCreationContext> <azure.devops.v4_1.graph.models.GraphUserCreationContext>` creation_context: The subset of the full graph user used to uniquely find the graph subject in an external provider.
         :param [str] group_descriptors: A comma separated list of descriptors of groups you want the graph user to join
-        :rtype: :class:`<GraphUser> <graph.v4_1.models.GraphUser>`
+        :rtype: :class:`<GraphUser> <azure.devops.v4_1.graph.models.GraphUser>`
         """
         query_parameters = {}
         if group_descriptors is not None:
@@ -304,7 +304,7 @@ class GraphClient(Client):
         """GetUser.
         [Preview API] Get a user by its descriptor.
         :param str user_descriptor: The descriptor of the desired user.
-        :rtype: :class:`<GraphUser> <graph.v4_1.models.GraphUser>`
+        :rtype: :class:`<GraphUser> <azure.devops.v4_1.graph.models.GraphUser>`
         """
         route_values = {}
         if user_descriptor is not None:
@@ -320,7 +320,7 @@ class GraphClient(Client):
         [Preview API] Get a list of all users in a given scope.
         :param [str] subject_types: A comma separated list of user subject subtypes to reduce the retrieved results, e.g. msa’, ‘aad’, ‘svc’ (service identity), ‘imp’ (imported identity), etc.
         :param str continuation_token: An opaque data blob that allows the next page of data to resume immediately after where the previous page ended. The only reliable way to know if there is more data left is the presence of a continuation token.
-        :rtype: :class:`<PagedGraphUsers> <graph.v4_1.models.PagedGraphUsers>`
+        :rtype: :class:`<PagedGraphUsers> <azure.devops.v4_1.graph.models.PagedGraphUsers>`
         """
         query_parameters = {}
         if subject_types is not None:

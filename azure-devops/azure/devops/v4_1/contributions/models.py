@@ -19,7 +19,7 @@ class ClientContribution(Model):
     :param includes: Includes is a set of contributions that should have this contribution included in their targets list.
     :type includes: list of str
     :param properties: Properties/attributes of this contribution
-    :type properties: :class:`object <contributions.v4_1.models.object>`
+    :type properties: :class:`object <azure.devops.v4_1.contributions.models.object>`
     :param targets: The ids of the contribution(s) that this contribution targets. (parent contributions)
     :type targets: list of str
     :param type: Id of the Contribution Type
@@ -51,7 +51,7 @@ class ClientContributionNode(Model):
     :param children: List of ids for contributions which are children to the current contribution.
     :type children: list of str
     :param contribution: Contribution associated with this node.
-    :type contribution: :class:`ClientContribution <contributions.v4_1.models.ClientContribution>`
+    :type contribution: :class:`ClientContribution <azure.devops.v4_1.contributions.models.ClientContribution>`
     :param parents: List of ids for contributions which are parents to the current contribution.
     :type parents: list of str
     """
@@ -133,7 +133,7 @@ class ContributionConstraint(Model):
     :param name: Name of the IContributionFilter plugin
     :type name: str
     :param properties: Properties that are fed to the contribution filter class
-    :type properties: :class:`object <contributions.v4_1.models.object>`
+    :type properties: :class:`object <azure.devops.v4_1.contributions.models.object>`
     :param relationships: Constraints can be optionally be applied to one or more of the relationships defined in the contribution. If no relationships are defined then all relationships are associated with the constraint. This means the default behaviour will elimiate the contribution from the tree completely if the constraint is applied.
     :type relationships: list of str
     """
@@ -306,7 +306,7 @@ class DataProviderQuery(Model):
     """DataProviderQuery.
 
     :param context: Contextual information to pass to the data providers
-    :type context: :class:`DataProviderContext <contributions.v4_1.models.DataProviderContext>`
+    :type context: :class:`DataProviderContext <azure.devops.v4_1.contributions.models.DataProviderContext>`
     :param contribution_ids: The contribution ids of the data providers to resolve
     :type contribution_ids: list of str
     """
@@ -332,7 +332,7 @@ class DataProviderResult(Model):
     :param exceptions: Set of exceptions that occurred resolving the data providers.
     :type exceptions: dict
     :param resolved_providers: List of data providers resolved in the data-provider query
-    :type resolved_providers: list of :class:`ResolvedDataProvider <contributions.v4_1.models.ResolvedDataProvider>`
+    :type resolved_providers: list of :class:`ResolvedDataProvider <azure.devops.v4_1.contributions.models.ResolvedDataProvider>`
     :param scope_name: Scope name applied to this data provider result.
     :type scope_name: str
     :param scope_value: Scope value applied to this data provider result.
@@ -382,19 +382,19 @@ class ExtensionEventCallbackCollection(Model):
     """ExtensionEventCallbackCollection.
 
     :param post_disable: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension disable has occurred.
-    :type post_disable: :class:`ExtensionEventCallback <contributions.v4_1.models.ExtensionEventCallback>`
+    :type post_disable: :class:`ExtensionEventCallback <azure.devops.v4_1.contributions.models.ExtensionEventCallback>`
     :param post_enable: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension enable has occurred.
-    :type post_enable: :class:`ExtensionEventCallback <contributions.v4_1.models.ExtensionEventCallback>`
+    :type post_enable: :class:`ExtensionEventCallback <azure.devops.v4_1.contributions.models.ExtensionEventCallback>`
     :param post_install: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension install has completed.
-    :type post_install: :class:`ExtensionEventCallback <contributions.v4_1.models.ExtensionEventCallback>`
+    :type post_install: :class:`ExtensionEventCallback <azure.devops.v4_1.contributions.models.ExtensionEventCallback>`
     :param post_uninstall: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension uninstall has occurred.
-    :type post_uninstall: :class:`ExtensionEventCallback <contributions.v4_1.models.ExtensionEventCallback>`
+    :type post_uninstall: :class:`ExtensionEventCallback <azure.devops.v4_1.contributions.models.ExtensionEventCallback>`
     :param post_update: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension update has occurred.
-    :type post_update: :class:`ExtensionEventCallback <contributions.v4_1.models.ExtensionEventCallback>`
+    :type post_update: :class:`ExtensionEventCallback <azure.devops.v4_1.contributions.models.ExtensionEventCallback>`
     :param pre_install: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension install is about to occur.  Response indicates whether to proceed or abort.
-    :type pre_install: :class:`ExtensionEventCallback <contributions.v4_1.models.ExtensionEventCallback>`
+    :type pre_install: :class:`ExtensionEventCallback <azure.devops.v4_1.contributions.models.ExtensionEventCallback>`
     :param version_check: For multi-version extensions, defines an endpoint that gets called via an OPTIONS request to determine the particular version of the extension to be used
-    :type version_check: :class:`ExtensionEventCallback <contributions.v4_1.models.ExtensionEventCallback>`
+    :type version_check: :class:`ExtensionEventCallback <azure.devops.v4_1.contributions.models.ExtensionEventCallback>`
     """
 
     _attribute_map = {
@@ -446,7 +446,7 @@ class ExtensionLicensing(Model):
     """ExtensionLicensing.
 
     :param overrides: A list of contributions which deviate from the default licensing behavior
-    :type overrides: list of :class:`LicensingOverride <contributions.v4_1.models.LicensingOverride>`
+    :type overrides: list of :class:`LicensingOverride <azure.devops.v4_1.contributions.models.LicensingOverride>`
     """
 
     _attribute_map = {
@@ -464,21 +464,21 @@ class ExtensionManifest(Model):
     :param base_uri: Uri used as base for other relative uri's defined in extension
     :type base_uri: str
     :param constraints: List of shared constraints defined by this extension
-    :type constraints: list of :class:`ContributionConstraint <contributions.v4_1.models.ContributionConstraint>`
+    :type constraints: list of :class:`ContributionConstraint <azure.devops.v4_1.contributions.models.ContributionConstraint>`
     :param contributions: List of contributions made by this extension
-    :type contributions: list of :class:`Contribution <contributions.v4_1.models.Contribution>`
+    :type contributions: list of :class:`Contribution <azure.devops.v4_1.contributions.models.Contribution>`
     :param contribution_types: List of contribution types defined by this extension
-    :type contribution_types: list of :class:`ContributionType <contributions.v4_1.models.ContributionType>`
+    :type contribution_types: list of :class:`ContributionType <azure.devops.v4_1.contributions.models.ContributionType>`
     :param demands: List of explicit demands required by this extension
     :type demands: list of str
     :param event_callbacks: Collection of endpoints that get called when particular extension events occur
-    :type event_callbacks: :class:`ExtensionEventCallbackCollection <contributions.v4_1.models.ExtensionEventCallbackCollection>`
+    :type event_callbacks: :class:`ExtensionEventCallbackCollection <azure.devops.v4_1.contributions.models.ExtensionEventCallbackCollection>`
     :param fallback_base_uri: Secondary location that can be used as base for other relative uri's defined in extension
     :type fallback_base_uri: str
     :param language: Language Culture Name set by the Gallery
     :type language: str
     :param licensing: How this extension behaves with respect to licensing
-    :type licensing: :class:`ExtensionLicensing <contributions.v4_1.models.ExtensionLicensing>`
+    :type licensing: :class:`ExtensionLicensing <azure.devops.v4_1.contributions.models.ExtensionLicensing>`
     :param manifest_version: Version of the extension manifest format/content
     :type manifest_version: float
     :param restricted_to: Default user claims applied to all contributions (except the ones which have been speficied restrictedTo explicitly) to control the visibility of a contribution.
@@ -528,21 +528,21 @@ class InstalledExtension(ExtensionManifest):
     :param base_uri: Uri used as base for other relative uri's defined in extension
     :type base_uri: str
     :param constraints: List of shared constraints defined by this extension
-    :type constraints: list of :class:`ContributionConstraint <contributions.v4_1.models.ContributionConstraint>`
+    :type constraints: list of :class:`ContributionConstraint <azure.devops.v4_1.contributions.models.ContributionConstraint>`
     :param contributions: List of contributions made by this extension
-    :type contributions: list of :class:`Contribution <contributions.v4_1.models.Contribution>`
+    :type contributions: list of :class:`Contribution <azure.devops.v4_1.contributions.models.Contribution>`
     :param contribution_types: List of contribution types defined by this extension
-    :type contribution_types: list of :class:`ContributionType <contributions.v4_1.models.ContributionType>`
+    :type contribution_types: list of :class:`ContributionType <azure.devops.v4_1.contributions.models.ContributionType>`
     :param demands: List of explicit demands required by this extension
     :type demands: list of str
     :param event_callbacks: Collection of endpoints that get called when particular extension events occur
-    :type event_callbacks: :class:`ExtensionEventCallbackCollection <contributions.v4_1.models.ExtensionEventCallbackCollection>`
+    :type event_callbacks: :class:`ExtensionEventCallbackCollection <azure.devops.v4_1.contributions.models.ExtensionEventCallbackCollection>`
     :param fallback_base_uri: Secondary location that can be used as base for other relative uri's defined in extension
     :type fallback_base_uri: str
     :param language: Language Culture Name set by the Gallery
     :type language: str
     :param licensing: How this extension behaves with respect to licensing
-    :type licensing: :class:`ExtensionLicensing <contributions.v4_1.models.ExtensionLicensing>`
+    :type licensing: :class:`ExtensionLicensing <azure.devops.v4_1.contributions.models.ExtensionLicensing>`
     :param manifest_version: Version of the extension manifest format/content
     :type manifest_version: float
     :param restricted_to: Default user claims applied to all contributions (except the ones which have been speficied restrictedTo explicitly) to control the visibility of a contribution.
@@ -556,11 +556,11 @@ class InstalledExtension(ExtensionManifest):
     :param extension_name: The display name of the extension.
     :type extension_name: str
     :param files: This is the set of files available from the extension.
-    :type files: list of :class:`ExtensionFile <contributions.v4_1.models.ExtensionFile>`
+    :type files: list of :class:`ExtensionFile <azure.devops.v4_1.contributions.models.ExtensionFile>`
     :param flags: Extension flags relevant to contribution consumers
     :type flags: object
     :param install_state: Information about this particular installation of the extension
-    :type install_state: :class:`InstalledExtensionState <contributions.v4_1.models.InstalledExtensionState>`
+    :type install_state: :class:`InstalledExtensionState <azure.devops.v4_1.contributions.models.InstalledExtensionState>`
     :param last_published: This represents the date/time the extensions was last updated in the gallery. This doesnt mean this version was updated the value represents changes to any and all versions of the extension.
     :type last_published: datetime
     :param publisher_id: Unique id of the publisher of this extension
@@ -619,7 +619,7 @@ class InstalledExtensionState(Model):
     :param flags: States of an installed extension
     :type flags: object
     :param installation_issues: List of installation issues
-    :type installation_issues: list of :class:`InstalledExtensionStateIssue <contributions.v4_1.models.InstalledExtensionStateIssue>`
+    :type installation_issues: list of :class:`InstalledExtensionStateIssue <azure.devops.v4_1.contributions.models.InstalledExtensionStateIssue>`
     :param last_updated: The time at which this installation was last updated
     :type last_updated: datetime
     """
@@ -709,7 +709,7 @@ class ClientDataProviderQuery(DataProviderQuery):
     """ClientDataProviderQuery.
 
     :param context: Contextual information to pass to the data providers
-    :type context: :class:`DataProviderContext <contributions.v4_1.models.DataProviderContext>`
+    :type context: :class:`DataProviderContext <azure.devops.v4_1.contributions.models.DataProviderContext>`
     :param contribution_ids: The contribution ids of the data providers to resolve
     :type contribution_ids: list of str
     :param query_service_instance_type: The Id of the service instance type that should be communicated with in order to resolve the data providers from the client given the query values.
@@ -737,11 +737,11 @@ class Contribution(ContributionBase):
     :param visible_to: VisibleTo can be used to restrict whom can reference a given contribution/type. This value should be a list of publishers or extensions access is restricted too.  Examples: "ms" - Means only the "ms" publisher can reference this. "ms.vss-web" - Means only the "vss-web" extension from the "ms" publisher can reference this.
     :type visible_to: list of str
     :param constraints: List of constraints (filters) that should be applied to the availability of this contribution
-    :type constraints: list of :class:`ContributionConstraint <contributions.v4_1.models.ContributionConstraint>`
+    :type constraints: list of :class:`ContributionConstraint <azure.devops.v4_1.contributions.models.ContributionConstraint>`
     :param includes: Includes is a set of contributions that should have this contribution included in their targets list.
     :type includes: list of str
     :param properties: Properties/attributes of this contribution
-    :type properties: :class:`object <contributions.v4_1.models.object>`
+    :type properties: :class:`object <azure.devops.v4_1.contributions.models.object>`
     :param restricted_to: List of demanded claims in order for the user to see this contribution (like anonymous, public, member...).
     :type restricted_to: list of str
     :param targets: The ids of the contribution(s) that this contribution targets. (parent contributions)

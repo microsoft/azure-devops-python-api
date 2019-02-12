@@ -29,7 +29,7 @@ class OperationsClient(Client):
         """GetOperation.
         Gets an operation from the the Id.
         :param str operation_id: The id for the operation.
-        :rtype: :class:`<Operation> <operations.v4_0.models.Operation>`
+        :rtype: :class:`<Operation> <azure.devops.v4_0.operations.models.Operation>`
         """
         route_values = {}
         if operation_id is not None:

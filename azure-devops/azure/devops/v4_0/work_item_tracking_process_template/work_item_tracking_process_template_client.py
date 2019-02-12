@@ -30,7 +30,7 @@ class WorkItemTrackingProcessTemplateClient(Client):
         [Preview API]
         :param str process_id:
         :param str behavior_ref_name:
-        :rtype: :class:`<AdminBehavior> <work-item-tracking-process-template.v4_0.models.AdminBehavior>`
+        :rtype: :class:`<AdminBehavior> <azure.devops.v4_0.work-item-tracking-process-template.models.AdminBehavior>`
         """
         route_values = {}
         if process_id is not None:
@@ -64,7 +64,7 @@ class WorkItemTrackingProcessTemplateClient(Client):
         """CheckTemplateExistence.
         [Preview API] Check if process template exists
         :param object upload_stream: Stream to upload
-        :rtype: :class:`<CheckTemplateExistenceResult> <work-item-tracking-process-template.v4_0.models.CheckTemplateExistenceResult>`
+        :rtype: :class:`<CheckTemplateExistenceResult> <azure.devops.v4_0.work-item-tracking-process-template.models.CheckTemplateExistenceResult>`
         """
         route_values = {}
         route_values['action'] = 'CheckTemplateExistence'
@@ -109,7 +109,7 @@ class WorkItemTrackingProcessTemplateClient(Client):
         [Preview API]
         :param object upload_stream: Stream to upload
         :param bool ignore_warnings:
-        :rtype: :class:`<ProcessImportResult> <work-item-tracking-process-template.v4_0.models.ProcessImportResult>`
+        :rtype: :class:`<ProcessImportResult> <azure.devops.v4_0.work-item-tracking-process-template.models.ProcessImportResult>`
         """
         route_values = {}
         route_values['action'] = 'Import'
@@ -134,7 +134,7 @@ class WorkItemTrackingProcessTemplateClient(Client):
         """ImportProcessTemplateStatus.
         [Preview API] Whether promote has completed for the specified promote job id
         :param str id:
-        :rtype: :class:`<ProcessPromoteStatus> <work-item-tracking-process-template.v4_0.models.ProcessPromoteStatus>`
+        :rtype: :class:`<ProcessPromoteStatus> <azure.devops.v4_0.work-item-tracking-process-template.models.ProcessPromoteStatus>`
         """
         route_values = {}
         route_values['action'] = 'Status'

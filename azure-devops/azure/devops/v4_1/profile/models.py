@@ -149,7 +149,7 @@ class Profile(Model):
     """Profile.
 
     :param application_container:
-    :type application_container: :class:`AttributesContainer <profile.v4_1.models.AttributesContainer>`
+    :type application_container: :class:`AttributesContainer <azure.devops.v4_1.profile.models.AttributesContainer>`
     :param core_attributes:
     :type core_attributes: dict
     :param core_revision:
@@ -189,7 +189,7 @@ class ProfileAttributeBase(Model):
     """ProfileAttributeBase.
 
     :param descriptor:
-    :type descriptor: :class:`AttributeDescriptor <profile.v4_1.models.AttributeDescriptor>`
+    :type descriptor: :class:`AttributeDescriptor <azure.devops.v4_1.profile.models.AttributeDescriptor>`
     :param revision:
     :type revision: int
     :param time_stamp:
@@ -241,7 +241,7 @@ class ProfileRegions(Model):
     :param opt_out_contact_consent_requirement_regions: List of country/region code with contact consent requirement type of opt-out
     :type opt_out_contact_consent_requirement_regions: list of str
     :param regions: List of country/regions
-    :type regions: list of :class:`ProfileRegion <profile.v4_1.models.ProfileRegion>`
+    :type regions: list of :class:`ProfileRegion <azure.devops.v4_1.profile.models.ProfileRegion>`
     """
 
     _attribute_map = {

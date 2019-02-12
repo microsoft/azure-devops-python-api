@@ -60,7 +60,7 @@ class TaskClient(Client):
         :param str record_id:
         :param str type:
         :param str name:
-        :rtype: :class:`<TaskAttachment> <task.v4_1.models.TaskAttachment>`
+        :rtype: :class:`<TaskAttachment> <azure.devops.v4_1.task.models.TaskAttachment>`
         """
         route_values = {}
         if scope_identifier is not None:
@@ -100,7 +100,7 @@ class TaskClient(Client):
         :param str record_id:
         :param str type:
         :param str name:
-        :rtype: :class:`<TaskAttachment> <task.v4_1.models.TaskAttachment>`
+        :rtype: :class:`<TaskAttachment> <azure.devops.v4_1.task.models.TaskAttachment>`
         """
         route_values = {}
         if scope_identifier is not None:
@@ -198,7 +198,7 @@ class TaskClient(Client):
         :param str hub_name: The name of the server hub: "build" for the Build server or "rm" for the Release Management server
         :param str plan_id:
         :param int log_id:
-        :rtype: :class:`<TaskLog> <task.v4_1.models.TaskLog>`
+        :rtype: :class:`<TaskLog> <azure.devops.v4_1.task.models.TaskLog>`
         """
         route_values = {}
         if scope_identifier is not None:
@@ -224,11 +224,11 @@ class TaskClient(Client):
 
     def create_log(self, log, scope_identifier, hub_name, plan_id):
         """CreateLog.
-        :param :class:`<TaskLog> <task.v4_1.models.TaskLog>` log:
+        :param :class:`<TaskLog> <azure.devops.v4_1.task.models.TaskLog>` log:
         :param str scope_identifier: The project GUID to scope the request
         :param str hub_name: The name of the server hub: "build" for the Build server or "rm" for the Release Management server
         :param str plan_id:
-        :rtype: :class:`<TaskLog> <task.v4_1.models.TaskLog>`
+        :rtype: :class:`<TaskLog> <azure.devops.v4_1.task.models.TaskLog>`
         """
         route_values = {}
         if scope_identifier is not None:
@@ -326,7 +326,7 @@ class TaskClient(Client):
 
     def update_records(self, records, scope_identifier, hub_name, plan_id, timeline_id):
         """UpdateRecords.
-        :param :class:`<VssJsonCollectionWrapper> <task.v4_1.models.VssJsonCollectionWrapper>` records:
+        :param :class:`<VssJsonCollectionWrapper> <azure.devops.v4_1.task.models.VssJsonCollectionWrapper>` records:
         :param str scope_identifier: The project GUID to scope the request
         :param str hub_name: The name of the server hub: "build" for the Build server or "rm" for the Release Management server
         :param str plan_id:
@@ -352,11 +352,11 @@ class TaskClient(Client):
 
     def create_timeline(self, timeline, scope_identifier, hub_name, plan_id):
         """CreateTimeline.
-        :param :class:`<Timeline> <task.v4_1.models.Timeline>` timeline:
+        :param :class:`<Timeline> <azure.devops.v4_1.task.models.Timeline>` timeline:
         :param str scope_identifier: The project GUID to scope the request
         :param str hub_name: The name of the server hub: "build" for the Build server or "rm" for the Release Management server
         :param str plan_id:
-        :rtype: :class:`<Timeline> <task.v4_1.models.Timeline>`
+        :rtype: :class:`<Timeline> <azure.devops.v4_1.task.models.Timeline>`
         """
         route_values = {}
         if scope_identifier is not None:
@@ -402,7 +402,7 @@ class TaskClient(Client):
         :param str timeline_id:
         :param int change_id:
         :param bool include_records:
-        :rtype: :class:`<Timeline> <task.v4_1.models.Timeline>`
+        :rtype: :class:`<Timeline> <azure.devops.v4_1.task.models.Timeline>`
         """
         route_values = {}
         if scope_identifier is not None:

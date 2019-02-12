@@ -13,11 +13,11 @@ class ContributedFeature(Model):
     """ContributedFeature.
 
     :param _links: Named links describing the feature
-    :type _links: :class:`ReferenceLinks <feature-management.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.feature-management.models.ReferenceLinks>`
     :param default_state: If true, the feature is enabled unless overridden at some scope
     :type default_state: bool
     :param default_value_rules: Rules for setting the default value if not specified by any setting/scope. Evaluated in order until a rule returns an Enabled or Disabled state (not Undefined)
-    :type default_value_rules: list of :class:`ContributedFeatureValueRule <feature-management.v4_1.models.ContributedFeatureValueRule>`
+    :type default_value_rules: list of :class:`ContributedFeatureValueRule <azure.devops.v4_1.feature-management.models.ContributedFeatureValueRule>`
     :param description: The description of the feature
     :type description: str
     :param id: The full contribution id of the feature
@@ -25,9 +25,9 @@ class ContributedFeature(Model):
     :param name: The friendly name of the feature
     :type name: str
     :param override_rules: Rules for overriding a feature value. These rules are run before explicit user/host state values are checked. They are evaluated in order until a rule returns an Enabled or Disabled state (not Undefined)
-    :type override_rules: list of :class:`ContributedFeatureValueRule <feature-management.v4_1.models.ContributedFeatureValueRule>`
+    :type override_rules: list of :class:`ContributedFeatureValueRule <azure.devops.v4_1.feature-management.models.ContributedFeatureValueRule>`
     :param scopes: The scopes/levels at which settings can set the enabled/disabled state of this feature
-    :type scopes: list of :class:`ContributedFeatureSettingScope <feature-management.v4_1.models.ContributedFeatureSettingScope>`
+    :type scopes: list of :class:`ContributedFeatureSettingScope <azure.devops.v4_1.feature-management.models.ContributedFeatureSettingScope>`
     :param service_instance_type: The service instance id of the service that owns this feature
     :type service_instance_type: str
     """
@@ -87,7 +87,7 @@ class ContributedFeatureState(Model):
     :param reason: Reason that the state was set (by a plugin/rule).
     :type reason: str
     :param scope: The scope at which this state applies
-    :type scope: :class:`ContributedFeatureSettingScope <feature-management.v4_1.models.ContributedFeatureSettingScope>`
+    :type scope: :class:`ContributedFeatureSettingScope <azure.devops.v4_1.feature-management.models.ContributedFeatureSettingScope>`
     :param state: The current state of this feature
     :type state: object
     """
