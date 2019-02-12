@@ -54,13 +54,13 @@ class TestClient(Client):
     def create_test_iteration_result_attachment(self, attachment_request_model, project, run_id, test_case_result_id, iteration_id, action_path=None):
         """CreateTestIterationResultAttachment.
         [Preview API]
-        :param :class:`<TestAttachmentRequestModel> <test.v4_0.models.TestAttachmentRequestModel>` attachment_request_model:
+        :param :class:`<TestAttachmentRequestModel> <azure.devops.v4_0.test.models.TestAttachmentRequestModel>` attachment_request_model:
         :param str project: Project ID or project name
         :param int run_id:
         :param int test_case_result_id:
         :param int iteration_id:
         :param str action_path:
-        :rtype: :class:`<TestAttachmentReference> <test.v4_0.models.TestAttachmentReference>`
+        :rtype: :class:`<TestAttachmentReference> <azure.devops.v4_0.test.models.TestAttachmentReference>`
         """
         route_values = {}
         if project is not None:
@@ -86,11 +86,11 @@ class TestClient(Client):
     def create_test_result_attachment(self, attachment_request_model, project, run_id, test_case_result_id):
         """CreateTestResultAttachment.
         [Preview API]
-        :param :class:`<TestAttachmentRequestModel> <test.v4_0.models.TestAttachmentRequestModel>` attachment_request_model:
+        :param :class:`<TestAttachmentRequestModel> <azure.devops.v4_0.test.models.TestAttachmentRequestModel>` attachment_request_model:
         :param str project: Project ID or project name
         :param int run_id:
         :param int test_case_result_id:
-        :rtype: :class:`<TestAttachmentReference> <test.v4_0.models.TestAttachmentReference>`
+        :rtype: :class:`<TestAttachmentReference> <azure.devops.v4_0.test.models.TestAttachmentReference>`
         """
         route_values = {}
         if project is not None:
@@ -189,10 +189,10 @@ class TestClient(Client):
     def create_test_run_attachment(self, attachment_request_model, project, run_id):
         """CreateTestRunAttachment.
         [Preview API]
-        :param :class:`<TestAttachmentRequestModel> <test.v4_0.models.TestAttachmentRequestModel>` attachment_request_model:
+        :param :class:`<TestAttachmentRequestModel> <azure.devops.v4_0.test.models.TestAttachmentRequestModel>` attachment_request_model:
         :param str project: Project ID or project name
         :param int run_id:
-        :rtype: :class:`<TestAttachmentReference> <test.v4_0.models.TestAttachmentReference>`
+        :rtype: :class:`<TestAttachmentReference> <azure.devops.v4_0.test.models.TestAttachmentReference>`
         """
         route_values = {}
         if project is not None:
@@ -304,7 +304,7 @@ class TestClient(Client):
         :param str project: Project ID or project name
         :param int clone_operation_id:
         :param bool include_details:
-        :rtype: :class:`<CloneOperationInformation> <test.v4_0.models.CloneOperationInformation>`
+        :rtype: :class:`<CloneOperationInformation> <azure.devops.v4_0.test.models.CloneOperationInformation>`
         """
         route_values = {}
         if project is not None:
@@ -324,10 +324,10 @@ class TestClient(Client):
     def clone_test_plan(self, clone_request_body, project, plan_id):
         """CloneTestPlan.
         [Preview API]
-        :param :class:`<TestPlanCloneRequest> <test.v4_0.models.TestPlanCloneRequest>` clone_request_body:
+        :param :class:`<TestPlanCloneRequest> <azure.devops.v4_0.test.models.TestPlanCloneRequest>` clone_request_body:
         :param str project: Project ID or project name
         :param int plan_id:
-        :rtype: :class:`<CloneOperationInformation> <test.v4_0.models.CloneOperationInformation>`
+        :rtype: :class:`<CloneOperationInformation> <azure.devops.v4_0.test.models.CloneOperationInformation>`
         """
         route_values = {}
         if project is not None:
@@ -345,11 +345,11 @@ class TestClient(Client):
     def clone_test_suite(self, clone_request_body, project, plan_id, source_suite_id):
         """CloneTestSuite.
         [Preview API]
-        :param :class:`<TestSuiteCloneRequest> <test.v4_0.models.TestSuiteCloneRequest>` clone_request_body:
+        :param :class:`<TestSuiteCloneRequest> <azure.devops.v4_0.test.models.TestSuiteCloneRequest>` clone_request_body:
         :param str project: Project ID or project name
         :param int plan_id:
         :param int source_suite_id:
-        :rtype: :class:`<CloneOperationInformation> <test.v4_0.models.CloneOperationInformation>`
+        :rtype: :class:`<CloneOperationInformation> <azure.devops.v4_0.test.models.CloneOperationInformation>`
         """
         route_values = {}
         if project is not None:
@@ -395,7 +395,7 @@ class TestClient(Client):
         :param str project: Project ID or project name
         :param int build_id:
         :param int delta_build_id:
-        :rtype: :class:`<CodeCoverageSummary> <test.v4_0.models.CodeCoverageSummary>`
+        :rtype: :class:`<CodeCoverageSummary> <azure.devops.v4_0.test.models.CodeCoverageSummary>`
         """
         route_values = {}
         if project is not None:
@@ -415,7 +415,7 @@ class TestClient(Client):
     def update_code_coverage_summary(self, coverage_data, project, build_id):
         """UpdateCodeCoverageSummary.
         [Preview API] http://(tfsserver):8080/tfs/DefaultCollection/_apis/test/CodeCoverage?buildId=10 Request: Json of code coverage summary
-        :param :class:`<CodeCoverageData> <test.v4_0.models.CodeCoverageData>` coverage_data:
+        :param :class:`<CodeCoverageData> <azure.devops.v4_0.test.models.CodeCoverageData>` coverage_data:
         :param str project: Project ID or project name
         :param int build_id:
         """
@@ -459,9 +459,9 @@ class TestClient(Client):
     def create_test_configuration(self, test_configuration, project):
         """CreateTestConfiguration.
         [Preview API]
-        :param :class:`<TestConfiguration> <test.v4_0.models.TestConfiguration>` test_configuration:
+        :param :class:`<TestConfiguration> <azure.devops.v4_0.test.models.TestConfiguration>` test_configuration:
         :param str project: Project ID or project name
-        :rtype: :class:`<TestConfiguration> <test.v4_0.models.TestConfiguration>`
+        :rtype: :class:`<TestConfiguration> <azure.devops.v4_0.test.models.TestConfiguration>`
         """
         route_values = {}
         if project is not None:
@@ -495,7 +495,7 @@ class TestClient(Client):
         [Preview API]
         :param str project: Project ID or project name
         :param int test_configuration_id:
-        :rtype: :class:`<TestConfiguration> <test.v4_0.models.TestConfiguration>`
+        :rtype: :class:`<TestConfiguration> <azure.devops.v4_0.test.models.TestConfiguration>`
         """
         route_values = {}
         if project is not None:
@@ -540,10 +540,10 @@ class TestClient(Client):
     def update_test_configuration(self, test_configuration, project, test_configuration_id):
         """UpdateTestConfiguration.
         [Preview API]
-        :param :class:`<TestConfiguration> <test.v4_0.models.TestConfiguration>` test_configuration:
+        :param :class:`<TestConfiguration> <azure.devops.v4_0.test.models.TestConfiguration>` test_configuration:
         :param str project: Project ID or project name
         :param int test_configuration_id:
-        :rtype: :class:`<TestConfiguration> <test.v4_0.models.TestConfiguration>`
+        :rtype: :class:`<TestConfiguration> <azure.devops.v4_0.test.models.TestConfiguration>`
         """
         route_values = {}
         if project is not None:
@@ -599,9 +599,9 @@ class TestClient(Client):
     def query_test_result_history(self, filter, project):
         """QueryTestResultHistory.
         [Preview API]
-        :param :class:`<ResultsFilter> <test.v4_0.models.ResultsFilter>` filter:
+        :param :class:`<ResultsFilter> <azure.devops.v4_0.test.models.ResultsFilter>` filter:
         :param str project: Project ID or project name
-        :rtype: :class:`<TestResultHistory> <test.v4_0.models.TestResultHistory>`
+        :rtype: :class:`<TestResultHistory> <azure.devops.v4_0.test.models.TestResultHistory>`
         """
         route_values = {}
         if project is not None:
@@ -621,7 +621,7 @@ class TestClient(Client):
         :param int test_case_result_id:
         :param int iteration_id:
         :param bool include_action_results:
-        :rtype: :class:`<TestIterationDetailsModel> <test.v4_0.models.TestIterationDetailsModel>`
+        :rtype: :class:`<TestIterationDetailsModel> <azure.devops.v4_0.test.models.TestIterationDetailsModel>`
         """
         route_values = {}
         if project is not None:
@@ -670,7 +670,7 @@ class TestClient(Client):
     def get_linked_work_items_by_query(self, work_item_query, project):
         """GetLinkedWorkItemsByQuery.
         [Preview API]
-        :param :class:`<LinkedWorkItemsQuery> <test.v4_0.models.LinkedWorkItemsQuery>` work_item_query:
+        :param :class:`<LinkedWorkItemsQuery> <azure.devops.v4_0.test.models.LinkedWorkItemsQuery>` work_item_query:
         :param str project: Project ID or project name
         :rtype: [LinkedWorkItemsQueryResult]
         """
@@ -733,9 +733,9 @@ class TestClient(Client):
 
     def create_test_plan(self, test_plan, project):
         """CreateTestPlan.
-        :param :class:`<PlanUpdateModel> <test.v4_0.models.PlanUpdateModel>` test_plan:
+        :param :class:`<PlanUpdateModel> <azure.devops.v4_0.test.models.PlanUpdateModel>` test_plan:
         :param str project: Project ID or project name
-        :rtype: :class:`<TestPlan> <test.v4_0.models.TestPlan>`
+        :rtype: :class:`<TestPlan> <azure.devops.v4_0.test.models.TestPlan>`
         """
         route_values = {}
         if project is not None:
@@ -767,7 +767,7 @@ class TestClient(Client):
         """GetPlanById.
         :param str project: Project ID or project name
         :param int plan_id:
-        :rtype: :class:`<TestPlan> <test.v4_0.models.TestPlan>`
+        :rtype: :class:`<TestPlan> <azure.devops.v4_0.test.models.TestPlan>`
         """
         route_values = {}
         if project is not None:
@@ -813,10 +813,10 @@ class TestClient(Client):
 
     def update_test_plan(self, plan_update_model, project, plan_id):
         """UpdateTestPlan.
-        :param :class:`<PlanUpdateModel> <test.v4_0.models.PlanUpdateModel>` plan_update_model:
+        :param :class:`<PlanUpdateModel> <azure.devops.v4_0.test.models.PlanUpdateModel>` plan_update_model:
         :param str project: Project ID or project name
         :param int plan_id:
-        :rtype: :class:`<TestPlan> <test.v4_0.models.TestPlan>`
+        :rtype: :class:`<TestPlan> <azure.devops.v4_0.test.models.TestPlan>`
         """
         route_values = {}
         if project is not None:
@@ -838,7 +838,7 @@ class TestClient(Client):
         :param int suite_id:
         :param int point_ids:
         :param str wit_fields:
-        :rtype: :class:`<TestPoint> <test.v4_0.models.TestPoint>`
+        :rtype: :class:`<TestPoint> <azure.devops.v4_0.test.models.TestPoint>`
         """
         route_values = {}
         if project is not None:
@@ -904,7 +904,7 @@ class TestClient(Client):
 
     def update_test_points(self, point_update_model, project, plan_id, suite_id, point_ids):
         """UpdateTestPoints.
-        :param :class:`<PointUpdateModel> <test.v4_0.models.PointUpdateModel>` point_update_model:
+        :param :class:`<PointUpdateModel> <azure.devops.v4_0.test.models.PointUpdateModel>` point_update_model:
         :param str project: Project ID or project name
         :param int plan_id:
         :param int suite_id:
@@ -931,11 +931,11 @@ class TestClient(Client):
     def get_points_by_query(self, query, project, skip=None, top=None):
         """GetPointsByQuery.
         [Preview API]
-        :param :class:`<TestPointsQuery> <test.v4_0.models.TestPointsQuery>` query:
+        :param :class:`<TestPointsQuery> <azure.devops.v4_0.test.models.TestPointsQuery>` query:
         :param str project: Project ID or project name
         :param int skip:
         :param int top:
-        :rtype: :class:`<TestPointsQuery> <test.v4_0.models.TestPointsQuery>`
+        :rtype: :class:`<TestPointsQuery> <azure.devops.v4_0.test.models.TestPointsQuery>`
         """
         route_values = {}
         if project is not None:
@@ -963,7 +963,7 @@ class TestClient(Client):
         :param str group_by:
         :param str filter:
         :param str orderby:
-        :rtype: :class:`<TestResultsDetails> <test.v4_0.models.TestResultsDetails>`
+        :rtype: :class:`<TestResultsDetails> <azure.devops.v4_0.test.models.TestResultsDetails>`
         """
         route_values = {}
         if project is not None:
@@ -996,7 +996,7 @@ class TestClient(Client):
         :param str group_by:
         :param str filter:
         :param str orderby:
-        :rtype: :class:`<TestResultsDetails> <test.v4_0.models.TestResultsDetails>`
+        :rtype: :class:`<TestResultsDetails> <azure.devops.v4_0.test.models.TestResultsDetails>`
         """
         route_values = {}
         if project is not None:
@@ -1024,10 +1024,10 @@ class TestClient(Client):
     def publish_test_result_document(self, document, project, run_id):
         """PublishTestResultDocument.
         [Preview API]
-        :param :class:`<TestResultDocument> <test.v4_0.models.TestResultDocument>` document:
+        :param :class:`<TestResultDocument> <azure.devops.v4_0.test.models.TestResultDocument>` document:
         :param str project: Project ID or project name
         :param int run_id:
-        :rtype: :class:`<TestResultDocument> <test.v4_0.models.TestResultDocument>`
+        :rtype: :class:`<TestResultDocument> <azure.devops.v4_0.test.models.TestResultDocument>`
         """
         route_values = {}
         if project is not None:
@@ -1046,7 +1046,7 @@ class TestClient(Client):
         """GetResultRetentionSettings.
         [Preview API]
         :param str project: Project ID or project name
-        :rtype: :class:`<ResultRetentionSettings> <test.v4_0.models.ResultRetentionSettings>`
+        :rtype: :class:`<ResultRetentionSettings> <azure.devops.v4_0.test.models.ResultRetentionSettings>`
         """
         route_values = {}
         if project is not None:
@@ -1060,9 +1060,9 @@ class TestClient(Client):
     def update_result_retention_settings(self, retention_settings, project):
         """UpdateResultRetentionSettings.
         [Preview API]
-        :param :class:`<ResultRetentionSettings> <test.v4_0.models.ResultRetentionSettings>` retention_settings:
+        :param :class:`<ResultRetentionSettings> <azure.devops.v4_0.test.models.ResultRetentionSettings>` retention_settings:
         :param str project: Project ID or project name
-        :rtype: :class:`<ResultRetentionSettings> <test.v4_0.models.ResultRetentionSettings>`
+        :rtype: :class:`<ResultRetentionSettings> <azure.devops.v4_0.test.models.ResultRetentionSettings>`
         """
         route_values = {}
         if project is not None:
@@ -1101,7 +1101,7 @@ class TestClient(Client):
         :param int run_id:
         :param int test_case_result_id:
         :param str details_to_include:
-        :rtype: :class:`<TestCaseResult> <test.v4_0.models.TestCaseResult>`
+        :rtype: :class:`<TestCaseResult> <azure.devops.v4_0.test.models.TestCaseResult>`
         """
         route_values = {}
         if project is not None:
@@ -1171,9 +1171,9 @@ class TestClient(Client):
     def get_test_results_by_query(self, query, project):
         """GetTestResultsByQuery.
         [Preview API]
-        :param :class:`<TestResultsQuery> <test.v4_0.models.TestResultsQuery>` query:
+        :param :class:`<TestResultsQuery> <azure.devops.v4_0.test.models.TestResultsQuery>` query:
         :param str project: Project ID or project name
-        :rtype: :class:`<TestResultsQuery> <test.v4_0.models.TestResultsQuery>`
+        :rtype: :class:`<TestResultsQuery> <azure.devops.v4_0.test.models.TestResultsQuery>`
         """
         route_values = {}
         if project is not None:
@@ -1193,8 +1193,8 @@ class TestClient(Client):
         :param int build_id:
         :param str publish_context:
         :param bool include_failure_details:
-        :param :class:`<BuildReference> <test.v4_0.models.BuildReference>` build_to_compare:
-        :rtype: :class:`<TestResultSummary> <test.v4_0.models.TestResultSummary>`
+        :param :class:`<BuildReference> <azure.devops.v4_0.test.models.BuildReference>` build_to_compare:
+        :rtype: :class:`<TestResultSummary> <azure.devops.v4_0.test.models.TestResultSummary>`
         """
         route_values = {}
         if project is not None:
@@ -1236,8 +1236,8 @@ class TestClient(Client):
         :param int release_env_id:
         :param str publish_context:
         :param bool include_failure_details:
-        :param :class:`<ReleaseReference> <test.v4_0.models.ReleaseReference>` release_to_compare:
-        :rtype: :class:`<TestResultSummary> <test.v4_0.models.TestResultSummary>`
+        :param :class:`<ReleaseReference> <azure.devops.v4_0.test.models.ReleaseReference>` release_to_compare:
+        :rtype: :class:`<TestResultSummary> <azure.devops.v4_0.test.models.TestResultSummary>`
         """
         route_values = {}
         if project is not None:
@@ -1294,7 +1294,7 @@ class TestClient(Client):
     def query_test_summary_by_requirement(self, results_context, project, work_item_ids=None):
         """QueryTestSummaryByRequirement.
         [Preview API]
-        :param :class:`<TestResultsContext> <test.v4_0.models.TestResultsContext>` results_context:
+        :param :class:`<TestResultsContext> <azure.devops.v4_0.test.models.TestResultsContext>` results_context:
         :param str project: Project ID or project name
         :param [int] work_item_ids:
         :rtype: [TestSummaryForWorkItem]
@@ -1318,7 +1318,7 @@ class TestClient(Client):
     def query_result_trend_for_build(self, filter, project):
         """QueryResultTrendForBuild.
         [Preview API]
-        :param :class:`<TestResultTrendFilter> <test.v4_0.models.TestResultTrendFilter>` filter:
+        :param :class:`<TestResultTrendFilter> <azure.devops.v4_0.test.models.TestResultTrendFilter>` filter:
         :param str project: Project ID or project name
         :rtype: [AggregatedDataForResultTrend]
         """
@@ -1336,7 +1336,7 @@ class TestClient(Client):
     def query_result_trend_for_release(self, filter, project):
         """QueryResultTrendForRelease.
         [Preview API]
-        :param :class:`<TestResultTrendFilter> <test.v4_0.models.TestResultTrendFilter>` filter:
+        :param :class:`<TestResultTrendFilter> <azure.devops.v4_0.test.models.TestResultTrendFilter>` filter:
         :param str project: Project ID or project name
         :rtype: [AggregatedDataForResultTrend]
         """
@@ -1355,7 +1355,7 @@ class TestClient(Client):
         """GetTestRunStatistics.
         :param str project: Project ID or project name
         :param int run_id:
-        :rtype: :class:`<TestRunStatistic> <test.v4_0.models.TestRunStatistic>`
+        :rtype: :class:`<TestRunStatistic> <azure.devops.v4_0.test.models.TestRunStatistic>`
         """
         route_values = {}
         if project is not None:
@@ -1370,9 +1370,9 @@ class TestClient(Client):
 
     def create_test_run(self, test_run, project):
         """CreateTestRun.
-        :param :class:`<RunCreateModel> <test.v4_0.models.RunCreateModel>` test_run:
+        :param :class:`<RunCreateModel> <azure.devops.v4_0.test.models.RunCreateModel>` test_run:
         :param str project: Project ID or project name
-        :rtype: :class:`<TestRun> <test.v4_0.models.TestRun>`
+        :rtype: :class:`<TestRun> <azure.devops.v4_0.test.models.TestRun>`
         """
         route_values = {}
         if project is not None:
@@ -1404,7 +1404,7 @@ class TestClient(Client):
         """GetTestRunById.
         :param str project: Project ID or project name
         :param int run_id:
-        :rtype: :class:`<TestRun> <test.v4_0.models.TestRun>`
+        :rtype: :class:`<TestRun> <azure.devops.v4_0.test.models.TestRun>`
         """
         route_values = {}
         if project is not None:
@@ -1523,10 +1523,10 @@ class TestClient(Client):
 
     def update_test_run(self, run_update_model, project, run_id):
         """UpdateTestRun.
-        :param :class:`<RunUpdateModel> <test.v4_0.models.RunUpdateModel>` run_update_model:
+        :param :class:`<RunUpdateModel> <azure.devops.v4_0.test.models.RunUpdateModel>` run_update_model:
         :param str project: Project ID or project name
         :param int run_id:
-        :rtype: :class:`<TestRun> <test.v4_0.models.TestRun>`
+        :rtype: :class:`<TestRun> <azure.devops.v4_0.test.models.TestRun>`
         """
         route_values = {}
         if project is not None:
@@ -1544,9 +1544,9 @@ class TestClient(Client):
     def create_test_session(self, test_session, team_context):
         """CreateTestSession.
         [Preview API]
-        :param :class:`<TestSession> <test.v4_0.models.TestSession>` test_session:
-        :param :class:`<TeamContext> <test.v4_0.models.TeamContext>` team_context: The team context for the operation
-        :rtype: :class:`<TestSession> <test.v4_0.models.TestSession>`
+        :param :class:`<TestSession> <azure.devops.v4_0.test.models.TestSession>` test_session:
+        :param :class:`<TeamContext> <azure.devops.v4_0.test.models.TeamContext>` team_context: The team context for the operation
+        :rtype: :class:`<TestSession> <azure.devops.v4_0.test.models.TestSession>`
         """
         project = None
         team = None
@@ -1576,7 +1576,7 @@ class TestClient(Client):
     def get_test_sessions(self, team_context, period=None, all_sessions=None, include_all_properties=None, source=None, include_only_completed_sessions=None):
         """GetTestSessions.
         [Preview API]
-        :param :class:`<TeamContext> <test.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.test.models.TeamContext>` team_context: The team context for the operation
         :param int period:
         :param bool all_sessions:
         :param bool include_all_properties:
@@ -1622,9 +1622,9 @@ class TestClient(Client):
     def update_test_session(self, test_session, team_context):
         """UpdateTestSession.
         [Preview API]
-        :param :class:`<TestSession> <test.v4_0.models.TestSession>` test_session:
-        :param :class:`<TeamContext> <test.v4_0.models.TeamContext>` team_context: The team context for the operation
-        :rtype: :class:`<TestSession> <test.v4_0.models.TestSession>`
+        :param :class:`<TestSession> <azure.devops.v4_0.test.models.TestSession>` test_session:
+        :param :class:`<TeamContext> <azure.devops.v4_0.test.models.TeamContext>` team_context: The team context for the operation
+        :rtype: :class:`<TestSession> <azure.devops.v4_0.test.models.TestSession>`
         """
         project = None
         team = None
@@ -1752,7 +1752,7 @@ class TestClient(Client):
         :param int plan_id:
         :param int suite_id:
         :param int test_case_ids:
-        :rtype: :class:`<SuiteTestCase> <test.v4_0.models.SuiteTestCase>`
+        :rtype: :class:`<SuiteTestCase> <azure.devops.v4_0.test.models.SuiteTestCase>`
         """
         route_values = {}
         if project is not None:
@@ -1815,7 +1815,7 @@ class TestClient(Client):
 
     def create_test_suite(self, test_suite, project, plan_id, suite_id):
         """CreateTestSuite.
-        :param :class:`<SuiteCreateModel> <test.v4_0.models.SuiteCreateModel>` test_suite:
+        :param :class:`<SuiteCreateModel> <azure.devops.v4_0.test.models.SuiteCreateModel>` test_suite:
         :param str project: Project ID or project name
         :param int plan_id:
         :param int suite_id:
@@ -1860,7 +1860,7 @@ class TestClient(Client):
         :param int plan_id:
         :param int suite_id:
         :param bool include_child_suites:
-        :rtype: :class:`<TestSuite> <test.v4_0.models.TestSuite>`
+        :rtype: :class:`<TestSuite> <azure.devops.v4_0.test.models.TestSuite>`
         """
         route_values = {}
         if project is not None:
@@ -1912,11 +1912,11 @@ class TestClient(Client):
 
     def update_test_suite(self, suite_update_model, project, plan_id, suite_id):
         """UpdateTestSuite.
-        :param :class:`<SuiteUpdateModel> <test.v4_0.models.SuiteUpdateModel>` suite_update_model:
+        :param :class:`<SuiteUpdateModel> <azure.devops.v4_0.test.models.SuiteUpdateModel>` suite_update_model:
         :param str project: Project ID or project name
         :param int plan_id:
         :param int suite_id:
-        :rtype: :class:`<TestSuite> <test.v4_0.models.TestSuite>`
+        :rtype: :class:`<TestSuite> <azure.devops.v4_0.test.models.TestSuite>`
         """
         route_values = {}
         if project is not None:
@@ -1965,7 +1965,7 @@ class TestClient(Client):
 
     def create_test_settings(self, test_settings, project):
         """CreateTestSettings.
-        :param :class:`<TestSettings> <test.v4_0.models.TestSettings>` test_settings:
+        :param :class:`<TestSettings> <azure.devops.v4_0.test.models.TestSettings>` test_settings:
         :param str project: Project ID or project name
         :rtype: int
         """
@@ -1999,7 +1999,7 @@ class TestClient(Client):
         """GetTestSettingsById.
         :param str project: Project ID or project name
         :param int test_settings_id:
-        :rtype: :class:`<TestSettings> <test.v4_0.models.TestSettings>`
+        :rtype: :class:`<TestSettings> <azure.devops.v4_0.test.models.TestSettings>`
         """
         route_values = {}
         if project is not None:
@@ -2015,9 +2015,9 @@ class TestClient(Client):
     def create_test_variable(self, test_variable, project):
         """CreateTestVariable.
         [Preview API]
-        :param :class:`<TestVariable> <test.v4_0.models.TestVariable>` test_variable:
+        :param :class:`<TestVariable> <azure.devops.v4_0.test.models.TestVariable>` test_variable:
         :param str project: Project ID or project name
-        :rtype: :class:`<TestVariable> <test.v4_0.models.TestVariable>`
+        :rtype: :class:`<TestVariable> <azure.devops.v4_0.test.models.TestVariable>`
         """
         route_values = {}
         if project is not None:
@@ -2051,7 +2051,7 @@ class TestClient(Client):
         [Preview API]
         :param str project: Project ID or project name
         :param int test_variable_id:
-        :rtype: :class:`<TestVariable> <test.v4_0.models.TestVariable>`
+        :rtype: :class:`<TestVariable> <azure.devops.v4_0.test.models.TestVariable>`
         """
         route_values = {}
         if project is not None:
@@ -2090,10 +2090,10 @@ class TestClient(Client):
     def update_test_variable(self, test_variable, project, test_variable_id):
         """UpdateTestVariable.
         [Preview API]
-        :param :class:`<TestVariable> <test.v4_0.models.TestVariable>` test_variable:
+        :param :class:`<TestVariable> <azure.devops.v4_0.test.models.TestVariable>` test_variable:
         :param str project: Project ID or project name
         :param int test_variable_id:
-        :rtype: :class:`<TestVariable> <test.v4_0.models.TestVariable>`
+        :rtype: :class:`<TestVariable> <azure.devops.v4_0.test.models.TestVariable>`
         """
         route_values = {}
         if project is not None:
@@ -2111,9 +2111,9 @@ class TestClient(Client):
     def add_work_item_to_test_links(self, work_item_to_test_links, project):
         """AddWorkItemToTestLinks.
         [Preview API]
-        :param :class:`<WorkItemToTestLinks> <test.v4_0.models.WorkItemToTestLinks>` work_item_to_test_links:
+        :param :class:`<WorkItemToTestLinks> <azure.devops.v4_0.test.models.WorkItemToTestLinks>` work_item_to_test_links:
         :param str project: Project ID or project name
-        :rtype: :class:`<WorkItemToTestLinks> <test.v4_0.models.WorkItemToTestLinks>`
+        :rtype: :class:`<WorkItemToTestLinks> <azure.devops.v4_0.test.models.WorkItemToTestLinks>`
         """
         route_values = {}
         if project is not None:
@@ -2154,7 +2154,7 @@ class TestClient(Client):
         [Preview API]
         :param str project: Project ID or project name
         :param str test_name:
-        :rtype: :class:`<TestToWorkItemLinks> <test.v4_0.models.TestToWorkItemLinks>`
+        :rtype: :class:`<TestToWorkItemLinks> <azure.devops.v4_0.test.models.TestToWorkItemLinks>`
         """
         route_values = {}
         if project is not None:

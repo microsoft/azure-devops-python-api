@@ -59,8 +59,8 @@ class SymbolClient(Client):
     def create_requests(self, request_to_create):
         """CreateRequests.
         [Preview API] Create a new symbol request.
-        :param :class:`<Request> <symbol.v4_1.models.Request>` request_to_create: The symbol request to create.
-        :rtype: :class:`<Request> <symbol.v4_1.models.Request>`
+        :param :class:`<Request> <azure.devops.v4_1.symbol.models.Request>` request_to_create: The symbol request to create.
+        :rtype: :class:`<Request> <azure.devops.v4_1.symbol.models.Request>`
         """
         content = self._serialize.body(request_to_create, 'Request')
         response = self._send(http_method='POST',
@@ -72,7 +72,7 @@ class SymbolClient(Client):
     def create_requests_request_id_debug_entries(self, batch, request_id, collection):
         """CreateRequestsRequestIdDebugEntries.
         [Preview API] Create debug entries for a symbol request as specified by its identifier.
-        :param :class:`<DebugEntryCreateBatch> <symbol.v4_1.models.DebugEntryCreateBatch>` batch: A batch that contains debug entries to create.
+        :param :class:`<DebugEntryCreateBatch> <azure.devops.v4_1.symbol.models.DebugEntryCreateBatch>` batch: A batch that contains debug entries to create.
         :param str request_id: The symbol request identifier.
         :param str collection: A valid debug entry collection name. Must be "debugentries".
         :rtype: [DebugEntry]
@@ -95,7 +95,7 @@ class SymbolClient(Client):
     def create_requests_request_name_debug_entries(self, batch, request_name, collection):
         """CreateRequestsRequestNameDebugEntries.
         [Preview API] Create debug entries for a symbol request as specified by its name.
-        :param :class:`<DebugEntryCreateBatch> <symbol.v4_1.models.DebugEntryCreateBatch>` batch: A batch that contains debug entries to create.
+        :param :class:`<DebugEntryCreateBatch> <azure.devops.v4_1.symbol.models.DebugEntryCreateBatch>` batch: A batch that contains debug entries to create.
         :param str request_name:
         :param str collection: A valid debug entry collection name. Must be "debugentries".
         :rtype: [DebugEntry]
@@ -151,7 +151,7 @@ class SymbolClient(Client):
         """GetRequestsRequestId.
         [Preview API] Get a symbol request by request identifier.
         :param str request_id: The symbol request identifier.
-        :rtype: :class:`<Request> <symbol.v4_1.models.Request>`
+        :rtype: :class:`<Request> <azure.devops.v4_1.symbol.models.Request>`
         """
         route_values = {}
         if request_id is not None:
@@ -166,7 +166,7 @@ class SymbolClient(Client):
         """GetRequestsRequestName.
         [Preview API] Get a symbol request by request name.
         :param str request_name:
-        :rtype: :class:`<Request> <symbol.v4_1.models.Request>`
+        :rtype: :class:`<Request> <azure.devops.v4_1.symbol.models.Request>`
         """
         query_parameters = {}
         if request_name is not None:
@@ -180,9 +180,9 @@ class SymbolClient(Client):
     def update_requests_request_id(self, update_request, request_id):
         """UpdateRequestsRequestId.
         [Preview API] Update a symbol request by request identifier.
-        :param :class:`<Request> <symbol.v4_1.models.Request>` update_request: The symbol request.
+        :param :class:`<Request> <azure.devops.v4_1.symbol.models.Request>` update_request: The symbol request.
         :param str request_id: The symbol request identifier.
-        :rtype: :class:`<Request> <symbol.v4_1.models.Request>`
+        :rtype: :class:`<Request> <azure.devops.v4_1.symbol.models.Request>`
         """
         route_values = {}
         if request_id is not None:
@@ -198,9 +198,9 @@ class SymbolClient(Client):
     def update_requests_request_name(self, update_request, request_name):
         """UpdateRequestsRequestName.
         [Preview API] Update a symbol request by request name.
-        :param :class:`<Request> <symbol.v4_1.models.Request>` update_request: The symbol request.
+        :param :class:`<Request> <azure.devops.v4_1.symbol.models.Request>` update_request: The symbol request.
         :param str request_name:
-        :rtype: :class:`<Request> <symbol.v4_1.models.Request>`
+        :rtype: :class:`<Request> <azure.devops.v4_1.symbol.models.Request>`
         """
         query_parameters = {}
         if request_name is not None:

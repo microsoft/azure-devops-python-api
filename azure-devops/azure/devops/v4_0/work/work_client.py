@@ -28,8 +28,8 @@ class WorkClient(Client):
     def get_backlog_configurations(self, team_context):
         """GetBacklogConfigurations.
         [Preview API]
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
-        :rtype: :class:`<BacklogConfiguration> <work.v4_0.models.BacklogConfiguration>`
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
+        :rtype: :class:`<BacklogConfiguration> <azure.devops.v4_0.work.models.BacklogConfiguration>`
         """
         project = None
         team = None
@@ -71,7 +71,7 @@ class WorkClient(Client):
     def get_board_mapping_parent_items(self, team_context, child_backlog_context_category_ref_name, workitem_ids):
         """GetBoardMappingParentItems.
         [Preview API] Returns the list of parent field filter model for the given list of workitem ids
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str child_backlog_context_category_ref_name:
         :param [int] workitem_ids:
         :rtype: [ParentChildWIMap]
@@ -123,9 +123,9 @@ class WorkClient(Client):
     def get_board(self, team_context, id):
         """GetBoard.
         Get board
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str id: identifier for board, either board's backlog level name (Eg:"Stories") or Id
-        :rtype: :class:`<Board> <work.v4_0.models.Board>`
+        :rtype: :class:`<Board> <azure.devops.v4_0.work.models.Board>`
         """
         project = None
         team = None
@@ -155,7 +155,7 @@ class WorkClient(Client):
     def get_boards(self, team_context):
         """GetBoards.
         Get boards
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :rtype: [BoardReference]
         """
         project = None
@@ -185,7 +185,7 @@ class WorkClient(Client):
         """SetBoardOptions.
         Update board options
         :param {str} options: options to updated
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str id: identifier for board, either category plural name (Eg:"Stories") or guid
         :rtype: {str}
         """
@@ -219,9 +219,9 @@ class WorkClient(Client):
     def get_board_user_settings(self, team_context, board):
         """GetBoardUserSettings.
         [Preview API]
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str board:
-        :rtype: :class:`<BoardUserSettings> <work.v4_0.models.BoardUserSettings>`
+        :rtype: :class:`<BoardUserSettings> <azure.devops.v4_0.work.models.BoardUserSettings>`
         """
         project = None
         team = None
@@ -252,9 +252,9 @@ class WorkClient(Client):
         """UpdateBoardUserSettings.
         [Preview API] Update board user settings for the board id
         :param {str} board_user_settings:
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str board:
-        :rtype: :class:`<BoardUserSettings> <work.v4_0.models.BoardUserSettings>`
+        :rtype: :class:`<BoardUserSettings> <azure.devops.v4_0.work.models.BoardUserSettings>`
         """
         project = None
         team = None
@@ -285,7 +285,7 @@ class WorkClient(Client):
 
     def get_capacities(self, team_context, iteration_id):
         """GetCapacities.
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str iteration_id:
         :rtype: [TeamMemberCapacity]
         """
@@ -316,10 +316,10 @@ class WorkClient(Client):
 
     def get_capacity(self, team_context, iteration_id, team_member_id):
         """GetCapacity.
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str iteration_id:
         :param str team_member_id:
-        :rtype: :class:`<TeamMemberCapacity> <work.v4_0.models.TeamMemberCapacity>`
+        :rtype: :class:`<TeamMemberCapacity> <azure.devops.v4_0.work.models.TeamMemberCapacity>`
         """
         project = None
         team = None
@@ -351,7 +351,7 @@ class WorkClient(Client):
     def replace_capacities(self, capacities, team_context, iteration_id):
         """ReplaceCapacities.
         :param [TeamMemberCapacity] capacities:
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str iteration_id:
         :rtype: [TeamMemberCapacity]
         """
@@ -384,11 +384,11 @@ class WorkClient(Client):
 
     def update_capacity(self, patch, team_context, iteration_id, team_member_id):
         """UpdateCapacity.
-        :param :class:`<CapacityPatch> <work.v4_0.models.CapacityPatch>` patch:
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<CapacityPatch> <azure.devops.v4_0.work.models.CapacityPatch>` patch:
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str iteration_id:
         :param str team_member_id:
-        :rtype: :class:`<TeamMemberCapacity> <work.v4_0.models.TeamMemberCapacity>`
+        :rtype: :class:`<TeamMemberCapacity> <azure.devops.v4_0.work.models.TeamMemberCapacity>`
         """
         project = None
         team = None
@@ -422,9 +422,9 @@ class WorkClient(Client):
     def get_board_card_rule_settings(self, team_context, board):
         """GetBoardCardRuleSettings.
         [Preview API] Get board card Rule settings for the board id or board by name
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str board:
-        :rtype: :class:`<BoardCardRuleSettings> <work.v4_0.models.BoardCardRuleSettings>`
+        :rtype: :class:`<BoardCardRuleSettings> <azure.devops.v4_0.work.models.BoardCardRuleSettings>`
         """
         project = None
         team = None
@@ -454,10 +454,10 @@ class WorkClient(Client):
     def update_board_card_rule_settings(self, board_card_rule_settings, team_context, board):
         """UpdateBoardCardRuleSettings.
         [Preview API] Update board card Rule settings for the board id or board by name
-        :param :class:`<BoardCardRuleSettings> <work.v4_0.models.BoardCardRuleSettings>` board_card_rule_settings:
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<BoardCardRuleSettings> <azure.devops.v4_0.work.models.BoardCardRuleSettings>` board_card_rule_settings:
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str board:
-        :rtype: :class:`<BoardCardRuleSettings> <work.v4_0.models.BoardCardRuleSettings>`
+        :rtype: :class:`<BoardCardRuleSettings> <azure.devops.v4_0.work.models.BoardCardRuleSettings>`
         """
         project = None
         team = None
@@ -489,9 +489,9 @@ class WorkClient(Client):
     def get_board_card_settings(self, team_context, board):
         """GetBoardCardSettings.
         Get board card settings for the board id or board by name
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str board:
-        :rtype: :class:`<BoardCardSettings> <work.v4_0.models.BoardCardSettings>`
+        :rtype: :class:`<BoardCardSettings> <azure.devops.v4_0.work.models.BoardCardSettings>`
         """
         project = None
         team = None
@@ -521,10 +521,10 @@ class WorkClient(Client):
     def update_board_card_settings(self, board_card_settings_to_save, team_context, board):
         """UpdateBoardCardSettings.
         Update board card settings for the board id or board by name
-        :param :class:`<BoardCardSettings> <work.v4_0.models.BoardCardSettings>` board_card_settings_to_save:
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<BoardCardSettings> <azure.devops.v4_0.work.models.BoardCardSettings>` board_card_settings_to_save:
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str board:
-        :rtype: :class:`<BoardCardSettings> <work.v4_0.models.BoardCardSettings>`
+        :rtype: :class:`<BoardCardSettings> <azure.devops.v4_0.work.models.BoardCardSettings>`
         """
         project = None
         team = None
@@ -556,10 +556,10 @@ class WorkClient(Client):
     def get_board_chart(self, team_context, board, name):
         """GetBoardChart.
         Get a board chart
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str board: Identifier for board, either board's backlog level name (Eg:"Stories") or Id
         :param str name: The chart name
-        :rtype: :class:`<BoardChart> <work.v4_0.models.BoardChart>`
+        :rtype: :class:`<BoardChart> <azure.devops.v4_0.work.models.BoardChart>`
         """
         project = None
         team = None
@@ -591,7 +591,7 @@ class WorkClient(Client):
     def get_board_charts(self, team_context, board):
         """GetBoardCharts.
         Get board charts
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str board: Identifier for board, either board's backlog level name (Eg:"Stories") or Id
         :rtype: [BoardChartReference]
         """
@@ -623,11 +623,11 @@ class WorkClient(Client):
     def update_board_chart(self, chart, team_context, board, name):
         """UpdateBoardChart.
         Update a board chart
-        :param :class:`<BoardChart> <work.v4_0.models.BoardChart>` chart:
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<BoardChart> <azure.devops.v4_0.work.models.BoardChart>` chart:
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str board: Identifier for board, either board's backlog level name (Eg:"Stories") or Id
         :param str name: The chart name
-        :rtype: :class:`<BoardChart> <work.v4_0.models.BoardChart>`
+        :rtype: :class:`<BoardChart> <azure.devops.v4_0.work.models.BoardChart>`
         """
         project = None
         team = None
@@ -660,7 +660,7 @@ class WorkClient(Client):
 
     def get_board_columns(self, team_context, board):
         """GetBoardColumns.
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str board:
         :rtype: [BoardColumn]
         """
@@ -692,7 +692,7 @@ class WorkClient(Client):
     def update_board_columns(self, board_columns, team_context, board):
         """UpdateBoardColumns.
         :param [BoardColumn] board_columns:
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str board:
         :rtype: [BoardColumn]
         """
@@ -731,7 +731,7 @@ class WorkClient(Client):
         :param int revision: Revision of the plan for which you want data. If the current plan is a different revision you will get an ViewRevisionMismatchException exception. If you do not supply a revision you will get data for the latest revision.
         :param datetime start_date: The start date of timeline
         :param datetime end_date: The end date of timeline
-        :rtype: :class:`<DeliveryViewData> <work.v4_0.models.DeliveryViewData>`
+        :rtype: :class:`<DeliveryViewData> <azure.devops.v4_0.work.models.DeliveryViewData>`
         """
         route_values = {}
         if project is not None:
@@ -754,7 +754,7 @@ class WorkClient(Client):
 
     def delete_team_iteration(self, team_context, id):
         """DeleteTeamIteration.
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str id:
         """
         project = None
@@ -783,9 +783,9 @@ class WorkClient(Client):
 
     def get_team_iteration(self, team_context, id):
         """GetTeamIteration.
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str id:
-        :rtype: :class:`<TeamSettingsIteration> <work.v4_0.models.TeamSettingsIteration>`
+        :rtype: :class:`<TeamSettingsIteration> <azure.devops.v4_0.work.models.TeamSettingsIteration>`
         """
         project = None
         team = None
@@ -814,7 +814,7 @@ class WorkClient(Client):
 
     def get_team_iterations(self, team_context, timeframe=None):
         """GetTeamIterations.
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str timeframe:
         :rtype: [TeamSettingsIteration]
         """
@@ -847,9 +847,9 @@ class WorkClient(Client):
 
     def post_team_iteration(self, iteration, team_context):
         """PostTeamIteration.
-        :param :class:`<TeamSettingsIteration> <work.v4_0.models.TeamSettingsIteration>` iteration:
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
-        :rtype: :class:`<TeamSettingsIteration> <work.v4_0.models.TeamSettingsIteration>`
+        :param :class:`<TeamSettingsIteration> <azure.devops.v4_0.work.models.TeamSettingsIteration>` iteration:
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
+        :rtype: :class:`<TeamSettingsIteration> <azure.devops.v4_0.work.models.TeamSettingsIteration>`
         """
         project = None
         team = None
@@ -879,9 +879,9 @@ class WorkClient(Client):
     def create_plan(self, posted_plan, project):
         """CreatePlan.
         [Preview API] Add a new plan for the team
-        :param :class:`<CreatePlan> <work.v4_0.models.CreatePlan>` posted_plan: Plan definition
+        :param :class:`<CreatePlan> <azure.devops.v4_0.work.models.CreatePlan>` posted_plan: Plan definition
         :param str project: Project ID or project name
-        :rtype: :class:`<Plan> <work.v4_0.models.Plan>`
+        :rtype: :class:`<Plan> <azure.devops.v4_0.work.models.Plan>`
         """
         route_values = {}
         if project is not None:
@@ -915,7 +915,7 @@ class WorkClient(Client):
         [Preview API] Get the information for the specified plan
         :param str project: Project ID or project name
         :param str id: Identifier of the plan
-        :rtype: :class:`<Plan> <work.v4_0.models.Plan>`
+        :rtype: :class:`<Plan> <azure.devops.v4_0.work.models.Plan>`
         """
         route_values = {}
         if project is not None:
@@ -946,10 +946,10 @@ class WorkClient(Client):
     def update_plan(self, updated_plan, project, id):
         """UpdatePlan.
         [Preview API] Update the information for the specified plan
-        :param :class:`<UpdatePlan> <work.v4_0.models.UpdatePlan>` updated_plan: Plan definition to be updated
+        :param :class:`<UpdatePlan> <azure.devops.v4_0.work.models.UpdatePlan>` updated_plan: Plan definition to be updated
         :param str project: Project ID or project name
         :param str id: Identifier of the plan
-        :rtype: :class:`<Plan> <work.v4_0.models.Plan>`
+        :rtype: :class:`<Plan> <azure.devops.v4_0.work.models.Plan>`
         """
         route_values = {}
         if project is not None:
@@ -968,7 +968,7 @@ class WorkClient(Client):
         """GetProcessConfiguration.
         [Preview API]
         :param str project: Project ID or project name
-        :rtype: :class:`<ProcessConfiguration> <work.v4_0.models.ProcessConfiguration>`
+        :rtype: :class:`<ProcessConfiguration> <azure.devops.v4_0.work.models.ProcessConfiguration>`
         """
         route_values = {}
         if project is not None:
@@ -981,7 +981,7 @@ class WorkClient(Client):
 
     def get_board_rows(self, team_context, board):
         """GetBoardRows.
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str board:
         :rtype: [BoardRow]
         """
@@ -1013,7 +1013,7 @@ class WorkClient(Client):
     def update_board_rows(self, board_rows, team_context, board):
         """UpdateBoardRows.
         :param [BoardRow] board_rows:
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str board:
         :rtype: [BoardRow]
         """
@@ -1046,9 +1046,9 @@ class WorkClient(Client):
 
     def get_team_days_off(self, team_context, iteration_id):
         """GetTeamDaysOff.
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str iteration_id:
-        :rtype: :class:`<TeamSettingsDaysOff> <work.v4_0.models.TeamSettingsDaysOff>`
+        :rtype: :class:`<TeamSettingsDaysOff> <azure.devops.v4_0.work.models.TeamSettingsDaysOff>`
         """
         project = None
         team = None
@@ -1077,10 +1077,10 @@ class WorkClient(Client):
 
     def update_team_days_off(self, days_off_patch, team_context, iteration_id):
         """UpdateTeamDaysOff.
-        :param :class:`<TeamSettingsDaysOffPatch> <work.v4_0.models.TeamSettingsDaysOffPatch>` days_off_patch:
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
+        :param :class:`<TeamSettingsDaysOffPatch> <azure.devops.v4_0.work.models.TeamSettingsDaysOffPatch>` days_off_patch:
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
         :param str iteration_id:
-        :rtype: :class:`<TeamSettingsDaysOff> <work.v4_0.models.TeamSettingsDaysOff>`
+        :rtype: :class:`<TeamSettingsDaysOff> <azure.devops.v4_0.work.models.TeamSettingsDaysOff>`
         """
         project = None
         team = None
@@ -1111,8 +1111,8 @@ class WorkClient(Client):
 
     def get_team_field_values(self, team_context):
         """GetTeamFieldValues.
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
-        :rtype: :class:`<TeamFieldValues> <work.v4_0.models.TeamFieldValues>`
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
+        :rtype: :class:`<TeamFieldValues> <azure.devops.v4_0.work.models.TeamFieldValues>`
         """
         project = None
         team = None
@@ -1139,9 +1139,9 @@ class WorkClient(Client):
 
     def update_team_field_values(self, patch, team_context):
         """UpdateTeamFieldValues.
-        :param :class:`<TeamFieldValuesPatch> <work.v4_0.models.TeamFieldValuesPatch>` patch:
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
-        :rtype: :class:`<TeamFieldValues> <work.v4_0.models.TeamFieldValues>`
+        :param :class:`<TeamFieldValuesPatch> <azure.devops.v4_0.work.models.TeamFieldValuesPatch>` patch:
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
+        :rtype: :class:`<TeamFieldValues> <azure.devops.v4_0.work.models.TeamFieldValues>`
         """
         project = None
         team = None
@@ -1170,8 +1170,8 @@ class WorkClient(Client):
 
     def get_team_settings(self, team_context):
         """GetTeamSettings.
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
-        :rtype: :class:`<TeamSetting> <work.v4_0.models.TeamSetting>`
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
+        :rtype: :class:`<TeamSetting> <azure.devops.v4_0.work.models.TeamSetting>`
         """
         project = None
         team = None
@@ -1198,9 +1198,9 @@ class WorkClient(Client):
 
     def update_team_settings(self, team_settings_patch, team_context):
         """UpdateTeamSettings.
-        :param :class:`<TeamSettingsPatch> <work.v4_0.models.TeamSettingsPatch>` team_settings_patch:
-        :param :class:`<TeamContext> <work.v4_0.models.TeamContext>` team_context: The team context for the operation
-        :rtype: :class:`<TeamSetting> <work.v4_0.models.TeamSetting>`
+        :param :class:`<TeamSettingsPatch> <azure.devops.v4_0.work.models.TeamSettingsPatch>` team_settings_patch:
+        :param :class:`<TeamContext> <azure.devops.v4_0.work.models.TeamContext>` team_context: The team context for the operation
+        :rtype: :class:`<TeamSetting> <azure.devops.v4_0.work.models.TeamSetting>`
         """
         project = None
         team = None

@@ -21,15 +21,15 @@ class AccountEntitlement(Model):
     :param last_accessed_date: Gets or sets the date of the user last sign-in to this account
     :type last_accessed_date: datetime
     :param license:
-    :type license: :class:`License <licensing.v4_1.models.License>`
+    :type license: :class:`License <azure.devops.v4_1.licensing.models.License>`
     :param origin: Licensing origin
     :type origin: object
     :param rights: The computed rights of this user in the account.
-    :type rights: :class:`AccountRights <licensing.v4_1.models.AccountRights>`
+    :type rights: :class:`AccountRights <azure.devops.v4_1.licensing.models.AccountRights>`
     :param status: The status of the user in the account
     :type status: object
     :param user: Identity information of the user to which the license belongs
-    :type user: :class:`IdentityRef <licensing.v4_1.models.IdentityRef>`
+    :type user: :class:`IdentityRef <azure.devops.v4_1.licensing.models.IdentityRef>`
     :param user_id: Gets the id of the user to which the license belongs
     :type user_id: str
     """
@@ -65,7 +65,7 @@ class AccountEntitlementUpdateModel(Model):
     """AccountEntitlementUpdateModel.
 
     :param license: Gets or sets the license for the entitlement
-    :type license: :class:`License <licensing.v4_1.models.License>`
+    :type license: :class:`License <azure.devops.v4_1.licensing.models.License>`
     """
 
     _attribute_map = {
@@ -135,7 +135,7 @@ class AccountLicenseUsage(Model):
     :param disabled_count: Amount that is disabled (Usually from licenses that were provisioned, but became invalid due to loss of subscription in a new billing cycle)
     :type disabled_count: int
     :param license:
-    :type license: :class:`AccountUserLicense <licensing.v4_1.models.AccountUserLicense>`
+    :type license: :class:`AccountUserLicense <azure.devops.v4_1.licensing.models.AccountUserLicense>`
     :param pending_provisioned_count: Amount that will be purchased in the next billing cycle
     :type pending_provisioned_count: int
     :param provisioned_count: Amount that has been purchased
@@ -397,7 +397,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <microsoft.-visual-studio.-services.-web-api.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -425,7 +425,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <microsoft.-visual-studio.-services.-web-api.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.

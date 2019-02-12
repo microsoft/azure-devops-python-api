@@ -28,10 +28,10 @@ class GitClientBase(Client):
     def create_annotated_tag(self, tag_object, project, repository_id):
         """CreateAnnotatedTag.
         [Preview API] Create an annotated tag
-        :param :class:`<GitAnnotatedTag> <git.v4_0.models.GitAnnotatedTag>` tag_object: Object containing details of tag to be created
+        :param :class:`<GitAnnotatedTag> <azure.devops.v4_0.git.models.GitAnnotatedTag>` tag_object: Object containing details of tag to be created
         :param str project: Project ID or project name
         :param str repository_id: Friendly name or guid of repository
-        :rtype: :class:`<GitAnnotatedTag> <git.v4_0.models.GitAnnotatedTag>`
+        :rtype: :class:`<GitAnnotatedTag> <azure.devops.v4_0.git.models.GitAnnotatedTag>`
         """
         route_values = {}
         if project is not None:
@@ -52,7 +52,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param str repository_id:
         :param str object_id: Sha1 of annotated tag to be returned
-        :rtype: :class:`<GitAnnotatedTag> <git.v4_0.models.GitAnnotatedTag>`
+        :rtype: :class:`<GitAnnotatedTag> <azure.devops.v4_0.git.models.GitAnnotatedTag>`
         """
         route_values = {}
         if project is not None:
@@ -75,7 +75,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param bool download:
         :param str file_name:
-        :rtype: :class:`<GitBlobRef> <git.v4_0.models.GitBlobRef>`
+        :rtype: :class:`<GitBlobRef> <azure.devops.v4_0.git.models.GitBlobRef>`
         """
         route_values = {}
         if project is not None:
@@ -201,8 +201,8 @@ class GitClientBase(Client):
         :param str repository_id: Friendly name or guid of repository
         :param str name: Name of the branch
         :param str project: Project ID or project name
-        :param :class:`<GitVersionDescriptor> <git.v4_0.models.GitVersionDescriptor>` base_version_descriptor:
-        :rtype: :class:`<GitBranchStats> <git.v4_0.models.GitBranchStats>`
+        :param :class:`<GitVersionDescriptor> <azure.devops.v4_0.git.models.GitVersionDescriptor>` base_version_descriptor:
+        :rtype: :class:`<GitBranchStats> <azure.devops.v4_0.git.models.GitBranchStats>`
         """
         route_values = {}
         if project is not None:
@@ -231,7 +231,7 @@ class GitClientBase(Client):
         Retrieve statistics about all branches within a repository.
         :param str repository_id: Friendly name or guid of repository
         :param str project: Project ID or project name
-        :param :class:`<GitVersionDescriptor> <git.v4_0.models.GitVersionDescriptor>` base_version_descriptor:
+        :param :class:`<GitVersionDescriptor> <azure.devops.v4_0.git.models.GitVersionDescriptor>` base_version_descriptor:
         :rtype: [GitBranchStats]
         """
         route_values = {}
@@ -257,7 +257,7 @@ class GitClientBase(Client):
     def get_branch_stats_batch(self, search_criteria, repository_id, project=None):
         """GetBranchStatsBatch.
         Retrieve statistics for multiple commits
-        :param :class:`<GitQueryBranchStatsCriteria> <git.v4_0.models.GitQueryBranchStatsCriteria>` search_criteria:
+        :param :class:`<GitQueryBranchStatsCriteria> <azure.devops.v4_0.git.models.GitQueryBranchStatsCriteria>` search_criteria:
         :param str repository_id: Friendly name or guid of repository
         :param str project: Project ID or project name
         :rtype: [GitBranchStats]
@@ -283,7 +283,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param int top: The maximum number of changes to return.
         :param int skip: The number of changes to skip.
-        :rtype: :class:`<GitCommitChanges> <git.v4_0.models.GitCommitChanges>`
+        :rtype: :class:`<GitCommitChanges> <azure.devops.v4_0.git.models.GitCommitChanges>`
         """
         route_values = {}
         if project is not None:
@@ -307,10 +307,10 @@ class GitClientBase(Client):
     def create_cherry_pick(self, cherry_pick_to_create, project, repository_id):
         """CreateCherryPick.
         [Preview API]
-        :param :class:`<GitAsyncRefOperationParameters> <git.v4_0.models.GitAsyncRefOperationParameters>` cherry_pick_to_create:
+        :param :class:`<GitAsyncRefOperationParameters> <azure.devops.v4_0.git.models.GitAsyncRefOperationParameters>` cherry_pick_to_create:
         :param str project: Project ID or project name
         :param str repository_id:
-        :rtype: :class:`<GitCherryPick> <git.v4_0.models.GitCherryPick>`
+        :rtype: :class:`<GitCherryPick> <azure.devops.v4_0.git.models.GitCherryPick>`
         """
         route_values = {}
         if project is not None:
@@ -331,7 +331,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param int cherry_pick_id:
         :param str repository_id:
-        :rtype: :class:`<GitCherryPick> <git.v4_0.models.GitCherryPick>`
+        :rtype: :class:`<GitCherryPick> <azure.devops.v4_0.git.models.GitCherryPick>`
         """
         route_values = {}
         if project is not None:
@@ -352,7 +352,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param str repository_id:
         :param str ref_name:
-        :rtype: :class:`<GitCherryPick> <git.v4_0.models.GitCherryPick>`
+        :rtype: :class:`<GitCherryPick> <azure.devops.v4_0.git.models.GitCherryPick>`
         """
         route_values = {}
         if project is not None:
@@ -377,9 +377,9 @@ class GitClientBase(Client):
         :param bool diff_common_commit:
         :param int top: Maximum number of changes to return
         :param int skip: Number of changes to skip
-        :param :class:`<GitBaseVersionDescriptor> <git.v4_0.models.GitBaseVersionDescriptor>` base_version_descriptor:
-        :param :class:`<GitTargetVersionDescriptor> <git.v4_0.models.GitTargetVersionDescriptor>` target_version_descriptor:
-        :rtype: :class:`<GitCommitDiffs> <git.v4_0.models.GitCommitDiffs>`
+        :param :class:`<GitBaseVersionDescriptor> <azure.devops.v4_0.git.models.GitBaseVersionDescriptor>` base_version_descriptor:
+        :param :class:`<GitTargetVersionDescriptor> <azure.devops.v4_0.git.models.GitTargetVersionDescriptor>` target_version_descriptor:
+        :rtype: :class:`<GitCommitDiffs> <azure.devops.v4_0.git.models.GitCommitDiffs>`
         """
         route_values = {}
         if project is not None:
@@ -421,7 +421,7 @@ class GitClientBase(Client):
         :param str repository_id: The id or friendly name of the repository. To use the friendly name, projectId must also be specified.
         :param str project: Project ID or project name
         :param int change_count: The number of changes to include in the result.
-        :rtype: :class:`<GitCommit> <git.v4_0.models.GitCommit>`
+        :rtype: :class:`<GitCommit> <azure.devops.v4_0.git.models.GitCommit>`
         """
         route_values = {}
         if project is not None:
@@ -444,7 +444,7 @@ class GitClientBase(Client):
         """GetCommits.
         Retrieve git commits for a project
         :param str repository_id: The id or friendly name of the repository. To use the friendly name, projectId must also be specified.
-        :param :class:`<GitQueryCommitsCriteria> <git.v4_0.models.GitQueryCommitsCriteria>` search_criteria:
+        :param :class:`<GitQueryCommitsCriteria> <azure.devops.v4_0.git.models.GitQueryCommitsCriteria>` search_criteria:
         :param str project: Project ID or project name
         :param int skip:
         :param int top:
@@ -545,7 +545,7 @@ class GitClientBase(Client):
     def get_commits_batch(self, search_criteria, repository_id, project=None, skip=None, top=None, include_statuses=None):
         """GetCommitsBatch.
         Retrieve git commits for a project
-        :param :class:`<GitQueryCommitsCriteria> <git.v4_0.models.GitQueryCommitsCriteria>` search_criteria: Search options
+        :param :class:`<GitQueryCommitsCriteria> <azure.devops.v4_0.git.models.GitQueryCommitsCriteria>` search_criteria: Search options
         :param str repository_id: The id or friendly name of the repository. To use the friendly name, projectId must also be specified.
         :param str project: Project ID or project name
         :param int skip:
@@ -618,11 +618,11 @@ class GitClientBase(Client):
     def create_fork_sync_request(self, sync_params, repository_name_or_id, project=None, include_links=None):
         """CreateForkSyncRequest.
         [Preview API] Request that another repository's refs be fetched into this one.
-        :param :class:`<GitForkSyncRequestParameters> <git.v4_0.models.GitForkSyncRequestParameters>` sync_params: Source repository and ref mapping.
+        :param :class:`<GitForkSyncRequestParameters> <azure.devops.v4_0.git.models.GitForkSyncRequestParameters>` sync_params: Source repository and ref mapping.
         :param str repository_name_or_id: ID or name of the repository.
         :param str project: Project ID or project name
         :param bool include_links: True to include links
-        :rtype: :class:`<GitForkSyncRequest> <git.v4_0.models.GitForkSyncRequest>`
+        :rtype: :class:`<GitForkSyncRequest> <azure.devops.v4_0.git.models.GitForkSyncRequest>`
         """
         route_values = {}
         if project is not None:
@@ -648,7 +648,7 @@ class GitClientBase(Client):
         :param int fork_sync_operation_id: OperationId of the sync request.
         :param str project: Project ID or project name
         :param bool include_links: True to include links.
-        :rtype: :class:`<GitForkSyncRequest> <git.v4_0.models.GitForkSyncRequest>`
+        :rtype: :class:`<GitForkSyncRequest> <azure.devops.v4_0.git.models.GitForkSyncRequest>`
         """
         route_values = {}
         if project is not None:
@@ -696,10 +696,10 @@ class GitClientBase(Client):
     def create_import_request(self, import_request, project, repository_id):
         """CreateImportRequest.
         [Preview API] Create an import request
-        :param :class:`<GitImportRequest> <git.v4_0.models.GitImportRequest>` import_request:
+        :param :class:`<GitImportRequest> <azure.devops.v4_0.git.models.GitImportRequest>` import_request:
         :param str project: Project ID or project name
         :param str repository_id:
-        :rtype: :class:`<GitImportRequest> <git.v4_0.models.GitImportRequest>`
+        :rtype: :class:`<GitImportRequest> <azure.devops.v4_0.git.models.GitImportRequest>`
         """
         route_values = {}
         if project is not None:
@@ -720,7 +720,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param str repository_id:
         :param int import_request_id:
-        :rtype: :class:`<GitImportRequest> <git.v4_0.models.GitImportRequest>`
+        :rtype: :class:`<GitImportRequest> <azure.devops.v4_0.git.models.GitImportRequest>`
         """
         route_values = {}
         if project is not None:
@@ -761,11 +761,11 @@ class GitClientBase(Client):
     def update_import_request(self, import_request_to_update, project, repository_id, import_request_id):
         """UpdateImportRequest.
         [Preview API] Update an import request
-        :param :class:`<GitImportRequest> <git.v4_0.models.GitImportRequest>` import_request_to_update:
+        :param :class:`<GitImportRequest> <azure.devops.v4_0.git.models.GitImportRequest>` import_request_to_update:
         :param str project: Project ID or project name
         :param str repository_id:
         :param int import_request_id:
-        :rtype: :class:`<GitImportRequest> <git.v4_0.models.GitImportRequest>`
+        :rtype: :class:`<GitImportRequest> <azure.devops.v4_0.git.models.GitImportRequest>`
         """
         route_values = {}
         if project is not None:
@@ -793,8 +793,8 @@ class GitClientBase(Client):
         :param bool include_content_metadata:
         :param bool latest_processed_change:
         :param bool download:
-        :param :class:`<GitVersionDescriptor> <git.v4_0.models.GitVersionDescriptor>` version_descriptor:
-        :rtype: :class:`<GitItem> <git.v4_0.models.GitItem>`
+        :param :class:`<GitVersionDescriptor> <azure.devops.v4_0.git.models.GitVersionDescriptor>` version_descriptor:
+        :rtype: :class:`<GitItem> <azure.devops.v4_0.git.models.GitItem>`
         """
         route_values = {}
         if project is not None:
@@ -839,7 +839,7 @@ class GitClientBase(Client):
         :param bool include_content_metadata:
         :param bool latest_processed_change:
         :param bool download:
-        :param :class:`<GitVersionDescriptor> <git.v4_0.models.GitVersionDescriptor>` version_descriptor:
+        :param :class:`<GitVersionDescriptor> <azure.devops.v4_0.git.models.GitVersionDescriptor>` version_descriptor:
         :rtype: object
         """
         route_values = {}
@@ -890,7 +890,7 @@ class GitClientBase(Client):
         :param bool latest_processed_change:
         :param bool download:
         :param bool include_links:
-        :param :class:`<GitVersionDescriptor> <git.v4_0.models.GitVersionDescriptor>` version_descriptor:
+        :param :class:`<GitVersionDescriptor> <azure.devops.v4_0.git.models.GitVersionDescriptor>` version_descriptor:
         :rtype: [GitItem]
         """
         route_values = {}
@@ -936,7 +936,7 @@ class GitClientBase(Client):
         :param bool include_content_metadata:
         :param bool latest_processed_change:
         :param bool download:
-        :param :class:`<GitVersionDescriptor> <git.v4_0.models.GitVersionDescriptor>` version_descriptor:
+        :param :class:`<GitVersionDescriptor> <azure.devops.v4_0.git.models.GitVersionDescriptor>` version_descriptor:
         :rtype: object
         """
         route_values = {}
@@ -987,7 +987,7 @@ class GitClientBase(Client):
         :param bool include_content_metadata:
         :param bool latest_processed_change:
         :param bool download:
-        :param :class:`<GitVersionDescriptor> <git.v4_0.models.GitVersionDescriptor>` version_descriptor:
+        :param :class:`<GitVersionDescriptor> <azure.devops.v4_0.git.models.GitVersionDescriptor>` version_descriptor:
         :rtype: object
         """
         route_values = {}
@@ -1030,7 +1030,7 @@ class GitClientBase(Client):
     def get_items_batch(self, request_data, repository_id, project=None):
         """GetItemsBatch.
         Post for retrieving a creating a batch out of a set of items in a repo / project given a list of paths or a long path
-        :param :class:`<GitItemRequestData> <git.v4_0.models.GitItemRequestData>` request_data:
+        :param :class:`<GitItemRequestData> <azure.devops.v4_0.git.models.GitItemRequestData>` request_data:
         :param str repository_id:
         :param str project: Project ID or project name
         :rtype: [[GitItem]]
@@ -1056,7 +1056,7 @@ class GitClientBase(Client):
         :param str repository_id:
         :param int pull_request_id:
         :param str project: Project ID or project name
-        :rtype: :class:`<Attachment> <git.v4_0.models.Attachment>`
+        :rtype: :class:`<Attachment> <azure.devops.v4_0.git.models.Attachment>`
         """
         route_values = {}
         if project is not None:
@@ -1312,7 +1312,7 @@ class GitClientBase(Client):
         :param int top:
         :param int skip:
         :param int compare_to:
-        :rtype: :class:`<GitPullRequestIterationChanges> <git.v4_0.models.GitPullRequestIterationChanges>`
+        :rtype: :class:`<GitPullRequestIterationChanges> <azure.devops.v4_0.git.models.GitPullRequestIterationChanges>`
         """
         route_values = {}
         if project is not None:
@@ -1343,7 +1343,7 @@ class GitClientBase(Client):
         :param int pull_request_id:
         :param int iteration_id:
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPullRequestIteration> <git.v4_0.models.GitPullRequestIteration>`
+        :rtype: :class:`<GitPullRequestIteration> <azure.devops.v4_0.git.models.GitPullRequestIteration>`
         """
         route_values = {}
         if project is not None:
@@ -1388,12 +1388,12 @@ class GitClientBase(Client):
     def create_pull_request_iteration_status(self, status, repository_id, pull_request_id, iteration_id, project=None):
         """CreatePullRequestIterationStatus.
         [Preview API] Create a pull request status on the iteration. This method will have the same result as CreatePullRequestStatus with specified iterationId in the request body.
-        :param :class:`<GitPullRequestStatus> <git.v4_0.models.GitPullRequestStatus>` status: Pull request status to create.
+        :param :class:`<GitPullRequestStatus> <azure.devops.v4_0.git.models.GitPullRequestStatus>` status: Pull request status to create.
         :param str repository_id: ID of the repository the pull request belongs to.
         :param int pull_request_id: ID of the pull request.
         :param int iteration_id: ID of the pull request iteration.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPullRequestStatus> <git.v4_0.models.GitPullRequestStatus>`
+        :rtype: :class:`<GitPullRequestStatus> <azure.devops.v4_0.git.models.GitPullRequestStatus>`
         """
         route_values = {}
         if project is not None:
@@ -1420,7 +1420,7 @@ class GitClientBase(Client):
         :param int iteration_id: ID of the pull request iteration.
         :param int status_id: ID of the pull request status.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPullRequestStatus> <git.v4_0.models.GitPullRequestStatus>`
+        :rtype: :class:`<GitPullRequestStatus> <azure.devops.v4_0.git.models.GitPullRequestStatus>`
         """
         route_values = {}
         if project is not None:
@@ -1466,12 +1466,12 @@ class GitClientBase(Client):
     def create_pull_request_label(self, label, repository_id, pull_request_id, project=None, project_id=None):
         """CreatePullRequestLabel.
         [Preview API]
-        :param :class:`<WebApiCreateTagRequestData> <git.v4_0.models.WebApiCreateTagRequestData>` label:
+        :param :class:`<WebApiCreateTagRequestData> <azure.devops.v4_0.git.models.WebApiCreateTagRequestData>` label:
         :param str repository_id:
         :param int pull_request_id:
         :param str project: Project ID or project name
         :param str project_id:
-        :rtype: :class:`<WebApiTagDefinition> <git.v4_0.models.WebApiTagDefinition>`
+        :rtype: :class:`<WebApiTagDefinition> <azure.devops.v4_0.git.models.WebApiTagDefinition>`
         """
         route_values = {}
         if project is not None:
@@ -1527,7 +1527,7 @@ class GitClientBase(Client):
         :param str label_id_or_name:
         :param str project: Project ID or project name
         :param str project_id:
-        :rtype: :class:`<WebApiTagDefinition> <git.v4_0.models.WebApiTagDefinition>`
+        :rtype: :class:`<WebApiTagDefinition> <azure.devops.v4_0.git.models.WebApiTagDefinition>`
         """
         route_values = {}
         if project is not None:
@@ -1577,10 +1577,10 @@ class GitClientBase(Client):
     def get_pull_request_query(self, queries, repository_id, project=None):
         """GetPullRequestQuery.
         Query for pull requests
-        :param :class:`<GitPullRequestQuery> <git.v4_0.models.GitPullRequestQuery>` queries:
+        :param :class:`<GitPullRequestQuery> <azure.devops.v4_0.git.models.GitPullRequestQuery>` queries:
         :param str repository_id:
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPullRequestQuery> <git.v4_0.models.GitPullRequestQuery>`
+        :rtype: :class:`<GitPullRequestQuery> <azure.devops.v4_0.git.models.GitPullRequestQuery>`
         """
         route_values = {}
         if project is not None:
@@ -1598,12 +1598,12 @@ class GitClientBase(Client):
     def create_pull_request_reviewer(self, reviewer, repository_id, pull_request_id, reviewer_id, project=None):
         """CreatePullRequestReviewer.
         Adds a reviewer to a git pull request
-        :param :class:`<IdentityRefWithVote> <git.v4_0.models.IdentityRefWithVote>` reviewer:
+        :param :class:`<IdentityRefWithVote> <azure.devops.v4_0.git.models.IdentityRefWithVote>` reviewer:
         :param str repository_id:
         :param int pull_request_id:
         :param str reviewer_id:
         :param str project: Project ID or project name
-        :rtype: :class:`<IdentityRefWithVote> <git.v4_0.models.IdentityRefWithVote>`
+        :rtype: :class:`<IdentityRefWithVote> <azure.devops.v4_0.git.models.IdentityRefWithVote>`
         """
         route_values = {}
         if project is not None:
@@ -1675,7 +1675,7 @@ class GitClientBase(Client):
         :param int pull_request_id:
         :param str reviewer_id:
         :param str project: Project ID or project name
-        :rtype: :class:`<IdentityRefWithVote> <git.v4_0.models.IdentityRefWithVote>`
+        :rtype: :class:`<IdentityRefWithVote> <azure.devops.v4_0.git.models.IdentityRefWithVote>`
         """
         route_values = {}
         if project is not None:
@@ -1739,7 +1739,7 @@ class GitClientBase(Client):
         """GetPullRequestById.
         Get a pull request using its ID
         :param int pull_request_id: the Id of the pull request
-        :rtype: :class:`<GitPullRequest> <git.v4_0.models.GitPullRequest>`
+        :rtype: :class:`<GitPullRequest> <azure.devops.v4_0.git.models.GitPullRequest>`
         """
         route_values = {}
         if pull_request_id is not None:
@@ -1754,7 +1754,7 @@ class GitClientBase(Client):
         """GetPullRequestsByProject.
         Query pull requests by project
         :param str project: Project ID or project name
-        :param :class:`<GitPullRequestSearchCriteria> <git.v4_0.models.GitPullRequestSearchCriteria>` search_criteria:
+        :param :class:`<GitPullRequestSearchCriteria> <azure.devops.v4_0.git.models.GitPullRequestSearchCriteria>` search_criteria:
         :param int max_comment_length:
         :param int skip:
         :param int top:
@@ -1797,11 +1797,11 @@ class GitClientBase(Client):
     def create_pull_request(self, git_pull_request_to_create, repository_id, project=None, supports_iterations=None):
         """CreatePullRequest.
         Create a git pull request
-        :param :class:`<GitPullRequest> <git.v4_0.models.GitPullRequest>` git_pull_request_to_create:
+        :param :class:`<GitPullRequest> <azure.devops.v4_0.git.models.GitPullRequest>` git_pull_request_to_create:
         :param str repository_id:
         :param str project: Project ID or project name
         :param bool supports_iterations:
-        :rtype: :class:`<GitPullRequest> <git.v4_0.models.GitPullRequest>`
+        :rtype: :class:`<GitPullRequest> <azure.devops.v4_0.git.models.GitPullRequest>`
         """
         route_values = {}
         if project is not None:
@@ -1831,7 +1831,7 @@ class GitClientBase(Client):
         :param int top:
         :param bool include_commits:
         :param bool include_work_item_refs:
-        :rtype: :class:`<GitPullRequest> <git.v4_0.models.GitPullRequest>`
+        :rtype: :class:`<GitPullRequest> <azure.devops.v4_0.git.models.GitPullRequest>`
         """
         route_values = {}
         if project is not None:
@@ -1862,7 +1862,7 @@ class GitClientBase(Client):
         """GetPullRequests.
         Query for pull requests
         :param str repository_id:
-        :param :class:`<GitPullRequestSearchCriteria> <git.v4_0.models.GitPullRequestSearchCriteria>` search_criteria:
+        :param :class:`<GitPullRequestSearchCriteria> <azure.devops.v4_0.git.models.GitPullRequestSearchCriteria>` search_criteria:
         :param str project: Project ID or project name
         :param int max_comment_length:
         :param int skip:
@@ -1908,11 +1908,11 @@ class GitClientBase(Client):
     def update_pull_request(self, git_pull_request_to_update, repository_id, pull_request_id, project=None):
         """UpdatePullRequest.
         Updates a pull request
-        :param :class:`<GitPullRequest> <git.v4_0.models.GitPullRequest>` git_pull_request_to_update:
+        :param :class:`<GitPullRequest> <azure.devops.v4_0.git.models.GitPullRequest>` git_pull_request_to_update:
         :param str repository_id:
         :param int pull_request_id:
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPullRequest> <git.v4_0.models.GitPullRequest>`
+        :rtype: :class:`<GitPullRequest> <azure.devops.v4_0.git.models.GitPullRequest>`
         """
         route_values = {}
         if project is not None:
@@ -1932,7 +1932,7 @@ class GitClientBase(Client):
     def share_pull_request(self, user_message, repository_id, pull_request_id, project=None):
         """SharePullRequest.
         [Preview API]
-        :param :class:`<ShareNotificationContext> <git.v4_0.models.ShareNotificationContext>` user_message:
+        :param :class:`<ShareNotificationContext> <azure.devops.v4_0.git.models.ShareNotificationContext>` user_message:
         :param str repository_id:
         :param int pull_request_id:
         :param str project: Project ID or project name
@@ -1954,11 +1954,11 @@ class GitClientBase(Client):
     def create_pull_request_status(self, status, repository_id, pull_request_id, project=None):
         """CreatePullRequestStatus.
         [Preview API] Create a pull request status.
-        :param :class:`<GitPullRequestStatus> <git.v4_0.models.GitPullRequestStatus>` status: Pull request status to create.
+        :param :class:`<GitPullRequestStatus> <azure.devops.v4_0.git.models.GitPullRequestStatus>` status: Pull request status to create.
         :param str repository_id: ID of the repository the pull request belongs to.
         :param int pull_request_id: ID of the pull request.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPullRequestStatus> <git.v4_0.models.GitPullRequestStatus>`
+        :rtype: :class:`<GitPullRequestStatus> <azure.devops.v4_0.git.models.GitPullRequestStatus>`
         """
         route_values = {}
         if project is not None:
@@ -1982,7 +1982,7 @@ class GitClientBase(Client):
         :param int pull_request_id: ID of the pull request.
         :param int status_id: ID of the pull request status.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPullRequestStatus> <git.v4_0.models.GitPullRequestStatus>`
+        :rtype: :class:`<GitPullRequestStatus> <azure.devops.v4_0.git.models.GitPullRequestStatus>`
         """
         route_values = {}
         if project is not None:
@@ -2023,12 +2023,12 @@ class GitClientBase(Client):
     def create_comment(self, comment, repository_id, pull_request_id, thread_id, project=None):
         """CreateComment.
         Create a pull request review comment
-        :param :class:`<Comment> <git.v4_0.models.Comment>` comment:
+        :param :class:`<Comment> <azure.devops.v4_0.git.models.Comment>` comment:
         :param str repository_id:
         :param int pull_request_id:
         :param int thread_id:
         :param str project: Project ID or project name
-        :rtype: :class:`<Comment> <git.v4_0.models.Comment>`
+        :rtype: :class:`<Comment> <azure.devops.v4_0.git.models.Comment>`
         """
         route_values = {}
         if project is not None:
@@ -2080,7 +2080,7 @@ class GitClientBase(Client):
         :param int thread_id:
         :param int comment_id:
         :param str project: Project ID or project name
-        :rtype: :class:`<Comment> <git.v4_0.models.Comment>`
+        :rtype: :class:`<Comment> <azure.devops.v4_0.git.models.Comment>`
         """
         route_values = {}
         if project is not None:
@@ -2126,13 +2126,13 @@ class GitClientBase(Client):
     def update_comment(self, comment, repository_id, pull_request_id, thread_id, comment_id, project=None):
         """UpdateComment.
         Update a pull request review comment thread
-        :param :class:`<Comment> <git.v4_0.models.Comment>` comment:
+        :param :class:`<Comment> <azure.devops.v4_0.git.models.Comment>` comment:
         :param str repository_id:
         :param int pull_request_id:
         :param int thread_id:
         :param int comment_id:
         :param str project: Project ID or project name
-        :rtype: :class:`<Comment> <git.v4_0.models.Comment>`
+        :rtype: :class:`<Comment> <azure.devops.v4_0.git.models.Comment>`
         """
         route_values = {}
         if project is not None:
@@ -2156,11 +2156,11 @@ class GitClientBase(Client):
     def create_thread(self, comment_thread, repository_id, pull_request_id, project=None):
         """CreateThread.
         Create a pull request review comment thread
-        :param :class:`<GitPullRequestCommentThread> <git.v4_0.models.GitPullRequestCommentThread>` comment_thread:
+        :param :class:`<GitPullRequestCommentThread> <azure.devops.v4_0.git.models.GitPullRequestCommentThread>` comment_thread:
         :param str repository_id:
         :param int pull_request_id:
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPullRequestCommentThread> <git.v4_0.models.GitPullRequestCommentThread>`
+        :rtype: :class:`<GitPullRequestCommentThread> <azure.devops.v4_0.git.models.GitPullRequestCommentThread>`
         """
         route_values = {}
         if project is not None:
@@ -2186,7 +2186,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param int iteration:
         :param int base_iteration:
-        :rtype: :class:`<GitPullRequestCommentThread> <git.v4_0.models.GitPullRequestCommentThread>`
+        :rtype: :class:`<GitPullRequestCommentThread> <azure.devops.v4_0.git.models.GitPullRequestCommentThread>`
         """
         route_values = {}
         if project is not None:
@@ -2241,12 +2241,12 @@ class GitClientBase(Client):
     def update_thread(self, comment_thread, repository_id, pull_request_id, thread_id, project=None):
         """UpdateThread.
         Update a pull request review comment thread
-        :param :class:`<GitPullRequestCommentThread> <git.v4_0.models.GitPullRequestCommentThread>` comment_thread:
+        :param :class:`<GitPullRequestCommentThread> <azure.devops.v4_0.git.models.GitPullRequestCommentThread>` comment_thread:
         :param str repository_id:
         :param int pull_request_id:
         :param int thread_id:
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPullRequestCommentThread> <git.v4_0.models.GitPullRequestCommentThread>`
+        :rtype: :class:`<GitPullRequestCommentThread> <azure.devops.v4_0.git.models.GitPullRequestCommentThread>`
         """
         route_values = {}
         if project is not None:
@@ -2289,10 +2289,10 @@ class GitClientBase(Client):
     def create_push(self, push, repository_id, project=None):
         """CreatePush.
         Push changes to the repository.
-        :param :class:`<GitPush> <git.v4_0.models.GitPush>` push:
+        :param :class:`<GitPush> <azure.devops.v4_0.git.models.GitPush>` push:
         :param str repository_id: The id or friendly name of the repository. To use the friendly name, a project-scoped route must be used.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPush> <git.v4_0.models.GitPush>`
+        :rtype: :class:`<GitPush> <azure.devops.v4_0.git.models.GitPush>`
         """
         route_values = {}
         if project is not None:
@@ -2315,7 +2315,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param int include_commits: The number of commits to include in the result.
         :param bool include_ref_updates:
-        :rtype: :class:`<GitPush> <git.v4_0.models.GitPush>`
+        :rtype: :class:`<GitPush> <azure.devops.v4_0.git.models.GitPush>`
         """
         route_values = {}
         if project is not None:
@@ -2343,7 +2343,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param int skip:
         :param int top:
-        :param :class:`<GitPushSearchCriteria> <git.v4_0.models.GitPushSearchCriteria>` search_criteria:
+        :param :class:`<GitPushSearchCriteria> <azure.devops.v4_0.git.models.GitPushSearchCriteria>` search_criteria:
         :rtype: [GitPush]
         """
         route_values = {}
@@ -2407,12 +2407,12 @@ class GitClientBase(Client):
 
     def update_ref(self, new_ref_info, repository_id, filter, project=None, project_id=None):
         """UpdateRef.
-        :param :class:`<GitRefUpdate> <git.v4_0.models.GitRefUpdate>` new_ref_info:
+        :param :class:`<GitRefUpdate> <azure.devops.v4_0.git.models.GitRefUpdate>` new_ref_info:
         :param str repository_id:
         :param str filter:
         :param str project: Project ID or project name
         :param str project_id:
-        :rtype: :class:`<GitRef> <git.v4_0.models.GitRef>`
+        :rtype: :class:`<GitRef> <azure.devops.v4_0.git.models.GitRef>`
         """
         route_values = {}
         if project is not None:
@@ -2462,9 +2462,9 @@ class GitClientBase(Client):
     def create_favorite(self, favorite, project):
         """CreateFavorite.
         [Preview API] Creates a ref favorite
-        :param :class:`<GitRefFavorite> <git.v4_0.models.GitRefFavorite>` favorite:
+        :param :class:`<GitRefFavorite> <azure.devops.v4_0.git.models.GitRefFavorite>` favorite:
         :param str project: Project ID or project name
-        :rtype: :class:`<GitRefFavorite> <git.v4_0.models.GitRefFavorite>`
+        :rtype: :class:`<GitRefFavorite> <azure.devops.v4_0.git.models.GitRefFavorite>`
         """
         route_values = {}
         if project is not None:
@@ -2498,7 +2498,7 @@ class GitClientBase(Client):
         [Preview API]
         :param str project: Project ID or project name
         :param int favorite_id:
-        :rtype: :class:`<GitRefFavorite> <git.v4_0.models.GitRefFavorite>`
+        :rtype: :class:`<GitRefFavorite> <azure.devops.v4_0.git.models.GitRefFavorite>`
         """
         route_values = {}
         if project is not None:
@@ -2537,10 +2537,10 @@ class GitClientBase(Client):
     def create_repository(self, git_repository_to_create, project=None, source_ref=None):
         """CreateRepository.
         Create a git repository
-        :param :class:`<GitRepositoryCreateOptions> <git.v4_0.models.GitRepositoryCreateOptions>` git_repository_to_create:
+        :param :class:`<GitRepositoryCreateOptions> <azure.devops.v4_0.git.models.GitRepositoryCreateOptions>` git_repository_to_create:
         :param str project: Project ID or project name
         :param str source_ref:
-        :rtype: :class:`<GitRepository> <git.v4_0.models.GitRepository>`
+        :rtype: :class:`<GitRepository> <azure.devops.v4_0.git.models.GitRepository>`
         """
         route_values = {}
         if project is not None:
@@ -2601,7 +2601,7 @@ class GitClientBase(Client):
         :param str repository_id:
         :param str project: Project ID or project name
         :param bool include_parent:
-        :rtype: :class:`<GitRepository> <git.v4_0.models.GitRepository>`
+        :rtype: :class:`<GitRepository> <azure.devops.v4_0.git.models.GitRepository>`
         """
         route_values = {}
         if project is not None:
@@ -2621,10 +2621,10 @@ class GitClientBase(Client):
     def update_repository(self, new_repository_info, repository_id, project=None):
         """UpdateRepository.
         Updates the Git repository with the single populated change in the specified repository information.
-        :param :class:`<GitRepository> <git.v4_0.models.GitRepository>` new_repository_info:
+        :param :class:`<GitRepository> <azure.devops.v4_0.git.models.GitRepository>` new_repository_info:
         :param str repository_id:
         :param str project: Project ID or project name
-        :rtype: :class:`<GitRepository> <git.v4_0.models.GitRepository>`
+        :rtype: :class:`<GitRepository> <azure.devops.v4_0.git.models.GitRepository>`
         """
         route_values = {}
         if project is not None:
@@ -2642,10 +2642,10 @@ class GitClientBase(Client):
     def create_revert(self, revert_to_create, project, repository_id):
         """CreateRevert.
         [Preview API]
-        :param :class:`<GitAsyncRefOperationParameters> <git.v4_0.models.GitAsyncRefOperationParameters>` revert_to_create:
+        :param :class:`<GitAsyncRefOperationParameters> <azure.devops.v4_0.git.models.GitAsyncRefOperationParameters>` revert_to_create:
         :param str project: Project ID or project name
         :param str repository_id:
-        :rtype: :class:`<GitRevert> <git.v4_0.models.GitRevert>`
+        :rtype: :class:`<GitRevert> <azure.devops.v4_0.git.models.GitRevert>`
         """
         route_values = {}
         if project is not None:
@@ -2666,7 +2666,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param int revert_id:
         :param str repository_id:
-        :rtype: :class:`<GitRevert> <git.v4_0.models.GitRevert>`
+        :rtype: :class:`<GitRevert> <azure.devops.v4_0.git.models.GitRevert>`
         """
         route_values = {}
         if project is not None:
@@ -2687,7 +2687,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param str repository_id:
         :param str ref_name:
-        :rtype: :class:`<GitRevert> <git.v4_0.models.GitRevert>`
+        :rtype: :class:`<GitRevert> <azure.devops.v4_0.git.models.GitRevert>`
         """
         route_values = {}
         if project is not None:
@@ -2706,11 +2706,11 @@ class GitClientBase(Client):
 
     def create_commit_status(self, git_commit_status_to_create, commit_id, repository_id, project=None):
         """CreateCommitStatus.
-        :param :class:`<GitStatus> <git.v4_0.models.GitStatus>` git_commit_status_to_create:
+        :param :class:`<GitStatus> <azure.devops.v4_0.git.models.GitStatus>` git_commit_status_to_create:
         :param str commit_id:
         :param str repository_id:
         :param str project: Project ID or project name
-        :rtype: :class:`<GitStatus> <git.v4_0.models.GitStatus>`
+        :rtype: :class:`<GitStatus> <azure.devops.v4_0.git.models.GitStatus>`
         """
         route_values = {}
         if project is not None:
@@ -2784,7 +2784,7 @@ class GitClientBase(Client):
         :param str project_id:
         :param bool recursive:
         :param str file_name:
-        :rtype: :class:`<GitTreeRef> <git.v4_0.models.GitTreeRef>`
+        :rtype: :class:`<GitTreeRef> <azure.devops.v4_0.git.models.GitTreeRef>`
         """
         route_values = {}
         if project is not None:

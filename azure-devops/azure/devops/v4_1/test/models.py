@@ -19,7 +19,7 @@ class AggregatedDataForResultTrend(Model):
     :param run_summary_by_state:
     :type run_summary_by_state: dict
     :param test_results_context:
-    :type test_results_context: :class:`TestResultsContext <test.v4_1.models.TestResultsContext>`
+    :type test_results_context: :class:`TestResultsContext <azure.devops.v4_1.test.models.TestResultsContext>`
     :param total_tests:
     :type total_tests: int
     """
@@ -49,11 +49,11 @@ class AggregatedResultsAnalysis(Model):
     :param not_reported_results_by_outcome:
     :type not_reported_results_by_outcome: dict
     :param previous_context:
-    :type previous_context: :class:`TestResultsContext <test.v4_1.models.TestResultsContext>`
+    :type previous_context: :class:`TestResultsContext <azure.devops.v4_1.test.models.TestResultsContext>`
     :param results_by_outcome:
     :type results_by_outcome: dict
     :param results_difference:
-    :type results_difference: :class:`AggregatedResultsDifference <test.v4_1.models.AggregatedResultsDifference>`
+    :type results_difference: :class:`AggregatedResultsDifference <azure.devops.v4_1.test.models.AggregatedResultsDifference>`
     :param run_summary_by_state:
     :type run_summary_by_state: dict
     :param total_tests:
@@ -185,7 +185,7 @@ class BuildConfiguration(Model):
     :param platform:
     :type platform: str
     :param project:
-    :type project: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type project: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param repository_id:
     :type repository_id: int
     :param source_version:
@@ -227,11 +227,11 @@ class BuildCoverage(Model):
     :param code_coverage_file_url:
     :type code_coverage_file_url: str
     :param configuration:
-    :type configuration: :class:`BuildConfiguration <test.v4_1.models.BuildConfiguration>`
+    :type configuration: :class:`BuildConfiguration <azure.devops.v4_1.test.models.BuildConfiguration>`
     :param last_error:
     :type last_error: str
     :param modules:
-    :type modules: list of :class:`ModuleCoverage <test.v4_1.models.ModuleCoverage>`
+    :type modules: list of :class:`ModuleCoverage <azure.devops.v4_1.test.models.ModuleCoverage>`
     :param state:
     :type state: str
     """
@@ -297,17 +297,17 @@ class CloneOperationInformation(Model):
     """CloneOperationInformation.
 
     :param clone_statistics:
-    :type clone_statistics: :class:`CloneStatistics <test.v4_1.models.CloneStatistics>`
+    :type clone_statistics: :class:`CloneStatistics <azure.devops.v4_1.test.models.CloneStatistics>`
     :param completion_date: If the operation is complete, the DateTime of completion. If operation is not complete, this is DateTime.MaxValue
     :type completion_date: datetime
     :param creation_date: DateTime when the operation was started
     :type creation_date: datetime
     :param destination_object: Shallow reference of the destination
-    :type destination_object: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type destination_object: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param destination_plan: Shallow reference of the destination
-    :type destination_plan: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type destination_plan: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param destination_project: Shallow reference of the destination
-    :type destination_project: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type destination_project: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param message: If the operation has Failed, Message contains the reason for failure. Null otherwise.
     :type message: str
     :param op_id: The ID of the operation
@@ -315,11 +315,11 @@ class CloneOperationInformation(Model):
     :param result_object_type: The type of the object generated as a result of the Clone operation
     :type result_object_type: object
     :param source_object: Shallow reference of the source
-    :type source_object: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type source_object: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param source_plan: Shallow reference of the source
-    :type source_plan: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type source_plan: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param source_project: Shallow reference of the source
-    :type source_project: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type source_project: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param state: Current state of the operation. When State reaches Suceeded or Failed, the operation is complete
     :type state: object
     :param url: Url for geting the clone information
@@ -437,7 +437,7 @@ class CodeCoverageData(Model):
     :param build_platform: Platform of build for which data is retrieved/published
     :type build_platform: str
     :param coverage_stats: List of coverage data for the build
-    :type coverage_stats: list of :class:`CodeCoverageStatistics <test.v4_1.models.CodeCoverageStatistics>`
+    :type coverage_stats: list of :class:`CodeCoverageStatistics <azure.devops.v4_1.test.models.CodeCoverageStatistics>`
     """
 
     _attribute_map = {
@@ -493,11 +493,11 @@ class CodeCoverageSummary(Model):
     """CodeCoverageSummary.
 
     :param build: Uri of build for which data is retrieved/published
-    :type build: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type build: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param coverage_data: List of coverage data and details for the build
-    :type coverage_data: list of :class:`CodeCoverageData <test.v4_1.models.CodeCoverageData>`
+    :type coverage_data: list of :class:`CodeCoverageData <azure.devops.v4_1.test.models.CodeCoverageData>`
     :param delta_build: Uri of build against which difference in coverage is computed
-    :type delta_build: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type delta_build: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     """
 
     _attribute_map = {
@@ -621,11 +621,11 @@ class FailingSince(Model):
     """FailingSince.
 
     :param build:
-    :type build: :class:`BuildReference <test.v4_1.models.BuildReference>`
+    :type build: :class:`BuildReference <azure.devops.v4_1.test.models.BuildReference>`
     :param date:
     :type date: datetime
     :param release:
-    :type release: :class:`ReleaseReference <test.v4_1.models.ReleaseReference>`
+    :type release: :class:`ReleaseReference <azure.devops.v4_1.test.models.ReleaseReference>`
     """
 
     _attribute_map = {
@@ -673,7 +673,7 @@ class FunctionCoverage(Model):
     :param source_file:
     :type source_file: str
     :param statistics:
-    :type statistics: :class:`CoverageStatistics <test.v4_1.models.CoverageStatistics>`
+    :type statistics: :class:`CoverageStatistics <azure.devops.v4_1.test.models.CoverageStatistics>`
     """
 
     _attribute_map = {
@@ -697,7 +697,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <microsoft.-visual-studio.-services.-web-api.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -725,7 +725,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <microsoft.-visual-studio.-services.-web-api.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -785,7 +785,7 @@ class LastResultDetails(Model):
     :param duration:
     :type duration: long
     :param run_by:
-    :type run_by: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type run_by: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     """
 
     _attribute_map = {
@@ -851,7 +851,7 @@ class LinkedWorkItemsQueryResult(Model):
     :param test_case_id:
     :type test_case_id: int
     :param work_items:
-    :type work_items: list of :class:`WorkItemReference <test.v4_1.models.WorkItemReference>`
+    :type work_items: list of :class:`WorkItemReference <azure.devops.v4_1.test.models.WorkItemReference>`
     """
 
     _attribute_map = {
@@ -881,7 +881,7 @@ class ModuleCoverage(Model):
     :param block_data:
     :type block_data: str
     :param functions:
-    :type functions: list of :class:`FunctionCoverage <test.v4_1.models.FunctionCoverage>`
+    :type functions: list of :class:`FunctionCoverage <azure.devops.v4_1.test.models.FunctionCoverage>`
     :param name:
     :type name: str
     :param signature:
@@ -889,7 +889,7 @@ class ModuleCoverage(Model):
     :param signature_age:
     :type signature_age: int
     :param statistics:
-    :type statistics: :class:`CoverageStatistics <test.v4_1.models.CoverageStatistics>`
+    :type statistics: :class:`CoverageStatistics <azure.devops.v4_1.test.models.CoverageStatistics>`
     """
 
     _attribute_map = {
@@ -937,15 +937,15 @@ class PlanUpdateModel(Model):
     """PlanUpdateModel.
 
     :param area:
-    :type area: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type area: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param automated_test_environment:
-    :type automated_test_environment: :class:`TestEnvironment <test.v4_1.models.TestEnvironment>`
+    :type automated_test_environment: :class:`TestEnvironment <azure.devops.v4_1.test.models.TestEnvironment>`
     :param automated_test_settings:
-    :type automated_test_settings: :class:`TestSettings <test.v4_1.models.TestSettings>`
+    :type automated_test_settings: :class:`TestSettings <azure.devops.v4_1.test.models.TestSettings>`
     :param build:
-    :type build: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type build: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param build_definition:
-    :type build_definition: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type build_definition: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param configuration_ids:
     :type configuration_ids: list of int
     :param description:
@@ -955,15 +955,15 @@ class PlanUpdateModel(Model):
     :param iteration:
     :type iteration: str
     :param manual_test_environment:
-    :type manual_test_environment: :class:`TestEnvironment <test.v4_1.models.TestEnvironment>`
+    :type manual_test_environment: :class:`TestEnvironment <azure.devops.v4_1.test.models.TestEnvironment>`
     :param manual_test_settings:
-    :type manual_test_settings: :class:`TestSettings <test.v4_1.models.TestSettings>`
+    :type manual_test_settings: :class:`TestSettings <azure.devops.v4_1.test.models.TestSettings>`
     :param name:
     :type name: str
     :param owner:
-    :type owner: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type owner: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param release_environment_definition:
-    :type release_environment_definition: :class:`ReleaseEnvironmentDefinitionReference <test.v4_1.models.ReleaseEnvironmentDefinitionReference>`
+    :type release_environment_definition: :class:`ReleaseEnvironmentDefinitionReference <azure.devops.v4_1.test.models.ReleaseEnvironmentDefinitionReference>`
     :param start_date:
     :type start_date: str
     :param state:
@@ -1017,9 +1017,9 @@ class PointAssignment(Model):
     """PointAssignment.
 
     :param configuration:
-    :type configuration: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type configuration: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param tester:
-    :type tester: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type tester: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     """
 
     _attribute_map = {
@@ -1041,7 +1041,7 @@ class PointsFilter(Model):
     :param testcase_ids:
     :type testcase_ids: list of int
     :param testers:
-    :type testers: list of :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type testers: list of :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     """
 
     _attribute_map = {
@@ -1065,7 +1065,7 @@ class PointUpdateModel(Model):
     :param reset_to_active:
     :type reset_to_active: bool
     :param tester:
-    :type tester: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type tester: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     """
 
     _attribute_map = {
@@ -1195,7 +1195,7 @@ class ResultRetentionSettings(Model):
     :param automated_results_retention_duration:
     :type automated_results_retention_duration: int
     :param last_updated_by:
-    :type last_updated_by: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type last_updated_by: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param last_updated_date:
     :type last_updated_date: datetime
     :param manual_results_retention_duration:
@@ -1233,7 +1233,7 @@ class ResultsFilter(Model):
     :param test_case_reference_ids:
     :type test_case_reference_ids: list of int
     :param test_results_context:
-    :type test_results_context: :class:`TestResultsContext <test.v4_1.models.TestResultsContext>`
+    :type test_results_context: :class:`TestResultsContext <azure.devops.v4_1.test.models.TestResultsContext>`
     :param trend_days:
     :type trend_days: int
     """
@@ -1267,7 +1267,7 @@ class RunCreateModel(Model):
     :param automated:
     :type automated: bool
     :param build:
-    :type build: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type build: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param build_drop_location:
     :type build_drop_location: str
     :param build_flavor:
@@ -1283,27 +1283,27 @@ class RunCreateModel(Model):
     :param controller:
     :type controller: str
     :param custom_test_fields:
-    :type custom_test_fields: list of :class:`CustomTestField <test.v4_1.models.CustomTestField>`
+    :type custom_test_fields: list of :class:`CustomTestField <azure.devops.v4_1.test.models.CustomTestField>`
     :param dtl_aut_environment:
-    :type dtl_aut_environment: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type dtl_aut_environment: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param dtl_test_environment:
-    :type dtl_test_environment: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type dtl_test_environment: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param due_date:
     :type due_date: str
     :param environment_details:
-    :type environment_details: :class:`DtlEnvironmentDetails <test.v4_1.models.DtlEnvironmentDetails>`
+    :type environment_details: :class:`DtlEnvironmentDetails <azure.devops.v4_1.test.models.DtlEnvironmentDetails>`
     :param error_message:
     :type error_message: str
     :param filter:
-    :type filter: :class:`RunFilter <test.v4_1.models.RunFilter>`
+    :type filter: :class:`RunFilter <azure.devops.v4_1.test.models.RunFilter>`
     :param iteration:
     :type iteration: str
     :param name:
     :type name: str
     :param owner:
-    :type owner: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type owner: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param plan:
-    :type plan: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type plan: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param point_ids:
     :type point_ids: list of int
     :param release_environment_uri:
@@ -1323,7 +1323,7 @@ class RunCreateModel(Model):
     :param test_environment_id:
     :type test_environment_id: str
     :param test_settings:
-    :type test_settings: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type test_settings: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param type:
     :type type: str
     """
@@ -1425,7 +1425,7 @@ class RunStatistic(Model):
     :param outcome:
     :type outcome: str
     :param resolution_state:
-    :type resolution_state: :class:`TestResolutionState <test.v4_1.models.TestResolutionState>`
+    :type resolution_state: :class:`TestResolutionState <azure.devops.v4_1.test.models.TestResolutionState>`
     :param state:
     :type state: str
     """
@@ -1449,7 +1449,7 @@ class RunUpdateModel(Model):
     """RunUpdateModel.
 
     :param build:
-    :type build: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type build: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param build_drop_location:
     :type build_drop_location: str
     :param build_flavor:
@@ -1465,11 +1465,11 @@ class RunUpdateModel(Model):
     :param delete_in_progress_results:
     :type delete_in_progress_results: bool
     :param dtl_aut_environment:
-    :type dtl_aut_environment: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type dtl_aut_environment: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param dtl_environment:
-    :type dtl_environment: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type dtl_environment: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param dtl_environment_details:
-    :type dtl_environment_details: :class:`DtlEnvironmentDetails <test.v4_1.models.DtlEnvironmentDetails>`
+    :type dtl_environment_details: :class:`DtlEnvironmentDetails <azure.devops.v4_1.test.models.DtlEnvironmentDetails>`
     :param due_date:
     :type due_date: str
     :param error_message:
@@ -1477,7 +1477,7 @@ class RunUpdateModel(Model):
     :param iteration:
     :type iteration: str
     :param log_entries:
-    :type log_entries: list of :class:`TestMessageLogDetails <test.v4_1.models.TestMessageLogDetails>`
+    :type log_entries: list of :class:`TestMessageLogDetails <azure.devops.v4_1.test.models.TestMessageLogDetails>`
     :param name:
     :type name: str
     :param release_environment_uri:
@@ -1495,7 +1495,7 @@ class RunUpdateModel(Model):
     :param test_environment_id:
     :type test_environment_id: str
     :param test_settings:
-    :type test_settings: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type test_settings: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     """
 
     _attribute_map = {
@@ -1729,9 +1729,9 @@ class SuiteTestCase(Model):
     """SuiteTestCase.
 
     :param point_assignments:
-    :type point_assignments: list of :class:`PointAssignment <test.v4_1.models.PointAssignment>`
+    :type point_assignments: list of :class:`PointAssignment <azure.devops.v4_1.test.models.PointAssignment>`
     :param test_case:
-    :type test_case: :class:`WorkItemReference <test.v4_1.models.WorkItemReference>`
+    :type test_case: :class:`WorkItemReference <azure.devops.v4_1.test.models.WorkItemReference>`
     """
 
     _attribute_map = {
@@ -1749,15 +1749,15 @@ class SuiteUpdateModel(Model):
     """SuiteUpdateModel.
 
     :param default_configurations:
-    :type default_configurations: list of :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type default_configurations: list of :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param default_testers:
-    :type default_testers: list of :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type default_testers: list of :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param inherit_default_configurations:
     :type inherit_default_configurations: bool
     :param name:
     :type name: str
     :param parent:
-    :type parent: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type parent: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param query_string:
     :type query_string: str
     """
@@ -1947,9 +1947,9 @@ class TestCaseResult(Model):
     :param afn_strip_id:
     :type afn_strip_id: int
     :param area:
-    :type area: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type area: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param associated_bugs:
-    :type associated_bugs: list of :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type associated_bugs: list of :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param automated_test_id:
     :type automated_test_id: str
     :param automated_test_name:
@@ -1961,9 +1961,9 @@ class TestCaseResult(Model):
     :param automated_test_type_id:
     :type automated_test_type_id: str
     :param build:
-    :type build: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type build: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param build_reference:
-    :type build_reference: :class:`BuildReference <test.v4_1.models.BuildReference>`
+    :type build_reference: :class:`BuildReference <azure.devops.v4_1.test.models.BuildReference>`
     :param comment:
     :type comment: str
     :param completed_date:
@@ -1971,39 +1971,39 @@ class TestCaseResult(Model):
     :param computer_name:
     :type computer_name: str
     :param configuration:
-    :type configuration: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type configuration: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param created_date:
     :type created_date: datetime
     :param custom_fields:
-    :type custom_fields: list of :class:`CustomTestField <test.v4_1.models.CustomTestField>`
+    :type custom_fields: list of :class:`CustomTestField <azure.devops.v4_1.test.models.CustomTestField>`
     :param duration_in_ms:
     :type duration_in_ms: float
     :param error_message:
     :type error_message: str
     :param failing_since:
-    :type failing_since: :class:`FailingSince <test.v4_1.models.FailingSince>`
+    :type failing_since: :class:`FailingSince <azure.devops.v4_1.test.models.FailingSince>`
     :param failure_type:
     :type failure_type: str
     :param id:
     :type id: int
     :param iteration_details:
-    :type iteration_details: list of :class:`TestIterationDetailsModel <test.v4_1.models.TestIterationDetailsModel>`
+    :type iteration_details: list of :class:`TestIterationDetailsModel <azure.devops.v4_1.test.models.TestIterationDetailsModel>`
     :param last_updated_by:
-    :type last_updated_by: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type last_updated_by: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param last_updated_date:
     :type last_updated_date: datetime
     :param outcome:
     :type outcome: str
     :param owner:
-    :type owner: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type owner: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param priority:
     :type priority: int
     :param project:
-    :type project: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type project: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param release:
-    :type release: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type release: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param release_reference:
-    :type release_reference: :class:`ReleaseReference <test.v4_1.models.ReleaseReference>`
+    :type release_reference: :class:`ReleaseReference <azure.devops.v4_1.test.models.ReleaseReference>`
     :param reset_count:
     :type reset_count: int
     :param resolution_state:
@@ -2013,7 +2013,7 @@ class TestCaseResult(Model):
     :param revision:
     :type revision: int
     :param run_by:
-    :type run_by: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type run_by: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param stack_trace:
     :type stack_trace: str
     :param started_date:
@@ -2021,19 +2021,19 @@ class TestCaseResult(Model):
     :param state:
     :type state: str
     :param test_case:
-    :type test_case: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type test_case: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param test_case_reference_id:
     :type test_case_reference_id: int
     :param test_case_title:
     :type test_case_title: str
     :param test_plan:
-    :type test_plan: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type test_plan: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param test_point:
-    :type test_point: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type test_point: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param test_run:
-    :type test_run: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type test_run: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param test_suite:
-    :type test_suite: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type test_suite: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param url:
     :type url: str
     """
@@ -2203,7 +2203,7 @@ class TestCaseResultUpdateModel(Model):
     :param computer_name:
     :type computer_name: str
     :param custom_fields:
-    :type custom_fields: list of :class:`CustomTestField <test.v4_1.models.CustomTestField>`
+    :type custom_fields: list of :class:`CustomTestField <azure.devops.v4_1.test.models.CustomTestField>`
     :param duration_in_ms:
     :type duration_in_ms: str
     :param error_message:
@@ -2213,11 +2213,11 @@ class TestCaseResultUpdateModel(Model):
     :param outcome:
     :type outcome: str
     :param owner:
-    :type owner: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type owner: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param resolution_state:
     :type resolution_state: str
     :param run_by:
-    :type run_by: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type run_by: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param stack_trace:
     :type stack_trace: str
     :param started_date:
@@ -2227,7 +2227,7 @@ class TestCaseResultUpdateModel(Model):
     :param test_case_priority:
     :type test_case_priority: str
     :param test_result:
-    :type test_result: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type test_result: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     """
 
     _attribute_map = {
@@ -2277,7 +2277,7 @@ class TestConfiguration(Model):
     """TestConfiguration.
 
     :param area: Area of the configuration
-    :type area: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type area: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param description: Description of the configuration
     :type description: str
     :param id: Id of the configuration
@@ -2285,13 +2285,13 @@ class TestConfiguration(Model):
     :param is_default: Is the configuration a default for the test plans
     :type is_default: bool
     :param last_updated_by: Last Updated By  Reference
-    :type last_updated_by: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type last_updated_by: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param last_updated_date: Last Updated Data
     :type last_updated_date: datetime
     :param name: Name of the configuration
     :type name: str
     :param project: Project to which the configuration belongs
-    :type project: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type project: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param revision: Revision of the the configuration
     :type revision: int
     :param state: State of the configuration
@@ -2299,7 +2299,7 @@ class TestConfiguration(Model):
     :param url: Url of Configuration Resource
     :type url: str
     :param values: Dictionary of Test Variable, Selected Value
-    :type values: list of :class:`NameValuePair <test.v4_1.models.NameValuePair>`
+    :type values: list of :class:`NameValuePair <azure.devops.v4_1.test.models.NameValuePair>`
     """
 
     _attribute_map = {
@@ -2359,7 +2359,7 @@ class TestFailureDetails(Model):
     :param count:
     :type count: int
     :param test_results:
-    :type test_results: list of :class:`TestCaseResultIdentifier <test.v4_1.models.TestCaseResultIdentifier>`
+    :type test_results: list of :class:`TestCaseResultIdentifier <azure.devops.v4_1.test.models.TestCaseResultIdentifier>`
     """
 
     _attribute_map = {
@@ -2377,13 +2377,13 @@ class TestFailuresAnalysis(Model):
     """TestFailuresAnalysis.
 
     :param existing_failures:
-    :type existing_failures: :class:`TestFailureDetails <test.v4_1.models.TestFailureDetails>`
+    :type existing_failures: :class:`TestFailureDetails <azure.devops.v4_1.test.models.TestFailureDetails>`
     :param fixed_tests:
-    :type fixed_tests: :class:`TestFailureDetails <test.v4_1.models.TestFailureDetails>`
+    :type fixed_tests: :class:`TestFailureDetails <azure.devops.v4_1.test.models.TestFailureDetails>`
     :param new_failures:
-    :type new_failures: :class:`TestFailureDetails <test.v4_1.models.TestFailureDetails>`
+    :type new_failures: :class:`TestFailureDetails <azure.devops.v4_1.test.models.TestFailureDetails>`
     :param previous_context:
-    :type previous_context: :class:`TestResultsContext <test.v4_1.models.TestResultsContext>`
+    :type previous_context: :class:`TestResultsContext <azure.devops.v4_1.test.models.TestResultsContext>`
     """
 
     _attribute_map = {
@@ -2405,9 +2405,9 @@ class TestIterationDetailsModel(Model):
     """TestIterationDetailsModel.
 
     :param action_results:
-    :type action_results: list of :class:`TestActionResultModel <test.v4_1.models.TestActionResultModel>`
+    :type action_results: list of :class:`TestActionResultModel <azure.devops.v4_1.test.models.TestActionResultModel>`
     :param attachments:
-    :type attachments: list of :class:`TestCaseResultAttachmentModel <test.v4_1.models.TestCaseResultAttachmentModel>`
+    :type attachments: list of :class:`TestCaseResultAttachmentModel <azure.devops.v4_1.test.models.TestCaseResultAttachmentModel>`
     :param comment:
     :type comment: str
     :param completed_date:
@@ -2421,7 +2421,7 @@ class TestIterationDetailsModel(Model):
     :param outcome:
     :type outcome: str
     :param parameters:
-    :type parameters: list of :class:`TestResultParameterModel <test.v4_1.models.TestResultParameterModel>`
+    :type parameters: list of :class:`TestResultParameterModel <azure.devops.v4_1.test.models.TestResultParameterModel>`
     :param started_date:
     :type started_date: datetime
     :param url:
@@ -2529,15 +2529,15 @@ class TestPlan(Model):
     """TestPlan.
 
     :param area:
-    :type area: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type area: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param automated_test_environment:
-    :type automated_test_environment: :class:`TestEnvironment <test.v4_1.models.TestEnvironment>`
+    :type automated_test_environment: :class:`TestEnvironment <azure.devops.v4_1.test.models.TestEnvironment>`
     :param automated_test_settings:
-    :type automated_test_settings: :class:`TestSettings <test.v4_1.models.TestSettings>`
+    :type automated_test_settings: :class:`TestSettings <azure.devops.v4_1.test.models.TestSettings>`
     :param build:
-    :type build: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type build: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param build_definition:
-    :type build_definition: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type build_definition: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param client_url:
     :type client_url: str
     :param description:
@@ -2549,29 +2549,29 @@ class TestPlan(Model):
     :param iteration:
     :type iteration: str
     :param manual_test_environment:
-    :type manual_test_environment: :class:`TestEnvironment <test.v4_1.models.TestEnvironment>`
+    :type manual_test_environment: :class:`TestEnvironment <azure.devops.v4_1.test.models.TestEnvironment>`
     :param manual_test_settings:
-    :type manual_test_settings: :class:`TestSettings <test.v4_1.models.TestSettings>`
+    :type manual_test_settings: :class:`TestSettings <azure.devops.v4_1.test.models.TestSettings>`
     :param name:
     :type name: str
     :param owner:
-    :type owner: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type owner: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param previous_build:
-    :type previous_build: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type previous_build: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param project:
-    :type project: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type project: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param release_environment_definition:
-    :type release_environment_definition: :class:`ReleaseEnvironmentDefinitionReference <test.v4_1.models.ReleaseEnvironmentDefinitionReference>`
+    :type release_environment_definition: :class:`ReleaseEnvironmentDefinitionReference <azure.devops.v4_1.test.models.ReleaseEnvironmentDefinitionReference>`
     :param revision:
     :type revision: int
     :param root_suite:
-    :type root_suite: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type root_suite: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param start_date:
     :type start_date: datetime
     :param state:
     :type state: str
     :param updated_by:
-    :type updated_by: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type updated_by: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param updated_date:
     :type updated_date: datetime
     :param url:
@@ -2637,9 +2637,9 @@ class TestPlanCloneRequest(Model):
     """TestPlanCloneRequest.
 
     :param destination_test_plan:
-    :type destination_test_plan: :class:`TestPlan <test.v4_1.models.TestPlan>`
+    :type destination_test_plan: :class:`TestPlan <azure.devops.v4_1.test.models.TestPlan>`
     :param options:
-    :type options: :class:`CloneOptions <test.v4_1.models.CloneOptions>`
+    :type options: :class:`CloneOptions <azure.devops.v4_1.test.models.CloneOptions>`
     :param suite_ids:
     :type suite_ids: list of int
     """
@@ -2661,13 +2661,13 @@ class TestPoint(Model):
     """TestPoint.
 
     :param assigned_to:
-    :type assigned_to: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type assigned_to: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param automated:
     :type automated: bool
     :param comment:
     :type comment: str
     :param configuration:
-    :type configuration: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type configuration: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param failure_type:
     :type failure_type: str
     :param id:
@@ -2675,17 +2675,17 @@ class TestPoint(Model):
     :param last_resolution_state_id:
     :type last_resolution_state_id: int
     :param last_result:
-    :type last_result: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type last_result: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param last_result_details:
-    :type last_result_details: :class:`LastResultDetails <test.v4_1.models.LastResultDetails>`
+    :type last_result_details: :class:`LastResultDetails <azure.devops.v4_1.test.models.LastResultDetails>`
     :param last_result_state:
     :type last_result_state: str
     :param last_run_build_number:
     :type last_run_build_number: str
     :param last_test_run:
-    :type last_test_run: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type last_test_run: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param last_updated_by:
-    :type last_updated_by: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type last_updated_by: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param last_updated_date:
     :type last_updated_date: datetime
     :param outcome:
@@ -2695,11 +2695,11 @@ class TestPoint(Model):
     :param state:
     :type state: str
     :param suite:
-    :type suite: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type suite: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param test_case:
-    :type test_case: :class:`WorkItemReference <test.v4_1.models.WorkItemReference>`
+    :type test_case: :class:`WorkItemReference <azure.devops.v4_1.test.models.WorkItemReference>`
     :param test_plan:
-    :type test_plan: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type test_plan: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param url:
     :type url: str
     :param work_item_properties:
@@ -2763,9 +2763,9 @@ class TestPointsQuery(Model):
     :param order_by:
     :type order_by: str
     :param points:
-    :type points: list of :class:`TestPoint <test.v4_1.models.TestPoint>`
+    :type points: list of :class:`TestPoint <azure.devops.v4_1.test.models.TestPoint>`
     :param points_filter:
-    :type points_filter: :class:`PointsFilter <test.v4_1.models.PointsFilter>`
+    :type points_filter: :class:`PointsFilter <azure.devops.v4_1.test.models.PointsFilter>`
     :param wit_fields:
     :type wit_fields: list of str
     """
@@ -2793,7 +2793,7 @@ class TestResolutionState(Model):
     :param name:
     :type name: str
     :param project:
-    :type project: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type project: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     """
 
     _attribute_map = {
@@ -2813,7 +2813,7 @@ class TestResultCreateModel(Model):
     """TestResultCreateModel.
 
     :param area:
-    :type area: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type area: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param associated_work_items:
     :type associated_work_items: list of int
     :param automated_test_id:
@@ -2833,9 +2833,9 @@ class TestResultCreateModel(Model):
     :param computer_name:
     :type computer_name: str
     :param configuration:
-    :type configuration: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type configuration: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param custom_fields:
-    :type custom_fields: list of :class:`CustomTestField <test.v4_1.models.CustomTestField>`
+    :type custom_fields: list of :class:`CustomTestField <azure.devops.v4_1.test.models.CustomTestField>`
     :param duration_in_ms:
     :type duration_in_ms: str
     :param error_message:
@@ -2845,11 +2845,11 @@ class TestResultCreateModel(Model):
     :param outcome:
     :type outcome: str
     :param owner:
-    :type owner: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type owner: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param resolution_state:
     :type resolution_state: str
     :param run_by:
-    :type run_by: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type run_by: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param stack_trace:
     :type stack_trace: str
     :param started_date:
@@ -2857,13 +2857,13 @@ class TestResultCreateModel(Model):
     :param state:
     :type state: str
     :param test_case:
-    :type test_case: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type test_case: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param test_case_priority:
     :type test_case_priority: str
     :param test_case_title:
     :type test_case_title: str
     :param test_point:
-    :type test_point: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type test_point: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     """
 
     _attribute_map = {
@@ -2929,9 +2929,9 @@ class TestResultDocument(Model):
     """TestResultDocument.
 
     :param operation_reference:
-    :type operation_reference: :class:`TestOperationReference <test.v4_1.models.TestOperationReference>`
+    :type operation_reference: :class:`TestOperationReference <azure.devops.v4_1.test.models.TestOperationReference>`
     :param payload:
-    :type payload: :class:`TestResultPayload <test.v4_1.models.TestResultPayload>`
+    :type payload: :class:`TestResultPayload <azure.devops.v4_1.test.models.TestResultPayload>`
     """
 
     _attribute_map = {
@@ -2951,7 +2951,7 @@ class TestResultHistory(Model):
     :param group_by_field:
     :type group_by_field: str
     :param results_for_group:
-    :type results_for_group: list of :class:`TestResultHistoryDetailsForGroup <test.v4_1.models.TestResultHistoryDetailsForGroup>`
+    :type results_for_group: list of :class:`TestResultHistoryDetailsForGroup <azure.devops.v4_1.test.models.TestResultHistoryDetailsForGroup>`
     """
 
     _attribute_map = {
@@ -2971,7 +2971,7 @@ class TestResultHistoryDetailsForGroup(Model):
     :param group_by_value:
     :type group_by_value: object
     :param latest_result:
-    :type latest_result: :class:`TestCaseResult <test.v4_1.models.TestCaseResult>`
+    :type latest_result: :class:`TestCaseResult <azure.devops.v4_1.test.models.TestCaseResult>`
     """
 
     _attribute_map = {
@@ -3085,11 +3085,11 @@ class TestResultsContext(Model):
     """TestResultsContext.
 
     :param build:
-    :type build: :class:`BuildReference <test.v4_1.models.BuildReference>`
+    :type build: :class:`BuildReference <azure.devops.v4_1.test.models.BuildReference>`
     :param context_type:
     :type context_type: object
     :param release:
-    :type release: :class:`ReleaseReference <test.v4_1.models.ReleaseReference>`
+    :type release: :class:`ReleaseReference <azure.devops.v4_1.test.models.ReleaseReference>`
     """
 
     _attribute_map = {
@@ -3111,7 +3111,7 @@ class TestResultsDetails(Model):
     :param group_by_field:
     :type group_by_field: str
     :param results_for_group:
-    :type results_for_group: list of :class:`TestResultsDetailsForGroup <test.v4_1.models.TestResultsDetailsForGroup>`
+    :type results_for_group: list of :class:`TestResultsDetailsForGroup <azure.devops.v4_1.test.models.TestResultsDetailsForGroup>`
     """
 
     _attribute_map = {
@@ -3131,7 +3131,7 @@ class TestResultsDetailsForGroup(Model):
     :param group_by_value:
     :type group_by_value: object
     :param results:
-    :type results: list of :class:`TestCaseResult <test.v4_1.models.TestCaseResult>`
+    :type results: list of :class:`TestCaseResult <azure.devops.v4_1.test.models.TestCaseResult>`
     :param results_count_by_outcome:
     :type results_count_by_outcome: dict
     """
@@ -3155,7 +3155,7 @@ class TestResultsGroupsForBuild(Model):
     :param build_id: BuildId for which groupby result is fetched.
     :type build_id: int
     :param fields: The group by results
-    :type fields: list of :class:`FieldDetailsForTestResults <test.v4_1.models.FieldDetailsForTestResults>`
+    :type fields: list of :class:`FieldDetailsForTestResults <azure.devops.v4_1.test.models.FieldDetailsForTestResults>`
     """
 
     _attribute_map = {
@@ -3173,7 +3173,7 @@ class TestResultsGroupsForRelease(Model):
     """TestResultsGroupsForRelease.
 
     :param fields: The group by results
-    :type fields: list of :class:`FieldDetailsForTestResults <test.v4_1.models.FieldDetailsForTestResults>`
+    :type fields: list of :class:`FieldDetailsForTestResults <azure.devops.v4_1.test.models.FieldDetailsForTestResults>`
     :param release_env_id: Release Environment Id for which groupby result is fetched.
     :type release_env_id: int
     :param release_id: ReleaseId for which groupby result is fetched.
@@ -3199,9 +3199,9 @@ class TestResultsQuery(Model):
     :param fields:
     :type fields: list of str
     :param results:
-    :type results: list of :class:`TestCaseResult <test.v4_1.models.TestCaseResult>`
+    :type results: list of :class:`TestCaseResult <azure.devops.v4_1.test.models.TestCaseResult>`
     :param results_filter:
-    :type results_filter: :class:`ResultsFilter <test.v4_1.models.ResultsFilter>`
+    :type results_filter: :class:`ResultsFilter <azure.devops.v4_1.test.models.ResultsFilter>`
     """
 
     _attribute_map = {
@@ -3221,13 +3221,13 @@ class TestResultSummary(Model):
     """TestResultSummary.
 
     :param aggregated_results_analysis:
-    :type aggregated_results_analysis: :class:`AggregatedResultsAnalysis <test.v4_1.models.AggregatedResultsAnalysis>`
+    :type aggregated_results_analysis: :class:`AggregatedResultsAnalysis <azure.devops.v4_1.test.models.AggregatedResultsAnalysis>`
     :param team_project:
-    :type team_project: :class:`TeamProjectReference <test.v4_1.models.TeamProjectReference>`
+    :type team_project: :class:`TeamProjectReference <azure.devops.v4_1.test.models.TeamProjectReference>`
     :param test_failures:
-    :type test_failures: :class:`TestFailuresAnalysis <test.v4_1.models.TestFailuresAnalysis>`
+    :type test_failures: :class:`TestFailuresAnalysis <azure.devops.v4_1.test.models.TestFailuresAnalysis>`
     :param test_results_context:
-    :type test_results_context: :class:`TestResultsContext <test.v4_1.models.TestResultsContext>`
+    :type test_results_context: :class:`TestResultsContext <azure.devops.v4_1.test.models.TestResultsContext>`
     """
 
     _attribute_map = {
@@ -3293,9 +3293,9 @@ class TestRun(Model):
     """TestRun.
 
     :param build:
-    :type build: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type build: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param build_configuration:
-    :type build_configuration: :class:`BuildConfiguration <test.v4_1.models.BuildConfiguration>`
+    :type build_configuration: :class:`BuildConfiguration <azure.devops.v4_1.test.models.BuildConfiguration>`
     :param comment:
     :type comment: str
     :param completed_date:
@@ -3305,21 +3305,21 @@ class TestRun(Model):
     :param created_date:
     :type created_date: datetime
     :param custom_fields:
-    :type custom_fields: list of :class:`CustomTestField <test.v4_1.models.CustomTestField>`
+    :type custom_fields: list of :class:`CustomTestField <azure.devops.v4_1.test.models.CustomTestField>`
     :param drop_location:
     :type drop_location: str
     :param dtl_aut_environment:
-    :type dtl_aut_environment: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type dtl_aut_environment: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param dtl_environment:
-    :type dtl_environment: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type dtl_environment: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param dtl_environment_creation_details:
-    :type dtl_environment_creation_details: :class:`DtlEnvironmentDetails <test.v4_1.models.DtlEnvironmentDetails>`
+    :type dtl_environment_creation_details: :class:`DtlEnvironmentDetails <azure.devops.v4_1.test.models.DtlEnvironmentDetails>`
     :param due_date:
     :type due_date: datetime
     :param error_message:
     :type error_message: str
     :param filter:
-    :type filter: :class:`RunFilter <test.v4_1.models.RunFilter>`
+    :type filter: :class:`RunFilter <azure.devops.v4_1.test.models.RunFilter>`
     :param id:
     :type id: int
     :param incomplete_tests:
@@ -3329,7 +3329,7 @@ class TestRun(Model):
     :param iteration:
     :type iteration: str
     :param last_updated_by:
-    :type last_updated_by: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type last_updated_by: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param last_updated_date:
     :type last_updated_date: datetime
     :param name:
@@ -3337,19 +3337,19 @@ class TestRun(Model):
     :param not_applicable_tests:
     :type not_applicable_tests: int
     :param owner:
-    :type owner: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type owner: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param passed_tests:
     :type passed_tests: int
     :param phase:
     :type phase: str
     :param plan:
-    :type plan: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type plan: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param post_process_state:
     :type post_process_state: str
     :param project:
-    :type project: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type project: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param release:
-    :type release: :class:`ReleaseReference <test.v4_1.models.ReleaseReference>`
+    :type release: :class:`ReleaseReference <azure.devops.v4_1.test.models.ReleaseReference>`
     :param release_environment_uri:
     :type release_environment_uri: str
     :param release_uri:
@@ -3357,7 +3357,7 @@ class TestRun(Model):
     :param revision:
     :type revision: int
     :param run_statistics:
-    :type run_statistics: list of :class:`RunStatistic <test.v4_1.models.RunStatistic>`
+    :type run_statistics: list of :class:`RunStatistic <azure.devops.v4_1.test.models.RunStatistic>`
     :param started_date:
     :type started_date: datetime
     :param state:
@@ -3365,11 +3365,11 @@ class TestRun(Model):
     :param substate:
     :type substate: object
     :param test_environment:
-    :type test_environment: :class:`TestEnvironment <test.v4_1.models.TestEnvironment>`
+    :type test_environment: :class:`TestEnvironment <azure.devops.v4_1.test.models.TestEnvironment>`
     :param test_message_log_id:
     :type test_message_log_id: int
     :param test_settings:
-    :type test_settings: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type test_settings: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param total_tests:
     :type total_tests: int
     :param unanalyzed_tests:
@@ -3479,11 +3479,11 @@ class TestRunCoverage(Model):
     :param last_error:
     :type last_error: str
     :param modules:
-    :type modules: list of :class:`ModuleCoverage <test.v4_1.models.ModuleCoverage>`
+    :type modules: list of :class:`ModuleCoverage <azure.devops.v4_1.test.models.ModuleCoverage>`
     :param state:
     :type state: str
     :param test_run:
-    :type test_run: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type test_run: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     """
 
     _attribute_map = {
@@ -3505,9 +3505,9 @@ class TestRunStatistic(Model):
     """TestRunStatistic.
 
     :param run:
-    :type run: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type run: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param run_statistics:
-    :type run_statistics: list of :class:`RunStatistic <test.v4_1.models.RunStatistic>`
+    :type run_statistics: list of :class:`RunStatistic <azure.devops.v4_1.test.models.RunStatistic>`
     """
 
     _attribute_map = {
@@ -3525,7 +3525,7 @@ class TestSession(Model):
     """TestSession.
 
     :param area: Area path of the test session
-    :type area: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type area: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param comment: Comments in the test session
     :type comment: str
     :param end_date: Duration of the session
@@ -3533,15 +3533,15 @@ class TestSession(Model):
     :param id: Id of the test session
     :type id: int
     :param last_updated_by: Last Updated By  Reference
-    :type last_updated_by: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type last_updated_by: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param last_updated_date: Last updated date
     :type last_updated_date: datetime
     :param owner: Owner of the test session
-    :type owner: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type owner: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param project: Project to which the test session belongs
-    :type project: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type project: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param property_bag: Generic store for test session data
-    :type property_bag: :class:`PropertyBag <test.v4_1.models.PropertyBag>`
+    :type property_bag: :class:`PropertyBag <azure.devops.v4_1.test.models.PropertyBag>`
     :param revision: Revision of the test session
     :type revision: int
     :param source: Source of the test session
@@ -3639,11 +3639,11 @@ class TestSuite(Model):
     :param area_uri:
     :type area_uri: str
     :param children:
-    :type children: list of :class:`TestSuite <test.v4_1.models.TestSuite>`
+    :type children: list of :class:`TestSuite <azure.devops.v4_1.test.models.TestSuite>`
     :param default_configurations:
-    :type default_configurations: list of :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type default_configurations: list of :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param default_testers:
-    :type default_testers: list of :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type default_testers: list of :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param id:
     :type id: int
     :param inherit_default_configurations:
@@ -3653,17 +3653,17 @@ class TestSuite(Model):
     :param last_populated_date:
     :type last_populated_date: datetime
     :param last_updated_by:
-    :type last_updated_by: :class:`IdentityRef <test.v4_1.models.IdentityRef>`
+    :type last_updated_by: :class:`IdentityRef <azure.devops.v4_1.test.models.IdentityRef>`
     :param last_updated_date:
     :type last_updated_date: datetime
     :param name:
     :type name: str
     :param parent:
-    :type parent: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type parent: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param plan:
-    :type plan: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type plan: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param project:
-    :type project: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type project: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param query_string:
     :type query_string: str
     :param requirement_id:
@@ -3673,7 +3673,7 @@ class TestSuite(Model):
     :param state:
     :type state: str
     :param suites:
-    :type suites: list of :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type suites: list of :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param suite_type:
     :type suite_type: str
     :param test_case_count:
@@ -3745,7 +3745,7 @@ class TestSuiteCloneRequest(Model):
     """TestSuiteCloneRequest.
 
     :param clone_options:
-    :type clone_options: :class:`CloneOptions <test.v4_1.models.CloneOptions>`
+    :type clone_options: :class:`CloneOptions <azure.devops.v4_1.test.models.CloneOptions>`
     :param destination_suite_id:
     :type destination_suite_id: int
     :param destination_suite_project_name:
@@ -3769,9 +3769,9 @@ class TestSummaryForWorkItem(Model):
     """TestSummaryForWorkItem.
 
     :param summary:
-    :type summary: :class:`AggregatedDataForResultTrend <test.v4_1.models.AggregatedDataForResultTrend>`
+    :type summary: :class:`AggregatedDataForResultTrend <azure.devops.v4_1.test.models.AggregatedDataForResultTrend>`
     :param work_item:
-    :type work_item: :class:`WorkItemReference <test.v4_1.models.WorkItemReference>`
+    :type work_item: :class:`WorkItemReference <azure.devops.v4_1.test.models.WorkItemReference>`
     """
 
     _attribute_map = {
@@ -3789,9 +3789,9 @@ class TestToWorkItemLinks(Model):
     """TestToWorkItemLinks.
 
     :param test:
-    :type test: :class:`TestMethod <test.v4_1.models.TestMethod>`
+    :type test: :class:`TestMethod <azure.devops.v4_1.test.models.TestMethod>`
     :param work_items:
-    :type work_items: list of :class:`WorkItemReference <test.v4_1.models.WorkItemReference>`
+    :type work_items: list of :class:`WorkItemReference <azure.devops.v4_1.test.models.WorkItemReference>`
     """
 
     _attribute_map = {
@@ -3815,7 +3815,7 @@ class TestVariable(Model):
     :param name: Name of the test variable
     :type name: str
     :param project: Project to which the test variable belongs
-    :type project: :class:`ShallowReference <test.v4_1.models.ShallowReference>`
+    :type project: :class:`ShallowReference <azure.devops.v4_1.test.models.ShallowReference>`
     :param revision: Revision
     :type revision: int
     :param url: Url of the test variable
@@ -3881,9 +3881,9 @@ class WorkItemToTestLinks(Model):
     """WorkItemToTestLinks.
 
     :param tests:
-    :type tests: list of :class:`TestMethod <test.v4_1.models.TestMethod>`
+    :type tests: list of :class:`TestMethod <azure.devops.v4_1.test.models.TestMethod>`
     :param work_item:
-    :type work_item: :class:`WorkItemReference <test.v4_1.models.WorkItemReference>`
+    :type work_item: :class:`WorkItemReference <azure.devops.v4_1.test.models.WorkItemReference>`
     """
 
     _attribute_map = {
@@ -3917,7 +3917,7 @@ class TestActionResultModel(TestResultModelBase):
     :param iteration_id:
     :type iteration_id: int
     :param shared_step_model:
-    :type shared_step_model: :class:`SharedStepModel <test.v4_1.models.SharedStepModel>`
+    :type shared_step_model: :class:`SharedStepModel <azure.devops.v4_1.test.models.SharedStepModel>`
     :param step_identifier: This is step Id of test case. For shared step, it is step Id of shared step in test case workitem; step Id in shared step. Example: TestCase workitem has two steps: 1) Normal step with Id = 1 2) Shared Step with Id = 2. Inside shared step: a) Normal Step with Id = 1 Value for StepIdentifier for First step: "1" Second step: "2;1"
     :type step_identifier: str
     :param url:

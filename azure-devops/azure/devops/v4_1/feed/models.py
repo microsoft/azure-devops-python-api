@@ -15,7 +15,7 @@ class FeedChange(Model):
     :param change_type:
     :type change_type: object
     :param feed:
-    :type feed: :class:`Feed <packaging.v4_1.models.Feed>`
+    :type feed: :class:`Feed <azure.devops.v4_1.packaging.models.Feed>`
     :param feed_continuation_token:
     :type feed_continuation_token: long
     :param latest_package_continuation_token:
@@ -41,11 +41,11 @@ class FeedChangesResponse(Model):
     """FeedChangesResponse.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <packaging.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.packaging.models.ReferenceLinks>`
     :param count:
     :type count: int
     :param feed_changes:
-    :type feed_changes: list of :class:`FeedChange <packaging.v4_1.models.FeedChange>`
+    :type feed_changes: list of :class:`FeedChange <azure.devops.v4_1.packaging.models.FeedChange>`
     :param next_feed_continuation_token:
     :type next_feed_continuation_token: long
     """
@@ -85,9 +85,9 @@ class FeedCore(Model):
     :param upstream_enabled: If set, the feed can proxy packages from an upstream feed
     :type upstream_enabled: bool
     :param upstream_sources: External assemblies should use the extension methods to get the sources for a specific protocol.
-    :type upstream_sources: list of :class:`UpstreamSource <packaging.v4_1.models.UpstreamSource>`
+    :type upstream_sources: list of :class:`UpstreamSource <azure.devops.v4_1.packaging.models.UpstreamSource>`
     :param view:
-    :type view: :class:`FeedView <packaging.v4_1.models.FeedView>`
+    :type view: :class:`FeedView <azure.devops.v4_1.packaging.models.FeedView>`
     :param view_id:
     :type view_id: str
     :param view_name:
@@ -131,7 +131,7 @@ class FeedPermission(Model):
     :param display_name: Display name for the identity
     :type display_name: str
     :param identity_descriptor:
-    :type identity_descriptor: :class:`str <packaging.v4_1.models.str>`
+    :type identity_descriptor: :class:`str <azure.devops.v4_1.packaging.models.str>`
     :param identity_id:
     :type identity_id: str
     :param role:
@@ -193,7 +193,7 @@ class FeedUpdate(Model):
     :param upstream_enabled:
     :type upstream_enabled: bool
     :param upstream_sources:
-    :type upstream_sources: list of :class:`UpstreamSource <packaging.v4_1.models.UpstreamSource>`
+    :type upstream_sources: list of :class:`UpstreamSource <azure.devops.v4_1.packaging.models.UpstreamSource>`
     """
 
     _attribute_map = {
@@ -225,7 +225,7 @@ class FeedView(Model):
     """FeedView.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <packaging.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.packaging.models.ReferenceLinks>`
     :param id:
     :type id: str
     :param name:
@@ -261,7 +261,7 @@ class GlobalPermission(Model):
     """GlobalPermission.
 
     :param identity_descriptor:
-    :type identity_descriptor: :class:`str <packaging.v4_1.models.str>`
+    :type identity_descriptor: :class:`str <azure.devops.v4_1.packaging.models.str>`
     :param role:
     :type role: object
     """
@@ -331,7 +331,7 @@ class MinimalPackageVersion(Model):
     :param version: The display version of the package version
     :type version: str
     :param views:
-    :type views: list of :class:`FeedView <packaging.v4_1.models.FeedView>`
+    :type views: list of :class:`FeedView <azure.devops.v4_1.packaging.models.FeedView>`
     """
 
     _attribute_map = {
@@ -369,7 +369,7 @@ class Package(Model):
     """Package.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <packaging.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.packaging.models.ReferenceLinks>`
     :param id:
     :type id: str
     :param is_cached:
@@ -385,7 +385,7 @@ class Package(Model):
     :param url:
     :type url: str
     :param versions:
-    :type versions: list of :class:`MinimalPackageVersion <packaging.v4_1.models.MinimalPackageVersion>`
+    :type versions: list of :class:`MinimalPackageVersion <azure.devops.v4_1.packaging.models.MinimalPackageVersion>`
     """
 
     _attribute_map = {
@@ -417,9 +417,9 @@ class PackageChange(Model):
     """PackageChange.
 
     :param package:
-    :type package: :class:`Package <packaging.v4_1.models.Package>`
+    :type package: :class:`Package <azure.devops.v4_1.packaging.models.Package>`
     :param package_version_change:
-    :type package_version_change: :class:`PackageVersionChange <packaging.v4_1.models.PackageVersionChange>`
+    :type package_version_change: :class:`PackageVersionChange <azure.devops.v4_1.packaging.models.PackageVersionChange>`
     """
 
     _attribute_map = {
@@ -437,13 +437,13 @@ class PackageChangesResponse(Model):
     """PackageChangesResponse.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <packaging.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.packaging.models.ReferenceLinks>`
     :param count:
     :type count: int
     :param next_package_continuation_token:
     :type next_package_continuation_token: long
     :param package_changes:
-    :type package_changes: list of :class:`PackageChange <packaging.v4_1.models.PackageChange>`
+    :type package_changes: list of :class:`PackageChange <azure.devops.v4_1.packaging.models.PackageChange>`
     """
 
     _attribute_map = {
@@ -489,11 +489,11 @@ class PackageFile(Model):
     """PackageFile.
 
     :param children:
-    :type children: list of :class:`PackageFile <packaging.v4_1.models.PackageFile>`
+    :type children: list of :class:`PackageFile <azure.devops.v4_1.packaging.models.PackageFile>`
     :param name:
     :type name: str
     :param protocol_metadata:
-    :type protocol_metadata: :class:`ProtocolMetadata <packaging.v4_1.models.ProtocolMetadata>`
+    :type protocol_metadata: :class:`ProtocolMetadata <azure.devops.v4_1.packaging.models.ProtocolMetadata>`
     """
 
     _attribute_map = {
@@ -535,25 +535,25 @@ class PackageVersion(MinimalPackageVersion):
     :param version: The display version of the package version
     :type version: str
     :param views:
-    :type views: list of :class:`FeedView <packaging.v4_1.models.FeedView>`
+    :type views: list of :class:`FeedView <azure.devops.v4_1.packaging.models.FeedView>`
     :param _links:
-    :type _links: :class:`ReferenceLinks <packaging.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.packaging.models.ReferenceLinks>`
     :param author:
     :type author: str
     :param deleted_date:
     :type deleted_date: datetime
     :param dependencies:
-    :type dependencies: list of :class:`PackageDependency <packaging.v4_1.models.PackageDependency>`
+    :type dependencies: list of :class:`PackageDependency <azure.devops.v4_1.packaging.models.PackageDependency>`
     :param description:
     :type description: str
     :param files:
-    :type files: list of :class:`PackageFile <packaging.v4_1.models.PackageFile>`
+    :type files: list of :class:`PackageFile <azure.devops.v4_1.packaging.models.PackageFile>`
     :param other_versions:
-    :type other_versions: list of :class:`MinimalPackageVersion <packaging.v4_1.models.MinimalPackageVersion>`
+    :type other_versions: list of :class:`MinimalPackageVersion <azure.devops.v4_1.packaging.models.MinimalPackageVersion>`
     :param protocol_metadata:
-    :type protocol_metadata: :class:`ProtocolMetadata <packaging.v4_1.models.ProtocolMetadata>`
+    :type protocol_metadata: :class:`ProtocolMetadata <azure.devops.v4_1.packaging.models.ProtocolMetadata>`
     :param source_chain:
-    :type source_chain: list of :class:`UpstreamSource <packaging.v4_1.models.UpstreamSource>`
+    :type source_chain: list of :class:`UpstreamSource <azure.devops.v4_1.packaging.models.UpstreamSource>`
     :param summary:
     :type summary: str
     :param tags:
@@ -613,7 +613,7 @@ class PackageVersionChange(Model):
     :param continuation_token:
     :type continuation_token: long
     :param package_version:
-    :type package_version: :class:`PackageVersion <packaging.v4_1.models.PackageVersion>`
+    :type package_version: :class:`PackageVersion <azure.devops.v4_1.packaging.models.PackageVersion>`
     """
 
     _attribute_map = {
@@ -675,25 +675,25 @@ class RecycleBinPackageVersion(PackageVersion):
     :param version: The display version of the package version
     :type version: str
     :param views:
-    :type views: list of :class:`FeedView <packaging.v4_1.models.FeedView>`
+    :type views: list of :class:`FeedView <azure.devops.v4_1.packaging.models.FeedView>`
     :param _links:
-    :type _links: :class:`ReferenceLinks <packaging.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.packaging.models.ReferenceLinks>`
     :param author:
     :type author: str
     :param deleted_date:
     :type deleted_date: datetime
     :param dependencies:
-    :type dependencies: list of :class:`PackageDependency <packaging.v4_1.models.PackageDependency>`
+    :type dependencies: list of :class:`PackageDependency <azure.devops.v4_1.packaging.models.PackageDependency>`
     :param description:
     :type description: str
     :param files:
-    :type files: list of :class:`PackageFile <packaging.v4_1.models.PackageFile>`
+    :type files: list of :class:`PackageFile <azure.devops.v4_1.packaging.models.PackageFile>`
     :param other_versions:
-    :type other_versions: list of :class:`MinimalPackageVersion <packaging.v4_1.models.MinimalPackageVersion>`
+    :type other_versions: list of :class:`MinimalPackageVersion <azure.devops.v4_1.packaging.models.MinimalPackageVersion>`
     :param protocol_metadata:
-    :type protocol_metadata: :class:`ProtocolMetadata <packaging.v4_1.models.ProtocolMetadata>`
+    :type protocol_metadata: :class:`ProtocolMetadata <azure.devops.v4_1.packaging.models.ProtocolMetadata>`
     :param source_chain:
-    :type source_chain: list of :class:`UpstreamSource <packaging.v4_1.models.UpstreamSource>`
+    :type source_chain: list of :class:`UpstreamSource <azure.devops.v4_1.packaging.models.UpstreamSource>`
     :param summary:
     :type summary: str
     :param tags:
@@ -821,15 +821,15 @@ class Feed(FeedCore):
     :param upstream_enabled: If set, the feed can proxy packages from an upstream feed
     :type upstream_enabled: bool
     :param upstream_sources: External assemblies should use the extension methods to get the sources for a specific protocol.
-    :type upstream_sources: list of :class:`UpstreamSource <packaging.v4_1.models.UpstreamSource>`
+    :type upstream_sources: list of :class:`UpstreamSource <azure.devops.v4_1.packaging.models.UpstreamSource>`
     :param view:
-    :type view: :class:`FeedView <packaging.v4_1.models.FeedView>`
+    :type view: :class:`FeedView <azure.devops.v4_1.packaging.models.FeedView>`
     :param view_id:
     :type view_id: str
     :param view_name:
     :type view_name: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <packaging.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.packaging.models.ReferenceLinks>`
     :param badges_enabled:
     :type badges_enabled: bool
     :param default_view_id:
@@ -841,7 +841,7 @@ class Feed(FeedCore):
     :param hide_deleted_package_versions: If set, feed will hide all deleted/unpublished versions
     :type hide_deleted_package_versions: bool
     :param permissions:
-    :type permissions: list of :class:`FeedPermission <packaging.v4_1.models.FeedPermission>`
+    :type permissions: list of :class:`FeedPermission <azure.devops.v4_1.packaging.models.FeedPermission>`
     :param upstream_enabled_changed_date: If set, time that the UpstreamEnabled property was changed. Will be null if UpstreamEnabled was never changed after Feed creation.
     :type upstream_enabled_changed_date: datetime
     :param url:

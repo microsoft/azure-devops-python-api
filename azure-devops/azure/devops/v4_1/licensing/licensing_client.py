@@ -60,7 +60,7 @@ class LicensingClient(Client):
         :param bool include_certificate:
         :param str canary:
         :param str machine_id:
-        :rtype: :class:`<ClientRightsContainer> <licensing.v4_1.models.ClientRightsContainer>`
+        :rtype: :class:`<ClientRightsContainer> <azure.devops.v4_1.licensing.models.ClientRightsContainer>`
         """
         route_values = {}
         if right_name is not None:
@@ -91,7 +91,7 @@ class LicensingClient(Client):
         :param str user_id: The user to which to assign the entitilement
         :param bool dont_notify_user:
         :param str origin:
-        :rtype: :class:`<AccountEntitlement> <licensing.v4_1.models.AccountEntitlement>`
+        :rtype: :class:`<AccountEntitlement> <azure.devops.v4_1.licensing.models.AccountEntitlement>`
         """
         query_parameters = {}
         if user_id is not None:
@@ -109,7 +109,7 @@ class LicensingClient(Client):
     def get_account_entitlement(self):
         """GetAccountEntitlement.
         [Preview API] Gets the account entitlement of the current user it is mapped to _apis/licensing/entitlements/me so specifically is looking for the user of the request
-        :rtype: :class:`<AccountEntitlement> <licensing.v4_1.models.AccountEntitlement>`
+        :rtype: :class:`<AccountEntitlement> <azure.devops.v4_1.licensing.models.AccountEntitlement>`
         """
         response = self._send(http_method='GET',
                               location_id='c01e9fd5-0d8c-4d5e-9a68-734bd8da6a38',
@@ -137,11 +137,11 @@ class LicensingClient(Client):
     def assign_account_entitlement_for_user(self, body, user_id, dont_notify_user=None, origin=None):
         """AssignAccountEntitlementForUser.
         [Preview API] Assign an explicit account entitlement
-        :param :class:`<AccountEntitlementUpdateModel> <licensing.v4_1.models.AccountEntitlementUpdateModel>` body: The update model for the entitlement
+        :param :class:`<AccountEntitlementUpdateModel> <azure.devops.v4_1.licensing.models.AccountEntitlementUpdateModel>` body: The update model for the entitlement
         :param str user_id: The id of the user
         :param bool dont_notify_user:
         :param str origin:
-        :rtype: :class:`<AccountEntitlement> <licensing.v4_1.models.AccountEntitlement>`
+        :rtype: :class:`<AccountEntitlement> <azure.devops.v4_1.licensing.models.AccountEntitlement>`
         """
         route_values = {}
         if user_id is not None:
@@ -178,7 +178,7 @@ class LicensingClient(Client):
         [Preview API] Get the entitlements for a user
         :param str user_id: The id of the user
         :param bool determine_rights:
-        :rtype: :class:`<AccountEntitlement> <licensing.v4_1.models.AccountEntitlement>`
+        :rtype: :class:`<AccountEntitlement> <azure.devops.v4_1.licensing.models.AccountEntitlement>`
         """
         route_values = {}
         if user_id is not None:
@@ -278,7 +278,7 @@ class LicensingClient(Client):
     def assign_extension_to_users(self, body):
         """AssignExtensionToUsers.
         [Preview API] Assigns the access to the given extension for a given list of users
-        :param :class:`<ExtensionAssignment> <licensing.v4_1.models.ExtensionAssignment>` body: The extension assignment details.
+        :param :class:`<ExtensionAssignment> <azure.devops.v4_1.licensing.models.ExtensionAssignment>` body: The extension assignment details.
         :rtype: [ExtensionOperationResult]
         """
         content = self._serialize.body(body, 'ExtensionAssignment')
@@ -320,7 +320,7 @@ class LicensingClient(Client):
         """GetExtensionLicenseData.
         [Preview API]
         :param str extension_id:
-        :rtype: :class:`<ExtensionLicenseData> <licensing.v4_1.models.ExtensionLicenseData>`
+        :rtype: :class:`<ExtensionLicenseData> <azure.devops.v4_1.licensing.models.ExtensionLicenseData>`
         """
         route_values = {}
         if extension_id is not None:
@@ -334,7 +334,7 @@ class LicensingClient(Client):
     def register_extension_license(self, extension_license_data):
         """RegisterExtensionLicense.
         [Preview API]
-        :param :class:`<ExtensionLicenseData> <licensing.v4_1.models.ExtensionLicenseData>` extension_license_data:
+        :param :class:`<ExtensionLicenseData> <azure.devops.v4_1.licensing.models.ExtensionLicenseData>` extension_license_data:
         :rtype: bool
         """
         content = self._serialize.body(extension_license_data, 'ExtensionLicenseData')
@@ -360,7 +360,7 @@ class LicensingClient(Client):
     def get_extension_rights(self):
         """GetExtensionRights.
         [Preview API]
-        :rtype: :class:`<ExtensionRightsResult> <licensing.v4_1.models.ExtensionRightsResult>`
+        :rtype: :class:`<ExtensionRightsResult> <azure.devops.v4_1.licensing.models.ExtensionRightsResult>`
         """
         response = self._send(http_method='GET',
                               location_id='5f1dbe21-f748-47c7-b5fd-3770c8bc2c08',

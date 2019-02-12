@@ -31,7 +31,7 @@ class LocationClient(Client):
         :param str connect_options:
         :param int last_change_id: Obsolete 32-bit LastChangeId
         :param long last_change_id64: Non-truncated 64-bit LastChangeId
-        :rtype: :class:`<ConnectionData> <location.v4_0.models.ConnectionData>`
+        :rtype: :class:`<ConnectionData> <azure.devops.v4_0.location.models.ConnectionData>`
         """
         query_parameters = {}
         if connect_options is not None:
@@ -50,7 +50,7 @@ class LocationClient(Client):
         """GetResourceArea.
         [Preview API]
         :param str area_id:
-        :rtype: :class:`<ResourceAreaInfo> <location.v4_0.models.ResourceAreaInfo>`
+        :rtype: :class:`<ResourceAreaInfo> <azure.devops.v4_0.location.models.ResourceAreaInfo>`
         """
         route_values = {}
         if area_id is not None:
@@ -93,7 +93,7 @@ class LocationClient(Client):
         :param str service_type:
         :param str identifier:
         :param bool allow_fault_in:
-        :rtype: :class:`<ServiceDefinition> <location.v4_0.models.ServiceDefinition>`
+        :rtype: :class:`<ServiceDefinition> <azure.devops.v4_0.location.models.ServiceDefinition>`
         """
         route_values = {}
         if service_type is not None:
@@ -128,7 +128,7 @@ class LocationClient(Client):
     def update_service_definitions(self, service_definitions):
         """UpdateServiceDefinitions.
         [Preview API]
-        :param :class:`<VssJsonCollectionWrapper> <location.v4_0.models.VssJsonCollectionWrapper>` service_definitions:
+        :param :class:`<VssJsonCollectionWrapper> <azure.devops.v4_0.location.models.VssJsonCollectionWrapper>` service_definitions:
         """
         content = self._serialize.body(service_definitions, 'VssJsonCollectionWrapper')
         self._send(http_method='PATCH',

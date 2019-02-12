@@ -32,7 +32,7 @@ class TfvcClient(Client):
         :param str project: Project ID or project name
         :param bool include_parent:
         :param bool include_children:
-        :rtype: :class:`<TfvcBranch> <tfvc.v4_0.models.TfvcBranch>`
+        :rtype: :class:`<TfvcBranch> <azure.devops.v4_0.tfvc.models.TfvcBranch>`
         """
         route_values = {}
         if project is not None:
@@ -132,9 +132,9 @@ class TfvcClient(Client):
     def create_changeset(self, changeset, project=None):
         """CreateChangeset.
         Create a new changeset.
-        :param :class:`<TfvcChangeset> <tfvc.v4_0.models.TfvcChangeset>` changeset:
+        :param :class:`<TfvcChangeset> <azure.devops.v4_0.tfvc.models.TfvcChangeset>` changeset:
         :param str project: Project ID or project name
-        :rtype: :class:`<TfvcChangesetRef> <tfvc.v4_0.models.TfvcChangesetRef>`
+        :rtype: :class:`<TfvcChangesetRef> <azure.devops.v4_0.tfvc.models.TfvcChangesetRef>`
         """
         route_values = {}
         if project is not None:
@@ -160,8 +160,8 @@ class TfvcClient(Client):
         :param int skip:
         :param int top:
         :param str orderby:
-        :param :class:`<TfvcChangesetSearchCriteria> <tfvc.v4_0.models.TfvcChangesetSearchCriteria>` search_criteria:
-        :rtype: :class:`<TfvcChangeset> <tfvc.v4_0.models.TfvcChangeset>`
+        :param :class:`<TfvcChangesetSearchCriteria> <azure.devops.v4_0.tfvc.models.TfvcChangesetSearchCriteria>` search_criteria:
+        :rtype: :class:`<TfvcChangeset> <azure.devops.v4_0.tfvc.models.TfvcChangeset>`
         """
         route_values = {}
         if project is not None:
@@ -217,7 +217,7 @@ class TfvcClient(Client):
         :param int skip:
         :param int top:
         :param str orderby:
-        :param :class:`<TfvcChangesetSearchCriteria> <tfvc.v4_0.models.TfvcChangesetSearchCriteria>` search_criteria:
+        :param :class:`<TfvcChangesetSearchCriteria> <azure.devops.v4_0.tfvc.models.TfvcChangesetSearchCriteria>` search_criteria:
         :rtype: [TfvcChangesetRef]
         """
         route_values = {}
@@ -258,7 +258,7 @@ class TfvcClient(Client):
 
     def get_batched_changesets(self, changesets_request_data):
         """GetBatchedChangesets.
-        :param :class:`<TfvcChangesetsRequestData> <tfvc.v4_0.models.TfvcChangesetsRequestData>` changesets_request_data:
+        :param :class:`<TfvcChangesetsRequestData> <azure.devops.v4_0.tfvc.models.TfvcChangesetsRequestData>` changesets_request_data:
         :rtype: [TfvcChangesetRef]
         """
         content = self._serialize.body(changesets_request_data, 'TfvcChangesetsRequestData')
@@ -285,7 +285,7 @@ class TfvcClient(Client):
     def get_items_batch(self, item_request_data, project=None):
         """GetItemsBatch.
         Post for retrieving a set of items given a list of paths or a long path. Allows for specifying the recursionLevel and version descriptors for each path.
-        :param :class:`<TfvcItemRequestData> <tfvc.v4_0.models.TfvcItemRequestData>` item_request_data:
+        :param :class:`<TfvcItemRequestData> <azure.devops.v4_0.tfvc.models.TfvcItemRequestData>` item_request_data:
         :param str project: Project ID or project name
         :rtype: [[TfvcItem]]
         """
@@ -303,7 +303,7 @@ class TfvcClient(Client):
     def get_items_batch_zip(self, item_request_data, project=None, **kwargs):
         """GetItemsBatchZip.
         Post for retrieving a set of items given a list of paths or a long path. Allows for specifying the recursionLevel and version descriptors for each path.
-        :param :class:`<TfvcItemRequestData> <tfvc.v4_0.models.TfvcItemRequestData>` item_request_data:
+        :param :class:`<TfvcItemRequestData> <azure.devops.v4_0.tfvc.models.TfvcItemRequestData>` item_request_data:
         :param str project: Project ID or project name
         :rtype: object
         """
@@ -332,8 +332,8 @@ class TfvcClient(Client):
         :param bool download:
         :param str scope_path:
         :param str recursion_level:
-        :param :class:`<TfvcVersionDescriptor> <tfvc.v4_0.models.TfvcVersionDescriptor>` version_descriptor:
-        :rtype: :class:`<TfvcItem> <tfvc.v4_0.models.TfvcItem>`
+        :param :class:`<TfvcVersionDescriptor> <azure.devops.v4_0.tfvc.models.TfvcVersionDescriptor>` version_descriptor:
+        :rtype: :class:`<TfvcItem> <azure.devops.v4_0.tfvc.models.TfvcItem>`
         """
         route_values = {}
         if project is not None:
@@ -372,7 +372,7 @@ class TfvcClient(Client):
         :param bool download:
         :param str scope_path:
         :param str recursion_level:
-        :param :class:`<TfvcVersionDescriptor> <tfvc.v4_0.models.TfvcVersionDescriptor>` version_descriptor:
+        :param :class:`<TfvcVersionDescriptor> <azure.devops.v4_0.tfvc.models.TfvcVersionDescriptor>` version_descriptor:
         :rtype: object
         """
         route_values = {}
@@ -415,7 +415,7 @@ class TfvcClient(Client):
         :param str scope_path:
         :param str recursion_level:
         :param bool include_links:
-        :param :class:`<TfvcVersionDescriptor> <tfvc.v4_0.models.TfvcVersionDescriptor>` version_descriptor:
+        :param :class:`<TfvcVersionDescriptor> <azure.devops.v4_0.tfvc.models.TfvcVersionDescriptor>` version_descriptor:
         :rtype: [TfvcItem]
         """
         route_values = {}
@@ -451,7 +451,7 @@ class TfvcClient(Client):
         :param bool download:
         :param str scope_path:
         :param str recursion_level:
-        :param :class:`<TfvcVersionDescriptor> <tfvc.v4_0.models.TfvcVersionDescriptor>` version_descriptor:
+        :param :class:`<TfvcVersionDescriptor> <azure.devops.v4_0.tfvc.models.TfvcVersionDescriptor>` version_descriptor:
         :rtype: object
         """
         route_values = {}
@@ -496,7 +496,7 @@ class TfvcClient(Client):
         :param bool download:
         :param str scope_path:
         :param str recursion_level:
-        :param :class:`<TfvcVersionDescriptor> <tfvc.v4_0.models.TfvcVersionDescriptor>` version_descriptor:
+        :param :class:`<TfvcVersionDescriptor> <azure.devops.v4_0.tfvc.models.TfvcVersionDescriptor>` version_descriptor:
         :rtype: object
         """
         route_values = {}
@@ -559,9 +559,9 @@ class TfvcClient(Client):
         """GetLabel.
         Get a single deep label.
         :param str label_id: Unique identifier of label
-        :param :class:`<TfvcLabelRequestData> <tfvc.v4_0.models.TfvcLabelRequestData>` request_data: maxItemCount
+        :param :class:`<TfvcLabelRequestData> <azure.devops.v4_0.tfvc.models.TfvcLabelRequestData>` request_data: maxItemCount
         :param str project: Project ID or project name
-        :rtype: :class:`<TfvcLabel> <tfvc.v4_0.models.TfvcLabel>`
+        :rtype: :class:`<TfvcLabel> <azure.devops.v4_0.tfvc.models.TfvcLabel>`
         """
         route_values = {}
         if project is not None:
@@ -592,7 +592,7 @@ class TfvcClient(Client):
     def get_labels(self, request_data, project=None, top=None, skip=None):
         """GetLabels.
         Get a collection of shallow label references.
-        :param :class:`<TfvcLabelRequestData> <tfvc.v4_0.models.TfvcLabelRequestData>` request_data: labelScope, name, owner, and itemLabelFilter
+        :param :class:`<TfvcLabelRequestData> <azure.devops.v4_0.tfvc.models.TfvcLabelRequestData>` request_data: labelScope, name, owner, and itemLabelFilter
         :param str project: Project ID or project name
         :param int top: Max number of labels to return
         :param int skip: Number of labels to skip
@@ -651,8 +651,8 @@ class TfvcClient(Client):
         """GetShelveset.
         Get a single deep shelveset.
         :param str shelveset_id: Shelveset's unique ID
-        :param :class:`<TfvcShelvesetRequestData> <tfvc.v4_0.models.TfvcShelvesetRequestData>` request_data: includeDetails, includeWorkItems, maxChangeCount, and maxCommentLength
-        :rtype: :class:`<TfvcShelveset> <tfvc.v4_0.models.TfvcShelveset>`
+        :param :class:`<TfvcShelvesetRequestData> <azure.devops.v4_0.tfvc.models.TfvcShelvesetRequestData>` request_data: includeDetails, includeWorkItems, maxChangeCount, and maxCommentLength
+        :rtype: :class:`<TfvcShelveset> <azure.devops.v4_0.tfvc.models.TfvcShelveset>`
         """
         query_parameters = {}
         if shelveset_id is not None:
@@ -681,7 +681,7 @@ class TfvcClient(Client):
     def get_shelvesets(self, request_data=None, top=None, skip=None):
         """GetShelvesets.
         Return a collection of shallow shelveset references.
-        :param :class:`<TfvcShelvesetRequestData> <tfvc.v4_0.models.TfvcShelvesetRequestData>` request_data: name, owner, and maxCommentLength
+        :param :class:`<TfvcShelvesetRequestData> <azure.devops.v4_0.tfvc.models.TfvcShelvesetRequestData>` request_data: name, owner, and maxCommentLength
         :param int top: Max number of shelvesets to return
         :param int skip: Number of shelvesets to skip
         :rtype: [TfvcShelvesetRef]

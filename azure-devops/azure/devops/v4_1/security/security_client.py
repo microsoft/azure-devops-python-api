@@ -51,7 +51,7 @@ class SecurityClient(Client):
     def set_access_control_entries(self, container, security_namespace_id):
         """SetAccessControlEntries.
         Add or update ACEs in the ACL for the provided token. In the case of a collision (by identity descriptor) with an existing ACE in the ACL, the "merge" parameter determines the behavior. If set, the existing ACE has its allow and deny merged with the incoming ACE's allow and deny. If unset, the existing ACE is displaced.
-        :param :class:`<object> <security.v4_1.models.object>` container:
+        :param :class:`<object> <azure.devops.v4_1.security.models.object>` container:
         :param str security_namespace_id:
         :rtype: [AccessControlEntry]
         """
@@ -121,7 +121,7 @@ class SecurityClient(Client):
     def set_access_control_lists(self, access_control_lists, security_namespace_id):
         """SetAccessControlLists.
         Create one or more access control lists.
-        :param :class:`<VssJsonCollectionWrapper> <security.v4_1.models.VssJsonCollectionWrapper>` access_control_lists:
+        :param :class:`<VssJsonCollectionWrapper> <azure.devops.v4_1.security.models.VssJsonCollectionWrapper>` access_control_lists:
         :param str security_namespace_id: Security namespace identifier.
         """
         route_values = {}
@@ -137,8 +137,8 @@ class SecurityClient(Client):
     def has_permissions_batch(self, eval_batch):
         """HasPermissionsBatch.
         Evaluates multiple permissions for the calling user.  Note: This method does not aggregate the results, nor does it short-circuit if one of the permissions evaluates to false.
-        :param :class:`<PermissionEvaluationBatch> <security.v4_1.models.PermissionEvaluationBatch>` eval_batch: The set of evaluation requests.
-        :rtype: :class:`<PermissionEvaluationBatch> <security.v4_1.models.PermissionEvaluationBatch>`
+        :param :class:`<PermissionEvaluationBatch> <azure.devops.v4_1.security.models.PermissionEvaluationBatch>` eval_batch: The set of evaluation requests.
+        :rtype: :class:`<PermissionEvaluationBatch> <azure.devops.v4_1.security.models.PermissionEvaluationBatch>`
         """
         content = self._serialize.body(eval_batch, 'PermissionEvaluationBatch')
         response = self._send(http_method='POST',
@@ -183,7 +183,7 @@ class SecurityClient(Client):
         :param int permissions: Permissions to remove.
         :param str token: Security token to remove permissions for.
         :param str descriptor: Identity descriptor of the user to remove permissions for. Defaults to the caller.
-        :rtype: :class:`<AccessControlEntry> <security.v4_1.models.AccessControlEntry>`
+        :rtype: :class:`<AccessControlEntry> <azure.devops.v4_1.security.models.AccessControlEntry>`
         """
         route_values = {}
         if security_namespace_id is not None:

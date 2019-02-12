@@ -67,7 +67,7 @@ class PolicyConfigurationRef(Model):
     :param id:
     :type id: int
     :param type:
-    :type type: :class:`PolicyTypeRef <policy.v4_0.models.PolicyTypeRef>`
+    :type type: :class:`PolicyTypeRef <azure.devops.v4_0.policy.models.PolicyTypeRef>`
     :param url:
     :type url: str
     """
@@ -89,15 +89,15 @@ class PolicyEvaluationRecord(Model):
     """PolicyEvaluationRecord.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <policy.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.policy.models.ReferenceLinks>`
     :param artifact_id:
     :type artifact_id: str
     :param completed_date:
     :type completed_date: datetime
     :param configuration:
-    :type configuration: :class:`PolicyConfiguration <policy.v4_0.models.PolicyConfiguration>`
+    :type configuration: :class:`PolicyConfiguration <azure.devops.v4_0.policy.models.PolicyConfiguration>`
     :param context:
-    :type context: :class:`object <policy.v4_0.models.object>`
+    :type context: :class:`object <azure.devops.v4_0.policy.models.object>`
     :param evaluation_id:
     :type evaluation_id: str
     :param started_date:
@@ -175,7 +175,7 @@ class VersionedPolicyConfigurationRef(PolicyConfigurationRef):
     :param id:
     :type id: int
     :param type:
-    :type type: :class:`PolicyTypeRef <policy.v4_0.models.PolicyTypeRef>`
+    :type type: :class:`PolicyTypeRef <azure.devops.v4_0.policy.models.PolicyTypeRef>`
     :param url:
     :type url: str
     :param revision:
@@ -200,15 +200,15 @@ class PolicyConfiguration(VersionedPolicyConfigurationRef):
     :param id:
     :type id: int
     :param type:
-    :type type: :class:`PolicyTypeRef <policy.v4_0.models.PolicyTypeRef>`
+    :type type: :class:`PolicyTypeRef <azure.devops.v4_0.policy.models.PolicyTypeRef>`
     :param url:
     :type url: str
     :param revision:
     :type revision: int
     :param _links:
-    :type _links: :class:`ReferenceLinks <policy.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.policy.models.ReferenceLinks>`
     :param created_by:
-    :type created_by: :class:`IdentityRef <policy.v4_0.models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v4_0.policy.models.IdentityRef>`
     :param created_date:
     :type created_date: datetime
     :param is_blocking:
@@ -218,7 +218,7 @@ class PolicyConfiguration(VersionedPolicyConfigurationRef):
     :param is_enabled:
     :type is_enabled: bool
     :param settings:
-    :type settings: :class:`object <policy.v4_0.models.object>`
+    :type settings: :class:`object <azure.devops.v4_0.policy.models.object>`
     """
 
     _attribute_map = {
@@ -256,7 +256,7 @@ class PolicyType(PolicyTypeRef):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <policy.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.policy.models.ReferenceLinks>`
     :param description:
     :type description: str
     """

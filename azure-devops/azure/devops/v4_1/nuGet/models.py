@@ -73,11 +73,11 @@ class NuGetPackagesBatchRequest(Model):
     """NuGetPackagesBatchRequest.
 
     :param data: Data required to perform the operation. This is optional based on the type of the operation. Use BatchPromoteData if performing a promote operation.
-    :type data: :class:`BatchOperationData <nuGet.v4_1.models.BatchOperationData>`
+    :type data: :class:`BatchOperationData <azure.devops.v4_1.nuGet.models.BatchOperationData>`
     :param operation: Type of operation that needs to be performed on packages.
     :type operation: object
     :param packages: The packages onto which the operation will be performed.
-    :type packages: list of :class:`MinimalPackageDetails <nuGet.v4_1.models.MinimalPackageDetails>`
+    :type packages: list of :class:`MinimalPackageDetails <azure.devops.v4_1.nuGet.models.MinimalPackageDetails>`
     """
 
     _attribute_map = {
@@ -137,7 +137,7 @@ class Package(Model):
     """Package.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <nuGet.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.nuGet.models.ReferenceLinks>`
     :param deleted_date: If and when the package was deleted
     :type deleted_date: datetime
     :param id:
@@ -175,7 +175,7 @@ class PackageVersionDetails(Model):
     :param listed: Indicates the listing state of a package
     :type listed: bool
     :param views: The view to which the package version will be added
-    :type views: :class:`JsonPatchOperation <nuGet.v4_1.models.JsonPatchOperation>`
+    :type views: :class:`JsonPatchOperation <azure.devops.v4_1.nuGet.models.JsonPatchOperation>`
     """
 
     _attribute_map = {

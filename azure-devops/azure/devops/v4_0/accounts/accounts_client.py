@@ -27,9 +27,9 @@ class AccountsClient(Client):
 
     def create_account(self, info, use_precreated=None):
         """CreateAccount.
-        :param :class:`<AccountCreateInfoInternal> <accounts.v4_0.models.AccountCreateInfoInternal>` info:
+        :param :class:`<AccountCreateInfoInternal> <azure.devops.v4_0.accounts.models.AccountCreateInfoInternal>` info:
         :param bool use_precreated:
-        :rtype: :class:`<Account> <accounts.v4_0.models.Account>`
+        :rtype: :class:`<Account> <azure.devops.v4_0.accounts.models.Account>`
         """
         query_parameters = {}
         if use_precreated is not None:
@@ -45,7 +45,7 @@ class AccountsClient(Client):
     def get_account(self, account_id):
         """GetAccount.
         :param str account_id:
-        :rtype: :class:`<Account> <accounts.v4_0.models.Account>`
+        :rtype: :class:`<Account> <azure.devops.v4_0.accounts.models.Account>`
         """
         route_values = {}
         if account_id is not None:

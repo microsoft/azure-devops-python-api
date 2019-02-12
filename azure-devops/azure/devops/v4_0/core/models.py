@@ -163,7 +163,7 @@ class ProjectInfo(Model):
     :param name:
     :type name: str
     :param properties:
-    :type properties: list of :class:`ProjectProperty <core.v4_0.models.ProjectProperty>`
+    :type properties: list of :class:`ProjectProperty <azure.devops.v4_0.core.models.ProjectProperty>`
     :param revision: Current revision of the project
     :type revision: long
     :param state:
@@ -229,7 +229,7 @@ class Proxy(Model):
     """Proxy.
 
     :param authorization:
-    :type authorization: :class:`ProxyAuthorization <core.v4_0.models.ProxyAuthorization>`
+    :type authorization: :class:`ProxyAuthorization <azure.devops.v4_0.core.models.ProxyAuthorization>`
     :param description: This is a description string
     :type description: str
     :param friendly_name: The friendly name of the server
@@ -273,9 +273,9 @@ class ProxyAuthorization(Model):
     :param client_id: Gets or sets the client identifier for this proxy.
     :type client_id: str
     :param identity: Gets or sets the user identity to authorize for on-prem.
-    :type identity: :class:`str <core.v4_0.models.str>`
+    :type identity: :class:`str <azure.devops.v4_0.core.models.str>`
     :param public_key: Gets or sets the public key used to verify the identity of this proxy. Only specify on hosted.
-    :type public_key: :class:`PublicKey <core.v4_0.models.PublicKey>`
+    :type public_key: :class:`PublicKey <azure.devops.v4_0.core.models.PublicKey>`
     """
 
     _attribute_map = {
@@ -449,7 +449,7 @@ class Process(ProcessReference):
     :param url:
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <core.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.core.models.ReferenceLinks>`
     :param description:
     :type description: str
     :param id:
@@ -499,11 +499,11 @@ class TeamProject(TeamProjectReference):
     :param visibility: Project visibility.
     :type visibility: object
     :param _links: The links to other objects related to this object.
-    :type _links: :class:`ReferenceLinks <core.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.core.models.ReferenceLinks>`
     :param capabilities: Set of capabilities this project has (such as process template & version control).
     :type capabilities: dict
     :param default_team: The shallow ref to the default team.
-    :type default_team: :class:`WebApiTeamRef <core.v4_0.models.WebApiTeamRef>`
+    :type default_team: :class:`WebApiTeamRef <azure.devops.v4_0.core.models.WebApiTeamRef>`
     """
 
     _attribute_map = {
@@ -537,7 +537,7 @@ class TeamProjectCollection(TeamProjectCollectionReference):
     :param url: Collection REST Url.
     :type url: str
     :param _links: The links to other objects related to this object.
-    :type _links: :class:`ReferenceLinks <core.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.core.models.ReferenceLinks>`
     :param description: Project collection description.
     :type description: str
     :param state: Project collection state.
@@ -566,7 +566,7 @@ class WebApiConnectedService(WebApiConnectedServiceRef):
     :param url:
     :type url: str
     :param authenticated_by: The user who did the OAuth authentication to created this service
-    :type authenticated_by: :class:`IdentityRef <core.v4_0.models.IdentityRef>`
+    :type authenticated_by: :class:`IdentityRef <azure.devops.v4_0.core.models.IdentityRef>`
     :param description: Extra description on the service.
     :type description: str
     :param friendly_name: Friendly Name of service connection
@@ -576,7 +576,7 @@ class WebApiConnectedService(WebApiConnectedServiceRef):
     :param kind: The kind of service.
     :type kind: str
     :param project: The project associated with this service
-    :type project: :class:`TeamProjectReference <core.v4_0.models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <azure.devops.v4_0.core.models.TeamProjectReference>`
     :param service_uri: Optional uri to connect directly to the service such as https://windows.azure.com
     :type service_uri: str
     """
@@ -611,7 +611,7 @@ class WebApiConnectedServiceDetails(WebApiConnectedServiceRef):
     :param url:
     :type url: str
     :param connected_service_meta_data: Meta data for service connection
-    :type connected_service_meta_data: :class:`WebApiConnectedService <core.v4_0.models.WebApiConnectedService>`
+    :type connected_service_meta_data: :class:`WebApiConnectedService <azure.devops.v4_0.core.models.WebApiConnectedService>`
     :param credentials_xml: Credential info
     :type credentials_xml: str
     :param end_point: Optional uri to connect directly to the service such as https://windows.azure.com

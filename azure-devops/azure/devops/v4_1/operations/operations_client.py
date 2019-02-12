@@ -30,7 +30,7 @@ class OperationsClient(Client):
         Gets an operation from the the operationId using the given pluginId.
         :param str operation_id: The ID for the operation.
         :param str plugin_id: The ID for the plugin.
-        :rtype: :class:`<Operation> <operations.v4_1.models.Operation>`
+        :rtype: :class:`<Operation> <azure.devops.v4_1.operations.models.Operation>`
         """
         route_values = {}
         if operation_id is not None:

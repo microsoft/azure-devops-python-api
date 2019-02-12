@@ -19,7 +19,7 @@ class AcquisitionOperation(Model):
     :param reason: Optional reason to justify current state. Typically used with Disallow state.
     :type reason: str
     :param reasons: List of reasons indicating why the operation is not allowed.
-    :type reasons: list of :class:`AcquisitionOperationDisallowReason <extension-management.v4_0.models.AcquisitionOperationDisallowReason>`
+    :type reasons: list of :class:`AcquisitionOperationDisallowReason <azure.devops.v4_0.extension-management.models.AcquisitionOperationDisallowReason>`
     """
 
     _attribute_map = {
@@ -61,11 +61,11 @@ class AcquisitionOptions(Model):
     """AcquisitionOptions.
 
     :param default_operation: Default Operation for the ItemId in this target
-    :type default_operation: :class:`AcquisitionOperation <extension-management.v4_0.models.AcquisitionOperation>`
+    :type default_operation: :class:`AcquisitionOperation <azure.devops.v4_0.extension-management.models.AcquisitionOperation>`
     :param item_id: The item id that this options refer to
     :type item_id: str
     :param operations: Operations allowed for the ItemId in this target
-    :type operations: list of :class:`AcquisitionOperation <extension-management.v4_0.models.AcquisitionOperation>`
+    :type operations: list of :class:`AcquisitionOperation <azure.devops.v4_0.extension-management.models.AcquisitionOperation>`
     :param target: The target that this options refer to
     :type target: str
     """
@@ -119,7 +119,7 @@ class ContributionConstraint(Model):
     :param name: Name of the IContributionFilter class
     :type name: str
     :param properties: Properties that are fed to the contribution filter class
-    :type properties: :class:`object <extension-management.v4_0.models.object>`
+    :type properties: :class:`object <azure.devops.v4_0.extension-management.models.object>`
     :param relationships: Constraints can be optionally be applied to one or more of the relationships defined in the contribution. If no relationships are defined then all relationships are associated with the constraint. This means the default behaviour will elimiate the contribution from the tree completely if the constraint is applied.
     :type relationships: list of str
     """
@@ -214,7 +214,7 @@ class ExtensionAcquisitionRequest(Model):
     :param operation_type: The type of operation, such as install, request, purchase
     :type operation_type: object
     :param properties: Additional properties which can be added to the request.
-    :type properties: :class:`object <extension-management.v4_0.models.object>`
+    :type properties: :class:`object <azure.devops.v4_0.extension-management.models.object>`
     :param quantity: How many licenses should be purchased
     :type quantity: int
     """
@@ -288,7 +288,7 @@ class ExtensionDataCollection(Model):
     :param collection_name: The name of the collection
     :type collection_name: str
     :param documents: A list of documents belonging to the collection
-    :type documents: list of :class:`object <extension-management.v4_0.models.object>`
+    :type documents: list of :class:`object <azure.devops.v4_0.extension-management.models.object>`
     :param scope_type: The type of the collection's scope, such as Default or User
     :type scope_type: str
     :param scope_value: The value of the collection's scope, such as Current or Me
@@ -314,7 +314,7 @@ class ExtensionDataCollectionQuery(Model):
     """ExtensionDataCollectionQuery.
 
     :param collections: A list of collections to query
-    :type collections: list of :class:`ExtensionDataCollection <extension-management.v4_0.models.ExtensionDataCollection>`
+    :type collections: list of :class:`ExtensionDataCollection <azure.devops.v4_0.extension-management.models.ExtensionDataCollection>`
     """
 
     _attribute_map = {
@@ -346,19 +346,19 @@ class ExtensionEventCallbackCollection(Model):
     """ExtensionEventCallbackCollection.
 
     :param post_disable: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension disable has occurred.
-    :type post_disable: :class:`ExtensionEventCallback <extension-management.v4_0.models.ExtensionEventCallback>`
+    :type post_disable: :class:`ExtensionEventCallback <azure.devops.v4_0.extension-management.models.ExtensionEventCallback>`
     :param post_enable: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension enable has occurred.
-    :type post_enable: :class:`ExtensionEventCallback <extension-management.v4_0.models.ExtensionEventCallback>`
+    :type post_enable: :class:`ExtensionEventCallback <azure.devops.v4_0.extension-management.models.ExtensionEventCallback>`
     :param post_install: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension install has completed.
-    :type post_install: :class:`ExtensionEventCallback <extension-management.v4_0.models.ExtensionEventCallback>`
+    :type post_install: :class:`ExtensionEventCallback <azure.devops.v4_0.extension-management.models.ExtensionEventCallback>`
     :param post_uninstall: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension uninstall has occurred.
-    :type post_uninstall: :class:`ExtensionEventCallback <extension-management.v4_0.models.ExtensionEventCallback>`
+    :type post_uninstall: :class:`ExtensionEventCallback <azure.devops.v4_0.extension-management.models.ExtensionEventCallback>`
     :param post_update: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension update has occurred.
-    :type post_update: :class:`ExtensionEventCallback <extension-management.v4_0.models.ExtensionEventCallback>`
+    :type post_update: :class:`ExtensionEventCallback <azure.devops.v4_0.extension-management.models.ExtensionEventCallback>`
     :param pre_install: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension install is about to occur.  Response indicates whether to proceed or abort.
-    :type pre_install: :class:`ExtensionEventCallback <extension-management.v4_0.models.ExtensionEventCallback>`
+    :type pre_install: :class:`ExtensionEventCallback <azure.devops.v4_0.extension-management.models.ExtensionEventCallback>`
     :param version_check: For multi-version extensions, defines an endpoint that gets called via an OPTIONS request to determine the particular version of the extension to be used
-    :type version_check: :class:`ExtensionEventCallback <extension-management.v4_0.models.ExtensionEventCallback>`
+    :type version_check: :class:`ExtensionEventCallback <azure.devops.v4_0.extension-management.models.ExtensionEventCallback>`
     """
 
     _attribute_map = {
@@ -430,7 +430,7 @@ class ExtensionLicensing(Model):
     """ExtensionLicensing.
 
     :param overrides: A list of contributions which deviate from the default licensing behavior
-    :type overrides: list of :class:`LicensingOverride <extension-management.v4_0.models.LicensingOverride>`
+    :type overrides: list of :class:`LicensingOverride <azure.devops.v4_0.extension-management.models.LicensingOverride>`
     """
 
     _attribute_map = {
@@ -448,19 +448,19 @@ class ExtensionManifest(Model):
     :param base_uri: Uri used as base for other relative uri's defined in extension
     :type base_uri: str
     :param contributions: List of contributions made by this extension
-    :type contributions: list of :class:`Contribution <extension-management.v4_0.models.Contribution>`
+    :type contributions: list of :class:`Contribution <azure.devops.v4_0.extension-management.models.Contribution>`
     :param contribution_types: List of contribution types defined by this extension
-    :type contribution_types: list of :class:`ContributionType <extension-management.v4_0.models.ContributionType>`
+    :type contribution_types: list of :class:`ContributionType <azure.devops.v4_0.extension-management.models.ContributionType>`
     :param demands: List of explicit demands required by this extension
     :type demands: list of str
     :param event_callbacks: Collection of endpoints that get called when particular extension events occur
-    :type event_callbacks: :class:`ExtensionEventCallbackCollection <extension-management.v4_0.models.ExtensionEventCallbackCollection>`
+    :type event_callbacks: :class:`ExtensionEventCallbackCollection <azure.devops.v4_0.extension-management.models.ExtensionEventCallbackCollection>`
     :param fallback_base_uri: Secondary location that can be used as base for other relative uri's defined in extension
     :type fallback_base_uri: str
     :param language: Language Culture Name set by the Gallery
     :type language: str
     :param licensing: How this extension behaves with respect to licensing
-    :type licensing: :class:`ExtensionLicensing <extension-management.v4_0.models.ExtensionLicensing>`
+    :type licensing: :class:`ExtensionLicensing <azure.devops.v4_0.extension-management.models.ExtensionLicensing>`
     :param manifest_version: Version of the extension manifest format/content
     :type manifest_version: float
     :param scopes: List of all oauth scopes required by this extension
@@ -526,7 +526,7 @@ class ExtensionRequest(Model):
     :param request_date: Date at which the request was made
     :type request_date: datetime
     :param requested_by: Represents the user who made the request
-    :type requested_by: :class:`IdentityRef <extension-management.v4_0.models.IdentityRef>`
+    :type requested_by: :class:`IdentityRef <azure.devops.v4_0.extension-management.models.IdentityRef>`
     :param request_message: Optional message supplied by the requester justifying the request
     :type request_message: str
     :param request_state: Represents the state of the request
@@ -534,7 +534,7 @@ class ExtensionRequest(Model):
     :param resolve_date: Date at which the request was resolved
     :type resolve_date: datetime
     :param resolved_by: Represents the user who resolved the request
-    :type resolved_by: :class:`IdentityRef <extension-management.v4_0.models.IdentityRef>`
+    :type resolved_by: :class:`IdentityRef <azure.devops.v4_0.extension-management.models.IdentityRef>`
     """
 
     _attribute_map = {
@@ -608,11 +608,11 @@ class ExtensionVersion(Model):
     :param asset_uri:
     :type asset_uri: str
     :param badges:
-    :type badges: list of :class:`ExtensionBadge <microsoft.-visual-studio.-services.-gallery.-web-api.v4_0.models.ExtensionBadge>`
+    :type badges: list of :class:`ExtensionBadge <azure.devops.v4_0.microsoft.-visual-studio.-services.-gallery.-web-api.models.ExtensionBadge>`
     :param fallback_asset_uri:
     :type fallback_asset_uri: str
     :param files:
-    :type files: list of :class:`ExtensionFile <microsoft.-visual-studio.-services.-gallery.-web-api.v4_0.models.ExtensionFile>`
+    :type files: list of :class:`ExtensionFile <azure.devops.v4_0.microsoft.-visual-studio.-services.-gallery.-web-api.models.ExtensionFile>`
     :param flags:
     :type flags: object
     :param last_updated:
@@ -732,19 +732,19 @@ class InstalledExtension(ExtensionManifest):
     :param base_uri: Uri used as base for other relative uri's defined in extension
     :type base_uri: str
     :param contributions: List of contributions made by this extension
-    :type contributions: list of :class:`Contribution <extension-management.v4_0.models.Contribution>`
+    :type contributions: list of :class:`Contribution <azure.devops.v4_0.extension-management.models.Contribution>`
     :param contribution_types: List of contribution types defined by this extension
-    :type contribution_types: list of :class:`ContributionType <extension-management.v4_0.models.ContributionType>`
+    :type contribution_types: list of :class:`ContributionType <azure.devops.v4_0.extension-management.models.ContributionType>`
     :param demands: List of explicit demands required by this extension
     :type demands: list of str
     :param event_callbacks: Collection of endpoints that get called when particular extension events occur
-    :type event_callbacks: :class:`ExtensionEventCallbackCollection <extension-management.v4_0.models.ExtensionEventCallbackCollection>`
+    :type event_callbacks: :class:`ExtensionEventCallbackCollection <azure.devops.v4_0.extension-management.models.ExtensionEventCallbackCollection>`
     :param fallback_base_uri: Secondary location that can be used as base for other relative uri's defined in extension
     :type fallback_base_uri: str
     :param language: Language Culture Name set by the Gallery
     :type language: str
     :param licensing: How this extension behaves with respect to licensing
-    :type licensing: :class:`ExtensionLicensing <extension-management.v4_0.models.ExtensionLicensing>`
+    :type licensing: :class:`ExtensionLicensing <azure.devops.v4_0.extension-management.models.ExtensionLicensing>`
     :param manifest_version: Version of the extension manifest format/content
     :type manifest_version: float
     :param scopes: List of all oauth scopes required by this extension
@@ -756,11 +756,11 @@ class InstalledExtension(ExtensionManifest):
     :param extension_name: The display name of the extension.
     :type extension_name: str
     :param files: This is the set of files available from the extension.
-    :type files: list of :class:`ExtensionFile <extension-management.v4_0.models.ExtensionFile>`
+    :type files: list of :class:`ExtensionFile <azure.devops.v4_0.extension-management.models.ExtensionFile>`
     :param flags: Extension flags relevant to contribution consumers
     :type flags: object
     :param install_state: Information about this particular installation of the extension
-    :type install_state: :class:`InstalledExtensionState <extension-management.v4_0.models.InstalledExtensionState>`
+    :type install_state: :class:`InstalledExtensionState <azure.devops.v4_0.extension-management.models.InstalledExtensionState>`
     :param last_published: This represents the date/time the extensions was last updated in the gallery. This doesnt mean this version was updated the value represents changes to any and all versions of the extension.
     :type last_published: datetime
     :param publisher_id: Unique id of the publisher of this extension
@@ -817,7 +817,7 @@ class InstalledExtensionQuery(Model):
     :param asset_types:
     :type asset_types: list of str
     :param monikers:
-    :type monikers: list of :class:`ExtensionIdentifier <extension-management.v4_0.models.ExtensionIdentifier>`
+    :type monikers: list of :class:`ExtensionIdentifier <azure.devops.v4_0.extension-management.models.ExtensionIdentifier>`
     """
 
     _attribute_map = {
@@ -837,7 +837,7 @@ class InstalledExtensionState(Model):
     :param flags: States of an installed extension
     :type flags: object
     :param installation_issues: List of installation issues
-    :type installation_issues: list of :class:`InstalledExtensionStateIssue <extension-management.v4_0.models.InstalledExtensionStateIssue>`
+    :type installation_issues: list of :class:`InstalledExtensionStateIssue <azure.devops.v4_0.extension-management.models.InstalledExtensionStateIssue>`
     :param last_updated: The time at which this installation was last updated
     :type last_updated: datetime
     """
@@ -915,7 +915,7 @@ class PublishedExtension(Model):
     :param flags:
     :type flags: object
     :param installation_targets:
-    :type installation_targets: list of :class:`InstallationTarget <microsoft.-visual-studio.-services.-gallery.-web-api.v4_0.models.InstallationTarget>`
+    :type installation_targets: list of :class:`InstallationTarget <azure.devops.v4_0.microsoft.-visual-studio.-services.-gallery.-web-api.models.InstallationTarget>`
     :param last_updated:
     :type last_updated: datetime
     :param long_description:
@@ -923,19 +923,19 @@ class PublishedExtension(Model):
     :param published_date: Date on which the extension was first uploaded.
     :type published_date: datetime
     :param publisher:
-    :type publisher: :class:`PublisherFacts <microsoft.-visual-studio.-services.-gallery.-web-api.v4_0.models.PublisherFacts>`
+    :type publisher: :class:`PublisherFacts <azure.devops.v4_0.microsoft.-visual-studio.-services.-gallery.-web-api.models.PublisherFacts>`
     :param release_date: Date on which the extension first went public.
     :type release_date: datetime
     :param shared_with:
-    :type shared_with: list of :class:`ExtensionShare <microsoft.-visual-studio.-services.-gallery.-web-api.v4_0.models.ExtensionShare>`
+    :type shared_with: list of :class:`ExtensionShare <azure.devops.v4_0.microsoft.-visual-studio.-services.-gallery.-web-api.models.ExtensionShare>`
     :param short_description:
     :type short_description: str
     :param statistics:
-    :type statistics: list of :class:`ExtensionStatistic <microsoft.-visual-studio.-services.-gallery.-web-api.v4_0.models.ExtensionStatistic>`
+    :type statistics: list of :class:`ExtensionStatistic <azure.devops.v4_0.microsoft.-visual-studio.-services.-gallery.-web-api.models.ExtensionStatistic>`
     :param tags:
     :type tags: list of str
     :param versions:
-    :type versions: list of :class:`ExtensionVersion <microsoft.-visual-studio.-services.-gallery.-web-api.v4_0.models.ExtensionVersion>`
+    :type versions: list of :class:`ExtensionVersion <azure.devops.v4_0.microsoft.-visual-studio.-services.-gallery.-web-api.models.ExtensionVersion>`
     """
 
     _attribute_map = {
@@ -1013,7 +1013,7 @@ class RequestedExtension(Model):
     :param extension_name: The unique name of the extension
     :type extension_name: str
     :param extension_requests: A list of each request for the extension
-    :type extension_requests: list of :class:`ExtensionRequest <extension-management.v4_0.models.ExtensionRequest>`
+    :type extension_requests: list of :class:`ExtensionRequest <azure.devops.v4_0.extension-management.models.ExtensionRequest>`
     :param publisher_display_name: DisplayName of the publisher that owns the extension being published.
     :type publisher_display_name: str
     :param publisher_name: Represents the Publisher of the requested extension
@@ -1045,7 +1045,7 @@ class UserExtensionPolicy(Model):
     :param display_name: User display name that this policy refers to
     :type display_name: str
     :param permissions: The extension policy applied to the user
-    :type permissions: :class:`ExtensionPolicy <microsoft.-visual-studio.-services.-gallery.-web-api.v4_0.models.ExtensionPolicy>`
+    :type permissions: :class:`ExtensionPolicy <azure.devops.v4_0.microsoft.-visual-studio.-services.-gallery.-web-api.models.ExtensionPolicy>`
     :param user_id: User id that this policy refers to
     :type user_id: str
     """
@@ -1073,11 +1073,11 @@ class Contribution(ContributionBase):
     :param visible_to: VisibleTo can be used to restrict whom can reference a given contribution/type. This value should be a list of publishers or extensions access is restricted too.  Examples: "ms" - Means only the "ms" publisher can reference this. "ms.vss-web" - Means only the "vss-web" extension from the "ms" publisher can reference this.
     :type visible_to: list of str
     :param constraints: List of constraints (filters) that should be applied to the availability of this contribution
-    :type constraints: list of :class:`ContributionConstraint <extension-management.v4_0.models.ContributionConstraint>`
+    :type constraints: list of :class:`ContributionConstraint <azure.devops.v4_0.extension-management.models.ContributionConstraint>`
     :param includes: Includes is a set of contributions that should have this contribution included in their targets list.
     :type includes: list of str
     :param properties: Properties/attributes of this contribution
-    :type properties: :class:`object <extension-management.v4_0.models.object>`
+    :type properties: :class:`object <azure.devops.v4_0.extension-management.models.object>`
     :param targets: The ids of the contribution(s) that this contribution targets. (parent contributions)
     :type targets: list of str
     :param type: Id of the Contribution Type
@@ -1110,7 +1110,7 @@ class ExtensionState(InstalledExtensionState):
     :param flags: States of an installed extension
     :type flags: object
     :param installation_issues: List of installation issues
-    :type installation_issues: list of :class:`InstalledExtensionStateIssue <extension-management.v4_0.models.InstalledExtensionStateIssue>`
+    :type installation_issues: list of :class:`InstalledExtensionStateIssue <azure.devops.v4_0.extension-management.models.InstalledExtensionStateIssue>`
     :param last_updated: The time at which this installation was last updated
     :type last_updated: datetime
     :param extension_name:

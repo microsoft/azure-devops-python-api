@@ -37,11 +37,11 @@ class AcquisitionOptions(Model):
     """AcquisitionOptions.
 
     :param default_operation: Default Operation for the ItemId in this target
-    :type default_operation: :class:`AcquisitionOperation <gallery.v4_0.models.AcquisitionOperation>`
+    :type default_operation: :class:`AcquisitionOperation <azure.devops.v4_0.gallery.models.AcquisitionOperation>`
     :param item_id: The item id that this options refer to
     :type item_id: str
     :param operations: Operations allowed for the ItemId in this target
-    :type operations: list of :class:`AcquisitionOperation <gallery.v4_0.models.AcquisitionOperation>`
+    :type operations: list of :class:`AcquisitionOperation <azure.devops.v4_0.gallery.models.AcquisitionOperation>`
     :param target: The target that this options refer to
     :type target: str
     """
@@ -85,7 +85,7 @@ class AssetDetails(Model):
     """AssetDetails.
 
     :param answers: Gets or sets the Answers, which contains vs marketplace extension name and publisher name
-    :type answers: :class:`Answers <gallery.v4_0.models.Answers>`
+    :type answers: :class:`Answers <azure.devops.v4_0.gallery.models.Answers>`
     :param publisher_natural_identifier: Gets or sets the VS publisher Id
     :type publisher_natural_identifier: str
     """
@@ -125,7 +125,7 @@ class AzureRestApiRequestModel(Model):
     """AzureRestApiRequestModel.
 
     :param asset_details: Gets or sets the Asset details
-    :type asset_details: :class:`AssetDetails <gallery.v4_0.models.AssetDetails>`
+    :type asset_details: :class:`AssetDetails <azure.devops.v4_0.gallery.models.AssetDetails>`
     :param asset_id: Gets or sets the asset id
     :type asset_id: str
     :param asset_version: Gets or sets the asset version
@@ -173,7 +173,7 @@ class CategoriesResult(Model):
     """CategoriesResult.
 
     :param categories:
-    :type categories: list of :class:`ExtensionCategory <gallery.v4_0.models.ExtensionCategory>`
+    :type categories: list of :class:`ExtensionCategory <azure.devops.v4_0.gallery.models.ExtensionCategory>`
     """
 
     _attribute_map = {
@@ -269,7 +269,7 @@ class ExtensionAcquisitionRequest(Model):
     :param operation_type: The type of operation, such as install, request, purchase
     :type operation_type: object
     :param properties: Additional properties which can be added to the request.
-    :type properties: :class:`object <gallery.v4_0.models.object>`
+    :type properties: :class:`object <azure.devops.v4_0.gallery.models.object>`
     :param quantity: How many licenses should be purchased
     :type quantity: int
     :param targets: A list of target guids where the item should be acquired (installed, requested, etc.), such as account id
@@ -333,7 +333,7 @@ class ExtensionCategory(Model):
     :param language: This parameter is obsolete. Refer to LanguageTitles for langauge specific titles
     :type language: str
     :param language_titles: The list of all the titles of this category in various languages
-    :type language_titles: list of :class:`CategoryLanguageTitle <gallery.v4_0.models.CategoryLanguageTitle>`
+    :type language_titles: list of :class:`CategoryLanguageTitle <azure.devops.v4_0.gallery.models.CategoryLanguageTitle>`
     :param parent_category_name: This is the internal name of the parent if this is associated with a parent
     :type parent_category_name: str
     """
@@ -361,7 +361,7 @@ class ExtensionDailyStat(Model):
     """ExtensionDailyStat.
 
     :param counts: Stores the event counts
-    :type counts: :class:`EventCounts <gallery.v4_0.models.EventCounts>`
+    :type counts: :class:`EventCounts <azure.devops.v4_0.gallery.models.EventCounts>`
     :param extended_stats: Generic key/value pair to store extended statistics. Used for sending paid extension stats like Upgrade, Downgrade, Cancel trend etc.
     :type extended_stats: dict
     :param statistic_date: Timestamp of this data point
@@ -389,7 +389,7 @@ class ExtensionDailyStats(Model):
     """ExtensionDailyStats.
 
     :param daily_stats: List of extension statistics data points
-    :type daily_stats: list of :class:`ExtensionDailyStat <gallery.v4_0.models.ExtensionDailyStat>`
+    :type daily_stats: list of :class:`ExtensionDailyStat <azure.devops.v4_0.gallery.models.ExtensionDailyStat>`
     :param extension_id: Id of the extension, this will never be sent back to the client. For internal use only.
     :type extension_id: str
     :param extension_name: Name of the extension
@@ -423,7 +423,7 @@ class ExtensionEvent(Model):
     :param id: Id which identifies each data point uniquely
     :type id: long
     :param properties:
-    :type properties: :class:`object <gallery.v4_0.models.object>`
+    :type properties: :class:`object <azure.devops.v4_0.gallery.models.object>`
     :param statistic_date: Timestamp of when the event occurred
     :type statistic_date: datetime
     :param version: Version of the extension
@@ -501,11 +501,11 @@ class ExtensionFilterResult(Model):
     """ExtensionFilterResult.
 
     :param extensions: This is the set of appplications that matched the query filter supplied.
-    :type extensions: list of :class:`PublishedExtension <gallery.v4_0.models.PublishedExtension>`
+    :type extensions: list of :class:`PublishedExtension <azure.devops.v4_0.gallery.models.PublishedExtension>`
     :param paging_token: The PagingToken is returned from a request when more records exist that match the result than were requested or could be returned. A follow-up query with this paging token can be used to retrieve more results.
     :type paging_token: str
     :param result_metadata: This is the additional optional metadata for the given result. E.g. Total count of results which is useful in case of paged results
-    :type result_metadata: list of :class:`ExtensionFilterResultMetadata <gallery.v4_0.models.ExtensionFilterResultMetadata>`
+    :type result_metadata: list of :class:`ExtensionFilterResultMetadata <azure.devops.v4_0.gallery.models.ExtensionFilterResultMetadata>`
     """
 
     _attribute_map = {
@@ -525,7 +525,7 @@ class ExtensionFilterResultMetadata(Model):
     """ExtensionFilterResultMetadata.
 
     :param metadata_items: The metadata items for the category
-    :type metadata_items: list of :class:`MetadataItem <gallery.v4_0.models.MetadataItem>`
+    :type metadata_items: list of :class:`MetadataItem <azure.devops.v4_0.gallery.models.MetadataItem>`
     :param metadata_type: Defines the category of metadata items
     :type metadata_type: str
     """
@@ -563,7 +563,7 @@ class ExtensionQuery(Model):
     :param asset_types: When retrieving extensions with a query; frequently the caller only needs a small subset of the assets. The caller may specify a list of asset types that should be returned if the extension contains it. All other assets will not be returned.
     :type asset_types: list of str
     :param filters: Each filter is a unique query and will have matching set of extensions returned from the request. Each result will have the same index in the resulting array that the filter had in the incoming query.
-    :type filters: list of :class:`QueryFilter <gallery.v4_0.models.QueryFilter>`
+    :type filters: list of :class:`QueryFilter <azure.devops.v4_0.gallery.models.QueryFilter>`
     :param flags: The Flags are used to deterine which set of information the caller would like returned for the matched extensions.
     :type flags: object
     """
@@ -585,7 +585,7 @@ class ExtensionQueryResult(Model):
     """ExtensionQueryResult.
 
     :param results: For each filter supplied in the query, a filter result will be returned in the query result.
-    :type results: list of :class:`ExtensionFilterResult <gallery.v4_0.models.ExtensionFilterResult>`
+    :type results: list of :class:`ExtensionFilterResult <azure.devops.v4_0.gallery.models.ExtensionFilterResult>`
     """
 
     _attribute_map = {
@@ -651,7 +651,7 @@ class ExtensionStatisticUpdate(Model):
     :param publisher_name:
     :type publisher_name: str
     :param statistic:
-    :type statistic: :class:`ExtensionStatistic <gallery.v4_0.models.ExtensionStatistic>`
+    :type statistic: :class:`ExtensionStatistic <azure.devops.v4_0.gallery.models.ExtensionStatistic>`
     """
 
     _attribute_map = {
@@ -675,11 +675,11 @@ class ExtensionVersion(Model):
     :param asset_uri:
     :type asset_uri: str
     :param badges:
-    :type badges: list of :class:`ExtensionBadge <gallery.v4_0.models.ExtensionBadge>`
+    :type badges: list of :class:`ExtensionBadge <azure.devops.v4_0.gallery.models.ExtensionBadge>`
     :param fallback_asset_uri:
     :type fallback_asset_uri: str
     :param files:
-    :type files: list of :class:`ExtensionFile <gallery.v4_0.models.ExtensionFile>`
+    :type files: list of :class:`ExtensionFile <azure.devops.v4_0.gallery.models.ExtensionFile>`
     :param flags:
     :type flags: object
     :param last_updated:
@@ -809,7 +809,7 @@ class ProductCategoriesResult(Model):
     """ProductCategoriesResult.
 
     :param categories:
-    :type categories: list of :class:`ProductCategory <gallery.v4_0.models.ProductCategory>`
+    :type categories: list of :class:`ProductCategory <azure.devops.v4_0.gallery.models.ProductCategory>`
     """
 
     _attribute_map = {
@@ -825,7 +825,7 @@ class ProductCategory(Model):
     """ProductCategory.
 
     :param children:
-    :type children: list of :class:`ProductCategory <gallery.v4_0.models.ProductCategory>`
+    :type children: list of :class:`ProductCategory <azure.devops.v4_0.gallery.models.ProductCategory>`
     :param has_children: Indicator whether this is a leaf or there are children under this category
     :type has_children: bool
     :param id: Individual Guid of the Category
@@ -865,7 +865,7 @@ class PublishedExtension(Model):
     :param flags:
     :type flags: object
     :param installation_targets:
-    :type installation_targets: list of :class:`InstallationTarget <gallery.v4_0.models.InstallationTarget>`
+    :type installation_targets: list of :class:`InstallationTarget <azure.devops.v4_0.gallery.models.InstallationTarget>`
     :param last_updated:
     :type last_updated: datetime
     :param long_description:
@@ -873,19 +873,19 @@ class PublishedExtension(Model):
     :param published_date: Date on which the extension was first uploaded.
     :type published_date: datetime
     :param publisher:
-    :type publisher: :class:`PublisherFacts <gallery.v4_0.models.PublisherFacts>`
+    :type publisher: :class:`PublisherFacts <azure.devops.v4_0.gallery.models.PublisherFacts>`
     :param release_date: Date on which the extension first went public.
     :type release_date: datetime
     :param shared_with:
-    :type shared_with: list of :class:`ExtensionShare <gallery.v4_0.models.ExtensionShare>`
+    :type shared_with: list of :class:`ExtensionShare <azure.devops.v4_0.gallery.models.ExtensionShare>`
     :param short_description:
     :type short_description: str
     :param statistics:
-    :type statistics: list of :class:`ExtensionStatistic <gallery.v4_0.models.ExtensionStatistic>`
+    :type statistics: list of :class:`ExtensionStatistic <azure.devops.v4_0.gallery.models.ExtensionStatistic>`
     :param tags:
     :type tags: list of str
     :param versions:
-    :type versions: list of :class:`ExtensionVersion <gallery.v4_0.models.ExtensionVersion>`
+    :type versions: list of :class:`ExtensionVersion <azure.devops.v4_0.gallery.models.ExtensionVersion>`
     """
 
     _attribute_map = {
@@ -937,7 +937,7 @@ class Publisher(Model):
     :param email_address:
     :type email_address: list of str
     :param extensions:
-    :type extensions: list of :class:`PublishedExtension <gallery.v4_0.models.PublishedExtension>`
+    :type extensions: list of :class:`PublishedExtension <azure.devops.v4_0.gallery.models.PublishedExtension>`
     :param flags:
     :type flags: object
     :param last_updated:
@@ -1009,7 +1009,7 @@ class PublisherFilterResult(Model):
     """PublisherFilterResult.
 
     :param publishers: This is the set of appplications that matched the query filter supplied.
-    :type publishers: list of :class:`Publisher <gallery.v4_0.models.Publisher>`
+    :type publishers: list of :class:`Publisher <azure.devops.v4_0.gallery.models.Publisher>`
     """
 
     _attribute_map = {
@@ -1025,7 +1025,7 @@ class PublisherQuery(Model):
     """PublisherQuery.
 
     :param filters: Each filter is a unique query and will have matching set of publishers returned from the request. Each result will have the same index in the resulting array that the filter had in the incoming query.
-    :type filters: list of :class:`QueryFilter <gallery.v4_0.models.QueryFilter>`
+    :type filters: list of :class:`QueryFilter <azure.devops.v4_0.gallery.models.QueryFilter>`
     :param flags: The Flags are used to deterine which set of information the caller would like returned for the matched publishers.
     :type flags: object
     """
@@ -1045,7 +1045,7 @@ class PublisherQueryResult(Model):
     """PublisherQueryResult.
 
     :param results: For each filter supplied in the query, a filter result will be returned in the query result.
-    :type results: list of :class:`PublisherFilterResult <gallery.v4_0.models.PublisherFilterResult>`
+    :type results: list of :class:`PublisherFilterResult <azure.devops.v4_0.gallery.models.PublisherFilterResult>`
     """
 
     _attribute_map = {
@@ -1071,7 +1071,7 @@ class QnAItem(Model):
     :param updated_date: Time when the review was edited/updated
     :type updated_date: datetime
     :param user: User details for the item.
-    :type user: :class:`UserIdentityRef <gallery.v4_0.models.UserIdentityRef>`
+    :type user: :class:`UserIdentityRef <azure.devops.v4_0.gallery.models.UserIdentityRef>`
     """
 
     _attribute_map = {
@@ -1097,7 +1097,7 @@ class QueryFilter(Model):
     """QueryFilter.
 
     :param criteria: The filter values define the set of values in this query. They are applied based on the QueryFilterType.
-    :type criteria: list of :class:`FilterCriteria <gallery.v4_0.models.FilterCriteria>`
+    :type criteria: list of :class:`FilterCriteria <azure.devops.v4_0.gallery.models.FilterCriteria>`
     :param direction: The PagingDirection is applied to a paging token if one exists. If not the direction is ignored, and Forward from the start of the resultset is used. Direction should be left out of the request unless a paging token is used to help prevent future issues.
     :type direction: object
     :param page_number: The page number requested by the user. If not provided 1 is assumed by default.
@@ -1147,9 +1147,9 @@ class Question(QnAItem):
     :param updated_date: Time when the review was edited/updated
     :type updated_date: datetime
     :param user: User details for the item.
-    :type user: :class:`UserIdentityRef <gallery.v4_0.models.UserIdentityRef>`
+    :type user: :class:`UserIdentityRef <azure.devops.v4_0.gallery.models.UserIdentityRef>`
     :param responses: List of answers in for the question / thread
-    :type responses: list of :class:`Response <gallery.v4_0.models.Response>`
+    :type responses: list of :class:`Response <azure.devops.v4_0.gallery.models.Response>`
     """
 
     _attribute_map = {
@@ -1173,7 +1173,7 @@ class QuestionsResult(Model):
     :param has_more_questions: Flag indicating if there are more QnA threads to be shown (for paging)
     :type has_more_questions: bool
     :param questions: List of the QnA threads
-    :type questions: list of :class:`Question <gallery.v4_0.models.Question>`
+    :type questions: list of :class:`Question <azure.devops.v4_0.gallery.models.Question>`
     """
 
     _attribute_map = {
@@ -1221,7 +1221,7 @@ class Response(QnAItem):
     :param updated_date: Time when the review was edited/updated
     :type updated_date: datetime
     :param user: User details for the item.
-    :type user: :class:`UserIdentityRef <gallery.v4_0.models.UserIdentityRef>`
+    :type user: :class:`UserIdentityRef <azure.devops.v4_0.gallery.models.UserIdentityRef>`
     """
 
     _attribute_map = {
@@ -1241,7 +1241,7 @@ class Review(Model):
     """Review.
 
     :param admin_reply: Admin Reply, if any, for this review
-    :type admin_reply: :class:`ReviewReply <gallery.v4_0.models.ReviewReply>`
+    :type admin_reply: :class:`ReviewReply <azure.devops.v4_0.gallery.models.ReviewReply>`
     :param id: Unique identifier of a review item
     :type id: long
     :param is_deleted: Flag for soft deletion
@@ -1253,7 +1253,7 @@ class Review(Model):
     :param rating: Rating procided by the user
     :type rating: str
     :param reply: Reply, if any, for this review
-    :type reply: :class:`ReviewReply <gallery.v4_0.models.ReviewReply>`
+    :type reply: :class:`ReviewReply <azure.devops.v4_0.gallery.models.ReviewReply>`
     :param text: Text description of the review
     :type text: str
     :param title: Title of the review
@@ -1303,9 +1303,9 @@ class ReviewPatch(Model):
     :param operation: Denotes the patch operation type
     :type operation: object
     :param reported_concern: Use when patch operation is FlagReview
-    :type reported_concern: :class:`UserReportedConcern <gallery.v4_0.models.UserReportedConcern>`
+    :type reported_concern: :class:`UserReportedConcern <azure.devops.v4_0.gallery.models.UserReportedConcern>`
     :param review_item: Use when patch operation is EditReview
-    :type review_item: :class:`Review <gallery.v4_0.models.Review>`
+    :type review_item: :class:`Review <azure.devops.v4_0.gallery.models.Review>`
     """
 
     _attribute_map = {
@@ -1371,7 +1371,7 @@ class ReviewsResult(Model):
     :param has_more_reviews: Flag indicating if there are more reviews to be shown (for paging)
     :type has_more_reviews: bool
     :param reviews: List of reviews
-    :type reviews: list of :class:`Review <gallery.v4_0.models.Review>`
+    :type reviews: list of :class:`Review <azure.devops.v4_0.gallery.models.Review>`
     :param total_review_count: Count of total review items
     :type total_review_count: long
     """
@@ -1397,7 +1397,7 @@ class ReviewSummary(Model):
     :param rating_count: Count of total ratings
     :type rating_count: long
     :param rating_split: Split of count accross rating
-    :type rating_split: list of :class:`RatingCountPerRating <gallery.v4_0.models.RatingCountPerRating>`
+    :type rating_split: list of :class:`RatingCountPerRating <azure.devops.v4_0.gallery.models.RatingCountPerRating>`
     """
 
     _attribute_map = {
@@ -1479,7 +1479,7 @@ class Concern(QnAItem):
     :param updated_date: Time when the review was edited/updated
     :type updated_date: datetime
     :param user: User details for the item.
-    :type user: :class:`UserIdentityRef <gallery.v4_0.models.UserIdentityRef>`
+    :type user: :class:`UserIdentityRef <azure.devops.v4_0.gallery.models.UserIdentityRef>`
     :param category: Category of the concern
     :type category: object
     """

@@ -45,9 +45,9 @@ class ConnectionData(Model):
     """ConnectionData.
 
     :param authenticated_user: The Id of the authenticated user who made this request. More information about the user can be obtained by passing this Id to the Identity service
-    :type authenticated_user: :class:`Identity <locations.v4_1.models.Identity>`
+    :type authenticated_user: :class:`Identity <azure.devops.v4_1.locations.models.Identity>`
     :param authorized_user: The Id of the authorized user who made this request. More information about the user can be obtained by passing this Id to the Identity service
-    :type authorized_user: :class:`Identity <locations.v4_1.models.Identity>`
+    :type authorized_user: :class:`Identity <azure.devops.v4_1.locations.models.Identity>`
     :param deployment_id: The id for the server.
     :type deployment_id: str
     :param instance_id: The instance id for this host.
@@ -55,7 +55,7 @@ class ConnectionData(Model):
     :param last_user_access: The last user access for this instance.  Null if not requested specifically.
     :type last_user_access: datetime
     :param location_service_data: Data that the location service holds.
-    :type location_service_data: :class:`LocationServiceData <locations.v4_1.models.LocationServiceData>`
+    :type location_service_data: :class:`LocationServiceData <azure.devops.v4_1.locations.models.LocationServiceData>`
     :param web_application_relative_directory: The virtual directory of the host we are talking to.
     :type web_application_relative_directory: str
     """
@@ -87,7 +87,7 @@ class IdentityBase(Model):
     :param custom_display_name: The custom display name for the identity (if any). Setting this property to an empty string will clear the existing custom display name. Setting this property to null will not affect the existing persisted value (since null values do not get sent over the wire or to the database)
     :type custom_display_name: str
     :param descriptor:
-    :type descriptor: :class:`str <microsoft.-visual-studio.-services.-web-api.v4_1.models.str>`
+    :type descriptor: :class:`str <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.str>`
     :param id:
     :type id: str
     :param is_active:
@@ -99,19 +99,19 @@ class IdentityBase(Model):
     :param member_ids:
     :type member_ids: list of str
     :param member_of:
-    :type member_of: list of :class:`str <microsoft.-visual-studio.-services.-web-api.v4_1.models.str>`
+    :type member_of: list of :class:`str <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.str>`
     :param members:
-    :type members: list of :class:`str <microsoft.-visual-studio.-services.-web-api.v4_1.models.str>`
+    :type members: list of :class:`str <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.str>`
     :param meta_type_id:
     :type meta_type_id: int
     :param properties:
-    :type properties: :class:`object <microsoft.-visual-studio.-services.-web-api.v4_1.models.object>`
+    :type properties: :class:`object <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.object>`
     :param provider_display_name: The display name for the identity as specified by the source identity provider.
     :type provider_display_name: str
     :param resource_version:
     :type resource_version: int
     :param subject_descriptor:
-    :type subject_descriptor: :class:`str <microsoft.-visual-studio.-services.-web-api.v4_1.models.str>`
+    :type subject_descriptor: :class:`str <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.str>`
     :param unique_user_id:
     :type unique_user_id: int
     """
@@ -177,7 +177,7 @@ class LocationServiceData(Model):
     """LocationServiceData.
 
     :param access_mappings: Data about the access mappings contained by this location service.
-    :type access_mappings: list of :class:`AccessMapping <locations.v4_1.models.AccessMapping>`
+    :type access_mappings: list of :class:`AccessMapping <azure.devops.v4_1.locations.models.AccessMapping>`
     :param client_cache_fresh: Data that the location service holds.
     :type client_cache_fresh: bool
     :param client_cache_time_to_live: The time to live on the location service cache.
@@ -189,7 +189,7 @@ class LocationServiceData(Model):
     :param last_change_id64: The non-truncated 64-bit id for the last change that took place on the server.
     :type last_change_id64: long
     :param service_definitions: Data about the service definitions contained by this location service.
-    :type service_definitions: list of :class:`ServiceDefinition <locations.v4_1.models.ServiceDefinition>`
+    :type service_definitions: list of :class:`ServiceDefinition <azure.devops.v4_1.locations.models.ServiceDefinition>`
     :param service_owner: The identifier of the deployment which is hosting this location data (e.g. SPS, TFS, ELS, Napa, etc.)
     :type service_owner: str
     """
@@ -253,7 +253,7 @@ class ServiceDefinition(Model):
     :param inherit_level:
     :type inherit_level: object
     :param location_mappings:
-    :type location_mappings: list of :class:`LocationMapping <locations.v4_1.models.LocationMapping>`
+    :type location_mappings: list of :class:`LocationMapping <azure.devops.v4_1.locations.models.LocationMapping>`
     :param max_version: Maximum api version that this resource supports (current server version for this resource). Copied from <c>ApiResourceLocation</c>.
     :type max_version: str
     :param min_version: Minimum api version that this resource supports. Copied from <c>ApiResourceLocation</c>.
@@ -263,7 +263,7 @@ class ServiceDefinition(Model):
     :param parent_service_type:
     :type parent_service_type: str
     :param properties:
-    :type properties: :class:`object <locations.v4_1.models.object>`
+    :type properties: :class:`object <azure.devops.v4_1.locations.models.object>`
     :param relative_path:
     :type relative_path: str
     :param relative_to_setting:
@@ -331,7 +331,7 @@ class Identity(IdentityBase):
     :param custom_display_name: The custom display name for the identity (if any). Setting this property to an empty string will clear the existing custom display name. Setting this property to null will not affect the existing persisted value (since null values do not get sent over the wire or to the database)
     :type custom_display_name: str
     :param descriptor:
-    :type descriptor: :class:`str <microsoft.-visual-studio.-services.-web-api.v4_1.models.str>`
+    :type descriptor: :class:`str <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.str>`
     :param id:
     :type id: str
     :param is_active:
@@ -343,19 +343,19 @@ class Identity(IdentityBase):
     :param member_ids:
     :type member_ids: list of str
     :param member_of:
-    :type member_of: list of :class:`str <microsoft.-visual-studio.-services.-web-api.v4_1.models.str>`
+    :type member_of: list of :class:`str <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.str>`
     :param members:
-    :type members: list of :class:`str <microsoft.-visual-studio.-services.-web-api.v4_1.models.str>`
+    :type members: list of :class:`str <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.str>`
     :param meta_type_id:
     :type meta_type_id: int
     :param properties:
-    :type properties: :class:`object <microsoft.-visual-studio.-services.-web-api.v4_1.models.object>`
+    :type properties: :class:`object <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.object>`
     :param provider_display_name: The display name for the identity as specified by the source identity provider.
     :type provider_display_name: str
     :param resource_version:
     :type resource_version: int
     :param subject_descriptor:
-    :type subject_descriptor: :class:`str <microsoft.-visual-studio.-services.-web-api.v4_1.models.str>`
+    :type subject_descriptor: :class:`str <azure.devops.v4_1.microsoft.-visual-studio.-services.-web-api.models.str>`
     :param unique_user_id:
     :type unique_user_id: int
     """

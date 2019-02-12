@@ -81,7 +81,7 @@ class PlanEnvironment(Model):
     """PlanEnvironment.
 
     :param mask:
-    :type mask: list of :class:`MaskHint <task.v4_1.models.MaskHint>`
+    :type mask: list of :class:`MaskHint <azure.devops.v4_1.task.models.MaskHint>`
     :param options:
     :type options: dict
     :param variables:
@@ -141,7 +141,7 @@ class TaskAttachment(Model):
     """TaskAttachment.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <task.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.task.models.ReferenceLinks>`
     :param created_on:
     :type created_on: datetime
     :param last_changed_by:
@@ -221,7 +221,7 @@ class TaskOrchestrationOwner(Model):
     """TaskOrchestrationOwner.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <task.v4_1.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_1.task.models.ReferenceLinks>`
     :param id:
     :type id: int
     :param name:
@@ -269,9 +269,9 @@ class TaskOrchestrationPlanReference(Model):
     :param artifact_uri:
     :type artifact_uri: str
     :param definition:
-    :type definition: :class:`TaskOrchestrationOwner <task.v4_1.models.TaskOrchestrationOwner>`
+    :type definition: :class:`TaskOrchestrationOwner <azure.devops.v4_1.task.models.TaskOrchestrationOwner>`
     :param owner:
-    :type owner: :class:`TaskOrchestrationOwner <task.v4_1.models.TaskOrchestrationOwner>`
+    :type owner: :class:`TaskOrchestrationOwner <azure.devops.v4_1.task.models.TaskOrchestrationOwner>`
     :param plan_group:
     :type plan_group: str
     :param plan_id:
@@ -315,9 +315,9 @@ class TaskOrchestrationQueuedPlan(Model):
     :param assign_time:
     :type assign_time: datetime
     :param definition:
-    :type definition: :class:`TaskOrchestrationOwner <task.v4_1.models.TaskOrchestrationOwner>`
+    :type definition: :class:`TaskOrchestrationOwner <azure.devops.v4_1.task.models.TaskOrchestrationOwner>`
     :param owner:
-    :type owner: :class:`TaskOrchestrationOwner <task.v4_1.models.TaskOrchestrationOwner>`
+    :type owner: :class:`TaskOrchestrationOwner <azure.devops.v4_1.task.models.TaskOrchestrationOwner>`
     :param plan_group:
     :type plan_group: str
     :param plan_id:
@@ -361,15 +361,15 @@ class TaskOrchestrationQueuedPlanGroup(Model):
     """TaskOrchestrationQueuedPlanGroup.
 
     :param definition:
-    :type definition: :class:`TaskOrchestrationOwner <task.v4_1.models.TaskOrchestrationOwner>`
+    :type definition: :class:`TaskOrchestrationOwner <azure.devops.v4_1.task.models.TaskOrchestrationOwner>`
     :param owner:
-    :type owner: :class:`TaskOrchestrationOwner <task.v4_1.models.TaskOrchestrationOwner>`
+    :type owner: :class:`TaskOrchestrationOwner <azure.devops.v4_1.task.models.TaskOrchestrationOwner>`
     :param plan_group:
     :type plan_group: str
     :param plans:
-    :type plans: list of :class:`TaskOrchestrationQueuedPlan <task.v4_1.models.TaskOrchestrationQueuedPlan>`
+    :type plans: list of :class:`TaskOrchestrationQueuedPlan <azure.devops.v4_1.task.models.TaskOrchestrationQueuedPlan>`
     :param project:
-    :type project: :class:`ProjectReference <task.v4_1.models.ProjectReference>`
+    :type project: :class:`ProjectReference <azure.devops.v4_1.task.models.ProjectReference>`
     :param queue_position:
     :type queue_position: int
     """
@@ -429,7 +429,7 @@ class TimelineRecord(Model):
     :param current_operation:
     :type current_operation: str
     :param details:
-    :type details: :class:`TimelineReference <task.v4_1.models.TimelineReference>`
+    :type details: :class:`TimelineReference <azure.devops.v4_1.task.models.TimelineReference>`
     :param error_count:
     :type error_count: int
     :param finish_time:
@@ -437,13 +437,13 @@ class TimelineRecord(Model):
     :param id:
     :type id: str
     :param issues:
-    :type issues: list of :class:`Issue <task.v4_1.models.Issue>`
+    :type issues: list of :class:`Issue <azure.devops.v4_1.task.models.Issue>`
     :param last_modified:
     :type last_modified: datetime
     :param location:
     :type location: str
     :param log:
-    :type log: :class:`TaskLogReference <task.v4_1.models.TaskLogReference>`
+    :type log: :class:`TaskLogReference <azure.devops.v4_1.task.models.TaskLogReference>`
     :param name:
     :type name: str
     :param order:
@@ -463,7 +463,7 @@ class TimelineRecord(Model):
     :param state:
     :type state: object
     :param task:
-    :type task: :class:`TaskReference <task.v4_1.models.TaskReference>`
+    :type task: :class:`TaskReference <azure.devops.v4_1.task.models.TaskReference>`
     :param type:
     :type type: str
     :param variables:
@@ -617,7 +617,7 @@ class TaskOrchestrationContainer(TaskOrchestrationItem):
     :param item_type:
     :type item_type: object
     :param children:
-    :type children: list of :class:`TaskOrchestrationItem <task.v4_1.models.TaskOrchestrationItem>`
+    :type children: list of :class:`TaskOrchestrationItem <azure.devops.v4_1.task.models.TaskOrchestrationItem>`
     :param continue_on_error:
     :type continue_on_error: bool
     :param data:
@@ -627,7 +627,7 @@ class TaskOrchestrationContainer(TaskOrchestrationItem):
     :param parallel:
     :type parallel: bool
     :param rollback:
-    :type rollback: :class:`TaskOrchestrationContainer <task.v4_1.models.TaskOrchestrationContainer>`
+    :type rollback: :class:`TaskOrchestrationContainer <azure.devops.v4_1.task.models.TaskOrchestrationContainer>`
     """
 
     _attribute_map = {
@@ -658,9 +658,9 @@ class TaskOrchestrationPlan(TaskOrchestrationPlanReference):
     :param artifact_uri:
     :type artifact_uri: str
     :param definition:
-    :type definition: :class:`TaskOrchestrationOwner <task.v4_1.models.TaskOrchestrationOwner>`
+    :type definition: :class:`TaskOrchestrationOwner <azure.devops.v4_1.task.models.TaskOrchestrationOwner>`
     :param owner:
-    :type owner: :class:`TaskOrchestrationOwner <task.v4_1.models.TaskOrchestrationOwner>`
+    :type owner: :class:`TaskOrchestrationOwner <azure.devops.v4_1.task.models.TaskOrchestrationOwner>`
     :param plan_group:
     :type plan_group: str
     :param plan_id:
@@ -672,11 +672,11 @@ class TaskOrchestrationPlan(TaskOrchestrationPlanReference):
     :param version:
     :type version: int
     :param environment:
-    :type environment: :class:`PlanEnvironment <task.v4_1.models.PlanEnvironment>`
+    :type environment: :class:`PlanEnvironment <azure.devops.v4_1.task.models.PlanEnvironment>`
     :param finish_time:
     :type finish_time: datetime
     :param implementation:
-    :type implementation: :class:`TaskOrchestrationContainer <task.v4_1.models.TaskOrchestrationContainer>`
+    :type implementation: :class:`TaskOrchestrationContainer <azure.devops.v4_1.task.models.TaskOrchestrationContainer>`
     :param requested_by_id:
     :type requested_by_id: str
     :param requested_for_id:
@@ -690,7 +690,7 @@ class TaskOrchestrationPlan(TaskOrchestrationPlanReference):
     :param state:
     :type state: object
     :param timeline:
-    :type timeline: :class:`TimelineReference <task.v4_1.models.TimelineReference>`
+    :type timeline: :class:`TimelineReference <azure.devops.v4_1.task.models.TimelineReference>`
     """
 
     _attribute_map = {
@@ -743,7 +743,7 @@ class Timeline(TimelineReference):
     :param last_changed_on:
     :type last_changed_on: datetime
     :param records:
-    :type records: list of :class:`TimelineRecord <task.v4_1.models.TimelineRecord>`
+    :type records: list of :class:`TimelineRecord <azure.devops.v4_1.task.models.TimelineRecord>`
     """
 
     _attribute_map = {

@@ -45,7 +45,7 @@ class BehaviorModel(Model):
     :param id: Behavior Id
     :type id: str
     :param inherits: Parent behavior reference
-    :type inherits: :class:`WorkItemBehaviorReference <work-item-tracking.v4_0.models.WorkItemBehaviorReference>`
+    :type inherits: :class:`WorkItemBehaviorReference <azure.devops.v4_0.work-item-tracking.models.WorkItemBehaviorReference>`
     :param name: Behavior Name
     :type name: str
     :param overridden: Is the behavior overrides a behavior from system process
@@ -105,7 +105,7 @@ class Control(Model):
     """Control.
 
     :param contribution: Contribution for the control.
-    :type contribution: :class:`WitContribution <work-item-tracking.v4_0.models.WitContribution>`
+    :type contribution: :class:`WitContribution <azure.devops.v4_0.work-item-tracking.models.WitContribution>`
     :param control_type: Type of the control.
     :type control_type: str
     :param height: Height of the control, for html controls.
@@ -191,7 +191,7 @@ class FieldModel(Model):
     :param name:
     :type name: str
     :param pick_list:
-    :type pick_list: :class:`PickListMetadataModel <work-item-tracking.v4_0.models.PickListMetadataModel>`
+    :type pick_list: :class:`PickListMetadataModel <azure.devops.v4_0.work-item-tracking.models.PickListMetadataModel>`
     :param type:
     :type type: object
     :param url:
@@ -241,11 +241,11 @@ class FormLayout(Model):
     """FormLayout.
 
     :param extensions: Gets and sets extensions list
-    :type extensions: list of :class:`Extension <work-item-tracking.v4_0.models.Extension>`
+    :type extensions: list of :class:`Extension <azure.devops.v4_0.work-item-tracking.models.Extension>`
     :param pages: Top level tabs of the layout.
-    :type pages: list of :class:`Page <work-item-tracking.v4_0.models.Page>`
+    :type pages: list of :class:`Page <azure.devops.v4_0.work-item-tracking.models.Page>`
     :param system_controls: Headers controls of the layout.
-    :type system_controls: list of :class:`Control <work-item-tracking.v4_0.models.Control>`
+    :type system_controls: list of :class:`Control <azure.devops.v4_0.work-item-tracking.models.Control>`
     """
 
     _attribute_map = {
@@ -265,9 +265,9 @@ class Group(Model):
     """Group.
 
     :param contribution: Contribution for the group.
-    :type contribution: :class:`WitContribution <work-item-tracking.v4_0.models.WitContribution>`
+    :type contribution: :class:`WitContribution <azure.devops.v4_0.work-item-tracking.models.WitContribution>`
     :param controls: Controls to be put in the group.
-    :type controls: list of :class:`Control <work-item-tracking.v4_0.models.Control>`
+    :type controls: list of :class:`Control <azure.devops.v4_0.work-item-tracking.models.Control>`
     :param height: The height for the contribution.
     :type height: int
     :param id: The id for the layout node.
@@ -333,7 +333,7 @@ class Page(Model):
     """Page.
 
     :param contribution: Contribution for the page.
-    :type contribution: :class:`WitContribution <work-item-tracking.v4_0.models.WitContribution>`
+    :type contribution: :class:`WitContribution <azure.devops.v4_0.work-item-tracking.models.WitContribution>`
     :param id: The id for the layout node.
     :type id: str
     :param inherited: A value indicating whether this layout node has been inherited from a parent layout.  This is expected to only be only set by the combiner.
@@ -351,7 +351,7 @@ class Page(Model):
     :param page_type: The icon for the page.
     :type page_type: object
     :param sections: The sections of the page.
-    :type sections: list of :class:`Section <work-item-tracking.v4_0.models.Section>`
+    :type sections: list of :class:`Section <azure.devops.v4_0.work-item-tracking.models.Section>`
     :param visible: A value indicating if the page should be hidden or not.
     :type visible: bool
     """
@@ -451,7 +451,7 @@ class PickListModel(PickListMetadataModel):
     :param url:
     :type url: str
     :param items:
-    :type items: list of :class:`PickListItemModel <work-item-tracking.v4_0.models.PickListItemModel>`
+    :type items: list of :class:`PickListItemModel <azure.devops.v4_0.work-item-tracking.models.PickListItemModel>`
     """
 
     _attribute_map = {
@@ -472,7 +472,7 @@ class Section(Model):
     """Section.
 
     :param groups:
-    :type groups: list of :class:`Group <work-item-tracking.v4_0.models.Group>`
+    :type groups: list of :class:`Group <azure.devops.v4_0.work-item-tracking.models.Group>`
     :param id: The id for the layout node.
     :type id: str
     :param overridden: A value indicating whether this layout node has been overridden by a child layout.
@@ -612,7 +612,7 @@ class WorkItemTypeBehavior(Model):
     """WorkItemTypeBehavior.
 
     :param behavior:
-    :type behavior: :class:`WorkItemBehaviorReference <work-item-tracking.v4_0.models.WorkItemBehaviorReference>`
+    :type behavior: :class:`WorkItemBehaviorReference <azure.devops.v4_0.work-item-tracking.models.WorkItemBehaviorReference>`
     :param is_default:
     :type is_default: bool
     :param url:
@@ -642,7 +642,7 @@ class WorkItemTypeFieldModel(Model):
     :param name:
     :type name: str
     :param pick_list:
-    :type pick_list: :class:`PickListMetadataModel <work-item-tracking.v4_0.models.PickListMetadataModel>`
+    :type pick_list: :class:`PickListMetadataModel <azure.devops.v4_0.work-item-tracking.models.PickListMetadataModel>`
     :param read_only:
     :type read_only: bool
     :param reference_name:
@@ -684,7 +684,7 @@ class WorkItemTypeModel(Model):
     """WorkItemTypeModel.
 
     :param behaviors:
-    :type behaviors: list of :class:`WorkItemTypeBehavior <work-item-tracking.v4_0.models.WorkItemTypeBehavior>`
+    :type behaviors: list of :class:`WorkItemTypeBehavior <azure.devops.v4_0.work-item-tracking.models.WorkItemTypeBehavior>`
     :param class_:
     :type class_: object
     :param color:
@@ -700,11 +700,11 @@ class WorkItemTypeModel(Model):
     :param is_disabled:
     :type is_disabled: bool
     :param layout:
-    :type layout: :class:`FormLayout <work-item-tracking.v4_0.models.FormLayout>`
+    :type layout: :class:`FormLayout <azure.devops.v4_0.work-item-tracking.models.FormLayout>`
     :param name:
     :type name: str
     :param states:
-    :type states: list of :class:`WorkItemStateResultModel <work-item-tracking.v4_0.models.WorkItemStateResultModel>`
+    :type states: list of :class:`WorkItemStateResultModel <azure.devops.v4_0.work-item-tracking.models.WorkItemStateResultModel>`
     :param url:
     :type url: str
     """

@@ -32,7 +32,7 @@ class WikiClient(Client):
         :param str project: Project ID or project name
         :param str wiki_id: ID of the wiki in which the attachment is to be created.
         :param str name: Name of the attachment that is to be created.
-        :rtype: :class:`<WikiAttachmentResponse> <wiki.v4_0.models.WikiAttachmentResponse>`
+        :rtype: :class:`<WikiAttachmentResponse> <azure.devops.v4_0.wiki.models.WikiAttachmentResponse>`
         """
         route_values = {}
         if project is not None:
@@ -65,7 +65,7 @@ class WikiClient(Client):
         :param str project: Project ID or project name
         :param str wiki_id:
         :param str name:
-        :rtype: :class:`<WikiAttachmentResponse> <wiki.v4_0.models.WikiAttachmentResponse>`
+        :rtype: :class:`<WikiAttachmentResponse> <azure.devops.v4_0.wiki.models.WikiAttachmentResponse>`
         """
         route_values = {}
         if project is not None:
@@ -92,7 +92,7 @@ class WikiClient(Client):
         :param str wiki_id: ID of the wiki from which the page is to be retrieved.
         :param str path: Path from which the pages are to retrieved.
         :param str recursion_level: Recursion level for the page retrieval. Defaults to None (Optional).
-        :param :class:`<GitVersionDescriptor> <wiki.v4_0.models.GitVersionDescriptor>` version_descriptor: Version descriptor for the page. Defaults to default branch (Optional).
+        :param :class:`<GitVersionDescriptor> <azure.devops.v4_0.wiki.models.GitVersionDescriptor>` version_descriptor: Version descriptor for the page. Defaults to default branch (Optional).
         :rtype: [WikiPage]
         """
         route_values = {}
@@ -126,7 +126,7 @@ class WikiClient(Client):
         :param str wiki_id: ID of the wiki from which the page is to be retrieved.
         :param str path: Path from which the pages are to retrieved.
         :param str recursion_level: Recursion level for the page retrieval. Defaults to None (Optional).
-        :param :class:`<GitVersionDescriptor> <wiki.v4_0.models.GitVersionDescriptor>` version_descriptor: Version descriptor for the page. Defaults to default branch (Optional).
+        :param :class:`<GitVersionDescriptor> <azure.devops.v4_0.wiki.models.GitVersionDescriptor>` version_descriptor: Version descriptor for the page. Defaults to default branch (Optional).
         :rtype: object
         """
         route_values = {}
@@ -165,7 +165,7 @@ class WikiClient(Client):
         :param str wiki_id: ID of the wiki from which the page is to be retrieved.
         :param str path: Path from which the pages are to retrieved.
         :param str recursion_level: Recursion level for the page retrieval. Defaults to None (Optional).
-        :param :class:`<GitVersionDescriptor> <wiki.v4_0.models.GitVersionDescriptor>` version_descriptor: Version descriptor for the page. Defaults to default branch (Optional).
+        :param :class:`<GitVersionDescriptor> <azure.devops.v4_0.wiki.models.GitVersionDescriptor>` version_descriptor: Version descriptor for the page. Defaults to default branch (Optional).
         :rtype: object
         """
         route_values = {}
@@ -200,11 +200,11 @@ class WikiClient(Client):
     def create_update(self, update, project, wiki_id, version_descriptor=None):
         """CreateUpdate.
         [Preview API] Use this API to create, edit, delete and reorder a wiki page and also to add attachments to a wiki page. For every successful wiki update creation a Git push is made to the backing Git repository. The data corresponding to that Git push is added in the response of this API.
-        :param :class:`<WikiUpdate> <wiki.v4_0.models.WikiUpdate>` update:
+        :param :class:`<WikiUpdate> <azure.devops.v4_0.wiki.models.WikiUpdate>` update:
         :param str project: Project ID or project name
         :param str wiki_id: ID of the wiki in which the update is to be made.
-        :param :class:`<GitVersionDescriptor> <wiki.v4_0.models.GitVersionDescriptor>` version_descriptor: Version descriptor for the version on which the update is to be made. Defaults to default branch (Optional).
-        :rtype: :class:`<WikiUpdate> <wiki.v4_0.models.WikiUpdate>`
+        :param :class:`<GitVersionDescriptor> <azure.devops.v4_0.wiki.models.GitVersionDescriptor>` version_descriptor: Version descriptor for the version on which the update is to be made. Defaults to default branch (Optional).
+        :rtype: :class:`<WikiUpdate> <azure.devops.v4_0.wiki.models.WikiUpdate>`
         """
         route_values = {}
         if project is not None:
@@ -231,9 +231,9 @@ class WikiClient(Client):
     def create_wiki(self, wiki_to_create, project=None):
         """CreateWiki.
         [Preview API] Creates a backing git repository and does the intialization of the wiki for the given project.
-        :param :class:`<GitRepository> <wiki.v4_0.models.GitRepository>` wiki_to_create: Object containing name of the wiki to be created and the ID of the project in which the wiki is to be created. The provided name will also be used in the name of the backing git repository. If this is empty, the name will be auto generated.
+        :param :class:`<GitRepository> <azure.devops.v4_0.wiki.models.GitRepository>` wiki_to_create: Object containing name of the wiki to be created and the ID of the project in which the wiki is to be created. The provided name will also be used in the name of the backing git repository. If this is empty, the name will be auto generated.
         :param str project: Project ID or project name
-        :rtype: :class:`<WikiRepository> <wiki.v4_0.models.WikiRepository>`
+        :rtype: :class:`<WikiRepository> <azure.devops.v4_0.wiki.models.WikiRepository>`
         """
         route_values = {}
         if project is not None:

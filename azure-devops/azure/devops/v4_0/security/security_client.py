@@ -49,7 +49,7 @@ class SecurityClient(Client):
 
     def set_access_control_entries(self, container, security_namespace_id):
         """SetAccessControlEntries.
-        :param :class:`<object> <security.v4_0.models.object>` container:
+        :param :class:`<object> <azure.devops.v4_0.security.models.object>` container:
         :param str security_namespace_id:
         :rtype: [AccessControlEntry]
         """
@@ -116,7 +116,7 @@ class SecurityClient(Client):
 
     def set_access_control_lists(self, access_control_lists, security_namespace_id):
         """SetAccessControlLists.
-        :param :class:`<VssJsonCollectionWrapper> <security.v4_0.models.VssJsonCollectionWrapper>` access_control_lists:
+        :param :class:`<VssJsonCollectionWrapper> <azure.devops.v4_0.security.models.VssJsonCollectionWrapper>` access_control_lists:
         :param str security_namespace_id:
         """
         route_values = {}
@@ -132,8 +132,8 @@ class SecurityClient(Client):
     def has_permissions_batch(self, eval_batch):
         """HasPermissionsBatch.
         Perform a batch of "has permission" checks. This methods does not aggregate the results nor does it shortcircut if one of the permissions evaluates to false.
-        :param :class:`<PermissionEvaluationBatch> <security.v4_0.models.PermissionEvaluationBatch>` eval_batch:
-        :rtype: :class:`<PermissionEvaluationBatch> <security.v4_0.models.PermissionEvaluationBatch>`
+        :param :class:`<PermissionEvaluationBatch> <azure.devops.v4_0.security.models.PermissionEvaluationBatch>` eval_batch:
+        :rtype: :class:`<PermissionEvaluationBatch> <azure.devops.v4_0.security.models.PermissionEvaluationBatch>`
         """
         content = self._serialize.body(eval_batch, 'PermissionEvaluationBatch')
         response = self._send(http_method='POST',
@@ -176,7 +176,7 @@ class SecurityClient(Client):
         :param int permissions:
         :param str token:
         :param str descriptor:
-        :rtype: :class:`<AccessControlEntry> <security.v4_0.models.AccessControlEntry>`
+        :rtype: :class:`<AccessControlEntry> <azure.devops.v4_0.security.models.AccessControlEntry>`
         """
         route_values = {}
         if security_namespace_id is not None:
@@ -216,7 +216,7 @@ class SecurityClient(Client):
 
     def set_inherit_flag(self, container, security_namespace_id):
         """SetInheritFlag.
-        :param :class:`<object> <security.v4_0.models.object>` container:
+        :param :class:`<object> <azure.devops.v4_0.security.models.object>` container:
         :param str security_namespace_id:
         """
         route_values = {}

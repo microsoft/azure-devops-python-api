@@ -21,13 +21,13 @@ class AccountEntitlement(Model):
     :param last_accessed_date: Gets or sets the date of the user last sign-in to this account
     :type last_accessed_date: datetime
     :param license:
-    :type license: :class:`License <licensing.v4_0.models.License>`
+    :type license: :class:`License <azure.devops.v4_0.licensing.models.License>`
     :param rights: The computed rights of this user in the account.
-    :type rights: :class:`AccountRights <licensing.v4_0.models.AccountRights>`
+    :type rights: :class:`AccountRights <azure.devops.v4_0.licensing.models.AccountRights>`
     :param status: The status of the user in the account
     :type status: object
     :param user: Identity information of the user to which the license belongs
-    :type user: :class:`IdentityRef <licensing.v4_0.models.IdentityRef>`
+    :type user: :class:`IdentityRef <azure.devops.v4_0.licensing.models.IdentityRef>`
     :param user_id: Gets the id of the user to which the license belongs
     :type user_id: str
     """
@@ -61,7 +61,7 @@ class AccountEntitlementUpdateModel(Model):
     """AccountEntitlementUpdateModel.
 
     :param license: Gets or sets the license for the entitlement
-    :type license: :class:`License <licensing.v4_0.models.License>`
+    :type license: :class:`License <azure.devops.v4_0.licensing.models.License>`
     """
 
     _attribute_map = {
@@ -129,7 +129,7 @@ class AccountLicenseUsage(Model):
     """AccountLicenseUsage.
 
     :param license:
-    :type license: :class:`AccountUserLicense <licensing.v4_0.models.AccountUserLicense>`
+    :type license: :class:`AccountUserLicense <azure.devops.v4_0.licensing.models.AccountUserLicense>`
     :param provisioned_count:
     :type provisioned_count: int
     :param used_count:

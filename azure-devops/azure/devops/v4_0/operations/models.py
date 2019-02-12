@@ -59,7 +59,7 @@ class Operation(OperationReference):
     :param url: Url to get the full object.
     :type url: str
     :param _links: The links to other objects related to this object.
-    :type _links: :class:`ReferenceLinks <operations.v4_0.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v4_0.operations.models.ReferenceLinks>`
     :param result_message: The result message which is generally not set.
     :type result_message: str
     """

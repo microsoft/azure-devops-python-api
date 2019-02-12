@@ -23,7 +23,7 @@ class GitRepository(Model):
     :param name:
     :type name: str
     :param parent_repository:
-    :type parent_repository: :class:`GitRepositoryRef <microsoft.-team-foundation.-source-control.-web-api.v4_1.models.GitRepositoryRef>`
+    :type parent_repository: :class:`GitRepositoryRef <azure.devops.v4_1.microsoft.-team-foundation.-source-control.-web-api.models.GitRepositoryRef>`
     :param project:
     :type project: TeamProjectReference
     :param remote_url:
@@ -157,7 +157,7 @@ class WikiAttachmentResponse(Model):
     """WikiAttachmentResponse.
 
     :param attachment: Defines properties for wiki attachment file.
-    :type attachment: :class:`WikiAttachment <wiki.v4_1.models.WikiAttachment>`
+    :type attachment: :class:`WikiAttachment <azure.devops.v4_1.wiki.models.WikiAttachment>`
     :param eTag: Contains the list of ETag values from the response header of the attachments API call. The first item in the list contains the version of the wiki attachment.
     :type eTag: list of str
     """
@@ -219,7 +219,7 @@ class WikiCreateParametersV2(WikiCreateBaseParameters):
     :param type: Type of the wiki.
     :type type: object
     :param version: Version of the wiki. Not required for ProjectWiki type.
-    :type version: :class:`GitVersionDescriptor <wiki.v4_1.models.GitVersionDescriptor>`
+    :type version: :class:`GitVersionDescriptor <azure.devops.v4_1.wiki.models.GitVersionDescriptor>`
     """
 
     _attribute_map = {
@@ -282,7 +282,7 @@ class WikiPageMoveResponse(Model):
     :param eTag: Contains the list of ETag values from the response header of the page move API call. The first item in the list contains the version of the wiki page subject to page move.
     :type eTag: list of str
     :param page_move: Defines properties for wiki page move.
-    :type page_move: :class:`WikiPageMove <wiki.v4_1.models.WikiPageMove>`
+    :type page_move: :class:`WikiPageMove <azure.devops.v4_1.wiki.models.WikiPageMove>`
     """
 
     _attribute_map = {
@@ -302,7 +302,7 @@ class WikiPageResponse(Model):
     :param eTag: Contains the list of ETag values from the response header of the pages API call. The first item in the list contains the version of the wiki page.
     :type eTag: list of str
     :param page: Defines properties for wiki page.
-    :type page: :class:`WikiPage <wiki.v4_1.models.WikiPage>`
+    :type page: :class:`WikiPage <azure.devops.v4_1.wiki.models.WikiPage>`
     """
 
     _attribute_map = {
@@ -344,7 +344,7 @@ class WikiUpdateParameters(Model):
     """WikiUpdateParameters.
 
     :param versions: Versions of the wiki.
-    :type versions: list of :class:`GitVersionDescriptor <wiki.v4_1.models.GitVersionDescriptor>`
+    :type versions: list of :class:`GitVersionDescriptor <azure.devops.v4_1.wiki.models.GitVersionDescriptor>`
     """
 
     _attribute_map = {
@@ -378,7 +378,7 @@ class WikiV2(WikiCreateBaseParameters):
     :param url: REST url for this wiki.
     :type url: str
     :param versions: Versions of the wiki.
-    :type versions: list of :class:`GitVersionDescriptor <wiki.v4_1.models.GitVersionDescriptor>`
+    :type versions: list of :class:`GitVersionDescriptor <azure.devops.v4_1.wiki.models.GitVersionDescriptor>`
     """
 
     _attribute_map = {
@@ -421,7 +421,7 @@ class WikiPage(WikiPageCreateOrUpdateParameters):
     :param remote_url: Remote web url to the wiki page.
     :type remote_url: str
     :param sub_pages: List of subpages of the current page.
-    :type sub_pages: list of :class:`WikiPage <wiki.v4_1.models.WikiPage>`
+    :type sub_pages: list of :class:`WikiPage <azure.devops.v4_1.wiki.models.WikiPage>`
     :param url: REST url for this wiki page.
     :type url: str
     """
@@ -460,7 +460,7 @@ class WikiPageMove(WikiPageMoveParameters):
     :param path: Current path of the wiki page.
     :type path: str
     :param page: Resultant page of this page move operation.
-    :type page: :class:`WikiPage <wiki.v4_1.models.WikiPage>`
+    :type page: :class:`WikiPage <azure.devops.v4_1.wiki.models.WikiPage>`
     """
 
     _attribute_map = {

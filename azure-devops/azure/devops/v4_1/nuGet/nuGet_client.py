@@ -54,7 +54,7 @@ class NuGetClient(Client):
     def update_package_versions(self, batch_request, feed_id):
         """UpdatePackageVersions.
         [Preview API] Update several packages from a single feed in a single request. The updates to the packages do not happen atomically.
-        :param :class:`<NuGetPackagesBatchRequest> <nuGet.v4_1.models.NuGetPackagesBatchRequest>` batch_request: Information about the packages to update, the operation to perform, and its associated data.
+        :param :class:`<NuGetPackagesBatchRequest> <azure.devops.v4_1.nuGet.models.NuGetPackagesBatchRequest>` batch_request: Information about the packages to update, the operation to perform, and its associated data.
         :param str feed_id: Feed which contains the packages to update.
         """
         route_values = {}
@@ -92,7 +92,7 @@ class NuGetClient(Client):
         :param str feed_id:
         :param str package_name:
         :param str package_version:
-        :rtype: :class:`<NuGetPackageVersionDeletionState> <nuGet.v4_1.models.NuGetPackageVersionDeletionState>`
+        :rtype: :class:`<NuGetPackageVersionDeletionState> <azure.devops.v4_1.nuGet.models.NuGetPackageVersionDeletionState>`
         """
         route_values = {}
         if feed_id is not None:
@@ -110,7 +110,7 @@ class NuGetClient(Client):
     def restore_package_version_from_recycle_bin(self, package_version_details, feed_id, package_name, package_version):
         """RestorePackageVersionFromRecycleBin.
         [Preview API]
-        :param :class:`<NuGetRecycleBinPackageVersionDetails> <nuGet.v4_1.models.NuGetRecycleBinPackageVersionDetails>` package_version_details:
+        :param :class:`<NuGetRecycleBinPackageVersionDetails> <azure.devops.v4_1.nuGet.models.NuGetRecycleBinPackageVersionDetails>` package_version_details:
         :param str feed_id:
         :param str package_name:
         :param str package_version:
@@ -135,7 +135,7 @@ class NuGetClient(Client):
         :param str feed_id:
         :param str package_name:
         :param str package_version:
-        :rtype: :class:`<Package> <nuGet.v4_1.models.Package>`
+        :rtype: :class:`<Package> <azure.devops.v4_1.nuGet.models.Package>`
         """
         route_values = {}
         if feed_id is not None:
@@ -157,7 +157,7 @@ class NuGetClient(Client):
         :param str package_name:
         :param str package_version:
         :param bool show_deleted:
-        :rtype: :class:`<Package> <nuGet.v4_1.models.Package>`
+        :rtype: :class:`<Package> <azure.devops.v4_1.nuGet.models.Package>`
         """
         route_values = {}
         if feed_id is not None:
@@ -179,7 +179,7 @@ class NuGetClient(Client):
     def update_package_version(self, package_version_details, feed_id, package_name, package_version):
         """UpdatePackageVersion.
         [Preview API]
-        :param :class:`<PackageVersionDetails> <nuGet.v4_1.models.PackageVersionDetails>` package_version_details:
+        :param :class:`<PackageVersionDetails> <azure.devops.v4_1.nuGet.models.PackageVersionDetails>` package_version_details:
         :param str feed_id:
         :param str package_name:
         :param str package_version:

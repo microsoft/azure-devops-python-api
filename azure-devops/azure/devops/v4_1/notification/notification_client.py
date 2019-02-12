@@ -55,7 +55,7 @@ class NotificationClient(Client):
         """GetSubscriptionDiagnostics.
         [Preview API]
         :param str subscription_id:
-        :rtype: :class:`<SubscriptionDiagnostics> <notification.v4_1.models.SubscriptionDiagnostics>`
+        :rtype: :class:`<SubscriptionDiagnostics> <azure.devops.v4_1.notification.models.SubscriptionDiagnostics>`
         """
         route_values = {}
         if subscription_id is not None:
@@ -69,9 +69,9 @@ class NotificationClient(Client):
     def update_subscription_diagnostics(self, update_parameters, subscription_id):
         """UpdateSubscriptionDiagnostics.
         [Preview API]
-        :param :class:`<UpdateSubscripitonDiagnosticsParameters> <notification.v4_1.models.UpdateSubscripitonDiagnosticsParameters>` update_parameters:
+        :param :class:`<UpdateSubscripitonDiagnosticsParameters> <azure.devops.v4_1.notification.models.UpdateSubscripitonDiagnosticsParameters>` update_parameters:
         :param str subscription_id:
-        :rtype: :class:`<SubscriptionDiagnostics> <notification.v4_1.models.SubscriptionDiagnostics>`
+        :rtype: :class:`<SubscriptionDiagnostics> <azure.devops.v4_1.notification.models.SubscriptionDiagnostics>`
         """
         route_values = {}
         if subscription_id is not None:
@@ -87,8 +87,8 @@ class NotificationClient(Client):
     def publish_event(self, notification_event):
         """PublishEvent.
         [Preview API] Publish an event.
-        :param :class:`<VssNotificationEvent> <notification.v4_1.models.VssNotificationEvent>` notification_event:
-        :rtype: :class:`<VssNotificationEvent> <notification.v4_1.models.VssNotificationEvent>`
+        :param :class:`<VssNotificationEvent> <azure.devops.v4_1.notification.models.VssNotificationEvent>` notification_event:
+        :rtype: :class:`<VssNotificationEvent> <azure.devops.v4_1.notification.models.VssNotificationEvent>`
         """
         content = self._serialize.body(notification_event, 'VssNotificationEvent')
         response = self._send(http_method='POST',
@@ -101,7 +101,7 @@ class NotificationClient(Client):
         """GetEventType.
         [Preview API] Get a specific event type.
         :param str event_type:
-        :rtype: :class:`<NotificationEventType> <notification.v4_1.models.NotificationEventType>`
+        :rtype: :class:`<NotificationEventType> <azure.devops.v4_1.notification.models.NotificationEventType>`
         """
         route_values = {}
         if event_type is not None:
@@ -131,7 +131,7 @@ class NotificationClient(Client):
         """GetSubscriber.
         [Preview API]
         :param str subscriber_id:
-        :rtype: :class:`<NotificationSubscriber> <notification.v4_1.models.NotificationSubscriber>`
+        :rtype: :class:`<NotificationSubscriber> <azure.devops.v4_1.notification.models.NotificationSubscriber>`
         """
         route_values = {}
         if subscriber_id is not None:
@@ -145,9 +145,9 @@ class NotificationClient(Client):
     def update_subscriber(self, update_parameters, subscriber_id):
         """UpdateSubscriber.
         [Preview API]
-        :param :class:`<NotificationSubscriberUpdateParameters> <notification.v4_1.models.NotificationSubscriberUpdateParameters>` update_parameters:
+        :param :class:`<NotificationSubscriberUpdateParameters> <azure.devops.v4_1.notification.models.NotificationSubscriberUpdateParameters>` update_parameters:
         :param str subscriber_id:
-        :rtype: :class:`<NotificationSubscriber> <notification.v4_1.models.NotificationSubscriber>`
+        :rtype: :class:`<NotificationSubscriber> <azure.devops.v4_1.notification.models.NotificationSubscriber>`
         """
         route_values = {}
         if subscriber_id is not None:
@@ -163,7 +163,7 @@ class NotificationClient(Client):
     def query_subscriptions(self, subscription_query):
         """QuerySubscriptions.
         [Preview API] Query for subscriptions. A subscription is returned if it matches one or more of the specified conditions.
-        :param :class:`<SubscriptionQuery> <notification.v4_1.models.SubscriptionQuery>` subscription_query:
+        :param :class:`<SubscriptionQuery> <azure.devops.v4_1.notification.models.SubscriptionQuery>` subscription_query:
         :rtype: [NotificationSubscription]
         """
         content = self._serialize.body(subscription_query, 'SubscriptionQuery')
@@ -176,8 +176,8 @@ class NotificationClient(Client):
     def create_subscription(self, create_parameters):
         """CreateSubscription.
         [Preview API] Create a new subscription.
-        :param :class:`<NotificationSubscriptionCreateParameters> <notification.v4_1.models.NotificationSubscriptionCreateParameters>` create_parameters:
-        :rtype: :class:`<NotificationSubscription> <notification.v4_1.models.NotificationSubscription>`
+        :param :class:`<NotificationSubscriptionCreateParameters> <azure.devops.v4_1.notification.models.NotificationSubscriptionCreateParameters>` create_parameters:
+        :rtype: :class:`<NotificationSubscription> <azure.devops.v4_1.notification.models.NotificationSubscription>`
         """
         content = self._serialize.body(create_parameters, 'NotificationSubscriptionCreateParameters')
         response = self._send(http_method='POST',
@@ -204,7 +204,7 @@ class NotificationClient(Client):
         [Preview API] Get a notification subscription by its ID.
         :param str subscription_id:
         :param str query_flags:
-        :rtype: :class:`<NotificationSubscription> <notification.v4_1.models.NotificationSubscription>`
+        :rtype: :class:`<NotificationSubscription> <azure.devops.v4_1.notification.models.NotificationSubscription>`
         """
         route_values = {}
         if subscription_id is not None:
@@ -244,9 +244,9 @@ class NotificationClient(Client):
     def update_subscription(self, update_parameters, subscription_id):
         """UpdateSubscription.
         [Preview API] Update an existing subscription. Depending on the type of subscription and permissions, the caller can update the description, filter settings, channel (delivery) settings and more.
-        :param :class:`<NotificationSubscriptionUpdateParameters> <notification.v4_1.models.NotificationSubscriptionUpdateParameters>` update_parameters:
+        :param :class:`<NotificationSubscriptionUpdateParameters> <azure.devops.v4_1.notification.models.NotificationSubscriptionUpdateParameters>` update_parameters:
         :param str subscription_id:
-        :rtype: :class:`<NotificationSubscription> <notification.v4_1.models.NotificationSubscription>`
+        :rtype: :class:`<NotificationSubscription> <azure.devops.v4_1.notification.models.NotificationSubscription>`
         """
         route_values = {}
         if subscription_id is not None:
@@ -272,10 +272,10 @@ class NotificationClient(Client):
     def update_subscription_user_settings(self, user_settings, subscription_id, user_id):
         """UpdateSubscriptionUserSettings.
         [Preview API] Update the specified user's settings for the specified subscription. This API is typically used to opt in or out of a shared subscription. User settings can only be applied to shared subscriptions, like team subscriptions or default subscriptions.
-        :param :class:`<SubscriptionUserSettings> <notification.v4_1.models.SubscriptionUserSettings>` user_settings:
+        :param :class:`<SubscriptionUserSettings> <azure.devops.v4_1.notification.models.SubscriptionUserSettings>` user_settings:
         :param str subscription_id:
         :param str user_id: ID of the user
-        :rtype: :class:`<SubscriptionUserSettings> <notification.v4_1.models.SubscriptionUserSettings>`
+        :rtype: :class:`<SubscriptionUserSettings> <azure.devops.v4_1.notification.models.SubscriptionUserSettings>`
         """
         route_values = {}
         if subscription_id is not None:

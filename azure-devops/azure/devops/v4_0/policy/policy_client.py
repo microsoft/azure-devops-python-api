@@ -27,10 +27,10 @@ class PolicyClient(Client):
 
     def create_policy_configuration(self, configuration, project, configuration_id=None):
         """CreatePolicyConfiguration.
-        :param :class:`<PolicyConfiguration> <policy.v4_0.models.PolicyConfiguration>` configuration:
+        :param :class:`<PolicyConfiguration> <azure.devops.v4_0.policy.models.PolicyConfiguration>` configuration:
         :param str project: Project ID or project name
         :param int configuration_id:
-        :rtype: :class:`<PolicyConfiguration> <policy.v4_0.models.PolicyConfiguration>`
+        :rtype: :class:`<PolicyConfiguration> <azure.devops.v4_0.policy.models.PolicyConfiguration>`
         """
         route_values = {}
         if project is not None:
@@ -64,7 +64,7 @@ class PolicyClient(Client):
         """GetPolicyConfiguration.
         :param str project: Project ID or project name
         :param int configuration_id:
-        :rtype: :class:`<PolicyConfiguration> <policy.v4_0.models.PolicyConfiguration>`
+        :rtype: :class:`<PolicyConfiguration> <azure.devops.v4_0.policy.models.PolicyConfiguration>`
         """
         route_values = {}
         if project is not None:
@@ -98,10 +98,10 @@ class PolicyClient(Client):
 
     def update_policy_configuration(self, configuration, project, configuration_id):
         """UpdatePolicyConfiguration.
-        :param :class:`<PolicyConfiguration> <policy.v4_0.models.PolicyConfiguration>` configuration:
+        :param :class:`<PolicyConfiguration> <azure.devops.v4_0.policy.models.PolicyConfiguration>` configuration:
         :param str project: Project ID or project name
         :param int configuration_id:
-        :rtype: :class:`<PolicyConfiguration> <policy.v4_0.models.PolicyConfiguration>`
+        :rtype: :class:`<PolicyConfiguration> <azure.devops.v4_0.policy.models.PolicyConfiguration>`
         """
         route_values = {}
         if project is not None:
@@ -121,7 +121,7 @@ class PolicyClient(Client):
         [Preview API]
         :param str project: Project ID or project name
         :param str evaluation_id:
-        :rtype: :class:`<PolicyEvaluationRecord> <policy.v4_0.models.PolicyEvaluationRecord>`
+        :rtype: :class:`<PolicyEvaluationRecord> <azure.devops.v4_0.policy.models.PolicyEvaluationRecord>`
         """
         route_values = {}
         if project is not None:
@@ -139,7 +139,7 @@ class PolicyClient(Client):
         [Preview API]
         :param str project: Project ID or project name
         :param str evaluation_id:
-        :rtype: :class:`<PolicyEvaluationRecord> <policy.v4_0.models.PolicyEvaluationRecord>`
+        :rtype: :class:`<PolicyEvaluationRecord> <azure.devops.v4_0.policy.models.PolicyEvaluationRecord>`
         """
         route_values = {}
         if project is not None:
@@ -186,7 +186,7 @@ class PolicyClient(Client):
         :param str project: Project ID or project name
         :param int configuration_id:
         :param int revision_id:
-        :rtype: :class:`<PolicyConfiguration> <policy.v4_0.models.PolicyConfiguration>`
+        :rtype: :class:`<PolicyConfiguration> <azure.devops.v4_0.policy.models.PolicyConfiguration>`
         """
         route_values = {}
         if project is not None:
@@ -230,7 +230,7 @@ class PolicyClient(Client):
         """GetPolicyType.
         :param str project: Project ID or project name
         :param str type_id:
-        :rtype: :class:`<PolicyType> <policy.v4_0.models.PolicyType>`
+        :rtype: :class:`<PolicyType> <azure.devops.v4_0.policy.models.PolicyType>`
         """
         route_values = {}
         if project is not None:

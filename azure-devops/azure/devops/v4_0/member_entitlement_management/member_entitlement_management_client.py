@@ -28,9 +28,9 @@ class MemberEntitlementManagementClient(Client):
     def add_group_entitlement(self, group_entitlement, rule_option=None):
         """AddGroupEntitlement.
         [Preview API] Used to add members to a project in an account. It adds them to groups, assigns licenses, and assigns extensions.
-        :param :class:`<GroupEntitlement> <member-entitlement-management.v4_0.models.GroupEntitlement>` group_entitlement: Member model for where to add the member and what licenses and extensions they should receive.
+        :param :class:`<GroupEntitlement> <azure.devops.v4_0.member-entitlement-management.models.GroupEntitlement>` group_entitlement: Member model for where to add the member and what licenses and extensions they should receive.
         :param str rule_option:
-        :rtype: :class:`<GroupEntitlementOperationReference> <member-entitlement-management.v4_0.models.GroupEntitlementOperationReference>`
+        :rtype: :class:`<GroupEntitlementOperationReference> <azure.devops.v4_0.member-entitlement-management.models.GroupEntitlementOperationReference>`
         """
         query_parameters = {}
         if rule_option is not None:
@@ -48,7 +48,7 @@ class MemberEntitlementManagementClient(Client):
         [Preview API] Deletes members from an account
         :param str group_id: memberId of the member to be removed.
         :param str rule_option:
-        :rtype: :class:`<GroupEntitlementOperationReference> <member-entitlement-management.v4_0.models.GroupEntitlementOperationReference>`
+        :rtype: :class:`<GroupEntitlementOperationReference> <azure.devops.v4_0.member-entitlement-management.models.GroupEntitlementOperationReference>`
         """
         route_values = {}
         if group_id is not None:
@@ -67,7 +67,7 @@ class MemberEntitlementManagementClient(Client):
         """GetGroupEntitlement.
         [Preview API] Used to get a group entitlement and its current rules
         :param str group_id:
-        :rtype: :class:`<GroupEntitlement> <member-entitlement-management.v4_0.models.GroupEntitlement>`
+        :rtype: :class:`<GroupEntitlement> <azure.devops.v4_0.member-entitlement-management.models.GroupEntitlement>`
         """
         route_values = {}
         if group_id is not None:
@@ -91,10 +91,10 @@ class MemberEntitlementManagementClient(Client):
     def update_group_entitlement(self, document, group_id, rule_option=None):
         """UpdateGroupEntitlement.
         [Preview API] Used to edit a member in an account. Edits groups, licenses, and extensions.
-        :param :class:`<[JsonPatchOperation]> <member-entitlement-management.v4_0.models.[JsonPatchOperation]>` document: document of operations to be used
+        :param :class:`<[JsonPatchOperation]> <azure.devops.v4_0.member-entitlement-management.models.[JsonPatchOperation]>` document: document of operations to be used
         :param str group_id: member Id of the member to be edit
         :param str rule_option:
-        :rtype: :class:`<GroupEntitlementOperationReference> <member-entitlement-management.v4_0.models.GroupEntitlementOperationReference>`
+        :rtype: :class:`<GroupEntitlementOperationReference> <azure.devops.v4_0.member-entitlement-management.models.GroupEntitlementOperationReference>`
         """
         route_values = {}
         if group_id is not None:
@@ -115,8 +115,8 @@ class MemberEntitlementManagementClient(Client):
     def add_member_entitlement(self, member_entitlement):
         """AddMemberEntitlement.
         [Preview API] Used to add members to a project in an account. It adds them to project groups, assigns licenses, and assigns extensions.
-        :param :class:`<MemberEntitlement> <member-entitlement-management.v4_0.models.MemberEntitlement>` member_entitlement: Member model for where to add the member and what licenses and extensions they should receive.
-        :rtype: :class:`<MemberEntitlementsPostResponse> <member-entitlement-management.v4_0.models.MemberEntitlementsPostResponse>`
+        :param :class:`<MemberEntitlement> <azure.devops.v4_0.member-entitlement-management.models.MemberEntitlement>` member_entitlement: Member model for where to add the member and what licenses and extensions they should receive.
+        :rtype: :class:`<MemberEntitlementsPostResponse> <azure.devops.v4_0.member-entitlement-management.models.MemberEntitlementsPostResponse>`
         """
         content = self._serialize.body(member_entitlement, 'MemberEntitlement')
         response = self._send(http_method='POST',
@@ -142,7 +142,7 @@ class MemberEntitlementManagementClient(Client):
         """GetMemberEntitlement.
         [Preview API] Used to get member entitlement information in an account
         :param str member_id:
-        :rtype: :class:`<MemberEntitlement> <member-entitlement-management.v4_0.models.MemberEntitlement>`
+        :rtype: :class:`<MemberEntitlement> <azure.devops.v4_0.member-entitlement-management.models.MemberEntitlement>`
         """
         route_values = {}
         if member_id is not None:
@@ -180,9 +180,9 @@ class MemberEntitlementManagementClient(Client):
     def update_member_entitlement(self, document, member_id):
         """UpdateMemberEntitlement.
         [Preview API] Used to edit a member in an account. Edits groups, licenses, and extensions.
-        :param :class:`<[JsonPatchOperation]> <member-entitlement-management.v4_0.models.[JsonPatchOperation]>` document: document of operations to be used
+        :param :class:`<[JsonPatchOperation]> <azure.devops.v4_0.member-entitlement-management.models.[JsonPatchOperation]>` document: document of operations to be used
         :param str member_id: member Id of the member to be edit
-        :rtype: :class:`<MemberEntitlementsPatchResponse> <member-entitlement-management.v4_0.models.MemberEntitlementsPatchResponse>`
+        :rtype: :class:`<MemberEntitlementsPatchResponse> <azure.devops.v4_0.member-entitlement-management.models.MemberEntitlementsPatchResponse>`
         """
         route_values = {}
         if member_id is not None:
@@ -199,8 +199,8 @@ class MemberEntitlementManagementClient(Client):
     def update_member_entitlements(self, document):
         """UpdateMemberEntitlements.
         [Preview API] Used to edit multiple members in an account. Edits groups, licenses, and extensions.
-        :param :class:`<[JsonPatchOperation]> <member-entitlement-management.v4_0.models.[JsonPatchOperation]>` document: JsonPatch document
-        :rtype: :class:`<MemberEntitlementOperationReference> <member-entitlement-management.v4_0.models.MemberEntitlementOperationReference>`
+        :param :class:`<[JsonPatchOperation]> <azure.devops.v4_0.member-entitlement-management.models.[JsonPatchOperation]>` document: JsonPatch document
+        :rtype: :class:`<MemberEntitlementOperationReference> <azure.devops.v4_0.member-entitlement-management.models.MemberEntitlementOperationReference>`
         """
         content = self._serialize.body(document, '[JsonPatchOperation]')
         response = self._send(http_method='PATCH',

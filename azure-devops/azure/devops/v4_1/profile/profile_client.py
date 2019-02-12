@@ -34,7 +34,7 @@ class ProfileClient(Client):
         :param str partition:
         :param str core_attributes:
         :param bool force_refresh:
-        :rtype: :class:`<Profile> <profile.v4_1.models.Profile>`
+        :rtype: :class:`<Profile> <azure.devops.v4_1.profile.models.Profile>`
         """
         route_values = {}
         if id is not None:

@@ -31,7 +31,7 @@ class LocationClient(Client):
         :param str connect_options:
         :param int last_change_id: Obsolete 32-bit LastChangeId
         :param long last_change_id64: Non-truncated 64-bit LastChangeId
-        :rtype: :class:`<ConnectionData> <location.v4_1.models.ConnectionData>`
+        :rtype: :class:`<ConnectionData> <azure.devops.v4_1.location.models.ConnectionData>`
         """
         query_parameters = {}
         if connect_options is not None:
@@ -52,7 +52,7 @@ class LocationClient(Client):
         :param str area_id:
         :param str organization_name:
         :param str account_name:
-        :rtype: :class:`<ResourceAreaInfo> <location.v4_1.models.ResourceAreaInfo>`
+        :rtype: :class:`<ResourceAreaInfo> <azure.devops.v4_1.location.models.ResourceAreaInfo>`
         """
         route_values = {}
         if area_id is not None:
@@ -74,7 +74,7 @@ class LocationClient(Client):
         [Preview API]
         :param str area_id:
         :param str host_id:
-        :rtype: :class:`<ResourceAreaInfo> <location.v4_1.models.ResourceAreaInfo>`
+        :rtype: :class:`<ResourceAreaInfo> <azure.devops.v4_1.location.models.ResourceAreaInfo>`
         """
         route_values = {}
         if area_id is not None:
@@ -145,7 +145,7 @@ class LocationClient(Client):
         :param str identifier:
         :param bool allow_fault_in: If true, we will attempt to fault in a host instance mapping if in SPS.
         :param bool preview_fault_in: If true, we will calculate and return a host instance mapping, but not persist it.
-        :rtype: :class:`<ServiceDefinition> <location.v4_1.models.ServiceDefinition>`
+        :rtype: :class:`<ServiceDefinition> <azure.devops.v4_1.location.models.ServiceDefinition>`
         """
         route_values = {}
         if service_type is not None:
@@ -182,7 +182,7 @@ class LocationClient(Client):
     def update_service_definitions(self, service_definitions):
         """UpdateServiceDefinitions.
         [Preview API]
-        :param :class:`<VssJsonCollectionWrapper> <location.v4_1.models.VssJsonCollectionWrapper>` service_definitions:
+        :param :class:`<VssJsonCollectionWrapper> <azure.devops.v4_1.location.models.VssJsonCollectionWrapper>` service_definitions:
         """
         content = self._serialize.body(service_definitions, 'VssJsonCollectionWrapper')
         self._send(http_method='PATCH',

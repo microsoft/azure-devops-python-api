@@ -28,9 +28,9 @@ class CoreClient(Client):
     def create_connected_service(self, connected_service_creation_data, project_id):
         """CreateConnectedService.
         [Preview API]
-        :param :class:`<WebApiConnectedServiceDetails> <core.v4_1.models.WebApiConnectedServiceDetails>` connected_service_creation_data:
+        :param :class:`<WebApiConnectedServiceDetails> <azure.devops.v4_1.core.models.WebApiConnectedServiceDetails>` connected_service_creation_data:
         :param str project_id:
-        :rtype: :class:`<WebApiConnectedService> <core.v4_1.models.WebApiConnectedService>`
+        :rtype: :class:`<WebApiConnectedService> <azure.devops.v4_1.core.models.WebApiConnectedService>`
         """
         route_values = {}
         if project_id is not None:
@@ -48,7 +48,7 @@ class CoreClient(Client):
         [Preview API]
         :param str project_id:
         :param str name:
-        :rtype: :class:`<WebApiConnectedServiceDetails> <core.v4_1.models.WebApiConnectedServiceDetails>`
+        :rtype: :class:`<WebApiConnectedServiceDetails> <azure.devops.v4_1.core.models.WebApiConnectedServiceDetails>`
         """
         route_values = {}
         if project_id is not None:
@@ -111,7 +111,7 @@ class CoreClient(Client):
         """GetProcessById.
         Get a process by ID.
         :param str process_id: ID for a process.
-        :rtype: :class:`<Process> <core.v4_1.models.Process>`
+        :rtype: :class:`<Process> <azure.devops.v4_1.core.models.Process>`
         """
         route_values = {}
         if process_id is not None:
@@ -136,7 +136,7 @@ class CoreClient(Client):
         """GetProjectCollection.
         Get project collection with the specified id or name.
         :param str collection_id:
-        :rtype: :class:`<TeamProjectCollection> <core.v4_1.models.TeamProjectCollection>`
+        :rtype: :class:`<TeamProjectCollection> <azure.devops.v4_1.core.models.TeamProjectCollection>`
         """
         route_values = {}
         if collection_id is not None:
@@ -186,7 +186,7 @@ class CoreClient(Client):
         :param str project_id:
         :param bool include_capabilities: Include capabilities (such as source control) in the team project result (default: false).
         :param bool include_history: Search within renamed projects (that had such name in the past).
-        :rtype: :class:`<TeamProject> <core.v4_1.models.TeamProject>`
+        :rtype: :class:`<TeamProject> <azure.devops.v4_1.core.models.TeamProject>`
         """
         route_values = {}
         if project_id is not None:
@@ -230,8 +230,8 @@ class CoreClient(Client):
     def queue_create_project(self, project_to_create):
         """QueueCreateProject.
         Queues a project to be created. Use the [GetOperation](../../operations/operations/get) to periodically check for create project status.
-        :param :class:`<TeamProject> <core.v4_1.models.TeamProject>` project_to_create: The project to create.
-        :rtype: :class:`<OperationReference> <core.v4_1.models.OperationReference>`
+        :param :class:`<TeamProject> <azure.devops.v4_1.core.models.TeamProject>` project_to_create: The project to create.
+        :rtype: :class:`<OperationReference> <azure.devops.v4_1.core.models.OperationReference>`
         """
         content = self._serialize.body(project_to_create, 'TeamProject')
         response = self._send(http_method='POST',
@@ -244,7 +244,7 @@ class CoreClient(Client):
         """QueueDeleteProject.
         Queues a project to be deleted. Use the [GetOperation](../../operations/operations/get) to periodically check for delete project status.
         :param str project_id: The project id of the project to delete.
-        :rtype: :class:`<OperationReference> <core.v4_1.models.OperationReference>`
+        :rtype: :class:`<OperationReference> <azure.devops.v4_1.core.models.OperationReference>`
         """
         route_values = {}
         if project_id is not None:
@@ -258,9 +258,9 @@ class CoreClient(Client):
     def update_project(self, project_update, project_id):
         """UpdateProject.
         Update an existing project's name, abbreviation, or description.
-        :param :class:`<TeamProject> <core.v4_1.models.TeamProject>` project_update: The updates for the project.
+        :param :class:`<TeamProject> <azure.devops.v4_1.core.models.TeamProject>` project_update: The updates for the project.
         :param str project_id: The project id of the project to update.
-        :rtype: :class:`<OperationReference> <core.v4_1.models.OperationReference>`
+        :rtype: :class:`<OperationReference> <azure.devops.v4_1.core.models.OperationReference>`
         """
         route_values = {}
         if project_id is not None:
@@ -298,7 +298,7 @@ class CoreClient(Client):
         """SetProjectProperties.
         [Preview API] Create, update, and delete team project properties.
         :param str project_id: The team project ID.
-        :param :class:`<[JsonPatchOperation]> <core.v4_1.models.[JsonPatchOperation]>` patch_document: A JSON Patch document that represents an array of property operations. See RFC 6902 for more details on JSON Patch. The accepted operation verbs are Add and Remove, where Add is used for both creating and updating properties. The path consists of a forward slash and a property name.
+        :param :class:`<[JsonPatchOperation]> <azure.devops.v4_1.core.models.[JsonPatchOperation]>` patch_document: A JSON Patch document that represents an array of property operations. See RFC 6902 for more details on JSON Patch. The accepted operation verbs are Add and Remove, where Add is used for both creating and updating properties. The path consists of a forward slash and a property name.
         """
         route_values = {}
         if project_id is not None:
@@ -314,8 +314,8 @@ class CoreClient(Client):
     def create_or_update_proxy(self, proxy):
         """CreateOrUpdateProxy.
         [Preview API]
-        :param :class:`<Proxy> <core.v4_1.models.Proxy>` proxy:
-        :rtype: :class:`<Proxy> <core.v4_1.models.Proxy>`
+        :param :class:`<Proxy> <azure.devops.v4_1.core.models.Proxy>` proxy:
+        :rtype: :class:`<Proxy> <azure.devops.v4_1.core.models.Proxy>`
         """
         content = self._serialize.body(proxy, 'Proxy')
         response = self._send(http_method='PUT',
@@ -358,9 +358,9 @@ class CoreClient(Client):
     def create_team(self, team, project_id):
         """CreateTeam.
         Create a team in a team project.
-        :param :class:`<WebApiTeam> <core.v4_1.models.WebApiTeam>` team: The team data used to create the team.
+        :param :class:`<WebApiTeam> <azure.devops.v4_1.core.models.WebApiTeam>` team: The team data used to create the team.
         :param str project_id: The name or ID (GUID) of the team project in which to create the team.
-        :rtype: :class:`<WebApiTeam> <core.v4_1.models.WebApiTeam>`
+        :rtype: :class:`<WebApiTeam> <azure.devops.v4_1.core.models.WebApiTeam>`
         """
         route_values = {}
         if project_id is not None:
@@ -394,7 +394,7 @@ class CoreClient(Client):
         Get a specific team.
         :param str project_id: The name or ID (GUID) of the team project containing the team.
         :param str team_id: The name or ID (GUID) of the team.
-        :rtype: :class:`<WebApiTeam> <core.v4_1.models.WebApiTeam>`
+        :rtype: :class:`<WebApiTeam> <azure.devops.v4_1.core.models.WebApiTeam>`
         """
         route_values = {}
         if project_id is not None:
@@ -436,10 +436,10 @@ class CoreClient(Client):
     def update_team(self, team_data, project_id, team_id):
         """UpdateTeam.
         Update a team's name and/or description.
-        :param :class:`<WebApiTeam> <core.v4_1.models.WebApiTeam>` team_data:
+        :param :class:`<WebApiTeam> <azure.devops.v4_1.core.models.WebApiTeam>` team_data:
         :param str project_id: The name or ID (GUID) of the team project containing the team to update.
         :param str team_id: The name of ID of the team to update.
-        :rtype: :class:`<WebApiTeam> <core.v4_1.models.WebApiTeam>`
+        :rtype: :class:`<WebApiTeam> <azure.devops.v4_1.core.models.WebApiTeam>`
         """
         route_values = {}
         if project_id is not None:

@@ -28,10 +28,10 @@ class BuildClient(Client):
     def create_artifact(self, artifact, build_id, project=None):
         """CreateArtifact.
         Associates an artifact with a build
-        :param :class:`<BuildArtifact> <build.v4_0.models.BuildArtifact>` artifact:
+        :param :class:`<BuildArtifact> <azure.devops.v4_0.build.models.BuildArtifact>` artifact:
         :param int build_id:
         :param str project: Project ID or project name
-        :rtype: :class:`<BuildArtifact> <build.v4_0.models.BuildArtifact>`
+        :rtype: :class:`<BuildArtifact> <azure.devops.v4_0.build.models.BuildArtifact>`
         """
         route_values = {}
         if project is not None:
@@ -52,7 +52,7 @@ class BuildClient(Client):
         :param int build_id:
         :param str artifact_name:
         :param str project: Project ID or project name
-        :rtype: :class:`<BuildArtifact> <build.v4_0.models.BuildArtifact>`
+        :rtype: :class:`<BuildArtifact> <azure.devops.v4_0.build.models.BuildArtifact>`
         """
         route_values = {}
         if project is not None:
@@ -144,7 +144,7 @@ class BuildClient(Client):
         :param str repo_type:
         :param str repo_id:
         :param str branch_name:
-        :rtype: :class:`<BuildBadge> <build.v4_0.models.BuildBadge>`
+        :rtype: :class:`<BuildBadge> <azure.devops.v4_0.build.models.BuildBadge>`
         """
         route_values = {}
         if project is not None:
@@ -211,7 +211,7 @@ class BuildClient(Client):
         :param int build_id:
         :param str project: Project ID or project name
         :param str property_filters: A comma-delimited list of properties to include in the results
-        :rtype: :class:`<Build> <build.v4_0.models.Build>`
+        :rtype: :class:`<Build> <azure.devops.v4_0.build.models.Build>`
         """
         route_values = {}
         if project is not None:
@@ -313,11 +313,11 @@ class BuildClient(Client):
     def queue_build(self, build, project=None, ignore_warnings=None, check_in_ticket=None):
         """QueueBuild.
         Queues a build
-        :param :class:`<Build> <build.v4_0.models.Build>` build:
+        :param :class:`<Build> <azure.devops.v4_0.build.models.Build>` build:
         :param str project: Project ID or project name
         :param bool ignore_warnings:
         :param str check_in_ticket:
-        :rtype: :class:`<Build> <build.v4_0.models.Build>`
+        :rtype: :class:`<Build> <azure.devops.v4_0.build.models.Build>`
         """
         route_values = {}
         if project is not None:
@@ -339,10 +339,10 @@ class BuildClient(Client):
     def update_build(self, build, build_id, project=None):
         """UpdateBuild.
         Updates a build
-        :param :class:`<Build> <build.v4_0.models.Build>` build:
+        :param :class:`<Build> <azure.devops.v4_0.build.models.Build>` build:
         :param int build_id:
         :param str project: Project ID or project name
-        :rtype: :class:`<Build> <build.v4_0.models.Build>`
+        :rtype: :class:`<Build> <azure.devops.v4_0.build.models.Build>`
         """
         route_values = {}
         if project is not None:
@@ -434,7 +434,7 @@ class BuildClient(Client):
         """GetBuildController.
         Gets a controller
         :param int controller_id:
-        :rtype: :class:`<BuildController> <build.v4_0.models.BuildController>`
+        :rtype: :class:`<BuildController> <azure.devops.v4_0.build.models.BuildController>`
         """
         route_values = {}
         if controller_id is not None:
@@ -463,11 +463,11 @@ class BuildClient(Client):
     def create_definition(self, definition, project=None, definition_to_clone_id=None, definition_to_clone_revision=None):
         """CreateDefinition.
         Creates a new definition
-        :param :class:`<BuildDefinition> <build.v4_0.models.BuildDefinition>` definition:
+        :param :class:`<BuildDefinition> <azure.devops.v4_0.build.models.BuildDefinition>` definition:
         :param str project: Project ID or project name
         :param int definition_to_clone_id:
         :param int definition_to_clone_revision:
-        :rtype: :class:`<BuildDefinition> <build.v4_0.models.BuildDefinition>`
+        :rtype: :class:`<BuildDefinition> <azure.devops.v4_0.build.models.BuildDefinition>`
         """
         route_values = {}
         if project is not None:
@@ -511,7 +511,7 @@ class BuildClient(Client):
         :param datetime min_metrics_time:
         :param [str] property_filters:
         :param bool include_latest_builds:
-        :rtype: :class:`<BuildDefinition> <build.v4_0.models.BuildDefinition>`
+        :rtype: :class:`<BuildDefinition> <azure.devops.v4_0.build.models.BuildDefinition>`
         """
         route_values = {}
         if project is not None:
@@ -598,12 +598,12 @@ class BuildClient(Client):
     def update_definition(self, definition, definition_id, project=None, secrets_source_definition_id=None, secrets_source_definition_revision=None):
         """UpdateDefinition.
         Updates an existing definition
-        :param :class:`<BuildDefinition> <build.v4_0.models.BuildDefinition>` definition:
+        :param :class:`<BuildDefinition> <azure.devops.v4_0.build.models.BuildDefinition>` definition:
         :param int definition_id:
         :param str project: Project ID or project name
         :param int secrets_source_definition_id:
         :param int secrets_source_definition_revision:
-        :rtype: :class:`<BuildDefinition> <build.v4_0.models.BuildDefinition>`
+        :rtype: :class:`<BuildDefinition> <azure.devops.v4_0.build.models.BuildDefinition>`
         """
         route_values = {}
         if project is not None:
@@ -627,10 +627,10 @@ class BuildClient(Client):
     def create_folder(self, folder, project, path):
         """CreateFolder.
         [Preview API] Creates a new folder
-        :param :class:`<Folder> <build.v4_0.models.Folder>` folder:
+        :param :class:`<Folder> <azure.devops.v4_0.build.models.Folder>` folder:
         :param str project: Project ID or project name
         :param str path:
-        :rtype: :class:`<Folder> <build.v4_0.models.Folder>`
+        :rtype: :class:`<Folder> <azure.devops.v4_0.build.models.Folder>`
         """
         route_values = {}
         if project is not None:
@@ -687,10 +687,10 @@ class BuildClient(Client):
     def update_folder(self, folder, project, path):
         """UpdateFolder.
         [Preview API] Updates an existing folder at given  existing path
-        :param :class:`<Folder> <build.v4_0.models.Folder>` folder:
+        :param :class:`<Folder> <azure.devops.v4_0.build.models.Folder>` folder:
         :param str project: Project ID or project name
         :param str path:
-        :rtype: :class:`<Folder> <build.v4_0.models.Folder>`
+        :rtype: :class:`<Folder> <azure.devops.v4_0.build.models.Folder>`
         """
         route_values = {}
         if project is not None:
@@ -876,7 +876,7 @@ class BuildClient(Client):
         :param str project: Project ID or project name
         :param int build_id: The build id.
         :param [str] filter: Filter to specific properties. Defaults to all properties.
-        :rtype: :class:`<object> <build.v4_0.models.object>`
+        :rtype: :class:`<object> <azure.devops.v4_0.build.models.object>`
         """
         route_values = {}
         if project is not None:
@@ -897,10 +897,10 @@ class BuildClient(Client):
     def update_build_properties(self, document, project, build_id):
         """UpdateBuildProperties.
         [Preview API] Updates properties for a build.
-        :param :class:`<[JsonPatchOperation]> <build.v4_0.models.[JsonPatchOperation]>` document:
+        :param :class:`<[JsonPatchOperation]> <azure.devops.v4_0.build.models.[JsonPatchOperation]>` document:
         :param str project: Project ID or project name
         :param int build_id: The build id.
-        :rtype: :class:`<object> <build.v4_0.models.object>`
+        :rtype: :class:`<object> <azure.devops.v4_0.build.models.object>`
         """
         route_values = {}
         if project is not None:
@@ -922,7 +922,7 @@ class BuildClient(Client):
         :param str project: Project ID or project name
         :param int definition_id: The definition id.
         :param [str] filter: Filter to specific properties. Defaults to all properties.
-        :rtype: :class:`<object> <build.v4_0.models.object>`
+        :rtype: :class:`<object> <azure.devops.v4_0.build.models.object>`
         """
         route_values = {}
         if project is not None:
@@ -943,10 +943,10 @@ class BuildClient(Client):
     def update_definition_properties(self, document, project, definition_id):
         """UpdateDefinitionProperties.
         [Preview API] Updates properties for a definition.
-        :param :class:`<[JsonPatchOperation]> <build.v4_0.models.[JsonPatchOperation]>` document:
+        :param :class:`<[JsonPatchOperation]> <azure.devops.v4_0.build.models.[JsonPatchOperation]>` document:
         :param str project: Project ID or project name
         :param int definition_id: The definition id.
-        :rtype: :class:`<object> <build.v4_0.models.object>`
+        :rtype: :class:`<object> <azure.devops.v4_0.build.models.object>`
         """
         route_values = {}
         if project is not None:
@@ -968,7 +968,7 @@ class BuildClient(Client):
         :param str project: Project ID or project name
         :param int build_id:
         :param str type:
-        :rtype: :class:`<BuildReportMetadata> <build.v4_0.models.BuildReportMetadata>`
+        :rtype: :class:`<BuildReportMetadata> <azure.devops.v4_0.build.models.BuildReportMetadata>`
         """
         route_values = {}
         if project is not None:
@@ -1016,7 +1016,7 @@ class BuildClient(Client):
     def get_resource_usage(self):
         """GetResourceUsage.
         [Preview API]
-        :rtype: :class:`<BuildResourceUsage> <build.v4_0.models.BuildResourceUsage>`
+        :rtype: :class:`<BuildResourceUsage> <azure.devops.v4_0.build.models.BuildResourceUsage>`
         """
         response = self._send(http_method='GET',
                               location_id='3813d06c-9e36-4ea1-aac3-61a485d60e3d',
@@ -1044,7 +1044,7 @@ class BuildClient(Client):
     def get_build_settings(self):
         """GetBuildSettings.
         Gets the build settings
-        :rtype: :class:`<BuildSettings> <build.v4_0.models.BuildSettings>`
+        :rtype: :class:`<BuildSettings> <azure.devops.v4_0.build.models.BuildSettings>`
         """
         response = self._send(http_method='GET',
                               location_id='aa8c1c9c-ef8b-474a-b8c4-785c7b191d0d',
@@ -1054,8 +1054,8 @@ class BuildClient(Client):
     def update_build_settings(self, settings):
         """UpdateBuildSettings.
         Updates the build settings
-        :param :class:`<BuildSettings> <build.v4_0.models.BuildSettings>` settings:
-        :rtype: :class:`<BuildSettings> <build.v4_0.models.BuildSettings>`
+        :param :class:`<BuildSettings> <azure.devops.v4_0.build.models.BuildSettings>` settings:
+        :rtype: :class:`<BuildSettings> <azure.devops.v4_0.build.models.BuildSettings>`
         """
         content = self._serialize.body(settings, 'BuildSettings')
         response = self._send(http_method='PATCH',
@@ -1267,7 +1267,7 @@ class BuildClient(Client):
         Gets definition template filtered by id
         :param str project: Project ID or project name
         :param str template_id: Id of the requested template.
-        :rtype: :class:`<BuildDefinitionTemplate> <build.v4_0.models.BuildDefinitionTemplate>`
+        :rtype: :class:`<BuildDefinitionTemplate> <azure.devops.v4_0.build.models.BuildDefinitionTemplate>`
         """
         route_values = {}
         if project is not None:
@@ -1298,10 +1298,10 @@ class BuildClient(Client):
     def save_template(self, template, project, template_id):
         """SaveTemplate.
         Saves a definition template
-        :param :class:`<BuildDefinitionTemplate> <build.v4_0.models.BuildDefinitionTemplate>` template:
+        :param :class:`<BuildDefinitionTemplate> <azure.devops.v4_0.build.models.BuildDefinitionTemplate>` template:
         :param str project: Project ID or project name
         :param str template_id:
-        :rtype: :class:`<BuildDefinitionTemplate> <build.v4_0.models.BuildDefinitionTemplate>`
+        :rtype: :class:`<BuildDefinitionTemplate> <azure.devops.v4_0.build.models.BuildDefinitionTemplate>`
         """
         route_values = {}
         if project is not None:
@@ -1324,7 +1324,7 @@ class BuildClient(Client):
         :param str timeline_id:
         :param int change_id:
         :param str plan_id:
-        :rtype: :class:`<Timeline> <build.v4_0.models.Timeline>`
+        :rtype: :class:`<Timeline> <azure.devops.v4_0.build.models.Timeline>`
         """
         route_values = {}
         if project is not None:

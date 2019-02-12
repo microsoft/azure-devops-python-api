@@ -28,8 +28,8 @@ class IdentityClient(Client):
     def create_or_bind_with_claims(self, source_identity):
         """CreateOrBindWithClaims.
         [Preview API]
-        :param :class:`<Identity> <identity.v4_0.models.Identity>` source_identity:
-        :rtype: :class:`<Identity> <identity.v4_0.models.Identity>`
+        :param :class:`<Identity> <azure.devops.v4_0.identity.models.Identity>` source_identity:
+        :rtype: :class:`<Identity> <azure.devops.v4_0.identity.models.Identity>`
         """
         content = self._serialize.body(source_identity, 'Identity')
         response = self._send(http_method='PUT',
@@ -43,7 +43,7 @@ class IdentityClient(Client):
         [Preview API]
         :param str id:
         :param bool is_master_id:
-        :rtype: :class:`<str> <identity.v4_0.models.str>`
+        :rtype: :class:`<str> <azure.devops.v4_0.identity.models.str>`
         """
         route_values = {}
         if id is not None:
@@ -60,7 +60,7 @@ class IdentityClient(Client):
 
     def create_groups(self, container):
         """CreateGroups.
-        :param :class:`<object> <identity.v4_0.models.object>` container:
+        :param :class:`<object> <azure.devops.v4_0.identity.models.object>` container:
         :rtype: [Identity]
         """
         content = self._serialize.body(container, 'object')
@@ -110,7 +110,7 @@ class IdentityClient(Client):
         :param int identity_sequence_id:
         :param int group_sequence_id:
         :param str scope_id:
-        :rtype: :class:`<ChangedIdentities> <identity.v4_0.models.ChangedIdentities>`
+        :rtype: :class:`<ChangedIdentities> <azure.devops.v4_0.identity.models.ChangedIdentities>`
         """
         query_parameters = {}
         if identity_sequence_id is not None:
@@ -199,7 +199,7 @@ class IdentityClient(Client):
         :param str identity_id:
         :param str query_membership:
         :param str properties:
-        :rtype: :class:`<Identity> <identity.v4_0.models.Identity>`
+        :rtype: :class:`<Identity> <azure.devops.v4_0.identity.models.Identity>`
         """
         route_values = {}
         if identity_id is not None:
@@ -218,7 +218,7 @@ class IdentityClient(Client):
 
     def update_identities(self, identities):
         """UpdateIdentities.
-        :param :class:`<VssJsonCollectionWrapper> <identity.v4_0.models.VssJsonCollectionWrapper>` identities:
+        :param :class:`<VssJsonCollectionWrapper> <azure.devops.v4_0.identity.models.VssJsonCollectionWrapper>` identities:
         :rtype: [IdentityUpdateData]
         """
         content = self._serialize.body(identities, 'VssJsonCollectionWrapper')
@@ -230,7 +230,7 @@ class IdentityClient(Client):
 
     def update_identity(self, identity, identity_id):
         """UpdateIdentity.
-        :param :class:`<Identity> <identity.v4_0.models.Identity>` identity:
+        :param :class:`<Identity> <azure.devops.v4_0.identity.models.Identity>` identity:
         :param str identity_id:
         """
         route_values = {}
@@ -245,8 +245,8 @@ class IdentityClient(Client):
 
     def create_identity(self, framework_identity_info):
         """CreateIdentity.
-        :param :class:`<FrameworkIdentityInfo> <identity.v4_0.models.FrameworkIdentityInfo>` framework_identity_info:
-        :rtype: :class:`<Identity> <identity.v4_0.models.Identity>`
+        :param :class:`<FrameworkIdentityInfo> <azure.devops.v4_0.identity.models.FrameworkIdentityInfo>` framework_identity_info:
+        :rtype: :class:`<Identity> <azure.devops.v4_0.identity.models.Identity>`
         """
         content = self._serialize.body(framework_identity_info, 'FrameworkIdentityInfo')
         response = self._send(http_method='PUT',
@@ -258,7 +258,7 @@ class IdentityClient(Client):
     def read_identity_batch(self, batch_info):
         """ReadIdentityBatch.
         [Preview API]
-        :param :class:`<IdentityBatchInfo> <identity.v4_0.models.IdentityBatchInfo>` batch_info:
+        :param :class:`<IdentityBatchInfo> <azure.devops.v4_0.identity.models.IdentityBatchInfo>` batch_info:
         :rtype: [Identity]
         """
         content = self._serialize.body(batch_info, 'IdentityBatchInfo')
@@ -272,7 +272,7 @@ class IdentityClient(Client):
         """GetIdentitySnapshot.
         [Preview API]
         :param str scope_id:
-        :rtype: :class:`<IdentitySnapshot> <identity.v4_0.models.IdentitySnapshot>`
+        :rtype: :class:`<IdentitySnapshot> <azure.devops.v4_0.identity.models.IdentitySnapshot>`
         """
         route_values = {}
         if scope_id is not None:
@@ -296,7 +296,7 @@ class IdentityClient(Client):
     def get_self(self):
         """GetSelf.
         Read identity of the home tenant request user.
-        :rtype: :class:`<IdentitySelf> <identity.v4_0.models.IdentitySelf>`
+        :rtype: :class:`<IdentitySelf> <azure.devops.v4_0.identity.models.IdentitySelf>`
         """
         response = self._send(http_method='GET',
                               location_id='4bb02b5b-c120-4be2-b68e-21f7c50a4b82',
@@ -327,7 +327,7 @@ class IdentityClient(Client):
         :param str container_id:
         :param str member_id:
         :param str query_membership:
-        :rtype: :class:`<str> <identity.v4_0.models.str>`
+        :rtype: :class:`<str> <azure.devops.v4_0.identity.models.str>`
         """
         route_values = {}
         if container_id is not None:
@@ -388,7 +388,7 @@ class IdentityClient(Client):
         :param str member_id:
         :param str container_id:
         :param str query_membership:
-        :rtype: :class:`<str> <identity.v4_0.models.str>`
+        :rtype: :class:`<str> <azure.devops.v4_0.identity.models.str>`
         """
         route_values = {}
         if member_id is not None:
@@ -428,9 +428,9 @@ class IdentityClient(Client):
     def create_scope(self, info, scope_id):
         """CreateScope.
         [Preview API]
-        :param :class:`<CreateScopeInfo> <identity.v4_0.models.CreateScopeInfo>` info:
+        :param :class:`<CreateScopeInfo> <azure.devops.v4_0.identity.models.CreateScopeInfo>` info:
         :param str scope_id:
-        :rtype: :class:`<IdentityScope> <identity.v4_0.models.IdentityScope>`
+        :rtype: :class:`<IdentityScope> <azure.devops.v4_0.identity.models.IdentityScope>`
         """
         route_values = {}
         if scope_id is not None:
@@ -460,7 +460,7 @@ class IdentityClient(Client):
         """GetScopeById.
         [Preview API]
         :param str scope_id:
-        :rtype: :class:`<IdentityScope> <identity.v4_0.models.IdentityScope>`
+        :rtype: :class:`<IdentityScope> <azure.devops.v4_0.identity.models.IdentityScope>`
         """
         route_values = {}
         if scope_id is not None:
@@ -475,7 +475,7 @@ class IdentityClient(Client):
         """GetScopeByName.
         [Preview API]
         :param str scope_name:
-        :rtype: :class:`<IdentityScope> <identity.v4_0.models.IdentityScope>`
+        :rtype: :class:`<IdentityScope> <azure.devops.v4_0.identity.models.IdentityScope>`
         """
         query_parameters = {}
         if scope_name is not None:
@@ -489,7 +489,7 @@ class IdentityClient(Client):
     def rename_scope(self, rename_scope, scope_id):
         """RenameScope.
         [Preview API]
-        :param :class:`<IdentityScope> <identity.v4_0.models.IdentityScope>` rename_scope:
+        :param :class:`<IdentityScope> <azure.devops.v4_0.identity.models.IdentityScope>` rename_scope:
         :param str scope_id:
         """
         route_values = {}
@@ -505,7 +505,7 @@ class IdentityClient(Client):
     def get_signed_in_token(self):
         """GetSignedInToken.
         [Preview API]
-        :rtype: :class:`<AccessTokenResult> <identity.v4_0.models.AccessTokenResult>`
+        :rtype: :class:`<AccessTokenResult> <azure.devops.v4_0.identity.models.AccessTokenResult>`
         """
         response = self._send(http_method='GET',
                               location_id='6074ff18-aaad-4abb-a41e-5c75f6178057',
@@ -515,7 +515,7 @@ class IdentityClient(Client):
     def get_signout_token(self):
         """GetSignoutToken.
         [Preview API]
-        :rtype: :class:`<AccessTokenResult> <identity.v4_0.models.AccessTokenResult>`
+        :rtype: :class:`<AccessTokenResult> <azure.devops.v4_0.identity.models.AccessTokenResult>`
         """
         response = self._send(http_method='GET',
                               location_id='be39e83c-7529-45e9-9c67-0410885880da',
@@ -526,7 +526,7 @@ class IdentityClient(Client):
         """GetTenant.
         [Preview API]
         :param str tenant_id:
-        :rtype: :class:`<TenantInfo> <identity.v4_0.models.TenantInfo>`
+        :rtype: :class:`<TenantInfo> <azure.devops.v4_0.identity.models.TenantInfo>`
         """
         route_values = {}
         if tenant_id is not None:
