@@ -6,7 +6,7 @@
 from setuptools import setup, find_packages
 
 NAME = "azure-devops"
-VERSION = "4.0.0"
+VERSION = "5.0.0"
 
 # To install the library, run the following
 #
@@ -35,7 +35,7 @@ setup(
     name=NAME,
     version=VERSION,
     license='MIT',
-    description="Python wrapper around the Azure DevOps 4.x APIs",
+    description="Python wrapper around the Azure DevOps 5.x APIs",
     author="Microsoft Corporation",
     author_email="vstscli@microsoft.com",
     url="https://github.com/Microsoft/vsts-python-api",

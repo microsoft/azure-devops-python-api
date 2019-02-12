@@ -8,7 +8,7 @@ import logging
 from msrest.service_client import ServiceClient
 from ._file_cache import RESOURCE_CACHE as RESOURCE_FILE_CACHE
 from .exceptions import AzureDevOpsClientRequestError
-from .v4_0.location.location_client import LocationClient
+from .v5_0.location.location_client import LocationClient
 from .client_configuration import ClientConfiguration
 
 logger = logging.getLogger(__name__)
