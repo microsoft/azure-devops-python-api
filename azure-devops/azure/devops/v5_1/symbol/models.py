@@ -15,7 +15,7 @@ class DebugEntryCreateBatch(Model):
     :param create_behavior: Defines what to do when a debug entry in the batch already exists.
     :type create_behavior: object
     :param debug_entries: The debug entries.
-    :type debug_entries: list of :class:`DebugEntry <azure.devops.v5_1..models.DebugEntry>`
+    :type debug_entries: list of :class:`DebugEntry <azure.devops.v5_1.symbol.models.DebugEntry>`
     """
 
     _attribute_map = {
@@ -65,7 +65,7 @@ class JsonBlobIdentifierWithBlocks(Model):
     """JsonBlobIdentifierWithBlocks.
 
     :param block_hashes: List of blob block hashes.
-    :type block_hashes: list of :class:`JsonBlobBlockHash <azure.devops.v5_1..models.JsonBlobBlockHash>`
+    :type block_hashes: list of :class:`JsonBlobBlockHash <azure.devops.v5_1.symbol.models.JsonBlobBlockHash>`
     :param identifier_value: Array of blobId bytes.
     :type identifier_value: str
     """
@@ -127,9 +127,9 @@ class DebugEntry(ResourceBase):
     :param url: A URI which can be used to retrieve this item in its raw format. Optional. Note this is distinguished from other URIs that are present in a derived resource.
     :type url: str
     :param blob_details: Details of the blob formatted to be deserialized for symbol service.
-    :type blob_details: :class:`JsonBlobIdentifierWithBlocks <azure.devops.v5_1..models.JsonBlobIdentifierWithBlocks>`
+    :type blob_details: :class:`JsonBlobIdentifierWithBlocks <azure.devops.v5_1.symbol.models.JsonBlobIdentifierWithBlocks>`
     :param blob_identifier: A blob identifier of the symbol file to upload to this debug entry. This property is mostly used during creation of debug entry (a.k.a. symbol publishing) to allow the server to query the existence of the blob.
-    :type blob_identifier: :class:`JsonBlobIdentifier <azure.devops.v5_1..models.JsonBlobIdentifier>`
+    :type blob_identifier: :class:`JsonBlobIdentifier <azure.devops.v5_1.symbol.models.JsonBlobIdentifier>`
     :param blob_uri: The URI to get the symbol file. Provided by the server, the URI contains authentication information and is readily accessible by plain HTTP GET request. The client is recommended to retrieve the file as soon as it can since the URI will expire in a short period.
     :type blob_uri: str
     :param client_key: A key the client (debugger, for example) uses to find the debug entry. Note it is not unique for each different symbol file as it does not distinguish between those which only differ by information level.

@@ -13,7 +13,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -41,7 +41,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -167,7 +167,7 @@ class WorkItemTrackingResource(WorkItemTrackingResourceReference):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work_item_tracking.models.ReferenceLinks>`
     """
 
     _attribute_map = {
@@ -186,7 +186,7 @@ class WorkItemCommentReactionResponse(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work_item_tracking.models.ReferenceLinks>`
     :param comment_id: The id of the comment this reaction belongs to.
     :type comment_id: int
     :param count: Total number of reactions for the EngagementType.
@@ -220,25 +220,25 @@ class WorkItemCommentResponse(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work_item_tracking.models.ReferenceLinks>`
     :param comment_id: The id assigned to the comment.
     :type comment_id: int
     :param created_by: IdentityRef of the creator of the comment.
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.work_item_tracking.models.IdentityRef>`
     :param created_date: The creation date of the comment.
     :type created_date: datetime
     :param created_on_behalf_date: Effective Date/time value for adding the comment. Can be optionally different from CreatedDate.
     :type created_on_behalf_date: datetime
     :param created_on_behalf_of: Identity on whose behalf this comment has been added. Can be optionally different from CreatedBy.
-    :type created_on_behalf_of: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_on_behalf_of: :class:`IdentityRef <azure.devops.v5_1.work_item_tracking.models.IdentityRef>`
     :param is_deleted: Indicates if the comment has been deleted.
     :type is_deleted: bool
     :param modified_by: IdentityRef of the user who last modified the comment.
-    :type modified_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type modified_by: :class:`IdentityRef <azure.devops.v5_1.work_item_tracking.models.IdentityRef>`
     :param modified_date: The last modification date of the comment.
     :type modified_date: datetime
     :param reactions: The reactions of the comment.
-    :type reactions: list of :class:`WorkItemCommentReactionResponse <azure.devops.v5_1..models.WorkItemCommentReactionResponse>`
+    :type reactions: list of :class:`WorkItemCommentReactionResponse <azure.devops.v5_1.work_item_tracking.models.WorkItemCommentReactionResponse>`
     :param text: The text of the comment.
     :type text: str
     :param version: The current version of the comment.
@@ -286,9 +286,9 @@ class WorkItemCommentsResponse(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work_item_tracking.models.ReferenceLinks>`
     :param comments: List of comments in the current batch.
-    :type comments: list of :class:`WorkItemCommentResponse <azure.devops.v5_1..models.WorkItemCommentResponse>`
+    :type comments: list of :class:`WorkItemCommentResponse <azure.devops.v5_1.work_item_tracking.models.WorkItemCommentResponse>`
     :param continuation_token: A string token that can be used to retrieving next page of comments if available. Otherwise null.
     :type continuation_token: str
     :param count: The count of comments in the current batch.
@@ -324,21 +324,21 @@ class WorkItemCommentVersionResponse(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work_item_tracking.models.ReferenceLinks>`
     :param comment_id: The id assigned to the comment.
     :type comment_id: int
     :param created_by: IdentityRef of the creator of the comment.
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.work_item_tracking.models.IdentityRef>`
     :param created_date: The creation date of the comment.
     :type created_date: datetime
     :param created_on_behalf_date: Effective Date/time value for adding the comment. Can be optionally different from CreatedDate.
     :type created_on_behalf_date: datetime
     :param created_on_behalf_of: Identity on whose behalf this comment has been added. Can be optionally different from CreatedBy.
-    :type created_on_behalf_of: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_on_behalf_of: :class:`IdentityRef <azure.devops.v5_1.work_item_tracking.models.IdentityRef>`
     :param is_deleted: Indicates if the comment has been deleted at this version.
     :type is_deleted: bool
     :param modified_by: IdentityRef of the user who modified the comment at this version.
-    :type modified_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type modified_by: :class:`IdentityRef <azure.devops.v5_1.work_item_tracking.models.IdentityRef>`
     :param modified_date: The modification date of the comment for this version.
     :type modified_date: datetime
     :param rendered_text: The rendered content of the comment at this version.
@@ -386,9 +386,9 @@ class WorkItemCommentsReportingResponse(WorkItemCommentsResponse):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work_item_tracking.models.ReferenceLinks>`
     :param comments: List of comments in the current batch.
-    :type comments: list of :class:`WorkItemCommentResponse <azure.devops.v5_1..models.WorkItemCommentResponse>`
+    :type comments: list of :class:`WorkItemCommentResponse <azure.devops.v5_1.work_item_tracking.models.WorkItemCommentResponse>`
     :param continuation_token: A string token that can be used to retrieving next page of comments if available. Otherwise null.
     :type continuation_token: str
     :param count: The count of comments in the current batch.

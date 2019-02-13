@@ -14,6 +14,13 @@ class ClientFactoryV5_1(object):
     def __init__(self, connection):
         self._connection = connection
 
+    def get_accounts_client(self):
+        """get_accounts_client.
+        Gets the 5.1 version of the AccountsClient
+        :rtype: :class:`<AccountsClient> <azure.devops.v5_1.accounts.accounts_client.AccountsClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.accounts.accounts_client.AccountsClient')
+
     def get_build_client(self):
         """get_build_client.
         Gets the 5.1 version of the BuildClient
@@ -35,6 +42,41 @@ class ClientFactoryV5_1(object):
         """
         return self._connection.get_client('azure.devops.v5_1.cloud_load_test.cloud_load_test_client.CloudLoadTestClient')
 
+    def get_contributions_client(self):
+        """get_contributions_client.
+        Gets the 5.1 version of the ContributionsClient
+        :rtype: :class:`<ContributionsClient> <azure.devops.v5_1.contributions.contributions_client.ContributionsClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.contributions.contributions_client.ContributionsClient')
+
+    def get_core_client(self):
+        """get_core_client.
+        Gets the 5.1 version of the CoreClient
+        :rtype: :class:`<CoreClient> <azure.devops.v5_1.core.core_client.CoreClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.core.core_client.CoreClient')
+
+    def get_customer_intelligence_client(self):
+        """get_customer_intelligence_client.
+        Gets the 5.1 version of the CustomerIntelligenceClient
+        :rtype: :class:`<CustomerIntelligenceClient> <azure.devops.v5_1.customer_intelligence.customer_intelligence_client.CustomerIntelligenceClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.customer_intelligence.customer_intelligence_client.CustomerIntelligenceClient')
+
+    def get_dashboard_client(self):
+        """get_dashboard_client.
+        Gets the 5.1 version of the DashboardClient
+        :rtype: :class:`<DashboardClient> <azure.devops.v5_1.dashboard.dashboard_client.DashboardClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.dashboard.dashboard_client.DashboardClient')
+
+    def get_extension_management_client(self):
+        """get_extension_management_client.
+        Gets the 5.1 version of the ExtensionManagementClient
+        :rtype: :class:`<ExtensionManagementClient> <azure.devops.v5_1.extension_management.extension_management_client.ExtensionManagementClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.extension_management.extension_management_client.ExtensionManagementClient')
+
     def get_feature_availability_client(self):
         """get_feature_availability_client.
         Gets the 5.1 version of the FeatureAvailabilityClient
@@ -42,12 +84,40 @@ class ClientFactoryV5_1(object):
         """
         return self._connection.get_client('azure.devops.v5_1.feature_availability.feature_availability_client.FeatureAvailabilityClient')
 
+    def get_feature_management_client(self):
+        """get_feature_management_client.
+        Gets the 5.1 version of the FeatureManagementClient
+        :rtype: :class:`<FeatureManagementClient> <azure.devops.v5_1.feature_management.feature_management_client.FeatureManagementClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.feature_management.feature_management_client.FeatureManagementClient')
+
+    def get_feed_client(self):
+        """get_feed_client.
+        Gets the 5.1 version of the FeedClient
+        :rtype: :class:`<FeedClient> <azure.devops.v5_1.feed.feed_client.FeedClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.feed.feed_client.FeedClient')
+
+    def get_feed_token_client(self):
+        """get_feed_token_client.
+        Gets the 5.1 version of the FeedTokenClient
+        :rtype: :class:`<FeedTokenClient> <azure.devops.v5_1.feed_token.feed_token_client.FeedTokenClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.feed_token.feed_token_client.FeedTokenClient')
+
     def get_file_container_client(self):
         """get_file_container_client.
         Gets the 5.1 version of the FileContainerClient
         :rtype: :class:`<FileContainerClient> <azure.devops.v5_1.file_container.file_container_client.FileContainerClient>`
         """
         return self._connection.get_client('azure.devops.v5_1.file_container.file_container_client.FileContainerClient')
+
+    def get_gallery_client(self):
+        """get_gallery_client.
+        Gets the 5.1 version of the GalleryClient
+        :rtype: :class:`<GalleryClient> <azure.devops.v5_1.gallery.gallery_client.GalleryClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.gallery.gallery_client.GalleryClient')
 
     def get_git_client(self):
         """get_git_client.
@@ -70,12 +140,33 @@ class ClientFactoryV5_1(object):
         """
         return self._connection.get_client('azure.devops.v5_1.identity.identity_client.IdentityClient')
 
+    def get_licensing_client(self):
+        """get_licensing_client.
+        Gets the 5.1 version of the LicensingClient
+        :rtype: :class:`<LicensingClient> <azure.devops.v5_1.licensing.licensing_client.LicensingClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.licensing.licensing_client.LicensingClient')
+
     def get_location_client(self):
         """get_location_client.
         Gets the 5.1 version of the LocationClient
         :rtype: :class:`<LocationClient> <azure.devops.v5_1.location.location_client.LocationClient>`
         """
         return self._connection.get_client('azure.devops.v5_1.location.location_client.LocationClient')
+
+    def get_maven_client(self):
+        """get_maven_client.
+        Gets the 5.1 version of the MavenClient
+        :rtype: :class:`<MavenClient> <azure.devops.v5_1.maven.maven_client.MavenClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.maven.maven_client.MavenClient')
+
+    def get_member_entitlement_management_client(self):
+        """get_member_entitlement_management_client.
+        Gets the 5.1 version of the MemberEntitlementManagementClient
+        :rtype: :class:`<MemberEntitlementManagementClient> <azure.devops.v5_1.member_entitlement_management.member_entitlement_management_client.MemberEntitlementManagementClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.member_entitlement_management.member_entitlement_management_client.MemberEntitlementManagementClient')
 
     def get_notification_client(self):
         """get_notification_client.
@@ -91,12 +182,12 @@ class ClientFactoryV5_1(object):
         """
         return self._connection.get_client('azure.devops.v5_1.npm.npm_client.NpmClient')
 
-    def get_nuGet_client(self):
-        """get_nuGet_client.
+    def get_nuget_client(self):
+        """get_nuget_client.
         Gets the 5.1 version of the NuGetClient
-        :rtype: :class:`<NuGetClient> <azure.devops.v5_1.nuGet.nuGet_client.NuGetClient>`
+        :rtype: :class:`<NuGetClient> <azure.devops.v5_1.nuget.nuget_client.NuGetClient>`
         """
-        return self._connection.get_client('azure.devops.v5_1.nuGet.nuGet_client.NuGetClient')
+        return self._connection.get_client('azure.devops.v5_1.nuget.nuget_client.NuGetClient')
 
     def get_operations_client(self):
         """get_operations_client.
@@ -210,19 +301,19 @@ class ClientFactoryV5_1(object):
         """
         return self._connection.get_client('azure.devops.v5_1.tfvc.tfvc_client.TfvcClient')
 
-    def get_uPack_api_client(self):
-        """get_uPack_api_client.
+    def get_upack_api_client(self):
+        """get_upack_api_client.
         Gets the 5.1 version of the UPackApiClient
-        :rtype: :class:`<UPackApiClient> <azure.devops.v5_1.uPack_api.uPack_api_client.UPackApiClient>`
+        :rtype: :class:`<UPackApiClient> <azure.devops.v5_1.upack_api.upack_api_client.UPackApiClient>`
         """
-        return self._connection.get_client('azure.devops.v5_1.uPack_api.uPack_api_client.UPackApiClient')
+        return self._connection.get_client('azure.devops.v5_1.upack_api.upack_api_client.UPackApiClient')
 
-    def get_uPack_packaging_client(self):
-        """get_uPack_packaging_client.
+    def get_upack_packaging_client(self):
+        """get_upack_packaging_client.
         Gets the 5.1 version of the UPackPackagingClient
-        :rtype: :class:`<UPackPackagingClient> <azure.devops.v5_1.uPack_packaging.uPack_packaging_client.UPackPackagingClient>`
+        :rtype: :class:`<UPackPackagingClient> <azure.devops.v5_1.upack_packaging.upack_packaging_client.UPackPackagingClient>`
         """
-        return self._connection.get_client('azure.devops.v5_1.uPack_packaging.uPack_packaging_client.UPackPackagingClient')
+        return self._connection.get_client('azure.devops.v5_1.upack_packaging.upack_packaging_client.UPackPackagingClient')
 
     def get_wiki_client(self):
         """get_wiki_client.
@@ -245,19 +336,26 @@ class ClientFactoryV5_1(object):
         """
         return self._connection.get_client('azure.devops.v5_1.work_item_tracking.work_item_tracking_client.WorkItemTrackingClient')
 
-    def get_work_item_tracking_client(self):
-        """get_work_item_tracking_client.
-        Gets the 5.1 version of the WorkItemTrackingClient
-        :rtype: :class:`<WorkItemTrackingClient> <azure.devops.v5_1.work_item_tracking.work_item_tracking_client.WorkItemTrackingClient>`
-        """
-        return self._connection.get_client('azure.devops.v5_1.work_item_tracking.work_item_tracking_client.WorkItemTrackingClient')
-
     def get_work_item_tracking_comments_client(self):
         """get_work_item_tracking_comments_client.
         Gets the 5.1 version of the WorkItemTrackingCommentsClient
         :rtype: :class:`<WorkItemTrackingCommentsClient> <azure.devops.v5_1.work_item_tracking_comments.work_item_tracking_comments_client.WorkItemTrackingCommentsClient>`
         """
         return self._connection.get_client('azure.devops.v5_1.work_item_tracking_comments.work_item_tracking_comments_client.WorkItemTrackingCommentsClient')
+
+    def get_work_item_tracking_process_client(self):
+        """get_work_item_tracking_process_client.
+        Gets the 5.1 version of the WorkItemTrackingProcessClient
+        :rtype: :class:`<WorkItemTrackingProcessClient> <azure.devops.v5_1.work_item_tracking_process.work_item_tracking_process_client.WorkItemTrackingProcessClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.work_item_tracking_process.work_item_tracking_process_client.WorkItemTrackingProcessClient')
+
+    def get_work_item_tracking_process_definitions_client(self):
+        """get_work_item_tracking_process_definitions_client.
+        Gets the 5.1 version of the WorkItemTrackingProcessDefinitionsClient
+        :rtype: :class:`<WorkItemTrackingProcessDefinitionsClient> <azure.devops.v5_1.work_item_tracking_process_definitions.work_item_tracking_process_definitions_client.WorkItemTrackingProcessDefinitionsClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.work_item_tracking_process_definitions.work_item_tracking_process_definitions_client.WorkItemTrackingProcessDefinitionsClient')
 
     def get_work_item_tracking_process_template_client(self):
         """get_work_item_tracking_process_template_client.

@@ -35,7 +35,7 @@ class BatchNotificationOperation(Model):
     :param notification_operation:
     :type notification_operation: object
     :param notification_query_conditions:
-    :type notification_query_conditions: list of :class:`NotificationQueryCondition <azure.devops.v5_1..models.NotificationQueryCondition>`
+    :type notification_query_conditions: list of :class:`NotificationQueryCondition <azure.devops.v5_1.notification.models.NotificationQueryCondition>`
     """
 
     _attribute_map = {
@@ -221,9 +221,9 @@ class ExpressionFilterModel(Model):
     """ExpressionFilterModel.
 
     :param clauses: Flat list of clauses in this subscription
-    :type clauses: list of :class:`ExpressionFilterClause <azure.devops.v5_1..models.ExpressionFilterClause>`
+    :type clauses: list of :class:`ExpressionFilterClause <azure.devops.v5_1.notification.models.ExpressionFilterClause>`
     :param groups: Grouping of clauses in the subscription
-    :type groups: list of :class:`ExpressionFilterGroup <azure.devops.v5_1..models.ExpressionFilterGroup>`
+    :type groups: list of :class:`ExpressionFilterGroup <azure.devops.v5_1.notification.models.ExpressionFilterGroup>`
     :param max_group_level: Max depth of the Subscription tree
     :type max_group_level: int
     """
@@ -245,7 +245,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -273,7 +273,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -343,7 +343,7 @@ class INotificationDiagnosticLog(Model):
     :param log_type:
     :type log_type: str
     :param messages:
-    :type messages: list of :class:`NotificationDiagnosticLogMessage <azure.devops.v5_1..models.NotificationDiagnosticLogMessage>`
+    :type messages: list of :class:`NotificationDiagnosticLogMessage <azure.devops.v5_1.notification.models.NotificationDiagnosticLogMessage>`
     :param properties:
     :type properties: dict
     :param source:
@@ -407,7 +407,7 @@ class InputValues(Model):
     :param default_value: The default value to use for this input
     :type default_value: str
     :param error: Errors encountered while computing dynamic values.
-    :type error: :class:`InputValuesError <azure.devops.v5_1..models.InputValuesError>`
+    :type error: :class:`InputValuesError <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.InputValuesError>`
     :param input_id: The id of the input
     :type input_id: str
     :param is_disabled: Should this input be disabled
@@ -417,7 +417,7 @@ class InputValues(Model):
     :param is_read_only: Should this input be made read-only
     :type is_read_only: bool
     :param possible_values: Possible values that this input can take
-    :type possible_values: list of :class:`InputValue <azure.devops.v5_1..models.InputValue>`
+    :type possible_values: list of :class:`InputValue <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.InputValue>`
     """
 
     _attribute_map = {
@@ -463,7 +463,7 @@ class InputValuesQuery(Model):
     :param current_values:
     :type current_values: dict
     :param input_values: The input values to return on input, and the result from the consumer on output.
-    :type input_values: list of :class:`InputValues <azure.devops.v5_1..models.InputValues>`
+    :type input_values: list of :class:`InputValues <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.InputValues>`
     :param resource: Subscription containing information about the publisher/consumer and the current input values
     :type resource: object
     """
@@ -577,7 +577,7 @@ class NotificationEventField(Model):
     """NotificationEventField.
 
     :param field_type: Gets or sets the type of this field.
-    :type field_type: :class:`NotificationEventFieldType <azure.devops.v5_1..models.NotificationEventFieldType>`
+    :type field_type: :class:`NotificationEventFieldType <azure.devops.v5_1.notification.models.NotificationEventFieldType>`
     :param id: Gets or sets the unique identifier of this field.
     :type id: str
     :param name: Gets or sets the name of this field.
@@ -631,13 +631,13 @@ class NotificationEventFieldType(Model):
     :param id: Gets or sets the unique identifier of this field type.
     :type id: str
     :param operator_constraints:
-    :type operator_constraints: list of :class:`OperatorConstraint <azure.devops.v5_1..models.OperatorConstraint>`
+    :type operator_constraints: list of :class:`OperatorConstraint <azure.devops.v5_1.notification.models.OperatorConstraint>`
     :param operators: Gets or sets the list of operators that this type supports.
-    :type operators: list of :class:`NotificationEventFieldOperator <azure.devops.v5_1..models.NotificationEventFieldOperator>`
+    :type operators: list of :class:`NotificationEventFieldOperator <azure.devops.v5_1.notification.models.NotificationEventFieldOperator>`
     :param subscription_field_type:
     :type subscription_field_type: object
     :param value: Gets or sets the value definition of this field like the getValuesMethod and template to display in the UI
-    :type value: :class:`ValueDefinition <azure.devops.v5_1..models.ValueDefinition>`
+    :type value: :class:`ValueDefinition <azure.devops.v5_1.notification.models.ValueDefinition>`
     """
 
     _attribute_map = {
@@ -663,7 +663,7 @@ class NotificationEventPublisher(Model):
     :param id:
     :type id: str
     :param subscription_management_info:
-    :type subscription_management_info: :class:`SubscriptionManagement <azure.devops.v5_1..models.SubscriptionManagement>`
+    :type subscription_management_info: :class:`SubscriptionManagement <azure.devops.v5_1.notification.models.SubscriptionManagement>`
     :param url:
     :type url: str
     """
@@ -709,13 +709,13 @@ class NotificationEventType(Model):
     """NotificationEventType.
 
     :param category:
-    :type category: :class:`NotificationEventTypeCategory <azure.devops.v5_1..models.NotificationEventTypeCategory>`
+    :type category: :class:`NotificationEventTypeCategory <azure.devops.v5_1.notification.models.NotificationEventTypeCategory>`
     :param color: Gets or sets the color representing this event type. Example: rgb(128,245,211) or #fafafa
     :type color: str
     :param custom_subscriptions_allowed:
     :type custom_subscriptions_allowed: bool
     :param event_publisher:
-    :type event_publisher: :class:`NotificationEventPublisher <azure.devops.v5_1..models.NotificationEventPublisher>`
+    :type event_publisher: :class:`NotificationEventPublisher <azure.devops.v5_1.notification.models.NotificationEventPublisher>`
     :param fields:
     :type fields: dict
     :param has_initiator:
@@ -727,7 +727,7 @@ class NotificationEventType(Model):
     :param name: Gets or sets the name of this event definition.
     :type name: str
     :param roles:
-    :type roles: list of :class:`NotificationEventRole <azure.devops.v5_1..models.NotificationEventRole>`
+    :type roles: list of :class:`NotificationEventRole <azure.devops.v5_1.notification.models.NotificationEventRole>`
     :param supported_scopes: Gets or sets the scopes that this event type supports
     :type supported_scopes: list of str
     :param url: Gets or sets the rest end point to get this event type details (fields, fields types)
@@ -819,7 +819,7 @@ class NotificationReason(Model):
     :param notification_reason_type:
     :type notification_reason_type: object
     :param target_identities:
-    :type target_identities: list of :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type target_identities: list of :class:`IdentityRef <azure.devops.v5_1.notification.models.IdentityRef>`
     """
 
     _attribute_map = {
@@ -861,7 +861,7 @@ class NotificationStatistic(Model):
     :param type:
     :type type: object
     :param user:
-    :type user: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type user: :class:`IdentityRef <azure.devops.v5_1.notification.models.IdentityRef>`
     """
 
     _attribute_map = {
@@ -885,7 +885,7 @@ class NotificationStatisticsQuery(Model):
     """NotificationStatisticsQuery.
 
     :param conditions:
-    :type conditions: list of :class:`NotificationStatisticsQueryConditions <azure.devops.v5_1..models.NotificationStatisticsQueryConditions>`
+    :type conditions: list of :class:`NotificationStatisticsQueryConditions <azure.devops.v5_1.notification.models.NotificationStatisticsQueryConditions>`
     """
 
     _attribute_map = {
@@ -911,7 +911,7 @@ class NotificationStatisticsQueryConditions(Model):
     :param type:
     :type type: object
     :param user:
-    :type user: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type user: :class:`IdentityRef <azure.devops.v5_1.notification.models.IdentityRef>`
     """
 
     _attribute_map = {
@@ -985,41 +985,41 @@ class NotificationSubscription(Model):
     """NotificationSubscription.
 
     :param _links: Links to related resources, APIs, and views for the subscription.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.notification.models.ReferenceLinks>`
     :param admin_settings: Admin-managed settings for the subscription. Only applies when the subscriber is a group.
-    :type admin_settings: :class:`SubscriptionAdminSettings <azure.devops.v5_1..models.SubscriptionAdminSettings>`
+    :type admin_settings: :class:`SubscriptionAdminSettings <azure.devops.v5_1.notification.models.SubscriptionAdminSettings>`
     :param channel: Channel for delivering notifications triggered by the subscription.
-    :type channel: :class:`ISubscriptionChannel <azure.devops.v5_1..models.ISubscriptionChannel>`
+    :type channel: :class:`ISubscriptionChannel <azure.devops.v5_1.notification.models.ISubscriptionChannel>`
     :param description: Description of the subscription. Typically describes filter criteria which helps identity the subscription.
     :type description: str
     :param diagnostics: Diagnostics for this subscription.
-    :type diagnostics: :class:`SubscriptionDiagnostics <azure.devops.v5_1..models.SubscriptionDiagnostics>`
+    :type diagnostics: :class:`SubscriptionDiagnostics <azure.devops.v5_1.notification.models.SubscriptionDiagnostics>`
     :param extended_properties: Any extra properties like detailed description for different contexts, user/group contexts
     :type extended_properties: dict
     :param filter: Matching criteria for the subscription. ExpressionFilter
-    :type filter: :class:`ISubscriptionFilter <azure.devops.v5_1..models.ISubscriptionFilter>`
+    :type filter: :class:`ISubscriptionFilter <azure.devops.v5_1.notification.models.ISubscriptionFilter>`
     :param flags: Read-only indicators that further describe the subscription.
     :type flags: object
     :param id: Subscription identifier.
     :type id: str
     :param last_modified_by: User that last modified (or created) the subscription.
-    :type last_modified_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type last_modified_by: :class:`IdentityRef <azure.devops.v5_1.notification.models.IdentityRef>`
     :param modified_date: Date when the subscription was last modified. If the subscription has not been updated since it was created, this value will indicate when the subscription was created.
     :type modified_date: datetime
     :param permissions: The permissions the user have for this subscriptions.
     :type permissions: object
     :param scope: The container in which events must be published from in order to be matched by the subscription. If empty, the scope is the current host (typically an account or project collection). For example, a subscription scoped to project A will not produce notifications for events published from project B.
-    :type scope: :class:`SubscriptionScope <azure.devops.v5_1..models.SubscriptionScope>`
+    :type scope: :class:`SubscriptionScope <azure.devops.v5_1.notification.models.SubscriptionScope>`
     :param status: Status of the subscription. Typically indicates whether the subscription is enabled or not.
     :type status: object
     :param status_message: Message that provides more details about the status of the subscription.
     :type status_message: str
     :param subscriber: User or group that will receive notifications for events matching the subscription's filter criteria.
-    :type subscriber: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type subscriber: :class:`IdentityRef <azure.devops.v5_1.notification.models.IdentityRef>`
     :param url: REST API URL of the subscriotion.
     :type url: str
     :param user_settings: User-managed settings for the subscription. Only applies when the subscriber is a group. Typically used to indicate whether the calling user is opted in or out of a group subscription.
-    :type user_settings: :class:`SubscriptionUserSettings <azure.devops.v5_1..models.SubscriptionUserSettings>`
+    :type user_settings: :class:`SubscriptionUserSettings <azure.devops.v5_1.notification.models.SubscriptionUserSettings>`
     """
 
     _attribute_map = {
@@ -1069,15 +1069,15 @@ class NotificationSubscriptionCreateParameters(Model):
     """NotificationSubscriptionCreateParameters.
 
     :param channel: Channel for delivering notifications triggered by the new subscription.
-    :type channel: :class:`ISubscriptionChannel <azure.devops.v5_1..models.ISubscriptionChannel>`
+    :type channel: :class:`ISubscriptionChannel <azure.devops.v5_1.notification.models.ISubscriptionChannel>`
     :param description: Brief description for the new subscription. Typically describes filter criteria which helps identity the subscription.
     :type description: str
     :param filter: Matching criteria for the new subscription. ExpressionFilter
-    :type filter: :class:`ISubscriptionFilter <azure.devops.v5_1..models.ISubscriptionFilter>`
+    :type filter: :class:`ISubscriptionFilter <azure.devops.v5_1.notification.models.ISubscriptionFilter>`
     :param scope: The container in which events must be published from in order to be matched by the new subscription. If not specified, defaults to the current host (typically an account or project collection). For example, a subscription scoped to project A will not produce notifications for events published from project B.
-    :type scope: :class:`SubscriptionScope <azure.devops.v5_1..models.SubscriptionScope>`
+    :type scope: :class:`SubscriptionScope <azure.devops.v5_1.notification.models.SubscriptionScope>`
     :param subscriber: User or group that will receive notifications for events matching the subscription's filter criteria. If not specified, defaults to the calling user.
-    :type subscriber: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type subscriber: :class:`IdentityRef <azure.devops.v5_1.notification.models.IdentityRef>`
     """
 
     _attribute_map = {
@@ -1103,11 +1103,11 @@ class NotificationSubscriptionTemplate(Model):
     :param description:
     :type description: str
     :param filter:
-    :type filter: :class:`ISubscriptionFilter <azure.devops.v5_1..models.ISubscriptionFilter>`
+    :type filter: :class:`ISubscriptionFilter <azure.devops.v5_1.notification.models.ISubscriptionFilter>`
     :param id:
     :type id: str
     :param notification_event_information:
-    :type notification_event_information: :class:`NotificationEventType <azure.devops.v5_1..models.NotificationEventType>`
+    :type notification_event_information: :class:`NotificationEventType <azure.devops.v5_1.notification.models.NotificationEventType>`
     :param type:
     :type type: object
     """
@@ -1133,21 +1133,21 @@ class NotificationSubscriptionUpdateParameters(Model):
     """NotificationSubscriptionUpdateParameters.
 
     :param admin_settings: Admin-managed settings for the subscription. Only applies to subscriptions where the subscriber is a group.
-    :type admin_settings: :class:`SubscriptionAdminSettings <azure.devops.v5_1..models.SubscriptionAdminSettings>`
+    :type admin_settings: :class:`SubscriptionAdminSettings <azure.devops.v5_1.notification.models.SubscriptionAdminSettings>`
     :param channel: Channel for delivering notifications triggered by the subscription.
-    :type channel: :class:`ISubscriptionChannel <azure.devops.v5_1..models.ISubscriptionChannel>`
+    :type channel: :class:`ISubscriptionChannel <azure.devops.v5_1.notification.models.ISubscriptionChannel>`
     :param description: Updated description for the subscription. Typically describes filter criteria which helps identity the subscription.
     :type description: str
     :param filter: Matching criteria for the subscription. ExpressionFilter
-    :type filter: :class:`ISubscriptionFilter <azure.devops.v5_1..models.ISubscriptionFilter>`
+    :type filter: :class:`ISubscriptionFilter <azure.devops.v5_1.notification.models.ISubscriptionFilter>`
     :param scope: The container in which events must be published from in order to be matched by the new subscription. If not specified, defaults to the current host (typically the current account or project collection). For example, a subscription scoped to project A will not produce notifications for events published from project B.
-    :type scope: :class:`SubscriptionScope <azure.devops.v5_1..models.SubscriptionScope>`
+    :type scope: :class:`SubscriptionScope <azure.devops.v5_1.notification.models.SubscriptionScope>`
     :param status: Updated status for the subscription. Typically used to enable or disable a subscription.
     :type status: object
     :param status_message: Optional message that provides more details about the updated status.
     :type status_message: str
     :param user_settings: User-managed settings for the subscription. Only applies to subscriptions where the subscriber is a group. Typically used to opt-in or opt-out a user from a group subscription.
-    :type user_settings: :class:`SubscriptionUserSettings <azure.devops.v5_1..models.SubscriptionUserSettings>`
+    :type user_settings: :class:`SubscriptionUserSettings <azure.devops.v5_1.notification.models.SubscriptionUserSettings>`
     """
 
     _attribute_map = {
@@ -1253,11 +1253,11 @@ class SubscriptionDiagnostics(Model):
     """SubscriptionDiagnostics.
 
     :param delivery_results:
-    :type delivery_results: :class:`SubscriptionTracing <azure.devops.v5_1..models.SubscriptionTracing>`
+    :type delivery_results: :class:`SubscriptionTracing <azure.devops.v5_1.notification.models.SubscriptionTracing>`
     :param delivery_tracing:
-    :type delivery_tracing: :class:`SubscriptionTracing <azure.devops.v5_1..models.SubscriptionTracing>`
+    :type delivery_tracing: :class:`SubscriptionTracing <azure.devops.v5_1.notification.models.SubscriptionTracing>`
     :param evaluation_tracing:
-    :type evaluation_tracing: :class:`SubscriptionTracing <azure.devops.v5_1..models.SubscriptionTracing>`
+    :type evaluation_tracing: :class:`SubscriptionTracing <azure.devops.v5_1.notification.models.SubscriptionTracing>`
     """
 
     _attribute_map = {
@@ -1279,7 +1279,7 @@ class SubscriptionEvaluationRequest(Model):
     :param min_events_created_date: The min created date for the events used for matching in UTC. Use all events created since this date
     :type min_events_created_date: datetime
     :param subscription_create_parameters: User or group that will receive notifications for events matching the subscription's filter criteria. If not specified, defaults to the calling user.
-    :type subscription_create_parameters: :class:`NotificationSubscriptionCreateParameters <azure.devops.v5_1..models.NotificationSubscriptionCreateParameters>`
+    :type subscription_create_parameters: :class:`NotificationSubscriptionCreateParameters <azure.devops.v5_1.notification.models.NotificationSubscriptionCreateParameters>`
     """
 
     _attribute_map = {
@@ -1299,11 +1299,11 @@ class SubscriptionEvaluationResult(Model):
     :param evaluation_job_status: Subscription evaluation job status
     :type evaluation_job_status: object
     :param events: Subscription evaluation events results.
-    :type events: :class:`EventsEvaluationResult <azure.devops.v5_1..models.EventsEvaluationResult>`
+    :type events: :class:`EventsEvaluationResult <azure.devops.v5_1.notification.models.EventsEvaluationResult>`
     :param id: The requestId which is the subscription evaluation jobId
     :type id: str
     :param notifications: Subscription evaluation  notification results.
-    :type notifications: :class:`NotificationsEvaluationResult <azure.devops.v5_1..models.NotificationsEvaluationResult>`
+    :type notifications: :class:`NotificationsEvaluationResult <azure.devops.v5_1.notification.models.NotificationsEvaluationResult>`
     """
 
     _attribute_map = {
@@ -1373,7 +1373,7 @@ class SubscriptionQuery(Model):
     """SubscriptionQuery.
 
     :param conditions: One or more conditions to query on. If more than 2 conditions are specified, the combined results of each condition is returned (i.e. conditions are logically OR'ed).
-    :type conditions: list of :class:`SubscriptionQueryCondition <azure.devops.v5_1..models.SubscriptionQueryCondition>`
+    :type conditions: list of :class:`SubscriptionQueryCondition <azure.devops.v5_1.notification.models.SubscriptionQueryCondition>`
     :param query_flags: Flags the refine the types of subscriptions that will be returned from the query.
     :type query_flags: object
     """
@@ -1393,7 +1393,7 @@ class SubscriptionQueryCondition(Model):
     """SubscriptionQueryCondition.
 
     :param filter: Filter conditions that matching subscriptions must have. Typically only the filter's type and event type are used for matching.
-    :type filter: :class:`ISubscriptionFilter <azure.devops.v5_1..models.ISubscriptionFilter>`
+    :type filter: :class:`ISubscriptionFilter <azure.devops.v5_1.notification.models.ISubscriptionFilter>`
     :param flags: Flags to specify the the type subscriptions to query for.
     :type flags: object
     :param scope: Scope that matching subscriptions must have.
@@ -1494,11 +1494,11 @@ class UpdateSubscripitonDiagnosticsParameters(Model):
     """UpdateSubscripitonDiagnosticsParameters.
 
     :param delivery_results:
-    :type delivery_results: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1..models.UpdateSubscripitonTracingParameters>`
+    :type delivery_results: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1.notification.models.UpdateSubscripitonTracingParameters>`
     :param delivery_tracing:
-    :type delivery_tracing: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1..models.UpdateSubscripitonTracingParameters>`
+    :type delivery_tracing: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1.notification.models.UpdateSubscripitonTracingParameters>`
     :param evaluation_tracing:
-    :type evaluation_tracing: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1..models.UpdateSubscripitonTracingParameters>`
+    :type evaluation_tracing: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1.notification.models.UpdateSubscripitonTracingParameters>`
     """
 
     _attribute_map = {
@@ -1534,7 +1534,7 @@ class ValueDefinition(Model):
     """ValueDefinition.
 
     :param data_source: Gets or sets the data source.
-    :type data_source: list of :class:`InputValue <azure.devops.v5_1..models.InputValue>`
+    :type data_source: list of :class:`InputValue <azure.devops.v5_1.notification.models.InputValue>`
     :param end_point: Gets or sets the rest end point.
     :type end_point: str
     :param result_template: Gets or sets the result template.
@@ -1558,7 +1558,7 @@ class VssNotificationEvent(Model):
     """VssNotificationEvent.
 
     :param actors: Optional: A list of actors which are additional identities with corresponding roles that are relevant to the event.
-    :type actors: list of :class:`EventActor <azure.devops.v5_1..models.EventActor>`
+    :type actors: list of :class:`EventActor <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.EventActor>`
     :param artifact_uris: Optional: A list of artifacts referenced or impacted by this event.
     :type artifact_uris: list of str
     :param data: Required: The event payload.  If Data is a string, it must be in Json or XML format.  Otherwise it must have a serialization format attribute.
@@ -1572,7 +1572,7 @@ class VssNotificationEvent(Model):
     :param process_delay: How long to wait before processing this event.  The default is to process immediately.
     :type process_delay: object
     :param scopes: Optional: A list of scopes which are are relevant to the event.
-    :type scopes: list of :class:`EventScope <azure.devops.v5_1..models.EventScope>`
+    :type scopes: list of :class:`EventScope <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.EventScope>`
     :param source_event_created_time: This is the time the original source event for this VssNotificationEvent was created.  For example, for something like a build completion notification SourceEventCreatedTime should be the time the build finished not the time this event was raised.
     :type source_event_created_time: datetime
     """
@@ -1639,7 +1639,7 @@ class FieldInputValues(InputValues):
     :param default_value: The default value to use for this input
     :type default_value: str
     :param error: Errors encountered while computing dynamic values.
-    :type error: :class:`InputValuesError <azure.devops.v5_1..models.InputValuesError>`
+    :type error: :class:`InputValuesError <azure.devops.v5_1.notification.models.InputValuesError>`
     :param input_id: The id of the input
     :type input_id: str
     :param is_disabled: Should this input be disabled
@@ -1649,7 +1649,7 @@ class FieldInputValues(InputValues):
     :param is_read_only: Should this input be made read-only
     :type is_read_only: bool
     :param possible_values: Possible values that this input can take
-    :type possible_values: list of :class:`InputValue <azure.devops.v5_1..models.InputValue>`
+    :type possible_values: list of :class:`InputValue <azure.devops.v5_1.notification.models.InputValue>`
     :param operators:
     :type operators: str
     """
@@ -1678,7 +1678,7 @@ class FieldValuesQuery(InputValuesQuery):
     :param resource: Subscription containing information about the publisher/consumer and the current input values
     :type resource: object
     :param input_values:
-    :type input_values: list of :class:`FieldInputValues <azure.devops.v5_1..models.FieldInputValues>`
+    :type input_values: list of :class:`FieldInputValues <azure.devops.v5_1.notification.models.FieldInputValues>`
     :param scope:
     :type scope: str
     """

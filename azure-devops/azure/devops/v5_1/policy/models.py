@@ -13,7 +13,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -41,7 +41,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -103,7 +103,7 @@ class PolicyConfigurationRef(Model):
     :param id: The policy configuration ID.
     :type id: int
     :param type: The policy configuration type.
-    :type type: :class:`PolicyTypeRef <azure.devops.v5_1..models.PolicyTypeRef>`
+    :type type: :class:`PolicyTypeRef <azure.devops.v5_1.policy.models.PolicyTypeRef>`
     :param url: The URL where the policy configuration can be retrieved.
     :type url: str
     """
@@ -125,15 +125,15 @@ class PolicyEvaluationRecord(Model):
     """PolicyEvaluationRecord.
 
     :param _links: Links to other related objects
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.policy.models.ReferenceLinks>`
     :param artifact_id: A string which uniquely identifies the target of a policy evaluation.
     :type artifact_id: str
     :param completed_date: Time when this policy finished evaluating on this pull request.
     :type completed_date: datetime
     :param configuration: Contains all configuration data for the policy which is being evaluated.
-    :type configuration: :class:`PolicyConfiguration <azure.devops.v5_1..models.PolicyConfiguration>`
+    :type configuration: :class:`PolicyConfiguration <azure.devops.v5_1.policy.models.PolicyConfiguration>`
     :param context: Internal context data of this policy evaluation.
-    :type context: :class:`object <azure.devops.v5_1..models.object>`
+    :type context: :class:`object <azure.devops.v5_1.policy.models.object>`
     :param evaluation_id: Guid which uniquely identifies this evaluation record (one policy running on one pull request).
     :type evaluation_id: str
     :param started_date: Time when this policy was first evaluated on this pull request.
@@ -211,7 +211,7 @@ class VersionedPolicyConfigurationRef(PolicyConfigurationRef):
     :param id: The policy configuration ID.
     :type id: int
     :param type: The policy configuration type.
-    :type type: :class:`PolicyTypeRef <azure.devops.v5_1..models.PolicyTypeRef>`
+    :type type: :class:`PolicyTypeRef <azure.devops.v5_1.policy.models.PolicyTypeRef>`
     :param url: The URL where the policy configuration can be retrieved.
     :type url: str
     :param revision: The policy configuration revision ID.
@@ -236,15 +236,15 @@ class PolicyConfiguration(VersionedPolicyConfigurationRef):
     :param id: The policy configuration ID.
     :type id: int
     :param type: The policy configuration type.
-    :type type: :class:`PolicyTypeRef <azure.devops.v5_1..models.PolicyTypeRef>`
+    :type type: :class:`PolicyTypeRef <azure.devops.v5_1.policy.models.PolicyTypeRef>`
     :param url: The URL where the policy configuration can be retrieved.
     :type url: str
     :param revision: The policy configuration revision ID.
     :type revision: int
     :param _links: The links to other objects related to this object.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.policy.models.ReferenceLinks>`
     :param created_by: A reference to the identity that created the policy.
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.policy.models.IdentityRef>`
     :param created_date: The date and time when the policy was created.
     :type created_date: datetime
     :param is_blocking: Indicates whether the policy is blocking.
@@ -254,7 +254,7 @@ class PolicyConfiguration(VersionedPolicyConfigurationRef):
     :param is_enabled: Indicates whether the policy is enabled.
     :type is_enabled: bool
     :param settings: The policy configuration settings.
-    :type settings: :class:`object <azure.devops.v5_1..models.object>`
+    :type settings: :class:`object <azure.devops.v5_1.policy.models.object>`
     """
 
     _attribute_map = {
@@ -292,7 +292,7 @@ class PolicyType(PolicyTypeRef):
     :param url: The URL where the policy type can be retrieved.
     :type url: str
     :param _links: The links to other objects related to this object.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.policy.models.ReferenceLinks>`
     :param description: Detailed description of the policy type.
     :type description: str
     """

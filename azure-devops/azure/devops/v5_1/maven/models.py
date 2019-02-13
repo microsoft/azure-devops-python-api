@@ -25,9 +25,9 @@ class MavenDistributionManagement(Model):
     """MavenDistributionManagement.
 
     :param repository:
-    :type repository: :class:`MavenRepository <azure.devops.v5_1..models.MavenRepository>`
+    :type repository: :class:`MavenRepository <azure.devops.v5_1.maven.models.MavenRepository>`
     :param snapshot_repository:
-    :type snapshot_repository: :class:`MavenSnapshotRepository <azure.devops.v5_1..models.MavenSnapshotRepository>`
+    :type snapshot_repository: :class:`MavenSnapshotRepository <azure.devops.v5_1.maven.models.MavenSnapshotRepository>`
     """
 
     _attribute_map = {
@@ -71,27 +71,27 @@ class MavenPackage(Model):
     :param artifact_id:
     :type artifact_id: str
     :param artifact_index:
-    :type artifact_index: :class:`ReferenceLink <azure.devops.v5_1..models.ReferenceLink>`
+    :type artifact_index: :class:`ReferenceLink <azure.devops.v5_1.maven.models.ReferenceLink>`
     :param artifact_metadata:
-    :type artifact_metadata: :class:`ReferenceLink <azure.devops.v5_1..models.ReferenceLink>`
+    :type artifact_metadata: :class:`ReferenceLink <azure.devops.v5_1.maven.models.ReferenceLink>`
     :param deleted_date:
     :type deleted_date: datetime
     :param files:
-    :type files: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type files: :class:`ReferenceLinks <azure.devops.v5_1.maven.models.ReferenceLinks>`
     :param group_id:
     :type group_id: str
     :param pom:
-    :type pom: :class:`MavenPomMetadata <azure.devops.v5_1..models.MavenPomMetadata>`
+    :type pom: :class:`MavenPomMetadata <azure.devops.v5_1.maven.models.MavenPomMetadata>`
     :param requested_file:
-    :type requested_file: :class:`ReferenceLink <azure.devops.v5_1..models.ReferenceLink>`
+    :type requested_file: :class:`ReferenceLink <azure.devops.v5_1.maven.models.ReferenceLink>`
     :param snapshot_metadata:
-    :type snapshot_metadata: :class:`ReferenceLink <azure.devops.v5_1..models.ReferenceLink>`
+    :type snapshot_metadata: :class:`ReferenceLink <azure.devops.v5_1.maven.models.ReferenceLink>`
     :param version:
     :type version: str
     :param versions:
-    :type versions: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type versions: :class:`ReferenceLinks <azure.devops.v5_1.maven.models.ReferenceLinks>`
     :param versions_index:
-    :type versions_index: :class:`ReferenceLink <azure.devops.v5_1..models.ReferenceLink>`
+    :type versions_index: :class:`ReferenceLink <azure.devops.v5_1.maven.models.ReferenceLink>`
     """
 
     _attribute_map = {
@@ -129,11 +129,11 @@ class MavenPackagesBatchRequest(Model):
     """MavenPackagesBatchRequest.
 
     :param data: Data required to perform the operation. This is optional based on type of operation. Use BatchPromoteData if performing a promote operation.
-    :type data: :class:`BatchOperationData <azure.devops.v5_1..models.BatchOperationData>`
+    :type data: :class:`BatchOperationData <azure.devops.v5_1.maven.models.BatchOperationData>`
     :param operation: Type of operation that needs to be performed on packages.
     :type operation: object
     :param packages: The packages onto which the operation will be performed.
-    :type packages: list of :class:`MavenMinimalPackageDetails <azure.devops.v5_1..models.MavenMinimalPackageDetails>`
+    :type packages: list of :class:`MavenMinimalPackageDetails <azure.devops.v5_1.maven.models.MavenMinimalPackageDetails>`
     """
 
     _attribute_map = {
@@ -181,7 +181,7 @@ class MavenPomBuild(Model):
     """MavenPomBuild.
 
     :param plugins:
-    :type plugins: list of :class:`Plugin <azure.devops.v5_1..models.Plugin>`
+    :type plugins: list of :class:`Plugin <azure.devops.v5_1.maven.models.Plugin>`
     """
 
     _attribute_map = {
@@ -197,7 +197,7 @@ class MavenPomCi(Model):
     """MavenPomCi.
 
     :param notifiers:
-    :type notifiers: list of :class:`MavenPomCiNotifier <azure.devops.v5_1..models.MavenPomCiNotifier>`
+    :type notifiers: list of :class:`MavenPomCiNotifier <azure.devops.v5_1.maven.models.MavenPomCiNotifier>`
     :param system:
     :type system: str
     :param url:
@@ -257,7 +257,7 @@ class MavenPomDependencyManagement(Model):
     """MavenPomDependencyManagement.
 
     :param dependencies:
-    :type dependencies: list of :class:`MavenPomDependency <azure.devops.v5_1..models.MavenPomDependency>`
+    :type dependencies: list of :class:`MavenPomDependency <azure.devops.v5_1.maven.models.MavenPomDependency>`
     """
 
     _attribute_map = {
@@ -359,29 +359,29 @@ class MavenPomMetadata(MavenPomGav):
     :param version:
     :type version: str
     :param build:
-    :type build: :class:`MavenPomBuild <azure.devops.v5_1..models.MavenPomBuild>`
+    :type build: :class:`MavenPomBuild <azure.devops.v5_1.maven.models.MavenPomBuild>`
     :param ci_management:
-    :type ci_management: :class:`MavenPomCi <azure.devops.v5_1..models.MavenPomCi>`
+    :type ci_management: :class:`MavenPomCi <azure.devops.v5_1.maven.models.MavenPomCi>`
     :param contributors:
-    :type contributors: list of :class:`MavenPomPerson <azure.devops.v5_1..models.MavenPomPerson>`
+    :type contributors: list of :class:`MavenPomPerson <azure.devops.v5_1.maven.models.MavenPomPerson>`
     :param dependencies:
-    :type dependencies: list of :class:`MavenPomDependency <azure.devops.v5_1..models.MavenPomDependency>`
+    :type dependencies: list of :class:`MavenPomDependency <azure.devops.v5_1.maven.models.MavenPomDependency>`
     :param dependency_management:
-    :type dependency_management: :class:`MavenPomDependencyManagement <azure.devops.v5_1..models.MavenPomDependencyManagement>`
+    :type dependency_management: :class:`MavenPomDependencyManagement <azure.devops.v5_1.maven.models.MavenPomDependencyManagement>`
     :param description:
     :type description: str
     :param developers:
-    :type developers: list of :class:`MavenPomPerson <azure.devops.v5_1..models.MavenPomPerson>`
+    :type developers: list of :class:`MavenPomPerson <azure.devops.v5_1.maven.models.MavenPomPerson>`
     :param distribution_management:
-    :type distribution_management: :class:`MavenDistributionManagement <azure.devops.v5_1..models.MavenDistributionManagement>`
+    :type distribution_management: :class:`MavenDistributionManagement <azure.devops.v5_1.maven.models.MavenDistributionManagement>`
     :param inception_year:
     :type inception_year: str
     :param issue_management:
-    :type issue_management: :class:`MavenPomIssueManagement <azure.devops.v5_1..models.MavenPomIssueManagement>`
+    :type issue_management: :class:`MavenPomIssueManagement <azure.devops.v5_1.maven.models.MavenPomIssueManagement>`
     :param licenses:
-    :type licenses: list of :class:`MavenPomLicense <azure.devops.v5_1..models.MavenPomLicense>`
+    :type licenses: list of :class:`MavenPomLicense <azure.devops.v5_1.maven.models.MavenPomLicense>`
     :param mailing_lists:
-    :type mailing_lists: list of :class:`MavenPomMailingList <azure.devops.v5_1..models.MavenPomMailingList>`
+    :type mailing_lists: list of :class:`MavenPomMailingList <azure.devops.v5_1.maven.models.MavenPomMailingList>`
     :param model_version:
     :type model_version: str
     :param modules:
@@ -389,17 +389,17 @@ class MavenPomMetadata(MavenPomGav):
     :param name:
     :type name: str
     :param organization:
-    :type organization: :class:`MavenPomOrganization <azure.devops.v5_1..models.MavenPomOrganization>`
+    :type organization: :class:`MavenPomOrganization <azure.devops.v5_1.maven.models.MavenPomOrganization>`
     :param packaging:
     :type packaging: str
     :param parent:
-    :type parent: :class:`MavenPomParent <azure.devops.v5_1..models.MavenPomParent>`
+    :type parent: :class:`MavenPomParent <azure.devops.v5_1.maven.models.MavenPomParent>`
     :param prerequisites:
     :type prerequisites: dict
     :param properties:
     :type properties: dict
     :param scm:
-    :type scm: :class:`MavenPomScm <azure.devops.v5_1..models.MavenPomScm>`
+    :type scm: :class:`MavenPomScm <azure.devops.v5_1.maven.models.MavenPomScm>`
     :param url:
     :type url: str
     """
@@ -626,7 +626,7 @@ class Package(Model):
     """Package.
 
     :param _links: Related REST links.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.maven.models.ReferenceLinks>`
     :param deleted_date: If and when the package was deleted.
     :type deleted_date: datetime
     :param id: Package Id.
@@ -668,7 +668,7 @@ class Plugin(MavenPomGav):
     :param version:
     :type version: str
     :param configuration:
-    :type configuration: :class:`PluginConfiguration <azure.devops.v5_1..models.PluginConfiguration>`
+    :type configuration: :class:`PluginConfiguration <azure.devops.v5_1.maven.models.PluginConfiguration>`
     """
 
     _attribute_map = {

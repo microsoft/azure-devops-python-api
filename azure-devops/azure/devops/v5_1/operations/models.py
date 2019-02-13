@@ -81,13 +81,13 @@ class Operation(OperationReference):
     :param url: URL to get the full operation object.
     :type url: str
     :param _links: Links to other related objects.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.operations.models.ReferenceLinks>`
     :param detailed_message: Detailed messaged about the status of an operation.
     :type detailed_message: str
     :param result_message: Result message for an operation.
     :type result_message: str
     :param result_url: URL to the operation result.
-    :type result_url: :class:`OperationResultReference <azure.devops.v5_1..models.OperationResultReference>`
+    :type result_url: :class:`OperationResultReference <azure.devops.v5_1.operations.models.OperationResultReference>`
     """
 
     _attribute_map = {
