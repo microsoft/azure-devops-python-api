@@ -57,7 +57,7 @@ class Change(Model):
     :param item: Current version.
     :type item: object
     :param new_content: Content of the item after the change.
-    :type new_content: :class:`ItemContent <azure.devops.v5_1..models.ItemContent>`
+    :type new_content: :class:`ItemContent <azure.devops.v5_1.tfvc.models.ItemContent>`
     :param source_server_item: Path of the item on the server.
     :type source_server_item: str
     :param url: URL to retrieve the item.
@@ -145,7 +145,7 @@ class GitRepository(Model):
     """GitRepository.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.tfvc.models.ReferenceLinks>`
     :param default_branch:
     :type default_branch: str
     :param id:
@@ -155,9 +155,9 @@ class GitRepository(Model):
     :param name:
     :type name: str
     :param parent_repository:
-    :type parent_repository: :class:`GitRepositoryRef <azure.devops.v5_1..models.GitRepositoryRef>`
+    :type parent_repository: :class:`GitRepositoryRef <azure.devops.v5_1.tfvc.models.GitRepositoryRef>`
     :param project:
-    :type project: :class:`TeamProjectReference <azure.devops.v5_1..models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <azure.devops.v5_1.tfvc.models.TeamProjectReference>`
     :param remote_url:
     :type remote_url: str
     :param size: Compressed size (bytes) of the repository.
@@ -205,7 +205,7 @@ class GitRepositoryRef(Model):
     """GitRepositoryRef.
 
     :param collection: Team Project Collection where this Fork resides
-    :type collection: :class:`TeamProjectCollectionReference <azure.devops.v5_1..models.TeamProjectCollectionReference>`
+    :type collection: :class:`TeamProjectCollectionReference <azure.devops.v5_1.tfvc.models.TeamProjectCollectionReference>`
     :param id:
     :type id: str
     :param is_fork: True if the repository was created as a fork
@@ -213,7 +213,7 @@ class GitRepositoryRef(Model):
     :param name:
     :type name: str
     :param project:
-    :type project: :class:`TeamProjectReference <azure.devops.v5_1..models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <azure.devops.v5_1.tfvc.models.TeamProjectReference>`
     :param remote_url:
     :type remote_url: str
     :param ssh_url:
@@ -249,7 +249,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -277,7 +277,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -357,11 +357,11 @@ class ItemModel(Model):
     """ItemModel.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.tfvc.models.ReferenceLinks>`
     :param content:
     :type content: str
     :param content_metadata:
-    :type content_metadata: :class:`FileContentMetadata <azure.devops.v5_1..models.FileContentMetadata>`
+    :type content_metadata: :class:`FileContentMetadata <azure.devops.v5_1.tfvc.models.FileContentMetadata>`
     :param is_folder:
     :type is_folder: bool
     :param is_sym_link:
@@ -513,7 +513,7 @@ class TfvcChange(Change):
     """TfvcChange.
 
     :param merge_sources: List of merge sources in case of rename or branch creation.
-    :type merge_sources: list of :class:`TfvcMergeSource <azure.devops.v5_1..models.TfvcMergeSource>`
+    :type merge_sources: list of :class:`TfvcMergeSource <azure.devops.v5_1.tfvc.models.TfvcMergeSource>`
     :param pending_version: Version at which a (shelved) change was pended against
     :type pending_version: int
     """
@@ -533,13 +533,13 @@ class TfvcChangesetRef(Model):
     """TfvcChangesetRef.
 
     :param _links: A collection of REST reference links.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.tfvc.models.ReferenceLinks>`
     :param author: Alias or display name of user
-    :type author: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type author: :class:`IdentityRef <azure.devops.v5_1.tfvc.models.IdentityRef>`
     :param changeset_id: Id of the changeset.
     :type changeset_id: int
     :param checked_in_by: Alias or display name of user
-    :type checked_in_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type checked_in_by: :class:`IdentityRef <azure.devops.v5_1.tfvc.models.IdentityRef>`
     :param comment: Comment for the changeset.
     :type comment: str
     :param comment_truncated: Was the Comment result truncated?
@@ -589,7 +589,7 @@ class TfvcChangesetSearchCriteria(Model):
     :param item_path: Path of item to search under
     :type item_path: str
     :param mappings:
-    :type mappings: list of :class:`TfvcMappingFilter <azure.devops.v5_1..models.TfvcMappingFilter>`
+    :type mappings: list of :class:`TfvcMappingFilter <azure.devops.v5_1.tfvc.models.TfvcMappingFilter>`
     :param to_date: If provided, only include changesets created before this date (string) Think of a better name for this.
     :type to_date: str
     :param to_id: If provided, a version descriptor for the latest change list to include
@@ -649,11 +649,11 @@ class TfvcItem(ItemModel):
     """TfvcItem.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.tfvc.models.ReferenceLinks>`
     :param content:
     :type content: str
     :param content_metadata:
-    :type content_metadata: :class:`FileContentMetadata <azure.devops.v5_1..models.FileContentMetadata>`
+    :type content_metadata: :class:`FileContentMetadata <azure.devops.v5_1.tfvc.models.FileContentMetadata>`
     :param is_folder:
     :type is_folder: bool
     :param is_sym_link:
@@ -750,7 +750,7 @@ class TfvcItemRequestData(Model):
     :param include_links: Whether to include the _links field on the shallow references
     :type include_links: bool
     :param item_descriptors:
-    :type item_descriptors: list of :class:`TfvcItemDescriptor <azure.devops.v5_1..models.TfvcItemDescriptor>`
+    :type item_descriptors: list of :class:`TfvcItemDescriptor <azure.devops.v5_1.tfvc.models.TfvcItemDescriptor>`
     """
 
     _attribute_map = {
@@ -770,7 +770,7 @@ class TfvcLabelRef(Model):
     """TfvcLabelRef.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.tfvc.models.ReferenceLinks>`
     :param description:
     :type description: str
     :param id:
@@ -782,7 +782,7 @@ class TfvcLabelRef(Model):
     :param name:
     :type name: str
     :param owner:
-    :type owner: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type owner: :class:`IdentityRef <azure.devops.v5_1.tfvc.models.IdentityRef>`
     :param url:
     :type url: str
     """
@@ -920,7 +920,7 @@ class TfvcPolicyOverrideInfo(Model):
     :param comment:
     :type comment: str
     :param policy_failures:
-    :type policy_failures: list of :class:`TfvcPolicyFailureInfo <azure.devops.v5_1..models.TfvcPolicyFailureInfo>`
+    :type policy_failures: list of :class:`TfvcPolicyFailureInfo <azure.devops.v5_1.tfvc.models.TfvcPolicyFailureInfo>`
     """
 
     _attribute_map = {
@@ -954,7 +954,7 @@ class TfvcShelvesetRef(Model):
     """TfvcShelvesetRef.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.tfvc.models.ReferenceLinks>`
     :param comment:
     :type comment: str
     :param comment_truncated:
@@ -966,7 +966,7 @@ class TfvcShelvesetRef(Model):
     :param name:
     :type name: str
     :param owner:
-    :type owner: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type owner: :class:`IdentityRef <azure.devops.v5_1.tfvc.models.IdentityRef>`
     :param url:
     :type url: str
     """
@@ -1084,7 +1084,7 @@ class VersionControlProjectInfo(Model):
     :param default_source_control_type:
     :type default_source_control_type: object
     :param project:
-    :type project: :class:`TeamProjectReference <azure.devops.v5_1..models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <azure.devops.v5_1.tfvc.models.TeamProjectReference>`
     :param supports_git:
     :type supports_git: bool
     :param supports_tFVC:
@@ -1110,9 +1110,9 @@ class VstsInfo(Model):
     """VstsInfo.
 
     :param collection:
-    :type collection: :class:`TeamProjectCollectionReference <azure.devops.v5_1..models.TeamProjectCollectionReference>`
+    :type collection: :class:`TeamProjectCollectionReference <azure.devops.v5_1.tfvc.models.TeamProjectCollectionReference>`
     :param repository:
-    :type repository: :class:`GitRepository <azure.devops.v5_1..models.GitRepository>`
+    :type repository: :class:`GitRepository <azure.devops.v5_1.tfvc.models.GitRepository>`
     :param server_url:
     :type server_url: str
     """
@@ -1136,7 +1136,7 @@ class TfvcBranchRef(TfvcShallowBranchRef):
     :param path: Path for the branch.
     :type path: str
     :param _links: A collection of REST reference links.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.tfvc.models.ReferenceLinks>`
     :param created_date: Creation date of the branch.
     :type created_date: datetime
     :param description: Description of the branch.
@@ -1144,7 +1144,7 @@ class TfvcBranchRef(TfvcShallowBranchRef):
     :param is_deleted: Is the branch deleted?
     :type is_deleted: bool
     :param owner: Alias or display name of user
-    :type owner: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type owner: :class:`IdentityRef <azure.devops.v5_1.tfvc.models.IdentityRef>`
     :param url: URL to retrieve the item.
     :type url: str
     """
@@ -1173,13 +1173,13 @@ class TfvcChangeset(TfvcChangesetRef):
     """TfvcChangeset.
 
     :param _links: A collection of REST reference links.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.tfvc.models.ReferenceLinks>`
     :param author: Alias or display name of user
-    :type author: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type author: :class:`IdentityRef <azure.devops.v5_1.tfvc.models.IdentityRef>`
     :param changeset_id: Id of the changeset.
     :type changeset_id: int
     :param checked_in_by: Alias or display name of user
-    :type checked_in_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type checked_in_by: :class:`IdentityRef <azure.devops.v5_1.tfvc.models.IdentityRef>`
     :param comment: Comment for the changeset.
     :type comment: str
     :param comment_truncated: Was the Comment result truncated?
@@ -1191,19 +1191,19 @@ class TfvcChangeset(TfvcChangesetRef):
     :param account_id: Account Id of the changeset.
     :type account_id: str
     :param changes: List of associated changes.
-    :type changes: list of :class:`TfvcChange <azure.devops.v5_1..models.TfvcChange>`
+    :type changes: list of :class:`TfvcChange <azure.devops.v5_1.tfvc.models.TfvcChange>`
     :param checkin_notes: Checkin Notes for the changeset.
-    :type checkin_notes: list of :class:`CheckinNote <azure.devops.v5_1..models.CheckinNote>`
+    :type checkin_notes: list of :class:`CheckinNote <azure.devops.v5_1.tfvc.models.CheckinNote>`
     :param collection_id: Collection Id of the changeset.
     :type collection_id: str
     :param has_more_changes: Are more changes available.
     :type has_more_changes: bool
     :param policy_override: Policy Override for the changeset.
-    :type policy_override: :class:`TfvcPolicyOverrideInfo <azure.devops.v5_1..models.TfvcPolicyOverrideInfo>`
+    :type policy_override: :class:`TfvcPolicyOverrideInfo <azure.devops.v5_1.tfvc.models.TfvcPolicyOverrideInfo>`
     :param team_project_ids: Team Project Ids for the changeset.
     :type team_project_ids: list of str
     :param work_items: List of work items associated with the changeset.
-    :type work_items: list of :class:`AssociatedWorkItem <azure.devops.v5_1..models.AssociatedWorkItem>`
+    :type work_items: list of :class:`AssociatedWorkItem <azure.devops.v5_1.tfvc.models.AssociatedWorkItem>`
     """
 
     _attribute_map = {
@@ -1241,7 +1241,7 @@ class TfvcLabel(TfvcLabelRef):
     """TfvcLabel.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.tfvc.models.ReferenceLinks>`
     :param description:
     :type description: str
     :param id:
@@ -1253,11 +1253,11 @@ class TfvcLabel(TfvcLabelRef):
     :param name:
     :type name: str
     :param owner:
-    :type owner: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type owner: :class:`IdentityRef <azure.devops.v5_1.tfvc.models.IdentityRef>`
     :param url:
     :type url: str
     :param items:
-    :type items: list of :class:`TfvcItem <azure.devops.v5_1..models.TfvcItem>`
+    :type items: list of :class:`TfvcItem <azure.devops.v5_1.tfvc.models.TfvcItem>`
     """
 
     _attribute_map = {
@@ -1281,7 +1281,7 @@ class TfvcShelveset(TfvcShelvesetRef):
     """TfvcShelveset.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.tfvc.models.ReferenceLinks>`
     :param comment:
     :type comment: str
     :param comment_truncated:
@@ -1293,17 +1293,17 @@ class TfvcShelveset(TfvcShelvesetRef):
     :param name:
     :type name: str
     :param owner:
-    :type owner: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type owner: :class:`IdentityRef <azure.devops.v5_1.tfvc.models.IdentityRef>`
     :param url:
     :type url: str
     :param changes:
-    :type changes: list of :class:`TfvcChange <azure.devops.v5_1..models.TfvcChange>`
+    :type changes: list of :class:`TfvcChange <azure.devops.v5_1.tfvc.models.TfvcChange>`
     :param notes:
-    :type notes: list of :class:`CheckinNote <azure.devops.v5_1..models.CheckinNote>`
+    :type notes: list of :class:`CheckinNote <azure.devops.v5_1.tfvc.models.CheckinNote>`
     :param policy_override:
-    :type policy_override: :class:`TfvcPolicyOverrideInfo <azure.devops.v5_1..models.TfvcPolicyOverrideInfo>`
+    :type policy_override: :class:`TfvcPolicyOverrideInfo <azure.devops.v5_1.tfvc.models.TfvcPolicyOverrideInfo>`
     :param work_items:
-    :type work_items: list of :class:`AssociatedWorkItem <azure.devops.v5_1..models.AssociatedWorkItem>`
+    :type work_items: list of :class:`AssociatedWorkItem <azure.devops.v5_1.tfvc.models.AssociatedWorkItem>`
     """
 
     _attribute_map = {
@@ -1335,7 +1335,7 @@ class TfvcBranch(TfvcBranchRef):
     :param path: Path for the branch.
     :type path: str
     :param _links: A collection of REST reference links.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.tfvc.models.ReferenceLinks>`
     :param created_date: Creation date of the branch.
     :type created_date: datetime
     :param description: Description of the branch.
@@ -1343,17 +1343,17 @@ class TfvcBranch(TfvcBranchRef):
     :param is_deleted: Is the branch deleted?
     :type is_deleted: bool
     :param owner: Alias or display name of user
-    :type owner: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type owner: :class:`IdentityRef <azure.devops.v5_1.tfvc.models.IdentityRef>`
     :param url: URL to retrieve the item.
     :type url: str
     :param children: List of children for the branch.
-    :type children: list of :class:`TfvcBranch <azure.devops.v5_1..models.TfvcBranch>`
+    :type children: list of :class:`TfvcBranch <azure.devops.v5_1.tfvc.models.TfvcBranch>`
     :param mappings: List of branch mappings.
-    :type mappings: list of :class:`TfvcBranchMapping <azure.devops.v5_1..models.TfvcBranchMapping>`
+    :type mappings: list of :class:`TfvcBranchMapping <azure.devops.v5_1.tfvc.models.TfvcBranchMapping>`
     :param parent: Path of the branch's parent.
-    :type parent: :class:`TfvcShallowBranchRef <azure.devops.v5_1..models.TfvcShallowBranchRef>`
+    :type parent: :class:`TfvcShallowBranchRef <azure.devops.v5_1.tfvc.models.TfvcShallowBranchRef>`
     :param related_branches: List of paths of the related branches.
-    :type related_branches: list of :class:`TfvcShallowBranchRef <azure.devops.v5_1..models.TfvcShallowBranchRef>`
+    :type related_branches: list of :class:`TfvcShallowBranchRef <azure.devops.v5_1.tfvc.models.TfvcShallowBranchRef>`
     """
 
     _attribute_map = {

@@ -13,15 +13,15 @@ class Consumer(Model):
     """Consumer.
 
     :param _links: Reference Links
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.service_hooks.models.ReferenceLinks>`
     :param actions: Gets this consumer's actions.
-    :type actions: list of :class:`ConsumerAction <azure.devops.v5_1..models.ConsumerAction>`
+    :type actions: list of :class:`ConsumerAction <azure.devops.v5_1.service_hooks.models.ConsumerAction>`
     :param authentication_type: Gets or sets this consumer's authentication type.
     :type authentication_type: object
     :param description: Gets or sets this consumer's localized description.
     :type description: str
     :param external_configuration: Non-null only if subscriptions for this consumer are configured externally.
-    :type external_configuration: :class:`ExternalConfigurationDescriptor <azure.devops.v5_1..models.ExternalConfigurationDescriptor>`
+    :type external_configuration: :class:`ExternalConfigurationDescriptor <azure.devops.v5_1.service_hooks.models.ExternalConfigurationDescriptor>`
     :param id: Gets or sets this consumer's identifier.
     :type id: str
     :param image_url: Gets or sets this consumer's image URL, if any.
@@ -29,7 +29,7 @@ class Consumer(Model):
     :param information_url: Gets or sets this consumer's information URL, if any.
     :type information_url: str
     :param input_descriptors: Gets or sets this consumer's input descriptors.
-    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1..models.InputDescriptor>`
+    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1.service_hooks.models.InputDescriptor>`
     :param name: Gets or sets this consumer's localized name.
     :type name: str
     :param url: The url for this resource
@@ -69,7 +69,7 @@ class ConsumerAction(Model):
     """ConsumerAction.
 
     :param _links: Reference Links
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.service_hooks.models.ReferenceLinks>`
     :param allow_resource_version_override: Gets or sets the flag indicating if resource version can be overridden when creating or editing a subscription.
     :type allow_resource_version_override: bool
     :param consumer_id: Gets or sets the identifier of the consumer to which this action belongs.
@@ -79,7 +79,7 @@ class ConsumerAction(Model):
     :param id: Gets or sets this action's identifier.
     :type id: str
     :param input_descriptors: Gets or sets this action's input descriptors.
-    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1..models.InputDescriptor>`
+    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1.service_hooks.models.InputDescriptor>`
     :param name: Gets or sets this action's localized name.
     :type name: str
     :param supported_event_types: Gets or sets this action's supported event identifiers.
@@ -123,13 +123,13 @@ class Event(Model):
     :param created_date: Gets or sets the UTC-based date and time that this event was created.
     :type created_date: datetime
     :param detailed_message: Gets or sets the detailed message associated with this event.
-    :type detailed_message: :class:`FormattedEventMessage <azure.devops.v5_1..models.FormattedEventMessage>`
+    :type detailed_message: :class:`FormattedEventMessage <azure.devops.v5_1.service_hooks.models.FormattedEventMessage>`
     :param event_type: Gets or sets the type of this event.
     :type event_type: str
     :param id: Gets or sets the unique identifier of this event.
     :type id: str
     :param message: Gets or sets the (brief) message associated with this event.
-    :type message: :class:`FormattedEventMessage <azure.devops.v5_1..models.FormattedEventMessage>`
+    :type message: :class:`FormattedEventMessage <azure.devops.v5_1.service_hooks.models.FormattedEventMessage>`
     :param publisher_id: Gets or sets the identifier of the publisher that raised this event.
     :type publisher_id: str
     :param resource: Gets or sets the data associated with this event.
@@ -139,7 +139,7 @@ class Event(Model):
     :param resource_version: Gets or sets the version of the data associated with this event.
     :type resource_version: str
     :param session_token: Gets or sets the Session Token that can be used in further interactions
-    :type session_token: :class:`SessionToken <azure.devops.v5_1..models.SessionToken>`
+    :type session_token: :class:`SessionToken <azure.devops.v5_1.service_hooks.models.SessionToken>`
     """
 
     _attribute_map = {
@@ -177,7 +177,7 @@ class EventTypeDescriptor(Model):
     :param id: A unique id for the event type
     :type id: str
     :param input_descriptors: Event-specific inputs
-    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1..models.InputDescriptor>`
+    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1.service_hooks.models.InputDescriptor>`
     :param name: A localized friendly name for the event type
     :type name: str
     :param publisher_id: A unique id for the publisher of this event type
@@ -261,7 +261,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -289,7 +289,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -371,11 +371,11 @@ class InputDescriptor(Model):
     :param use_in_default_description: Gets whether this input is included in the default generated action description.
     :type use_in_default_description: bool
     :param validation: Information to use to validate this input's value
-    :type validation: :class:`InputValidation <azure.devops.v5_1..models.InputValidation>`
+    :type validation: :class:`InputValidation <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.InputValidation>`
     :param value_hint: A hint for input value. It can be used in the UI as the input placeholder.
     :type value_hint: str
     :param values: Information about possible values for this input
-    :type values: :class:`InputValues <azure.devops.v5_1..models.InputValues>`
+    :type values: :class:`InputValues <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.InputValues>`
     """
 
     _attribute_map = {
@@ -417,7 +417,7 @@ class InputFilter(Model):
     """InputFilter.
 
     :param conditions: Groups of input filter expressions. This filter matches a set of inputs if any (one or more) of the groups evaluates to true.
-    :type conditions: list of :class:`InputFilterCondition <azure.devops.v5_1..models.InputFilterCondition>`
+    :type conditions: list of :class:`InputFilterCondition <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.InputFilterCondition>`
     """
 
     _attribute_map = {
@@ -531,7 +531,7 @@ class InputValues(Model):
     :param default_value: The default value to use for this input
     :type default_value: str
     :param error: Errors encountered while computing dynamic values.
-    :type error: :class:`InputValuesError <azure.devops.v5_1..models.InputValuesError>`
+    :type error: :class:`InputValuesError <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.InputValuesError>`
     :param input_id: The id of the input
     :type input_id: str
     :param is_disabled: Should this input be disabled
@@ -541,7 +541,7 @@ class InputValues(Model):
     :param is_read_only: Should this input be made read-only
     :type is_read_only: bool
     :param possible_values: Possible values that this input can take
-    :type possible_values: list of :class:`InputValue <azure.devops.v5_1..models.InputValue>`
+    :type possible_values: list of :class:`InputValue <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.InputValue>`
     """
 
     _attribute_map = {
@@ -587,7 +587,7 @@ class InputValuesQuery(Model):
     :param current_values:
     :type current_values: dict
     :param input_values: The input values to return on input, and the result from the consumer on output.
-    :type input_values: list of :class:`InputValues <azure.devops.v5_1..models.InputValues>`
+    :type input_values: list of :class:`InputValues <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.InputValues>`
     :param resource: Subscription containing information about the publisher/consumer and the current input values
     :type resource: object
     """
@@ -611,7 +611,7 @@ class Notification(Model):
     :param created_date: Gets or sets date and time that this result was created.
     :type created_date: datetime
     :param details: Details about this notification (if available)
-    :type details: :class:`NotificationDetails <azure.devops.v5_1..models.NotificationDetails>`
+    :type details: :class:`NotificationDetails <azure.devops.v5_1.service_hooks.models.NotificationDetails>`
     :param event_id: The event id associated with this notification
     :type event_id: str
     :param id: The notification id
@@ -671,7 +671,7 @@ class NotificationDetails(Model):
     :param error_message: Gets or sets this notification detail's error message.
     :type error_message: str
     :param event: Gets or sets this notification detail's event content.
-    :type event: :class:`Event <azure.devops.v5_1..models.Event>`
+    :type event: :class:`Event <azure.devops.v5_1.service_hooks.models.Event>`
     :param event_type: Gets or sets this notification detail's event type.
     :type event_type: str
     :param processed_date: Gets or sets the time that this notification was finished processing (just before the request is sent to the consumer)
@@ -757,7 +757,7 @@ class NotificationsQuery(Model):
     """NotificationsQuery.
 
     :param associated_subscriptions: The subscriptions associated with the notifications returned from the query
-    :type associated_subscriptions: list of :class:`Subscription <azure.devops.v5_1..models.Subscription>`
+    :type associated_subscriptions: list of :class:`Subscription <azure.devops.v5_1.service_hooks.models.Subscription>`
     :param include_details: If true, we will return all notification history for the query provided; otherwise, the summary is returned.
     :type include_details: bool
     :param max_created_date: Optional maximum date at which the notification was created
@@ -771,7 +771,7 @@ class NotificationsQuery(Model):
     :param publisher_id: Optional publisher id to restrict the results to
     :type publisher_id: str
     :param results: Results from the query
-    :type results: list of :class:`Notification <azure.devops.v5_1..models.Notification>`
+    :type results: list of :class:`Notification <azure.devops.v5_1.service_hooks.models.Notification>`
     :param result_type: Optional notification result type to filter results to
     :type result_type: object
     :param status: Optional notification status to filter results to
@@ -779,7 +779,7 @@ class NotificationsQuery(Model):
     :param subscription_ids: Optional list of subscription ids to restrict the results to
     :type subscription_ids: list of str
     :param summary: Summary of notifications - the count of each result type (success, fail, ..).
-    :type summary: list of :class:`NotificationSummary <azure.devops.v5_1..models.NotificationSummary>`
+    :type summary: list of :class:`NotificationSummary <azure.devops.v5_1.service_hooks.models.NotificationSummary>`
     """
 
     _attribute_map = {
@@ -817,7 +817,7 @@ class NotificationSummary(Model):
     """NotificationSummary.
 
     :param results: The notification results for this particular subscription.
-    :type results: list of :class:`NotificationResultsSummaryDetail <azure.devops.v5_1..models.NotificationResultsSummaryDetail>`
+    :type results: list of :class:`NotificationResultsSummaryDetail <azure.devops.v5_1.service_hooks.models.NotificationResultsSummaryDetail>`
     :param subscription_id: The subscription id associated with this notification
     :type subscription_id: str
     """
@@ -837,19 +837,19 @@ class Publisher(Model):
     """Publisher.
 
     :param _links: Reference Links
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.service_hooks.models.ReferenceLinks>`
     :param description: Gets this publisher's localized description.
     :type description: str
     :param id: Gets this publisher's identifier.
     :type id: str
     :param input_descriptors: Publisher-specific inputs
-    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1..models.InputDescriptor>`
+    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1.service_hooks.models.InputDescriptor>`
     :param name: Gets this publisher's localized name.
     :type name: str
     :param service_instance_type: The service instance type of the first party publisher.
     :type service_instance_type: str
     :param supported_events: Gets this publisher's supported event types.
-    :type supported_events: list of :class:`EventTypeDescriptor <azure.devops.v5_1..models.EventTypeDescriptor>`
+    :type supported_events: list of :class:`EventTypeDescriptor <azure.devops.v5_1.service_hooks.models.EventTypeDescriptor>`
     :param url: The url for this resource
     :type url: str
     """
@@ -883,17 +883,17 @@ class PublisherEvent(Model):
     :param diagnostics: Add key/value pairs which will be stored with a published notification in the SH service DB.  This key/value pairs are for diagnostic purposes only and will have not effect on the delivery of a notificaton.
     :type diagnostics: dict
     :param event: The event being published
-    :type event: :class:`Event <azure.devops.v5_1..models.Event>`
+    :type event: :class:`Event <azure.devops.v5_1.service_hooks.models.Event>`
     :param is_filtered_event: Gets or sets flag for filtered events
     :type is_filtered_event: bool
     :param notification_data: Additional data that needs to be sent as part of notification to complement the Resource data in the Event
     :type notification_data: dict
     :param other_resource_versions: Gets or sets the array of older supported resource versions.
-    :type other_resource_versions: list of :class:`VersionedResource <azure.devops.v5_1..models.VersionedResource>`
+    :type other_resource_versions: list of :class:`VersionedResource <azure.devops.v5_1.service_hooks.models.VersionedResource>`
     :param publisher_input_filters: Optional publisher-input filters which restricts the set of subscriptions which are triggered by the event
-    :type publisher_input_filters: list of :class:`InputFilter <azure.devops.v5_1..models.InputFilter>`
+    :type publisher_input_filters: list of :class:`InputFilter <azure.devops.v5_1.service_hooks.models.InputFilter>`
     :param subscription: Gets or sets matchd hooks subscription which caused this event.
-    :type subscription: :class:`Subscription <azure.devops.v5_1..models.Subscription>`
+    :type subscription: :class:`Subscription <azure.devops.v5_1.service_hooks.models.Subscription>`
     """
 
     _attribute_map = {
@@ -925,7 +925,7 @@ class PublishersQuery(Model):
     :param publisher_inputs: Filter for publisher inputs
     :type publisher_inputs: dict
     :param results: Results from the query
-    :type results: list of :class:`Publisher <azure.devops.v5_1..models.Publisher>`
+    :type results: list of :class:`Publisher <azure.devops.v5_1.service_hooks.models.Publisher>`
     """
 
     _attribute_map = {
@@ -1013,7 +1013,7 @@ class Subscription(Model):
     """Subscription.
 
     :param _links: Reference Links
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.service_hooks.models.ReferenceLinks>`
     :param action_description:
     :type action_description: str
     :param consumer_action_id:
@@ -1023,7 +1023,7 @@ class Subscription(Model):
     :param consumer_inputs: Consumer input values
     :type consumer_inputs: dict
     :param created_by:
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.service_hooks.models.IdentityRef>`
     :param created_date:
     :type created_date: datetime
     :param event_description:
@@ -1033,7 +1033,7 @@ class Subscription(Model):
     :param id:
     :type id: str
     :param modified_by:
-    :type modified_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type modified_by: :class:`IdentityRef <azure.devops.v5_1.service_hooks.models.IdentityRef>`
     :param modified_date:
     :type modified_date: datetime
     :param probation_retries:
@@ -1047,7 +1047,7 @@ class Subscription(Model):
     :param status:
     :type status: object
     :param subscriber:
-    :type subscriber: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type subscriber: :class:`IdentityRef <azure.devops.v5_1.service_hooks.models.IdentityRef>`
     :param url:
     :type url: str
     """
@@ -1101,11 +1101,11 @@ class SubscriptionDiagnostics(Model):
     """SubscriptionDiagnostics.
 
     :param delivery_results:
-    :type delivery_results: :class:`SubscriptionTracing <azure.devops.v5_1..models.SubscriptionTracing>`
+    :type delivery_results: :class:`SubscriptionTracing <azure.devops.v5_1.microsoft._visual_studio._services._notifications._web_api.models.SubscriptionTracing>`
     :param delivery_tracing:
-    :type delivery_tracing: :class:`SubscriptionTracing <azure.devops.v5_1..models.SubscriptionTracing>`
+    :type delivery_tracing: :class:`SubscriptionTracing <azure.devops.v5_1.microsoft._visual_studio._services._notifications._web_api.models.SubscriptionTracing>`
     :param evaluation_tracing:
-    :type evaluation_tracing: :class:`SubscriptionTracing <azure.devops.v5_1..models.SubscriptionTracing>`
+    :type evaluation_tracing: :class:`SubscriptionTracing <azure.devops.v5_1.microsoft._visual_studio._services._notifications._web_api.models.SubscriptionTracing>`
     """
 
     _attribute_map = {
@@ -1129,15 +1129,15 @@ class SubscriptionsQuery(Model):
     :param consumer_id: Optional consumer id to restrict the results to (null for any)
     :type consumer_id: str
     :param consumer_input_filters: Filter for subscription consumer inputs
-    :type consumer_input_filters: list of :class:`InputFilter <azure.devops.v5_1..models.InputFilter>`
+    :type consumer_input_filters: list of :class:`InputFilter <azure.devops.v5_1.service_hooks.models.InputFilter>`
     :param event_type: Optional event type id to restrict the results to (null for any)
     :type event_type: str
     :param publisher_id: Optional publisher id to restrict the results to (null for any)
     :type publisher_id: str
     :param publisher_input_filters: Filter for subscription publisher inputs
-    :type publisher_input_filters: list of :class:`InputFilter <azure.devops.v5_1..models.InputFilter>`
+    :type publisher_input_filters: list of :class:`InputFilter <azure.devops.v5_1.service_hooks.models.InputFilter>`
     :param results: Results from the query
-    :type results: list of :class:`Subscription <azure.devops.v5_1..models.Subscription>`
+    :type results: list of :class:`Subscription <azure.devops.v5_1.service_hooks.models.Subscription>`
     :param subscriber_id: Optional subscriber filter.
     :type subscriber_id: str
     """
@@ -1201,11 +1201,11 @@ class UpdateSubscripitonDiagnosticsParameters(Model):
     """UpdateSubscripitonDiagnosticsParameters.
 
     :param delivery_results:
-    :type delivery_results: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1..models.UpdateSubscripitonTracingParameters>`
+    :type delivery_results: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1.microsoft._visual_studio._services._notifications._web_api.models.UpdateSubscripitonTracingParameters>`
     :param delivery_tracing:
-    :type delivery_tracing: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1..models.UpdateSubscripitonTracingParameters>`
+    :type delivery_tracing: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1.microsoft._visual_studio._services._notifications._web_api.models.UpdateSubscripitonTracingParameters>`
     :param evaluation_tracing:
-    :type evaluation_tracing: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1..models.UpdateSubscripitonTracingParameters>`
+    :type evaluation_tracing: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1.microsoft._visual_studio._services._notifications._web_api.models.UpdateSubscripitonTracingParameters>`
     """
 
     _attribute_map = {

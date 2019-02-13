@@ -29,9 +29,9 @@ class GraphDescriptorResult(Model):
     """GraphDescriptorResult.
 
     :param _links: This field contains zero or more interesting links about the graph descriptor. These links may be invoked to obtain additional relationships or more detailed information about this graph descriptor.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.graph.models.ReferenceLinks>`
     :param value:
-    :type value: :class:`str <azure.devops.v5_1..models.str>`
+    :type value: :class:`str <azure.devops.v5_1.graph.models.str>`
     """
 
     _attribute_map = {
@@ -97,7 +97,7 @@ class GraphMembership(Model):
     """GraphMembership.
 
     :param _links: This field contains zero or more interesting links about the graph membership. These links may be invoked to obtain additional relationships or more detailed information about this graph membership.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.graph.models.ReferenceLinks>`
     :param container_descriptor:
     :type container_descriptor: str
     :param member_descriptor:
@@ -121,7 +121,7 @@ class GraphMembershipState(Model):
     """GraphMembershipState.
 
     :param _links: This field contains zero or more interesting links about the graph membership state. These links may be invoked to obtain additional relationships or more detailed information about this graph membership state.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.graph.models.ReferenceLinks>`
     :param active: When true, the membership is active
     :type active: bool
     """
@@ -145,11 +145,11 @@ class GraphMembershipTraversal(Model):
     :param is_complete: When true, the subject is traversed completely
     :type is_complete: bool
     :param subject_descriptor: The traversed subject descriptor
-    :type subject_descriptor: :class:`str <azure.devops.v5_1..models.str>`
+    :type subject_descriptor: :class:`str <azure.devops.v5_1.graph.models.str>`
     :param traversed_subject_ids: Subject descriptor ids of the traversed members
     :type traversed_subject_ids: list of str
     :param traversed_subjects: Subject descriptors of the traversed members
-    :type traversed_subjects: list of :class:`str <azure.devops.v5_1..models.str>`
+    :type traversed_subjects: list of :class:`str <azure.devops.v5_1.graph.models.str>`
     """
 
     _attribute_map = {
@@ -237,7 +237,7 @@ class GraphStorageKeyResult(Model):
     """GraphStorageKeyResult.
 
     :param _links: This field contains zero or more interesting links about the graph storage key. These links may be invoked to obtain additional relationships or more detailed information about this graph storage key.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.graph.models.ReferenceLinks>`
     :param value:
     :type value: str
     """
@@ -257,7 +257,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.graph.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -285,7 +285,7 @@ class GraphSubjectLookup(Model):
     """GraphSubjectLookup.
 
     :param lookup_keys:
-    :type lookup_keys: list of :class:`GraphSubjectLookupKey <azure.devops.v5_1..models.GraphSubjectLookupKey>`
+    :type lookup_keys: list of :class:`GraphSubjectLookupKey <azure.devops.v5_1.graph.models.GraphSubjectLookupKey>`
     """
 
     _attribute_map = {
@@ -301,7 +301,7 @@ class GraphSubjectLookupKey(Model):
     """GraphSubjectLookupKey.
 
     :param descriptor:
-    :type descriptor: :class:`str <azure.devops.v5_1..models.str>`
+    :type descriptor: :class:`str <azure.devops.v5_1.graph.models.str>`
     """
 
     _attribute_map = {
@@ -363,7 +363,7 @@ class PagedGraphGroups(Model):
     :param continuation_token: This will be non-null if there is another page of data. There will never be more than one continuation token returned by a request.
     :type continuation_token: list of str
     :param graph_groups: The enumerable list of groups found within a page.
-    :type graph_groups: list of :class:`GraphGroup <azure.devops.v5_1..models.GraphGroup>`
+    :type graph_groups: list of :class:`GraphGroup <azure.devops.v5_1.graph.models.GraphGroup>`
     """
 
     _attribute_map = {
@@ -383,7 +383,7 @@ class PagedGraphUsers(Model):
     :param continuation_token: This will be non-null if there is another page of data. There will never be more than one continuation token returned by a request.
     :type continuation_token: list of str
     :param graph_users: The enumerable set of users found within a page.
-    :type graph_users: list of :class:`GraphUser <azure.devops.v5_1..models.GraphUser>`
+    :type graph_users: list of :class:`GraphUser <azure.devops.v5_1.graph.models.GraphUser>`
     """
 
     _attribute_map = {
@@ -417,7 +417,7 @@ class GraphSubject(GraphSubjectBase):
     """GraphSubject.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.graph.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -457,7 +457,7 @@ class GraphMember(GraphSubject):
     """GraphMember.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.graph.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -505,7 +505,7 @@ class GraphScope(GraphSubject):
     """GraphScope.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.graph.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -561,7 +561,7 @@ class GraphUser(GraphMember):
     """GraphUser.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.graph.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -618,7 +618,7 @@ class GraphGroup(GraphMember):
     """GraphGroup.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.graph.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.

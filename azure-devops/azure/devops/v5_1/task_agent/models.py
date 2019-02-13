@@ -131,7 +131,7 @@ class AzureManagementGroupQueryResult(Model):
     :param error_message: Error message in case of an exception
     :type error_message: str
     :param value: List of azure management groups
-    :type value: list of :class:`AzureManagementGroup <azure.devops.v5_1..models.AzureManagementGroup>`
+    :type value: list of :class:`AzureManagementGroup <azure.devops.v5_1.task_agent.models.AzureManagementGroup>`
     """
 
     _attribute_map = {
@@ -179,7 +179,7 @@ class AzureSubscriptionQueryResult(Model):
     :param error_message:
     :type error_message: str
     :param value:
-    :type value: list of :class:`AzureSubscription <azure.devops.v5_1..models.AzureSubscription>`
+    :type value: list of :class:`AzureSubscription <azure.devops.v5_1.task_agent.models.AzureSubscription>`
     """
 
     _attribute_map = {
@@ -213,11 +213,11 @@ class DataSource(Model):
     """DataSource.
 
     :param authentication_scheme:
-    :type authentication_scheme: :class:`AuthenticationSchemeReference <azure.devops.v5_1..models.AuthenticationSchemeReference>`
+    :type authentication_scheme: :class:`AuthenticationSchemeReference <azure.devops.v5_1.task_agent.models.AuthenticationSchemeReference>`
     :param endpoint_url:
     :type endpoint_url: str
     :param headers:
-    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1..models.AuthorizationHeader>`
+    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1.task_agent.models.AuthorizationHeader>`
     :param name:
     :type name: str
     :param resource_url:
@@ -259,7 +259,7 @@ class DataSourceBindingBase(Model):
     :param endpoint_url: Gets or sets the url of the service endpoint.
     :type endpoint_url: str
     :param headers: Gets or sets the authorization headers.
-    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1..models.AuthorizationHeader>`
+    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1.microsoft._team_foundation._distributed_task._common._contracts.models.AuthorizationHeader>`
     :param initial_context_template: Defines the initial value of the query params
     :type initial_context_template: str
     :param parameters: Gets or sets the parameters for the data source.
@@ -317,7 +317,7 @@ class DataSourceDetails(Model):
     :param data_source_url:
     :type data_source_url: str
     :param headers:
-    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1..models.AuthorizationHeader>`
+    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1.task_agent.models.AuthorizationHeader>`
     :param parameters:
     :type parameters: dict
     :param resource_url:
@@ -391,7 +391,7 @@ class DependsOn(Model):
     :param input:
     :type input: str
     :param map:
-    :type map: list of :class:`DependencyBinding <azure.devops.v5_1..models.DependencyBinding>`
+    :type map: list of :class:`DependencyBinding <azure.devops.v5_1.task_agent.models.DependencyBinding>`
     """
 
     _attribute_map = {
@@ -413,7 +413,7 @@ class DeploymentGroupCreateParameter(Model):
     :param name: Name of the deployment group.
     :type name: str
     :param pool: Deployment pool in which deployment agents are registered. This is obsolete. Kept for compatibility. Will be marked obsolete explicitly by M132.
-    :type pool: :class:`DeploymentGroupCreateParameterPoolProperty <azure.devops.v5_1..models.DeploymentGroupCreateParameterPoolProperty>`
+    :type pool: :class:`DeploymentGroupCreateParameterPoolProperty <azure.devops.v5_1.task_agent.models.DeploymentGroupCreateParameterPoolProperty>`
     :param pool_id: Identifier of the deployment pool in which deployment agents are registered.
     :type pool_id: int
     """
@@ -453,11 +453,11 @@ class DeploymentGroupMetrics(Model):
     """DeploymentGroupMetrics.
 
     :param columns_header: List of deployment group properties. And types of metrics provided for those properties.
-    :type columns_header: :class:`MetricsColumnsHeader <azure.devops.v5_1..models.MetricsColumnsHeader>`
+    :type columns_header: :class:`MetricsColumnsHeader <azure.devops.v5_1.task_agent.models.MetricsColumnsHeader>`
     :param deployment_group: Deployment group.
-    :type deployment_group: :class:`DeploymentGroupReference <azure.devops.v5_1..models.DeploymentGroupReference>`
+    :type deployment_group: :class:`DeploymentGroupReference <azure.devops.v5_1.task_agent.models.DeploymentGroupReference>`
     :param rows: Values of properties and the metrics. E.g. 1: total count of deployment targets for which 'TargetState' is 'offline'. E.g. 2: Average time of deployment to the deployment targets for which 'LastJobStatus' is 'passed' and 'TargetState' is 'online'.
-    :type rows: list of :class:`MetricsRow <azure.devops.v5_1..models.MetricsRow>`
+    :type rows: list of :class:`MetricsRow <azure.devops.v5_1.task_agent.models.MetricsRow>`
     """
 
     _attribute_map = {
@@ -481,9 +481,9 @@ class DeploymentGroupReference(Model):
     :param name: Name of the deployment group.
     :type name: str
     :param pool: Deployment pool in which deployment agents are registered.
-    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1..models.TaskAgentPoolReference>`
+    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1.task_agent.models.TaskAgentPoolReference>`
     :param project: Project to which the deployment group belongs.
-    :type project: :class:`ProjectReference <azure.devops.v5_1..models.ProjectReference>`
+    :type project: :class:`ProjectReference <azure.devops.v5_1.task_agent.models.ProjectReference>`
     """
 
     _attribute_map = {
@@ -525,11 +525,11 @@ class DeploymentMachine(Model):
     """DeploymentMachine.
 
     :param agent: Deployment agent.
-    :type agent: :class:`TaskAgent <azure.devops.v5_1..models.TaskAgent>`
+    :type agent: :class:`TaskAgent <azure.devops.v5_1.task_agent.models.TaskAgent>`
     :param id: Deployment target Identifier.
     :type id: int
     :param properties: Properties of the deployment target.
-    :type properties: :class:`object <azure.devops.v5_1..models.object>`
+    :type properties: :class:`object <azure.devops.v5_1.task_agent.models.object>`
     :param tags: Tags of the deployment target.
     :type tags: list of str
     """
@@ -557,9 +557,9 @@ class DeploymentMachineGroupReference(Model):
     :param name:
     :type name: str
     :param pool:
-    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1..models.TaskAgentPoolReference>`
+    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1.task_agent.models.TaskAgentPoolReference>`
     :param project:
-    :type project: :class:`ProjectReference <azure.devops.v5_1..models.ProjectReference>`
+    :type project: :class:`ProjectReference <azure.devops.v5_1.task_agent.models.ProjectReference>`
     """
 
     _attribute_map = {
@@ -581,13 +581,13 @@ class DeploymentPoolSummary(Model):
     """DeploymentPoolSummary.
 
     :param deployment_groups: List of deployment groups referring to the deployment pool.
-    :type deployment_groups: list of :class:`DeploymentGroupReference <azure.devops.v5_1..models.DeploymentGroupReference>`
+    :type deployment_groups: list of :class:`DeploymentGroupReference <azure.devops.v5_1.task_agent.models.DeploymentGroupReference>`
     :param offline_agents_count: Number of deployment agents that are offline.
     :type offline_agents_count: int
     :param online_agents_count: Number of deployment agents that are online.
     :type online_agents_count: int
     :param pool: Deployment pool.
-    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1..models.TaskAgentPoolReference>`
+    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1.task_agent.models.TaskAgentPoolReference>`
     """
 
     _attribute_map = {
@@ -649,7 +649,7 @@ class EndpointUrl(Model):
     """EndpointUrl.
 
     :param depends_on: Gets or sets the dependency bindings.
-    :type depends_on: :class:`DependsOn <azure.devops.v5_1..models.DependsOn>`
+    :type depends_on: :class:`DependsOn <azure.devops.v5_1.task_agent.models.DependsOn>`
     :param display_name: Gets or sets the display name of service endpoint url.
     :type display_name: str
     :param help_text: Gets or sets the help text of service endpoint url.
@@ -701,7 +701,7 @@ class EnvironmentDeploymentExecutionRecord(Model):
     """EnvironmentDeploymentExecutionRecord.
 
     :param definition: Definition of the environment deployment execution owner
-    :type definition: :class:`TaskOrchestrationOwner <azure.devops.v5_1..models.TaskOrchestrationOwner>`
+    :type definition: :class:`TaskOrchestrationOwner <azure.devops.v5_1.task_agent.models.TaskOrchestrationOwner>`
     :param environment_id: Id of the Environment
     :type environment_id: int
     :param finish_time: Finish time of the environment deployment execution
@@ -709,7 +709,7 @@ class EnvironmentDeploymentExecutionRecord(Model):
     :param id: Id of the Environment deployment execution history record
     :type id: long
     :param owner: Owner of the environment deployment execution record
-    :type owner: :class:`TaskOrchestrationOwner <azure.devops.v5_1..models.TaskOrchestrationOwner>`
+    :type owner: :class:`TaskOrchestrationOwner <azure.devops.v5_1.task_agent.models.TaskOrchestrationOwner>`
     :param plan_id: Plan Id
     :type plan_id: str
     :param plan_type: Plan type of the environment deployment execution record
@@ -769,7 +769,7 @@ class EnvironmentInstance(Model):
     """EnvironmentInstance.
 
     :param created_by: Identity reference of the user who created the Environment.
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param created_on: Creation time of the Environment
     :type created_on: datetime
     :param description: Description of the Environment.
@@ -777,13 +777,13 @@ class EnvironmentInstance(Model):
     :param id: Id of the Environment
     :type id: int
     :param last_modified_by: Identity reference of the user who last modified the Environment.
-    :type last_modified_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type last_modified_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param last_modified_on: Last modified time of the Environment
     :type last_modified_on: datetime
     :param name: Name of the Environment.
     :type name: str
     :param service_groups:
-    :type service_groups: list of :class:`ServiceGroupReference <azure.devops.v5_1..models.ServiceGroupReference>`
+    :type service_groups: list of :class:`ServiceGroupReference <azure.devops.v5_1.task_agent.models.ServiceGroupReference>`
     """
 
     _attribute_map = {
@@ -853,7 +853,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -901,7 +901,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -983,11 +983,11 @@ class InputDescriptor(Model):
     :param use_in_default_description: Gets whether this input is included in the default generated action description.
     :type use_in_default_description: bool
     :param validation: Information to use to validate this input's value
-    :type validation: :class:`InputValidation <azure.devops.v5_1..models.InputValidation>`
+    :type validation: :class:`InputValidation <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.InputValidation>`
     :param value_hint: A hint for input value. It can be used in the UI as the input placeholder.
     :type value_hint: str
     :param values: Information about possible values for this input
-    :type values: :class:`InputValues <azure.devops.v5_1..models.InputValues>`
+    :type values: :class:`InputValues <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.InputValues>`
     """
 
     _attribute_map = {
@@ -1115,7 +1115,7 @@ class InputValues(Model):
     :param default_value: The default value to use for this input
     :type default_value: str
     :param error: Errors encountered while computing dynamic values.
-    :type error: :class:`InputValuesError <azure.devops.v5_1..models.InputValuesError>`
+    :type error: :class:`InputValuesError <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.InputValuesError>`
     :param input_id: The id of the input
     :type input_id: str
     :param is_disabled: Should this input be disabled
@@ -1125,7 +1125,7 @@ class InputValues(Model):
     :param is_read_only: Should this input be made read-only
     :type is_read_only: bool
     :param possible_values: Possible values that this input can take
-    :type possible_values: list of :class:`InputValue <azure.devops.v5_1..models.InputValue>`
+    :type possible_values: list of :class:`InputValue <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.InputValue>`
     """
 
     _attribute_map = {
@@ -1237,9 +1237,9 @@ class MetricsColumnsHeader(Model):
     """MetricsColumnsHeader.
 
     :param dimensions: Properties of deployment group for which metrics are provided. E.g. 1: LastJobStatus E.g. 2: TargetState
-    :type dimensions: list of :class:`MetricsColumnMetaData <azure.devops.v5_1..models.MetricsColumnMetaData>`
+    :type dimensions: list of :class:`MetricsColumnMetaData <azure.devops.v5_1.task_agent.models.MetricsColumnMetaData>`
     :param metrics: The types of metrics. E.g. 1: total count of deployment targets. E.g. 2: Average time of deployment to the deployment targets.
-    :type metrics: list of :class:`MetricsColumnMetaData <azure.devops.v5_1..models.MetricsColumnMetaData>`
+    :type metrics: list of :class:`MetricsColumnMetaData <azure.devops.v5_1.task_agent.models.MetricsColumnMetaData>`
     """
 
     _attribute_map = {
@@ -1291,7 +1291,7 @@ class PackageMetadata(Model):
     :param type: The type of package (e.g. "agent")
     :type type: str
     :param version: The package version.
-    :type version: :class:`PackageVersion <azure.devops.v5_1..models.PackageVersion>`
+    :type version: :class:`PackageVersion <azure.devops.v5_1.task_agent.models.PackageVersion>`
     """
 
     _attribute_map = {
@@ -1457,9 +1457,9 @@ class ResourceUsage(Model):
     """ResourceUsage.
 
     :param resource_limit:
-    :type resource_limit: :class:`ResourceLimit <azure.devops.v5_1..models.ResourceLimit>`
+    :type resource_limit: :class:`ResourceLimit <azure.devops.v5_1.task_agent.models.ResourceLimit>`
     :param running_requests:
-    :type running_requests: list of :class:`TaskAgentJobRequest <azure.devops.v5_1..models.TaskAgentJobRequest>`
+    :type running_requests: list of :class:`TaskAgentJobRequest <azure.devops.v5_1.task_agent.models.TaskAgentJobRequest>`
     :param used_count:
     :type used_count: int
     :param used_minutes:
@@ -1501,13 +1501,13 @@ class SecureFile(Model):
     """SecureFile.
 
     :param created_by:
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param created_on:
     :type created_on: datetime
     :param id:
     :type id: str
     :param modified_by:
-    :type modified_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type modified_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param modified_on:
     :type modified_on: datetime
     :param name:
@@ -1545,11 +1545,11 @@ class ServiceEndpoint(Model):
     """ServiceEndpoint.
 
     :param administrators_group: Gets or sets the identity reference for the administrators group of the service endpoint.
-    :type administrators_group: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type administrators_group: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param authorization: Gets or sets the authorization data for talking to the endpoint.
-    :type authorization: :class:`EndpointAuthorization <azure.devops.v5_1..models.EndpointAuthorization>`
+    :type authorization: :class:`EndpointAuthorization <azure.devops.v5_1.task_agent.models.EndpointAuthorization>`
     :param created_by: Gets or sets the identity reference for the user who created the Service endpoint.
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param data:
     :type data: dict
     :param description: Gets or sets the description of endpoint.
@@ -1565,9 +1565,9 @@ class ServiceEndpoint(Model):
     :param name: Gets or sets the friendly name of the endpoint.
     :type name: str
     :param operation_status: Error message during creation/deletion of endpoint
-    :type operation_status: :class:`object <azure.devops.v5_1..models.object>`
+    :type operation_status: :class:`object <azure.devops.v5_1.task_agent.models.object>`
     :param readers_group: Gets or sets the identity reference for the readers group of the service endpoint.
-    :type readers_group: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type readers_group: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param type: Gets or sets the type of the endpoint.
     :type type: str
     :param url: Gets or sets the url of the endpoint.
@@ -1613,13 +1613,13 @@ class ServiceEndpointAuthenticationScheme(Model):
     """ServiceEndpointAuthenticationScheme.
 
     :param authorization_headers: Gets or sets the authorization headers of service endpoint authentication scheme.
-    :type authorization_headers: list of :class:`AuthorizationHeader <azure.devops.v5_1..models.AuthorizationHeader>`
+    :type authorization_headers: list of :class:`AuthorizationHeader <azure.devops.v5_1.task_agent.models.AuthorizationHeader>`
     :param client_certificates: Gets or sets the certificates of service endpoint authentication scheme.
-    :type client_certificates: list of :class:`ClientCertificate <azure.devops.v5_1..models.ClientCertificate>`
+    :type client_certificates: list of :class:`ClientCertificate <azure.devops.v5_1.task_agent.models.ClientCertificate>`
     :param display_name: Gets or sets the display name for the service endpoint authentication scheme.
     :type display_name: str
     :param input_descriptors: Gets or sets the input descriptors for the service endpoint authentication scheme.
-    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1..models.InputDescriptor>`
+    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1.task_agent.models.InputDescriptor>`
     :param scheme: Gets or sets the scheme for service endpoint authentication.
     :type scheme: str
     """
@@ -1645,7 +1645,7 @@ class ServiceEndpointDetails(Model):
     """ServiceEndpointDetails.
 
     :param authorization:
-    :type authorization: :class:`EndpointAuthorization <azure.devops.v5_1..models.EndpointAuthorization>`
+    :type authorization: :class:`EndpointAuthorization <azure.devops.v5_1.task_agent.models.EndpointAuthorization>`
     :param data:
     :type data: dict
     :param type:
@@ -1673,13 +1673,13 @@ class ServiceEndpointExecutionData(Model):
     """ServiceEndpointExecutionData.
 
     :param definition: Gets the definition of service endpoint execution owner.
-    :type definition: :class:`TaskOrchestrationOwner <azure.devops.v5_1..models.TaskOrchestrationOwner>`
+    :type definition: :class:`TaskOrchestrationOwner <azure.devops.v5_1.task_agent.models.TaskOrchestrationOwner>`
     :param finish_time: Gets the finish time of service endpoint execution.
     :type finish_time: datetime
     :param id: Gets the Id of service endpoint execution data.
     :type id: long
     :param owner: Gets the owner of service endpoint execution data.
-    :type owner: :class:`TaskOrchestrationOwner <azure.devops.v5_1..models.TaskOrchestrationOwner>`
+    :type owner: :class:`TaskOrchestrationOwner <azure.devops.v5_1.task_agent.models.TaskOrchestrationOwner>`
     :param plan_type: Gets the plan type of service endpoint execution data.
     :type plan_type: str
     :param result: Gets the result of service endpoint execution.
@@ -1713,7 +1713,7 @@ class ServiceEndpointExecutionRecord(Model):
     """ServiceEndpointExecutionRecord.
 
     :param data: Gets the execution data of service endpoint execution.
-    :type data: :class:`ServiceEndpointExecutionData <azure.devops.v5_1..models.ServiceEndpointExecutionData>`
+    :type data: :class:`ServiceEndpointExecutionData <azure.devops.v5_1.task_agent.models.ServiceEndpointExecutionData>`
     :param endpoint_id: Gets the Id of service endpoint.
     :type endpoint_id: str
     """
@@ -1733,7 +1733,7 @@ class ServiceEndpointExecutionRecordsInput(Model):
     """ServiceEndpointExecutionRecordsInput.
 
     :param data:
-    :type data: :class:`ServiceEndpointExecutionData <azure.devops.v5_1..models.ServiceEndpointExecutionData>`
+    :type data: :class:`ServiceEndpointExecutionData <azure.devops.v5_1.task_agent.models.ServiceEndpointExecutionData>`
     :param endpoint_ids:
     :type endpoint_ids: list of str
     """
@@ -1753,11 +1753,11 @@ class ServiceEndpointRequest(Model):
     """ServiceEndpointRequest.
 
     :param data_source_details:
-    :type data_source_details: :class:`DataSourceDetails <azure.devops.v5_1..models.DataSourceDetails>`
+    :type data_source_details: :class:`DataSourceDetails <azure.devops.v5_1.task_agent.models.DataSourceDetails>`
     :param result_transformation_details:
-    :type result_transformation_details: :class:`ResultTransformationDetails <azure.devops.v5_1..models.ResultTransformationDetails>`
+    :type result_transformation_details: :class:`ResultTransformationDetails <azure.devops.v5_1.task_agent.models.ResultTransformationDetails>`
     :param service_endpoint_details:
-    :type service_endpoint_details: :class:`ServiceEndpointDetails <azure.devops.v5_1..models.ServiceEndpointDetails>`
+    :type service_endpoint_details: :class:`ServiceEndpointDetails <azure.devops.v5_1.task_agent.models.ServiceEndpointDetails>`
     """
 
     _attribute_map = {
@@ -1779,7 +1779,7 @@ class ServiceEndpointRequestResult(Model):
     :param error_message:
     :type error_message: str
     :param result:
-    :type result: :class:`object <azure.devops.v5_1..models.object>`
+    :type result: :class:`object <azure.devops.v5_1.task_agent.models.object>`
     :param status_code:
     :type status_code: object
     """
@@ -1801,25 +1801,25 @@ class ServiceEndpointType(Model):
     """ServiceEndpointType.
 
     :param authentication_schemes: Authentication scheme of service endpoint type.
-    :type authentication_schemes: list of :class:`ServiceEndpointAuthenticationScheme <azure.devops.v5_1..models.ServiceEndpointAuthenticationScheme>`
+    :type authentication_schemes: list of :class:`ServiceEndpointAuthenticationScheme <azure.devops.v5_1.task_agent.models.ServiceEndpointAuthenticationScheme>`
     :param data_sources: Data sources of service endpoint type.
-    :type data_sources: list of :class:`DataSource <azure.devops.v5_1..models.DataSource>`
+    :type data_sources: list of :class:`DataSource <azure.devops.v5_1.task_agent.models.DataSource>`
     :param dependency_data: Dependency data of service endpoint type.
-    :type dependency_data: list of :class:`DependencyData <azure.devops.v5_1..models.DependencyData>`
+    :type dependency_data: list of :class:`DependencyData <azure.devops.v5_1.task_agent.models.DependencyData>`
     :param description: Gets or sets the description of service endpoint type.
     :type description: str
     :param display_name: Gets or sets the display name of service endpoint type.
     :type display_name: str
     :param endpoint_url: Gets or sets the endpoint url of service endpoint type.
-    :type endpoint_url: :class:`EndpointUrl <azure.devops.v5_1..models.EndpointUrl>`
+    :type endpoint_url: :class:`EndpointUrl <azure.devops.v5_1.task_agent.models.EndpointUrl>`
     :param help_link: Gets or sets the help link of service endpoint type.
-    :type help_link: :class:`HelpLink <azure.devops.v5_1..models.HelpLink>`
+    :type help_link: :class:`HelpLink <azure.devops.v5_1.task_agent.models.HelpLink>`
     :param help_mark_down:
     :type help_mark_down: str
     :param icon_url: Gets or sets the icon url of service endpoint type.
     :type icon_url: str
     :param input_descriptors: Input descriptor of service endpoint type.
-    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1..models.InputDescriptor>`
+    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1.task_agent.models.InputDescriptor>`
     :param name: Gets or sets the name of service endpoint type.
     :type name: str
     :param trusted_hosts: Trusted hosts of a service endpoint type.
@@ -1865,15 +1865,15 @@ class ServiceGroup(Model):
     """ServiceGroup.
 
     :param created_by:
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param created_on:
     :type created_on: datetime
     :param environment_reference:
-    :type environment_reference: :class:`EnvironmentReference <azure.devops.v5_1..models.EnvironmentReference>`
+    :type environment_reference: :class:`EnvironmentReference <azure.devops.v5_1.task_agent.models.EnvironmentReference>`
     :param id:
     :type id: int
     :param last_modified_by:
-    :type last_modified_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type last_modified_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param last_modified_on:
     :type last_modified_on: datetime
     :param name:
@@ -1937,7 +1937,7 @@ class TaskAgentAuthorization(Model):
     :param client_id: Gets or sets the client identifier for this agent.
     :type client_id: str
     :param public_key: Gets or sets the public key used to verify the identity of this agent.
-    :type public_key: :class:`TaskAgentPublicKey <azure.devops.v5_1..models.TaskAgentPublicKey>`
+    :type public_key: :class:`TaskAgentPublicKey <azure.devops.v5_1.task_agent.models.TaskAgentPublicKey>`
     """
 
     _attribute_map = {
@@ -2009,17 +2009,17 @@ class TaskAgentCloudRequest(Model):
     """TaskAgentCloudRequest.
 
     :param agent:
-    :type agent: :class:`TaskAgentReference <azure.devops.v5_1..models.TaskAgentReference>`
+    :type agent: :class:`TaskAgentReference <azure.devops.v5_1.task_agent.models.TaskAgentReference>`
     :param agent_cloud_id:
     :type agent_cloud_id: int
     :param agent_connected_time:
     :type agent_connected_time: datetime
     :param agent_data:
-    :type agent_data: :class:`object <azure.devops.v5_1..models.object>`
+    :type agent_data: :class:`object <azure.devops.v5_1.task_agent.models.object>`
     :param agent_specification:
-    :type agent_specification: :class:`object <azure.devops.v5_1..models.object>`
+    :type agent_specification: :class:`object <azure.devops.v5_1.task_agent.models.object>`
     :param pool:
-    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1..models.TaskAgentPoolReference>`
+    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1.task_agent.models.TaskAgentPoolReference>`
     :param provisioned_time:
     :type provisioned_time: datetime
     :param provision_request_time:
@@ -2063,7 +2063,7 @@ class TaskAgentCloudType(Model):
     :param display_name: Gets or sets the display name of agnet cloud type.
     :type display_name: str
     :param input_descriptors: Gets or sets the input descriptors
-    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1..models.InputDescriptor>`
+    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1.task_agent.models.InputDescriptor>`
     :param name: Gets or sets the name of agent cloud type.
     :type name: str
     """
@@ -2087,7 +2087,7 @@ class TaskAgentDelaySource(Model):
     :param delays:
     :type delays: list of object
     :param task_agent:
-    :type task_agent: :class:`TaskAgentReference <azure.devops.v5_1..models.TaskAgentReference>`
+    :type task_agent: :class:`TaskAgentReference <azure.devops.v5_1.task_agent.models.TaskAgentReference>`
     """
 
     _attribute_map = {
@@ -2105,17 +2105,17 @@ class TaskAgentJobRequest(Model):
     """TaskAgentJobRequest.
 
     :param agent_delays:
-    :type agent_delays: list of :class:`TaskAgentDelaySource <azure.devops.v5_1..models.TaskAgentDelaySource>`
+    :type agent_delays: list of :class:`TaskAgentDelaySource <azure.devops.v5_1.task_agent.models.TaskAgentDelaySource>`
     :param agent_specification:
-    :type agent_specification: :class:`object <azure.devops.v5_1..models.object>`
+    :type agent_specification: :class:`object <azure.devops.v5_1.task_agent.models.object>`
     :param assign_time:
     :type assign_time: datetime
     :param data:
     :type data: dict
     :param definition:
-    :type definition: :class:`TaskOrchestrationOwner <azure.devops.v5_1..models.TaskOrchestrationOwner>`
+    :type definition: :class:`TaskOrchestrationOwner <azure.devops.v5_1.task_agent.models.TaskOrchestrationOwner>`
     :param demands:
-    :type demands: list of :class:`object <azure.devops.v5_1..models.object>`
+    :type demands: list of :class:`object <azure.devops.v5_1.task_agent.models.object>`
     :param expected_duration:
     :type expected_duration: object
     :param finish_time:
@@ -2129,13 +2129,13 @@ class TaskAgentJobRequest(Model):
     :param locked_until:
     :type locked_until: datetime
     :param matched_agents:
-    :type matched_agents: list of :class:`TaskAgentReference <azure.devops.v5_1..models.TaskAgentReference>`
+    :type matched_agents: list of :class:`TaskAgentReference <azure.devops.v5_1.task_agent.models.TaskAgentReference>`
     :param matches_all_agents_in_pool:
     :type matches_all_agents_in_pool: bool
     :param orchestration_id:
     :type orchestration_id: str
     :param owner:
-    :type owner: :class:`TaskOrchestrationOwner <azure.devops.v5_1..models.TaskOrchestrationOwner>`
+    :type owner: :class:`TaskOrchestrationOwner <azure.devops.v5_1.task_agent.models.TaskOrchestrationOwner>`
     :param plan_group:
     :type plan_group: str
     :param plan_id:
@@ -2153,7 +2153,7 @@ class TaskAgentJobRequest(Model):
     :param request_id:
     :type request_id: long
     :param reserved_agent:
-    :type reserved_agent: :class:`TaskAgentReference <azure.devops.v5_1..models.TaskAgentReference>`
+    :type reserved_agent: :class:`TaskAgentReference <azure.devops.v5_1.task_agent.models.TaskAgentReference>`
     :param result:
     :type result: object
     :param scope_id:
@@ -2269,13 +2269,13 @@ class TaskAgentPoolMaintenanceDefinition(Model):
     :param max_concurrent_agents_percentage: Max percentage of agents within a pool running maintenance job at given time
     :type max_concurrent_agents_percentage: int
     :param options:
-    :type options: :class:`TaskAgentPoolMaintenanceOptions <azure.devops.v5_1..models.TaskAgentPoolMaintenanceOptions>`
+    :type options: :class:`TaskAgentPoolMaintenanceOptions <azure.devops.v5_1.task_agent.models.TaskAgentPoolMaintenanceOptions>`
     :param pool: Pool reference for the maintenance definition
-    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1..models.TaskAgentPoolReference>`
+    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1.task_agent.models.TaskAgentPoolReference>`
     :param retention_policy:
-    :type retention_policy: :class:`TaskAgentPoolMaintenanceRetentionPolicy <azure.devops.v5_1..models.TaskAgentPoolMaintenanceRetentionPolicy>`
+    :type retention_policy: :class:`TaskAgentPoolMaintenanceRetentionPolicy <azure.devops.v5_1.task_agent.models.TaskAgentPoolMaintenanceRetentionPolicy>`
     :param schedule_setting:
-    :type schedule_setting: :class:`TaskAgentPoolMaintenanceSchedule <azure.devops.v5_1..models.TaskAgentPoolMaintenanceSchedule>`
+    :type schedule_setting: :class:`TaskAgentPoolMaintenanceSchedule <azure.devops.v5_1.task_agent.models.TaskAgentPoolMaintenanceSchedule>`
     """
 
     _attribute_map = {
@@ -2317,11 +2317,11 @@ class TaskAgentPoolMaintenanceJob(Model):
     :param orchestration_id: Orchestration/Plan Id for the maintenance job
     :type orchestration_id: str
     :param pool: Pool reference for the maintenance job
-    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1..models.TaskAgentPoolReference>`
+    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1.task_agent.models.TaskAgentPoolReference>`
     :param queue_time: Time that the maintenance job was queued
     :type queue_time: datetime
     :param requested_by: The identity that queued the maintenance job
-    :type requested_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type requested_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param result: The maintenance job result
     :type result: object
     :param start_time: Time that the maintenance job was started
@@ -2329,7 +2329,7 @@ class TaskAgentPoolMaintenanceJob(Model):
     :param status: Status of the maintenance job
     :type status: object
     :param target_agents:
-    :type target_agents: list of :class:`TaskAgentPoolMaintenanceJobTargetAgent <azure.devops.v5_1..models.TaskAgentPoolMaintenanceJobTargetAgent>`
+    :type target_agents: list of :class:`TaskAgentPoolMaintenanceJobTargetAgent <azure.devops.v5_1.task_agent.models.TaskAgentPoolMaintenanceJobTargetAgent>`
     :param warning_count: The total warning counts during the maintenance job
     :type warning_count: int
     """
@@ -2373,7 +2373,7 @@ class TaskAgentPoolMaintenanceJobTargetAgent(Model):
     """TaskAgentPoolMaintenanceJobTargetAgent.
 
     :param agent:
-    :type agent: :class:`TaskAgentReference <azure.devops.v5_1..models.TaskAgentReference>`
+    :type agent: :class:`TaskAgentReference <azure.devops.v5_1.task_agent.models.TaskAgentReference>`
     :param job_id:
     :type job_id: int
     :param result:
@@ -2525,7 +2525,7 @@ class TaskAgentQueue(Model):
     :param name: Name of the queue
     :type name: str
     :param pool: Pool reference for this queue
-    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1..models.TaskAgentPoolReference>`
+    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1.task_agent.models.TaskAgentPoolReference>`
     :param project_id: Project Id
     :type project_id: str
     """
@@ -2549,7 +2549,7 @@ class TaskAgentReference(Model):
     """TaskAgentReference.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.task_agent.models.ReferenceLinks>`
     :param access_point: Gets the access point of the agent.
     :type access_point: str
     :param enabled: Gets or sets a value indicating whether or not this agent should be enabled for job execution.
@@ -2597,9 +2597,9 @@ class TaskAgentSession(Model):
     """TaskAgentSession.
 
     :param agent: Gets or sets the agent which is the target of the session.
-    :type agent: :class:`TaskAgentReference <azure.devops.v5_1..models.TaskAgentReference>`
+    :type agent: :class:`TaskAgentReference <azure.devops.v5_1.task_agent.models.TaskAgentReference>`
     :param encryption_key: Gets the key used to encrypt message traffic for this session.
-    :type encryption_key: :class:`TaskAgentSessionKey <azure.devops.v5_1..models.TaskAgentSessionKey>`
+    :type encryption_key: :class:`TaskAgentSessionKey <azure.devops.v5_1.task_agent.models.TaskAgentSessionKey>`
     :param owner_name: Gets or sets the owner name of this session. Generally this will be the machine of origination.
     :type owner_name: str
     :param session_id: Gets the unique identifier for this session.
@@ -2651,15 +2651,15 @@ class TaskAgentUpdate(Model):
     :param current_state: The current state of this agent update
     :type current_state: str
     :param reason: The reason of this agent update
-    :type reason: :class:`TaskAgentUpdateReason <azure.devops.v5_1..models.TaskAgentUpdateReason>`
+    :type reason: :class:`TaskAgentUpdateReason <azure.devops.v5_1.task_agent.models.TaskAgentUpdateReason>`
     :param requested_by: The identity that request the agent update
-    :type requested_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type requested_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param request_time: Gets the date on which this agent update was requested.
     :type request_time: datetime
     :param source_version: Gets or sets the source agent version of the agent update
-    :type source_version: :class:`PackageVersion <azure.devops.v5_1..models.PackageVersion>`
+    :type source_version: :class:`PackageVersion <azure.devops.v5_1.task_agent.models.PackageVersion>`
     :param target_version: Gets or sets the target agent version of the agent update
-    :type target_version: :class:`PackageVersion <azure.devops.v5_1..models.PackageVersion>`
+    :type target_version: :class:`PackageVersion <azure.devops.v5_1.task_agent.models.PackageVersion>`
     """
 
     _attribute_map = {
@@ -2701,7 +2701,7 @@ class TaskDefinition(Model):
     """TaskDefinition.
 
     :param agent_execution:
-    :type agent_execution: :class:`TaskExecution <azure.devops.v5_1..models.TaskExecution>`
+    :type agent_execution: :class:`TaskExecution <azure.devops.v5_1.task_agent.models.TaskExecution>`
     :param author:
     :type author: str
     :param category:
@@ -2713,11 +2713,11 @@ class TaskDefinition(Model):
     :param contribution_version:
     :type contribution_version: str
     :param data_source_bindings:
-    :type data_source_bindings: list of :class:`DataSourceBinding <azure.devops.v5_1..models.DataSourceBinding>`
+    :type data_source_bindings: list of :class:`DataSourceBinding <azure.devops.v5_1.task_agent.models.DataSourceBinding>`
     :param definition_type:
     :type definition_type: str
     :param demands:
-    :type demands: list of :class:`object <azure.devops.v5_1..models.object>`
+    :type demands: list of :class:`object <azure.devops.v5_1.task_agent.models.object>`
     :param deprecated:
     :type deprecated: bool
     :param description:
@@ -2731,7 +2731,7 @@ class TaskDefinition(Model):
     :param friendly_name:
     :type friendly_name: str
     :param groups:
-    :type groups: list of :class:`TaskGroupDefinition <azure.devops.v5_1..models.TaskGroupDefinition>`
+    :type groups: list of :class:`TaskGroupDefinition <azure.devops.v5_1.task_agent.models.TaskGroupDefinition>`
     :param help_mark_down:
     :type help_mark_down: str
     :param host_type:
@@ -2741,7 +2741,7 @@ class TaskDefinition(Model):
     :param id:
     :type id: str
     :param inputs:
-    :type inputs: list of :class:`TaskInputDefinition <azure.devops.v5_1..models.TaskInputDefinition>`
+    :type inputs: list of :class:`TaskInputDefinition <azure.devops.v5_1.task_agent.models.TaskInputDefinition>`
     :param instance_name_format:
     :type instance_name_format: str
     :param minimum_agent_version:
@@ -2749,7 +2749,7 @@ class TaskDefinition(Model):
     :param name:
     :type name: str
     :param output_variables:
-    :type output_variables: list of :class:`TaskOutputVariable <azure.devops.v5_1..models.TaskOutputVariable>`
+    :type output_variables: list of :class:`TaskOutputVariable <azure.devops.v5_1.task_agent.models.TaskOutputVariable>`
     :param package_location:
     :type package_location: str
     :param package_type:
@@ -2771,11 +2771,11 @@ class TaskDefinition(Model):
     :param show_environment_variables:
     :type show_environment_variables: bool
     :param source_definitions:
-    :type source_definitions: list of :class:`TaskSourceDefinition <azure.devops.v5_1..models.TaskSourceDefinition>`
+    :type source_definitions: list of :class:`TaskSourceDefinition <azure.devops.v5_1.task_agent.models.TaskSourceDefinition>`
     :param source_location:
     :type source_location: str
     :param version:
-    :type version: :class:`TaskVersion <azure.devops.v5_1..models.TaskVersion>`
+    :type version: :class:`TaskVersion <azure.devops.v5_1.task_agent.models.TaskVersion>`
     :param visibility:
     :type visibility: list of str
     """
@@ -2929,7 +2929,7 @@ class TaskExecution(Model):
     """TaskExecution.
 
     :param exec_task: The utility task to run.  Specifying this means that this task definition is simply a meta task to call another task. This is useful for tasks that call utility tasks like powershell and commandline
-    :type exec_task: :class:`TaskReference <azure.devops.v5_1..models.TaskReference>`
+    :type exec_task: :class:`TaskReference <azure.devops.v5_1.task_agent.models.TaskReference>`
     :param platform_instructions: If a task is going to run code, then this provides the type/script etc... information by platform. For example, it might look like. net45: { typeName: "Microsoft.TeamFoundation.Automation.Tasks.PowerShellTask", assemblyName: "Microsoft.TeamFoundation.Automation.Tasks.PowerShell.dll" } net20: { typeName: "Microsoft.TeamFoundation.Automation.Tasks.PowerShellTask", assemblyName: "Microsoft.TeamFoundation.Automation.Tasks.PowerShell.dll" } java: { jar: "powershelltask.tasks.automation.teamfoundation.microsoft.com", } node: { script: "powershellhost.js", }
     :type platform_instructions: dict
     """
@@ -2949,7 +2949,7 @@ class TaskGroup(TaskDefinition):
     """TaskGroup.
 
     :param agent_execution:
-    :type agent_execution: :class:`TaskExecution <azure.devops.v5_1..models.TaskExecution>`
+    :type agent_execution: :class:`TaskExecution <azure.devops.v5_1.task_agent.models.TaskExecution>`
     :param author:
     :type author: str
     :param category:
@@ -2961,11 +2961,11 @@ class TaskGroup(TaskDefinition):
     :param contribution_version:
     :type contribution_version: str
     :param data_source_bindings:
-    :type data_source_bindings: list of :class:`DataSourceBinding <azure.devops.v5_1..models.DataSourceBinding>`
+    :type data_source_bindings: list of :class:`DataSourceBinding <azure.devops.v5_1.task_agent.models.DataSourceBinding>`
     :param definition_type:
     :type definition_type: str
     :param demands:
-    :type demands: list of :class:`object <azure.devops.v5_1..models.object>`
+    :type demands: list of :class:`object <azure.devops.v5_1.task_agent.models.object>`
     :param deprecated:
     :type deprecated: bool
     :param description:
@@ -2979,7 +2979,7 @@ class TaskGroup(TaskDefinition):
     :param friendly_name:
     :type friendly_name: str
     :param groups:
-    :type groups: list of :class:`TaskGroupDefinition <azure.devops.v5_1..models.TaskGroupDefinition>`
+    :type groups: list of :class:`TaskGroupDefinition <azure.devops.v5_1.task_agent.models.TaskGroupDefinition>`
     :param help_mark_down:
     :type help_mark_down: str
     :param host_type:
@@ -2989,7 +2989,7 @@ class TaskGroup(TaskDefinition):
     :param id:
     :type id: str
     :param inputs:
-    :type inputs: list of :class:`TaskInputDefinition <azure.devops.v5_1..models.TaskInputDefinition>`
+    :type inputs: list of :class:`TaskInputDefinition <azure.devops.v5_1.task_agent.models.TaskInputDefinition>`
     :param instance_name_format:
     :type instance_name_format: str
     :param minimum_agent_version:
@@ -2997,7 +2997,7 @@ class TaskGroup(TaskDefinition):
     :param name:
     :type name: str
     :param output_variables:
-    :type output_variables: list of :class:`TaskOutputVariable <azure.devops.v5_1..models.TaskOutputVariable>`
+    :type output_variables: list of :class:`TaskOutputVariable <azure.devops.v5_1.task_agent.models.TaskOutputVariable>`
     :param package_location:
     :type package_location: str
     :param package_type:
@@ -3019,23 +3019,23 @@ class TaskGroup(TaskDefinition):
     :param show_environment_variables:
     :type show_environment_variables: bool
     :param source_definitions:
-    :type source_definitions: list of :class:`TaskSourceDefinition <azure.devops.v5_1..models.TaskSourceDefinition>`
+    :type source_definitions: list of :class:`TaskSourceDefinition <azure.devops.v5_1.task_agent.models.TaskSourceDefinition>`
     :param source_location:
     :type source_location: str
     :param version:
-    :type version: :class:`TaskVersion <azure.devops.v5_1..models.TaskVersion>`
+    :type version: :class:`TaskVersion <azure.devops.v5_1.task_agent.models.TaskVersion>`
     :param visibility:
     :type visibility: list of str
     :param comment: Gets or sets comment.
     :type comment: str
     :param created_by: Gets or sets the identity who created.
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param created_on: Gets or sets date on which it got created.
     :type created_on: datetime
     :param deleted: Gets or sets as 'true' to indicate as deleted, 'false' otherwise.
     :type deleted: bool
     :param modified_by: Gets or sets the identity who modified.
-    :type modified_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type modified_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param modified_on: Gets or sets date on which it got modified.
     :type modified_on: datetime
     :param owner: Gets or sets the owner.
@@ -3045,7 +3045,7 @@ class TaskGroup(TaskDefinition):
     :param revision: Gets or sets revision.
     :type revision: int
     :param tasks: Gets or sets the tasks.
-    :type tasks: list of :class:`TaskGroupStep <azure.devops.v5_1..models.TaskGroupStep>`
+    :type tasks: list of :class:`TaskGroupStep <azure.devops.v5_1.task_agent.models.TaskGroupStep>`
     """
 
     _attribute_map = {
@@ -3128,7 +3128,7 @@ class TaskGroupCreateParameter(Model):
     :param icon_url: Sets url icon of the task group.
     :type icon_url: str
     :param inputs: Sets input for the task group.
-    :type inputs: list of :class:`TaskInputDefinition <azure.devops.v5_1..models.TaskInputDefinition>`
+    :type inputs: list of :class:`TaskInputDefinition <azure.devops.v5_1.task_agent.models.TaskInputDefinition>`
     :param instance_name_format: Sets display name of the task group.
     :type instance_name_format: str
     :param name: Sets name of the task group.
@@ -3138,9 +3138,9 @@ class TaskGroupCreateParameter(Model):
     :param runs_on: Sets RunsOn of the task group. Value can be 'Agent', 'Server' or 'DeploymentGroup'.
     :type runs_on: list of str
     :param tasks: Sets tasks for the task group.
-    :type tasks: list of :class:`TaskGroupStep <azure.devops.v5_1..models.TaskGroupStep>`
+    :type tasks: list of :class:`TaskGroupStep <azure.devops.v5_1.task_agent.models.TaskGroupStep>`
     :param version: Sets version of the task group.
-    :type version: :class:`TaskVersion <azure.devops.v5_1..models.TaskVersion>`
+    :type version: :class:`TaskVersion <azure.devops.v5_1.task_agent.models.TaskVersion>`
     """
 
     _attribute_map = {
@@ -3210,7 +3210,7 @@ class TaskGroupRevision(Model):
     """TaskGroupRevision.
 
     :param changed_by:
-    :type changed_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type changed_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param changed_date:
     :type changed_date: datetime
     :param change_type:
@@ -3264,7 +3264,7 @@ class TaskGroupStep(Model):
     :param inputs: Gets or sets dictionary of inputs.
     :type inputs: dict
     :param task: Gets or sets the reference of the task.
-    :type task: :class:`TaskDefinitionReference <azure.devops.v5_1..models.TaskDefinitionReference>`
+    :type task: :class:`TaskDefinitionReference <azure.devops.v5_1.task_agent.models.TaskDefinitionReference>`
     :param timeout_in_minutes: Gets or sets the maximum time, in minutes, that a task is allowed to execute on agent before being cancelled by server. A zero value indicates an infinite timeout.
     :type timeout_in_minutes: int
     """
@@ -3312,7 +3312,7 @@ class TaskGroupUpdateParameter(Model):
     :param id: Sets the unique identifier of this field.
     :type id: str
     :param inputs: Sets input for the task group.
-    :type inputs: list of :class:`TaskInputDefinition <azure.devops.v5_1..models.TaskInputDefinition>`
+    :type inputs: list of :class:`TaskInputDefinition <azure.devops.v5_1.task_agent.models.TaskInputDefinition>`
     :param instance_name_format: Sets display name of the task group.
     :type instance_name_format: str
     :param name: Sets name of the task group.
@@ -3324,9 +3324,9 @@ class TaskGroupUpdateParameter(Model):
     :param runs_on: Sets RunsOn of the task group. Value can be 'Agent', 'Server' or 'DeploymentGroup'.
     :type runs_on: list of str
     :param tasks: Sets tasks for the task group.
-    :type tasks: list of :class:`TaskGroupStep <azure.devops.v5_1..models.TaskGroupStep>`
+    :type tasks: list of :class:`TaskGroupStep <azure.devops.v5_1.task_agent.models.TaskGroupStep>`
     :param version: Sets version of the task group.
-    :type version: :class:`TaskVersion <azure.devops.v5_1..models.TaskVersion>`
+    :type version: :class:`TaskVersion <azure.devops.v5_1.task_agent.models.TaskVersion>`
     """
 
     _attribute_map = {
@@ -3386,7 +3386,7 @@ class TaskHubLicenseDetails(Model):
     :param hosted_licenses_are_premium:
     :type hosted_licenses_are_premium: bool
     :param marketplace_purchased_hosted_licenses:
-    :type marketplace_purchased_hosted_licenses: list of :class:`MarketplacePurchasedLicense <azure.devops.v5_1..models.MarketplacePurchasedLicense>`
+    :type marketplace_purchased_hosted_licenses: list of :class:`MarketplacePurchasedLicense <azure.devops.v5_1.task_agent.models.MarketplacePurchasedLicense>`
     :param msdn_users_count:
     :type msdn_users_count: int
     :param purchased_hosted_license_count: Microsoft-hosted licenses purchased from VSTS directly.
@@ -3462,7 +3462,7 @@ class TaskInputDefinitionBase(Model):
     :param type:
     :type type: str
     :param validation:
-    :type validation: :class:`TaskInputValidation <azure.devops.v5_1..models.TaskInputValidation>`
+    :type validation: :class:`TaskInputValidation <azure.devops.v5_1.microsoft._team_foundation._distributed_task._common._contracts.models.TaskInputValidation>`
     :param visible_rule:
     :type visible_rule: str
     """
@@ -3522,7 +3522,7 @@ class TaskOrchestrationOwner(Model):
     """TaskOrchestrationOwner.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.task_agent.models.ReferenceLinks>`
     :param id:
     :type id: int
     :param name:
@@ -3706,7 +3706,7 @@ class VariableGroup(Model):
     """VariableGroup.
 
     :param created_by: Gets or sets the identity who created the variable group.
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param created_on: Gets or sets the time when variable group was created.
     :type created_on: datetime
     :param description: Gets or sets description of the variable group.
@@ -3716,13 +3716,13 @@ class VariableGroup(Model):
     :param is_shared: Indicates whether variable group is shared with other projects or not.
     :type is_shared: bool
     :param modified_by: Gets or sets the identity who modified the variable group.
-    :type modified_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type modified_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param modified_on: Gets or sets the time when variable group was modified
     :type modified_on: datetime
     :param name: Gets or sets name of the variable group.
     :type name: str
     :param provider_data: Gets or sets provider data.
-    :type provider_data: :class:`VariableGroupProviderData <azure.devops.v5_1..models.VariableGroupProviderData>`
+    :type provider_data: :class:`VariableGroupProviderData <azure.devops.v5_1.task_agent.models.VariableGroupProviderData>`
     :param type: Gets or sets type of the variable group.
     :type type: str
     :param variables: Gets or sets variables contained in the variable group.
@@ -3766,7 +3766,7 @@ class VariableGroupParameters(Model):
     :param name: Sets name of the variable group.
     :type name: str
     :param provider_data: Sets provider data.
-    :type provider_data: :class:`VariableGroupProviderData <azure.devops.v5_1..models.VariableGroupProviderData>`
+    :type provider_data: :class:`VariableGroupProviderData <azure.devops.v5_1.task_agent.models.VariableGroupProviderData>`
     :param type: Sets type of the variable group.
     :type type: str
     :param variables: Sets variables contained in the variable group.
@@ -3826,7 +3826,7 @@ class VirtualMachine(Model):
     """VirtualMachine.
 
     :param agent:
-    :type agent: :class:`TaskAgent <azure.devops.v5_1..models.TaskAgent>`
+    :type agent: :class:`TaskAgent <azure.devops.v5_1.task_agent.models.TaskAgent>`
     :param id:
     :type id: int
     :param tags:
@@ -3850,15 +3850,15 @@ class VirtualMachineGroup(ServiceGroup):
     """VirtualMachineGroup.
 
     :param created_by:
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param created_on:
     :type created_on: datetime
     :param environment_reference:
-    :type environment_reference: :class:`EnvironmentReference <azure.devops.v5_1..models.EnvironmentReference>`
+    :type environment_reference: :class:`EnvironmentReference <azure.devops.v5_1.task_agent.models.EnvironmentReference>`
     :param id:
     :type id: int
     :param last_modified_by:
-    :type last_modified_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type last_modified_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param last_modified_on:
     :type last_modified_on: datetime
     :param name:
@@ -3916,7 +3916,7 @@ class DataSourceBinding(DataSourceBindingBase):
     :param endpoint_url: Gets or sets the url of the service endpoint.
     :type endpoint_url: str
     :param headers: Gets or sets the authorization headers.
-    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1..models.AuthorizationHeader>`
+    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1.task_agent.models.AuthorizationHeader>`
     :param initial_context_template: Defines the initial value of the query params
     :type initial_context_template: str
     :param parameters: Gets or sets the parameters for the data source.
@@ -3961,15 +3961,15 @@ class DeploymentGroup(DeploymentGroupReference):
     :param name: Name of the deployment group.
     :type name: str
     :param pool: Deployment pool in which deployment agents are registered.
-    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1..models.TaskAgentPoolReference>`
+    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1.task_agent.models.TaskAgentPoolReference>`
     :param project: Project to which the deployment group belongs.
-    :type project: :class:`ProjectReference <azure.devops.v5_1..models.ProjectReference>`
+    :type project: :class:`ProjectReference <azure.devops.v5_1.task_agent.models.ProjectReference>`
     :param description: Description of the deployment group.
     :type description: str
     :param machine_count: Number of deployment targets in the deployment group.
     :type machine_count: int
     :param machines: List of deployment targets in the deployment group.
-    :type machines: list of :class:`DeploymentMachine <azure.devops.v5_1..models.DeploymentMachine>`
+    :type machines: list of :class:`DeploymentMachine <azure.devops.v5_1.task_agent.models.DeploymentMachine>`
     :param machine_tags: List of unique tags across all deployment targets in the deployment group.
     :type machine_tags: list of str
     """
@@ -4001,11 +4001,11 @@ class DeploymentMachineGroup(DeploymentMachineGroupReference):
     :param name:
     :type name: str
     :param pool:
-    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1..models.TaskAgentPoolReference>`
+    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1.task_agent.models.TaskAgentPoolReference>`
     :param project:
-    :type project: :class:`ProjectReference <azure.devops.v5_1..models.ProjectReference>`
+    :type project: :class:`ProjectReference <azure.devops.v5_1.task_agent.models.ProjectReference>`
     :param machines:
-    :type machines: list of :class:`DeploymentMachine <azure.devops.v5_1..models.DeploymentMachine>`
+    :type machines: list of :class:`DeploymentMachine <azure.devops.v5_1.task_agent.models.DeploymentMachine>`
     :param size:
     :type size: int
     """
@@ -4029,15 +4029,15 @@ class KubernetesServiceGroup(ServiceGroup):
     """KubernetesServiceGroup.
 
     :param created_by:
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param created_on:
     :type created_on: datetime
     :param environment_reference:
-    :type environment_reference: :class:`EnvironmentReference <azure.devops.v5_1..models.EnvironmentReference>`
+    :type environment_reference: :class:`EnvironmentReference <azure.devops.v5_1.task_agent.models.EnvironmentReference>`
     :param id:
     :type id: int
     :param last_modified_by:
-    :type last_modified_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type last_modified_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param last_modified_on:
     :type last_modified_on: datetime
     :param name:
@@ -4073,7 +4073,7 @@ class TaskAgent(TaskAgentReference):
     """TaskAgent.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.task_agent.models.ReferenceLinks>`
     :param access_point: Gets the access point of the agent.
     :type access_point: str
     :param enabled: Gets or sets a value indicating whether or not this agent should be enabled for job execution.
@@ -4091,21 +4091,21 @@ class TaskAgent(TaskAgentReference):
     :param version: Gets the version of the agent.
     :type version: str
     :param assigned_agent_cloud_request: Gets the Agent Cloud Request that's currently associated with this agent
-    :type assigned_agent_cloud_request: :class:`TaskAgentCloudRequest <azure.devops.v5_1..models.TaskAgentCloudRequest>`
+    :type assigned_agent_cloud_request: :class:`TaskAgentCloudRequest <azure.devops.v5_1.task_agent.models.TaskAgentCloudRequest>`
     :param assigned_request: Gets the request which is currently assigned to this agent.
-    :type assigned_request: :class:`TaskAgentJobRequest <azure.devops.v5_1..models.TaskAgentJobRequest>`
+    :type assigned_request: :class:`TaskAgentJobRequest <azure.devops.v5_1.task_agent.models.TaskAgentJobRequest>`
     :param authorization: Gets or sets the authorization information for this agent.
-    :type authorization: :class:`TaskAgentAuthorization <azure.devops.v5_1..models.TaskAgentAuthorization>`
+    :type authorization: :class:`TaskAgentAuthorization <azure.devops.v5_1.task_agent.models.TaskAgentAuthorization>`
     :param created_on: Gets the date on which this agent was created.
     :type created_on: datetime
     :param last_completed_request: Gets the last request which was completed by this agent.
-    :type last_completed_request: :class:`TaskAgentJobRequest <azure.devops.v5_1..models.TaskAgentJobRequest>`
+    :type last_completed_request: :class:`TaskAgentJobRequest <azure.devops.v5_1.task_agent.models.TaskAgentJobRequest>`
     :param max_parallelism: Gets or sets the maximum job parallelism allowed on this host.
     :type max_parallelism: int
     :param pending_update: Gets the pending update for this agent.
-    :type pending_update: :class:`TaskAgentUpdate <azure.devops.v5_1..models.TaskAgentUpdate>`
+    :type pending_update: :class:`TaskAgentUpdate <azure.devops.v5_1.task_agent.models.TaskAgentUpdate>`
     :param properties:
-    :type properties: :class:`object <azure.devops.v5_1..models.object>`
+    :type properties: :class:`object <azure.devops.v5_1.task_agent.models.object>`
     :param status_changed_on: Gets the date on which the last connectivity status change occurred.
     :type status_changed_on: datetime
     :param system_capabilities:
@@ -4174,13 +4174,13 @@ class TaskAgentPool(TaskAgentPoolReference):
     :param auto_size: Gets or sets a value indicating whether or not the pool should autosize itself based on the Agent Cloud Provider settings
     :type auto_size: bool
     :param created_by: Gets the identity who created this pool. The creator of the pool is automatically added into the administrators group for the pool on creation.
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param created_on: Gets the date/time of the pool creation.
     :type created_on: datetime
     :param owner: Gets the identity who owns or administrates this pool.
-    :type owner: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type owner: :class:`IdentityRef <azure.devops.v5_1.task_agent.models.IdentityRef>`
     :param properties:
-    :type properties: :class:`object <azure.devops.v5_1..models.object>`
+    :type properties: :class:`object <azure.devops.v5_1.task_agent.models.object>`
     :param target_size: Gets or sets a value indicating target parallelism
     :type target_size: int
     """
@@ -4238,7 +4238,7 @@ class TaskInputDefinition(TaskInputDefinitionBase):
     :param type:
     :type type: str
     :param validation:
-    :type validation: :class:`TaskInputValidation <azure.devops.v5_1..models.TaskInputValidation>`
+    :type validation: :class:`TaskInputValidation <azure.devops.v5_1.task_agent.models.TaskInputValidation>`
     :param visible_rule:
     :type visible_rule: str
     """

@@ -28,7 +28,7 @@ class UPackPackagingClient(Client):
     def add_package(self, metadata, feed_id, package_name, package_version):
         """AddPackage.
         [Preview API]
-        :param :class:`<UPackPackagePushMetadata> <azure.devops.v5_1.uPack_packaging.models.UPackPackagePushMetadata>` metadata:
+        :param :class:`<UPackPackagePushMetadata> <azure.devops.v5_1.upack_packaging.models.UPackPackagePushMetadata>` metadata:
         :param str feed_id:
         :param str package_name:
         :param str package_version:

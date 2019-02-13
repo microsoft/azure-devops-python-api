@@ -13,13 +13,13 @@ class AgentPoolQueue(Model):
     """AgentPoolQueue.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.build.models.ReferenceLinks>`
     :param id: The ID of the queue.
     :type id: int
     :param name: The name of the queue.
     :type name: str
     :param pool: The pool used by this queue.
-    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1..models.TaskAgentPoolReference>`
+    :type pool: :class:`TaskAgentPoolReference <azure.devops.v5_1.build.models.TaskAgentPoolReference>`
     :param url: The full http link to the resource.
     :type url: str
     """
@@ -49,11 +49,11 @@ class AggregatedResultsAnalysis(Model):
     :param not_reported_results_by_outcome:
     :type not_reported_results_by_outcome: dict
     :param previous_context:
-    :type previous_context: :class:`TestResultsContext <azure.devops.v5_1..models.TestResultsContext>`
+    :type previous_context: :class:`TestResultsContext <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.TestResultsContext>`
     :param results_by_outcome:
     :type results_by_outcome: dict
     :param results_difference:
-    :type results_difference: :class:`AggregatedResultsDifference <azure.devops.v5_1..models.AggregatedResultsDifference>`
+    :type results_difference: :class:`AggregatedResultsDifference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.AggregatedResultsDifference>`
     :param run_summary_by_outcome:
     :type run_summary_by_outcome: dict
     :param run_summary_by_state:
@@ -201,7 +201,7 @@ class ArtifactResource(Model):
     """ArtifactResource.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.build.models.ReferenceLinks>`
     :param data: Type-specific data about the artifact.
     :type data: str
     :param download_url: A link to download the resource.
@@ -277,7 +277,7 @@ class Attachment(Model):
     """Attachment.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.build.models.ReferenceLinks>`
     :param name: The name of the attachment.
     :type name: str
     """
@@ -317,25 +317,25 @@ class Build(Model):
     """Build.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.build.models.ReferenceLinks>`
     :param build_number: The build number/name of the build.
     :type build_number: str
     :param build_number_revision: The build number revision.
     :type build_number_revision: int
     :param controller: The build controller. This is only set if the definition type is Xaml.
-    :type controller: :class:`BuildController <azure.devops.v5_1..models.BuildController>`
+    :type controller: :class:`BuildController <azure.devops.v5_1.build.models.BuildController>`
     :param definition: The definition associated with the build.
-    :type definition: :class:`DefinitionReference <azure.devops.v5_1..models.DefinitionReference>`
+    :type definition: :class:`DefinitionReference <azure.devops.v5_1.build.models.DefinitionReference>`
     :param deleted: Indicates whether the build has been deleted.
     :type deleted: bool
     :param deleted_by: The identity of the process or person that deleted the build.
-    :type deleted_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type deleted_by: :class:`IdentityRef <azure.devops.v5_1.build.models.IdentityRef>`
     :param deleted_date: The date the build was deleted.
     :type deleted_date: datetime
     :param deleted_reason: The description of how the build was deleted.
     :type deleted_reason: str
     :param demands: A list of demands that represents the agent capabilities required by this build.
-    :type demands: list of :class:`object <azure.devops.v5_1..models.object>`
+    :type demands: list of :class:`object <azure.devops.v5_1.build.models.object>`
     :param finish_time: The time that the build was completed.
     :type finish_time: datetime
     :param id: The ID of the build.
@@ -343,27 +343,27 @@ class Build(Model):
     :param keep_forever: Indicates whether the build should be skipped by retention policies.
     :type keep_forever: bool
     :param last_changed_by: The identity representing the process or person that last changed the build.
-    :type last_changed_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type last_changed_by: :class:`IdentityRef <azure.devops.v5_1.build.models.IdentityRef>`
     :param last_changed_date: The date the build was last changed.
     :type last_changed_date: datetime
     :param logs: Information about the build logs.
-    :type logs: :class:`BuildLogReference <azure.devops.v5_1..models.BuildLogReference>`
+    :type logs: :class:`BuildLogReference <azure.devops.v5_1.build.models.BuildLogReference>`
     :param orchestration_plan: The orchestration plan for the build.
-    :type orchestration_plan: :class:`TaskOrchestrationPlanReference <azure.devops.v5_1..models.TaskOrchestrationPlanReference>`
+    :type orchestration_plan: :class:`TaskOrchestrationPlanReference <azure.devops.v5_1.build.models.TaskOrchestrationPlanReference>`
     :param parameters: The parameters for the build.
     :type parameters: str
     :param plans: Orchestration plans associated with the build (build, cleanup)
-    :type plans: list of :class:`TaskOrchestrationPlanReference <azure.devops.v5_1..models.TaskOrchestrationPlanReference>`
+    :type plans: list of :class:`TaskOrchestrationPlanReference <azure.devops.v5_1.build.models.TaskOrchestrationPlanReference>`
     :param priority: The build's priority.
     :type priority: object
     :param project: The team project.
-    :type project: :class:`TeamProjectReference <azure.devops.v5_1..models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <azure.devops.v5_1.build.models.TeamProjectReference>`
     :param properties:
-    :type properties: :class:`object <azure.devops.v5_1..models.object>`
+    :type properties: :class:`object <azure.devops.v5_1.build.models.object>`
     :param quality: The quality of the xaml build (good, bad, etc.)
     :type quality: str
     :param queue: The queue. This is only set if the definition type is Build.
-    :type queue: :class:`AgentPoolQueue <azure.devops.v5_1..models.AgentPoolQueue>`
+    :type queue: :class:`AgentPoolQueue <azure.devops.v5_1.build.models.AgentPoolQueue>`
     :param queue_options: Additional options for queueing the build.
     :type queue_options: object
     :param queue_position: The current position of the build in the queue.
@@ -373,11 +373,11 @@ class Build(Model):
     :param reason: The reason that the build was created.
     :type reason: object
     :param repository: The repository.
-    :type repository: :class:`BuildRepository <azure.devops.v5_1..models.BuildRepository>`
+    :type repository: :class:`BuildRepository <azure.devops.v5_1.build.models.BuildRepository>`
     :param requested_by: The identity that queued the build.
-    :type requested_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type requested_by: :class:`IdentityRef <azure.devops.v5_1.build.models.IdentityRef>`
     :param requested_for: The identity on whose behalf the build was queued.
-    :type requested_for: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type requested_for: :class:`IdentityRef <azure.devops.v5_1.build.models.IdentityRef>`
     :param result: The build result.
     :type result: object
     :param retained_by_release: Indicates whether the build is retained by a release.
@@ -393,7 +393,7 @@ class Build(Model):
     :param tags:
     :type tags: list of str
     :param triggered_by_build: The build that triggered this build via a Build completion trigger.
-    :type triggered_by_build: :class:`Build <azure.devops.v5_1..models.Build>`
+    :type triggered_by_build: :class:`Build <azure.devops.v5_1.build.models.Build>`
     :param trigger_info: Sourceprovider-specific information about what triggered the build
     :type trigger_info: dict
     :param uri: The URI of the build.
@@ -401,7 +401,7 @@ class Build(Model):
     :param url: The REST URL of the build.
     :type url: str
     :param validation_results:
-    :type validation_results: list of :class:`BuildRequestValidationResult <azure.devops.v5_1..models.BuildRequestValidationResult>`
+    :type validation_results: list of :class:`BuildRequestValidationResult <azure.devops.v5_1.build.models.BuildRequestValidationResult>`
     """
 
     _attribute_map = {
@@ -505,7 +505,7 @@ class BuildArtifact(Model):
     :param name: The name of the artifact.
     :type name: str
     :param resource: The actual resource.
-    :type resource: :class:`ArtifactResource <azure.devops.v5_1..models.ArtifactResource>`
+    :type resource: :class:`ArtifactResource <azure.devops.v5_1.build.models.ArtifactResource>`
     """
 
     _attribute_map = {
@@ -545,7 +545,7 @@ class BuildDefinitionRevision(Model):
     """BuildDefinitionRevision.
 
     :param changed_by: The identity of the person or process that changed the definition.
-    :type changed_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type changed_by: :class:`IdentityRef <azure.devops.v5_1.build.models.IdentityRef>`
     :param changed_date: The date and time that the definition was changed.
     :type changed_date: datetime
     :param change_type: The change type (add, edit, delete).
@@ -601,7 +601,7 @@ class BuildDefinitionStep(Model):
     :param ref_name: The reference name for this step.
     :type ref_name: str
     :param task: The task associated with this step.
-    :type task: :class:`TaskDefinitionReference <azure.devops.v5_1..models.TaskDefinitionReference>`
+    :type task: :class:`TaskDefinitionReference <azure.devops.v5_1.build.models.TaskDefinitionReference>`
     :param timeout_in_minutes: The time, in minutes, that this step is allowed to run.
     :type timeout_in_minutes: int
     """
@@ -653,7 +653,7 @@ class BuildDefinitionTemplate(Model):
     :param name: The name of the template.
     :type name: str
     :param template: The actual template.
-    :type template: :class:`BuildDefinition <azure.devops.v5_1..models.BuildDefinition>`
+    :type template: :class:`BuildDefinition <azure.devops.v5_1.build.models.BuildDefinition>`
     """
 
     _attribute_map = {
@@ -701,7 +701,7 @@ class BuildDefinitionTemplate3_2(Model):
     :param name:
     :type name: str
     :param template:
-    :type template: :class:`BuildDefinition3_2 <azure.devops.v5_1..models.BuildDefinition3_2>`
+    :type template: :class:`BuildDefinition3_2 <azure.devops.v5_1.build.models.BuildDefinition3_2>`
     """
 
     _attribute_map = {
@@ -809,7 +809,7 @@ class BuildOption(Model):
     """BuildOption.
 
     :param definition: A reference to the build option.
-    :type definition: :class:`BuildOptionDefinitionReference <azure.devops.v5_1..models.BuildOptionDefinitionReference>`
+    :type definition: :class:`BuildOptionDefinitionReference <azure.devops.v5_1.build.models.BuildOptionDefinitionReference>`
     :param enabled: Indicates whether the behavior is enabled.
     :type enabled: bool
     :param inputs:
@@ -1043,9 +1043,9 @@ class BuildSettings(Model):
     :param days_to_keep_deleted_builds_before_destroy: The number of days to keep records of deleted builds.
     :type days_to_keep_deleted_builds_before_destroy: int
     :param default_retention_policy: The default retention policy.
-    :type default_retention_policy: :class:`RetentionPolicy <azure.devops.v5_1..models.RetentionPolicy>`
+    :type default_retention_policy: :class:`RetentionPolicy <azure.devops.v5_1.build.models.RetentionPolicy>`
     :param maximum_retention_policy: The maximum retention policy.
-    :type maximum_retention_policy: :class:`RetentionPolicy <azure.devops.v5_1..models.RetentionPolicy>`
+    :type maximum_retention_policy: :class:`RetentionPolicy <azure.devops.v5_1.build.models.RetentionPolicy>`
     """
 
     _attribute_map = {
@@ -1065,7 +1065,7 @@ class Change(Model):
     """Change.
 
     :param author: The author of the change.
-    :type author: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type author: :class:`IdentityRef <azure.devops.v5_1.build.models.IdentityRef>`
     :param display_uri: The location of a user-friendly representation of the resource.
     :type display_uri: str
     :param id: The identifier for the change. For a commit, this would be the SHA1. For a TFVC changeset, this would be the changeset ID.
@@ -1123,7 +1123,7 @@ class DataSourceBindingBase(Model):
     :param endpoint_url: Gets or sets the url of the service endpoint.
     :type endpoint_url: str
     :param headers: Gets or sets the authorization headers.
-    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1..models.AuthorizationHeader>`
+    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1.microsoft._team_foundation._distributed_task._common._contracts.models.AuthorizationHeader>`
     :param initial_context_template: Defines the initial value of the query params
     :type initial_context_template: str
     :param parameters: Gets or sets the parameters for the data source.
@@ -1185,7 +1185,7 @@ class DefinitionReference(Model):
     :param path: The folder path of the definition.
     :type path: str
     :param project: A reference to the project.
-    :type project: :class:`TeamProjectReference <azure.devops.v5_1..models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <azure.devops.v5_1.build.models.TeamProjectReference>`
     :param queue_status: A value that indicates whether builds can be queued against this definition.
     :type queue_status: object
     :param revision: The definition revision number.
@@ -1273,19 +1273,19 @@ class Folder(Model):
     """Folder.
 
     :param created_by: The process or person who created the folder.
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.build.models.IdentityRef>`
     :param created_on: The date the folder was created.
     :type created_on: datetime
     :param description: The description.
     :type description: str
     :param last_changed_by: The process or person that last changed the folder.
-    :type last_changed_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type last_changed_by: :class:`IdentityRef <azure.devops.v5_1.build.models.IdentityRef>`
     :param last_changed_date: The date the folder was last changed.
     :type last_changed_date: datetime
     :param path: The full path.
     :type path: str
     :param project: The project.
-    :type project: :class:`TeamProjectReference <azure.devops.v5_1..models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <azure.devops.v5_1.build.models.TeamProjectReference>`
     """
 
     _attribute_map = {
@@ -1313,7 +1313,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -1341,7 +1341,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -1457,11 +1457,11 @@ class ProcessParameters(Model):
     """ProcessParameters.
 
     :param data_source_bindings:
-    :type data_source_bindings: list of :class:`DataSourceBindingBase <azure.devops.v5_1..models.DataSourceBindingBase>`
+    :type data_source_bindings: list of :class:`DataSourceBindingBase <azure.devops.v5_1.microsoft._team_foundation._distributed_task._common._contracts.models.DataSourceBindingBase>`
     :param inputs:
-    :type inputs: list of :class:`TaskInputDefinitionBase <azure.devops.v5_1..models.TaskInputDefinitionBase>`
+    :type inputs: list of :class:`TaskInputDefinitionBase <azure.devops.v5_1.microsoft._team_foundation._distributed_task._common._contracts.models.TaskInputDefinitionBase>`
     :param source_definitions:
-    :type source_definitions: list of :class:`TaskSourceDefinitionBase <azure.devops.v5_1..models.TaskSourceDefinitionBase>`
+    :type source_definitions: list of :class:`TaskSourceDefinitionBase <azure.devops.v5_1.microsoft._team_foundation._distributed_task._common._contracts.models.TaskSourceDefinitionBase>`
     """
 
     _attribute_map = {
@@ -1481,9 +1481,9 @@ class PullRequest(Model):
     """PullRequest.
 
     :param _links: The links to other objects related to this object.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.build.models.ReferenceLinks>`
     :param author: Author of the pull request.
-    :type author: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type author: :class:`IdentityRef <azure.devops.v5_1.build.models.IdentityRef>`
     :param current_state: Current state of the pull request, e.g. open, merged, closed, conflicts, etc.
     :type current_state: str
     :param description: Description for the pull request.
@@ -1693,7 +1693,7 @@ class SourceProviderAttributes(Model):
     :param supported_capabilities: The capabilities supported by this source provider.
     :type supported_capabilities: dict
     :param supported_triggers: The types of triggers supported by this source provider.
-    :type supported_triggers: list of :class:`SupportedTrigger <azure.devops.v5_1..models.SupportedTrigger>`
+    :type supported_triggers: list of :class:`SupportedTrigger <azure.devops.v5_1.build.models.SupportedTrigger>`
     """
 
     _attribute_map = {
@@ -1717,7 +1717,7 @@ class SourceRepositories(Model):
     :param page_length: The number of repositories requested for each page
     :type page_length: int
     :param repositories: A list of repositories
-    :type repositories: list of :class:`SourceRepository <azure.devops.v5_1..models.SourceRepository>`
+    :type repositories: list of :class:`SourceRepository <azure.devops.v5_1.build.models.SourceRepository>`
     :param total_page_count: The total number of pages, or '-1' if unknown
     :type total_page_count: int
     """
@@ -1905,7 +1905,7 @@ class TaskInputDefinitionBase(Model):
     :param type:
     :type type: str
     :param validation:
-    :type validation: :class:`TaskInputValidation <azure.devops.v5_1..models.TaskInputValidation>`
+    :type validation: :class:`TaskInputValidation <azure.devops.v5_1.microsoft._team_foundation._distributed_task._common._contracts.models.TaskInputValidation>`
     :param visible_rule:
     :type visible_rule: str
     """
@@ -2093,11 +2093,11 @@ class TestResultsContext(Model):
     """TestResultsContext.
 
     :param build:
-    :type build: :class:`BuildReference <azure.devops.v5_1..models.BuildReference>`
+    :type build: :class:`BuildReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.BuildReference>`
     :param context_type:
     :type context_type: object
     :param release:
-    :type release: :class:`ReleaseReference <azure.devops.v5_1..models.ReleaseReference>`
+    :type release: :class:`ReleaseReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.ReleaseReference>`
     """
 
     _attribute_map = {
@@ -2141,7 +2141,7 @@ class TimelineRecord(Model):
     """TimelineRecord.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.build.models.ReferenceLinks>`
     :param attempt: Attempt number of record.
     :type attempt: int
     :param change_id: The change ID.
@@ -2149,7 +2149,7 @@ class TimelineRecord(Model):
     :param current_operation: A string that indicates the current operation.
     :type current_operation: str
     :param details: A reference to a sub-timeline.
-    :type details: :class:`TimelineReference <azure.devops.v5_1..models.TimelineReference>`
+    :type details: :class:`TimelineReference <azure.devops.v5_1.build.models.TimelineReference>`
     :param error_count: The number of errors produced by this operation.
     :type error_count: int
     :param finish_time: The finish time.
@@ -2159,11 +2159,11 @@ class TimelineRecord(Model):
     :param identifier: String identifier that is consistent across attempts.
     :type identifier: str
     :param issues:
-    :type issues: list of :class:`Issue <azure.devops.v5_1..models.Issue>`
+    :type issues: list of :class:`Issue <azure.devops.v5_1.build.models.Issue>`
     :param last_modified: The time the record was last modified.
     :type last_modified: datetime
     :param log: A reference to the log produced by this operation.
-    :type log: :class:`BuildLogReference <azure.devops.v5_1..models.BuildLogReference>`
+    :type log: :class:`BuildLogReference <azure.devops.v5_1.build.models.BuildLogReference>`
     :param name: The name.
     :type name: str
     :param order: An ordinal value relative to other records.
@@ -2173,7 +2173,7 @@ class TimelineRecord(Model):
     :param percent_complete: The current completion percentage.
     :type percent_complete: int
     :param previous_attempts:
-    :type previous_attempts: list of :class:`TimelineAttempt <azure.devops.v5_1..models.TimelineAttempt>`
+    :type previous_attempts: list of :class:`TimelineAttempt <azure.devops.v5_1.build.models.TimelineAttempt>`
     :param result: The result.
     :type result: object
     :param result_code: The result code.
@@ -2183,7 +2183,7 @@ class TimelineRecord(Model):
     :param state: The state of the record.
     :type state: object
     :param task: A reference to the task represented by this timeline record.
-    :type task: :class:`TaskReference <azure.devops.v5_1..models.TaskReference>`
+    :type task: :class:`TaskReference <azure.devops.v5_1.build.models.TaskReference>`
     :param type: The type of the record.
     :type type: str
     :param url: The REST URL of the timeline record.
@@ -2351,7 +2351,7 @@ class BuildController(XamlBuildControllerReference):
     :param url: Full http link to the resource
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.build.models.ReferenceLinks>`
     :param created_date: The date the controller was created.
     :type created_date: datetime
     :param description: The description of the controller.
@@ -2402,7 +2402,7 @@ class BuildDefinitionReference(DefinitionReference):
     :param path: The folder path of the definition.
     :type path: str
     :param project: A reference to the project.
-    :type project: :class:`TeamProjectReference <azure.devops.v5_1..models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <azure.devops.v5_1.build.models.TeamProjectReference>`
     :param queue_status: A value that indicates whether builds can be queued against this definition.
     :type queue_status: object
     :param revision: The definition revision number.
@@ -2414,23 +2414,23 @@ class BuildDefinitionReference(DefinitionReference):
     :param url: The REST URL of the definition.
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.build.models.ReferenceLinks>`
     :param authored_by: The author of the definition.
-    :type authored_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type authored_by: :class:`IdentityRef <azure.devops.v5_1.build.models.IdentityRef>`
     :param draft_of: A reference to the definition that this definition is a draft of, if this is a draft definition.
-    :type draft_of: :class:`DefinitionReference <azure.devops.v5_1..models.DefinitionReference>`
+    :type draft_of: :class:`DefinitionReference <azure.devops.v5_1.build.models.DefinitionReference>`
     :param drafts: The list of drafts associated with this definition, if this is not a draft definition.
-    :type drafts: list of :class:`DefinitionReference <azure.devops.v5_1..models.DefinitionReference>`
+    :type drafts: list of :class:`DefinitionReference <azure.devops.v5_1.build.models.DefinitionReference>`
     :param latest_build:
-    :type latest_build: :class:`Build <azure.devops.v5_1..models.Build>`
+    :type latest_build: :class:`Build <azure.devops.v5_1.build.models.Build>`
     :param latest_completed_build:
-    :type latest_completed_build: :class:`Build <azure.devops.v5_1..models.Build>`
+    :type latest_completed_build: :class:`Build <azure.devops.v5_1.build.models.Build>`
     :param metrics:
-    :type metrics: list of :class:`BuildMetric <azure.devops.v5_1..models.BuildMetric>`
+    :type metrics: list of :class:`BuildMetric <azure.devops.v5_1.build.models.BuildMetric>`
     :param quality: The quality of the definition document (draft, etc.)
     :type quality: object
     :param queue: The default queue for builds run against this definition.
-    :type queue: :class:`AgentPoolQueue <azure.devops.v5_1..models.AgentPoolQueue>`
+    :type queue: :class:`AgentPoolQueue <azure.devops.v5_1.build.models.AgentPoolQueue>`
     """
 
     _attribute_map = {
@@ -2480,7 +2480,7 @@ class BuildDefinitionReference3_2(DefinitionReference):
     :param path: The folder path of the definition.
     :type path: str
     :param project: A reference to the project.
-    :type project: :class:`TeamProjectReference <azure.devops.v5_1..models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <azure.devops.v5_1.build.models.TeamProjectReference>`
     :param queue_status: A value that indicates whether builds can be queued against this definition.
     :type queue_status: object
     :param revision: The definition revision number.
@@ -2492,19 +2492,19 @@ class BuildDefinitionReference3_2(DefinitionReference):
     :param url: The REST URL of the definition.
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.build.models.ReferenceLinks>`
     :param authored_by: The author of the definition.
-    :type authored_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type authored_by: :class:`IdentityRef <azure.devops.v5_1.build.models.IdentityRef>`
     :param draft_of: A reference to the definition that this definition is a draft of, if this is a draft definition.
-    :type draft_of: :class:`DefinitionReference <azure.devops.v5_1..models.DefinitionReference>`
+    :type draft_of: :class:`DefinitionReference <azure.devops.v5_1.build.models.DefinitionReference>`
     :param drafts: The list of drafts associated with this definition, if this is not a draft definition.
-    :type drafts: list of :class:`DefinitionReference <azure.devops.v5_1..models.DefinitionReference>`
+    :type drafts: list of :class:`DefinitionReference <azure.devops.v5_1.build.models.DefinitionReference>`
     :param metrics:
-    :type metrics: list of :class:`BuildMetric <azure.devops.v5_1..models.BuildMetric>`
+    :type metrics: list of :class:`BuildMetric <azure.devops.v5_1.build.models.BuildMetric>`
     :param quality: The quality of the definition document (draft, etc.)
     :type quality: object
     :param queue: The default queue for builds run against this definition.
-    :type queue: :class:`AgentPoolQueue <azure.devops.v5_1..models.AgentPoolQueue>`
+    :type queue: :class:`AgentPoolQueue <azure.devops.v5_1.build.models.AgentPoolQueue>`
     """
 
     _attribute_map = {
@@ -2579,9 +2579,9 @@ class BuildOptionDefinition(BuildOptionDefinitionReference):
     :param description: The description.
     :type description: str
     :param groups: The list of input groups defined for the build option.
-    :type groups: list of :class:`BuildOptionGroupDefinition <azure.devops.v5_1..models.BuildOptionGroupDefinition>`
+    :type groups: list of :class:`BuildOptionGroupDefinition <azure.devops.v5_1.build.models.BuildOptionGroupDefinition>`
     :param inputs: The list of inputs defined for the build option.
-    :type inputs: list of :class:`BuildOptionInputDefinition <azure.devops.v5_1..models.BuildOptionInputDefinition>`
+    :type inputs: list of :class:`BuildOptionInputDefinition <azure.devops.v5_1.build.models.BuildOptionInputDefinition>`
     :param name: The name of the build option.
     :type name: str
     :param ordinal: A value that indicates the relative order in which the behavior should be applied.
@@ -2620,7 +2620,7 @@ class Timeline(TimelineReference):
     :param last_changed_on: The time the timeline was last changed.
     :type last_changed_on: datetime
     :param records:
-    :type records: list of :class:`TimelineRecord <azure.devops.v5_1..models.TimelineRecord>`
+    :type records: list of :class:`TimelineRecord <azure.devops.v5_1.build.models.TimelineRecord>`
     """
 
     _attribute_map = {
@@ -2685,7 +2685,7 @@ class BuildDefinition(BuildDefinitionReference):
     :param path: The folder path of the definition.
     :type path: str
     :param project: A reference to the project.
-    :type project: :class:`TeamProjectReference <azure.devops.v5_1..models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <azure.devops.v5_1.build.models.TeamProjectReference>`
     :param queue_status: A value that indicates whether builds can be queued against this definition.
     :type queue_status: object
     :param revision: The definition revision number.
@@ -2697,23 +2697,23 @@ class BuildDefinition(BuildDefinitionReference):
     :param url: The REST URL of the definition.
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.build.models.ReferenceLinks>`
     :param authored_by: The author of the definition.
-    :type authored_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type authored_by: :class:`IdentityRef <azure.devops.v5_1.build.models.IdentityRef>`
     :param draft_of: A reference to the definition that this definition is a draft of, if this is a draft definition.
-    :type draft_of: :class:`DefinitionReference <azure.devops.v5_1..models.DefinitionReference>`
+    :type draft_of: :class:`DefinitionReference <azure.devops.v5_1.build.models.DefinitionReference>`
     :param drafts: The list of drafts associated with this definition, if this is not a draft definition.
-    :type drafts: list of :class:`DefinitionReference <azure.devops.v5_1..models.DefinitionReference>`
+    :type drafts: list of :class:`DefinitionReference <azure.devops.v5_1.build.models.DefinitionReference>`
     :param latest_build:
-    :type latest_build: :class:`Build <azure.devops.v5_1..models.Build>`
+    :type latest_build: :class:`Build <azure.devops.v5_1.build.models.Build>`
     :param latest_completed_build:
-    :type latest_completed_build: :class:`Build <azure.devops.v5_1..models.Build>`
+    :type latest_completed_build: :class:`Build <azure.devops.v5_1.build.models.Build>`
     :param metrics:
-    :type metrics: list of :class:`BuildMetric <azure.devops.v5_1..models.BuildMetric>`
+    :type metrics: list of :class:`BuildMetric <azure.devops.v5_1.build.models.BuildMetric>`
     :param quality: The quality of the definition document (draft, etc.)
     :type quality: object
     :param queue: The default queue for builds run against this definition.
-    :type queue: :class:`AgentPoolQueue <azure.devops.v5_1..models.AgentPoolQueue>`
+    :type queue: :class:`AgentPoolQueue <azure.devops.v5_1.build.models.AgentPoolQueue>`
     :param badge_enabled: Indicates whether badges are enabled for this definition.
     :type badge_enabled: bool
     :param build_number_format: The build number format.
@@ -2721,7 +2721,7 @@ class BuildDefinition(BuildDefinitionReference):
     :param comment: A save-time comment for the definition.
     :type comment: str
     :param demands:
-    :type demands: list of :class:`object <azure.devops.v5_1..models.object>`
+    :type demands: list of :class:`object <azure.devops.v5_1.build.models.object>`
     :param description: The description.
     :type description: str
     :param drop_location: The drop location for the definition.
@@ -2733,23 +2733,23 @@ class BuildDefinition(BuildDefinitionReference):
     :param job_timeout_in_minutes: The job execution timeout (in minutes) for builds queued against this definition.
     :type job_timeout_in_minutes: int
     :param options:
-    :type options: list of :class:`BuildOption <azure.devops.v5_1..models.BuildOption>`
+    :type options: list of :class:`BuildOption <azure.devops.v5_1.build.models.BuildOption>`
     :param process: The build process.
-    :type process: :class:`object <azure.devops.v5_1..models.object>`
+    :type process: :class:`object <azure.devops.v5_1.build.models.object>`
     :param process_parameters: The process parameters for this definition.
-    :type process_parameters: :class:`ProcessParameters <azure.devops.v5_1..models.ProcessParameters>`
+    :type process_parameters: :class:`ProcessParameters <azure.devops.v5_1.build.models.ProcessParameters>`
     :param properties:
-    :type properties: :class:`object <azure.devops.v5_1..models.object>`
+    :type properties: :class:`object <azure.devops.v5_1.build.models.object>`
     :param repository: The repository.
-    :type repository: :class:`BuildRepository <azure.devops.v5_1..models.BuildRepository>`
+    :type repository: :class:`BuildRepository <azure.devops.v5_1.build.models.BuildRepository>`
     :param retention_rules:
-    :type retention_rules: list of :class:`RetentionPolicy <azure.devops.v5_1..models.RetentionPolicy>`
+    :type retention_rules: list of :class:`RetentionPolicy <azure.devops.v5_1.build.models.RetentionPolicy>`
     :param tags:
     :type tags: list of str
     :param triggers:
-    :type triggers: list of :class:`object <azure.devops.v5_1..models.object>`
+    :type triggers: list of :class:`object <azure.devops.v5_1.build.models.object>`
     :param variable_groups:
-    :type variable_groups: list of :class:`VariableGroup <azure.devops.v5_1..models.VariableGroup>`
+    :type variable_groups: list of :class:`VariableGroup <azure.devops.v5_1.build.models.VariableGroup>`
     :param variables:
     :type variables: dict
     """
@@ -2830,7 +2830,7 @@ class BuildDefinition3_2(BuildDefinitionReference3_2):
     :param path: The folder path of the definition.
     :type path: str
     :param project: A reference to the project.
-    :type project: :class:`TeamProjectReference <azure.devops.v5_1..models.TeamProjectReference>`
+    :type project: :class:`TeamProjectReference <azure.devops.v5_1.build.models.TeamProjectReference>`
     :param queue_status: A value that indicates whether builds can be queued against this definition.
     :type queue_status: object
     :param revision: The definition revision number.
@@ -2842,29 +2842,29 @@ class BuildDefinition3_2(BuildDefinitionReference3_2):
     :param url: The REST URL of the definition.
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.build.models.ReferenceLinks>`
     :param authored_by: The author of the definition.
-    :type authored_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
+    :type authored_by: :class:`IdentityRef <azure.devops.v5_1.build.models.IdentityRef>`
     :param draft_of: A reference to the definition that this definition is a draft of, if this is a draft definition.
-    :type draft_of: :class:`DefinitionReference <azure.devops.v5_1..models.DefinitionReference>`
+    :type draft_of: :class:`DefinitionReference <azure.devops.v5_1.build.models.DefinitionReference>`
     :param drafts: The list of drafts associated with this definition, if this is not a draft definition.
-    :type drafts: list of :class:`DefinitionReference <azure.devops.v5_1..models.DefinitionReference>`
+    :type drafts: list of :class:`DefinitionReference <azure.devops.v5_1.build.models.DefinitionReference>`
     :param metrics:
-    :type metrics: list of :class:`BuildMetric <azure.devops.v5_1..models.BuildMetric>`
+    :type metrics: list of :class:`BuildMetric <azure.devops.v5_1.build.models.BuildMetric>`
     :param quality: The quality of the definition document (draft, etc.)
     :type quality: object
     :param queue: The default queue for builds run against this definition.
-    :type queue: :class:`AgentPoolQueue <azure.devops.v5_1..models.AgentPoolQueue>`
+    :type queue: :class:`AgentPoolQueue <azure.devops.v5_1.build.models.AgentPoolQueue>`
     :param badge_enabled: Indicates whether badges are enabled for this definition
     :type badge_enabled: bool
     :param build:
-    :type build: list of :class:`BuildDefinitionStep <azure.devops.v5_1..models.BuildDefinitionStep>`
+    :type build: list of :class:`BuildDefinitionStep <azure.devops.v5_1.build.models.BuildDefinitionStep>`
     :param build_number_format: The build number format
     :type build_number_format: str
     :param comment: The comment entered when saving the definition
     :type comment: str
     :param demands:
-    :type demands: list of :class:`object <azure.devops.v5_1..models.object>`
+    :type demands: list of :class:`object <azure.devops.v5_1.build.models.object>`
     :param description: The description
     :type description: str
     :param drop_location: The drop location for the definition
@@ -2876,23 +2876,23 @@ class BuildDefinition3_2(BuildDefinitionReference3_2):
     :param job_timeout_in_minutes: The job execution timeout in minutes for builds which are queued against this definition
     :type job_timeout_in_minutes: int
     :param latest_build:
-    :type latest_build: :class:`Build <azure.devops.v5_1..models.Build>`
+    :type latest_build: :class:`Build <azure.devops.v5_1.build.models.Build>`
     :param latest_completed_build:
-    :type latest_completed_build: :class:`Build <azure.devops.v5_1..models.Build>`
+    :type latest_completed_build: :class:`Build <azure.devops.v5_1.build.models.Build>`
     :param options:
-    :type options: list of :class:`BuildOption <azure.devops.v5_1..models.BuildOption>`
+    :type options: list of :class:`BuildOption <azure.devops.v5_1.build.models.BuildOption>`
     :param process_parameters: Process Parameters
-    :type process_parameters: :class:`ProcessParameters <azure.devops.v5_1..models.ProcessParameters>`
+    :type process_parameters: :class:`ProcessParameters <azure.devops.v5_1.build.models.ProcessParameters>`
     :param properties:
-    :type properties: :class:`object <azure.devops.v5_1..models.object>`
+    :type properties: :class:`object <azure.devops.v5_1.build.models.object>`
     :param repository: The repository
-    :type repository: :class:`BuildRepository <azure.devops.v5_1..models.BuildRepository>`
+    :type repository: :class:`BuildRepository <azure.devops.v5_1.build.models.BuildRepository>`
     :param retention_rules:
-    :type retention_rules: list of :class:`RetentionPolicy <azure.devops.v5_1..models.RetentionPolicy>`
+    :type retention_rules: list of :class:`RetentionPolicy <azure.devops.v5_1.build.models.RetentionPolicy>`
     :param tags:
     :type tags: list of str
     :param triggers:
-    :type triggers: list of :class:`object <azure.devops.v5_1..models.object>`
+    :type triggers: list of :class:`object <azure.devops.v5_1.build.models.object>`
     :param variables:
     :type variables: dict
     """

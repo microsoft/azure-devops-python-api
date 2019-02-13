@@ -41,7 +41,7 @@ class Account(Model):
     :param organization_name: Organization that created the account
     :type organization_name: str
     :param properties: Extended properties
-    :type properties: :class:`object <azure.devops.v5_1..models.object>`
+    :type properties: :class:`object <azure.devops.v5_1.accounts.models.object>`
     :param status_reason: Reason for current status
     :type status_reason: str
     """
@@ -95,9 +95,9 @@ class AccountCreateInfoInternal(Model):
     :param organization:
     :type organization: str
     :param preferences:
-    :type preferences: :class:`AccountPreferencesInternal <azure.devops.v5_1..models.AccountPreferencesInternal>`
+    :type preferences: :class:`AccountPreferencesInternal <azure.devops.v5_1.accounts.models.AccountPreferencesInternal>`
     :param properties:
-    :type properties: :class:`object <azure.devops.v5_1..models.object>`
+    :type properties: :class:`object <azure.devops.v5_1.accounts.models.object>`
     :param service_definitions:
     :type service_definitions: list of { key: str; value: str }
     """
