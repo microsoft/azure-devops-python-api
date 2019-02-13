@@ -28,7 +28,7 @@ class ServiceEndpointClient(Client):
     def execute_service_endpoint_request(self, service_endpoint_request, project, endpoint_id):
         """ExecuteServiceEndpointRequest.
         [Preview API] Proxy for a GET request defined by a service endpoint.
-        :param :class:`<ServiceEndpointRequest> <azure.devops.v5_1.service-endpoint.models.ServiceEndpointRequest>` service_endpoint_request: Service endpoint request.
+        :param :class:`<ServiceEndpointRequest> <azure.devops.v5_1.service_endpoint.models.ServiceEndpointRequest>` service_endpoint_request: Service endpoint request.
         :param str project: Project ID or project name
         :param str endpoint_id: Id of the service endpoint.
         :rtype: :class:`<ServiceEndpointRequestResult> <azure.devops.v5_1.service-endpoint.models.ServiceEndpointRequestResult>`
@@ -51,7 +51,7 @@ class ServiceEndpointClient(Client):
     def create_service_endpoint(self, endpoint, project):
         """CreateServiceEndpoint.
         [Preview API] Create a service endpoint.
-        :param :class:`<ServiceEndpoint> <azure.devops.v5_1.service-endpoint.models.ServiceEndpoint>` endpoint: Service endpoint to create.
+        :param :class:`<ServiceEndpoint> <azure.devops.v5_1.service_endpoint.models.ServiceEndpoint>` endpoint: Service endpoint to create.
         :param str project: Project ID or project name
         :rtype: :class:`<ServiceEndpoint> <azure.devops.v5_1.service-endpoint.models.ServiceEndpoint>`
         """
@@ -182,7 +182,7 @@ class ServiceEndpointClient(Client):
     def update_service_endpoint(self, endpoint, project, endpoint_id, operation=None):
         """UpdateServiceEndpoint.
         [Preview API] Update a service endpoint.
-        :param :class:`<ServiceEndpoint> <azure.devops.v5_1.service-endpoint.models.ServiceEndpoint>` endpoint: Service endpoint to update.
+        :param :class:`<ServiceEndpoint> <azure.devops.v5_1.service_endpoint.models.ServiceEndpoint>` endpoint: Service endpoint to update.
         :param str project: Project ID or project name
         :param str endpoint_id: Id of the service endpoint to update.
         :param str operation: Operation for the service endpoint.

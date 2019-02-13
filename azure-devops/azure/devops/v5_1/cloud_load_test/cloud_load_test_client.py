@@ -28,7 +28,7 @@ class CloudLoadTestClient(Client):
     def create_agent_group(self, group):
         """CreateAgentGroup.
         [Preview API]
-        :param :class:`<AgentGroup> <azure.devops.v5_1.cloud-load-test.models.AgentGroup>` group: Agent group to be created
+        :param :class:`<AgentGroup> <azure.devops.v5_1.cloud_load_test.models.AgentGroup>` group: Agent group to be created
         :rtype: :class:`<AgentGroup> <azure.devops.v5_1.cloud-load-test.models.AgentGroup>`
         """
         content = self._serialize.body(group, 'AgentGroup')
@@ -181,7 +181,7 @@ class CloudLoadTestClient(Client):
     def get_counter_samples(self, counter_sample_query_details, test_run_id):
         """GetCounterSamples.
         [Preview API]
-        :param :class:`<VssJsonCollectionWrapper> <azure.devops.v5_1.cloud-load-test.models.VssJsonCollectionWrapper>` counter_sample_query_details:
+        :param :class:`<VssJsonCollectionWrapper> <azure.devops.v5_1.cloud_load_test.models.VssJsonCollectionWrapper>` counter_sample_query_details:
         :param str test_run_id: The test run identifier
         :rtype: :class:`<CounterSamplesResult> <azure.devops.v5_1.cloud-load-test.models.CounterSamplesResult>`
         """
@@ -280,7 +280,7 @@ class CloudLoadTestClient(Client):
     def create_test_definition(self, test_definition):
         """CreateTestDefinition.
         [Preview API]
-        :param :class:`<TestDefinition> <azure.devops.v5_1.cloud-load-test.models.TestDefinition>` test_definition: Test definition to be created
+        :param :class:`<TestDefinition> <azure.devops.v5_1.cloud_load_test.models.TestDefinition>` test_definition: Test definition to be created
         :rtype: :class:`<TestDefinition> <azure.devops.v5_1.cloud-load-test.models.TestDefinition>`
         """
         content = self._serialize.body(test_definition, 'TestDefinition')
@@ -329,7 +329,7 @@ class CloudLoadTestClient(Client):
     def update_test_definition(self, test_definition):
         """UpdateTestDefinition.
         [Preview API]
-        :param :class:`<TestDefinition> <azure.devops.v5_1.cloud-load-test.models.TestDefinition>` test_definition:
+        :param :class:`<TestDefinition> <azure.devops.v5_1.cloud_load_test.models.TestDefinition>` test_definition:
         :rtype: :class:`<TestDefinition> <azure.devops.v5_1.cloud-load-test.models.TestDefinition>`
         """
         content = self._serialize.body(test_definition, 'TestDefinition')
@@ -342,7 +342,7 @@ class CloudLoadTestClient(Client):
     def create_test_drop(self, web_test_drop):
         """CreateTestDrop.
         [Preview API]
-        :param :class:`<TestDrop> <azure.devops.v5_1.cloud-load-test.models.TestDrop>` web_test_drop: Test drop to be created
+        :param :class:`<TestDrop> <azure.devops.v5_1.cloud_load_test.models.TestDrop>` web_test_drop: Test drop to be created
         :rtype: :class:`<TestDrop> <azure.devops.v5_1.cloud-load-test.models.TestDrop>`
         """
         content = self._serialize.body(web_test_drop, 'TestDrop')
@@ -370,7 +370,7 @@ class CloudLoadTestClient(Client):
     def create_test_run(self, web_test_run):
         """CreateTestRun.
         [Preview API]
-        :param :class:`<TestRun> <azure.devops.v5_1.cloud-load-test.models.TestRun>` web_test_run:
+        :param :class:`<TestRun> <azure.devops.v5_1.cloud_load_test.models.TestRun>` web_test_run:
         :rtype: :class:`<TestRun> <azure.devops.v5_1.cloud-load-test.models.TestRun>`
         """
         content = self._serialize.body(web_test_run, 'TestRun')
@@ -440,7 +440,7 @@ class CloudLoadTestClient(Client):
     def update_test_run(self, web_test_run, test_run_id):
         """UpdateTestRun.
         [Preview API]
-        :param :class:`<TestRun> <azure.devops.v5_1.cloud-load-test.models.TestRun>` web_test_run:
+        :param :class:`<TestRun> <azure.devops.v5_1.cloud_load_test.models.TestRun>` web_test_run:
         :param str test_run_id:
         """
         route_values = {}

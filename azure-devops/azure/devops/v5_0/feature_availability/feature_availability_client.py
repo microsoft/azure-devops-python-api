@@ -45,7 +45,7 @@ class FeatureAvailabilityClient(Client):
         [Preview API] Retrieve information on a single feature flag and its current states
         :param str name: The name of the feature to retrieve
         :param bool check_feature_exists: Check if feature exists
-        :rtype: :class:`<FeatureFlag> <azure.devops.v5_0.feature-availability.models.FeatureFlag>`
+        :rtype: :class:`<FeatureFlag> <azure.devops.v5_0.feature_availability.models.FeatureFlag>`
         """
         route_values = {}
         if name is not None:
@@ -66,7 +66,7 @@ class FeatureAvailabilityClient(Client):
         :param str name: The name of the feature to retrieve
         :param str user_email: The email of the user to check
         :param bool check_feature_exists: Check if feature exists
-        :rtype: :class:`<FeatureFlag> <azure.devops.v5_0.feature-availability.models.FeatureFlag>`
+        :rtype: :class:`<FeatureFlag> <azure.devops.v5_0.feature_availability.models.FeatureFlag>`
         """
         route_values = {}
         if name is not None:
@@ -89,7 +89,7 @@ class FeatureAvailabilityClient(Client):
         :param str name: The name of the feature to retrieve
         :param str user_id: The id of the user to check
         :param bool check_feature_exists: Check if feature exists
-        :rtype: :class:`<FeatureFlag> <azure.devops.v5_0.feature-availability.models.FeatureFlag>`
+        :rtype: :class:`<FeatureFlag> <azure.devops.v5_0.feature_availability.models.FeatureFlag>`
         """
         route_values = {}
         if name is not None:
@@ -109,12 +109,12 @@ class FeatureAvailabilityClient(Client):
     def update_feature_flag(self, state, name, user_email=None, check_feature_exists=None, set_at_application_level_also=None):
         """UpdateFeatureFlag.
         [Preview API] Change the state of an individual feature flag for a name
-        :param :class:`<FeatureFlagPatch> <azure.devops.v5_0.feature-availability.models.FeatureFlagPatch>` state: State that should be set
+        :param :class:`<FeatureFlagPatch> <azure.devops.v5_0.feature_availability.models.FeatureFlagPatch>` state: State that should be set
         :param str name: The name of the feature to change
         :param str user_email:
         :param bool check_feature_exists: Checks if the feature exists before setting the state
         :param bool set_at_application_level_also:
-        :rtype: :class:`<FeatureFlag> <azure.devops.v5_0.feature-availability.models.FeatureFlag>`
+        :rtype: :class:`<FeatureFlag> <azure.devops.v5_0.feature_availability.models.FeatureFlag>`
         """
         route_values = {}
         if name is not None:

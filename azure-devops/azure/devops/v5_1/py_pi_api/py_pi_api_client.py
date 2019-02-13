@@ -92,7 +92,7 @@ class PyPiApiClient(Client):
     def restore_package_version_from_recycle_bin(self, package_version_details, feed_id, package_name, package_version):
         """RestorePackageVersionFromRecycleBin.
         [Preview API] Restore a package version from the recycle bin to its associated feed.
-        :param :class:`<PyPiRecycleBinPackageVersionDetails> <azure.devops.v5_1.py-pi-api.models.PyPiRecycleBinPackageVersionDetails>` package_version_details: Set the 'Deleted' state to 'false' to restore the package to its feed.
+        :param :class:`<PyPiRecycleBinPackageVersionDetails> <azure.devops.v5_1.py_pi_api.models.PyPiRecycleBinPackageVersionDetails>` package_version_details: Set the 'Deleted' state to 'false' to restore the package to its feed.
         :param str feed_id: Name or ID of the feed.
         :param str package_name: Name of the package.
         :param str package_version: Version of the package.
@@ -161,7 +161,7 @@ class PyPiApiClient(Client):
     def update_package_version(self, package_version_details, feed_id, package_name, package_version):
         """UpdatePackageVersion.
         [Preview API] Update state for a package version.
-        :param :class:`<PackageVersionDetails> <azure.devops.v5_1.py-pi-api.models.PackageVersionDetails>` package_version_details: Details to be updated.
+        :param :class:`<PackageVersionDetails> <azure.devops.v5_1.py_pi_api.models.PackageVersionDetails>` package_version_details: Details to be updated.
         :param str feed_id: Name or ID of the feed.
         :param str package_name: Name of the package.
         :param str package_version: Version of the package.

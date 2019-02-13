@@ -13,7 +13,7 @@ class FeedBatchData(Model):
     """FeedBatchData.
 
     :param data:
-    :type data: :class:`FeedBatchOperationData <azure.devops.v5_1.packaging.models.FeedBatchOperationData>`
+    :type data: :class:`FeedBatchOperationData <azure.devops.v5_1..models.FeedBatchOperationData>`
     :param operation:
     :type operation: object
     """
@@ -47,7 +47,7 @@ class FeedChange(Model):
     :param change_type: The type of operation.
     :type change_type: object
     :param feed: The state of the feed after a after a create, update, or delete operation completed.
-    :type feed: :class:`Feed <azure.devops.v5_1.packaging.models.Feed>`
+    :type feed: :class:`Feed <azure.devops.v5_1..models.Feed>`
     :param feed_continuation_token: A token that identifies the next change in the log of changes.
     :type feed_continuation_token: long
     :param latest_package_continuation_token: A token that identifies the latest package change for this feed.  This can be used to quickly determine if there have been any changes to packages in a specific feed.
@@ -73,11 +73,11 @@ class FeedChangesResponse(Model):
     """FeedChangesResponse.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.packaging.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param count: The number of changes in this set.
     :type count: int
     :param feed_changes: A container that encapsulates the state of the feed after a create, update, or delete.
-    :type feed_changes: list of :class:`FeedChange <azure.devops.v5_1.packaging.models.FeedChange>`
+    :type feed_changes: list of :class:`FeedChange <azure.devops.v5_1..models.FeedChange>`
     :param next_feed_continuation_token: When iterating through the log of changes this value indicates the value that should be used for the next continuation token.
     :type next_feed_continuation_token: long
     """
@@ -117,9 +117,9 @@ class FeedCore(Model):
     :param upstream_enabled: OBSOLETE: This should always be true.  Setting to false will override all sources in UpstreamSources.
     :type upstream_enabled: bool
     :param upstream_sources: A list of sources that this feed will fetch packages from.  An empty list indicates that this feed will not search any additional sources for packages.
-    :type upstream_sources: list of :class:`UpstreamSource <azure.devops.v5_1.packaging.models.UpstreamSource>`
+    :type upstream_sources: list of :class:`UpstreamSource <azure.devops.v5_1..models.UpstreamSource>`
     :param view: Definition of the view.
-    :type view: :class:`FeedView <azure.devops.v5_1.packaging.models.FeedView>`
+    :type view: :class:`FeedView <azure.devops.v5_1..models.FeedView>`
     :param view_id: View Id.
     :type view_id: str
     :param view_name: View name.
@@ -163,7 +163,7 @@ class FeedPermission(Model):
     :param display_name: Display name for the identity.
     :type display_name: str
     :param identity_descriptor: Identity associated with this role.
-    :type identity_descriptor: :class:`str <azure.devops.v5_1.packaging.models.str>`
+    :type identity_descriptor: :class:`str <azure.devops.v5_1..models.str>`
     :param identity_id: Id of the identity associated with this role.
     :type identity_id: str
     :param role: The role for this identity on a feed.
@@ -229,7 +229,7 @@ class FeedUpdate(Model):
     :param upstream_enabled: OBSOLETE: If set, the feed can proxy packages from an upstream feed
     :type upstream_enabled: bool
     :param upstream_sources: A list of sources that this feed will fetch packages from.  An empty list indicates that this feed will not search any additional sources for packages.
-    :type upstream_sources: list of :class:`UpstreamSource <azure.devops.v5_1.packaging.models.UpstreamSource>`
+    :type upstream_sources: list of :class:`UpstreamSource <azure.devops.v5_1..models.UpstreamSource>`
     """
 
     _attribute_map = {
@@ -261,7 +261,7 @@ class FeedView(Model):
     """FeedView.
 
     :param _links: Related REST links.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.packaging.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param id: Id of the view.
     :type id: str
     :param name: Name of the view.
@@ -297,7 +297,7 @@ class GlobalPermission(Model):
     """GlobalPermission.
 
     :param identity_descriptor: Identity of the user with the provided Role.
-    :type identity_descriptor: :class:`str <azure.devops.v5_1.packaging.models.str>`
+    :type identity_descriptor: :class:`str <azure.devops.v5_1..models.str>`
     :param role: Role associated with the Identity.
     :type role: object
     """
@@ -367,7 +367,7 @@ class MinimalPackageVersion(Model):
     :param version: Display version.
     :type version: str
     :param views: List of views containing this package version.
-    :type views: list of :class:`FeedView <azure.devops.v5_1.packaging.models.FeedView>`
+    :type views: list of :class:`FeedView <azure.devops.v5_1..models.FeedView>`
     """
 
     _attribute_map = {
@@ -405,7 +405,7 @@ class Package(Model):
     """Package.
 
     :param _links: Related REST links.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.packaging.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param id: Id of the package.
     :type id: str
     :param is_cached: Used for legacy scenarios and may be removed in future versions.
@@ -421,7 +421,7 @@ class Package(Model):
     :param url: Url for this package.
     :type url: str
     :param versions: All versions for this package within its feed.
-    :type versions: list of :class:`MinimalPackageVersion <azure.devops.v5_1.packaging.models.MinimalPackageVersion>`
+    :type versions: list of :class:`MinimalPackageVersion <azure.devops.v5_1..models.MinimalPackageVersion>`
     """
 
     _attribute_map = {
@@ -453,9 +453,9 @@ class PackageChange(Model):
     """PackageChange.
 
     :param package: Package that was changed.
-    :type package: :class:`Package <azure.devops.v5_1.packaging.models.Package>`
+    :type package: :class:`Package <azure.devops.v5_1..models.Package>`
     :param package_version_change: Change that was performed on a package version.
-    :type package_version_change: :class:`PackageVersionChange <azure.devops.v5_1.packaging.models.PackageVersionChange>`
+    :type package_version_change: :class:`PackageVersionChange <azure.devops.v5_1..models.PackageVersionChange>`
     """
 
     _attribute_map = {
@@ -473,13 +473,13 @@ class PackageChangesResponse(Model):
     """PackageChangesResponse.
 
     :param _links: Related REST links.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.packaging.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param count: Number of changes in this batch.
     :type count: int
     :param next_package_continuation_token: Token that should be used in future calls for this feed to retrieve new changes.
     :type next_package_continuation_token: long
     :param package_changes: List of changes.
-    :type package_changes: list of :class:`PackageChange <azure.devops.v5_1.packaging.models.PackageChange>`
+    :type package_changes: list of :class:`PackageChange <azure.devops.v5_1..models.PackageChange>`
     """
 
     _attribute_map = {
@@ -525,11 +525,11 @@ class PackageFile(Model):
     """PackageFile.
 
     :param children: Hierarchical representation of files.
-    :type children: list of :class:`PackageFile <azure.devops.v5_1.packaging.models.PackageFile>`
+    :type children: list of :class:`PackageFile <azure.devops.v5_1..models.PackageFile>`
     :param name: File name.
     :type name: str
     :param protocol_metadata: Extended data unique to a specific package type.
-    :type protocol_metadata: :class:`ProtocolMetadata <azure.devops.v5_1.packaging.models.ProtocolMetadata>`
+    :type protocol_metadata: :class:`ProtocolMetadata <azure.devops.v5_1..models.ProtocolMetadata>`
     """
 
     _attribute_map = {
@@ -615,25 +615,25 @@ class PackageVersion(MinimalPackageVersion):
     :param version: Display version.
     :type version: str
     :param views: List of views containing this package version.
-    :type views: list of :class:`FeedView <azure.devops.v5_1.packaging.models.FeedView>`
+    :type views: list of :class:`FeedView <azure.devops.v5_1..models.FeedView>`
     :param _links: Related links
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.packaging.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param author: Package version author.
     :type author: str
     :param deleted_date: UTC date that this package version was deleted.
     :type deleted_date: datetime
     :param dependencies: List of dependencies for this package version.
-    :type dependencies: list of :class:`PackageDependency <azure.devops.v5_1.packaging.models.PackageDependency>`
+    :type dependencies: list of :class:`PackageDependency <azure.devops.v5_1..models.PackageDependency>`
     :param description: Package version description.
     :type description: str
     :param files: Files associated with this package version, only relevant for multi-file package types.
-    :type files: list of :class:`PackageFile <azure.devops.v5_1.packaging.models.PackageFile>`
+    :type files: list of :class:`PackageFile <azure.devops.v5_1..models.PackageFile>`
     :param other_versions: Other versions of this package.
-    :type other_versions: list of :class:`MinimalPackageVersion <azure.devops.v5_1.packaging.models.MinimalPackageVersion>`
+    :type other_versions: list of :class:`MinimalPackageVersion <azure.devops.v5_1..models.MinimalPackageVersion>`
     :param protocol_metadata: Extended data specific to a package type.
-    :type protocol_metadata: :class:`ProtocolMetadata <azure.devops.v5_1.packaging.models.ProtocolMetadata>`
+    :type protocol_metadata: :class:`ProtocolMetadata <azure.devops.v5_1..models.ProtocolMetadata>`
     :param source_chain: List of upstream sources through which a package version moved to land in this feed.
-    :type source_chain: list of :class:`UpstreamSource <azure.devops.v5_1.packaging.models.UpstreamSource>`
+    :type source_chain: list of :class:`UpstreamSource <azure.devops.v5_1..models.UpstreamSource>`
     :param summary: Package version summary.
     :type summary: str
     :param tags: Package version tags.
@@ -693,7 +693,7 @@ class PackageVersionChange(Model):
     :param continuation_token: Token marker for this change, allowing the caller to send this value back to the service and receive changes beyond this one.
     :type continuation_token: long
     :param package_version: Package version that was changed.
-    :type package_version: :class:`PackageVersion <azure.devops.v5_1.packaging.models.PackageVersion>`
+    :type package_version: :class:`PackageVersion <azure.devops.v5_1..models.PackageVersion>`
     """
 
     _attribute_map = {
@@ -767,7 +767,7 @@ class PackageVersionProvenance(Model):
     :param package_version_id: Id of the package version (GUID Id, not name).
     :type package_version_id: str
     :param provenance: Provenance information for this package version.
-    :type provenance: :class:`Provenance <azure.devops.v5_1.packaging.models.Provenance>`
+    :type provenance: :class:`Provenance <azure.devops.v5_1..models.Provenance>`
     """
 
     _attribute_map = {
@@ -859,25 +859,25 @@ class RecycleBinPackageVersion(PackageVersion):
     :param version: Display version.
     :type version: str
     :param views: List of views containing this package version.
-    :type views: list of :class:`FeedView <azure.devops.v5_1.packaging.models.FeedView>`
+    :type views: list of :class:`FeedView <azure.devops.v5_1..models.FeedView>`
     :param _links: Related links
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.packaging.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param author: Package version author.
     :type author: str
     :param deleted_date: UTC date that this package version was deleted.
     :type deleted_date: datetime
     :param dependencies: List of dependencies for this package version.
-    :type dependencies: list of :class:`PackageDependency <azure.devops.v5_1.packaging.models.PackageDependency>`
+    :type dependencies: list of :class:`PackageDependency <azure.devops.v5_1..models.PackageDependency>`
     :param description: Package version description.
     :type description: str
     :param files: Files associated with this package version, only relevant for multi-file package types.
-    :type files: list of :class:`PackageFile <azure.devops.v5_1.packaging.models.PackageFile>`
+    :type files: list of :class:`PackageFile <azure.devops.v5_1..models.PackageFile>`
     :param other_versions: Other versions of this package.
-    :type other_versions: list of :class:`MinimalPackageVersion <azure.devops.v5_1.packaging.models.MinimalPackageVersion>`
+    :type other_versions: list of :class:`MinimalPackageVersion <azure.devops.v5_1..models.MinimalPackageVersion>`
     :param protocol_metadata: Extended data specific to a package type.
-    :type protocol_metadata: :class:`ProtocolMetadata <azure.devops.v5_1.packaging.models.ProtocolMetadata>`
+    :type protocol_metadata: :class:`ProtocolMetadata <azure.devops.v5_1..models.ProtocolMetadata>`
     :param source_chain: List of upstream sources through which a package version moved to land in this feed.
-    :type source_chain: list of :class:`UpstreamSource <azure.devops.v5_1.packaging.models.UpstreamSource>`
+    :type source_chain: list of :class:`UpstreamSource <azure.devops.v5_1..models.UpstreamSource>`
     :param summary: Package version summary.
     :type summary: str
     :param tags: Package version tags.
@@ -1005,15 +1005,15 @@ class Feed(FeedCore):
     :param upstream_enabled: OBSOLETE: This should always be true.  Setting to false will override all sources in UpstreamSources.
     :type upstream_enabled: bool
     :param upstream_sources: A list of sources that this feed will fetch packages from.  An empty list indicates that this feed will not search any additional sources for packages.
-    :type upstream_sources: list of :class:`UpstreamSource <azure.devops.v5_1.packaging.models.UpstreamSource>`
+    :type upstream_sources: list of :class:`UpstreamSource <azure.devops.v5_1..models.UpstreamSource>`
     :param view: Definition of the view.
-    :type view: :class:`FeedView <azure.devops.v5_1.packaging.models.FeedView>`
+    :type view: :class:`FeedView <azure.devops.v5_1..models.FeedView>`
     :param view_id: View Id.
     :type view_id: str
     :param view_name: View name.
     :type view_name: str
     :param _links: Related REST links.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.packaging.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param badges_enabled: If set, this feed supports generation of package badges.
     :type badges_enabled: bool
     :param default_view_id: The view that the feed administrator has indicated is the default experience for readers.
@@ -1025,7 +1025,7 @@ class Feed(FeedCore):
     :param hide_deleted_package_versions: If set, the feed will hide all deleted/unpublished versions
     :type hide_deleted_package_versions: bool
     :param permissions: Explicit permissions for the feed.
-    :type permissions: list of :class:`FeedPermission <azure.devops.v5_1.packaging.models.FeedPermission>`
+    :type permissions: list of :class:`FeedPermission <azure.devops.v5_1..models.FeedPermission>`
     :param upstream_enabled_changed_date: If set, time that the UpstreamEnabled property was changed. Will be null if UpstreamEnabled was never changed after Feed creation.
     :type upstream_enabled_changed_date: datetime
     :param url: The URL of the base feed in GUID form.

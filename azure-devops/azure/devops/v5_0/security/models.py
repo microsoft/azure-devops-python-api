@@ -65,6 +65,18 @@ class AccessControlList(Model):
         self.token = token
 
 
+class AccessControlListsCollection(Model):
+    """AccessControlListsCollection.
+
+    """
+
+    _attribute_map = {
+    }
+
+    def __init__(self):
+        super(AccessControlListsCollection, self).__init__()
+
+
 class AceExtendedInformation(Model):
     """AceExtendedInformation.
 
@@ -240,6 +252,7 @@ class SecurityNamespaceDescription(Model):
 __all__ = [
     'AccessControlEntry',
     'AccessControlList',
+    'AccessControlListsCollection',
     'AceExtendedInformation',
     'ActionDefinition',
     'PermissionEvaluation',

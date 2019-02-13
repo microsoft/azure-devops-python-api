@@ -21,7 +21,7 @@ class AdminBehavior(Model):
     :param description: The description of the behavior.
     :type description: str
     :param fields: List of behavior fields.
-    :type fields: list of :class:`AdminBehaviorField <azure.devops.v5_1.work-item-tracking-process-template.models.AdminBehaviorField>`
+    :type fields: list of :class:`AdminBehaviorField <azure.devops.v5_1..models.AdminBehaviorField>`
     :param id: Behavior ID.
     :type id: str
     :param inherits: Parent behavior reference.
@@ -125,7 +125,7 @@ class ProcessImportResult(Model):
     :param promote_job_id: The promote job identifier.
     :type promote_job_id: str
     :param validation_results: The list of validation results.
-    :type validation_results: list of :class:`ValidationIssue <azure.devops.v5_1.work-item-tracking-process-template.models.ValidationIssue>`
+    :type validation_results: list of :class:`ValidationIssue <azure.devops.v5_1..models.ValidationIssue>`
     """
 
     _attribute_map = {

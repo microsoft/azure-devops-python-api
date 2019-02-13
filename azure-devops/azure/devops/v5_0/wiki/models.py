@@ -23,7 +23,7 @@ class GitRepository(Model):
     :param name:
     :type name: str
     :param parent_repository:
-    :type parent_repository: :class:`GitRepositoryRef <azure.devops.v5_0.microsoft.-team-foundation.-source-control.-web-api.models.GitRepositoryRef>`
+    :type parent_repository: :class:`GitRepositoryRef <azure.devops.v5_0.microsoft._team_foundation._source_control._web_api.models.GitRepositoryRef>`
     :param project:
     :type project: TeamProjectReference
     :param remote_url:

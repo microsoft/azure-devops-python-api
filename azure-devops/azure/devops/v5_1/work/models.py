@@ -33,7 +33,7 @@ class BacklogColumn(Model):
     """BacklogColumn.
 
     :param column_field_reference:
-    :type column_field_reference: :class:`WorkItemFieldReference <azure.devops.v5_1.work.models.WorkItemFieldReference>`
+    :type column_field_reference: :class:`WorkItemFieldReference <azure.devops.v5_1..models.WorkItemFieldReference>`
     :param width:
     :type width: int
     """
@@ -53,7 +53,7 @@ class BacklogConfiguration(Model):
     """BacklogConfiguration.
 
     :param backlog_fields: Behavior/type field mapping
-    :type backlog_fields: :class:`BacklogFields <azure.devops.v5_1.work.models.BacklogFields>`
+    :type backlog_fields: :class:`BacklogFields <azure.devops.v5_1..models.BacklogFields>`
     :param bugs_behavior: Bugs behavior
     :type bugs_behavior: object
     :param hidden_backlogs: Hidden Backlog
@@ -61,15 +61,15 @@ class BacklogConfiguration(Model):
     :param is_bugs_behavior_configured: Is BugsBehavior Configured in the process
     :type is_bugs_behavior_configured: bool
     :param portfolio_backlogs: Portfolio backlog descriptors
-    :type portfolio_backlogs: list of :class:`BacklogLevelConfiguration <azure.devops.v5_1.work.models.BacklogLevelConfiguration>`
+    :type portfolio_backlogs: list of :class:`BacklogLevelConfiguration <azure.devops.v5_1..models.BacklogLevelConfiguration>`
     :param requirement_backlog: Requirement backlog
-    :type requirement_backlog: :class:`BacklogLevelConfiguration <azure.devops.v5_1.work.models.BacklogLevelConfiguration>`
+    :type requirement_backlog: :class:`BacklogLevelConfiguration <azure.devops.v5_1..models.BacklogLevelConfiguration>`
     :param task_backlog: Task backlog
-    :type task_backlog: :class:`BacklogLevelConfiguration <azure.devops.v5_1.work.models.BacklogLevelConfiguration>`
+    :type task_backlog: :class:`BacklogLevelConfiguration <azure.devops.v5_1..models.BacklogLevelConfiguration>`
     :param url:
     :type url: str
     :param work_item_type_mapped_states: Mapped states for work item types
-    :type work_item_type_mapped_states: list of :class:`WorkItemTypeStateInfo <azure.devops.v5_1.work.models.WorkItemTypeStateInfo>`
+    :type work_item_type_mapped_states: list of :class:`WorkItemTypeStateInfo <azure.devops.v5_1..models.WorkItemTypeStateInfo>`
     """
 
     _attribute_map = {
@@ -145,13 +145,13 @@ class BacklogLevelConfiguration(Model):
     """BacklogLevelConfiguration.
 
     :param add_panel_fields: List of fields to include in Add Panel
-    :type add_panel_fields: list of :class:`WorkItemFieldReference <azure.devops.v5_1.work.models.WorkItemFieldReference>`
+    :type add_panel_fields: list of :class:`WorkItemFieldReference <azure.devops.v5_1..models.WorkItemFieldReference>`
     :param color: Color for the backlog level
     :type color: str
     :param column_fields: Default list of columns for the backlog
-    :type column_fields: list of :class:`BacklogColumn <azure.devops.v5_1.work.models.BacklogColumn>`
+    :type column_fields: list of :class:`BacklogColumn <azure.devops.v5_1..models.BacklogColumn>`
     :param default_work_item_type: Defaulst Work Item Type for the backlog
-    :type default_work_item_type: :class:`WorkItemTypeReference <azure.devops.v5_1.work.models.WorkItemTypeReference>`
+    :type default_work_item_type: :class:`WorkItemTypeReference <azure.devops.v5_1..models.WorkItemTypeReference>`
     :param id: Backlog Id (for Legacy Backlog Level from process config it can be categoryref name)
     :type id: str
     :param is_hidden: Indicates whether the backlog level is hidden
@@ -165,7 +165,7 @@ class BacklogLevelConfiguration(Model):
     :param work_item_count_limit: Max number of work items to show in the given backlog
     :type work_item_count_limit: int
     :param work_item_types: Work Item types participating in this backlog as known by the project/Process, can be overridden by team settings for bugs
-    :type work_item_types: list of :class:`WorkItemTypeReference <azure.devops.v5_1.work.models.WorkItemTypeReference>`
+    :type work_item_types: list of :class:`WorkItemTypeReference <azure.devops.v5_1..models.WorkItemTypeReference>`
     """
 
     _attribute_map = {
@@ -201,7 +201,7 @@ class BacklogLevelWorkItems(Model):
     """BacklogLevelWorkItems.
 
     :param work_items: A list of work items within a backlog level
-    :type work_items: list of :class:`WorkItemLink <azure.devops.v5_1.work.models.WorkItemLink>`
+    :type work_items: list of :class:`WorkItemLink <azure.devops.v5_1..models.WorkItemLink>`
     """
 
     _attribute_map = {
@@ -217,7 +217,7 @@ class BoardCardRuleSettings(Model):
     """BoardCardRuleSettings.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param rules:
     :type rules: dict
     :param url:
@@ -317,11 +317,11 @@ class BoardFields(Model):
     """BoardFields.
 
     :param column_field:
-    :type column_field: :class:`FieldReference <azure.devops.v5_1.work.models.FieldReference>`
+    :type column_field: :class:`FieldReference <azure.devops.v5_1..models.FieldReference>`
     :param done_field:
-    :type done_field: :class:`FieldReference <azure.devops.v5_1.work.models.FieldReference>`
+    :type done_field: :class:`FieldReference <azure.devops.v5_1..models.FieldReference>`
     :param row_field:
-    :type row_field: :class:`FieldReference <azure.devops.v5_1.work.models.FieldReference>`
+    :type row_field: :class:`FieldReference <azure.devops.v5_1..models.FieldReference>`
     """
 
     _attribute_map = {
@@ -417,9 +417,9 @@ class CapacityPatch(Model):
     """CapacityPatch.
 
     :param activities:
-    :type activities: list of :class:`Activity <azure.devops.v5_1.work.models.Activity>`
+    :type activities: list of :class:`Activity <azure.devops.v5_1..models.Activity>`
     :param days_off:
-    :type days_off: list of :class:`DateRange <azure.devops.v5_1.work.models.DateRange>`
+    :type days_off: list of :class:`DateRange <azure.devops.v5_1..models.DateRange>`
     """
 
     _attribute_map = {
@@ -441,7 +441,7 @@ class CategoryConfiguration(Model):
     :param reference_name: Category Reference Name
     :type reference_name: str
     :param work_item_types: Work item types for the backlog category
-    :type work_item_types: list of :class:`WorkItemTypeReference <azure.devops.v5_1.work.models.WorkItemTypeReference>`
+    :type work_item_types: list of :class:`WorkItemTypeReference <azure.devops.v5_1..models.WorkItemTypeReference>`
     """
 
     _attribute_map = {
@@ -561,7 +561,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -589,7 +589,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -729,7 +729,7 @@ class Plan(Model):
     """Plan.
 
     :param created_by_identity: Identity that created this plan. Defaults to null for records before upgrading to ScaledAgileViewComponent4.
-    :type created_by_identity: :class:`IdentityRef <azure.devops.v5_1.work.models.IdentityRef>`
+    :type created_by_identity: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
     :param created_date: Date when the plan was created
     :type created_date: datetime
     :param description: Description of the plan
@@ -737,7 +737,7 @@ class Plan(Model):
     :param id: Id of the plan
     :type id: str
     :param modified_by_identity: Identity that last modified this plan. Defaults to null for records before upgrading to ScaledAgileViewComponent4.
-    :type modified_by_identity: :class:`IdentityRef <azure.devops.v5_1.work.models.IdentityRef>`
+    :type modified_by_identity: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
     :param modified_date: Date when the plan was last modified. Default to CreatedDate when the plan is first created.
     :type modified_date: datetime
     :param name: Name of the plan
@@ -815,7 +815,7 @@ class PredefinedQuery(Model):
     :param name: Localized name of the query
     :type name: str
     :param results: The results of the query.  This will be a set of WorkItem objects with only the 'id' set.  The client is responsible for paging in the data as needed.
-    :type results: list of :class:`WorkItem <azure.devops.v5_1.work.models.WorkItem>`
+    :type results: list of :class:`WorkItem <azure.devops.v5_1..models.WorkItem>`
     :param url: REST API Url to use to retrieve results for this query
     :type url: str
     :param web_url: Url to use to display a page in the browser with the results of this query
@@ -845,13 +845,13 @@ class ProcessConfiguration(Model):
     """ProcessConfiguration.
 
     :param bug_work_items: Details about bug work items
-    :type bug_work_items: :class:`CategoryConfiguration <azure.devops.v5_1.work.models.CategoryConfiguration>`
+    :type bug_work_items: :class:`CategoryConfiguration <azure.devops.v5_1..models.CategoryConfiguration>`
     :param portfolio_backlogs: Details about portfolio backlogs
-    :type portfolio_backlogs: list of :class:`CategoryConfiguration <azure.devops.v5_1.work.models.CategoryConfiguration>`
+    :type portfolio_backlogs: list of :class:`CategoryConfiguration <azure.devops.v5_1..models.CategoryConfiguration>`
     :param requirement_backlog: Details of requirement backlog
-    :type requirement_backlog: :class:`CategoryConfiguration <azure.devops.v5_1.work.models.CategoryConfiguration>`
+    :type requirement_backlog: :class:`CategoryConfiguration <azure.devops.v5_1..models.CategoryConfiguration>`
     :param task_backlog: Details of task backlog
-    :type task_backlog: :class:`CategoryConfiguration <azure.devops.v5_1.work.models.CategoryConfiguration>`
+    :type task_backlog: :class:`CategoryConfiguration <azure.devops.v5_1..models.CategoryConfiguration>`
     :param type_fields: Type fields for the process configuration
     :type type_fields: dict
     :param url:
@@ -897,7 +897,7 @@ class Rule(Model):
     """Rule.
 
     :param clauses:
-    :type clauses: list of :class:`FilterClause <azure.devops.v5_1.work.models.FilterClause>`
+    :type clauses: list of :class:`FilterClause <azure.devops.v5_1..models.FilterClause>`
     :param filter:
     :type filter: str
     :param is_enabled:
@@ -979,7 +979,7 @@ class TeamFieldValuesPatch(Model):
     :param default_value:
     :type default_value: str
     :param values:
-    :type values: list of :class:`TeamFieldValue <azure.devops.v5_1.work.models.TeamFieldValue>`
+    :type values: list of :class:`TeamFieldValue <azure.devops.v5_1..models.TeamFieldValue>`
     """
 
     _attribute_map = {
@@ -1021,7 +1021,7 @@ class TeamSettingsDataContractBase(Model):
     """TeamSettingsDataContractBase.
 
     :param _links: Collection of links relevant to resource
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param url: Full http link to the resource
     :type url: str
     """
@@ -1041,11 +1041,11 @@ class TeamSettingsDaysOff(TeamSettingsDataContractBase):
     """TeamSettingsDaysOff.
 
     :param _links: Collection of links relevant to resource
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param url: Full http link to the resource
     :type url: str
     :param days_off:
-    :type days_off: list of :class:`DateRange <azure.devops.v5_1.work.models.DateRange>`
+    :type days_off: list of :class:`DateRange <azure.devops.v5_1..models.DateRange>`
     """
 
     _attribute_map = {
@@ -1063,7 +1063,7 @@ class TeamSettingsDaysOffPatch(Model):
     """TeamSettingsDaysOffPatch.
 
     :param days_off:
-    :type days_off: list of :class:`DateRange <azure.devops.v5_1.work.models.DateRange>`
+    :type days_off: list of :class:`DateRange <azure.devops.v5_1..models.DateRange>`
     """
 
     _attribute_map = {
@@ -1079,11 +1079,11 @@ class TeamSettingsIteration(TeamSettingsDataContractBase):
     """TeamSettingsIteration.
 
     :param _links: Collection of links relevant to resource
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param url: Full http link to the resource
     :type url: str
     :param attributes: Attributes such as start and end date
-    :type attributes: :class:`TeamIterationAttributes <azure.devops.v5_1.work.models.TeamIterationAttributes>`
+    :type attributes: :class:`TeamIterationAttributes <azure.devops.v5_1..models.TeamIterationAttributes>`
     :param id: Id of the resource
     :type id: str
     :param name: Name of the resource
@@ -1189,7 +1189,7 @@ class TimelineTeamData(Model):
     """TimelineTeamData.
 
     :param backlog: Backlog matching the mapped backlog associated with this team.
-    :type backlog: :class:`BacklogLevel <azure.devops.v5_1.work.models.BacklogLevel>`
+    :type backlog: :class:`BacklogLevel <azure.devops.v5_1..models.BacklogLevel>`
     :param field_reference_names: The field reference names of the work item data
     :type field_reference_names: list of str
     :param id: The id of the team
@@ -1197,7 +1197,7 @@ class TimelineTeamData(Model):
     :param is_expanded: Was iteration and work item data retrieved for this team. <remarks> Teams with IsExpanded false have not had their iteration, work item, and field related data queried and will never contain this data. If true then these items are queried and, if there are items in the queried range, there will be data. </remarks>
     :type is_expanded: bool
     :param iterations: The iteration data, including the work items, in the queried date range.
-    :type iterations: list of :class:`TimelineTeamIteration <azure.devops.v5_1.work.models.TimelineTeamIteration>`
+    :type iterations: list of :class:`TimelineTeamIteration <azure.devops.v5_1..models.TimelineTeamIteration>`
     :param name: The name of the team
     :type name: str
     :param order_by_field: The order by field name of this team
@@ -1207,15 +1207,15 @@ class TimelineTeamData(Model):
     :param project_id: The project id the team belongs team
     :type project_id: str
     :param status: Status for this team.
-    :type status: :class:`TimelineTeamStatus <azure.devops.v5_1.work.models.TimelineTeamStatus>`
+    :type status: :class:`TimelineTeamStatus <azure.devops.v5_1..models.TimelineTeamStatus>`
     :param team_field_default_value: The team field default value
     :type team_field_default_value: str
     :param team_field_name: The team field name of this team
     :type team_field_name: str
     :param team_field_values: The team field values
-    :type team_field_values: list of :class:`TeamFieldValue <azure.devops.v5_1.work.models.TeamFieldValue>`
+    :type team_field_values: list of :class:`TeamFieldValue <azure.devops.v5_1..models.TeamFieldValue>`
     :param work_item_type_colors: Colors for the work item types.
-    :type work_item_type_colors: list of :class:`WorkItemColor <azure.devops.v5_1.work.models.WorkItemColor>`
+    :type work_item_type_colors: list of :class:`WorkItemColor <azure.devops.v5_1..models.WorkItemColor>`
     """
 
     _attribute_map = {
@@ -1267,7 +1267,7 @@ class TimelineTeamIteration(Model):
     :param start_date: The start date of the iteration
     :type start_date: datetime
     :param status: The status of this iteration
-    :type status: :class:`TimelineIterationStatus <azure.devops.v5_1.work.models.TimelineIterationStatus>`
+    :type status: :class:`TimelineIterationStatus <azure.devops.v5_1..models.TimelineIterationStatus>`
     :param work_items: The work items that have been paged in this iteration
     :type work_items: list of [object]
     """
@@ -1399,9 +1399,9 @@ class WorkItemLink(Model):
     :param rel: The type of link.
     :type rel: str
     :param source: The source work item.
-    :type source: :class:`WorkItemReference <azure.devops.v5_1.microsoft.-team-foundation.-work-item-tracking.-web-api.models.WorkItemReference>`
+    :type source: :class:`WorkItemReference <azure.devops.v5_1..models.WorkItemReference>`
     :param target: The target work item.
-    :type target: :class:`WorkItemReference <azure.devops.v5_1.microsoft.-team-foundation.-work-item-tracking.-web-api.models.WorkItemReference>`
+    :type target: :class:`WorkItemReference <azure.devops.v5_1..models.WorkItemReference>`
     """
 
     _attribute_map = {
@@ -1523,21 +1523,21 @@ class Board(BoardReference):
     :param url: Full http link to the resource
     :type url: str
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param allowed_mappings:
     :type allowed_mappings: dict
     :param can_edit:
     :type can_edit: bool
     :param columns:
-    :type columns: list of :class:`BoardColumn <azure.devops.v5_1.work.models.BoardColumn>`
+    :type columns: list of :class:`BoardColumn <azure.devops.v5_1..models.BoardColumn>`
     :param fields:
-    :type fields: :class:`BoardFields <azure.devops.v5_1.work.models.BoardFields>`
+    :type fields: :class:`BoardFields <azure.devops.v5_1..models.BoardFields>`
     :param is_valid:
     :type is_valid: bool
     :param revision:
     :type revision: int
     :param rows:
-    :type rows: list of :class:`BoardRow <azure.devops.v5_1.work.models.BoardRow>`
+    :type rows: list of :class:`BoardRow <azure.devops.v5_1..models.BoardRow>`
     """
 
     _attribute_map = {
@@ -1574,7 +1574,7 @@ class BoardChart(BoardChartReference):
     :param url: Full http link to the resource
     :type url: str
     :param _links: The links for the resource
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param settings: The settings for the resource
     :type settings: dict
     """
@@ -1602,7 +1602,7 @@ class DeliveryViewData(PlanViewData):
     :param child_id_to_parent_id_map: Work item child id to parenet id map
     :type child_id_to_parent_id_map: dict
     :param criteria_status: Filter criteria status of the timeline
-    :type criteria_status: :class:`TimelineCriteriaStatus <azure.devops.v5_1.work.models.TimelineCriteriaStatus>`
+    :type criteria_status: :class:`TimelineCriteriaStatus <azure.devops.v5_1..models.TimelineCriteriaStatus>`
     :param end_date: The end date of the delivery view data
     :type end_date: datetime
     :param max_expanded_teams: Max number of teams can be configured for a delivery plan.
@@ -1610,7 +1610,7 @@ class DeliveryViewData(PlanViewData):
     :param start_date: The start date for the delivery view data
     :type start_date: datetime
     :param teams: All the team data
-    :type teams: list of :class:`TimelineTeamData <azure.devops.v5_1.work.models.TimelineTeamData>`
+    :type teams: list of :class:`TimelineTeamData <azure.devops.v5_1..models.TimelineTeamData>`
     """
 
     _attribute_map = {
@@ -1638,11 +1638,11 @@ class IterationWorkItems(TeamSettingsDataContractBase):
     """IterationWorkItems.
 
     :param _links: Collection of links relevant to resource
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param url: Full http link to the resource
     :type url: str
     :param work_item_relations: Work item relations
-    :type work_item_relations: list of :class:`WorkItemLink <azure.devops.v5_1.work.models.WorkItemLink>`
+    :type work_item_relations: list of :class:`WorkItemLink <azure.devops.v5_1..models.WorkItemLink>`
     """
 
     _attribute_map = {
@@ -1660,15 +1660,15 @@ class TeamFieldValues(TeamSettingsDataContractBase):
     """TeamFieldValues.
 
     :param _links: Collection of links relevant to resource
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param url: Full http link to the resource
     :type url: str
     :param default_value: The default team field value
     :type default_value: str
     :param field: Shallow ref to the field being used as a team field
-    :type field: :class:`FieldReference <azure.devops.v5_1.work.models.FieldReference>`
+    :type field: :class:`FieldReference <azure.devops.v5_1..models.FieldReference>`
     :param values: Collection of all valid team field values
-    :type values: list of :class:`TeamFieldValue <azure.devops.v5_1.work.models.TeamFieldValue>`
+    :type values: list of :class:`TeamFieldValue <azure.devops.v5_1..models.TeamFieldValue>`
     """
 
     _attribute_map = {
@@ -1690,15 +1690,15 @@ class TeamMemberCapacity(TeamSettingsDataContractBase):
     """TeamMemberCapacity.
 
     :param _links: Collection of links relevant to resource
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param url: Full http link to the resource
     :type url: str
     :param activities: Collection of capacities associated with the team member
-    :type activities: list of :class:`Activity <azure.devops.v5_1.work.models.Activity>`
+    :type activities: list of :class:`Activity <azure.devops.v5_1..models.Activity>`
     :param days_off: The days off associated with the team member
-    :type days_off: list of :class:`DateRange <azure.devops.v5_1.work.models.DateRange>`
+    :type days_off: list of :class:`DateRange <azure.devops.v5_1..models.DateRange>`
     :param team_member: Shallow Ref to the associated team member
-    :type team_member: :class:`Member <azure.devops.v5_1.work.models.Member>`
+    :type team_member: :class:`Member <azure.devops.v5_1..models.Member>`
     """
 
     _attribute_map = {
@@ -1720,17 +1720,17 @@ class TeamSetting(TeamSettingsDataContractBase):
     """TeamSetting.
 
     :param _links: Collection of links relevant to resource
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param url: Full http link to the resource
     :type url: str
     :param backlog_iteration: Backlog Iteration
-    :type backlog_iteration: :class:`TeamSettingsIteration <azure.devops.v5_1.work.models.TeamSettingsIteration>`
+    :type backlog_iteration: :class:`TeamSettingsIteration <azure.devops.v5_1..models.TeamSettingsIteration>`
     :param backlog_visibilities: Information about categories that are visible on the backlog.
     :type backlog_visibilities: dict
     :param bugs_behavior: BugsBehavior (Off, AsTasks, AsRequirements, ...)
     :type bugs_behavior: object
     :param default_iteration: Default Iteration, the iteration used when creating a new work item on the queries page.
-    :type default_iteration: :class:`TeamSettingsIteration <azure.devops.v5_1.work.models.TeamSettingsIteration>`
+    :type default_iteration: :class:`TeamSettingsIteration <azure.devops.v5_1..models.TeamSettingsIteration>`
     :param default_iteration_macro: Default Iteration macro (if any)
     :type default_iteration_macro: str
     :param working_days: Days that the team is working
@@ -1787,7 +1787,7 @@ class WorkItemTrackingResource(WorkItemTrackingResourceReference):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft.-team-foundation.-work-item-tracking.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     """
 
     _attribute_map = {
@@ -1806,15 +1806,15 @@ class WorkItem(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft.-team-foundation.-work-item-tracking.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param comment_version_ref: Reference to a specific version of the comment added/edited/deleted in this revision.
-    :type comment_version_ref: :class:`WorkItemCommentVersionRef <azure.devops.v5_1.microsoft.-team-foundation.-work-item-tracking.-web-api.models.WorkItemCommentVersionRef>`
+    :type comment_version_ref: :class:`WorkItemCommentVersionRef <azure.devops.v5_1..models.WorkItemCommentVersionRef>`
     :param fields: Map of field and values for the work item.
     :type fields: dict
     :param id: The work item ID.
     :type id: int
     :param relations: Relations of the work item.
-    :type relations: list of :class:`WorkItemRelation <azure.devops.v5_1.microsoft.-team-foundation.-work-item-tracking.-web-api.models.WorkItemRelation>`
+    :type relations: list of :class:`WorkItemRelation <azure.devops.v5_1..models.WorkItemRelation>`
     :param rev: Revision number of the work item.
     :type rev: int
     """

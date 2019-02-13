@@ -54,7 +54,7 @@ class NuGetClient(Client):
     def update_package_versions(self, batch_request, feed_id):
         """UpdatePackageVersions.
         [Preview API] Update several packages from a single feed in a single request. The updates to the packages do not happen atomically.
-        :param :class:`<NuGetPackagesBatchRequest> <azure.devops.v5_0.nuGet.models.NuGetPackagesBatchRequest>` batch_request: Information about the packages to update, the operation to perform, and its associated data.
+        :param :class:`<NuGetPackagesBatchRequest> <azure.devops.v5_0.nuget.models.NuGetPackagesBatchRequest>` batch_request: Information about the packages to update, the operation to perform, and its associated data.
         :param str feed_id: Name or ID of the feed.
         """
         route_values = {}
@@ -92,7 +92,7 @@ class NuGetClient(Client):
         :param str feed_id: Name or ID of the feed.
         :param str package_name: Name of the package.
         :param str package_version: Version of the package.
-        :rtype: :class:`<NuGetPackageVersionDeletionState> <azure.devops.v5_0.nuGet.models.NuGetPackageVersionDeletionState>`
+        :rtype: :class:`<NuGetPackageVersionDeletionState> <azure.devops.v5_0.nuget.models.NuGetPackageVersionDeletionState>`
         """
         route_values = {}
         if feed_id is not None:
@@ -110,7 +110,7 @@ class NuGetClient(Client):
     def restore_package_version_from_recycle_bin(self, package_version_details, feed_id, package_name, package_version):
         """RestorePackageVersionFromRecycleBin.
         [Preview API] Restore a package version from a feed's recycle bin back into the active feed.
-        :param :class:`<NuGetRecycleBinPackageVersionDetails> <azure.devops.v5_0.nuGet.models.NuGetRecycleBinPackageVersionDetails>` package_version_details: Set the 'Deleted' member to 'false' to apply the restore operation
+        :param :class:`<NuGetRecycleBinPackageVersionDetails> <azure.devops.v5_0.nuget.models.NuGetRecycleBinPackageVersionDetails>` package_version_details: Set the 'Deleted' member to 'false' to apply the restore operation
         :param str feed_id: Name or ID of the feed.
         :param str package_name: Name of the package.
         :param str package_version: Version of the package.
@@ -135,7 +135,7 @@ class NuGetClient(Client):
         :param str feed_id: Name or ID of the feed.
         :param str package_name: Name of the package to delete.
         :param str package_version: Version of the package to delete.
-        :rtype: :class:`<Package> <azure.devops.v5_0.nuGet.models.Package>`
+        :rtype: :class:`<Package> <azure.devops.v5_0.nuget.models.Package>`
         """
         route_values = {}
         if feed_id is not None:
@@ -157,7 +157,7 @@ class NuGetClient(Client):
         :param str package_name: Name of the package.
         :param str package_version: Version of the package.
         :param bool show_deleted: True to include deleted packages in the response.
-        :rtype: :class:`<Package> <azure.devops.v5_0.nuGet.models.Package>`
+        :rtype: :class:`<Package> <azure.devops.v5_0.nuget.models.Package>`
         """
         route_values = {}
         if feed_id is not None:
@@ -179,7 +179,7 @@ class NuGetClient(Client):
     def update_package_version(self, package_version_details, feed_id, package_name, package_version):
         """UpdatePackageVersion.
         [Preview API] Set mutable state on a package version.
-        :param :class:`<PackageVersionDetails> <azure.devops.v5_0.nuGet.models.PackageVersionDetails>` package_version_details: New state to apply to the referenced package.
+        :param :class:`<PackageVersionDetails> <azure.devops.v5_0.nuget.models.PackageVersionDetails>` package_version_details: New state to apply to the referenced package.
         :param str feed_id: Name or ID of the feed.
         :param str package_name: Name of the package to update.
         :param str package_version: Version of the package to update.

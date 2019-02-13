@@ -131,7 +131,7 @@ class AzureManagementGroupQueryResult(Model):
     :param error_message: Error message in case of an exception
     :type error_message: str
     :param value: List of azure management groups
-    :type value: list of :class:`AzureManagementGroup <azure.devops.v5_1.service-endpoint.models.AzureManagementGroup>`
+    :type value: list of :class:`AzureManagementGroup <azure.devops.v5_1..models.AzureManagementGroup>`
     """
 
     _attribute_map = {
@@ -179,7 +179,7 @@ class AzureSubscriptionQueryResult(Model):
     :param error_message:
     :type error_message: str
     :param value:
-    :type value: list of :class:`AzureSubscription <azure.devops.v5_1.service-endpoint.models.AzureSubscription>`
+    :type value: list of :class:`AzureSubscription <azure.devops.v5_1..models.AzureSubscription>`
     """
 
     _attribute_map = {
@@ -213,7 +213,7 @@ class DataSource(Model):
     """DataSource.
 
     :param authentication_scheme:
-    :type authentication_scheme: :class:`AuthenticationSchemeReference <azure.devops.v5_1.service-endpoint.models.AuthenticationSchemeReference>`
+    :type authentication_scheme: :class:`AuthenticationSchemeReference <azure.devops.v5_1..models.AuthenticationSchemeReference>`
     :param callback_context_template:
     :type callback_context_template: str
     :param callback_required_template:
@@ -221,7 +221,7 @@ class DataSource(Model):
     :param endpoint_url:
     :type endpoint_url: str
     :param headers:
-    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1.service-endpoint.models.AuthorizationHeader>`
+    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1..models.AuthorizationHeader>`
     :param initial_context_template:
     :type initial_context_template: str
     :param name:
@@ -279,7 +279,7 @@ class DataSourceBindingBase(Model):
     :param endpoint_url: Gets or sets the url of the service endpoint.
     :type endpoint_url: str
     :param headers: Gets or sets the authorization headers.
-    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1.microsoft.-team-foundation.-distributed-task.-common.-contracts.models.AuthorizationHeader>`
+    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1..models.AuthorizationHeader>`
     :param initial_context_template: Defines the initial value of the query params
     :type initial_context_template: str
     :param parameters: Gets or sets the parameters for the data source.
@@ -337,7 +337,7 @@ class DataSourceDetails(Model):
     :param data_source_url: Gets or sets the data source url.
     :type data_source_url: str
     :param headers: Gets or sets the request headers.
-    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1.service-endpoint.models.AuthorizationHeader>`
+    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1..models.AuthorizationHeader>`
     :param initial_context_template: Gets or sets the initialization context used for the initial call to the data source
     :type initial_context_template: str
     :param parameters: Gets the parameters of data source.
@@ -423,7 +423,7 @@ class DependsOn(Model):
     :param input:
     :type input: str
     :param map:
-    :type map: list of :class:`DependencyBinding <azure.devops.v5_1.service-endpoint.models.DependencyBinding>`
+    :type map: list of :class:`DependencyBinding <azure.devops.v5_1..models.DependencyBinding>`
     """
 
     _attribute_map = {
@@ -461,7 +461,7 @@ class EndpointUrl(Model):
     """EndpointUrl.
 
     :param depends_on: Gets or sets the dependency bindings.
-    :type depends_on: :class:`DependsOn <azure.devops.v5_1.service-endpoint.models.DependsOn>`
+    :type depends_on: :class:`DependsOn <azure.devops.v5_1..models.DependsOn>`
     :param display_name: Gets or sets the display name of service endpoint url.
     :type display_name: str
     :param help_text: Gets or sets the help text of service endpoint url.
@@ -493,7 +493,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -541,7 +541,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -623,11 +623,11 @@ class InputDescriptor(Model):
     :param use_in_default_description: Gets whether this input is included in the default generated action description.
     :type use_in_default_description: bool
     :param validation: Information to use to validate this input's value
-    :type validation: :class:`InputValidation <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.InputValidation>`
+    :type validation: :class:`InputValidation <azure.devops.v5_1..models.InputValidation>`
     :param value_hint: A hint for input value. It can be used in the UI as the input placeholder.
     :type value_hint: str
     :param values: Information about possible values for this input
-    :type values: :class:`InputValues <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.InputValues>`
+    :type values: :class:`InputValues <azure.devops.v5_1..models.InputValues>`
     """
 
     _attribute_map = {
@@ -739,7 +739,7 @@ class InputValues(Model):
     :param default_value: The default value to use for this input
     :type default_value: str
     :param error: Errors encountered while computing dynamic values.
-    :type error: :class:`InputValuesError <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.InputValuesError>`
+    :type error: :class:`InputValuesError <azure.devops.v5_1..models.InputValuesError>`
     :param input_id: The id of the input
     :type input_id: str
     :param is_disabled: Should this input be disabled
@@ -749,7 +749,7 @@ class InputValues(Model):
     :param is_read_only: Should this input be made read-only
     :type is_read_only: bool
     :param possible_values: Possible values that this input can take
-    :type possible_values: list of :class:`InputValue <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.InputValue>`
+    :type possible_values: list of :class:`InputValue <azure.devops.v5_1..models.InputValue>`
     """
 
     _attribute_map = {
@@ -797,7 +797,7 @@ class OAuthConfiguration(Model):
     :param client_secret: Gets or sets the ClientSecret
     :type client_secret: str
     :param created_by: Gets or sets the identity who created the config.
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1.service-endpoint.models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
     :param created_on: Gets or sets the time when config was created.
     :type created_on: datetime
     :param endpoint_type: Gets or sets the type of the endpoint.
@@ -805,7 +805,7 @@ class OAuthConfiguration(Model):
     :param id: Gets or sets the unique identifier of this field
     :type id: str
     :param modified_by: Gets or sets the identity who modified the config.
-    :type modified_by: :class:`IdentityRef <azure.devops.v5_1.service-endpoint.models.IdentityRef>`
+    :type modified_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
     :param modified_on: Gets or sets the time when variable group was modified
     :type modified_on: datetime
     :param name: Gets or sets the name
@@ -937,11 +937,11 @@ class ServiceEndpoint(Model):
     """ServiceEndpoint.
 
     :param administrators_group: Gets or sets the identity reference for the administrators group of the service endpoint.
-    :type administrators_group: :class:`IdentityRef <azure.devops.v5_1.service-endpoint.models.IdentityRef>`
+    :type administrators_group: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
     :param authorization: Gets or sets the authorization data for talking to the endpoint.
-    :type authorization: :class:`EndpointAuthorization <azure.devops.v5_1.service-endpoint.models.EndpointAuthorization>`
+    :type authorization: :class:`EndpointAuthorization <azure.devops.v5_1..models.EndpointAuthorization>`
     :param created_by: Gets or sets the identity reference for the user who created the Service endpoint.
-    :type created_by: :class:`IdentityRef <azure.devops.v5_1.service-endpoint.models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
     :param data:
     :type data: dict
     :param description: Gets or sets the description of endpoint.
@@ -957,11 +957,11 @@ class ServiceEndpoint(Model):
     :param name: Gets or sets the friendly name of the endpoint.
     :type name: str
     :param operation_status: Error message during creation/deletion of endpoint
-    :type operation_status: :class:`object <azure.devops.v5_1.service-endpoint.models.object>`
+    :type operation_status: :class:`object <azure.devops.v5_1..models.object>`
     :param owner: Owner of the endpoint Supported values are "library", "agentcloud"
     :type owner: str
     :param readers_group: Gets or sets the identity reference for the readers group of the service endpoint.
-    :type readers_group: :class:`IdentityRef <azure.devops.v5_1.service-endpoint.models.IdentityRef>`
+    :type readers_group: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
     :param type: Gets or sets the type of the endpoint.
     :type type: str
     :param url: Gets or sets the url of the endpoint.
@@ -1009,17 +1009,17 @@ class ServiceEndpointAuthenticationScheme(Model):
     """ServiceEndpointAuthenticationScheme.
 
     :param authorization_headers: Gets or sets the authorization headers of service endpoint authentication scheme.
-    :type authorization_headers: list of :class:`AuthorizationHeader <azure.devops.v5_1.service-endpoint.models.AuthorizationHeader>`
+    :type authorization_headers: list of :class:`AuthorizationHeader <azure.devops.v5_1..models.AuthorizationHeader>`
     :param authorization_url: Gets or sets the Authorization url required to authenticate using OAuth2
     :type authorization_url: str
     :param client_certificates: Gets or sets the certificates of service endpoint authentication scheme.
-    :type client_certificates: list of :class:`ClientCertificate <azure.devops.v5_1.service-endpoint.models.ClientCertificate>`
+    :type client_certificates: list of :class:`ClientCertificate <azure.devops.v5_1..models.ClientCertificate>`
     :param data_source_bindings:
-    :type data_source_bindings: list of :class:`DataSourceBinding <azure.devops.v5_1.service-endpoint.models.DataSourceBinding>`
+    :type data_source_bindings: list of :class:`DataSourceBinding <azure.devops.v5_1..models.DataSourceBinding>`
     :param display_name: Gets or sets the display name for the service endpoint authentication scheme.
     :type display_name: str
     :param input_descriptors: Gets or sets the input descriptors for the service endpoint authentication scheme.
-    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1.service-endpoint.models.InputDescriptor>`
+    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1..models.InputDescriptor>`
     :param scheme: Gets or sets the scheme for service endpoint authentication.
     :type scheme: str
     """
@@ -1049,7 +1049,7 @@ class ServiceEndpointDetails(Model):
     """ServiceEndpointDetails.
 
     :param authorization: Gets or sets the authorization of service endpoint.
-    :type authorization: :class:`EndpointAuthorization <azure.devops.v5_1.service-endpoint.models.EndpointAuthorization>`
+    :type authorization: :class:`EndpointAuthorization <azure.devops.v5_1..models.EndpointAuthorization>`
     :param data: Gets or sets the data of service endpoint.
     :type data: dict
     :param type: Gets or sets the type of service endpoint.
@@ -1077,13 +1077,13 @@ class ServiceEndpointExecutionData(Model):
     """ServiceEndpointExecutionData.
 
     :param definition: Gets the definition of service endpoint execution owner.
-    :type definition: :class:`ServiceEndpointExecutionOwner <azure.devops.v5_1.service-endpoint.models.ServiceEndpointExecutionOwner>`
+    :type definition: :class:`ServiceEndpointExecutionOwner <azure.devops.v5_1..models.ServiceEndpointExecutionOwner>`
     :param finish_time: Gets the finish time of service endpoint execution.
     :type finish_time: datetime
     :param id: Gets the Id of service endpoint execution data.
     :type id: long
     :param owner: Gets the owner of service endpoint execution data.
-    :type owner: :class:`ServiceEndpointExecutionOwner <azure.devops.v5_1.service-endpoint.models.ServiceEndpointExecutionOwner>`
+    :type owner: :class:`ServiceEndpointExecutionOwner <azure.devops.v5_1..models.ServiceEndpointExecutionOwner>`
     :param plan_type: Gets the plan type of service endpoint execution data.
     :type plan_type: str
     :param result: Gets the result of service endpoint execution.
@@ -1117,7 +1117,7 @@ class ServiceEndpointExecutionOwner(Model):
     """ServiceEndpointExecutionOwner.
 
     :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.service-endpoint.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param id: Gets or sets the Id of service endpoint execution owner.
     :type id: int
     :param name: Gets or sets the name of service endpoint execution owner.
@@ -1141,7 +1141,7 @@ class ServiceEndpointExecutionRecord(Model):
     """ServiceEndpointExecutionRecord.
 
     :param data: Gets the execution data of service endpoint execution.
-    :type data: :class:`ServiceEndpointExecutionData <azure.devops.v5_1.service-endpoint.models.ServiceEndpointExecutionData>`
+    :type data: :class:`ServiceEndpointExecutionData <azure.devops.v5_1..models.ServiceEndpointExecutionData>`
     :param endpoint_id: Gets the Id of service endpoint.
     :type endpoint_id: str
     """
@@ -1161,7 +1161,7 @@ class ServiceEndpointExecutionRecordsInput(Model):
     """ServiceEndpointExecutionRecordsInput.
 
     :param data:
-    :type data: :class:`ServiceEndpointExecutionData <azure.devops.v5_1.service-endpoint.models.ServiceEndpointExecutionData>`
+    :type data: :class:`ServiceEndpointExecutionData <azure.devops.v5_1..models.ServiceEndpointExecutionData>`
     :param endpoint_ids:
     :type endpoint_ids: list of str
     """
@@ -1181,11 +1181,11 @@ class ServiceEndpointRequest(Model):
     """ServiceEndpointRequest.
 
     :param data_source_details: Gets or sets the data source details for the service endpoint request.
-    :type data_source_details: :class:`DataSourceDetails <azure.devops.v5_1.service-endpoint.models.DataSourceDetails>`
+    :type data_source_details: :class:`DataSourceDetails <azure.devops.v5_1..models.DataSourceDetails>`
     :param result_transformation_details: Gets or sets the result transformation details for the service endpoint request.
-    :type result_transformation_details: :class:`ResultTransformationDetails <azure.devops.v5_1.service-endpoint.models.ResultTransformationDetails>`
+    :type result_transformation_details: :class:`ResultTransformationDetails <azure.devops.v5_1..models.ResultTransformationDetails>`
     :param service_endpoint_details: Gets or sets the service endpoint details for the service endpoint request.
-    :type service_endpoint_details: :class:`ServiceEndpointDetails <azure.devops.v5_1.service-endpoint.models.ServiceEndpointDetails>`
+    :type service_endpoint_details: :class:`ServiceEndpointDetails <azure.devops.v5_1..models.ServiceEndpointDetails>`
     """
 
     _attribute_map = {
@@ -1211,7 +1211,7 @@ class ServiceEndpointRequestResult(Model):
     :param error_message: Gets or sets the error message of the service endpoint request result.
     :type error_message: str
     :param result: Gets or sets the result of service endpoint request.
-    :type result: :class:`object <azure.devops.v5_1.service-endpoint.models.object>`
+    :type result: :class:`object <azure.devops.v5_1..models.object>`
     :param status_code: Gets or sets the status code of the service endpoint request result.
     :type status_code: object
     """
@@ -1237,25 +1237,25 @@ class ServiceEndpointType(Model):
     """ServiceEndpointType.
 
     :param authentication_schemes: Authentication scheme of service endpoint type.
-    :type authentication_schemes: list of :class:`ServiceEndpointAuthenticationScheme <azure.devops.v5_1.service-endpoint.models.ServiceEndpointAuthenticationScheme>`
+    :type authentication_schemes: list of :class:`ServiceEndpointAuthenticationScheme <azure.devops.v5_1..models.ServiceEndpointAuthenticationScheme>`
     :param data_sources: Data sources of service endpoint type.
-    :type data_sources: list of :class:`DataSource <azure.devops.v5_1.service-endpoint.models.DataSource>`
+    :type data_sources: list of :class:`DataSource <azure.devops.v5_1..models.DataSource>`
     :param dependency_data: Dependency data of service endpoint type.
-    :type dependency_data: list of :class:`DependencyData <azure.devops.v5_1.service-endpoint.models.DependencyData>`
+    :type dependency_data: list of :class:`DependencyData <azure.devops.v5_1..models.DependencyData>`
     :param description: Gets or sets the description of service endpoint type.
     :type description: str
     :param display_name: Gets or sets the display name of service endpoint type.
     :type display_name: str
     :param endpoint_url: Gets or sets the endpoint url of service endpoint type.
-    :type endpoint_url: :class:`EndpointUrl <azure.devops.v5_1.service-endpoint.models.EndpointUrl>`
+    :type endpoint_url: :class:`EndpointUrl <azure.devops.v5_1..models.EndpointUrl>`
     :param help_link: Gets or sets the help link of service endpoint type.
-    :type help_link: :class:`HelpLink <azure.devops.v5_1.service-endpoint.models.HelpLink>`
+    :type help_link: :class:`HelpLink <azure.devops.v5_1..models.HelpLink>`
     :param help_mark_down:
     :type help_mark_down: str
     :param icon_url: Gets or sets the icon url of service endpoint type.
     :type icon_url: str
     :param input_descriptors: Input descriptor of service endpoint type.
-    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1.service-endpoint.models.InputDescriptor>`
+    :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1..models.InputDescriptor>`
     :param name: Gets or sets the name of service endpoint type.
     :type name: str
     :param trusted_hosts: Trusted hosts of a service endpoint type.
@@ -1311,7 +1311,7 @@ class DataSourceBinding(DataSourceBindingBase):
     :param endpoint_url: Gets or sets the url of the service endpoint.
     :type endpoint_url: str
     :param headers: Gets or sets the authorization headers.
-    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1.service-endpoint.models.AuthorizationHeader>`
+    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_1..models.AuthorizationHeader>`
     :param initial_context_template: Defines the initial value of the query params
     :type initial_context_template: str
     :param parameters: Gets or sets the parameters for the data source.

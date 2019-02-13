@@ -28,7 +28,7 @@ class WorkItemTrackingCommentsClient(Client):
     def add_comment(self, request, project, work_item_id):
         """AddComment.
         [Preview API] Add a comment on a work item.
-        :param :class:`<WorkItemCommentCreateRequest> <azure.devops.v5_1.work-item-tracking-comments.models.WorkItemCommentCreateRequest>` request: Comment create request.
+        :param :class:`<WorkItemCommentCreateRequest> <azure.devops.v5_1.work_item_tracking_comments.models.WorkItemCommentCreateRequest>` request: Comment create request.
         :param str project: Project ID or project name
         :param int work_item_id: Id of a work item.
         :rtype: :class:`<WorkItemCommentResponse> <azure.devops.v5_1.work-item-tracking-comments.models.WorkItemCommentResponse>`
@@ -152,7 +152,7 @@ class WorkItemTrackingCommentsClient(Client):
     def update_comment(self, request, project, work_item_id, comment_id):
         """UpdateComment.
         [Preview API] Update a comment on a work item.
-        :param :class:`<WorkItemCommentUpdateRequest> <azure.devops.v5_1.work-item-tracking-comments.models.WorkItemCommentUpdateRequest>` request: Comment update request.
+        :param :class:`<WorkItemCommentUpdateRequest> <azure.devops.v5_1.work_item_tracking_comments.models.WorkItemCommentUpdateRequest>` request: Comment update request.
         :param str project: Project ID or project name
         :param int work_item_id: Id of a work item.
         :param int comment_id:
