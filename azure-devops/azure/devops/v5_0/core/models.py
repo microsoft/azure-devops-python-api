@@ -13,7 +13,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -57,7 +57,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -373,7 +373,7 @@ class TeamMember(Model):
     """TeamMember.
 
     :param identity:
-    :type identity: :class:`IdentityRef <azure.devops.v5_0.microsoft.-visual-studio.-services.-web-api.models.IdentityRef>`
+    :type identity: :class:`IdentityRef <azure.devops.v5_0.microsoft._visual_studio._services._web_api.models.IdentityRef>`
     :param is_team_admin:
     :type is_team_admin: bool
     """

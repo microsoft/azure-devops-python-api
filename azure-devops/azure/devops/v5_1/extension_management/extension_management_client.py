@@ -53,7 +53,7 @@ class ExtensionManagementClient(Client):
     def update_installed_extension(self, extension):
         """UpdateInstalledExtension.
         [Preview API] Update an installed extension. Typically this API is used to enable or disable an extension.
-        :param :class:`<InstalledExtension> <azure.devops.v5_1.extension-management.models.InstalledExtension>` extension:
+        :param :class:`<InstalledExtension> <azure.devops.v5_1.extension_management.models.InstalledExtension>` extension:
         :rtype: :class:`<InstalledExtension> <azure.devops.v5_1.extension-management.models.InstalledExtension>`
         """
         content = self._serialize.body(extension, 'InstalledExtension')

@@ -31,7 +31,7 @@ class UPackLimitedPackageMetadataListResponse(Model):
     :param count:
     :type count: int
     :param value:
-    :type value: list of :class:`UPackLimitedPackageMetadata <azure.devops.v5_0.uPack.models.UPackLimitedPackageMetadata>`
+    :type value: list of :class:`UPackLimitedPackageMetadata <azure.devops.v5_0.upack.models.UPackLimitedPackageMetadata>`
     """
 
     _attribute_map = {

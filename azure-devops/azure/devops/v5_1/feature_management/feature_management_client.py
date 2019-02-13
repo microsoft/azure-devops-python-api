@@ -76,7 +76,7 @@ class FeatureManagementClient(Client):
     def set_feature_state(self, feature, feature_id, user_scope, reason=None, reason_code=None):
         """SetFeatureState.
         [Preview API] Set the state of a feature
-        :param :class:`<ContributedFeatureState> <azure.devops.v5_1.feature-management.models.ContributedFeatureState>` feature: Posted feature state object. Should specify the effective value.
+        :param :class:`<ContributedFeatureState> <azure.devops.v5_1.feature_management.models.ContributedFeatureState>` feature: Posted feature state object. Should specify the effective value.
         :param str feature_id: Contribution id of the feature
         :param str user_scope: User-Scope at which to set the value. Should be "me" for the current user or "host" for all users.
         :param str reason: Reason for changing the state
@@ -129,7 +129,7 @@ class FeatureManagementClient(Client):
     def set_feature_state_for_scope(self, feature, feature_id, user_scope, scope_name, scope_value, reason=None, reason_code=None):
         """SetFeatureStateForScope.
         [Preview API] Set the state of a feature at a specific scope
-        :param :class:`<ContributedFeatureState> <azure.devops.v5_1.feature-management.models.ContributedFeatureState>` feature: Posted feature state object. Should specify the effective value.
+        :param :class:`<ContributedFeatureState> <azure.devops.v5_1.feature_management.models.ContributedFeatureState>` feature: Posted feature state object. Should specify the effective value.
         :param str feature_id: Contribution id of the feature
         :param str user_scope: User-Scope at which to set the value. Should be "me" for the current user or "host" for all users.
         :param str scope_name: Scope at which to get the feature setting for (e.g. "project" or "team")
@@ -164,7 +164,7 @@ class FeatureManagementClient(Client):
     def query_feature_states(self, query):
         """QueryFeatureStates.
         [Preview API] Get the effective state for a list of feature ids
-        :param :class:`<ContributedFeatureStateQuery> <azure.devops.v5_1.feature-management.models.ContributedFeatureStateQuery>` query: Features to query along with current scope values
+        :param :class:`<ContributedFeatureStateQuery> <azure.devops.v5_1.feature_management.models.ContributedFeatureStateQuery>` query: Features to query along with current scope values
         :rtype: :class:`<ContributedFeatureStateQuery> <azure.devops.v5_1.feature-management.models.ContributedFeatureStateQuery>`
         """
         content = self._serialize.body(query, 'ContributedFeatureStateQuery')
@@ -177,7 +177,7 @@ class FeatureManagementClient(Client):
     def query_feature_states_for_default_scope(self, query, user_scope):
         """QueryFeatureStatesForDefaultScope.
         [Preview API] Get the states of the specified features for the default scope
-        :param :class:`<ContributedFeatureStateQuery> <azure.devops.v5_1.feature-management.models.ContributedFeatureStateQuery>` query: Query describing the features to query.
+        :param :class:`<ContributedFeatureStateQuery> <azure.devops.v5_1.feature_management.models.ContributedFeatureStateQuery>` query: Query describing the features to query.
         :param str user_scope:
         :rtype: :class:`<ContributedFeatureStateQuery> <azure.devops.v5_1.feature-management.models.ContributedFeatureStateQuery>`
         """
@@ -195,7 +195,7 @@ class FeatureManagementClient(Client):
     def query_feature_states_for_named_scope(self, query, user_scope, scope_name, scope_value):
         """QueryFeatureStatesForNamedScope.
         [Preview API] Get the states of the specified features for the specific named scope
-        :param :class:`<ContributedFeatureStateQuery> <azure.devops.v5_1.feature-management.models.ContributedFeatureStateQuery>` query: Query describing the features to query.
+        :param :class:`<ContributedFeatureStateQuery> <azure.devops.v5_1.feature_management.models.ContributedFeatureStateQuery>` query: Query describing the features to query.
         :param str user_scope:
         :param str scope_name:
         :param str scope_value:

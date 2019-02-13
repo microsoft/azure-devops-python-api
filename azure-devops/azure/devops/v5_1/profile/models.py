@@ -53,7 +53,7 @@ class ProfileRegions(Model):
     :param opt_out_contact_consent_requirement_regions: List of country/region code with contact consent requirement type of opt-out
     :type opt_out_contact_consent_requirement_regions: list of str
     :param regions: List of country/regions
-    :type regions: list of :class:`ProfileRegion <azure.devops.v5_1.profile.models.ProfileRegion>`
+    :type regions: list of :class:`ProfileRegion <azure.devops.v5_1..models.ProfileRegion>`
     """
 
     _attribute_map = {

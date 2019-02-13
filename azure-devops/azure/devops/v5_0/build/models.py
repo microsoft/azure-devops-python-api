@@ -49,11 +49,11 @@ class AggregatedResultsAnalysis(Model):
     :param not_reported_results_by_outcome:
     :type not_reported_results_by_outcome: dict
     :param previous_context:
-    :type previous_context: :class:`TestResultsContext <azure.devops.v5_0.microsoft.-team-foundation.-test-management.-web-api.models.TestResultsContext>`
+    :type previous_context: :class:`TestResultsContext <azure.devops.v5_0.microsoft._team_foundation._test_management._web_api.models.TestResultsContext>`
     :param results_by_outcome:
     :type results_by_outcome: dict
     :param results_difference:
-    :type results_difference: :class:`AggregatedResultsDifference <azure.devops.v5_0.microsoft.-team-foundation.-test-management.-web-api.models.AggregatedResultsDifference>`
+    :type results_difference: :class:`AggregatedResultsDifference <azure.devops.v5_0.microsoft._team_foundation._test_management._web_api.models.AggregatedResultsDifference>`
     :param run_summary_by_outcome:
     :type run_summary_by_outcome: dict
     :param run_summary_by_state:
@@ -1123,7 +1123,7 @@ class DataSourceBindingBase(Model):
     :param endpoint_url: Gets or sets the url of the service endpoint.
     :type endpoint_url: str
     :param headers: Gets or sets the authorization headers.
-    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_0.microsoft.-team-foundation.-distributed-task.-common.-contracts.models.AuthorizationHeader>`
+    :type headers: list of :class:`AuthorizationHeader <azure.devops.v5_0.microsoft._team_foundation._distributed_task._common._contracts.models.AuthorizationHeader>`
     :param initial_context_template: Defines the initial value of the query params
     :type initial_context_template: str
     :param parameters: Gets or sets the parameters for the data source.
@@ -1305,7 +1305,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -1333,7 +1333,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -1449,11 +1449,11 @@ class ProcessParameters(Model):
     """ProcessParameters.
 
     :param data_source_bindings:
-    :type data_source_bindings: list of :class:`DataSourceBindingBase <azure.devops.v5_0.microsoft.-team-foundation.-distributed-task.-common.-contracts.models.DataSourceBindingBase>`
+    :type data_source_bindings: list of :class:`DataSourceBindingBase <azure.devops.v5_0.microsoft._team_foundation._distributed_task._common._contracts.models.DataSourceBindingBase>`
     :param inputs:
-    :type inputs: list of :class:`TaskInputDefinitionBase <azure.devops.v5_0.microsoft.-team-foundation.-distributed-task.-common.-contracts.models.TaskInputDefinitionBase>`
+    :type inputs: list of :class:`TaskInputDefinitionBase <azure.devops.v5_0.microsoft._team_foundation._distributed_task._common._contracts.models.TaskInputDefinitionBase>`
     :param source_definitions:
-    :type source_definitions: list of :class:`TaskSourceDefinitionBase <azure.devops.v5_0.microsoft.-team-foundation.-distributed-task.-common.-contracts.models.TaskSourceDefinitionBase>`
+    :type source_definitions: list of :class:`TaskSourceDefinitionBase <azure.devops.v5_0.microsoft._team_foundation._distributed_task._common._contracts.models.TaskSourceDefinitionBase>`
     """
 
     _attribute_map = {
@@ -1897,7 +1897,7 @@ class TaskInputDefinitionBase(Model):
     :param type:
     :type type: str
     :param validation:
-    :type validation: :class:`TaskInputValidation <azure.devops.v5_0.microsoft.-team-foundation.-distributed-task.-common.-contracts.models.TaskInputValidation>`
+    :type validation: :class:`TaskInputValidation <azure.devops.v5_0.microsoft._team_foundation._distributed_task._common._contracts.models.TaskInputValidation>`
     :param visible_rule:
     :type visible_rule: str
     """
@@ -2081,11 +2081,11 @@ class TestResultsContext(Model):
     """TestResultsContext.
 
     :param build:
-    :type build: :class:`BuildReference <azure.devops.v5_0.microsoft.-team-foundation.-test-management.-web-api.models.BuildReference>`
+    :type build: :class:`BuildReference <azure.devops.v5_0.microsoft._team_foundation._test_management._web_api.models.BuildReference>`
     :param context_type:
     :type context_type: object
     :param release:
-    :type release: :class:`ReleaseReference <azure.devops.v5_0.microsoft.-team-foundation.-test-management.-web-api.models.ReleaseReference>`
+    :type release: :class:`ReleaseReference <azure.devops.v5_0.microsoft._team_foundation._test_management._web_api.models.ReleaseReference>`
     """
 
     _attribute_map = {

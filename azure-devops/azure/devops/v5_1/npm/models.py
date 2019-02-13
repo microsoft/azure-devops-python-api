@@ -73,11 +73,11 @@ class NpmPackagesBatchRequest(Model):
     """NpmPackagesBatchRequest.
 
     :param data: Data required to perform the operation. This is optional based on type of operation. Use BatchPromoteData if performing a promote operation.
-    :type data: :class:`BatchOperationData <azure.devops.v5_1.npm.models.BatchOperationData>`
+    :type data: :class:`BatchOperationData <azure.devops.v5_1..models.BatchOperationData>`
     :param operation: Type of operation that needs to be performed on packages.
     :type operation: object
     :param packages: The packages onto which the operation will be performed.
-    :type packages: list of :class:`MinimalPackageDetails <azure.devops.v5_1.npm.models.MinimalPackageDetails>`
+    :type packages: list of :class:`MinimalPackageDetails <azure.devops.v5_1..models.MinimalPackageDetails>`
     """
 
     _attribute_map = {
@@ -137,7 +137,7 @@ class Package(Model):
     """Package.
 
     :param _links: Related REST links.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.npm.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param deprecate_message: Deprecated message, if any, for the package.
     :type deprecate_message: str
     :param id: Package Id.
@@ -147,7 +147,7 @@ class Package(Model):
     :param permanently_deleted_date: If and when the package was permanently deleted.
     :type permanently_deleted_date: datetime
     :param source_chain: The history of upstream sources for this package. The first source in the list is the immediate source from which this package was saved.
-    :type source_chain: list of :class:`UpstreamSourceInfo <azure.devops.v5_1.npm.models.UpstreamSourceInfo>`
+    :type source_chain: list of :class:`UpstreamSourceInfo <azure.devops.v5_1..models.UpstreamSourceInfo>`
     :param unpublished_date: If and when the package was deleted.
     :type unpublished_date: datetime
     :param version: The version of the package.
@@ -183,7 +183,7 @@ class PackageVersionDetails(Model):
     :param deprecate_message: Indicates the deprecate message of a package version
     :type deprecate_message: str
     :param views: The view to which the package version will be added
-    :type views: :class:`JsonPatchOperation <azure.devops.v5_1.npm.models.JsonPatchOperation>`
+    :type views: :class:`JsonPatchOperation <azure.devops.v5_1..models.JsonPatchOperation>`
     """
 
     _attribute_map = {

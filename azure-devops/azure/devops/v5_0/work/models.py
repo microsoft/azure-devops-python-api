@@ -557,7 +557,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -585,7 +585,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -1395,9 +1395,9 @@ class WorkItemLink(Model):
     :param rel: The type of link.
     :type rel: str
     :param source: The source work item.
-    :type source: :class:`WorkItemReference <azure.devops.v5_0.microsoft.-team-foundation.-work-item-tracking.-web-api.models.WorkItemReference>`
+    :type source: :class:`WorkItemReference <azure.devops.v5_0.microsoft._team_foundation._work_item_tracking._web_api.models.WorkItemReference>`
     :param target: The target work item.
-    :type target: :class:`WorkItemReference <azure.devops.v5_0.microsoft.-team-foundation.-work-item-tracking.-web-api.models.WorkItemReference>`
+    :type target: :class:`WorkItemReference <azure.devops.v5_0.microsoft._team_foundation._work_item_tracking._web_api.models.WorkItemReference>`
     """
 
     _attribute_map = {
@@ -1756,7 +1756,7 @@ class WorkItemTrackingResource(WorkItemTrackingResourceReference):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft.-team-foundation.-work-item-tracking.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft._team_foundation._work_item_tracking._web_api.models.ReferenceLinks>`
     """
 
     _attribute_map = {
@@ -1775,13 +1775,13 @@ class WorkItem(WorkItemTrackingResource):
     :param url:
     :type url: str
     :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft.-team-foundation.-work-item-tracking.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft._team_foundation._work_item_tracking._web_api.models.ReferenceLinks>`
     :param fields: Map of field and values for the work item.
     :type fields: dict
     :param id: The work item ID.
     :type id: int
     :param relations: Relations of the work item.
-    :type relations: list of :class:`WorkItemRelation <azure.devops.v5_0.microsoft.-team-foundation.-work-item-tracking.-web-api.models.WorkItemRelation>`
+    :type relations: list of :class:`WorkItemRelation <azure.devops.v5_0.microsoft._team_foundation._work_item_tracking._web_api.models.WorkItemRelation>`
     :param rev: Revision number of the work item.
     :type rev: int
     """

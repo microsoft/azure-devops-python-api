@@ -28,7 +28,7 @@ class MemberEntitlementManagementClient(Client):
     def add_group_entitlement(self, group_entitlement, rule_option=None):
         """AddGroupEntitlement.
         [Preview API] Create a group entitlement with license rule, extension rule.
-        :param :class:`<GroupEntitlement> <azure.devops.v5_1.member-entitlement-management.models.GroupEntitlement>` group_entitlement: GroupEntitlement object specifying License Rule, Extensions Rule for the group. Based on the rules the members of the group will be given licenses and extensions. The Group Entitlement can be used to add the group to another project level groups
+        :param :class:`<GroupEntitlement> <azure.devops.v5_1.member_entitlement_management.models.GroupEntitlement>` group_entitlement: GroupEntitlement object specifying License Rule, Extensions Rule for the group. Based on the rules the members of the group will be given licenses and extensions. The Group Entitlement can be used to add the group to another project level groups
         :param str rule_option: RuleOption [ApplyGroupRule/TestApplyGroupRule] - specifies if the rules defined in group entitlement should be created and applied to it’s members (default option) or just be tested
         :rtype: :class:`<GroupEntitlementOperationReference> <azure.devops.v5_1.member-entitlement-management.models.GroupEntitlementOperationReference>`
         """
@@ -94,7 +94,7 @@ class MemberEntitlementManagementClient(Client):
     def update_group_entitlement(self, document, group_id, rule_option=None):
         """UpdateGroupEntitlement.
         [Preview API] Update entitlements (License Rule, Extensions Rule, Project memberships etc.) for a group.
-        :param :class:`<[JsonPatchOperation]> <azure.devops.v5_1.member-entitlement-management.models.[JsonPatchOperation]>` document: JsonPatchDocument containing the operations to perform on the group.
+        :param :class:`<[JsonPatchOperation]> <azure.devops.v5_1.member_entitlement_management.models.[JsonPatchOperation]>` document: JsonPatchDocument containing the operations to perform on the group.
         :param str group_id: ID of the group.
         :param str rule_option: RuleOption [ApplyGroupRule/TestApplyGroupRule] - specifies if the rules defined in group entitlement should be updated and the changes are applied to it’s members (default option) or just be tested
         :rtype: :class:`<GroupEntitlementOperationReference> <azure.devops.v5_1.member-entitlement-management.models.GroupEntitlementOperationReference>`
@@ -173,7 +173,7 @@ class MemberEntitlementManagementClient(Client):
     def add_user_entitlement(self, user_entitlement):
         """AddUserEntitlement.
         [Preview API] Add a user, assign license and extensions and make them a member of a project group in an account.
-        :param :class:`<UserEntitlement> <azure.devops.v5_1.member-entitlement-management.models.UserEntitlement>` user_entitlement: UserEntitlement object specifying License, Extensions and Project/Team groups the user should be added to.
+        :param :class:`<UserEntitlement> <azure.devops.v5_1.member_entitlement_management.models.UserEntitlement>` user_entitlement: UserEntitlement object specifying License, Extensions and Project/Team groups the user should be added to.
         :rtype: :class:`<UserEntitlementsPostResponse> <azure.devops.v5_1.member-entitlement-management.models.UserEntitlementsPostResponse>`
         """
         content = self._serialize.body(user_entitlement, 'UserEntitlement')
@@ -210,7 +210,7 @@ class MemberEntitlementManagementClient(Client):
     def update_user_entitlements(self, document, do_not_send_invite_for_new_users=None):
         """UpdateUserEntitlements.
         [Preview API] Edit the entitlements (License, Extensions, Projects, Teams etc) for one or more users.
-        :param :class:`<[JsonPatchOperation]> <azure.devops.v5_1.member-entitlement-management.models.[JsonPatchOperation]>` document: JsonPatchDocument containing the operations to perform.
+        :param :class:`<[JsonPatchOperation]> <azure.devops.v5_1.member_entitlement_management.models.[JsonPatchOperation]>` document: JsonPatchDocument containing the operations to perform.
         :param bool do_not_send_invite_for_new_users: Whether to send email invites to new users or not
         :rtype: :class:`<UserEntitlementOperationReference> <azure.devops.v5_1.member-entitlement-management.models.UserEntitlementOperationReference>`
         """
@@ -257,7 +257,7 @@ class MemberEntitlementManagementClient(Client):
     def update_user_entitlement(self, document, user_id):
         """UpdateUserEntitlement.
         [Preview API] Edit the entitlements (License, Extensions, Projects, Teams etc) for a user.
-        :param :class:`<[JsonPatchOperation]> <azure.devops.v5_1.member-entitlement-management.models.[JsonPatchOperation]>` document: JsonPatchDocument containing the operations to perform on the user.
+        :param :class:`<[JsonPatchOperation]> <azure.devops.v5_1.member_entitlement_management.models.[JsonPatchOperation]>` document: JsonPatchDocument containing the operations to perform on the user.
         :param str user_id: ID of the user.
         :rtype: :class:`<UserEntitlementsPatchResponse> <azure.devops.v5_1.member-entitlement-management.models.UserEntitlementsPatchResponse>`
         """

@@ -21,9 +21,9 @@ class AgentGroup(Model):
     :param group_name:
     :type group_name: str
     :param machine_access_data:
-    :type machine_access_data: list of :class:`AgentGroupAccessData <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.AgentGroupAccessData>`
+    :type machine_access_data: list of :class:`AgentGroupAccessData <azure.devops.v5_1..models.AgentGroupAccessData>`
     :param machine_configuration:
-    :type machine_configuration: :class:`WebApiUserLoadTestMachineInput <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.WebApiUserLoadTestMachineInput>`
+    :type machine_configuration: :class:`WebApiUserLoadTestMachineInput <azure.devops.v5_1..models.WebApiUserLoadTestMachineInput>`
     :param tenant_id:
     :type tenant_id: str
     """
@@ -267,7 +267,7 @@ class CounterInstanceSamples(Model):
     :param next_refresh_time:
     :type next_refresh_time: datetime
     :param values:
-    :type values: list of :class:`CounterSample <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.CounterSample>`
+    :type values: list of :class:`CounterSample <azure.devops.v5_1..models.CounterSample>`
     """
 
     _attribute_map = {
@@ -371,7 +371,7 @@ class CounterSamplesResult(Model):
     :param total_samples_count:
     :type total_samples_count: int
     :param values:
-    :type values: list of :class:`CounterInstanceSamples <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.CounterInstanceSamples>`
+    :type values: list of :class:`CounterInstanceSamples <azure.devops.v5_1..models.CounterInstanceSamples>`
     """
 
     _attribute_map = {
@@ -511,13 +511,13 @@ class LoadTestDefinition(Model):
     :param agent_count:
     :type agent_count: int
     :param browser_mixs:
-    :type browser_mixs: list of :class:`BrowserMix <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.BrowserMix>`
+    :type browser_mixs: list of :class:`BrowserMix <azure.devops.v5_1..models.BrowserMix>`
     :param core_count:
     :type core_count: int
     :param cores_per_agent:
     :type cores_per_agent: int
     :param load_generation_geo_locations:
-    :type load_generation_geo_locations: list of :class:`LoadGenerationGeoLocation <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.LoadGenerationGeoLocation>`
+    :type load_generation_geo_locations: list of :class:`LoadGenerationGeoLocation <azure.devops.v5_1..models.LoadGenerationGeoLocation>`
     :param load_pattern_name:
     :type load_pattern_name: str
     :param load_test_name:
@@ -573,7 +573,7 @@ class LoadTestErrors(Model):
     :param occurrences:
     :type occurrences: int
     :param types:
-    :type types: list of :class:`object <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.object>`
+    :type types: list of :class:`object <azure.devops.v5_1..models.object>`
     :param url:
     :type url: str
     """
@@ -639,7 +639,7 @@ class OverridableRunSettings(Model):
     :param load_generator_machines_type:
     :type load_generator_machines_type: object
     :param static_agent_run_settings:
-    :type static_agent_run_settings: :class:`StaticAgentRunSetting <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.StaticAgentRunSetting>`
+    :type static_agent_run_settings: :class:`StaticAgentRunSetting <azure.devops.v5_1..models.StaticAgentRunSetting>`
     """
 
     _attribute_map = {
@@ -663,7 +663,7 @@ class PageSummary(Model):
     :param percentage_pages_meeting_goal:
     :type percentage_pages_meeting_goal: int
     :param percentile_data:
-    :type percentile_data: list of :class:`SummaryPercentileData <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.SummaryPercentileData>`
+    :type percentile_data: list of :class:`SummaryPercentileData <azure.devops.v5_1..models.SummaryPercentileData>`
     :param scenario_name:
     :type scenario_name: str
     :param test_name:
@@ -703,7 +703,7 @@ class RequestSummary(Model):
     :param passed_requests:
     :type passed_requests: int
     :param percentile_data:
-    :type percentile_data: list of :class:`SummaryPercentileData <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.SummaryPercentileData>`
+    :type percentile_data: list of :class:`SummaryPercentileData <azure.devops.v5_1..models.SummaryPercentileData>`
     :param requests_per_sec:
     :type requests_per_sec: float
     :param request_url:
@@ -791,7 +791,7 @@ class SubType(Model):
     :param count:
     :type count: int
     :param error_detail_list:
-    :type error_detail_list: list of :class:`ErrorDetails <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.ErrorDetails>`
+    :type error_detail_list: list of :class:`ErrorDetails <azure.devops.v5_1..models.ErrorDetails>`
     :param occurrences:
     :type occurrences: int
     :param sub_type_name:
@@ -841,13 +841,13 @@ class TenantDetails(Model):
     """TenantDetails.
 
     :param access_details:
-    :type access_details: list of :class:`AgentGroupAccessData <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.AgentGroupAccessData>`
+    :type access_details: list of :class:`AgentGroupAccessData <azure.devops.v5_1..models.AgentGroupAccessData>`
     :param id:
     :type id: str
     :param static_machines:
-    :type static_machines: list of :class:`WebApiTestMachine <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.WebApiTestMachine>`
+    :type static_machines: list of :class:`WebApiTestMachine <azure.devops.v5_1..models.WebApiTestMachine>`
     :param user_load_agent_input:
-    :type user_load_agent_input: :class:`WebApiUserLoadTestMachineInput <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.WebApiUserLoadTestMachineInput>`
+    :type user_load_agent_input: :class:`WebApiUserLoadTestMachineInput <azure.devops.v5_1..models.WebApiUserLoadTestMachineInput>`
     :param user_load_agent_resources_uri:
     :type user_load_agent_resources_uri: str
     :param valid_geo_locations:
@@ -877,7 +877,7 @@ class TestDefinitionBasic(Model):
     """TestDefinitionBasic.
 
     :param access_data:
-    :type access_data: :class:`DropAccessData <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.DropAccessData>`
+    :type access_data: :class:`DropAccessData <azure.devops.v5_1..models.DropAccessData>`
     :param created_by:
     :type created_by: IdentityRef
     :param created_date:
@@ -921,7 +921,7 @@ class TestDrop(Model):
     """TestDrop.
 
     :param access_data:
-    :type access_data: :class:`DropAccessData <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.DropAccessData>`
+    :type access_data: :class:`DropAccessData <azure.devops.v5_1..models.DropAccessData>`
     :param created_date:
     :type created_date: datetime
     :param drop_type:
@@ -929,7 +929,7 @@ class TestDrop(Model):
     :param id:
     :type id: str
     :param load_test_definition:
-    :type load_test_definition: :class:`LoadTestDefinition <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.LoadTestDefinition>`
+    :type load_test_definition: :class:`LoadTestDefinition <azure.devops.v5_1..models.LoadTestDefinition>`
     :param test_run_id:
     :type test_run_id: str
     """
@@ -979,9 +979,9 @@ class TestResults(Model):
     :param cloud_load_test_solution_url:
     :type cloud_load_test_solution_url: str
     :param counter_groups:
-    :type counter_groups: list of :class:`CounterGroup <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.CounterGroup>`
+    :type counter_groups: list of :class:`CounterGroup <azure.devops.v5_1..models.CounterGroup>`
     :param diagnostics:
-    :type diagnostics: :class:`Diagnostics <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.Diagnostics>`
+    :type diagnostics: :class:`Diagnostics <azure.devops.v5_1..models.Diagnostics>`
     :param results_url:
     :type results_url: str
     """
@@ -1005,23 +1005,23 @@ class TestResultsSummary(Model):
     """TestResultsSummary.
 
     :param overall_page_summary:
-    :type overall_page_summary: :class:`PageSummary <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.PageSummary>`
+    :type overall_page_summary: :class:`PageSummary <azure.devops.v5_1..models.PageSummary>`
     :param overall_request_summary:
-    :type overall_request_summary: :class:`RequestSummary <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.RequestSummary>`
+    :type overall_request_summary: :class:`RequestSummary <azure.devops.v5_1..models.RequestSummary>`
     :param overall_scenario_summary:
-    :type overall_scenario_summary: :class:`ScenarioSummary <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.ScenarioSummary>`
+    :type overall_scenario_summary: :class:`ScenarioSummary <azure.devops.v5_1..models.ScenarioSummary>`
     :param overall_test_summary:
-    :type overall_test_summary: :class:`TestSummary <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.TestSummary>`
+    :type overall_test_summary: :class:`TestSummary <azure.devops.v5_1..models.TestSummary>`
     :param overall_transaction_summary:
-    :type overall_transaction_summary: :class:`TransactionSummary <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.TransactionSummary>`
+    :type overall_transaction_summary: :class:`TransactionSummary <azure.devops.v5_1..models.TransactionSummary>`
     :param top_slow_pages:
-    :type top_slow_pages: list of :class:`PageSummary <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.PageSummary>`
+    :type top_slow_pages: list of :class:`PageSummary <azure.devops.v5_1..models.PageSummary>`
     :param top_slow_requests:
-    :type top_slow_requests: list of :class:`RequestSummary <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.RequestSummary>`
+    :type top_slow_requests: list of :class:`RequestSummary <azure.devops.v5_1..models.RequestSummary>`
     :param top_slow_tests:
-    :type top_slow_tests: list of :class:`TestSummary <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.TestSummary>`
+    :type top_slow_tests: list of :class:`TestSummary <azure.devops.v5_1..models.TestSummary>`
     :param top_slow_transactions:
-    :type top_slow_transactions: list of :class:`TransactionSummary <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.TransactionSummary>`
+    :type top_slow_transactions: list of :class:`TransactionSummary <azure.devops.v5_1..models.TransactionSummary>`
     """
 
     _attribute_map = {
@@ -1097,7 +1097,7 @@ class TestRunBasic(Model):
     :param id:
     :type id: str
     :param load_generation_geo_locations:
-    :type load_generation_geo_locations: list of :class:`LoadGenerationGeoLocation <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.LoadGenerationGeoLocation>`
+    :type load_generation_geo_locations: list of :class:`LoadGenerationGeoLocation <azure.devops.v5_1..models.LoadGenerationGeoLocation>`
     :param load_test_file_name:
     :type load_test_file_name: str
     :param name:
@@ -1107,7 +1107,7 @@ class TestRunBasic(Model):
     :param run_source:
     :type run_source: str
     :param run_specific_details:
-    :type run_specific_details: :class:`LoadTestRunDetails <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.LoadTestRunDetails>`
+    :type run_specific_details: :class:`LoadTestRunDetails <azure.devops.v5_1..models.LoadTestRunDetails>`
     :param run_type:
     :type run_type: object
     :param state:
@@ -1173,7 +1173,7 @@ class TestRunCounterInstance(Model):
     :param part_of_counter_groups:
     :type part_of_counter_groups: list of str
     :param summary_data:
-    :type summary_data: :class:`WebInstanceSummaryData <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.WebInstanceSummaryData>`
+    :type summary_data: :class:`WebInstanceSummaryData <azure.devops.v5_1..models.WebInstanceSummaryData>`
     :param unique_name:
     :type unique_name: str
     """
@@ -1287,7 +1287,7 @@ class TestSummary(Model):
     :param passed_tests:
     :type passed_tests: int
     :param percentile_data:
-    :type percentile_data: list of :class:`SummaryPercentileData <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.SummaryPercentileData>`
+    :type percentile_data: list of :class:`SummaryPercentileData <azure.devops.v5_1..models.SummaryPercentileData>`
     :param scenario_name:
     :type scenario_name: str
     :param test_name:
@@ -1325,7 +1325,7 @@ class TransactionSummary(Model):
     :param average_transaction_time:
     :type average_transaction_time: float
     :param percentile_data:
-    :type percentile_data: list of :class:`SummaryPercentileData <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.SummaryPercentileData>`
+    :type percentile_data: list of :class:`SummaryPercentileData <azure.devops.v5_1..models.SummaryPercentileData>`
     :param scenario_name:
     :type scenario_name: str
     :param test_name:
@@ -1365,7 +1365,7 @@ class WebApiLoadTestMachineInput(Model):
     :param machine_type:
     :type machine_type: object
     :param setup_configuration:
-    :type setup_configuration: :class:`WebApiSetupParamaters <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.WebApiSetupParamaters>`
+    :type setup_configuration: :class:`WebApiSetupParamaters <azure.devops.v5_1..models.WebApiSetupParamaters>`
     :param supported_run_types:
     :type supported_run_types: list of TestRunType
     """
@@ -1433,7 +1433,7 @@ class WebApiUserLoadTestMachineInput(WebApiLoadTestMachineInput):
     :param machine_type:
     :type machine_type: object
     :param setup_configuration:
-    :type setup_configuration: :class:`WebApiSetupParamaters <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.WebApiSetupParamaters>`
+    :type setup_configuration: :class:`WebApiSetupParamaters <azure.devops.v5_1..models.WebApiSetupParamaters>`
     :param supported_run_types:
     :type supported_run_types: list of TestRunType
     :param agent_group_name:
@@ -1530,7 +1530,7 @@ class TestDefinition(TestDefinitionBasic):
     """TestDefinition.
 
     :param access_data:
-    :type access_data: :class:`DropAccessData <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.DropAccessData>`
+    :type access_data: :class:`DropAccessData <azure.devops.v5_1..models.DropAccessData>`
     :param created_by:
     :type created_by: IdentityRef
     :param created_date:
@@ -1548,15 +1548,15 @@ class TestDefinition(TestDefinitionBasic):
     :param description:
     :type description: str
     :param load_generation_geo_locations:
-    :type load_generation_geo_locations: list of :class:`LoadGenerationGeoLocation <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.LoadGenerationGeoLocation>`
+    :type load_generation_geo_locations: list of :class:`LoadGenerationGeoLocation <azure.devops.v5_1..models.LoadGenerationGeoLocation>`
     :param load_test_definition_source:
     :type load_test_definition_source: str
     :param run_settings:
-    :type run_settings: :class:`LoadTestRunSettings <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.LoadTestRunSettings>`
+    :type run_settings: :class:`LoadTestRunSettings <azure.devops.v5_1..models.LoadTestRunSettings>`
     :param static_agent_run_settings:
-    :type static_agent_run_settings: :class:`StaticAgentRunSetting <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.StaticAgentRunSetting>`
+    :type static_agent_run_settings: :class:`StaticAgentRunSetting <azure.devops.v5_1..models.StaticAgentRunSetting>`
     :param test_details:
-    :type test_details: :class:`LoadTest <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.LoadTest>`
+    :type test_details: :class:`LoadTest <azure.devops.v5_1..models.LoadTest>`
     """
 
     _attribute_map = {
@@ -1602,7 +1602,7 @@ class TestRun(TestRunBasic):
     :param id:
     :type id: str
     :param load_generation_geo_locations:
-    :type load_generation_geo_locations: list of :class:`LoadGenerationGeoLocation <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.LoadGenerationGeoLocation>`
+    :type load_generation_geo_locations: list of :class:`LoadGenerationGeoLocation <azure.devops.v5_1..models.LoadGenerationGeoLocation>`
     :param load_test_file_name:
     :type load_test_file_name: str
     :param name:
@@ -1612,7 +1612,7 @@ class TestRun(TestRunBasic):
     :param run_source:
     :type run_source: str
     :param run_specific_details:
-    :type run_specific_details: :class:`LoadTestRunDetails <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.LoadTestRunDetails>`
+    :type run_specific_details: :class:`LoadTestRunDetails <azure.devops.v5_1..models.LoadTestRunDetails>`
     :param run_type:
     :type run_type: object
     :param state:
@@ -1620,7 +1620,7 @@ class TestRun(TestRunBasic):
     :param url:
     :type url: str
     :param abort_message:
-    :type abort_message: :class:`TestRunAbortMessage <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.TestRunAbortMessage>`
+    :type abort_message: :class:`TestRunAbortMessage <azure.devops.v5_1..models.TestRunAbortMessage>`
     :param aut_initialization_error:
     :type aut_initialization_error: bool
     :param chargeable:
@@ -1650,11 +1650,11 @@ class TestRun(TestRunBasic):
     :param sub_state:
     :type sub_state: object
     :param supersede_run_settings:
-    :type supersede_run_settings: :class:`OverridableRunSettings <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.OverridableRunSettings>`
+    :type supersede_run_settings: :class:`OverridableRunSettings <azure.devops.v5_1..models.OverridableRunSettings>`
     :param test_drop:
-    :type test_drop: :class:`TestDropRef <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.TestDropRef>`
+    :type test_drop: :class:`TestDropRef <azure.devops.v5_1..models.TestDropRef>`
     :param test_settings:
-    :type test_settings: :class:`TestSettings <azure.devops.v5_1.microsoft.-visual-studio.-test-service.-web-api-model.models.TestSettings>`
+    :type test_settings: :class:`TestSettings <azure.devops.v5_1..models.TestSettings>`
     :param warm_up_started_date:
     :type warm_up_started_date: datetime
     :param web_result_url:

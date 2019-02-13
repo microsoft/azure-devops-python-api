@@ -13,7 +13,7 @@ class AccessTokenResult(Model):
     """AccessTokenResult.
 
     :param access_token:
-    :type access_token: :class:`JsonWebToken <azure.devops.v5_0.microsoft.-visual-studio.-services.-web-api.models.JsonWebToken>`
+    :type access_token: :class:`JsonWebToken <azure.devops.v5_0.microsoft._visual_studio._services._web_api.models.JsonWebToken>`
     :param access_token_error:
     :type access_token_error: object
     :param authorization_id:
@@ -23,7 +23,7 @@ class AccessTokenResult(Model):
     :param has_error:
     :type has_error: bool
     :param refresh_token:
-    :type refresh_token: :class:`RefreshTokenGrant <azure.devops.v5_0.microsoft.-visual-studio.-services.-web-api.models.RefreshTokenGrant>`
+    :type refresh_token: :class:`RefreshTokenGrant <azure.devops.v5_0.microsoft._visual_studio._services._web_api.models.RefreshTokenGrant>`
     :param token_type:
     :type token_type: str
     :param valid_to:
@@ -515,7 +515,7 @@ class RefreshTokenGrant(AuthorizationGrant):
     :param grant_type:
     :type grant_type: object
     :param jwt:
-    :type jwt: :class:`JsonWebToken <azure.devops.v5_0.microsoft.-visual-studio.-services.-web-api.models.JsonWebToken>`
+    :type jwt: :class:`JsonWebToken <azure.devops.v5_0.microsoft._visual_studio._services._web_api.models.JsonWebToken>`
     """
 
     _attribute_map = {

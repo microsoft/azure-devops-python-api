@@ -45,7 +45,7 @@ class Control(Model):
     """Control.
 
     :param contribution: Contribution for the control.
-    :type contribution: :class:`WitContribution <azure.devops.v5_1.work-item-tracking.models.WitContribution>`
+    :type contribution: :class:`WitContribution <azure.devops.v5_1..models.WitContribution>`
     :param control_type: Type of the control.
     :type control_type: str
     :param height: Height of the control, for html controls.
@@ -137,9 +137,9 @@ class CreateProcessRuleRequest(Model):
     """CreateProcessRuleRequest.
 
     :param actions: List of actions to take when the rule is triggered.
-    :type actions: list of :class:`RuleAction <azure.devops.v5_1.work-item-tracking.models.RuleAction>`
+    :type actions: list of :class:`RuleAction <azure.devops.v5_1..models.RuleAction>`
     :param conditions: List of conditions when the rule should be triggered.
-    :type conditions: list of :class:`RuleCondition <azure.devops.v5_1.work-item-tracking.models.RuleCondition>`
+    :type conditions: list of :class:`RuleCondition <azure.devops.v5_1..models.RuleCondition>`
     :param is_disabled: Indicates if the rule is disabled.
     :type is_disabled: bool
     :param name: Name for the rule.
@@ -253,9 +253,9 @@ class FieldRuleModel(Model):
     """FieldRuleModel.
 
     :param actions:
-    :type actions: list of :class:`RuleActionModel <azure.devops.v5_1.work-item-tracking.models.RuleActionModel>`
+    :type actions: list of :class:`RuleActionModel <azure.devops.v5_1..models.RuleActionModel>`
     :param conditions:
-    :type conditions: list of :class:`RuleConditionModel <azure.devops.v5_1.work-item-tracking.models.RuleConditionModel>`
+    :type conditions: list of :class:`RuleConditionModel <azure.devops.v5_1..models.RuleConditionModel>`
     :param friendly_name:
     :type friendly_name: str
     :param id:
@@ -289,11 +289,11 @@ class FormLayout(Model):
     """FormLayout.
 
     :param extensions: Gets and sets extensions list.
-    :type extensions: list of :class:`Extension <azure.devops.v5_1.work-item-tracking.models.Extension>`
+    :type extensions: list of :class:`Extension <azure.devops.v5_1..models.Extension>`
     :param pages: Top level tabs of the layout.
-    :type pages: list of :class:`Page <azure.devops.v5_1.work-item-tracking.models.Page>`
+    :type pages: list of :class:`Page <azure.devops.v5_1..models.Page>`
     :param system_controls: Headers controls of the layout.
-    :type system_controls: list of :class:`Control <azure.devops.v5_1.work-item-tracking.models.Control>`
+    :type system_controls: list of :class:`Control <azure.devops.v5_1..models.Control>`
     """
 
     _attribute_map = {
@@ -313,9 +313,9 @@ class Group(Model):
     """Group.
 
     :param contribution: Contribution for the group.
-    :type contribution: :class:`WitContribution <azure.devops.v5_1.work-item-tracking.models.WitContribution>`
+    :type contribution: :class:`WitContribution <azure.devops.v5_1..models.WitContribution>`
     :param controls: Controls to be put in the group.
-    :type controls: list of :class:`Control <azure.devops.v5_1.work-item-tracking.models.Control>`
+    :type controls: list of :class:`Control <azure.devops.v5_1..models.Control>`
     :param height: The height for the contribution.
     :type height: int
     :param id: The id for the layout node.
@@ -381,7 +381,7 @@ class Page(Model):
     """Page.
 
     :param contribution: Contribution for the page.
-    :type contribution: :class:`WitContribution <azure.devops.v5_1.work-item-tracking.models.WitContribution>`
+    :type contribution: :class:`WitContribution <azure.devops.v5_1..models.WitContribution>`
     :param id: The id for the layout node.
     :type id: str
     :param inherited: A value indicating whether this layout node has been inherited from a parent layout.  This is expected to only be only set by the combiner.
@@ -399,7 +399,7 @@ class Page(Model):
     :param page_type: The icon for the page.
     :type page_type: object
     :param sections: The sections of the page.
-    :type sections: list of :class:`Section <azure.devops.v5_1.work-item-tracking.models.Section>`
+    :type sections: list of :class:`Section <azure.devops.v5_1..models.Section>`
     :param visible: A value indicating if the page should be hidden or not.
     :type visible: bool
     """
@@ -475,9 +475,9 @@ class ProcessBehavior(Model):
     :param description: . Description
     :type description: str
     :param fields: Process Behavior Fields.
-    :type fields: list of :class:`ProcessBehaviorField <azure.devops.v5_1.work-item-tracking.models.ProcessBehaviorField>`
+    :type fields: list of :class:`ProcessBehaviorField <azure.devops.v5_1..models.ProcessBehaviorField>`
     :param inherits: Parent behavior reference.
-    :type inherits: :class:`ProcessBehaviorReference <azure.devops.v5_1.work-item-tracking.models.ProcessBehaviorReference>`
+    :type inherits: :class:`ProcessBehaviorReference <azure.devops.v5_1..models.ProcessBehaviorReference>`
     :param name: Behavior Name.
     :type name: str
     :param rank: Rank of the behavior
@@ -621,7 +621,7 @@ class ProcessInfo(Model):
     :param parent_process_type_id: ID of the parent process.
     :type parent_process_type_id: str
     :param projects: Projects in this process to which the user is subscribed to.
-    :type projects: list of :class:`ProjectReference <azure.devops.v5_1.work-item-tracking.models.ProjectReference>`
+    :type projects: list of :class:`ProjectReference <azure.devops.v5_1..models.ProjectReference>`
     :param reference_name: Reference name of the process.
     :type reference_name: str
     :param type_id: The ID of the process.
@@ -661,9 +661,9 @@ class ProcessModel(Model):
     :param name: Name of the process
     :type name: str
     :param projects: Projects in this process
-    :type projects: list of :class:`ProjectReference <azure.devops.v5_1.work-item-tracking.models.ProjectReference>`
+    :type projects: list of :class:`ProjectReference <azure.devops.v5_1..models.ProjectReference>`
     :param properties: Properties of the process
-    :type properties: :class:`ProcessProperties <azure.devops.v5_1.work-item-tracking.models.ProcessProperties>`
+    :type properties: :class:`ProcessProperties <azure.devops.v5_1..models.ProcessProperties>`
     :param reference_name: Reference name of the process
     :type reference_name: str
     :param type_id: The ID of the process
@@ -725,9 +725,9 @@ class ProcessRule(CreateProcessRuleRequest):
     """ProcessRule.
 
     :param actions: List of actions to take when the rule is triggered.
-    :type actions: list of :class:`RuleAction <azure.devops.v5_1.work-item-tracking.models.RuleAction>`
+    :type actions: list of :class:`RuleAction <azure.devops.v5_1..models.RuleAction>`
     :param conditions: List of conditions when the rule should be triggered.
-    :type conditions: list of :class:`RuleCondition <azure.devops.v5_1.work-item-tracking.models.RuleCondition>`
+    :type conditions: list of :class:`RuleCondition <azure.devops.v5_1..models.RuleCondition>`
     :param is_disabled: Indicates if the rule is disabled.
     :type is_disabled: bool
     :param name: Name for the rule.
@@ -761,7 +761,7 @@ class ProcessWorkItemType(Model):
     """ProcessWorkItemType.
 
     :param behaviors:
-    :type behaviors: list of :class:`WorkItemTypeBehavior <azure.devops.v5_1.work-item-tracking.models.WorkItemTypeBehavior>`
+    :type behaviors: list of :class:`WorkItemTypeBehavior <azure.devops.v5_1..models.WorkItemTypeBehavior>`
     :param color: Color hexadecimal code to represent the work item type
     :type color: str
     :param customization: Indicates the type of customization on this work item System work item types are inherited from parent process but not modified Inherited work item types are modified work item that were inherited from parent process Custom work item types are work item types that were created in the current process
@@ -775,13 +775,13 @@ class ProcessWorkItemType(Model):
     :param is_disabled: Indicates if a work item type is disabled
     :type is_disabled: bool
     :param layout:
-    :type layout: :class:`FormLayout <azure.devops.v5_1.work-item-tracking.models.FormLayout>`
+    :type layout: :class:`FormLayout <azure.devops.v5_1..models.FormLayout>`
     :param name: Name of the work item type
     :type name: str
     :param reference_name: Reference name of work item type
     :type reference_name: str
     :param states:
-    :type states: list of :class:`WorkItemStateResultModel <azure.devops.v5_1.work-item-tracking.models.WorkItemStateResultModel>`
+    :type states: list of :class:`WorkItemStateResultModel <azure.devops.v5_1..models.WorkItemStateResultModel>`
     :param url: Url of the work item type
     :type url: str
     """
@@ -997,7 +997,7 @@ class Section(Model):
     """Section.
 
     :param groups: List of child groups in this section
-    :type groups: list of :class:`Group <azure.devops.v5_1.work-item-tracking.models.Group>`
+    :type groups: list of :class:`Group <azure.devops.v5_1..models.Group>`
     :param id: The id for the layout node.
     :type id: str
     :param overridden: A value indicating whether this layout node has been overridden by a child layout.
@@ -1049,9 +1049,9 @@ class UpdateProcessRuleRequest(CreateProcessRuleRequest):
     """UpdateProcessRuleRequest.
 
     :param actions: List of actions to take when the rule is triggered.
-    :type actions: list of :class:`RuleAction <azure.devops.v5_1.work-item-tracking.models.RuleAction>`
+    :type actions: list of :class:`RuleAction <azure.devops.v5_1..models.RuleAction>`
     :param conditions: List of conditions when the rule should be triggered.
-    :type conditions: list of :class:`RuleCondition <azure.devops.v5_1.work-item-tracking.models.RuleCondition>`
+    :type conditions: list of :class:`RuleCondition <azure.devops.v5_1..models.RuleCondition>`
     :param is_disabled: Indicates if the rule is disabled.
     :type is_disabled: bool
     :param name: Name for the rule.
@@ -1167,11 +1167,11 @@ class WorkItemBehavior(Model):
     :param description:
     :type description: str
     :param fields:
-    :type fields: list of :class:`WorkItemBehaviorField <azure.devops.v5_1.work-item-tracking.models.WorkItemBehaviorField>`
+    :type fields: list of :class:`WorkItemBehaviorField <azure.devops.v5_1..models.WorkItemBehaviorField>`
     :param id:
     :type id: str
     :param inherits:
-    :type inherits: :class:`WorkItemBehaviorReference <azure.devops.v5_1.work-item-tracking.models.WorkItemBehaviorReference>`
+    :type inherits: :class:`WorkItemBehaviorReference <azure.devops.v5_1..models.WorkItemBehaviorReference>`
     :param name:
     :type name: str
     :param overriden:
@@ -1329,7 +1329,7 @@ class WorkItemTypeBehavior(Model):
     """WorkItemTypeBehavior.
 
     :param behavior: Reference to the behavior of a work item type
-    :type behavior: :class:`WorkItemBehaviorReference <azure.devops.v5_1.work-item-tracking.models.WorkItemBehaviorReference>`
+    :type behavior: :class:`WorkItemBehaviorReference <azure.devops.v5_1..models.WorkItemBehaviorReference>`
     :param is_default: If true the work item type is the default work item type in the behavior
     :type is_default: bool
     :param url: URL of the work item type behavior
@@ -1353,7 +1353,7 @@ class WorkItemTypeModel(Model):
     """WorkItemTypeModel.
 
     :param behaviors:
-    :type behaviors: list of :class:`WorkItemTypeBehavior <azure.devops.v5_1.work-item-tracking.models.WorkItemTypeBehavior>`
+    :type behaviors: list of :class:`WorkItemTypeBehavior <azure.devops.v5_1..models.WorkItemTypeBehavior>`
     :param class_:
     :type class_: object
     :param color:
@@ -1369,11 +1369,11 @@ class WorkItemTypeModel(Model):
     :param is_disabled:
     :type is_disabled: bool
     :param layout:
-    :type layout: :class:`FormLayout <azure.devops.v5_1.work-item-tracking.models.FormLayout>`
+    :type layout: :class:`FormLayout <azure.devops.v5_1..models.FormLayout>`
     :param name:
     :type name: str
     :param states:
-    :type states: list of :class:`WorkItemStateResultModel <azure.devops.v5_1.work-item-tracking.models.WorkItemStateResultModel>`
+    :type states: list of :class:`WorkItemStateResultModel <azure.devops.v5_1..models.WorkItemStateResultModel>`
     :param url:
     :type url: str
     """

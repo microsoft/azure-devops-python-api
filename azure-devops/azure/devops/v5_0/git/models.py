@@ -1444,6 +1444,22 @@ class GitPullRequest(Model):
         self.work_item_refs = work_item_refs
 
 
+class GitPullRequestChange(Model):
+    """GitPullRequestChange.
+
+    :param change_tracking_id: ID used to track files through multiple changes.
+    :type change_tracking_id: int
+    """
+
+    _attribute_map = {
+        'change_tracking_id': {'key': 'changeTrackingId', 'type': 'int'}
+    }
+
+    def __init__(self, change_tracking_id=None):
+        super(GitPullRequestChange, self).__init__()
+        self.change_tracking_id = change_tracking_id
+
+
 class GitPullRequestCommentThread(CommentThread):
     """GitPullRequestCommentThread.
 
@@ -2641,7 +2657,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -2669,7 +2685,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -2946,7 +2962,7 @@ class PolicyConfigurationRef(Model):
     :param id: The policy configuration ID.
     :type id: int
     :param type: The policy configuration type.
-    :type type: :class:`PolicyTypeRef <azure.devops.v5_0.microsoft.-team-foundation.-policy.-web-api.models.PolicyTypeRef>`
+    :type type: :class:`PolicyTypeRef <azure.devops.v5_0.microsoft._team_foundation._policy._web_api.models.PolicyTypeRef>`
     :param url: The URL where the policy configuration can be retrieved.
     :type url: str
     """
@@ -3142,7 +3158,7 @@ class VersionedPolicyConfigurationRef(PolicyConfigurationRef):
     :param id: The policy configuration ID.
     :type id: int
     :param type: The policy configuration type.
-    :type type: :class:`PolicyTypeRef <azure.devops.v5_0.microsoft.-team-foundation.-policy.-web-api.models.PolicyTypeRef>`
+    :type type: :class:`PolicyTypeRef <azure.devops.v5_0.microsoft._team_foundation._policy._web_api.models.PolicyTypeRef>`
     :param url: The URL where the policy configuration can be retrieved.
     :type url: str
     :param revision: The policy configuration revision ID.
@@ -3578,15 +3594,15 @@ class PolicyConfiguration(VersionedPolicyConfigurationRef):
     :param id: The policy configuration ID.
     :type id: int
     :param type: The policy configuration type.
-    :type type: :class:`PolicyTypeRef <azure.devops.v5_0.microsoft.-team-foundation.-policy.-web-api.models.PolicyTypeRef>`
+    :type type: :class:`PolicyTypeRef <azure.devops.v5_0.microsoft._team_foundation._policy._web_api.models.PolicyTypeRef>`
     :param url: The URL where the policy configuration can be retrieved.
     :type url: str
     :param revision: The policy configuration revision ID.
     :type revision: int
     :param _links: The links to other objects related to this object.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft.-team-foundation.-policy.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_0.microsoft._team_foundation._policy._web_api.models.ReferenceLinks>`
     :param created_by: A reference to the identity that created the policy.
-    :type created_by: :class:`IdentityRef <azure.devops.v5_0.microsoft.-team-foundation.-policy.-web-api.models.IdentityRef>`
+    :type created_by: :class:`IdentityRef <azure.devops.v5_0.microsoft._team_foundation._policy._web_api.models.IdentityRef>`
     :param created_date: The date and time when the policy was created.
     :type created_date: datetime
     :param is_blocking: Indicates whether the policy is blocking.
@@ -3667,6 +3683,7 @@ __all__ = [
     'GitMergeParameters',
     'GitObject',
     'GitPullRequest',
+    'GitPullRequestChange',
     'GitPullRequestCommentThread',
     'GitPullRequestCommentThreadContext',
     'GitPullRequestCompletionOptions',

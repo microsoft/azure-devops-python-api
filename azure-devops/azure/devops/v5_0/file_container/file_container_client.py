@@ -28,7 +28,7 @@ class FileContainerClient(Client):
     def create_items(self, items, container_id, scope=None):
         """CreateItems.
         [Preview API] Creates the specified items in in the referenced container.
-        :param :class:`<VssJsonCollectionWrapper> <azure.devops.v5_0.file-container.models.VssJsonCollectionWrapper>` items:
+        :param :class:`<VssJsonCollectionWrapper> <azure.devops.v5_0.file_container.models.VssJsonCollectionWrapper>` items:
         :param int container_id:
         :param str scope: A guid representing the scope of the container. This is often the project id.
         :rtype: [FileContainerItem]

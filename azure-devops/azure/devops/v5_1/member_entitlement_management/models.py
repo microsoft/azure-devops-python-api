@@ -101,7 +101,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -149,19 +149,19 @@ class GroupEntitlement(Model):
     """GroupEntitlement.
 
     :param extension_rules: Extension Rules.
-    :type extension_rules: list of :class:`Extension <azure.devops.v5_1.member-entitlement-management.models.Extension>`
+    :type extension_rules: list of :class:`Extension <azure.devops.v5_1..models.Extension>`
     :param group: Member reference.
-    :type group: :class:`GraphGroup <azure.devops.v5_1.member-entitlement-management.models.GraphGroup>`
+    :type group: :class:`GraphGroup <azure.devops.v5_1..models.GraphGroup>`
     :param id: The unique identifier which matches the Id of the GraphMember.
     :type id: str
     :param last_executed: [Readonly] The last time the group licensing rule was executed (regardless of whether any changes were made).
     :type last_executed: datetime
     :param license_rule: License Rule.
-    :type license_rule: :class:`AccessLevel <azure.devops.v5_1.member-entitlement-management.models.AccessLevel>`
+    :type license_rule: :class:`AccessLevel <azure.devops.v5_1..models.AccessLevel>`
     :param members: Group members. Only used when creating a new group.
-    :type members: list of :class:`UserEntitlement <azure.devops.v5_1.member-entitlement-management.models.UserEntitlement>`
+    :type members: list of :class:`UserEntitlement <azure.devops.v5_1..models.UserEntitlement>`
     :param project_entitlements: Relation between a project and the member's effective permissions in that project.
-    :type project_entitlements: list of :class:`ProjectEntitlement <azure.devops.v5_1.member-entitlement-management.models.ProjectEntitlement>`
+    :type project_entitlements: list of :class:`ProjectEntitlement <azure.devops.v5_1..models.ProjectEntitlement>`
     :param status: The status of the group rule.
     :type status: object
     """
@@ -199,7 +199,7 @@ class GroupOperationResult(BaseOperationResult):
     :param group_id: Identifier of the Group being acted upon
     :type group_id: str
     :param result: Result of the Groupentitlement after the operation
-    :type result: :class:`GroupEntitlement <azure.devops.v5_1.member-entitlement-management.models.GroupEntitlement>`
+    :type result: :class:`GroupEntitlement <azure.devops.v5_1..models.GroupEntitlement>`
     """
 
     _attribute_map = {
@@ -219,9 +219,9 @@ class GroupOption(Model):
     """GroupOption.
 
     :param access_level: Access Level
-    :type access_level: :class:`AccessLevel <azure.devops.v5_1.member-entitlement-management.models.AccessLevel>`
+    :type access_level: :class:`AccessLevel <azure.devops.v5_1..models.AccessLevel>`
     :param group: Group
-    :type group: :class:`Group <azure.devops.v5_1.member-entitlement-management.models.Group>`
+    :type group: :class:`Group <azure.devops.v5_1..models.Group>`
     """
 
     _attribute_map = {
@@ -269,7 +269,7 @@ class MemberEntitlementsResponseBase(Model):
     :param is_success: True if all operations were successful.
     :type is_success: bool
     :param member_entitlement: Result of the member entitlement after the operations. have been applied
-    :type member_entitlement: :class:`MemberEntitlement <azure.devops.v5_1.member-entitlement-management.models.MemberEntitlement>`
+    :type member_entitlement: :class:`MemberEntitlement <azure.devops.v5_1..models.MemberEntitlement>`
     """
 
     _attribute_map = {
@@ -321,7 +321,7 @@ class OperationResult(Model):
     :param member_id: Identifier of the Member being acted upon.
     :type member_id: str
     :param result: Result of the MemberEntitlement after the operation.
-    :type result: :class:`MemberEntitlement <azure.devops.v5_1.member-entitlement-management.models.MemberEntitlement>`
+    :type result: :class:`MemberEntitlement <azure.devops.v5_1..models.MemberEntitlement>`
     """
 
     _attribute_map = {
@@ -369,15 +369,15 @@ class ProjectEntitlement(Model):
     :param assignment_source: Assignment Source (e.g. Group or Unknown).
     :type assignment_source: object
     :param group: Project Group (e.g. Contributor, Reader etc.)
-    :type group: :class:`Group <azure.devops.v5_1.member-entitlement-management.models.Group>`
+    :type group: :class:`Group <azure.devops.v5_1..models.Group>`
     :param is_project_permission_inherited: [Deprecated] Whether the user is inheriting permissions to a project through a Azure DevOps or AAD group membership.
     :type is_project_permission_inherited: bool
     :param project_permission_inherited: Whether the user is inheriting permissions to a project through a Azure DevOps or AAD group membership.
     :type project_permission_inherited: object
     :param project_ref: Project Ref
-    :type project_ref: :class:`ProjectRef <azure.devops.v5_1.member-entitlement-management.models.ProjectRef>`
+    :type project_ref: :class:`ProjectRef <azure.devops.v5_1..models.ProjectRef>`
     :param team_refs: Team Ref.
-    :type team_refs: list of :class:`TeamRef <azure.devops.v5_1.member-entitlement-management.models.TeamRef>`
+    :type team_refs: list of :class:`TeamRef <azure.devops.v5_1..models.TeamRef>`
     """
 
     _attribute_map = {
@@ -487,21 +487,21 @@ class UserEntitlement(Model):
     """UserEntitlement.
 
     :param access_level: User's access level denoted by a license.
-    :type access_level: :class:`AccessLevel <azure.devops.v5_1.member-entitlement-management.models.AccessLevel>`
+    :type access_level: :class:`AccessLevel <azure.devops.v5_1..models.AccessLevel>`
     :param date_created: [Readonly] Date the user was added to the collection.
     :type date_created: datetime
     :param extensions: User's extensions.
-    :type extensions: list of :class:`Extension <azure.devops.v5_1.member-entitlement-management.models.Extension>`
+    :type extensions: list of :class:`Extension <azure.devops.v5_1..models.Extension>`
     :param group_assignments: [Readonly] GroupEntitlements that this user belongs to.
-    :type group_assignments: list of :class:`GroupEntitlement <azure.devops.v5_1.member-entitlement-management.models.GroupEntitlement>`
+    :type group_assignments: list of :class:`GroupEntitlement <azure.devops.v5_1..models.GroupEntitlement>`
     :param id: The unique identifier which matches the Id of the Identity associated with the GraphMember.
     :type id: str
     :param last_accessed_date: [Readonly] Date the user last accessed the collection.
     :type last_accessed_date: datetime
     :param project_entitlements: Relation between a project and the user's effective permissions in that project.
-    :type project_entitlements: list of :class:`ProjectEntitlement <azure.devops.v5_1.member-entitlement-management.models.ProjectEntitlement>`
+    :type project_entitlements: list of :class:`ProjectEntitlement <azure.devops.v5_1..models.ProjectEntitlement>`
     :param user: User reference.
-    :type user: :class:`GraphUser <azure.devops.v5_1.member-entitlement-management.models.GraphUser>`
+    :type user: :class:`GraphUser <azure.devops.v5_1..models.GraphUser>`
     """
 
     _attribute_map = {
@@ -543,7 +543,7 @@ class UserEntitlementOperationReference(OperationReference):
     :param have_results_succeeded: True if all operations were successful.
     :type have_results_succeeded: bool
     :param results: List of results for each operation.
-    :type results: list of :class:`UserEntitlementOperationResult <azure.devops.v5_1.member-entitlement-management.models.UserEntitlementOperationResult>`
+    :type results: list of :class:`UserEntitlementOperationResult <azure.devops.v5_1..models.UserEntitlementOperationResult>`
     """
 
     _attribute_map = {
@@ -571,7 +571,7 @@ class UserEntitlementOperationResult(Model):
     :param is_success: Success status of the operation.
     :type is_success: bool
     :param result: Result of the MemberEntitlement after the operation.
-    :type result: :class:`UserEntitlement <azure.devops.v5_1.member-entitlement-management.models.UserEntitlement>`
+    :type result: :class:`UserEntitlement <azure.devops.v5_1..models.UserEntitlement>`
     :param user_id: Identifier of the Member being acted upon.
     :type user_id: str
     """
@@ -597,7 +597,7 @@ class UserEntitlementsResponseBase(Model):
     :param is_success: True if all operations were successful.
     :type is_success: bool
     :param user_entitlement: Result of the user entitlement after the operations have been applied.
-    :type user_entitlement: :class:`UserEntitlement <azure.devops.v5_1.member-entitlement-management.models.UserEntitlement>`
+    :type user_entitlement: :class:`UserEntitlement <azure.devops.v5_1..models.UserEntitlement>`
     """
 
     _attribute_map = {
@@ -615,15 +615,15 @@ class UsersSummary(Model):
     """UsersSummary.
 
     :param available_access_levels: Available Access Levels
-    :type available_access_levels: list of :class:`AccessLevel <azure.devops.v5_1.member-entitlement-management.models.AccessLevel>`
+    :type available_access_levels: list of :class:`AccessLevel <azure.devops.v5_1..models.AccessLevel>`
     :param extensions: Summary of Extensions in the organization
-    :type extensions: list of :class:`ExtensionSummaryData <azure.devops.v5_1.member-entitlement-management.models.ExtensionSummaryData>`
+    :type extensions: list of :class:`ExtensionSummaryData <azure.devops.v5_1..models.ExtensionSummaryData>`
     :param group_options: Group Options
-    :type group_options: list of :class:`GroupOption <azure.devops.v5_1.member-entitlement-management.models.GroupOption>`
+    :type group_options: list of :class:`GroupOption <azure.devops.v5_1..models.GroupOption>`
     :param licenses: Summary of Licenses in the organization
-    :type licenses: list of :class:`LicenseSummaryData <azure.devops.v5_1.member-entitlement-management.models.LicenseSummaryData>`
+    :type licenses: list of :class:`LicenseSummaryData <azure.devops.v5_1..models.LicenseSummaryData>`
     :param project_refs: Summary of Projects in the organization
-    :type project_refs: list of :class:`ProjectRef <azure.devops.v5_1.member-entitlement-management.models.ProjectRef>`
+    :type project_refs: list of :class:`ProjectRef <azure.devops.v5_1..models.ProjectRef>`
     """
 
     _attribute_map = {
@@ -699,7 +699,7 @@ class GraphSubject(GraphSubjectBase):
     """GraphSubject.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -751,7 +751,7 @@ class GroupEntitlementOperationReference(OperationReference):
     :param have_results_succeeded: True if all operations were successful.
     :type have_results_succeeded: bool
     :param results: List of results for each operation.
-    :type results: list of :class:`GroupOperationResult <azure.devops.v5_1.member-entitlement-management.models.GroupOperationResult>`
+    :type results: list of :class:`GroupOperationResult <azure.devops.v5_1..models.GroupOperationResult>`
     """
 
     _attribute_map = {
@@ -831,23 +831,23 @@ class MemberEntitlement(UserEntitlement):
     """MemberEntitlement.
 
     :param access_level: User's access level denoted by a license.
-    :type access_level: :class:`AccessLevel <azure.devops.v5_1.member-entitlement-management.models.AccessLevel>`
+    :type access_level: :class:`AccessLevel <azure.devops.v5_1..models.AccessLevel>`
     :param date_created: [Readonly] Date the user was added to the collection.
     :type date_created: datetime
     :param extensions: User's extensions.
-    :type extensions: list of :class:`Extension <azure.devops.v5_1.member-entitlement-management.models.Extension>`
+    :type extensions: list of :class:`Extension <azure.devops.v5_1..models.Extension>`
     :param group_assignments: [Readonly] GroupEntitlements that this user belongs to.
-    :type group_assignments: list of :class:`GroupEntitlement <azure.devops.v5_1.member-entitlement-management.models.GroupEntitlement>`
+    :type group_assignments: list of :class:`GroupEntitlement <azure.devops.v5_1..models.GroupEntitlement>`
     :param id: The unique identifier which matches the Id of the Identity associated with the GraphMember.
     :type id: str
     :param last_accessed_date: [Readonly] Date the user last accessed the collection.
     :type last_accessed_date: datetime
     :param project_entitlements: Relation between a project and the user's effective permissions in that project.
-    :type project_entitlements: list of :class:`ProjectEntitlement <azure.devops.v5_1.member-entitlement-management.models.ProjectEntitlement>`
+    :type project_entitlements: list of :class:`ProjectEntitlement <azure.devops.v5_1..models.ProjectEntitlement>`
     :param user: User reference.
-    :type user: :class:`GraphUser <azure.devops.v5_1.member-entitlement-management.models.GraphUser>`
+    :type user: :class:`GraphUser <azure.devops.v5_1..models.GraphUser>`
     :param member: Member reference
-    :type member: :class:`GraphMember <azure.devops.v5_1.member-entitlement-management.models.GraphMember>`
+    :type member: :class:`GraphMember <azure.devops.v5_1..models.GraphMember>`
     """
 
     _attribute_map = {
@@ -883,7 +883,7 @@ class MemberEntitlementOperationReference(OperationReference):
     :param have_results_succeeded: True if all operations were successful
     :type have_results_succeeded: bool
     :param results: List of results for each operation
-    :type results: list of :class:`OperationResult <azure.devops.v5_1.member-entitlement-management.models.OperationResult>`
+    :type results: list of :class:`OperationResult <azure.devops.v5_1..models.OperationResult>`
     """
 
     _attribute_map = {
@@ -909,9 +909,9 @@ class MemberEntitlementsPatchResponse(MemberEntitlementsResponseBase):
     :param is_success: True if all operations were successful.
     :type is_success: bool
     :param member_entitlement: Result of the member entitlement after the operations. have been applied
-    :type member_entitlement: :class:`MemberEntitlement <azure.devops.v5_1.member-entitlement-management.models.MemberEntitlement>`
+    :type member_entitlement: :class:`MemberEntitlement <azure.devops.v5_1..models.MemberEntitlement>`
     :param operation_results: List of results for each operation
-    :type operation_results: list of :class:`OperationResult <azure.devops.v5_1.member-entitlement-management.models.OperationResult>`
+    :type operation_results: list of :class:`OperationResult <azure.devops.v5_1..models.OperationResult>`
     """
 
     _attribute_map = {
@@ -931,9 +931,9 @@ class MemberEntitlementsPostResponse(MemberEntitlementsResponseBase):
     :param is_success: True if all operations were successful.
     :type is_success: bool
     :param member_entitlement: Result of the member entitlement after the operations. have been applied
-    :type member_entitlement: :class:`MemberEntitlement <azure.devops.v5_1.member-entitlement-management.models.MemberEntitlement>`
+    :type member_entitlement: :class:`MemberEntitlement <azure.devops.v5_1..models.MemberEntitlement>`
     :param operation_result: Operation result
-    :type operation_result: :class:`OperationResult <azure.devops.v5_1.member-entitlement-management.models.OperationResult>`
+    :type operation_result: :class:`OperationResult <azure.devops.v5_1..models.OperationResult>`
     """
 
     _attribute_map = {
@@ -951,7 +951,7 @@ class PagedGraphMemberList(PagedList):
     """PagedGraphMemberList.
 
     :param members:
-    :type members: list of :class:`UserEntitlement <azure.devops.v5_1.member-entitlement-management.models.UserEntitlement>`
+    :type members: list of :class:`UserEntitlement <azure.devops.v5_1..models.UserEntitlement>`
     """
 
     _attribute_map = {
@@ -969,9 +969,9 @@ class UserEntitlementsPatchResponse(UserEntitlementsResponseBase):
     :param is_success: True if all operations were successful.
     :type is_success: bool
     :param user_entitlement: Result of the user entitlement after the operations have been applied.
-    :type user_entitlement: :class:`UserEntitlement <azure.devops.v5_1.member-entitlement-management.models.UserEntitlement>`
+    :type user_entitlement: :class:`UserEntitlement <azure.devops.v5_1..models.UserEntitlement>`
     :param operation_results: List of results for each operation.
-    :type operation_results: list of :class:`UserEntitlementOperationResult <azure.devops.v5_1.member-entitlement-management.models.UserEntitlementOperationResult>`
+    :type operation_results: list of :class:`UserEntitlementOperationResult <azure.devops.v5_1..models.UserEntitlementOperationResult>`
     """
 
     _attribute_map = {
@@ -991,9 +991,9 @@ class UserEntitlementsPostResponse(UserEntitlementsResponseBase):
     :param is_success: True if all operations were successful.
     :type is_success: bool
     :param user_entitlement: Result of the user entitlement after the operations have been applied.
-    :type user_entitlement: :class:`UserEntitlement <azure.devops.v5_1.member-entitlement-management.models.UserEntitlement>`
+    :type user_entitlement: :class:`UserEntitlement <azure.devops.v5_1..models.UserEntitlement>`
     :param operation_result: Operation result.
-    :type operation_result: :class:`UserEntitlementOperationResult <azure.devops.v5_1.member-entitlement-management.models.UserEntitlementOperationResult>`
+    :type operation_result: :class:`UserEntitlementOperationResult <azure.devops.v5_1..models.UserEntitlementOperationResult>`
     """
 
     _attribute_map = {
@@ -1011,7 +1011,7 @@ class GraphMember(GraphSubject):
     """GraphMember.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -1059,7 +1059,7 @@ class GraphUser(GraphMember):
     """GraphUser.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -1116,7 +1116,7 @@ class GraphGroup(GraphMember):
     """GraphGroup.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.

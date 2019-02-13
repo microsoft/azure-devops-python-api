@@ -23,15 +23,15 @@ class AccountEntitlement(Model):
     :param last_accessed_date: Gets or sets the date of the user last sign-in to this account
     :type last_accessed_date: datetime
     :param license:
-    :type license: :class:`License <azure.devops.v5_1.licensing.models.License>`
+    :type license: :class:`License <azure.devops.v5_1..models.License>`
     :param origin: Licensing origin
     :type origin: object
     :param rights: The computed rights of this user in the account.
-    :type rights: :class:`AccountRights <azure.devops.v5_1.licensing.models.AccountRights>`
+    :type rights: :class:`AccountRights <azure.devops.v5_1..models.AccountRights>`
     :param status: The status of the user in the account
     :type status: object
     :param user: Identity information of the user to which the license belongs
-    :type user: :class:`IdentityRef <azure.devops.v5_1.licensing.models.IdentityRef>`
+    :type user: :class:`IdentityRef <azure.devops.v5_1..models.IdentityRef>`
     :param user_id: Gets the id of the user to which the license belongs
     :type user_id: str
     """
@@ -69,7 +69,7 @@ class AccountEntitlementUpdateModel(Model):
     """AccountEntitlementUpdateModel.
 
     :param license: Gets or sets the license for the entitlement
-    :type license: :class:`License <azure.devops.v5_1.licensing.models.License>`
+    :type license: :class:`License <azure.devops.v5_1..models.License>`
     """
 
     _attribute_map = {
@@ -139,7 +139,7 @@ class AccountLicenseUsage(Model):
     :param disabled_count: Amount that is disabled (Usually from licenses that were provisioned, but became invalid due to loss of subscription in a new billing cycle)
     :type disabled_count: int
     :param license:
-    :type license: :class:`AccountUserLicense <azure.devops.v5_1.licensing.models.AccountUserLicense>`
+    :type license: :class:`AccountUserLicense <azure.devops.v5_1..models.AccountUserLicense>`
     :param pending_provisioned_count: Amount that will be purchased in the next billing cycle
     :type pending_provisioned_count: int
     :param provisioned_count: Amount that has been purchased
@@ -401,7 +401,7 @@ class GraphSubjectBase(Model):
     """GraphSubjectBase.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -431,7 +431,7 @@ class IdentityBase(Model):
     :param custom_display_name: The custom display name for the identity (if any). Setting this property to an empty string will clear the existing custom display name. Setting this property to null will not affect the existing persisted value (since null values do not get sent over the wire or to the database)
     :type custom_display_name: str
     :param descriptor:
-    :type descriptor: :class:`str <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.str>`
+    :type descriptor: :class:`str <azure.devops.v5_1..models.str>`
     :param id:
     :type id: str
     :param is_active:
@@ -443,19 +443,19 @@ class IdentityBase(Model):
     :param member_ids:
     :type member_ids: list of str
     :param member_of:
-    :type member_of: list of :class:`str <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.str>`
+    :type member_of: list of :class:`str <azure.devops.v5_1..models.str>`
     :param members:
-    :type members: list of :class:`str <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.str>`
+    :type members: list of :class:`str <azure.devops.v5_1..models.str>`
     :param meta_type_id:
     :type meta_type_id: int
     :param properties:
-    :type properties: :class:`object <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.object>`
+    :type properties: :class:`object <azure.devops.v5_1..models.object>`
     :param provider_display_name: The display name for the identity as specified by the source identity provider.
     :type provider_display_name: str
     :param resource_version:
     :type resource_version: int
     :param subject_descriptor:
-    :type subject_descriptor: :class:`str <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.str>`
+    :type subject_descriptor: :class:`str <azure.devops.v5_1..models.str>`
     :param unique_user_id:
     :type unique_user_id: int
     """
@@ -501,9 +501,9 @@ class IdentityMapping(Model):
     """IdentityMapping.
 
     :param source_identity:
-    :type source_identity: :class:`Identity <azure.devops.v5_1.licensing.models.Identity>`
+    :type source_identity: :class:`Identity <azure.devops.v5_1..models.Identity>`
     :param target_identity:
-    :type target_identity: :class:`Identity <azure.devops.v5_1.licensing.models.Identity>`
+    :type target_identity: :class:`Identity <azure.devops.v5_1..models.Identity>`
     """
 
     _attribute_map = {
@@ -521,7 +521,7 @@ class IdentityRef(GraphSubjectBase):
     """IdentityRef.
 
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.ReferenceLinks>`
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1..models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
     :type descriptor: str
     :param display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
@@ -671,7 +671,7 @@ class Identity(IdentityBase):
     :param custom_display_name: The custom display name for the identity (if any). Setting this property to an empty string will clear the existing custom display name. Setting this property to null will not affect the existing persisted value (since null values do not get sent over the wire or to the database)
     :type custom_display_name: str
     :param descriptor:
-    :type descriptor: :class:`str <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.str>`
+    :type descriptor: :class:`str <azure.devops.v5_1..models.str>`
     :param id:
     :type id: str
     :param is_active:
@@ -683,19 +683,19 @@ class Identity(IdentityBase):
     :param member_ids:
     :type member_ids: list of str
     :param member_of:
-    :type member_of: list of :class:`str <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.str>`
+    :type member_of: list of :class:`str <azure.devops.v5_1..models.str>`
     :param members:
-    :type members: list of :class:`str <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.str>`
+    :type members: list of :class:`str <azure.devops.v5_1..models.str>`
     :param meta_type_id:
     :type meta_type_id: int
     :param properties:
-    :type properties: :class:`object <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.object>`
+    :type properties: :class:`object <azure.devops.v5_1..models.object>`
     :param provider_display_name: The display name for the identity as specified by the source identity provider.
     :type provider_display_name: str
     :param resource_version:
     :type resource_version: int
     :param subject_descriptor:
-    :type subject_descriptor: :class:`str <azure.devops.v5_1.microsoft.-visual-studio.-services.-web-api.models.str>`
+    :type subject_descriptor: :class:`str <azure.devops.v5_1..models.str>`
     :param unique_user_id:
     :type unique_user_id: int
     """

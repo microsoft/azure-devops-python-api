@@ -121,7 +121,7 @@ class ServiceHooksClient(Client):
     def update_subscription_diagnostics(self, update_parameters, subscription_id):
         """UpdateSubscriptionDiagnostics.
         [Preview API]
-        :param :class:`<UpdateSubscripitonDiagnosticsParameters> <azure.devops.v5_1.service-hooks.models.UpdateSubscripitonDiagnosticsParameters>` update_parameters:
+        :param :class:`<UpdateSubscripitonDiagnosticsParameters> <azure.devops.v5_1.service_hooks.models.UpdateSubscripitonDiagnosticsParameters>` update_parameters:
         :param str subscription_id:
         :rtype: :class:`<SubscriptionDiagnostics> <azure.devops.v5_1.service-hooks.models.SubscriptionDiagnostics>`
         """
@@ -216,7 +216,7 @@ class ServiceHooksClient(Client):
     def query_notifications(self, query):
         """QueryNotifications.
         [Preview API] Query for notifications. A notification includes details about the event, the request to and the response from the consumer service.
-        :param :class:`<NotificationsQuery> <azure.devops.v5_1.service-hooks.models.NotificationsQuery>` query:
+        :param :class:`<NotificationsQuery> <azure.devops.v5_1.service_hooks.models.NotificationsQuery>` query:
         :rtype: :class:`<NotificationsQuery> <azure.devops.v5_1.service-hooks.models.NotificationsQuery>`
         """
         content = self._serialize.body(query, 'NotificationsQuery')
@@ -229,7 +229,7 @@ class ServiceHooksClient(Client):
     def query_input_values(self, input_values_query, publisher_id):
         """QueryInputValues.
         [Preview API]
-        :param :class:`<InputValuesQuery> <azure.devops.v5_1.service-hooks.models.InputValuesQuery>` input_values_query:
+        :param :class:`<InputValuesQuery> <azure.devops.v5_1.service_hooks.models.InputValuesQuery>` input_values_query:
         :param str publisher_id:
         :rtype: :class:`<InputValuesQuery> <azure.devops.v5_1.service-hooks.models.InputValuesQuery>`
         """
@@ -272,7 +272,7 @@ class ServiceHooksClient(Client):
     def query_publishers(self, query):
         """QueryPublishers.
         [Preview API] Query for service hook publishers.
-        :param :class:`<PublishersQuery> <azure.devops.v5_1.service-hooks.models.PublishersQuery>` query:
+        :param :class:`<PublishersQuery> <azure.devops.v5_1.service_hooks.models.PublishersQuery>` query:
         :rtype: :class:`<PublishersQuery> <azure.devops.v5_1.service-hooks.models.PublishersQuery>`
         """
         content = self._serialize.body(query, 'PublishersQuery')
@@ -285,7 +285,7 @@ class ServiceHooksClient(Client):
     def create_subscription(self, subscription):
         """CreateSubscription.
         [Preview API] Create a subscription.
-        :param :class:`<Subscription> <azure.devops.v5_1.service-hooks.models.Subscription>` subscription: Subscription to be created.
+        :param :class:`<Subscription> <azure.devops.v5_1.service_hooks.models.Subscription>` subscription: Subscription to be created.
         :rtype: :class:`<Subscription> <azure.devops.v5_1.service-hooks.models.Subscription>`
         """
         content = self._serialize.body(subscription, 'Subscription')
@@ -350,7 +350,7 @@ class ServiceHooksClient(Client):
     def replace_subscription(self, subscription, subscription_id=None):
         """ReplaceSubscription.
         [Preview API] Update a subscription. <param name="subscriptionId">ID for a subscription that you wish to update.</param>
-        :param :class:`<Subscription> <azure.devops.v5_1.service-hooks.models.Subscription>` subscription:
+        :param :class:`<Subscription> <azure.devops.v5_1.service_hooks.models.Subscription>` subscription:
         :param str subscription_id:
         :rtype: :class:`<Subscription> <azure.devops.v5_1.service-hooks.models.Subscription>`
         """
@@ -368,7 +368,7 @@ class ServiceHooksClient(Client):
     def create_subscriptions_query(self, query):
         """CreateSubscriptionsQuery.
         [Preview API] Query for service hook subscriptions.
-        :param :class:`<SubscriptionsQuery> <azure.devops.v5_1.service-hooks.models.SubscriptionsQuery>` query:
+        :param :class:`<SubscriptionsQuery> <azure.devops.v5_1.service_hooks.models.SubscriptionsQuery>` query:
         :rtype: :class:`<SubscriptionsQuery> <azure.devops.v5_1.service-hooks.models.SubscriptionsQuery>`
         """
         content = self._serialize.body(query, 'SubscriptionsQuery')
@@ -381,7 +381,7 @@ class ServiceHooksClient(Client):
     def create_test_notification(self, test_notification, use_real_data=None):
         """CreateTestNotification.
         [Preview API] Sends a test notification. This is useful for verifying the configuration of an updated or new service hooks subscription.
-        :param :class:`<Notification> <azure.devops.v5_1.service-hooks.models.Notification>` test_notification:
+        :param :class:`<Notification> <azure.devops.v5_1.service_hooks.models.Notification>` test_notification:
         :param bool use_real_data: Only allow testing with real data in existing subscriptions.
         :rtype: :class:`<Notification> <azure.devops.v5_1.service-hooks.models.Notification>`
         """
