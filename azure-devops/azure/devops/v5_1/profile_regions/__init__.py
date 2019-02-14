@@ -9,15 +9,7 @@
 from .models import *
 
 __all__ = [
-    'AttributeDescriptor',
-    'AttributesContainer',
-    'Avatar',
-    'CoreProfileAttribute',
-    'CreateProfileContext',
     'GeoRegion',
-    'Profile',
-    'ProfileAttribute',
-    'ProfileAttributeBase',
     'ProfileRegion',
     'ProfileRegions',
 ]
