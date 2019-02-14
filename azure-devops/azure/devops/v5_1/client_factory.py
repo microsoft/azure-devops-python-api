@@ -9,6 +9,7 @@
 
 class ClientFactoryV5_1(object):
     """ClientFactoryV5_1.
+    A factory class to get the 5.1 preview clients.
     """
 
     def __init__(self, connection):
