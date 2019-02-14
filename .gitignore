@@ -297,5 +297,5 @@ __pycache__/
 vsts/build/bdist.win32/
 
 # don't ignore release management client
-!azure-devops/azure/devops/v4_0/release
-!azure-devops/azure/devops/v4_1/release
+!azure-devops/azure/devops/v5_0/release
+!azure-devops/azure/devops/v5_1/release
