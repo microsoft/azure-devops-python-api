@@ -210,6 +210,13 @@ class ClientFactoryV5_1(object):
         """
         return self._connection.get_client('azure.devops.v5_1.profile.profile_client.ProfileClient')
 
+    def get_profile_regions_client(self):
+        """get_profile_regions_client.
+        Gets the 5.1 version of the ProfileRegionsClient
+        :rtype: :class:`<ProfileRegionsClient> <azure.devops.v5_1.profile_regions.profile_regions_client.ProfileRegionsClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.profile_regions.profile_regions_client.ProfileRegionsClient')
+
     def get_project_analysis_client(self):
         """get_project_analysis_client.
         Gets the 5.1 version of the ProjectAnalysisClient

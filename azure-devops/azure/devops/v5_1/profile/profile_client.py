@@ -25,28 +25,35 @@ class ProfileClient(Client):
 
     resource_area_identifier = None
 
-    def get_geo_region(self, ip):
-        """GetGeoRegion.
-        [Preview API] Lookup up country/region based on provided IPv4, null if using the remote IPv4 address.
-        :param str ip:
-        :rtype: :class:`<GeoRegion> <azure.devops.v5_1.profile.models.GeoRegion>`
+    def get_profile(self, id, details=None, with_attributes=None, partition=None, core_attributes=None, force_refresh=None):
+        """GetProfile.
+        [Preview API] Gets a user profile.
+        :param str id: The ID of the target user profile within the same organization, or 'me' to get the profile of the current authenticated user.
+        :param bool details: Return public profile information such as display name, email address, country, etc. If false, the withAttributes parameter is ignored.
+        :param bool with_attributes: If true, gets the attributes (named key-value pairs of arbitrary data) associated with the profile. The partition parameter must also have a value.
+        :param str partition: The partition (named group) of attributes to return.
+        :param str core_attributes: A comma-delimited list of core profile attributes to return. Valid values are Email, Avatar, DisplayName, and ContactWithOffers.
+        :param bool force_refresh: Not used in this version of the API.
+        :rtype: :class:`<Profile> <azure.devops.v5_1.profile.models.Profile>`
         """
+        route_values = {}
+        if id is not None:
+            route_values['id'] = self._serialize.url('id', id, 'str')
         query_parameters = {}
-        if ip is not None:
-            query_parameters['ip'] = self._serialize.query('ip', ip, 'str')
+        if details is not None:
+            query_parameters['details'] = self._serialize.query('details', details, 'bool')
+        if with_attributes is not None:
+            query_parameters['withAttributes'] = self._serialize.query('with_attributes', with_attributes, 'bool')
+        if partition is not None:
+            query_parameters['partition'] = self._serialize.query('partition', partition, 'str')
+        if core_attributes is not None:
+            query_parameters['coreAttributes'] = self._serialize.query('core_attributes', core_attributes, 'str')
+        if force_refresh is not None:
+            query_parameters['forceRefresh'] = self._serialize.query('force_refresh', force_refresh, 'bool')
         response = self._send(http_method='GET',
-                              location_id='35b3ff1d-ab4c-4d1c-98bb-f6ea21d86bd9',
-                              version='5.1-preview.1',
+                              location_id='f83735dc-483f-4238-a291-d45f6080a9af',
+                              version='5.1-preview.3',
+                              route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('GeoRegion', response)
-
-    def get_regions(self):
-        """GetRegions.
-        [Preview API]
-        :rtype: :class:`<ProfileRegions> <azure.devops.v5_1.profile.models.ProfileRegions>`
-        """
-        response = self._send(http_method='GET',
-                              location_id='b129ca90-999d-47bb-ab37-0dcf784ee633',
-                              version='5.1-preview.1')
-        return self._deserialize('ProfileRegions', response)
+        return self._deserialize('Profile', response)
 
