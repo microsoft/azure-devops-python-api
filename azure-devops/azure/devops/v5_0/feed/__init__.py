@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .feed_client import FeedClient
 
 __all__ = [
     'Feed',
@@ -39,4 +40,5 @@ __all__ = [
     'RecycleBinPackageVersion',
     'ReferenceLinks',
     'UpstreamSource',
+    'FeedClient'
 ]

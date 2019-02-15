@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .upack_api_client import UPackApiClient
 
 __all__ = [
     'BatchOperationData',
@@ -18,4 +19,5 @@ __all__ = [
     'UPackPackagesBatchRequest',
     'UPackPackageVersionDeletionState',
     'UPackRecycleBinPackageVersionDetails',
+    'UPackApiClient'
 ]

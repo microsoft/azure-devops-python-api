@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .project_analysis_client import ProjectAnalysisClient
 
 __all__ = [
     'CodeChangeTrendItem',
@@ -16,4 +17,5 @@ __all__ = [
     'ProjectLanguageAnalytics',
     'RepositoryActivityMetrics',
     'RepositoryLanguageAnalytics',
+    'ProjectAnalysisClient'
 ]

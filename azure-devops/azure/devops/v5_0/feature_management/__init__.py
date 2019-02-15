@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .feature_management_client import FeatureManagementClient
 
 __all__ = [
     'ContributedFeature',
@@ -17,4 +18,5 @@ __all__ = [
     'ContributedFeatureStateQuery',
     'ContributedFeatureValueRule',
     'ReferenceLinks',
+    'FeatureManagementClient'
 ]

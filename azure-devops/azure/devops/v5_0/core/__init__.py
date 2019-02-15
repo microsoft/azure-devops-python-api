@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .core_client import CoreClient
 
 __all__ = [
     'GraphSubjectBase',
@@ -32,4 +33,5 @@ __all__ = [
     'WebApiConnectedServiceRef',
     'WebApiTeam',
     'WebApiTeamRef',
+    'CoreClient'
 ]

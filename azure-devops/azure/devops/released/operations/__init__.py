@@ -6,12 +6,13 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .models import *
+from ...v5_0.operations.models import *
+from .operations_client import OperationsClient
 
 __all__ = [
-    'UPackLimitedPackageMetadata',
-    'UPackLimitedPackageMetadataListResponse',
-    'UPackPackageMetadata',
-    'UPackPackagePushMetadata',
-    'UPackPackageVersionDeletionState',
+    'Operation',
+    'OperationReference',
+    'OperationResultReference',
+    'ReferenceLinks',
+    'OperationsClient'
 ]

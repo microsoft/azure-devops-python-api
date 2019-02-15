@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .test_client import TestClient
 
 __all__ = [
     'AggregatedDataForResultTrend',
@@ -118,4 +119,5 @@ __all__ = [
     'TestVariable',
     'WorkItemReference',
     'WorkItemToTestLinks',
+    'TestClient'
 ]

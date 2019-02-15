@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .py_pi_api_client import PyPiApiClient
 
 __all__ = [
     'BatchOperationData',
@@ -18,4 +19,5 @@ __all__ = [
     'PyPiPackageVersionDeletionState',
     'PyPiRecycleBinPackageVersionDetails',
     'ReferenceLinks',
+    'PyPiApiClient'
 ]

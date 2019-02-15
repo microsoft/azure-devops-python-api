@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .git_client import GitClient
 
 __all__ = [
     'Attachment',
@@ -117,4 +118,5 @@ __all__ = [
     'VstsInfo',
     'WebApiCreateTagRequestData',
     'WebApiTagDefinition',
+    'GitClient'
 ]

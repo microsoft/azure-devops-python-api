@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .licensing_client import LicensingClient
 
 __all__ = [
     'AccountEntitlement',
@@ -27,4 +28,5 @@ __all__ = [
     'License',
     'MsdnEntitlement',
     'ReferenceLinks',
+    'LicensingClient'
 ]

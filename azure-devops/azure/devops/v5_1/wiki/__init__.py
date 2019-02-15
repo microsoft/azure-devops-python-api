@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .wiki_client import WikiClient
 
 __all__ = [
     'GitRepository',
@@ -25,4 +26,5 @@ __all__ = [
     'WikiPageViewStats',
     'WikiUpdateParameters',
     'WikiV2',
+    'WikiClient'
 ]

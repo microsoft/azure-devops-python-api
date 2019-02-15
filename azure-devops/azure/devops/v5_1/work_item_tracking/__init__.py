@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .work_item_tracking_client import WorkItemTrackingClient
 
 __all__ = [
     'AccountMyWorkResult',
@@ -82,4 +83,5 @@ __all__ = [
     'WorkItemTypeTemplate',
     'WorkItemTypeTemplateUpdateModel',
     'WorkItemUpdate',
+    'WorkItemTrackingClient'
 ]

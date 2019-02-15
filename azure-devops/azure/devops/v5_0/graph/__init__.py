@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .graph_client import GraphClient
 
 __all__ = [
     'GraphCachePolicies',
@@ -33,4 +34,5 @@ __all__ = [
     'PagedGraphGroups',
     'PagedGraphUsers',
     'ReferenceLinks',
+    'GraphClient'
 ]

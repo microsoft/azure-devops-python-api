@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .nuget_client import NuGetClient
 
 __all__ = [
     'BatchListData',
@@ -20,4 +21,5 @@ __all__ = [
     'PackageVersionDetails',
     'ReferenceLinks',
     'UpstreamSourceInfo',
+    'NuGetClient'
 ]

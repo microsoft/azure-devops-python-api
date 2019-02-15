@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .service_endpoint_client import ServiceEndpointClient
 
 __all__ = [
     'AuthenticationSchemeReference',
@@ -48,4 +49,5 @@ __all__ = [
     'ServiceEndpointRequest',
     'ServiceEndpointRequestResult',
     'ServiceEndpointType',
+    'ServiceEndpointClient'
 ]

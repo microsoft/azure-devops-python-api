@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .profile_client import ProfileClient
 
 __all__ = [
     'AttributeDescriptor',
@@ -21,4 +22,5 @@ __all__ = [
     'ProfileRegion',
     'ProfileRegions',
     'RemoteProfile',
+    'ProfileClient'
 ]
