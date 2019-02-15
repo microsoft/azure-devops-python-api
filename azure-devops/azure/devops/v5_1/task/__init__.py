@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .task_client import TaskClient
 
 __all__ = [
     'Issue',
@@ -33,4 +34,5 @@ __all__ = [
     'TimelineRecordFeedLinesWrapper',
     'TimelineReference',
     'VariableValue',
+    'TaskClient'
 ]

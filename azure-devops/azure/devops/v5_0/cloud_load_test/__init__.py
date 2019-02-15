@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .cloud_load_test_client import CloudLoadTestClient
 
 __all__ = [
     'AgentGroup',
@@ -57,4 +58,5 @@ __all__ = [
     'WebApiTestMachine',
     'WebApiUserLoadTestMachineInput',
     'WebInstanceSummaryData',
+    'CloudLoadTestClient'
 ]

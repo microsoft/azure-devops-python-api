@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .gallery_client import GalleryClient
 
 __all__ = [
     'AcquisitionOperation',
@@ -68,4 +69,5 @@ __all__ = [
     'UnpackagedExtensionData',
     'UserIdentityRef',
     'UserReportedConcern',
+    'GalleryClient'
 ]

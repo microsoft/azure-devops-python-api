@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .policy_client import PolicyClient
 
 __all__ = [
     'GraphSubjectBase',
@@ -18,4 +19,5 @@ __all__ = [
     'PolicyTypeRef',
     'ReferenceLinks',
     'VersionedPolicyConfigurationRef',
+    'PolicyClient'
 ]

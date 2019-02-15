@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .maven_client import MavenClient
 
 __all__ = [
     'BatchOperationData',
@@ -37,4 +38,5 @@ __all__ = [
     'PluginConfiguration',
     'ReferenceLink',
     'ReferenceLinks',
+    'MavenClient'
 ]

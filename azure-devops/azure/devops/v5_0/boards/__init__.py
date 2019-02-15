@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .boards_client import BoardsClient
 
 __all__ = [
     'Board',
@@ -35,4 +36,5 @@ __all__ = [
     'ReferenceLinks',
     'UpdateBoard',
     'UpdateBoardItem',
+    'BoardsClient'
 ]

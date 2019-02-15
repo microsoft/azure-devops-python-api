@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .dashboard_client import DashboardClient
 
 __all__ = [
     'Dashboard',
@@ -26,4 +27,5 @@ __all__ = [
     'WidgetSize',
     'WidgetsVersionedList',
     'WidgetTypesResponse',
+    'DashboardClient'
 ]

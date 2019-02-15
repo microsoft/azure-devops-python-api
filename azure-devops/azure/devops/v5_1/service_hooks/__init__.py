@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .service_hooks_client import ServiceHooksClient
 
 __all__ = [
     'Consumer',
@@ -43,4 +44,5 @@ __all__ = [
     'UpdateSubscripitonDiagnosticsParameters',
     'UpdateSubscripitonTracingParameters',
     'VersionedResource',
+    'ServiceHooksClient'
 ]

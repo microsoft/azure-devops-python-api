@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .security_client import SecurityClient
 
 __all__ = [
     'AccessControlEntry',
@@ -17,4 +18,5 @@ __all__ = [
     'PermissionEvaluation',
     'PermissionEvaluationBatch',
     'SecurityNamespaceDescription',
+    'SecurityClient'
 ]

@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .npm_client import NpmClient
 
 __all__ = [
     'BatchDeprecateData',
@@ -20,4 +21,5 @@ __all__ = [
     'PackageVersionDetails',
     'ReferenceLinks',
     'UpstreamSourceInfo',
+    'NpmClient'
 ]

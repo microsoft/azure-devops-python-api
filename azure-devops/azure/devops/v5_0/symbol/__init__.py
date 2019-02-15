@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .symbol_client import SymbolClient
 
 __all__ = [
     'DebugEntry',
@@ -16,4 +17,5 @@ __all__ = [
     'JsonBlobIdentifierWithBlocks',
     'Request',
     'ResourceBase',
+    'SymbolClient'
 ]

@@ -30,7 +30,7 @@ credentials = BasicAuthentication('', personal_access_token)
 connection = Connection(base_url=organization_url, creds=credentials)
 
 # Get a client (the "core" client provides access to projects, teams, etc)
-core_client = connection.clients_v5_0.get_core_client()
+core_client = connection.clients.get_core_client()
 
 # Get the list of projects in the org
 projects = core_client.get_projects()

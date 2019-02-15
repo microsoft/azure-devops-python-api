@@ -7,6 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
+from .work_item_tracking_comments_client import WorkItemTrackingCommentsClient
 
 __all__ = [
     'GraphSubjectBase',
@@ -21,4 +22,5 @@ __all__ = [
     'WorkItemCommentVersionResponse',
     'WorkItemTrackingResource',
     'WorkItemTrackingResourceReference',
+    'WorkItemTrackingCommentsClient'
 ]
