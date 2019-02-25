@@ -7,12 +7,13 @@ import logging
 
 from msrest.service_client import ServiceClient
 from ._file_cache import RESOURCE_CACHE as RESOURCE_FILE_CACHE
+from .client_configuration import ClientConfiguration
 from .exceptions import AzureDevOpsClientRequestError
+from .released.client_factory import ClientFactory
 from .v5_0.location.location_client import LocationClient
-from .client_factory import ClientFactory
 from .v5_0.client_factory import ClientFactoryV5_0
 from .v5_1.client_factory import ClientFactoryV5_1
-from .client_configuration import ClientConfiguration
+
 
 logger = logging.getLogger(__name__)
 
