@@ -3,12 +3,12 @@
 
 # Azure DevOps Python API
 
-This repository contains Python APIs for interacting with and managing Azure DevOps. These APIs power the Visual Studio Team Services CLI. To learn more about the VSTS CLI, visit the [Microsoft/vsts-cli](https://github.com/Microsoft/vsts-cli) repo.
+This repository contains Python APIs for interacting with and managing Azure DevOps. These APIs power the Azure DevOps Extension for Azure CLI. To learn more about the Azure DevOps Extension for Azure CLI, visit the [Microsoft/azure-devops-cli-extension](https://github.com/Microsoft/azure-devops-cli-extension) repo.
 
 ## Install 
 
 ```
-pip install vsts
+pip install azure-devops
 ```
 
 ## Get started
@@ -17,7 +17,7 @@ pip install vsts
 To use the API, establish a connection using a [personal access token](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) and the URL to your Azure DevOps organization. Then get a client from the connection and make API calls.
 
 ```python
-from vsts.vss_connection import VssConnection
+from azure.devops.connection import Connection
 from msrest.authentication import BasicAuthentication
 import pprint
 
@@ -27,10 +27,10 @@ organization_url = 'https://dev.azure.com/YOURORG'
 
 # Create a connection to the org
 credentials = BasicAuthentication('', personal_access_token)
-connection = VssConnection(base_url=organization_url, creds=credentials)
+connection = Connection(base_url=organization_url, creds=credentials)
 
 # Get a client (the "core" client provides access to projects, teams, etc)
-core_client = connection.get_client('vsts.core.v4_0.core_client.CoreClient')
+core_client = connection.clients.get_core_client()
 
 # Get the list of projects in the org
 projects = core_client.get_projects()
