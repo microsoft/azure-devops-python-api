@@ -296,5 +296,7 @@ __pycache__/
 .vscode/
 vsts/build/bdist.win32/
 
-# don't ignore release managment client
-!vsts/vsts/release
+# don't ignore release management client
+!azure-devops/azure/devops/released/release
+!azure-devops/azure/devops/v5_0/release
+!azure-devops/azure/devops/v5_1/release
