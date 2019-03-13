@@ -370,6 +370,27 @@ class ReleaseClient(Client):
                               query_parameters=query_parameters)
         return self._deserialize('[Deployment]', self._unwrap_collection(response))
 
+    def get_release_environment(self, project, release_id, environment_id):
+        """GetReleaseEnvironment.
+        [Preview API] Get a release environment.
+        :param str project: Project ID or project name
+        :param int release_id: Id of the release.
+        :param int environment_id: Id of the release environment.
+        :rtype: :class:`<ReleaseEnvironment> <azure.devops.v5_1.release.models.ReleaseEnvironment>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if release_id is not None:
+            route_values['releaseId'] = self._serialize.url('release_id', release_id, 'int')
+        if environment_id is not None:
+            route_values['environmentId'] = self._serialize.url('environment_id', environment_id, 'int')
+        response = self._send(http_method='GET',
+                              location_id='a7e426b1-03dc-48af-9dfe-c98bac612dcb',
+                              version='5.1-preview.6',
+                              route_values=route_values)
+        return self._deserialize('ReleaseEnvironment', response)
+
     def update_release_environment(self, environment_update_data, project, release_id, environment_id):
         """UpdateReleaseEnvironment.
         [Preview API] Update the status of a release environment

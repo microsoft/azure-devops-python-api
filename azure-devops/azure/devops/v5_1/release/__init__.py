@@ -23,6 +23,7 @@ __all__ = [
     'AutoTriggerIssue',
     'BuildVersion',
     'Change',
+    'ComplianceSettings',
     'Condition',
     'ConfigurationVariableValue',
     'DataSourceBindingBase',
