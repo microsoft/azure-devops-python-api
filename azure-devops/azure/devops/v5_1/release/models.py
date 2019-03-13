@@ -433,6 +433,22 @@ class Change(Model):
         self.timestamp = timestamp
 
 
+class ComplianceSettings(Model):
+    """ComplianceSettings.
+
+    :param block_release_definition_save_if_secret_present: Block Release Definition save if any secrets is saved in Release Definition.
+    :type block_release_definition_save_if_secret_present: bool
+    """
+
+    _attribute_map = {
+        'block_release_definition_save_if_secret_present': {'key': 'blockReleaseDefinitionSaveIfSecretPresent', 'type': 'bool'}
+    }
+
+    def __init__(self, block_release_definition_save_if_secret_present=None):
+        super(ComplianceSettings, self).__init__()
+        self.block_release_definition_save_if_secret_present = block_release_definition_save_if_secret_present
+
+
 class Condition(Model):
     """Condition.
 
@@ -1264,21 +1280,21 @@ class InputDescriptor(Model):
 class InputValidation(Model):
     """InputValidation.
 
-    :param data_type:
+    :param data_type: Gets or sets the data data type to validate.
     :type data_type: object
-    :param is_required:
+    :param is_required: Gets or sets if this is a required field.
     :type is_required: bool
-    :param max_length:
+    :param max_length: Gets or sets the maximum length of this descriptor.
     :type max_length: int
-    :param max_value:
+    :param max_value: Gets or sets the minimum value for this descriptor.
     :type max_value: decimal
-    :param min_length:
+    :param min_length: Gets or sets the minimum length of this descriptor.
     :type min_length: int
-    :param min_value:
+    :param min_value: Gets or sets the minimum value for this descriptor.
     :type min_value: decimal
-    :param pattern:
+    :param pattern: Gets or sets the pattern to validate.
     :type pattern: str
-    :param pattern_mismatch_error_message:
+    :param pattern_mismatch_error_message: Gets or sets the error on pattern mismatch.
     :type pattern_mismatch_error_message: str
     """
 
@@ -2817,16 +2833,20 @@ class ReleaseSchedule(Model):
 class ReleaseSettings(Model):
     """ReleaseSettings.
 
+    :param compliance_settings: Release Compliance settings.
+    :type compliance_settings: :class:`ComplianceSettings <azure.devops.v5_1.release.models.ComplianceSettings>`
     :param retention_settings: Release retention settings.
     :type retention_settings: :class:`RetentionSettings <azure.devops.v5_1.release.models.RetentionSettings>`
     """
 
     _attribute_map = {
+        'compliance_settings': {'key': 'complianceSettings', 'type': 'ComplianceSettings'},
         'retention_settings': {'key': 'retentionSettings', 'type': 'RetentionSettings'}
     }
 
-    def __init__(self, retention_settings=None):
+    def __init__(self, compliance_settings=None, retention_settings=None):
         super(ReleaseSettings, self).__init__()
+        self.compliance_settings = compliance_settings
         self.retention_settings = retention_settings
 
 
@@ -3161,6 +3181,8 @@ class SourcePullRequestVersion(Model):
     :type pull_request_id: str
     :param pull_request_merged_at: Date and time of the pull request merge creation. It is required to keep timeline record of Releases created by pull request.
     :type pull_request_merged_at: datetime
+    :param source_branch: Source branch of the Pull Request.
+    :type source_branch: str
     :param source_branch_commit_id: Source branch commit Id of the Pull Request for which the release will publish status.
     :type source_branch_commit_id: str
     :param target_branch: Target branch of the Pull Request.
@@ -3170,14 +3192,16 @@ class SourcePullRequestVersion(Model):
     _attribute_map = {
         'pull_request_id': {'key': 'pullRequestId', 'type': 'str'},
         'pull_request_merged_at': {'key': 'pullRequestMergedAt', 'type': 'iso-8601'},
+        'source_branch': {'key': 'sourceBranch', 'type': 'str'},
         'source_branch_commit_id': {'key': 'sourceBranchCommitId', 'type': 'str'},
         'target_branch': {'key': 'targetBranch', 'type': 'str'}
     }
 
-    def __init__(self, pull_request_id=None, pull_request_merged_at=None, source_branch_commit_id=None, target_branch=None):
+    def __init__(self, pull_request_id=None, pull_request_merged_at=None, source_branch=None, source_branch_commit_id=None, target_branch=None):
         super(SourcePullRequestVersion, self).__init__()
         self.pull_request_id = pull_request_id
         self.pull_request_merged_at = pull_request_merged_at
+        self.source_branch = source_branch
         self.source_branch_commit_id = source_branch_commit_id
         self.target_branch = target_branch
 
@@ -3672,6 +3696,7 @@ __all__ = [
     'AutoTriggerIssue',
     'BuildVersion',
     'Change',
+    'ComplianceSettings',
     'Condition',
     'ConfigurationVariableValue',
     'DataSourceBindingBase',
