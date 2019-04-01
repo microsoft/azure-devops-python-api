@@ -24,6 +24,7 @@ class Connection(object):
 
     def __init__(self, base_url=None, creds=None, user_agent=None):
         self._config = ClientConfiguration(base_url)
+        self._config.credentials = creds
         self._addition_user_agent = user_agent
         if user_agent is not None:
             self._config.add_user_agent(user_agent)
