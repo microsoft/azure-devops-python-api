@@ -419,7 +419,7 @@ class JsonPatchOperation(Model):
     :param from_: The path to copy from for the Move/Copy operation.
     :type from_: str
     :param op: The patch operation
-    :type op: :class:`Operation <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.Operation>`
+    :type op: object
     :param path: The path for the operation. In the case of an array, a zero based index can be used to specify the position in the array (e.g. /biscuits/0/name). The "-" character can be used instead of an index to insert at the end of the array (e.g. /biscuits/-).
     :type path: str
     :param value: The value for the operation. This is either a primitive or a JToken.
@@ -428,7 +428,7 @@ class JsonPatchOperation(Model):
 
     _attribute_map = {
         'from_': {'key': 'from', 'type': 'str'},
-        'op': {'key': 'op', 'type': 'Operation'},
+        'op': {'key': 'op', 'type': 'object'},
         'path': {'key': 'path', 'type': 'str'},
         'value': {'key': 'value', 'type': 'object'}
     }
@@ -463,50 +463,6 @@ class Link(Model):
         self.attributes = attributes
         self.rel = rel
         self.url = url
-
-
-class OperationReference(Model):
-    """OperationReference.
-
-    :param id: Unique identifier for the operation.
-    :type id: str
-    :param plugin_id: Unique identifier for the plugin.
-    :type plugin_id: str
-    :param status: The current status of the operation.
-    :type status: object
-    :param url: URL to get the full operation object.
-    :type url: str
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'plugin_id': {'key': 'pluginId', 'type': 'str'},
-        'status': {'key': 'status', 'type': 'object'},
-        'url': {'key': 'url', 'type': 'str'}
-    }
-
-    def __init__(self, id=None, plugin_id=None, status=None, url=None):
-        super(OperationReference, self).__init__()
-        self.id = id
-        self.plugin_id = plugin_id
-        self.status = status
-        self.url = url
-
-
-class OperationResultReference(Model):
-    """OperationResultReference.
-
-    :param result_url: URL to the operation result.
-    :type result_url: str
-    """
-
-    _attribute_map = {
-        'result_url': {'key': 'resultUrl', 'type': 'str'}
-    }
-
-    def __init__(self, result_url=None):
-        super(OperationResultReference, self).__init__()
-        self.result_url = result_url
 
 
 class ProjectWorkItemStateColors(Model):
@@ -1504,46 +1460,6 @@ class AccountRecentActivityWorkItemModel2(AccountRecentActivityWorkItemModelBase
     def __init__(self, activity_date=None, activity_type=None, changed_date=None, id=None, identity_id=None, state=None, team_project=None, title=None, work_item_type=None, assigned_to=None):
         super(AccountRecentActivityWorkItemModel2, self).__init__(activity_date=activity_date, activity_type=activity_type, changed_date=changed_date, id=id, identity_id=identity_id, state=state, team_project=team_project, title=title, work_item_type=work_item_type)
         self.assigned_to = assigned_to
-
-
-class Operation(OperationReference):
-    """Operation.
-
-    :param id: Unique identifier for the operation.
-    :type id: str
-    :param plugin_id: Unique identifier for the plugin.
-    :type plugin_id: str
-    :param status: The current status of the operation.
-    :type status: object
-    :param url: URL to get the full operation object.
-    :type url: str
-    :param _links: Links to other related objects.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
-    :param detailed_message: Detailed messaged about the status of an operation.
-    :type detailed_message: str
-    :param result_message: Result message for an operation.
-    :type result_message: str
-    :param result_url: URL to the operation result.
-    :type result_url: :class:`OperationResultReference <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.OperationResultReference>`
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'str'},
-        'plugin_id': {'key': 'pluginId', 'type': 'str'},
-        'status': {'key': 'status', 'type': 'object'},
-        'url': {'key': 'url', 'type': 'str'},
-        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
-        'detailed_message': {'key': 'detailedMessage', 'type': 'str'},
-        'result_message': {'key': 'resultMessage', 'type': 'str'},
-        'result_url': {'key': 'resultUrl', 'type': 'OperationResultReference'}
-    }
-
-    def __init__(self, id=None, plugin_id=None, status=None, url=None, _links=None, detailed_message=None, result_message=None, result_url=None):
-        super(Operation, self).__init__(id=id, plugin_id=plugin_id, status=status, url=url)
-        self._links = _links
-        self.detailed_message = detailed_message
-        self.result_message = result_message
-        self.result_url = result_url
 
 
 class ReportingWorkItemLinksBatch(StreamedBatch):
@@ -2622,8 +2538,6 @@ __all__ = [
     'IdentityReference',
     'JsonPatchOperation',
     'Link',
-    'OperationReference',
-    'OperationResultReference',
     'ProjectWorkItemStateColors',
     'ProvisioningResult',
     'QueryBatchGetRequest',
@@ -2663,7 +2577,6 @@ __all__ = [
     'WorkItemTypeTemplateUpdateModel',
     'AccountRecentActivityWorkItemModel',
     'AccountRecentActivityWorkItemModel2',
-    'Operation',
     'ReportingWorkItemLinksBatch',
     'ReportingWorkItemRevisionsBatch',
     'WorkItemCommentVersionRef',
