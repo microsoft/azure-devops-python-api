@@ -372,11 +372,11 @@ class IdentityRef(GraphSubjectBase):
 class LastResultDetails(Model):
     """LastResultDetails.
 
-    :param date_completed:
+    :param date_completed: CompletedDate of LastResult.
     :type date_completed: datetime
-    :param duration:
+    :param duration: Duration of LastResult.
     :type duration: long
-    :param run_by:
+    :param run_by: RunBy.
     :type run_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.IdentityRef>`
     """
 
@@ -739,9 +739,9 @@ class TestConfigurationReference(Model):
 class TestEnvironment(Model):
     """TestEnvironment.
 
-    :param environment_id:
+    :param environment_id: Test Environment Id.
     :type environment_id: str
-    :param environment_name:
+    :param environment_name: Test Environment Name.
     :type environment_name: str
     """
 
