@@ -13,6 +13,13 @@ __all__ = [
     'CreatePipelineConfigurationParameters',
     'CreatePipelineParameters',
     'Pipeline',
+    'PipelineBase',
     'PipelineConfiguration',
+    'PipelineReference',
+    'ReferenceLinks',
+    'Run',
+    'RunPipelineParameters',
+    'RunReference',
+    'Variable',
     'PipelinesClient'
 ]
