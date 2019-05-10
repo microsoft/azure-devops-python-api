@@ -23,7 +23,7 @@ class ProfileRegionsClient(Client):
         self._serialize = Serializer(client_models)
         self._deserialize = Deserializer(client_models)
 
-    resource_area_identifier = None
+    resource_area_identifier = '8ccfef3d-2b87-4e99-8ccb-66e343d2daa8'
 
     def get_geo_region(self, ip):
         """GetGeoRegion.

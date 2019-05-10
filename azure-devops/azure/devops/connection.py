@@ -14,7 +14,6 @@ from .v5_0.location.location_client import LocationClient
 from .v5_0.client_factory import ClientFactoryV5_0
 from .v5_1.client_factory import ClientFactoryV5_1
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -75,9 +74,24 @@ class Connection(object):
             for resource_area in resource_areas:
                 if resource_area.id.lower() == resource_id.lower():
                     return resource_area.location_url
+
+            # Check SPS deployment level for the resource area
+            resource_area = self._get_deployment_resource_area_from_sps(resource_id)
+            if resource_area is not None:
+                return resource_area.location_url
+
             raise AzureDevOpsClientRequestError(('Could not find information for resource area {id} '
                                                  + 'from server: {url}').format(id=resource_id,
                                                                                 url=self.base_url))
+
+    def _get_deployment_resource_area_from_sps(self, resource_id):
+        resource_id = resource_id.lower()
+        if resource_id in _deployment_level_resource_areas:
+            return _deployment_level_resource_areas[resource_id]
+        location_client = LocationClient(sps_url, self._creds)
+        resource_area = location_client.get_resource_area(area_id=resource_id)
+        _deployment_level_resource_areas[resource_id] = resource_area
+        return resource_area
 
     def authenticate(self):
         self._get_resource_areas(force=True)
@@ -110,3 +124,7 @@ class Connection(object):
     @staticmethod
     def _combine_url(part1, part2):
         return part1.rstrip('/') + '/' + part2.strip('/')
+
+
+_deployment_level_resource_areas = {}
+sps_url = 'https://app.vssps.visualstudio.com'
