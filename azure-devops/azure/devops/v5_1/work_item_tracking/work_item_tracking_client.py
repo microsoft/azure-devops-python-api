@@ -531,35 +531,6 @@ class WorkItemTrackingClient(Client):
                               route_values=route_values)
         return self._deserialize('[CommentReaction]', self._unwrap_collection(response))
 
-    def read_reporting_comments(self, project, continuation_token=None, top=None, include_deleted=None, expand=None):
-        """ReadReportingComments.
-        [Preview API]
-        :param str project: Project ID or project name
-        :param str continuation_token:
-        :param int top:
-        :param bool include_deleted:
-        :param str expand:
-        :rtype: :class:`<CommentReportingList> <azure.devops.v5_1.work-item-tracking.models.CommentReportingList>`
-        """
-        route_values = {}
-        if project is not None:
-            route_values['project'] = self._serialize.url('project', project, 'str')
-        query_parameters = {}
-        if continuation_token is not None:
-            query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
-        if top is not None:
-            query_parameters['top'] = self._serialize.query('top', top, 'int')
-        if include_deleted is not None:
-            query_parameters['includeDeleted'] = self._serialize.query('include_deleted', include_deleted, 'bool')
-        if expand is not None:
-            query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
-        response = self._send(http_method='GET',
-                              location_id='370b8590-9562-42be-b0d8-ac06668fc5dc',
-                              version='5.1-preview.1',
-                              route_values=route_values,
-                              query_parameters=query_parameters)
-        return self._deserialize('CommentReportingList', response)
-
     def get_comment_version(self, project, work_item_id, comment_id, version):
         """GetCommentVersion.
         [Preview API]
