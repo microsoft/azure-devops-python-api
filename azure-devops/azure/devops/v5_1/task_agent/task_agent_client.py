@@ -426,6 +426,25 @@ class TaskAgentClient(Client):
                               query_parameters=query_parameters)
         return self._deserialize('[TaskAgentPool]', self._unwrap_collection(response))
 
+    def get_agent_pools_by_ids(self, pool_ids, action_filter=None):
+        """GetAgentPoolsByIds.
+        [Preview API] Get a list of agent pools.
+        :param [int] pool_ids: pool Ids to fetch
+        :param str action_filter: Filter by whether the calling user has use or manage permissions
+        :rtype: [TaskAgentPool]
+        """
+        query_parameters = {}
+        if pool_ids is not None:
+            pool_ids = ",".join(map(str, pool_ids))
+            query_parameters['poolIds'] = self._serialize.query('pool_ids', pool_ids, 'str')
+        if action_filter is not None:
+            query_parameters['actionFilter'] = self._serialize.query('action_filter', action_filter, 'str')
+        response = self._send(http_method='GET',
+                              location_id='a8c47e17-4d56-4a56-92bb-de7ea7dc65be',
+                              version='5.1-preview.1',
+                              query_parameters=query_parameters)
+        return self._deserialize('[TaskAgentPool]', self._unwrap_collection(response))
+
     def update_agent_pool(self, pool, pool_id):
         """UpdateAgentPool.
         [Preview API] Update properties on an agent pool

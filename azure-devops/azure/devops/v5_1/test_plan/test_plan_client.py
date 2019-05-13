@@ -405,10 +405,10 @@ class TestPlanClient(Client):
     def add_test_cases_to_suite(self, suite_test_case_create_update_parameters, project, plan_id, suite_id):
         """AddTestCasesToSuite.
         [Preview API] Add test cases to a suite with specified configurations
-        :param [SuiteTestCaseCreateUpdateParameters] suite_test_case_create_update_parameters:
+        :param [SuiteTestCaseCreateUpdateParameters] suite_test_case_create_update_parameters: SuiteTestCaseCreateUpdateParameters object.
         :param str project: Project ID or project name
-        :param int plan_id:
-        :param int suite_id:
+        :param int plan_id: ID of the test plan to which test cases are to be added.
+        :param int suite_id: ID of the test suite to which test cases are to be added.
         :rtype: [TestCase]
         """
         route_values = {}
@@ -428,12 +428,12 @@ class TestPlanClient(Client):
 
     def get_test_case(self, project, plan_id, suite_id, test_case_ids, wit_fields=None):
         """GetTestCase.
-        [Preview API]
+        [Preview API] Get Test Cases For a Suite.
         :param str project: Project ID or project name
-        :param int plan_id:
-        :param int suite_id:
-        :param str test_case_ids:
-        :param str wit_fields:
+        :param int plan_id: ID of the test plan for which test cases are requested.
+        :param int suite_id: ID of the test suite for which test cases are requested.
+        :param str test_case_ids: Test Case Ids to be fetched.
+        :param str wit_fields: Get the list of witFields.
         :rtype: [TestCase]
         """
         route_values = {}
@@ -459,12 +459,12 @@ class TestPlanClient(Client):
         """GetTestCaseList.
         [Preview API] Get Test Case List return those test cases which have all the configuration Ids as mentioned in the optional paramter. If configuration Ids is null, it return all the test cases
         :param str project: Project ID or project name
-        :param int plan_id:
-        :param int suite_id:
-        :param str test_ids:
-        :param str configuration_ids:
-        :param str wit_fields:
-        :param str continuation_token:
+        :param int plan_id: ID of the test plan for which test cases are requested.
+        :param int suite_id: ID of the test suite for which test cases are requested.
+        :param str test_ids: Test Case Ids to be fetched.
+        :param str configuration_ids: Fetch Test Cases which contains all the configuration Ids specified.
+        :param str wit_fields: Get the list of witFields.
+        :param str continuation_token: If the list of test cases returned is not complete, a continuation token to query next batch of test cases is included in the response header as "x-ms-continuationtoken". Omit this parameter to get the first batch of test cases.
         :rtype: [TestCase]
         """
         route_values = {}
@@ -494,9 +494,9 @@ class TestPlanClient(Client):
         """RemoveTestCasesFromSuite.
         [Preview API] Removes test cases from a suite based on the list of test case Ids provided.
         :param str project: Project ID or project name
-        :param int plan_id:
-        :param int suite_id:
-        :param str test_case_ids:
+        :param int plan_id: ID of the test plan from which test cases are to be removed.
+        :param int suite_id: ID of the test suite from which test cases are to be removed.
+        :param str test_case_ids: Test Case Ids to be removed.
         """
         route_values = {}
         if project is not None:
@@ -515,10 +515,10 @@ class TestPlanClient(Client):
     def update_suite_test_cases(self, suite_test_case_create_update_parameters, project, plan_id, suite_id):
         """UpdateSuiteTestCases.
         [Preview API] Update the configurations for test cases
-        :param [SuiteTestCaseCreateUpdateParameters] suite_test_case_create_update_parameters:
+        :param [SuiteTestCaseCreateUpdateParameters] suite_test_case_create_update_parameters: A SuiteTestCaseCreateUpdateParameters object.
         :param str project: Project ID or project name
-        :param int plan_id:
-        :param int suite_id:
+        :param int plan_id: ID of the test plan to which test cases are to be updated.
+        :param int suite_id: ID of the test suite to which test cases are to be updated.
         :rtype: [TestCase]
         """
         route_values = {}
@@ -597,9 +597,9 @@ class TestPlanClient(Client):
         """GetPoints.
         [Preview API] Get a list of points based on point Ids provided.
         :param str project: Project ID or project name
-        :param int plan_id:
-        :param int suite_id:
-        :param str point_ids:
+        :param int plan_id: ID of the test plan for which test points are requested.
+        :param int suite_id: ID of the test suite for which test points are requested.
+        :param str point_ids: ID of test points to be fetched.
         :rtype: [TestPoint]
         """
         route_values = {}
@@ -621,11 +621,11 @@ class TestPlanClient(Client):
         """GetPointsList.
         [Preview API] Get all the points inside a suite based on some filters
         :param str project: Project ID or project name
-        :param int plan_id:
-        :param int suite_id:
-        :param str test_point_ids:
-        :param str test_case_id:
-        :param str continuation_token:
+        :param int plan_id: ID of the test plan for which test points are requested.
+        :param int suite_id: ID of the test suite for which test points are requested
+        :param str test_point_ids: ID of test points to fetch.
+        :param str test_case_id: Get Test Points for specific test case Ids.
+        :param str continuation_token: If the list of test point returned is not complete, a continuation token to query next batch of test points is included in the response header as "x-ms-continuationtoken". Omit this parameter to get the first batch of test points.
         :rtype: [TestPoint]
         """
         route_values = {}
@@ -652,10 +652,10 @@ class TestPlanClient(Client):
     def update_test_points(self, test_point_update_params, project, plan_id, suite_id):
         """UpdateTestPoints.
         [Preview API] Update Test Points. This is used to Reset test point to active, update the outcome of a test point or update the tester of a test point
-        :param [TestPointUpdateParams] test_point_update_params:
+        :param [TestPointUpdateParams] test_point_update_params: A TestPointUpdateParams Object.
         :param str project: Project ID or project name
-        :param int plan_id:
-        :param int suite_id:
+        :param int plan_id: ID of the test plan for which test points are requested.
+        :param int suite_id: ID of the test suite for which test points are requested.
         :rtype: [TestPoint]
         """
         route_values = {}
