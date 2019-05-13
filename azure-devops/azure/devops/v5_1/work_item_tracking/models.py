@@ -1782,6 +1782,8 @@ class Comment(WorkItemTrackingResource):
     :type id: int
     :param is_deleted: Indicates if the comment has been deleted.
     :type is_deleted: bool
+    :param mentions: The mentions of the comment.
+    :type mentions: list of :class:`CommentMention <azure.devops.v5_1.work_item_tracking.models.CommentMention>`
     :param modified_by: IdentityRef of the user who last modified the comment.
     :type modified_by: :class:`IdentityRef <azure.devops.v5_1.work_item_tracking.models.IdentityRef>`
     :param modified_date: The last modification date of the comment.
@@ -1805,6 +1807,7 @@ class Comment(WorkItemTrackingResource):
         'created_on_behalf_of': {'key': 'createdOnBehalfOf', 'type': 'IdentityRef'},
         'id': {'key': 'id', 'type': 'int'},
         'is_deleted': {'key': 'isDeleted', 'type': 'bool'},
+        'mentions': {'key': 'mentions', 'type': '[CommentMention]'},
         'modified_by': {'key': 'modifiedBy', 'type': 'IdentityRef'},
         'modified_date': {'key': 'modifiedDate', 'type': 'iso-8601'},
         'reactions': {'key': 'reactions', 'type': '[CommentReaction]'},
@@ -1813,7 +1816,7 @@ class Comment(WorkItemTrackingResource):
         'work_item_id': {'key': 'workItemId', 'type': 'int'}
     }
 
-    def __init__(self, url=None, _links=None, created_by=None, created_date=None, created_on_behalf_date=None, created_on_behalf_of=None, id=None, is_deleted=None, modified_by=None, modified_date=None, reactions=None, text=None, version=None, work_item_id=None):
+    def __init__(self, url=None, _links=None, created_by=None, created_date=None, created_on_behalf_date=None, created_on_behalf_of=None, id=None, is_deleted=None, mentions=None, modified_by=None, modified_date=None, reactions=None, text=None, version=None, work_item_id=None):
         super(Comment, self).__init__(url=url, _links=_links)
         self.created_by = created_by
         self.created_date = created_date
@@ -1821,6 +1824,7 @@ class Comment(WorkItemTrackingResource):
         self.created_on_behalf_of = created_on_behalf_of
         self.id = id
         self.is_deleted = is_deleted
+        self.mentions = mentions
         self.modified_by = modified_by
         self.modified_date = modified_date
         self.reactions = reactions
@@ -1867,6 +1871,40 @@ class CommentList(WorkItemTrackingResource):
         self.total_count = total_count
 
 
+class CommentMention(WorkItemTrackingResource):
+    """CommentMention.
+
+    :param url:
+    :type url: str
+    :param _links: Link references to related REST resources.
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work_item_tracking.models.ReferenceLinks>`
+    :param artifact_id: The artifact portion of the parsed text. (i.e. the work item's id)
+    :type artifact_id: str
+    :param artifact_type: The type the parser assigned to the mention. (i.e. person, work item, etc)
+    :type artifact_type: str
+    :param comment_id: The comment id of the mention.
+    :type comment_id: int
+    :param target_id: The resolved target of the mention. An example of this could be a user's tfid
+    :type target_id: str
+    """
+
+    _attribute_map = {
+        'url': {'key': 'url', 'type': 'str'},
+        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'artifact_id': {'key': 'artifactId', 'type': 'str'},
+        'artifact_type': {'key': 'artifactType', 'type': 'str'},
+        'comment_id': {'key': 'commentId', 'type': 'int'},
+        'target_id': {'key': 'targetId', 'type': 'str'}
+    }
+
+    def __init__(self, url=None, _links=None, artifact_id=None, artifact_type=None, comment_id=None, target_id=None):
+        super(CommentMention, self).__init__(url=url, _links=_links)
+        self.artifact_id = artifact_id
+        self.artifact_type = artifact_type
+        self.comment_id = comment_id
+        self.target_id = target_id
+
+
 class CommentReaction(WorkItemTrackingResource):
     """CommentReaction.
 
@@ -1899,43 +1937,6 @@ class CommentReaction(WorkItemTrackingResource):
         self.count = count
         self.is_current_user_engaged = is_current_user_engaged
         self.type = type
-
-
-class CommentReportingList(CommentList):
-    """CommentReportingList.
-
-    :param url:
-    :type url: str
-    :param _links: Link references to related REST resources.
-    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.work_item_tracking.models.ReferenceLinks>`
-    :param comments: List of comments in the current batch.
-    :type comments: list of :class:`Comment <azure.devops.v5_1.work_item_tracking.models.Comment>`
-    :param continuation_token: A string token that can be used to retrieving next page of comments if available. Otherwise null.
-    :type continuation_token: str
-    :param count: The count of comments in the current batch.
-    :type count: int
-    :param next_page: Uri to the next page of comments if it is available. Otherwise null.
-    :type next_page: str
-    :param total_count: Total count of comments on a work item.
-    :type total_count: int
-    :param is_last_batch: Indicates if this is the last batch.
-    :type is_last_batch: bool
-    """
-
-    _attribute_map = {
-        'url': {'key': 'url', 'type': 'str'},
-        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
-        'comments': {'key': 'comments', 'type': '[Comment]'},
-        'continuation_token': {'key': 'continuationToken', 'type': 'str'},
-        'count': {'key': 'count', 'type': 'int'},
-        'next_page': {'key': 'nextPage', 'type': 'str'},
-        'total_count': {'key': 'totalCount', 'type': 'int'},
-        'is_last_batch': {'key': 'isLastBatch', 'type': 'bool'}
-    }
-
-    def __init__(self, url=None, _links=None, comments=None, continuation_token=None, count=None, next_page=None, total_count=None, is_last_batch=None):
-        super(CommentReportingList, self).__init__(url=url, _links=_links, comments=comments, continuation_token=continuation_token, count=count, next_page=next_page, total_count=total_count)
-        self.is_last_batch = is_last_batch
 
 
 class CommentVersion(WorkItemTrackingResource):
@@ -2588,8 +2589,8 @@ __all__ = [
     'WorkItemUpdate',
     'Comment',
     'CommentList',
+    'CommentMention',
     'CommentReaction',
-    'CommentReportingList',
     'CommentVersion',
     'FieldDependentRule',
     'QueryHierarchyItem',

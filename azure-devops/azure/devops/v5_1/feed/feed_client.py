@@ -25,14 +25,17 @@ class FeedClient(Client):
 
     resource_area_identifier = '7ab4e64e-c4d8-4f50-ae73-5ef2e21642a5'
 
-    def get_badge(self, feed_id, package_id):
+    def get_badge(self, feed_id, package_id, project=None):
         """GetBadge.
         [Preview API] Generate a SVG badge for the latest version of a package.  The generated SVG is typically used as the image in an HTML link which takes users to the feed containing the package to accelerate discovery and consumption.
         :param str feed_id: Name or Id of the feed.
         :param str package_id: Id of the package (GUID Id, not name).
+        :param str project: Project ID or project name
         :rtype: str
         """
         route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         if feed_id is not None:
             route_values['feedId'] = self._serialize.url('feed_id', feed_id, 'str')
         if package_id is not None:
@@ -43,13 +46,16 @@ class FeedClient(Client):
                               route_values=route_values)
         return self._deserialize('str', response)
 
-    def get_feed_change(self, feed_id):
+    def get_feed_change(self, feed_id, project=None):
         """GetFeedChange.
         [Preview API] Query a feed to determine its current state.
         :param str feed_id: Name or ID of the feed.
+        :param str project: Project ID or project name
         :rtype: :class:`<FeedChange> <azure.devops.v5_1.feed.models.FeedChange>`
         """
         route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         if feed_id is not None:
             route_values['feedId'] = self._serialize.url('feed_id', feed_id, 'str')
         response = self._send(http_method='GET',
@@ -58,14 +64,18 @@ class FeedClient(Client):
                               route_values=route_values)
         return self._deserialize('FeedChange', response)
 
-    def get_feed_changes(self, include_deleted=None, continuation_token=None, batch_size=None):
+    def get_feed_changes(self, project=None, include_deleted=None, continuation_token=None, batch_size=None):
         """GetFeedChanges.
         [Preview API] Query to determine which feeds have changed since the last call, tracked through the provided continuationToken. Only changes to a feed itself are returned and impact the continuationToken, not additions or alterations to packages within the feeds.
+        :param str project: Project ID or project name
         :param bool include_deleted: If true, get changes for all feeds including deleted feeds. The default value is false.
         :param long continuation_token: A continuation token which acts as a bookmark to a previously retrieved change. This token allows the user to continue retrieving changes in batches, picking up where the previous batch left off. If specified, all the changes that occur strictly after the token will be returned. If not specified or 0, iteration will start with the first change.
         :param int batch_size: Number of package changes to fetch. The default value is 1000. The maximum value is 2000.
         :rtype: :class:`<FeedChangesResponse> <azure.devops.v5_1.feed.models.FeedChangesResponse>`
         """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         query_parameters = {}
         if include_deleted is not None:
             query_parameters['includeDeleted'] = self._serialize.query('include_deleted', include_deleted, 'bool')
@@ -76,6 +86,7 @@ class FeedClient(Client):
         response = self._send(http_method='GET',
                               location_id='29ba2dad-389a-4661-b5d3-de76397ca05b',
                               version='5.1-preview.1',
+                              route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('FeedChangesResponse', response)
 
@@ -203,15 +214,18 @@ class FeedClient(Client):
                               content=content)
         return self._deserialize('[GlobalPermission]', self._unwrap_collection(response))
 
-    def get_package_changes(self, feed_id, continuation_token=None, batch_size=None):
+    def get_package_changes(self, feed_id, project=None, continuation_token=None, batch_size=None):
         """GetPackageChanges.
         [Preview API] Get a batch of package changes made to a feed.  The changes returned are 'most recent change' so if an Add is followed by an Update before you begin enumerating, you'll only see one change in the batch.  While consuming batches using the continuation token, you may see changes to the same package version multiple times if they are happening as you enumerate.
         :param str feed_id: Name or Id of the feed.
+        :param str project: Project ID or project name
         :param long continuation_token: A continuation token which acts as a bookmark to a previously retrieved change. This token allows the user to continue retrieving changes in batches, picking up where the previous batch left off. If specified, all the changes that occur strictly after the token will be returned. If not specified or 0, iteration will start with the first change.
         :param int batch_size: Number of package changes to fetch. The default value is 1000. The maximum value is 2000.
         :rtype: :class:`<PackageChangesResponse> <azure.devops.v5_1.feed.models.PackageChangesResponse>`
         """
         route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         if feed_id is not None:
             route_values['feedId'] = self._serialize.url('feed_id', feed_id, 'str')
         query_parameters = {}
@@ -350,16 +364,19 @@ class FeedClient(Client):
                               query_parameters=query_parameters)
         return self._deserialize('[Package]', self._unwrap_collection(response))
 
-    def get_feed_permissions(self, feed_id, include_ids=None, exclude_inherited_permissions=None, identity_descriptor=None):
+    def get_feed_permissions(self, feed_id, project=None, include_ids=None, exclude_inherited_permissions=None, identity_descriptor=None):
         """GetFeedPermissions.
         [Preview API] Get the permissions for a feed.
         :param str feed_id: Name or Id of the feed.
+        :param str project: Project ID or project name
         :param bool include_ids: True to include user Ids in the response.  Default is false.
         :param bool exclude_inherited_permissions: True to only return explicitly set permissions on the feed.  Default is false.
         :param str identity_descriptor: Filter permissions to the provided identity.
         :rtype: [FeedPermission]
         """
         route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         if feed_id is not None:
             route_values['feedId'] = self._serialize.url('feed_id', feed_id, 'str')
         query_parameters = {}
@@ -376,14 +393,17 @@ class FeedClient(Client):
                               query_parameters=query_parameters)
         return self._deserialize('[FeedPermission]', self._unwrap_collection(response))
 
-    def set_feed_permissions(self, feed_permission, feed_id):
+    def set_feed_permissions(self, feed_permission, feed_id, project=None):
         """SetFeedPermissions.
         [Preview API] Update the permissions on a feed.
         :param [FeedPermission] feed_permission: Permissions to set.
         :param str feed_id: Name or Id of the feed.
+        :param str project: Project ID or project name
         :rtype: [FeedPermission]
         """
         route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
         if feed_id is not None:
             route_values['feedId'] = self._serialize.url('feed_id', feed_id, 'str')
         content = self._serialize.body(feed_permission, '[FeedPermission]')
