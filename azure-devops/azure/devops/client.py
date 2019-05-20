@@ -69,7 +69,8 @@ class Client(object):
         return response
 
     def _send(self, http_method, location_id, version, route_values=None,
-              query_parameters=None, content=None, media_type='application/json', accept_media_type='application/json'):
+              query_parameters=None, content=None, media_type='application/json', accept_media_type='application/json',
+              additional_headers=None):
         request = self._create_request_message(http_method=http_method,
                                                location_id=location_id,
                                                route_values=route_values,
@@ -88,6 +89,9 @@ class Client(object):
         # Construct headers
         headers = {'Content-Type': media_type + '; charset=utf-8',
                    'Accept': accept_media_type + ';api-version=' + negotiated_version}
+        if additional_headers is not None:
+            for key in additional_headers:
+                headers[key] = additional_headers[key]
         if self.config.additional_headers is not None:
             for key in self.config.additional_headers:
                 headers[key] = self.config.additional_headers[key]
