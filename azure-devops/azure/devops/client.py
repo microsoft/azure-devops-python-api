@@ -91,7 +91,7 @@ class Client(object):
                    'Accept': accept_media_type + ';api-version=' + negotiated_version}
         if additional_headers is not None:
             for key in additional_headers:
-                headers[key] = additional_headers[key]
+                headers[key] = str(additional_headers[key])
         if self.config.additional_headers is not None:
             for key in self.config.additional_headers:
                 headers[key] = self.config.additional_headers[key]
