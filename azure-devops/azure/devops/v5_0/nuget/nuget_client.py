@@ -97,7 +97,7 @@ class NuGetClient(Client):
         :param str feed_id: Name or ID of the feed.
         :param str package_name: Name of the package.
         :param str package_version: Version of the package.
-        :rtype: :class:`<NuGetPackageVersionDeletionState> <azure.devops.v5_0.nuget.models.NuGetPackageVersionDeletionState>`
+        :rtype: :class:`<NuGetPackageVersionDeletionState> <azure.devops.v5_0.nuGet.models.NuGetPackageVersionDeletionState>`
         """
         route_values = {}
         if feed_id is not None:
@@ -140,7 +140,7 @@ class NuGetClient(Client):
         :param str feed_id: Name or ID of the feed.
         :param str package_name: Name of the package to delete.
         :param str package_version: Version of the package to delete.
-        :rtype: :class:`<Package> <azure.devops.v5_0.nuget.models.Package>`
+        :rtype: :class:`<Package> <azure.devops.v5_0.nuGet.models.Package>`
         """
         route_values = {}
         if feed_id is not None:
@@ -162,7 +162,7 @@ class NuGetClient(Client):
         :param str package_name: Name of the package.
         :param str package_version: Version of the package.
         :param bool show_deleted: True to include deleted packages in the response.
-        :rtype: :class:`<Package> <azure.devops.v5_0.nuget.models.Package>`
+        :rtype: :class:`<Package> <azure.devops.v5_0.nuGet.models.Package>`
         """
         route_values = {}
         if feed_id is not None:
