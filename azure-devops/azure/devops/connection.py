@@ -35,6 +35,7 @@ class Connection(object):
         self.clients = ClientFactory(self)
         self.clients_v5_0 = ClientFactoryV5_0(self)
         self.clients_v5_1 = ClientFactoryV5_1(self)
+        self.use_fiddler = False
 
     def get_client(self, client_type):
         """get_client.
@@ -57,6 +58,8 @@ class Connection(object):
         url = self._get_url_for_client_instance(client_class)
         client = client_class(url, self._creds)
         client.add_user_agent(self._addition_user_agent)
+        if self.use_fiddler:
+            self._configure_client_for_fiddler(client)
         return client
 
     def _get_url_for_client_instance(self, client_class):
@@ -89,6 +92,8 @@ class Connection(object):
         if resource_id in _deployment_level_resource_areas:
             return _deployment_level_resource_areas[resource_id]
         location_client = LocationClient(sps_url, self._creds)
+        if self.use_fiddler:
+            self._configure_client_for_fiddler(location_client)
         resource_area = location_client.get_resource_area(area_id=resource_id)
         _deployment_level_resource_areas[resource_id] = resource_area
         return resource_area
@@ -99,6 +104,8 @@ class Connection(object):
     def _get_resource_areas(self, force=False):
         if self._resource_areas is None or force:
             location_client = LocationClient(self.base_url, self._creds)
+            if self.use_fiddler:
+                self._configure_client_for_fiddler(location_client)
             if not force and RESOURCE_FILE_CACHE[location_client.normalized_url]:
                 try:
                     logger.debug('File cache hit for resources on: %s', location_client.normalized_url)
@@ -124,6 +131,11 @@ class Connection(object):
     @staticmethod
     def _combine_url(part1, part2):
         return part1.rstrip('/') + '/' + part2.strip('/')
+
+    @staticmethod
+    def _configure_client_for_fiddler(client):
+        client.config.connection.verify = False
+        client.config.proxies.add(protocol='https', proxy_url='https://127.0.0.1:8888')
 
 
 _deployment_level_resource_areas = {}
