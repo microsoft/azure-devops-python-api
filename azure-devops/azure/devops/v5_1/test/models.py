@@ -838,7 +838,7 @@ class JobReference(Model):
 
     :param attempt: Attempt number of the job
     :type attempt: int
-    :param job_name: Matrixing in YAML generates copies of a job with different inputs in matrix. JobName is the name of those input.
+    :param job_name: Matrixing in YAML generates copies of a job with different inputs in matrix. JobName is the name of those input. Maximum supported length for name is 256 character.
     :type job_name: str
     """
 
@@ -1018,7 +1018,7 @@ class PhaseReference(Model):
 
     :param attempt: Attempt number of the pahse
     :type attempt: int
-    :param phase_name: Name of the phase
+    :param phase_name: Name of the phase. Maximum supported length for name is 256 character.
     :type phase_name: str
     """
 
@@ -1874,7 +1874,7 @@ class StageReference(Model):
 
     :param attempt: Attempt number of stage
     :type attempt: int
-    :param stage_name: Name of the stage.
+    :param stage_name: Name of the stage. Maximum supported length for name is 256 character.
     :type stage_name: str
     """
 
@@ -3798,6 +3798,8 @@ class TestRun(Model):
     :type passed_tests: int
     :param phase: Phase/State for the testRun.
     :type phase: str
+    :param pipeline_reference: Reference of the pipeline to which this test run belongs.
+    :type pipeline_reference: :class:`PipelineReference <azure.devops.v5_1.test.models.PipelineReference>`
     :param plan: Test plan associated with this test run.
     :type plan: :class:`ShallowReference <azure.devops.v5_1.test.models.ShallowReference>`
     :param post_process_state: Post Process State.
@@ -3864,6 +3866,7 @@ class TestRun(Model):
         'owner': {'key': 'owner', 'type': 'IdentityRef'},
         'passed_tests': {'key': 'passedTests', 'type': 'int'},
         'phase': {'key': 'phase', 'type': 'str'},
+        'pipeline_reference': {'key': 'pipelineReference', 'type': 'PipelineReference'},
         'plan': {'key': 'plan', 'type': 'ShallowReference'},
         'post_process_state': {'key': 'postProcessState', 'type': 'str'},
         'project': {'key': 'project', 'type': 'ShallowReference'},
@@ -3885,7 +3888,7 @@ class TestRun(Model):
         'web_access_url': {'key': 'webAccessUrl', 'type': 'str'}
     }
 
-    def __init__(self, build=None, build_configuration=None, comment=None, completed_date=None, controller=None, created_date=None, custom_fields=None, drop_location=None, dtl_aut_environment=None, dtl_environment=None, dtl_environment_creation_details=None, due_date=None, error_message=None, filter=None, id=None, incomplete_tests=None, is_automated=None, iteration=None, last_updated_by=None, last_updated_date=None, name=None, not_applicable_tests=None, owner=None, passed_tests=None, phase=None, plan=None, post_process_state=None, project=None, release=None, release_environment_uri=None, release_uri=None, revision=None, run_statistics=None, started_date=None, state=None, substate=None, tags=None, test_environment=None, test_message_log_id=None, test_settings=None, total_tests=None, unanalyzed_tests=None, url=None, web_access_url=None):
+    def __init__(self, build=None, build_configuration=None, comment=None, completed_date=None, controller=None, created_date=None, custom_fields=None, drop_location=None, dtl_aut_environment=None, dtl_environment=None, dtl_environment_creation_details=None, due_date=None, error_message=None, filter=None, id=None, incomplete_tests=None, is_automated=None, iteration=None, last_updated_by=None, last_updated_date=None, name=None, not_applicable_tests=None, owner=None, passed_tests=None, phase=None, pipeline_reference=None, plan=None, post_process_state=None, project=None, release=None, release_environment_uri=None, release_uri=None, revision=None, run_statistics=None, started_date=None, state=None, substate=None, tags=None, test_environment=None, test_message_log_id=None, test_settings=None, total_tests=None, unanalyzed_tests=None, url=None, web_access_url=None):
         super(TestRun, self).__init__()
         self.build = build
         self.build_configuration = build_configuration
@@ -3912,6 +3915,7 @@ class TestRun(Model):
         self.owner = owner
         self.passed_tests = passed_tests
         self.phase = phase
+        self.pipeline_reference = pipeline_reference
         self.plan = plan
         self.post_process_state = post_process_state
         self.project = project
