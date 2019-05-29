@@ -1432,3 +1432,73 @@ class WorkClient(Client):
                               route_values=route_values)
         return self._deserialize('IterationWorkItems', response)
 
+    def reorder_backlog_work_items(self, operation, team_context, backlog_id):
+        """ReorderBacklogWorkItems.
+        [Preview API] Reorder Product Backlog/Boards Work Items
+        :param :class:`<ReorderOperation> <azure.devops.v5_1.work.models.ReorderOperation>` operation:
+        :param :class:`<TeamContext> <azure.devops.v5_1.work.models.TeamContext>` team_context: The team context for the operation
+        :param str backlog_id: The id of the backlog level
+        :rtype: [ReorderResult]
+        """
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.project_id:
+                project = team_context.project_id
+            else:
+                project = team_context.project
+            if team_context.team_id:
+                team = team_context.team_id
+            else:
+                team = team_context.team
+
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
+        if backlog_id is not None:
+            route_values['backlogId'] = self._serialize.url('backlog_id', backlog_id, 'str')
+        content = self._serialize.body(operation, 'ReorderOperation')
+        response = self._send(http_method='PATCH',
+                              location_id='1c22b714-e7e4-41b9-85e0-56ee13ef55ed',
+                              version='5.1-preview.1',
+                              route_values=route_values,
+                              content=content)
+        return self._deserialize('[ReorderResult]', self._unwrap_collection(response))
+
+    def reorder_iteration_work_items(self, operation, team_context, iteration_id):
+        """ReorderIterationWorkItems.
+        [Preview API] Reorder Sprint Backlog/Taskboard Work Items
+        :param :class:`<ReorderOperation> <azure.devops.v5_1.work.models.ReorderOperation>` operation:
+        :param :class:`<TeamContext> <azure.devops.v5_1.work.models.TeamContext>` team_context: The team context for the operation
+        :param str iteration_id: The id of the iteration
+        :rtype: [ReorderResult]
+        """
+        project = None
+        team = None
+        if team_context is not None:
+            if team_context.project_id:
+                project = team_context.project_id
+            else:
+                project = team_context.project
+            if team_context.team_id:
+                team = team_context.team_id
+            else:
+                team = team_context.team
+
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'string')
+        if team is not None:
+            route_values['team'] = self._serialize.url('team', team, 'string')
+        if iteration_id is not None:
+            route_values['iterationId'] = self._serialize.url('iteration_id', iteration_id, 'str')
+        content = self._serialize.body(operation, 'ReorderOperation')
+        response = self._send(http_method='PATCH',
+                              location_id='47755db2-d7eb-405a-8c25-675401525fc9',
+                              version='5.1-preview.1',
+                              route_values=route_values,
+                              content=content)
+        return self._deserialize('[ReorderResult]', self._unwrap_collection(response))
+

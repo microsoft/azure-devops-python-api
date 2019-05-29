@@ -913,6 +913,58 @@ class ReferenceLinks(Model):
         self.links = links
 
 
+class ReorderOperation(Model):
+    """ReorderOperation.
+
+    :param ids: IDs of the work items to be reordered.  Must be valid WorkItem Ids.
+    :type ids: list of int
+    :param iteration_path: IterationPath for reorder operation. This is only used when we reorder from the Iteration Backlog
+    :type iteration_path: str
+    :param next_id: ID of the work item that should be after the reordered items. Can use 0 to specify the end of the list.
+    :type next_id: int
+    :param parent_id: Parent ID for all of the work items involved in this operation. Can use 0 to indicate the items don't have a parent.
+    :type parent_id: int
+    :param previous_id: ID of the work item that should be before the reordered items. Can use 0 to specify the beginning of the list.
+    :type previous_id: int
+    """
+
+    _attribute_map = {
+        'ids': {'key': 'ids', 'type': '[int]'},
+        'iteration_path': {'key': 'iterationPath', 'type': 'str'},
+        'next_id': {'key': 'nextId', 'type': 'int'},
+        'parent_id': {'key': 'parentId', 'type': 'int'},
+        'previous_id': {'key': 'previousId', 'type': 'int'}
+    }
+
+    def __init__(self, ids=None, iteration_path=None, next_id=None, parent_id=None, previous_id=None):
+        super(ReorderOperation, self).__init__()
+        self.ids = ids
+        self.iteration_path = iteration_path
+        self.next_id = next_id
+        self.parent_id = parent_id
+        self.previous_id = previous_id
+
+
+class ReorderResult(Model):
+    """ReorderResult.
+
+    :param id: The ID of the work item that was reordered.
+    :type id: int
+    :param order: The updated order value of the work item that was reordered.
+    :type order: float
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'int'},
+        'order': {'key': 'order', 'type': 'float'}
+    }
+
+    def __init__(self, id=None, order=None):
+        super(ReorderResult, self).__init__()
+        self.id = id
+        self.order = order
+
+
 class Rule(Model):
     """Rule.
 
@@ -1276,6 +1328,8 @@ class TimelineTeamData(Model):
 class TimelineTeamIteration(Model):
     """TimelineTeamIteration.
 
+    :param css_node_id: The iteration CSS Node Id
+    :type css_node_id: str
     :param finish_date: The end date of the iteration
     :type finish_date: datetime
     :param name: The iteration name
@@ -1293,6 +1347,7 @@ class TimelineTeamIteration(Model):
     """
 
     _attribute_map = {
+        'css_node_id': {'key': 'cssNodeId', 'type': 'str'},
         'finish_date': {'key': 'finishDate', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
         'partially_paged_work_items': {'key': 'partiallyPagedWorkItems', 'type': '[[object]]'},
@@ -1302,8 +1357,9 @@ class TimelineTeamIteration(Model):
         'work_items': {'key': 'workItems', 'type': '[[object]]'}
     }
 
-    def __init__(self, finish_date=None, name=None, partially_paged_work_items=None, path=None, start_date=None, status=None, work_items=None):
+    def __init__(self, css_node_id=None, finish_date=None, name=None, partially_paged_work_items=None, path=None, start_date=None, status=None, work_items=None):
         super(TimelineTeamIteration, self).__init__()
+        self.css_node_id = css_node_id
         self.finish_date = finish_date
         self.name = name
         self.partially_paged_work_items = partially_paged_work_items
@@ -1956,6 +2012,8 @@ __all__ = [
     'PredefinedQuery',
     'ProcessConfiguration',
     'ReferenceLinks',
+    'ReorderOperation',
+    'ReorderResult',
     'Rule',
     'TeamContext',
     'TeamFieldValue',
