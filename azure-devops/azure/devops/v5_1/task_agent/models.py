@@ -2826,6 +2826,8 @@ class TaskDefinition(Model):
     :type groups: list of :class:`TaskGroupDefinition <azure.devops.v5_1.task_agent.models.TaskGroupDefinition>`
     :param help_mark_down:
     :type help_mark_down: str
+    :param help_url:
+    :type help_url: str
     :param host_type:
     :type host_type: str
     :param icon_url:
@@ -2890,6 +2892,7 @@ class TaskDefinition(Model):
         'friendly_name': {'key': 'friendlyName', 'type': 'str'},
         'groups': {'key': 'groups', 'type': '[TaskGroupDefinition]'},
         'help_mark_down': {'key': 'helpMarkDown', 'type': 'str'},
+        'help_url': {'key': 'helpUrl', 'type': 'str'},
         'host_type': {'key': 'hostType', 'type': 'str'},
         'icon_url': {'key': 'iconUrl', 'type': 'str'},
         'id': {'key': 'id', 'type': 'str'},
@@ -2914,7 +2917,7 @@ class TaskDefinition(Model):
         'visibility': {'key': 'visibility', 'type': '[str]'}
     }
 
-    def __init__(self, agent_execution=None, author=None, category=None, contents_uploaded=None, contribution_identifier=None, contribution_version=None, data_source_bindings=None, definition_type=None, demands=None, deprecated=None, description=None, disabled=None, ecosystem=None, execution=None, friendly_name=None, groups=None, help_mark_down=None, host_type=None, icon_url=None, id=None, inputs=None, instance_name_format=None, minimum_agent_version=None, name=None, output_variables=None, package_location=None, package_type=None, post_job_execution=None, pre_job_execution=None, preview=None, release_notes=None, runs_on=None, satisfies=None, server_owned=None, show_environment_variables=None, source_definitions=None, source_location=None, version=None, visibility=None):
+    def __init__(self, agent_execution=None, author=None, category=None, contents_uploaded=None, contribution_identifier=None, contribution_version=None, data_source_bindings=None, definition_type=None, demands=None, deprecated=None, description=None, disabled=None, ecosystem=None, execution=None, friendly_name=None, groups=None, help_mark_down=None, help_url=None, host_type=None, icon_url=None, id=None, inputs=None, instance_name_format=None, minimum_agent_version=None, name=None, output_variables=None, package_location=None, package_type=None, post_job_execution=None, pre_job_execution=None, preview=None, release_notes=None, runs_on=None, satisfies=None, server_owned=None, show_environment_variables=None, source_definitions=None, source_location=None, version=None, visibility=None):
         super(TaskDefinition, self).__init__()
         self.agent_execution = agent_execution
         self.author = author
@@ -2933,6 +2936,7 @@ class TaskDefinition(Model):
         self.friendly_name = friendly_name
         self.groups = groups
         self.help_mark_down = help_mark_down
+        self.help_url = help_url
         self.host_type = host_type
         self.icon_url = icon_url
         self.id = id
@@ -3074,6 +3078,8 @@ class TaskGroup(TaskDefinition):
     :type groups: list of :class:`TaskGroupDefinition <azure.devops.v5_1.task_agent.models.TaskGroupDefinition>`
     :param help_mark_down:
     :type help_mark_down: str
+    :param help_url:
+    :type help_url: str
     :param host_type:
     :type host_type: str
     :param icon_url:
@@ -3158,6 +3164,7 @@ class TaskGroup(TaskDefinition):
         'friendly_name': {'key': 'friendlyName', 'type': 'str'},
         'groups': {'key': 'groups', 'type': '[TaskGroupDefinition]'},
         'help_mark_down': {'key': 'helpMarkDown', 'type': 'str'},
+        'help_url': {'key': 'helpUrl', 'type': 'str'},
         'host_type': {'key': 'hostType', 'type': 'str'},
         'icon_url': {'key': 'iconUrl', 'type': 'str'},
         'id': {'key': 'id', 'type': 'str'},
@@ -3192,8 +3199,8 @@ class TaskGroup(TaskDefinition):
         'tasks': {'key': 'tasks', 'type': '[TaskGroupStep]'}
     }
 
-    def __init__(self, agent_execution=None, author=None, category=None, contents_uploaded=None, contribution_identifier=None, contribution_version=None, data_source_bindings=None, definition_type=None, demands=None, deprecated=None, description=None, disabled=None, ecosystem=None, execution=None, friendly_name=None, groups=None, help_mark_down=None, host_type=None, icon_url=None, id=None, inputs=None, instance_name_format=None, minimum_agent_version=None, name=None, output_variables=None, package_location=None, package_type=None, post_job_execution=None, pre_job_execution=None, preview=None, release_notes=None, runs_on=None, satisfies=None, server_owned=None, show_environment_variables=None, source_definitions=None, source_location=None, version=None, visibility=None, comment=None, created_by=None, created_on=None, deleted=None, modified_by=None, modified_on=None, owner=None, parent_definition_id=None, revision=None, tasks=None):
-        super(TaskGroup, self).__init__(agent_execution=agent_execution, author=author, category=category, contents_uploaded=contents_uploaded, contribution_identifier=contribution_identifier, contribution_version=contribution_version, data_source_bindings=data_source_bindings, definition_type=definition_type, demands=demands, deprecated=deprecated, description=description, disabled=disabled, ecosystem=ecosystem, execution=execution, friendly_name=friendly_name, groups=groups, help_mark_down=help_mark_down, host_type=host_type, icon_url=icon_url, id=id, inputs=inputs, instance_name_format=instance_name_format, minimum_agent_version=minimum_agent_version, name=name, output_variables=output_variables, package_location=package_location, package_type=package_type, post_job_execution=post_job_execution, pre_job_execution=pre_job_execution, preview=preview, release_notes=release_notes, runs_on=runs_on, satisfies=satisfies, server_owned=server_owned, show_environment_variables=show_environment_variables, source_definitions=source_definitions, source_location=source_location, version=version, visibility=visibility)
+    def __init__(self, agent_execution=None, author=None, category=None, contents_uploaded=None, contribution_identifier=None, contribution_version=None, data_source_bindings=None, definition_type=None, demands=None, deprecated=None, description=None, disabled=None, ecosystem=None, execution=None, friendly_name=None, groups=None, help_mark_down=None, help_url=None, host_type=None, icon_url=None, id=None, inputs=None, instance_name_format=None, minimum_agent_version=None, name=None, output_variables=None, package_location=None, package_type=None, post_job_execution=None, pre_job_execution=None, preview=None, release_notes=None, runs_on=None, satisfies=None, server_owned=None, show_environment_variables=None, source_definitions=None, source_location=None, version=None, visibility=None, comment=None, created_by=None, created_on=None, deleted=None, modified_by=None, modified_on=None, owner=None, parent_definition_id=None, revision=None, tasks=None):
+        super(TaskGroup, self).__init__(agent_execution=agent_execution, author=author, category=category, contents_uploaded=contents_uploaded, contribution_identifier=contribution_identifier, contribution_version=contribution_version, data_source_bindings=data_source_bindings, definition_type=definition_type, demands=demands, deprecated=deprecated, description=description, disabled=disabled, ecosystem=ecosystem, execution=execution, friendly_name=friendly_name, groups=groups, help_mark_down=help_mark_down, help_url=help_url, host_type=host_type, icon_url=icon_url, id=id, inputs=inputs, instance_name_format=instance_name_format, minimum_agent_version=minimum_agent_version, name=name, output_variables=output_variables, package_location=package_location, package_type=package_type, post_job_execution=post_job_execution, pre_job_execution=pre_job_execution, preview=preview, release_notes=release_notes, runs_on=runs_on, satisfies=satisfies, server_owned=server_owned, show_environment_variables=show_environment_variables, source_definitions=source_definitions, source_location=source_location, version=version, visibility=visibility)
         self.comment = comment
         self.created_by = created_by
         self.created_on = created_on
@@ -3311,6 +3318,8 @@ class TaskGroupRevision(Model):
     :type comment: str
     :param file_id:
     :type file_id: int
+    :param major_version:
+    :type major_version: int
     :param revision:
     :type revision: int
     :param task_group_id:
@@ -3323,17 +3332,19 @@ class TaskGroupRevision(Model):
         'change_type': {'key': 'changeType', 'type': 'object'},
         'comment': {'key': 'comment', 'type': 'str'},
         'file_id': {'key': 'fileId', 'type': 'int'},
+        'major_version': {'key': 'majorVersion', 'type': 'int'},
         'revision': {'key': 'revision', 'type': 'int'},
         'task_group_id': {'key': 'taskGroupId', 'type': 'str'}
     }
 
-    def __init__(self, changed_by=None, changed_date=None, change_type=None, comment=None, file_id=None, revision=None, task_group_id=None):
+    def __init__(self, changed_by=None, changed_date=None, change_type=None, comment=None, file_id=None, major_version=None, revision=None, task_group_id=None):
         super(TaskGroupRevision, self).__init__()
         self.changed_by = changed_by
         self.changed_date = changed_date
         self.change_type = change_type
         self.comment = comment
         self.file_id = file_id
+        self.major_version = major_version
         self.revision = revision
         self.task_group_id = task_group_id
 
