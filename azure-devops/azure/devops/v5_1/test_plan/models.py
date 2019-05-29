@@ -1056,6 +1056,30 @@ class TestPoint(Model):
         self.test_suite = test_suite
 
 
+class TestPointCount(Model):
+    """TestPointCount.
+
+    :param count: Test Point Count
+    :type count: int
+    :param test_plan_id: Test Plan under which the Test Points are
+    :type test_plan_id: int
+    :param test_suite_id: Test Suite under which the Test Points are
+    :type test_suite_id: int
+    """
+
+    _attribute_map = {
+        'count': {'key': 'count', 'type': 'int'},
+        'test_plan_id': {'key': 'testPlanId', 'type': 'int'},
+        'test_suite_id': {'key': 'testSuiteId', 'type': 'int'}
+    }
+
+    def __init__(self, count=None, test_plan_id=None, test_suite_id=None):
+        super(TestPointCount, self).__init__()
+        self.count = count
+        self.test_plan_id = test_plan_id
+        self.test_suite_id = test_suite_id
+
+
 class TestPointResults(Model):
     """TestPointResults.
 
@@ -1809,6 +1833,7 @@ __all__ = [
     'TestPlansHubRefreshData',
     'TestPlanUpdateParams',
     'TestPoint',
+    'TestPointCount',
     'TestPointResults',
     'TestPointUpdateParams',
     'TestSettings',

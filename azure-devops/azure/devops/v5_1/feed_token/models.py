@@ -6,25 +6,29 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from .models import *
-from .pipelines_client import PipelinesClient
+from msrest.serialization import Model
+
+
+class FeedSessionToken(Model):
+    """FeedSessionToken.
+
+    :param token:
+    :type token: str
+    :param valid_to:
+    :type valid_to: datetime
+    """
+
+    _attribute_map = {
+        'token': {'key': 'token', 'type': 'str'},
+        'valid_to': {'key': 'validTo', 'type': 'iso-8601'}
+    }
+
+    def __init__(self, token=None, valid_to=None):
+        super(FeedSessionToken, self).__init__()
+        self.token = token
+        self.valid_to = valid_to
+
 
 __all__ = [
-    'CreatePipelineConfigurationParameters',
-    'CreatePipelineParameters',
-    'Pipeline',
-    'PipelineBase',
-    'PipelineConfiguration',
-    'PipelineReference',
-    'ReferenceLinks',
-    'Repository',
-    'RepositoryResource',
-    'RepositoryResourceParameters',
-    'Run',
-    'RunPipelineParameters',
-    'RunReference',
-    'RunResources',
-    'RunResourcesParameters',
-    'Variable',
-    'PipelinesClient'
+    'FeedSessionToken',
 ]

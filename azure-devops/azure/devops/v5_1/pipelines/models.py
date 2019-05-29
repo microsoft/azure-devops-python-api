@@ -137,23 +137,87 @@ class ReferenceLinks(Model):
         self.links = links
 
 
+class Repository(Model):
+    """Repository.
+
+    :param type:
+    :type type: object
+    """
+
+    _attribute_map = {
+        'type': {'key': 'type', 'type': 'object'}
+    }
+
+    def __init__(self, type=None):
+        super(Repository, self).__init__()
+        self.type = type
+
+
+class RepositoryResource(Model):
+    """RepositoryResource.
+
+    :param ref_name:
+    :type ref_name: str
+    :param repository:
+    :type repository: :class:`Repository <azure.devops.v5_1.pipelines.models.Repository>`
+    :param version:
+    :type version: str
+    """
+
+    _attribute_map = {
+        'ref_name': {'key': 'refName', 'type': 'str'},
+        'repository': {'key': 'repository', 'type': 'Repository'},
+        'version': {'key': 'version', 'type': 'str'}
+    }
+
+    def __init__(self, ref_name=None, repository=None, version=None):
+        super(RepositoryResource, self).__init__()
+        self.ref_name = ref_name
+        self.repository = repository
+        self.version = version
+
+
+class RepositoryResourceParameters(Model):
+    """RepositoryResourceParameters.
+
+    :param ref_name:
+    :type ref_name: str
+    :param version:
+    :type version: str
+    """
+
+    _attribute_map = {
+        'ref_name': {'key': 'refName', 'type': 'str'},
+        'version': {'key': 'version', 'type': 'str'}
+    }
+
+    def __init__(self, ref_name=None, version=None):
+        super(RepositoryResourceParameters, self).__init__()
+        self.ref_name = ref_name
+        self.version = version
+
+
 class RunPipelineParameters(Model):
     """RunPipelineParameters.
 
     :param configuration:
     :type configuration: JustInTimeConfiguration
+    :param resources:
+    :type resources: :class:`RunResourcesParameters <azure.devops.v5_1.pipelines.models.RunResourcesParameters>`
     :param variables:
     :type variables: dict
     """
 
     _attribute_map = {
         'configuration': {'key': 'configuration', 'type': 'JustInTimeConfiguration'},
+        'resources': {'key': 'resources', 'type': 'RunResourcesParameters'},
         'variables': {'key': 'variables', 'type': '{Variable}'}
     }
 
-    def __init__(self, configuration=None, variables=None):
+    def __init__(self, configuration=None, resources=None, variables=None):
         super(RunPipelineParameters, self).__init__()
         self.configuration = configuration
+        self.resources = resources
         self.variables = variables
 
 
@@ -175,6 +239,38 @@ class RunReference(Model):
         super(RunReference, self).__init__()
         self.id = id
         self.name = name
+
+
+class RunResources(Model):
+    """RunResources.
+
+    :param repositories:
+    :type repositories: dict
+    """
+
+    _attribute_map = {
+        'repositories': {'key': 'repositories', 'type': '{RepositoryResource}'}
+    }
+
+    def __init__(self, repositories=None):
+        super(RunResources, self).__init__()
+        self.repositories = repositories
+
+
+class RunResourcesParameters(Model):
+    """RunResourcesParameters.
+
+    :param repositories:
+    :type repositories: dict
+    """
+
+    _attribute_map = {
+        'repositories': {'key': 'repositories', 'type': '{RepositoryResourceParameters}'}
+    }
+
+    def __init__(self, repositories=None):
+        super(RunResourcesParameters, self).__init__()
+        self.repositories = repositories
 
 
 class Variable(Model):
@@ -248,6 +344,8 @@ class Run(RunReference):
     :type finished_date: datetime
     :param pipeline:
     :type pipeline: :class:`PipelineReference <azure.devops.v5_1.pipelines.models.PipelineReference>`
+    :param resources:
+    :type resources: :class:`RunResources <azure.devops.v5_1.pipelines.models.RunResources>`
     :param result:
     :type result: object
     :param state:
@@ -265,18 +363,20 @@ class Run(RunReference):
         'created_date': {'key': 'createdDate', 'type': 'iso-8601'},
         'finished_date': {'key': 'finishedDate', 'type': 'iso-8601'},
         'pipeline': {'key': 'pipeline', 'type': 'PipelineReference'},
+        'resources': {'key': 'resources', 'type': 'RunResources'},
         'result': {'key': 'result', 'type': 'object'},
         'state': {'key': 'state', 'type': 'object'},
         'url': {'key': 'url', 'type': 'str'},
         'variables': {'key': 'variables', 'type': '{Variable}'}
     }
 
-    def __init__(self, id=None, name=None, _links=None, created_date=None, finished_date=None, pipeline=None, result=None, state=None, url=None, variables=None):
+    def __init__(self, id=None, name=None, _links=None, created_date=None, finished_date=None, pipeline=None, resources=None, result=None, state=None, url=None, variables=None):
         super(Run, self).__init__(id=id, name=name)
         self._links = _links
         self.created_date = created_date
         self.finished_date = finished_date
         self.pipeline = pipeline
+        self.resources = resources
         self.result = result
         self.state = state
         self.url = url
@@ -290,8 +390,13 @@ __all__ = [
     'PipelineConfiguration',
     'PipelineReference',
     'ReferenceLinks',
+    'Repository',
+    'RepositoryResource',
+    'RepositoryResourceParameters',
     'RunPipelineParameters',
     'RunReference',
+    'RunResources',
+    'RunResourcesParameters',
     'Variable',
     'Pipeline',
     'Run',
