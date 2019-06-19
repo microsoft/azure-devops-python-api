@@ -304,6 +304,38 @@ class WorkItemTrackingClient(Client):
                               content=content)
         return self._deserialize('WorkItemClassificationNode', response)
 
+    def get_engaged_users(self, project, work_item_id, comment_id, reaction_type, top=None, skip=None):
+        """GetEngagedUsers.
+        [Preview API] Get users who reacted on the comment.
+        :param str project: Project ID or project name
+        :param int work_item_id: WorkItem ID.
+        :param int comment_id: Comment ID.
+        :param CommentReactionType reaction_type: Type of the reaction.
+        :param int top:
+        :param int skip:
+        :rtype: [IdentityRef]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if work_item_id is not None:
+            route_values['workItemId'] = self._serialize.url('work_item_id', work_item_id, 'int')
+        if comment_id is not None:
+            route_values['commentId'] = self._serialize.url('comment_id', comment_id, 'int')
+        if reaction_type is not None:
+            route_values['reactionType'] = self._serialize.url('reaction_type', reaction_type, 'CommentReactionType')
+        query_parameters = {}
+        if top is not None:
+            query_parameters['$top'] = self._serialize.query('top', top, 'int')
+        if skip is not None:
+            query_parameters['$skip'] = self._serialize.query('skip', skip, 'int')
+        response = self._send(http_method='GET',
+                              location_id='e33ca5e0-2349-4285-af3d-d72d86781c35',
+                              version='5.1-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters)
+        return self._deserialize('[IdentityRef]', self._unwrap_collection(response))
+
     def add_comment(self, request, project, work_item_id):
         """AddComment.
         [Preview API] Add a comment on a work item.

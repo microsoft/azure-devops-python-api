@@ -137,6 +137,142 @@ class ReferenceLinks(Model):
         self.links = links
 
 
+class TaskAgentJob(Model):
+    """TaskAgentJob.
+
+    :param container:
+    :type container: str
+    :param id:
+    :type id: str
+    :param name:
+    :type name: str
+    :param sidecar_containers:
+    :type sidecar_containers: dict
+    :param steps:
+    :type steps: list of :class:`TaskAgentJobStep <azure.devops.v5_1.task.models.TaskAgentJobStep>`
+    :param variables:
+    :type variables: list of :class:`TaskAgentJobVariable <azure.devops.v5_1.task.models.TaskAgentJobVariable>`
+    """
+
+    _attribute_map = {
+        'container': {'key': 'container', 'type': 'str'},
+        'id': {'key': 'id', 'type': 'str'},
+        'name': {'key': 'name', 'type': 'str'},
+        'sidecar_containers': {'key': 'sidecarContainers', 'type': '{str}'},
+        'steps': {'key': 'steps', 'type': '[TaskAgentJobStep]'},
+        'variables': {'key': 'variables', 'type': '[TaskAgentJobVariable]'}
+    }
+
+    def __init__(self, container=None, id=None, name=None, sidecar_containers=None, steps=None, variables=None):
+        super(TaskAgentJob, self).__init__()
+        self.container = container
+        self.id = id
+        self.name = name
+        self.sidecar_containers = sidecar_containers
+        self.steps = steps
+        self.variables = variables
+
+
+class TaskAgentJobStep(Model):
+    """TaskAgentJobStep.
+
+    :param condition:
+    :type condition: str
+    :param continue_on_error:
+    :type continue_on_error: bool
+    :param enabled:
+    :type enabled: bool
+    :param env:
+    :type env: dict
+    :param id:
+    :type id: str
+    :param inputs:
+    :type inputs: dict
+    :param name:
+    :type name: str
+    :param task:
+    :type task: :class:`TaskAgentJobTask <azure.devops.v5_1.task.models.TaskAgentJobTask>`
+    :param timeout_in_minutes:
+    :type timeout_in_minutes: int
+    :param type:
+    :type type: object
+    """
+
+    _attribute_map = {
+        'condition': {'key': 'condition', 'type': 'str'},
+        'continue_on_error': {'key': 'continueOnError', 'type': 'bool'},
+        'enabled': {'key': 'enabled', 'type': 'bool'},
+        'env': {'key': 'env', 'type': '{str}'},
+        'id': {'key': 'id', 'type': 'str'},
+        'inputs': {'key': 'inputs', 'type': '{str}'},
+        'name': {'key': 'name', 'type': 'str'},
+        'task': {'key': 'task', 'type': 'TaskAgentJobTask'},
+        'timeout_in_minutes': {'key': 'timeoutInMinutes', 'type': 'int'},
+        'type': {'key': 'type', 'type': 'object'}
+    }
+
+    def __init__(self, condition=None, continue_on_error=None, enabled=None, env=None, id=None, inputs=None, name=None, task=None, timeout_in_minutes=None, type=None):
+        super(TaskAgentJobStep, self).__init__()
+        self.condition = condition
+        self.continue_on_error = continue_on_error
+        self.enabled = enabled
+        self.env = env
+        self.id = id
+        self.inputs = inputs
+        self.name = name
+        self.task = task
+        self.timeout_in_minutes = timeout_in_minutes
+        self.type = type
+
+
+class TaskAgentJobTask(Model):
+    """TaskAgentJobTask.
+
+    :param id:
+    :type id: str
+    :param name:
+    :type name: str
+    :param version:
+    :type version: str
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'name': {'key': 'name', 'type': 'str'},
+        'version': {'key': 'version', 'type': 'str'}
+    }
+
+    def __init__(self, id=None, name=None, version=None):
+        super(TaskAgentJobTask, self).__init__()
+        self.id = id
+        self.name = name
+        self.version = version
+
+
+class TaskAgentJobVariable(Model):
+    """TaskAgentJobVariable.
+
+    :param name:
+    :type name: str
+    :param secret:
+    :type secret: bool
+    :param value:
+    :type value: str
+    """
+
+    _attribute_map = {
+        'name': {'key': 'name', 'type': 'str'},
+        'secret': {'key': 'secret', 'type': 'bool'},
+        'value': {'key': 'value', 'type': 'str'}
+    }
+
+    def __init__(self, name=None, secret=None, value=None):
+        super(TaskAgentJobVariable, self).__init__()
+        self.name = name
+        self.secret = secret
+        self.value = value
+
+
 class TaskAttachment(Model):
     """TaskAttachment.
 
@@ -837,6 +973,10 @@ __all__ = [
     'PlanEnvironment',
     'ProjectReference',
     'ReferenceLinks',
+    'TaskAgentJob',
+    'TaskAgentJobStep',
+    'TaskAgentJobTask',
+    'TaskAgentJobVariable',
     'TaskAttachment',
     'TaskLogReference',
     'TaskOrchestrationItem',

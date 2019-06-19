@@ -2250,6 +2250,8 @@ class TaskAgentJobRequest(Model):
     :type service_owner: str
     :param status_message:
     :type status_message: str
+    :param user_delayed:
+    :type user_delayed: bool
     """
 
     _attribute_map = {
@@ -2281,10 +2283,11 @@ class TaskAgentJobRequest(Model):
         'result': {'key': 'result', 'type': 'object'},
         'scope_id': {'key': 'scopeId', 'type': 'str'},
         'service_owner': {'key': 'serviceOwner', 'type': 'str'},
-        'status_message': {'key': 'statusMessage', 'type': 'str'}
+        'status_message': {'key': 'statusMessage', 'type': 'str'},
+        'user_delayed': {'key': 'userDelayed', 'type': 'bool'}
     }
 
-    def __init__(self, agent_delays=None, agent_specification=None, assign_time=None, data=None, definition=None, demands=None, expected_duration=None, finish_time=None, host_id=None, job_id=None, job_name=None, locked_until=None, matched_agents=None, matches_all_agents_in_pool=None, orchestration_id=None, owner=None, plan_group=None, plan_id=None, plan_type=None, pool_id=None, queue_id=None, queue_time=None, receive_time=None, request_id=None, reserved_agent=None, result=None, scope_id=None, service_owner=None, status_message=None):
+    def __init__(self, agent_delays=None, agent_specification=None, assign_time=None, data=None, definition=None, demands=None, expected_duration=None, finish_time=None, host_id=None, job_id=None, job_name=None, locked_until=None, matched_agents=None, matches_all_agents_in_pool=None, orchestration_id=None, owner=None, plan_group=None, plan_id=None, plan_type=None, pool_id=None, queue_id=None, queue_time=None, receive_time=None, request_id=None, reserved_agent=None, result=None, scope_id=None, service_owner=None, status_message=None, user_delayed=None):
         super(TaskAgentJobRequest, self).__init__()
         self.agent_delays = agent_delays
         self.agent_specification = agent_specification
@@ -2315,6 +2318,7 @@ class TaskAgentJobRequest(Model):
         self.scope_id = scope_id
         self.service_owner = service_owner
         self.status_message = status_message
+        self.user_delayed = user_delayed
 
 
 class TaskAgentMessage(Model):
