@@ -25,13 +25,14 @@ class WikiClient(Client):
 
     resource_area_identifier = 'bf7d82a0-8aa5-4613-94ef-6172a5ea01f3'
 
-    def create_attachment(self, upload_stream, project, wiki_identifier, name, **kwargs):
+    def create_attachment(self, upload_stream, project, wiki_identifier, name, version_descriptor=None, **kwargs):
         """CreateAttachment.
         [Preview API] Creates an attachment in the wiki.
         :param object upload_stream: Stream to upload
         :param str project: Project ID or project name
         :param str wiki_identifier: Wiki Id or name.
         :param str name: Wiki attachment name.
+        :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.wiki.models.GitVersionDescriptor>` version_descriptor: GitVersionDescriptor for the page. (Optional in case of ProjectWiki).
         :rtype: :class:`<WikiAttachmentResponse> <azure.devops.v5_1.wiki.models.WikiAttachmentResponse>`
         """
         route_values = {}
@@ -42,6 +43,13 @@ class WikiClient(Client):
         query_parameters = {}
         if name is not None:
             query_parameters['name'] = self._serialize.query('name', name, 'str')
+        if version_descriptor is not None:
+            if version_descriptor.version_type is not None:
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
+            if version_descriptor.version is not None:
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
+            if version_descriptor.version_options is not None:
+                query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         if "callback" in kwargs:
             callback = kwargs["callback"]
         else:
@@ -59,13 +67,14 @@ class WikiClient(Client):
         response_object.eTag = response.headers.get('ETag')
         return response_object
 
-    def create_page_move(self, page_move_parameters, project, wiki_identifier, comment=None):
+    def create_page_move(self, page_move_parameters, project, wiki_identifier, comment=None, version_descriptor=None):
         """CreatePageMove.
         [Preview API] Creates a page move operation that updates the path and order of the page as provided in the parameters.
         :param :class:`<WikiPageMoveParameters> <azure.devops.v5_1.wiki.models.WikiPageMoveParameters>` page_move_parameters: Page more operation parameters.
         :param str project: Project ID or project name
         :param str wiki_identifier: Wiki Id or name.
         :param str comment: Comment that is to be associated with this page move.
+        :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.wiki.models.GitVersionDescriptor>` version_descriptor: GitVersionDescriptor for the page. (Optional in case of ProjectWiki).
         :rtype: :class:`<WikiPageMoveResponse> <azure.devops.v5_1.wiki.models.WikiPageMoveResponse>`
         """
         route_values = {}
@@ -76,6 +85,13 @@ class WikiClient(Client):
         query_parameters = {}
         if comment is not None:
             query_parameters['comment'] = self._serialize.query('comment', comment, 'str')
+        if version_descriptor is not None:
+            if version_descriptor.version_type is not None:
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
+            if version_descriptor.version is not None:
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
+            if version_descriptor.version_options is not None:
+                query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         content = self._serialize.body(page_move_parameters, 'WikiPageMoveParameters')
         response = self._send(http_method='POST',
                               location_id='e37bbe71-cbae-49e5-9a4e-949143b9d910',
@@ -88,7 +104,7 @@ class WikiClient(Client):
         response_object.eTag = response.headers.get('ETag')
         return response_object
 
-    def create_or_update_page(self, parameters, project, wiki_identifier, path, version, comment=None):
+    def create_or_update_page(self, parameters, project, wiki_identifier, path, version, comment=None, version_descriptor=None):
         """CreateOrUpdatePage.
         [Preview API] Creates or edits a wiki page.
         :param :class:`<WikiPageCreateOrUpdateParameters> <azure.devops.v5_1.wiki.models.WikiPageCreateOrUpdateParameters>` parameters: Wiki create or update operation parameters.
@@ -97,6 +113,7 @@ class WikiClient(Client):
         :param str path: Wiki page path.
         :param String version: Version of the page on which the change is to be made. Mandatory for `Edit` scenario. To be populated in the If-Match header of the request.
         :param str comment: Comment to be associated with the page operation.
+        :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.wiki.models.GitVersionDescriptor>` version_descriptor: GitVersionDescriptor for the page. (Optional in case of ProjectWiki).
         :rtype: :class:`<WikiPageResponse> <azure.devops.v5_1.wiki.models.WikiPageResponse>`
         """
         route_values = {}
@@ -109,6 +126,13 @@ class WikiClient(Client):
             query_parameters['path'] = self._serialize.query('path', path, 'str')
         if comment is not None:
             query_parameters['comment'] = self._serialize.query('comment', comment, 'str')
+        if version_descriptor is not None:
+            if version_descriptor.version_type is not None:
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
+            if version_descriptor.version is not None:
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
+            if version_descriptor.version_options is not None:
+                query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         additional_headers = {}
         if version is not None:
             additional_headers['If-Match'] = version
@@ -125,13 +149,14 @@ class WikiClient(Client):
         response_object.eTag = response.headers.get('ETag')
         return response_object
 
-    def delete_page(self, project, wiki_identifier, path, comment=None):
+    def delete_page(self, project, wiki_identifier, path, comment=None, version_descriptor=None):
         """DeletePage.
         [Preview API] Deletes a wiki page.
         :param str project: Project ID or project name
         :param str wiki_identifier: Wiki Id or name.
         :param str path: Wiki page path.
         :param str comment: Comment to be associated with this page delete.
+        :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.wiki.models.GitVersionDescriptor>` version_descriptor: GitVersionDescriptor for the page. (Optional in case of ProjectWiki).
         :rtype: :class:`<WikiPageResponse> <azure.devops.v5_1.wiki.models.WikiPageResponse>`
         """
         route_values = {}
@@ -144,6 +169,13 @@ class WikiClient(Client):
             query_parameters['path'] = self._serialize.query('path', path, 'str')
         if comment is not None:
             query_parameters['comment'] = self._serialize.query('comment', comment, 'str')
+        if version_descriptor is not None:
+            if version_descriptor.version_type is not None:
+                query_parameters['versionDescriptor.versionType'] = version_descriptor.version_type
+            if version_descriptor.version is not None:
+                query_parameters['versionDescriptor.version'] = version_descriptor.version
+            if version_descriptor.version_options is not None:
+                query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         response = self._send(http_method='DELETE',
                               location_id='25d3fbc7-fe3d-46cb-b5a5-0b6f79caf27b',
                               version='5.1-preview.1',

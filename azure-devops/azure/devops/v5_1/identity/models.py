@@ -302,6 +302,8 @@ class IdentityBatchInfo(Model):
     :type property_names: list of str
     :param query_membership:
     :type query_membership: object
+    :param social_descriptors:
+    :type social_descriptors: list of :class:`str <azure.devops.v5_1.identities.models.str>`
     :param subject_descriptors:
     :type subject_descriptors: list of :class:`str <azure.devops.v5_1.identities.models.str>`
     """
@@ -312,16 +314,18 @@ class IdentityBatchInfo(Model):
         'include_restricted_visibility': {'key': 'includeRestrictedVisibility', 'type': 'bool'},
         'property_names': {'key': 'propertyNames', 'type': '[str]'},
         'query_membership': {'key': 'queryMembership', 'type': 'object'},
+        'social_descriptors': {'key': 'socialDescriptors', 'type': '[str]'},
         'subject_descriptors': {'key': 'subjectDescriptors', 'type': '[str]'}
     }
 
-    def __init__(self, descriptors=None, identity_ids=None, include_restricted_visibility=None, property_names=None, query_membership=None, subject_descriptors=None):
+    def __init__(self, descriptors=None, identity_ids=None, include_restricted_visibility=None, property_names=None, query_membership=None, social_descriptors=None, subject_descriptors=None):
         super(IdentityBatchInfo, self).__init__()
         self.descriptors = descriptors
         self.identity_ids = identity_ids
         self.include_restricted_visibility = include_restricted_visibility
         self.property_names = property_names
         self.query_membership = query_membership
+        self.social_descriptors = social_descriptors
         self.subject_descriptors = subject_descriptors
 
 

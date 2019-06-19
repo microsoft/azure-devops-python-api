@@ -304,6 +304,8 @@ class Template(Model):
     :type assets: list of :class:`TemplateAsset <azure.devops.v5_1.pipelines.models.TemplateAsset>`
     :param content:
     :type content: str
+    :param data_source_bindings:
+    :type data_source_bindings: list of :class:`TemplateDataSourceBinding <azure.devops.v5_1.pipelines.models.TemplateDataSourceBinding>`
     :param description:
     :type description: str
     :param icon_url:
@@ -321,6 +323,7 @@ class Template(Model):
     _attribute_map = {
         'assets': {'key': 'assets', 'type': '[TemplateAsset]'},
         'content': {'key': 'content', 'type': 'str'},
+        'data_source_bindings': {'key': 'dataSourceBindings', 'type': '[TemplateDataSourceBinding]'},
         'description': {'key': 'description', 'type': 'str'},
         'icon_url': {'key': 'iconUrl', 'type': 'str'},
         'id': {'key': 'id', 'type': 'str'},
@@ -329,10 +332,11 @@ class Template(Model):
         'recommended_weight': {'key': 'recommendedWeight', 'type': 'int'}
     }
 
-    def __init__(self, assets=None, content=None, description=None, icon_url=None, id=None, name=None, parameters=None, recommended_weight=None):
+    def __init__(self, assets=None, content=None, data_source_bindings=None, description=None, icon_url=None, id=None, name=None, parameters=None, recommended_weight=None):
         super(Template, self).__init__()
         self.assets = assets
         self.content = content
+        self.data_source_bindings = data_source_bindings
         self.description = description
         self.icon_url = icon_url
         self.id = id
@@ -373,6 +377,38 @@ class TemplateAsset(Model):
         self.type = type
 
 
+class TemplateDataSourceBinding(Model):
+    """TemplateDataSourceBinding.
+
+    :param data_source_name:
+    :type data_source_name: str
+    :param endpoint_parameter_name:
+    :type endpoint_parameter_name: str
+    :param parameters:
+    :type parameters: dict
+    :param result_template:
+    :type result_template: str
+    :param target:
+    :type target: str
+    """
+
+    _attribute_map = {
+        'data_source_name': {'key': 'dataSourceName', 'type': 'str'},
+        'endpoint_parameter_name': {'key': 'endpointParameterName', 'type': 'str'},
+        'parameters': {'key': 'parameters', 'type': '{str}'},
+        'result_template': {'key': 'resultTemplate', 'type': 'str'},
+        'target': {'key': 'target', 'type': 'str'}
+    }
+
+    def __init__(self, data_source_name=None, endpoint_parameter_name=None, parameters=None, result_template=None, target=None):
+        super(TemplateDataSourceBinding, self).__init__()
+        self.data_source_name = data_source_name
+        self.endpoint_parameter_name = endpoint_parameter_name
+        self.parameters = parameters
+        self.result_template = result_template
+        self.target = target
+
+
 class TemplateParameterDefinition(Model):
     """TemplateParameterDefinition.
 
@@ -382,6 +418,8 @@ class TemplateParameterDefinition(Model):
     :type display_name: str
     :param name:
     :type name: str
+    :param possible_values:
+    :type possible_values: list of str
     :param required:
     :type required: bool
     :param type:
@@ -392,15 +430,17 @@ class TemplateParameterDefinition(Model):
         'default_value': {'key': 'defaultValue', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'name': {'key': 'name', 'type': 'str'},
+        'possible_values': {'key': 'possibleValues', 'type': '[str]'},
         'required': {'key': 'required', 'type': 'bool'},
         'type': {'key': 'type', 'type': 'str'}
     }
 
-    def __init__(self, default_value=None, display_name=None, name=None, required=None, type=None):
+    def __init__(self, default_value=None, display_name=None, name=None, possible_values=None, required=None, type=None):
         super(TemplateParameterDefinition, self).__init__()
         self.default_value = default_value
         self.display_name = display_name
         self.name = name
+        self.possible_values = possible_values
         self.required = required
         self.type = type
 
@@ -553,6 +593,7 @@ __all__ = [
     'TeamProjectReference',
     'Template',
     'TemplateAsset',
+    'TemplateDataSourceBinding',
     'TemplateParameterDefinition',
     'TemplateParameters',
     'WebApiTeamRef',

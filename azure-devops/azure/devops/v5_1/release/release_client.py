@@ -415,6 +415,66 @@ class ReleaseClient(Client):
                               content=content)
         return self._deserialize('ReleaseEnvironment', response)
 
+    def delete_folder(self, project, path):
+        """DeleteFolder.
+        [Preview API] Deletes a definition folder for given folder name and path and all it's existing definitions.
+        :param str project: Project ID or project name
+        :param str path: Path of the folder to delete.
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if path is not None:
+            route_values['path'] = self._serialize.url('path', path, 'str')
+        self._send(http_method='DELETE',
+                   location_id='f7ddf76d-ce0c-4d68-94ff-becaec5d9dea',
+                   version='5.1-preview.2',
+                   route_values=route_values)
+
+    def get_folders(self, project, path=None, query_order=None):
+        """GetFolders.
+        [Preview API] Gets folders.
+        :param str project: Project ID or project name
+        :param str path: Path of the folder.
+        :param str query_order: Gets the results in the defined order. Default is 'None'.
+        :rtype: [Folder]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if path is not None:
+            route_values['path'] = self._serialize.url('path', path, 'str')
+        query_parameters = {}
+        if query_order is not None:
+            query_parameters['queryOrder'] = self._serialize.query('query_order', query_order, 'str')
+        response = self._send(http_method='GET',
+                              location_id='f7ddf76d-ce0c-4d68-94ff-becaec5d9dea',
+                              version='5.1-preview.2',
+                              route_values=route_values,
+                              query_parameters=query_parameters)
+        return self._deserialize('[Folder]', self._unwrap_collection(response))
+
+    def update_folder(self, folder, project, path):
+        """UpdateFolder.
+        [Preview API] Updates an existing folder at given existing path.
+        :param :class:`<Folder> <azure.devops.v5_1.release.models.Folder>` folder: folder.
+        :param str project: Project ID or project name
+        :param str path: Path of the folder to update.
+        :rtype: :class:`<Folder> <azure.devops.v5_1.release.models.Folder>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if path is not None:
+            route_values['path'] = self._serialize.url('path', path, 'str')
+        content = self._serialize.body(folder, 'Folder')
+        response = self._send(http_method='PATCH',
+                              location_id='f7ddf76d-ce0c-4d68-94ff-becaec5d9dea',
+                              version='5.1-preview.2',
+                              route_values=route_values,
+                              content=content)
+        return self._deserialize('Folder', response)
+
     def update_gates(self, gate_update_metadata, project, gate_step_id):
         """UpdateGates.
         [Preview API] Updates the gate for a deployment.
