@@ -1432,12 +1432,11 @@ class WorkClient(Client):
                               route_values=route_values)
         return self._deserialize('IterationWorkItems', response)
 
-    def reorder_backlog_work_items(self, operation, team_context, backlog_id):
+    def reorder_backlog_work_items(self, operation, team_context):
         """ReorderBacklogWorkItems.
         [Preview API] Reorder Product Backlog/Boards Work Items
         :param :class:`<ReorderOperation> <azure.devops.v5_1.work.models.ReorderOperation>` operation:
         :param :class:`<TeamContext> <azure.devops.v5_1.work.models.TeamContext>` team_context: The team context for the operation
-        :param str backlog_id: The id of the backlog level
         :rtype: [ReorderResult]
         """
         project = None
@@ -1457,8 +1456,6 @@ class WorkClient(Client):
             route_values['project'] = self._serialize.url('project', project, 'string')
         if team is not None:
             route_values['team'] = self._serialize.url('team', team, 'string')
-        if backlog_id is not None:
-            route_values['backlogId'] = self._serialize.url('backlog_id', backlog_id, 'str')
         content = self._serialize.body(operation, 'ReorderOperation')
         response = self._send(http_method='PATCH',
                               location_id='1c22b714-e7e4-41b9-85e0-56ee13ef55ed',

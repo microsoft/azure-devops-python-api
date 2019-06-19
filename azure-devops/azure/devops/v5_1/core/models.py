@@ -337,6 +337,26 @@ class ProjectInfo(Model):
         self.visibility = visibility
 
 
+class ProjectProperties(Model):
+    """ProjectProperties.
+
+    :param project_id: The team project Id
+    :type project_id: str
+    :param properties: The collection of team project properties
+    :type properties: list of :class:`ProjectProperty <azure.devops.v5_1.core.models.ProjectProperty>`
+    """
+
+    _attribute_map = {
+        'project_id': {'key': 'projectId', 'type': 'str'},
+        'properties': {'key': 'properties', 'type': '[ProjectProperty]'}
+    }
+
+    def __init__(self, project_id=None, properties=None):
+        super(ProjectProperties, self).__init__()
+        self.project_id = project_id
+        self.properties = properties
+
+
 class ProjectProperty(Model):
     """ProjectProperty.
 
@@ -914,6 +934,7 @@ __all__ = [
     'ProcessReference',
     'ProjectAvatar',
     'ProjectInfo',
+    'ProjectProperties',
     'ProjectProperty',
     'Proxy',
     'ProxyAuthorization',

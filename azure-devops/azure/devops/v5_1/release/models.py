@@ -436,17 +436,17 @@ class Change(Model):
 class ComplianceSettings(Model):
     """ComplianceSettings.
 
-    :param block_release_definition_save_if_secret_present: Block Release Definition save if any secrets is saved in Release Definition.
-    :type block_release_definition_save_if_secret_present: bool
+    :param check_for_credentials_and_other_secrets: Scan the release definition for secrets
+    :type check_for_credentials_and_other_secrets: bool
     """
 
     _attribute_map = {
-        'block_release_definition_save_if_secret_present': {'key': 'blockReleaseDefinitionSaveIfSecretPresent', 'type': 'bool'}
+        'check_for_credentials_and_other_secrets': {'key': 'checkForCredentialsAndOtherSecrets', 'type': 'bool'}
     }
 
-    def __init__(self, block_release_definition_save_if_secret_present=None):
+    def __init__(self, check_for_credentials_and_other_secrets=None):
         super(ComplianceSettings, self).__init__()
-        self.block_release_definition_save_if_secret_present = block_release_definition_save_if_secret_present
+        self.check_for_credentials_and_other_secrets = check_for_credentials_and_other_secrets
 
 
 class Condition(Model):

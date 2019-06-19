@@ -667,21 +667,29 @@ class TestCase(Model):
 class TestCaseReference(Model):
     """TestCaseReference.
 
+    :param assigned_to: Identity to whom the test case is assigned
+    :type assigned_to: :class:`IdentityRef <azure.devops.v5_1.test_plan.models.IdentityRef>`
     :param id: Test Case Id
     :type id: int
     :param name: Test Case Name
     :type name: str
+    :param state: State of the test case work item
+    :type state: str
     """
 
     _attribute_map = {
+        'assigned_to': {'key': 'assignedTo', 'type': 'IdentityRef'},
         'id': {'key': 'id', 'type': 'int'},
-        'name': {'key': 'name', 'type': 'str'}
+        'name': {'key': 'name', 'type': 'str'},
+        'state': {'key': 'state', 'type': 'str'}
     }
 
-    def __init__(self, id=None, name=None):
+    def __init__(self, assigned_to=None, id=None, name=None, state=None):
         super(TestCaseReference, self).__init__()
+        self.assigned_to = assigned_to
         self.id = id
         self.name = name
+        self.state = state
 
 
 class TestConfigurationCreateUpdateParameters(Model):
@@ -877,12 +885,16 @@ class TestPlansHubRefreshData(Model):
     :type selected_suite_id: int
     :param selected_suite_name:
     :type selected_suite_name: str
+    :param test_case_page_size:
+    :type test_case_page_size: int
     :param test_cases:
     :type test_cases: list of :class:`TestCase <azure.devops.v5_1.test_plan.models.TestCase>`
     :param test_cases_continuation_token:
     :type test_cases_continuation_token: str
     :param test_plan:
     :type test_plan: :class:`TestPlanDetailedReference <azure.devops.v5_1.test_plan.models.TestPlanDetailedReference>`
+    :param test_point_page_size:
+    :type test_point_page_size: int
     :param test_points:
     :type test_points: list of :class:`TestPoint <azure.devops.v5_1.test_plan.models.TestPoint>`
     :param test_points_continuation_token:
@@ -897,23 +909,27 @@ class TestPlansHubRefreshData(Model):
         'is_advanced_extension_enabled': {'key': 'isAdvancedExtensionEnabled', 'type': 'bool'},
         'selected_suite_id': {'key': 'selectedSuiteId', 'type': 'int'},
         'selected_suite_name': {'key': 'selectedSuiteName', 'type': 'str'},
+        'test_case_page_size': {'key': 'testCasePageSize', 'type': 'int'},
         'test_cases': {'key': 'testCases', 'type': '[TestCase]'},
         'test_cases_continuation_token': {'key': 'testCasesContinuationToken', 'type': 'str'},
         'test_plan': {'key': 'testPlan', 'type': 'TestPlanDetailedReference'},
+        'test_point_page_size': {'key': 'testPointPageSize', 'type': 'int'},
         'test_points': {'key': 'testPoints', 'type': '[TestPoint]'},
         'test_points_continuation_token': {'key': 'testPointsContinuationToken', 'type': 'str'},
         'test_suites': {'key': 'testSuites', 'type': '[TestSuite]'},
         'test_suites_continuation_token': {'key': 'testSuitesContinuationToken', 'type': 'str'}
     }
 
-    def __init__(self, is_advanced_extension_enabled=None, selected_suite_id=None, selected_suite_name=None, test_cases=None, test_cases_continuation_token=None, test_plan=None, test_points=None, test_points_continuation_token=None, test_suites=None, test_suites_continuation_token=None):
+    def __init__(self, is_advanced_extension_enabled=None, selected_suite_id=None, selected_suite_name=None, test_case_page_size=None, test_cases=None, test_cases_continuation_token=None, test_plan=None, test_point_page_size=None, test_points=None, test_points_continuation_token=None, test_suites=None, test_suites_continuation_token=None):
         super(TestPlansHubRefreshData, self).__init__()
         self.is_advanced_extension_enabled = is_advanced_extension_enabled
         self.selected_suite_id = selected_suite_id
         self.selected_suite_name = selected_suite_name
+        self.test_case_page_size = test_case_page_size
         self.test_cases = test_cases
         self.test_cases_continuation_token = test_cases_continuation_token
         self.test_plan = test_plan
+        self.test_point_page_size = test_point_page_size
         self.test_points = test_points
         self.test_points_continuation_token = test_points_continuation_token
         self.test_suites = test_suites

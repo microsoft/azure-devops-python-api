@@ -526,19 +526,23 @@ class BuildArtifact(Model):
     :type name: str
     :param resource: The actual resource.
     :type resource: :class:`ArtifactResource <azure.devops.v5_1.build.models.ArtifactResource>`
+    :param source: The artifact source, which will be the ID of the job that produced this artifact.
+    :type source: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'int'},
         'name': {'key': 'name', 'type': 'str'},
-        'resource': {'key': 'resource', 'type': 'ArtifactResource'}
+        'resource': {'key': 'resource', 'type': 'ArtifactResource'},
+        'source': {'key': 'source', 'type': 'str'}
     }
 
-    def __init__(self, id=None, name=None, resource=None):
+    def __init__(self, id=None, name=None, resource=None, source=None):
         super(BuildArtifact, self).__init__()
         self.id = id
         self.name = name
         self.resource = resource
+        self.source = source
 
 
 class BuildBadge(Model):

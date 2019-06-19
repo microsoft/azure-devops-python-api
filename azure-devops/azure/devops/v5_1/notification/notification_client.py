@@ -84,19 +84,6 @@ class NotificationClient(Client):
                               content=content)
         return self._deserialize('SubscriptionDiagnostics', response)
 
-    def publish_event(self, notification_event):
-        """PublishEvent.
-        [Preview API] Publish an event. This request must be directed to the service "extmgmt".
-        :param :class:`<VssNotificationEvent> <azure.devops.v5_1.notification.models.VssNotificationEvent>` notification_event:
-        :rtype: :class:`<VssNotificationEvent> <azure.devops.v5_1.notification.models.VssNotificationEvent>`
-        """
-        content = self._serialize.body(notification_event, 'VssNotificationEvent')
-        response = self._send(http_method='POST',
-                              location_id='14c57b7a-c0e6-4555-9f51-e067188fdd8e',
-                              version='5.1-preview.1',
-                              content=content)
-        return self._deserialize('VssNotificationEvent', response)
-
     def get_event_type(self, event_type):
         """GetEventType.
         [Preview API] Get a specific event type.
@@ -244,9 +231,9 @@ class NotificationClient(Client):
 
     def list_subscriptions(self, target_id=None, ids=None, query_flags=None):
         """ListSubscriptions.
-        [Preview API]
-        :param str target_id:
-        :param [str] ids:
+        [Preview API] Get a list of notification subscriptions, either by subscription IDs or by all subscriptions for a given user or group.
+        :param str target_id: User or Group ID
+        :param [str] ids: List of subscription IDs
         :param str query_flags:
         :rtype: [NotificationSubscription]
         """
