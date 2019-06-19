@@ -1121,6 +1121,30 @@ class SubscriptionDiagnostics(Model):
         self.evaluation_tracing = evaluation_tracing
 
 
+class SubscriptionInputValuesQuery(Model):
+    """SubscriptionInputValuesQuery.
+
+    :param input_values: The input values to return on input, and the result from the consumer on output.
+    :type input_values: list of :class:`InputValues <azure.devops.v5_1.service_hooks.models.InputValues>`
+    :param scope: The scope at which the properties to query belong
+    :type scope: object
+    :param subscription: Subscription containing information about the publisher/consumer and the current input values
+    :type subscription: :class:`Subscription <azure.devops.v5_1.service_hooks.models.Subscription>`
+    """
+
+    _attribute_map = {
+        'input_values': {'key': 'inputValues', 'type': '[InputValues]'},
+        'scope': {'key': 'scope', 'type': 'object'},
+        'subscription': {'key': 'subscription', 'type': 'Subscription'}
+    }
+
+    def __init__(self, input_values=None, scope=None, subscription=None):
+        super(SubscriptionInputValuesQuery, self).__init__()
+        self.input_values = input_values
+        self.scope = scope
+        self.subscription = subscription
+
+
 class SubscriptionsQuery(Model):
     """SubscriptionsQuery.
 
@@ -1291,6 +1315,7 @@ __all__ = [
     'SessionToken',
     'Subscription',
     'SubscriptionDiagnostics',
+    'SubscriptionInputValuesQuery',
     'SubscriptionsQuery',
     'SubscriptionTracing',
     'UpdateSubscripitonDiagnosticsParameters',

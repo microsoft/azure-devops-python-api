@@ -25,6 +25,61 @@ class PipelinesClient(Client):
 
     resource_area_identifier = None
 
+    def get_log(self, project, pipeline_id, run_id, log_id, expand=None):
+        """GetLog.
+        [Preview API]
+        :param str project: Project ID or project name
+        :param int pipeline_id:
+        :param int run_id:
+        :param int log_id:
+        :param str expand:
+        :rtype: :class:`<Log> <azure.devops.v5_1.pipelines.models.Log>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if pipeline_id is not None:
+            route_values['pipelineId'] = self._serialize.url('pipeline_id', pipeline_id, 'int')
+        if run_id is not None:
+            route_values['runId'] = self._serialize.url('run_id', run_id, 'int')
+        if log_id is not None:
+            route_values['logId'] = self._serialize.url('log_id', log_id, 'int')
+        query_parameters = {}
+        if expand is not None:
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
+        response = self._send(http_method='GET',
+                              location_id='fb1b6d27-3957-43d5-a14b-a2d70403e545',
+                              version='5.1-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters)
+        return self._deserialize('Log', response)
+
+    def list_logs(self, project, pipeline_id, run_id, expand=None):
+        """ListLogs.
+        [Preview API]
+        :param str project: Project ID or project name
+        :param int pipeline_id:
+        :param int run_id:
+        :param str expand:
+        :rtype: :class:`<LogCollection> <azure.devops.v5_1.pipelines.models.LogCollection>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if pipeline_id is not None:
+            route_values['pipelineId'] = self._serialize.url('pipeline_id', pipeline_id, 'int')
+        if run_id is not None:
+            route_values['runId'] = self._serialize.url('run_id', run_id, 'int')
+        query_parameters = {}
+        if expand is not None:
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
+        response = self._send(http_method='GET',
+                              location_id='fb1b6d27-3957-43d5-a14b-a2d70403e545',
+                              version='5.1-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters)
+        return self._deserialize('LogCollection', response)
+
     def create_pipeline(self, input_parameters, project):
         """CreatePipeline.
         [Preview API]

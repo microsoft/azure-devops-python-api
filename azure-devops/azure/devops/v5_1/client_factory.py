@@ -316,6 +316,13 @@ class ClientFactoryV5_1(object):
         """
         return self._connection.get_client('azure.devops.v5_1.test_plan.test_plan_client.TestPlanClient')
 
+    def get_test_results_client(self):
+        """get_test_results_client.
+        Gets the 5.1 version of the TestResultsClient
+        :rtype: :class:`<TestResultsClient> <azure.devops.v5_1.test_results.test_results_client.TestResultsClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.test_results.test_results_client.TestResultsClient')
+
     def get_tfvc_client(self):
         """get_tfvc_client.
         Gets the 5.1 version of the TfvcClient

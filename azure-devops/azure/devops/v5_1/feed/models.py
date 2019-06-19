@@ -302,18 +302,22 @@ class GlobalPermission(Model):
 
     :param identity_descriptor: Identity of the user with the provided Role.
     :type identity_descriptor: :class:`str <azure.devops.v5_1.packaging.models.str>`
+    :param identity_id: IdentityId corresponding to the IdentityDescriptor
+    :type identity_id: str
     :param role: Role associated with the Identity.
     :type role: object
     """
 
     _attribute_map = {
         'identity_descriptor': {'key': 'identityDescriptor', 'type': 'str'},
+        'identity_id': {'key': 'identityId', 'type': 'str'},
         'role': {'key': 'role', 'type': 'object'}
     }
 
-    def __init__(self, identity_descriptor=None, role=None):
+    def __init__(self, identity_descriptor=None, identity_id=None, role=None):
         super(GlobalPermission, self).__init__()
         self.identity_descriptor = identity_descriptor
+        self.identity_id = identity_id
         self.role = role
 
 
