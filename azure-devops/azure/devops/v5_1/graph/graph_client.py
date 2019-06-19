@@ -307,6 +307,17 @@ class GraphClient(Client):
                               route_values=route_values)
         return self._deserialize('GraphProviderInfo', response)
 
+    def request_access(self, message):
+        """RequestAccess.
+        [Preview API]
+        :param str message:
+        """
+        content = self._serialize.body(message, 'str')
+        self._send(http_method='POST',
+                   location_id='8d54bf92-8c99-47f2-9972-b21341f1722e',
+                   version='5.1-preview.1',
+                   content=content)
+
     def get_storage_key(self, subject_descriptor):
         """GetStorageKey.
         [Preview API] Resolve a descriptor to a storage key.
