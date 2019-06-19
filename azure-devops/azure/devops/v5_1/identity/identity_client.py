@@ -150,12 +150,13 @@ class IdentityClient(Client):
                               query_parameters=query_parameters)
         return self._deserialize('[str]', self._unwrap_collection(response))
 
-    def read_identities(self, descriptors=None, identity_ids=None, subject_descriptors=None, search_filter=None, filter_value=None, query_membership=None, properties=None, include_restricted_visibility=None, options=None):
+    def read_identities(self, descriptors=None, identity_ids=None, subject_descriptors=None, social_descriptors=None, search_filter=None, filter_value=None, query_membership=None, properties=None, include_restricted_visibility=None, options=None):
         """ReadIdentities.
         [Preview API]
         :param str descriptors:
         :param str identity_ids:
         :param str subject_descriptors:
+        :param str social_descriptors:
         :param str search_filter:
         :param str filter_value:
         :param str query_membership:
@@ -171,6 +172,8 @@ class IdentityClient(Client):
             query_parameters['identityIds'] = self._serialize.query('identity_ids', identity_ids, 'str')
         if subject_descriptors is not None:
             query_parameters['subjectDescriptors'] = self._serialize.query('subject_descriptors', subject_descriptors, 'str')
+        if social_descriptors is not None:
+            query_parameters['socialDescriptors'] = self._serialize.query('social_descriptors', social_descriptors, 'str')
         if search_filter is not None:
             query_parameters['searchFilter'] = self._serialize.query('search_filter', search_filter, 'str')
         if filter_value is not None:

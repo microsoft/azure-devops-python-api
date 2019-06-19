@@ -426,7 +426,7 @@ class TestPlanClient(Client):
                               content=content)
         return self._deserialize('[TestCase]', self._unwrap_collection(response))
 
-    def get_test_case(self, project, plan_id, suite_id, test_case_ids, wit_fields=None):
+    def get_test_case(self, project, plan_id, suite_id, test_case_ids, wit_fields=None, return_identity_ref=None):
         """GetTestCase.
         [Preview API] Get Test Cases For a Suite.
         :param str project: Project ID or project name
@@ -434,6 +434,7 @@ class TestPlanClient(Client):
         :param int suite_id: ID of the test suite for which test cases are requested.
         :param str test_case_ids: Test Case Ids to be fetched.
         :param str wit_fields: Get the list of witFields.
+        :param bool return_identity_ref: If set to true, returns all identity fields, like AssignedTo, ActivatedBy etc., as IdentityRef objects. If set to false, these fields are returned as unique names in string format. This is false by default.
         :rtype: [TestCase]
         """
         route_values = {}
@@ -448,6 +449,8 @@ class TestPlanClient(Client):
         query_parameters = {}
         if wit_fields is not None:
             query_parameters['witFields'] = self._serialize.query('wit_fields', wit_fields, 'str')
+        if return_identity_ref is not None:
+            query_parameters['returnIdentityRef'] = self._serialize.query('return_identity_ref', return_identity_ref, 'bool')
         response = self._send(http_method='GET',
                               location_id='a9bd61ac-45cf-4d13-9441-43dcd01edf8d',
                               version='5.1-preview.2',
@@ -455,7 +458,7 @@ class TestPlanClient(Client):
                               query_parameters=query_parameters)
         return self._deserialize('[TestCase]', self._unwrap_collection(response))
 
-    def get_test_case_list(self, project, plan_id, suite_id, test_ids=None, configuration_ids=None, wit_fields=None, continuation_token=None):
+    def get_test_case_list(self, project, plan_id, suite_id, test_ids=None, configuration_ids=None, wit_fields=None, continuation_token=None, return_identity_ref=None, expand=None):
         """GetTestCaseList.
         [Preview API] Get Test Case List return those test cases which have all the configuration Ids as mentioned in the optional paramter. If configuration Ids is null, it return all the test cases
         :param str project: Project ID or project name
@@ -465,6 +468,8 @@ class TestPlanClient(Client):
         :param str configuration_ids: Fetch Test Cases which contains all the configuration Ids specified.
         :param str wit_fields: Get the list of witFields.
         :param str continuation_token: If the list of test cases returned is not complete, a continuation token to query next batch of test cases is included in the response header as "x-ms-continuationtoken". Omit this parameter to get the first batch of test cases.
+        :param bool return_identity_ref: If set to true, returns all identity fields, like AssignedTo, ActivatedBy etc., as IdentityRef objects. If set to false, these fields are returned as unique names in string format. This is false by default.
+        :param bool expand: If set to false, will get a smaller payload containing only basic details about the suite test case object
         :rtype: [TestCase]
         """
         route_values = {}
@@ -483,6 +488,10 @@ class TestPlanClient(Client):
             query_parameters['witFields'] = self._serialize.query('wit_fields', wit_fields, 'str')
         if continuation_token is not None:
             query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
+        if return_identity_ref is not None:
+            query_parameters['returnIdentityRef'] = self._serialize.query('return_identity_ref', return_identity_ref, 'bool')
+        if expand is not None:
+            query_parameters['expand'] = self._serialize.query('expand', expand, 'bool')
         response = self._send(http_method='GET',
                               location_id='a9bd61ac-45cf-4d13-9441-43dcd01edf8d',
                               version='5.1-preview.2',
@@ -593,13 +602,14 @@ class TestPlanClient(Client):
                               route_values=route_values)
         return self._deserialize('CloneTestPlanOperationInformation', response)
 
-    def get_points(self, project, plan_id, suite_id, point_ids):
+    def get_points(self, project, plan_id, suite_id, point_ids, return_identity_ref=None):
         """GetPoints.
         [Preview API] Get a list of points based on point Ids provided.
         :param str project: Project ID or project name
         :param int plan_id: ID of the test plan for which test points are requested.
         :param int suite_id: ID of the test suite for which test points are requested.
         :param str point_ids: ID of test points to be fetched.
+        :param bool return_identity_ref: If set to true, returns the AssignedTo field in TestCaseReference as IdentityRef object.
         :rtype: [TestPoint]
         """
         route_values = {}
@@ -611,13 +621,17 @@ class TestPlanClient(Client):
             route_values['suiteId'] = self._serialize.url('suite_id', suite_id, 'int')
         if point_ids is not None:
             route_values['pointIds'] = self._serialize.url('point_ids', point_ids, 'str')
+        query_parameters = {}
+        if return_identity_ref is not None:
+            query_parameters['returnIdentityRef'] = self._serialize.query('return_identity_ref', return_identity_ref, 'bool')
         response = self._send(http_method='GET',
                               location_id='52df686e-bae4-4334-b0ee-b6cf4e6f6b73',
                               version='5.1-preview.2',
-                              route_values=route_values)
+                              route_values=route_values,
+                              query_parameters=query_parameters)
         return self._deserialize('[TestPoint]', self._unwrap_collection(response))
 
-    def get_points_list(self, project, plan_id, suite_id, test_point_ids=None, test_case_id=None, continuation_token=None):
+    def get_points_list(self, project, plan_id, suite_id, test_point_ids=None, test_case_id=None, continuation_token=None, return_identity_ref=None, include_point_details=None):
         """GetPointsList.
         [Preview API] Get all the points inside a suite based on some filters
         :param str project: Project ID or project name
@@ -626,6 +640,8 @@ class TestPlanClient(Client):
         :param str test_point_ids: ID of test points to fetch.
         :param str test_case_id: Get Test Points for specific test case Ids.
         :param str continuation_token: If the list of test point returned is not complete, a continuation token to query next batch of test points is included in the response header as "x-ms-continuationtoken". Omit this parameter to get the first batch of test points.
+        :param bool return_identity_ref: If set to true, returns the AssignedTo field in TestCaseReference as IdentityRef object.
+        :param bool include_point_details: If set to false, returns only necessary information
         :rtype: [TestPoint]
         """
         route_values = {}
@@ -642,6 +658,10 @@ class TestPlanClient(Client):
             query_parameters['testCaseId'] = self._serialize.query('test_case_id', test_case_id, 'str')
         if continuation_token is not None:
             query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
+        if return_identity_ref is not None:
+            query_parameters['returnIdentityRef'] = self._serialize.query('return_identity_ref', return_identity_ref, 'bool')
+        if include_point_details is not None:
+            query_parameters['includePointDetails'] = self._serialize.query('include_point_details', include_point_details, 'bool')
         response = self._send(http_method='GET',
                               location_id='52df686e-bae4-4334-b0ee-b6cf4e6f6b73',
                               version='5.1-preview.2',
