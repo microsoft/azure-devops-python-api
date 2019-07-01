@@ -105,7 +105,7 @@ class CreateProfileContext(Model):
     """
 
     _attribute_map = {
-        'cIData': {'key': 'cIData', 'type': '{object}'},
+        'cIData': {'key': 'ciData', 'type': '{object}'},
         'contact_with_offers': {'key': 'contactWithOffers', 'type': 'bool'},
         'country_name': {'key': 'countryName', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},

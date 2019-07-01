@@ -70,8 +70,8 @@ class Answers(Model):
     """
 
     _attribute_map = {
-        'vSMarketplace_extension_name': {'key': 'vSMarketplaceExtensionName', 'type': 'str'},
-        'vSMarketplace_publisher_name': {'key': 'vSMarketplacePublisherName', 'type': 'str'}
+        'vSMarketplace_extension_name': {'key': 'vsMarketplaceExtensionName', 'type': 'str'},
+        'vSMarketplace_publisher_name': {'key': 'vsMarketplacePublisherName', 'type': 'str'}
     }
 
     def __init__(self, vSMarketplace_extension_name=None, vSMarketplace_publisher_name=None):
