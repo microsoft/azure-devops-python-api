@@ -10,8 +10,7 @@ from msrest.serialization import Model
 
 
 class GraphSubjectBase(Model):
-    """GraphSubjectBase.
-
+    """
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
     :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
@@ -38,7 +37,8 @@ class GraphSubjectBase(Model):
 
 
 class IdentityBase(Model):
-    """IdentityBase.
+    """
+    Base Identity class to allow "trimmed" identity class in the GetConnectionData API Makes sure that on-the-wire representations of the derived classes are compatible with each other (e.g. Server responds with PublicIdentity object while client deserializes it as Identity object) Derived classes should not have additional [DataMember] properties
 
     :param custom_display_name: The custom display name for the identity (if any). Setting this property to an empty string will clear the existing custom display name. Setting this property to null will not affect the existing persisted value (since null values do not get sent over the wire or to the database)
     :type custom_display_name: str
@@ -114,8 +114,7 @@ class IdentityBase(Model):
 
 
 class IdentityData(Model):
-    """IdentityData.
-
+    """
     :param identity_ids:
     :type identity_ids: list of str
     """
@@ -130,8 +129,7 @@ class IdentityData(Model):
 
 
 class IdentityRef(GraphSubjectBase):
-    """IdentityRef.
-
+    """
     :param _links: This field contains zero or more interesting links about the graph subject. These links may be invoked to obtain additional relationships or more detailed information about this graph subject.
     :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.ReferenceLinks>`
     :param descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
@@ -190,7 +188,8 @@ class IdentityRef(GraphSubjectBase):
 
 
 class JsonPatchOperation(Model):
-    """JsonPatchOperation.
+    """
+    The JSON model for a JSON Patch operation
 
     :param from_: The path to copy from for the Move/Copy operation.
     :type from_: str
@@ -218,7 +217,8 @@ class JsonPatchOperation(Model):
 
 
 class OperationReference(Model):
-    """OperationReference.
+    """
+    Reference for an async operation.
 
     :param id: Unique identifier for the operation.
     :type id: str
@@ -246,8 +246,7 @@ class OperationReference(Model):
 
 
 class ProcessReference(Model):
-    """ProcessReference.
-
+    """
     :param name:
     :type name: str
     :param url:
@@ -266,7 +265,8 @@ class ProcessReference(Model):
 
 
 class ProjectAvatar(Model):
-    """ProjectAvatar.
+    """
+    Contains the image data for project avatar.
 
     :param image: The avatar image represented as a byte array.
     :type image: str
@@ -282,7 +282,8 @@ class ProjectAvatar(Model):
 
 
 class ProjectInfo(Model):
-    """ProjectInfo.
+    """
+    Contains information describing a project.
 
     :param abbreviation: The abbreviated name of the project.
     :type abbreviation: str
@@ -338,8 +339,7 @@ class ProjectInfo(Model):
 
 
 class ProjectProperties(Model):
-    """ProjectProperties.
-
+    """
     :param project_id: The team project Id
     :type project_id: str
     :param properties: The collection of team project properties
@@ -358,7 +358,8 @@ class ProjectProperties(Model):
 
 
 class ProjectProperty(Model):
-    """ProjectProperty.
+    """
+    A named value associated with a project.
 
     :param name: The name of the property.
     :type name: str
@@ -378,8 +379,7 @@ class ProjectProperty(Model):
 
 
 class Proxy(Model):
-    """Proxy.
-
+    """
     :param authorization:
     :type authorization: :class:`ProxyAuthorization <azure.devops.v5_1.core.models.ProxyAuthorization>`
     :param description: This is a description string
@@ -418,8 +418,7 @@ class Proxy(Model):
 
 
 class ProxyAuthorization(Model):
-    """ProxyAuthorization.
-
+    """
     :param authorization_url: Gets or sets the endpoint used to obtain access tokens from the configured token service.
     :type authorization_url: str
     :param client_id: Gets or sets the client identifier for this proxy.
@@ -446,7 +445,8 @@ class ProxyAuthorization(Model):
 
 
 class PublicKey(Model):
-    """PublicKey.
+    """
+    Represents the public key portion of an RSA asymmetric key.
 
     :param exponent: Gets or sets the exponent for the public key.
     :type exponent: str
@@ -466,7 +466,8 @@ class PublicKey(Model):
 
 
 class ReferenceLinks(Model):
-    """ReferenceLinks.
+    """
+    The class to represent a collection of REST reference links.
 
     :param links: The readonly view of the links.  Because Reference links are readonly, we only want to expose them as read only.
     :type links: dict
@@ -482,8 +483,7 @@ class ReferenceLinks(Model):
 
 
 class TeamMember(Model):
-    """TeamMember.
-
+    """
     :param identity:
     :type identity: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._services._web_api.models.IdentityRef>`
     :param is_team_admin:
@@ -502,7 +502,8 @@ class TeamMember(Model):
 
 
 class TeamProjectCollectionReference(Model):
-    """TeamProjectCollectionReference.
+    """
+    Reference object for a TeamProjectCollection.
 
     :param id: Collection Id.
     :type id: str
@@ -526,7 +527,8 @@ class TeamProjectCollectionReference(Model):
 
 
 class TeamProjectReference(Model):
-    """TeamProjectReference.
+    """
+    Represents a shallow reference to a TeamProject.
 
     :param abbreviation: Project abbreviation.
     :type abbreviation: str
@@ -578,8 +580,7 @@ class TeamProjectReference(Model):
 
 
 class WebApiConnectedServiceRef(Model):
-    """WebApiConnectedServiceRef.
-
+    """
     :param id:
     :type id: str
     :param url:
@@ -598,8 +599,7 @@ class WebApiConnectedServiceRef(Model):
 
 
 class WebApiTeamRef(Model):
-    """WebApiTeamRef.
-
+    """
     :param id: Team (Identity) Guid. A Team Foundation ID.
     :type id: str
     :param name: Team name
@@ -622,8 +622,7 @@ class WebApiTeamRef(Model):
 
 
 class Identity(IdentityBase):
-    """Identity.
-
+    """
     :param custom_display_name: The custom display name for the identity (if any). Setting this property to an empty string will clear the existing custom display name. Setting this property to null will not affect the existing persisted value (since null values do not get sent over the wire or to the database)
     :type custom_display_name: str
     :param descriptor:
@@ -682,8 +681,7 @@ class Identity(IdentityBase):
 
 
 class Process(ProcessReference):
-    """Process.
-
+    """
     :param name:
     :type name: str
     :param url:
@@ -720,7 +718,8 @@ class Process(ProcessReference):
 
 
 class TeamProject(TeamProjectReference):
-    """TeamProject.
+    """
+    Represents a Team Project object.
 
     :param abbreviation: Project abbreviation.
     :type abbreviation: str
@@ -774,7 +773,8 @@ class TeamProject(TeamProjectReference):
 
 
 class TeamProjectCollection(TeamProjectCollectionReference):
-    """TeamProjectCollection.
+    """
+    Data contract for a TeamProjectCollection.
 
     :param id: Collection Id.
     :type id: str
@@ -811,8 +811,7 @@ class TeamProjectCollection(TeamProjectCollectionReference):
 
 
 class WebApiConnectedService(WebApiConnectedServiceRef):
-    """WebApiConnectedService.
-
+    """
     :param url:
     :type url: str
     :param authenticated_by: The user who did the OAuth authentication to created this service
@@ -854,8 +853,7 @@ class WebApiConnectedService(WebApiConnectedServiceRef):
 
 
 class WebApiConnectedServiceDetails(WebApiConnectedServiceRef):
-    """WebApiConnectedServiceDetails.
-
+    """
     :param id:
     :type id: str
     :param url:
@@ -884,8 +882,7 @@ class WebApiConnectedServiceDetails(WebApiConnectedServiceRef):
 
 
 class WebApiTeam(WebApiTeamRef):
-    """WebApiTeam.
-
+    """
     :param id: Team (Identity) Guid. A Team Foundation ID.
     :type id: str
     :param name: Team name

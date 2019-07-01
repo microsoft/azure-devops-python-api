@@ -10,8 +10,7 @@ from msrest.serialization import Model
 
 
 class Issue(Model):
-    """Issue.
-
+    """
     :param category:
     :type category: str
     :param data:
@@ -38,7 +37,8 @@ class Issue(Model):
 
 
 class JobOption(Model):
-    """JobOption.
+    """
+    Represents an option that may affect the way an agent runs the job.
 
     :param data:
     :type data: dict
@@ -58,8 +58,7 @@ class JobOption(Model):
 
 
 class MaskHint(Model):
-    """MaskHint.
-
+    """
     :param type:
     :type type: object
     :param value:
@@ -78,8 +77,7 @@ class MaskHint(Model):
 
 
 class PlanEnvironment(Model):
-    """PlanEnvironment.
-
+    """
     :param mask:
     :type mask: list of :class:`MaskHint <azure.devops.v5_1.task.models.MaskHint>`
     :param options:
@@ -102,8 +100,7 @@ class PlanEnvironment(Model):
 
 
 class ProjectReference(Model):
-    """ProjectReference.
-
+    """
     :param id:
     :type id: str
     :param name:
@@ -122,7 +119,8 @@ class ProjectReference(Model):
 
 
 class ReferenceLinks(Model):
-    """ReferenceLinks.
+    """
+    The class to represent a collection of REST reference links.
 
     :param links: The readonly view of the links.  Because Reference links are readonly, we only want to expose them as read only.
     :type links: dict
@@ -138,8 +136,7 @@ class ReferenceLinks(Model):
 
 
 class TaskAgentJob(Model):
-    """TaskAgentJob.
-
+    """
     :param container:
     :type container: str
     :param id:
@@ -174,8 +171,7 @@ class TaskAgentJob(Model):
 
 
 class TaskAgentJobStep(Model):
-    """TaskAgentJobStep.
-
+    """
     :param condition:
     :type condition: str
     :param continue_on_error:
@@ -226,8 +222,7 @@ class TaskAgentJobStep(Model):
 
 
 class TaskAgentJobTask(Model):
-    """TaskAgentJobTask.
-
+    """
     :param id:
     :type id: str
     :param name:
@@ -250,8 +245,7 @@ class TaskAgentJobTask(Model):
 
 
 class TaskAgentJobVariable(Model):
-    """TaskAgentJobVariable.
-
+    """
     :param name:
     :type name: str
     :param secret:
@@ -274,8 +268,7 @@ class TaskAgentJobVariable(Model):
 
 
 class TaskAttachment(Model):
-    """TaskAttachment.
-
+    """
     :param _links:
     :type _links: :class:`ReferenceLinks <azure.devops.v5_1.task.models.ReferenceLinks>`
     :param created_on:
@@ -318,8 +311,7 @@ class TaskAttachment(Model):
 
 
 class TaskLogReference(Model):
-    """TaskLogReference.
-
+    """
     :param id:
     :type id: int
     :param location:
@@ -338,8 +330,7 @@ class TaskLogReference(Model):
 
 
 class TaskOrchestrationItem(Model):
-    """TaskOrchestrationItem.
-
+    """
     :param item_type:
     :type item_type: object
     """
@@ -354,8 +345,7 @@ class TaskOrchestrationItem(Model):
 
 
 class TaskOrchestrationOwner(Model):
-    """TaskOrchestrationOwner.
-
+    """
     :param _links:
     :type _links: :class:`ReferenceLinks <azure.devops.v5_1.task.models.ReferenceLinks>`
     :param id:
@@ -378,8 +368,7 @@ class TaskOrchestrationOwner(Model):
 
 
 class TaskOrchestrationPlanGroupsQueueMetrics(Model):
-    """TaskOrchestrationPlanGroupsQueueMetrics.
-
+    """
     :param count:
     :type count: int
     :param status:
@@ -398,8 +387,7 @@ class TaskOrchestrationPlanGroupsQueueMetrics(Model):
 
 
 class TaskOrchestrationPlanReference(Model):
-    """TaskOrchestrationPlanReference.
-
+    """
     :param artifact_location:
     :type artifact_location: str
     :param artifact_uri:
@@ -446,8 +434,7 @@ class TaskOrchestrationPlanReference(Model):
 
 
 class TaskOrchestrationQueuedPlan(Model):
-    """TaskOrchestrationQueuedPlan.
-
+    """
     :param assign_time:
     :type assign_time: datetime
     :param definition:
@@ -494,8 +481,7 @@ class TaskOrchestrationQueuedPlan(Model):
 
 
 class TaskOrchestrationQueuedPlanGroup(Model):
-    """TaskOrchestrationQueuedPlanGroup.
-
+    """
     :param definition:
     :type definition: :class:`TaskOrchestrationOwner <azure.devops.v5_1.task.models.TaskOrchestrationOwner>`
     :param owner:
@@ -530,8 +516,7 @@ class TaskOrchestrationQueuedPlanGroup(Model):
 
 
 class TaskReference(Model):
-    """TaskReference.
-
+    """
     :param id:
     :type id: str
     :param inputs:
@@ -558,8 +543,7 @@ class TaskReference(Model):
 
 
 class TimelineAttempt(Model):
-    """TimelineAttempt.
-
+    """
     :param attempt: Gets or sets the attempt of the record.
     :type attempt: int
     :param identifier: Gets or sets the unique identifier for the record.
@@ -586,8 +570,7 @@ class TimelineAttempt(Model):
 
 
 class TimelineRecord(Model):
-    """TimelineRecord.
-
+    """
     :param attempt:
     :type attempt: int
     :param change_id:
@@ -706,8 +689,7 @@ class TimelineRecord(Model):
 
 
 class TimelineRecordFeedLinesWrapper(Model):
-    """TimelineRecordFeedLinesWrapper.
-
+    """
     :param count:
     :type count: int
     :param step_id:
@@ -730,8 +712,7 @@ class TimelineRecordFeedLinesWrapper(Model):
 
 
 class TimelineReference(Model):
-    """TimelineReference.
-
+    """
     :param change_id:
     :type change_id: int
     :param id:
@@ -754,8 +735,7 @@ class TimelineReference(Model):
 
 
 class VariableValue(Model):
-    """VariableValue.
-
+    """
     :param is_secret:
     :type is_secret: bool
     :param value:
@@ -774,8 +754,7 @@ class VariableValue(Model):
 
 
 class TaskLog(TaskLogReference):
-    """TaskLog.
-
+    """
     :param id:
     :type id: int
     :param location:
@@ -812,8 +791,7 @@ class TaskLog(TaskLogReference):
 
 
 class TaskOrchestrationContainer(TaskOrchestrationItem):
-    """TaskOrchestrationContainer.
-
+    """
     :param item_type:
     :type item_type: object
     :param children:
@@ -851,8 +829,7 @@ class TaskOrchestrationContainer(TaskOrchestrationItem):
 
 
 class TaskOrchestrationPlan(TaskOrchestrationPlanReference):
-    """TaskOrchestrationPlan.
-
+    """
     :param artifact_location:
     :type artifact_location: str
     :param artifact_uri:
@@ -934,8 +911,7 @@ class TaskOrchestrationPlan(TaskOrchestrationPlanReference):
 
 
 class Timeline(TimelineReference):
-    """Timeline.
-
+    """
     :param change_id:
     :type change_id: int
     :param id:
