@@ -10,8 +10,7 @@ from msrest.serialization import Model
 
 
 class GitRepository(Model):
-    """GitRepository.
-
+    """
     :param _links:
     :type _links: ReferenceLinks
     :param default_branch:
@@ -74,8 +73,7 @@ class GitRepository(Model):
 
 
 class GitRepositoryRef(Model):
-    """GitRepositoryRef.
-
+    """
     :param collection: Team Project Collection where this Fork resides
     :type collection: TeamProjectCollectionReference
     :param id:
@@ -118,8 +116,7 @@ class GitRepositoryRef(Model):
 
 
 class GitVersionDescriptor(Model):
-    """GitVersionDescriptor.
-
+    """
     :param version: Version string identifier (name of tag/branch, SHA1 of commit)
     :type version: str
     :param version_options: Version options - Specify additional modifiers to version (e.g Previous)
@@ -142,7 +139,8 @@ class GitVersionDescriptor(Model):
 
 
 class WikiAttachment(Model):
-    """WikiAttachment.
+    """
+    Defines properties for wiki attachment file.
 
     :param name: Name of the wiki attachment file.
     :type name: str
@@ -162,7 +160,8 @@ class WikiAttachment(Model):
 
 
 class WikiAttachmentResponse(Model):
-    """WikiAttachmentResponse.
+    """
+    Response contract for the Wiki Attachments API
 
     :param attachment: Defines properties for wiki attachment file.
     :type attachment: :class:`WikiAttachment <azure.devops.v5_1.wiki.models.WikiAttachment>`
@@ -182,7 +181,8 @@ class WikiAttachmentResponse(Model):
 
 
 class WikiCreateBaseParameters(Model):
-    """WikiCreateBaseParameters.
+    """
+    Base wiki creation parameters.
 
     :param mapped_path: Folder path inside repository which is shown as Wiki. Not required for ProjectWiki type.
     :type mapped_path: str
@@ -214,7 +214,8 @@ class WikiCreateBaseParameters(Model):
 
 
 class WikiCreateParametersV2(WikiCreateBaseParameters):
-    """WikiCreateParametersV2.
+    """
+    Wiki creation parameters.
 
     :param mapped_path: Folder path inside repository which is shown as Wiki. Not required for ProjectWiki type.
     :type mapped_path: str
@@ -245,7 +246,8 @@ class WikiCreateParametersV2(WikiCreateBaseParameters):
 
 
 class WikiPageCreateOrUpdateParameters(Model):
-    """WikiPageCreateOrUpdateParameters.
+    """
+    Contract encapsulating parameters for the page create or update operations.
 
     :param content: Content of the wiki page.
     :type content: str
@@ -261,7 +263,8 @@ class WikiPageCreateOrUpdateParameters(Model):
 
 
 class WikiPageMoveParameters(Model):
-    """WikiPageMoveParameters.
+    """
+    Contract encapsulating parameters for the page move operation.
 
     :param new_order: New order of the wiki page.
     :type new_order: int
@@ -285,7 +288,8 @@ class WikiPageMoveParameters(Model):
 
 
 class WikiPageMoveResponse(Model):
-    """WikiPageMoveResponse.
+    """
+    Response contract for the Wiki Page Move API.
 
     :param eTag: Contains the list of ETag values from the response header of the page move API call. The first item in the list contains the version of the wiki page subject to page move.
     :type eTag: list of str
@@ -305,7 +309,8 @@ class WikiPageMoveResponse(Model):
 
 
 class WikiPageResponse(Model):
-    """WikiPageResponse.
+    """
+    Response contract for the Wiki Pages PUT, PATCH and DELETE APIs.
 
     :param eTag: Contains the list of ETag values from the response header of the pages API call. The first item in the list contains the version of the wiki page.
     :type eTag: list of str
@@ -325,7 +330,8 @@ class WikiPageResponse(Model):
 
 
 class WikiPageViewStats(Model):
-    """WikiPageViewStats.
+    """
+    Defines properties for wiki page view stats.
 
     :param count: Wiki page view count.
     :type count: int
@@ -349,7 +355,8 @@ class WikiPageViewStats(Model):
 
 
 class WikiUpdateParameters(Model):
-    """WikiUpdateParameters.
+    """
+    Wiki update parameters.
 
     :param name: Name for wiki.
     :type name: str
@@ -369,7 +376,8 @@ class WikiUpdateParameters(Model):
 
 
 class WikiV2(WikiCreateBaseParameters):
-    """WikiV2.
+    """
+    Defines a wiki resource.
 
     :param mapped_path: Folder path inside repository which is shown as Wiki. Not required for ProjectWiki type.
     :type mapped_path: str
@@ -416,7 +424,8 @@ class WikiV2(WikiCreateBaseParameters):
 
 
 class WikiPage(WikiPageCreateOrUpdateParameters):
-    """WikiPage.
+    """
+    Defines a page in a wiki.
 
     :param content: Content of the wiki page.
     :type content: str
@@ -467,7 +476,8 @@ class WikiPage(WikiPageCreateOrUpdateParameters):
 
 
 class WikiPageMove(WikiPageMoveParameters):
-    """WikiPageMove.
+    """
+    Request contract for Wiki Page Move.
 
     :param new_order: New order of the wiki page.
     :type new_order: int
