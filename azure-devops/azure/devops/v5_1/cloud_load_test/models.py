@@ -10,8 +10,7 @@ from msrest.serialization import Model
 
 
 class AgentGroup(Model):
-    """AgentGroup.
-
+    """
     :param created_by:
     :type created_by: IdentityRef
     :param creation_time:
@@ -50,8 +49,7 @@ class AgentGroup(Model):
 
 
 class AgentGroupAccessData(Model):
-    """AgentGroupAccessData.
-
+    """
     :param details:
     :type details: str
     :param storage_connection_string:
@@ -82,8 +80,7 @@ class AgentGroupAccessData(Model):
 
 
 class Application(Model):
-    """Application.
-
+    """
     :param application_id:
     :type application_id: str
     :param description:
@@ -122,8 +119,7 @@ class Application(Model):
 
 
 class ApplicationCounters(Model):
-    """ApplicationCounters.
-
+    """
     :param application_id:
     :type application_id: str
     :param description:
@@ -158,8 +154,7 @@ class ApplicationCounters(Model):
 
 
 class ApplicationType(Model):
-    """ApplicationType.
-
+    """
     :param action_uri_link:
     :type action_uri_link: str
     :param aut_portal_link:
@@ -194,8 +189,7 @@ class ApplicationType(Model):
 
 
 class BrowserMix(Model):
-    """BrowserMix.
-
+    """
     :param browser_name:
     :type browser_name: str
     :param browser_percentage:
@@ -214,8 +208,7 @@ class BrowserMix(Model):
 
 
 class CltCustomerIntelligenceData(Model):
-    """CltCustomerIntelligenceData.
-
+    """
     :param area:
     :type area: str
     :param feature:
@@ -238,8 +231,7 @@ class CltCustomerIntelligenceData(Model):
 
 
 class CounterGroup(Model):
-    """CounterGroup.
-
+    """
     :param group_name:
     :type group_name: str
     :param url:
@@ -258,8 +250,7 @@ class CounterGroup(Model):
 
 
 class CounterInstanceSamples(Model):
-    """CounterInstanceSamples.
-
+    """
     :param count:
     :type count: int
     :param counter_instance_id:
@@ -286,8 +277,7 @@ class CounterInstanceSamples(Model):
 
 
 class CounterSample(Model):
-    """CounterSample.
-
+    """
     :param base_value:
     :type base_value: long
     :param computed_value:
@@ -338,8 +328,7 @@ class CounterSample(Model):
 
 
 class CounterSampleQueryDetails(Model):
-    """CounterSampleQueryDetails.
-
+    """
     :param counter_instance_id:
     :type counter_instance_id: str
     :param from_interval:
@@ -362,8 +351,7 @@ class CounterSampleQueryDetails(Model):
 
 
 class CounterSamplesResult(Model):
-    """CounterSamplesResult.
-
+    """
     :param count:
     :type count: int
     :param max_batch_size:
@@ -390,8 +378,7 @@ class CounterSamplesResult(Model):
 
 
 class Diagnostics(Model):
-    """Diagnostics.
-
+    """
     :param diagnostic_store_connection_string:
     :type diagnostic_store_connection_string: str
     :param last_modified_time:
@@ -414,8 +401,7 @@ class Diagnostics(Model):
 
 
 class DropAccessData(Model):
-    """DropAccessData.
-
+    """
     :param drop_container_url:
     :type drop_container_url: str
     :param sas_key:
@@ -434,8 +420,7 @@ class DropAccessData(Model):
 
 
 class ErrorDetails(Model):
-    """ErrorDetails.
-
+    """
     :param last_error_date:
     :type last_error_date: datetime
     :param message_text:
@@ -474,8 +459,7 @@ class ErrorDetails(Model):
 
 
 class LoadGenerationGeoLocation(Model):
-    """LoadGenerationGeoLocation.
-
+    """
     :param location:
     :type location: str
     :param percentage:
@@ -494,8 +478,7 @@ class LoadGenerationGeoLocation(Model):
 
 
 class LoadTest(Model):
-    """LoadTest.
-
+    """
     """
 
     _attribute_map = {
@@ -506,8 +489,7 @@ class LoadTest(Model):
 
 
 class LoadTestDefinition(Model):
-    """LoadTestDefinition.
-
+    """
     :param agent_count:
     :type agent_count: int
     :param browser_mixs:
@@ -566,8 +548,7 @@ class LoadTestDefinition(Model):
 
 
 class LoadTestErrors(Model):
-    """LoadTestErrors.
-
+    """
     :param count:
     :type count: int
     :param occurrences:
@@ -594,8 +575,7 @@ class LoadTestErrors(Model):
 
 
 class LoadTestRunSettings(Model):
-    """LoadTestRunSettings.
-
+    """
     :param agent_count:
     :type agent_count: int
     :param core_count:
@@ -634,8 +614,7 @@ class LoadTestRunSettings(Model):
 
 
 class OverridableRunSettings(Model):
-    """OverridableRunSettings.
-
+    """
     :param load_generator_machines_type:
     :type load_generator_machines_type: object
     :param static_agent_run_settings:
@@ -654,8 +633,7 @@ class OverridableRunSettings(Model):
 
 
 class PageSummary(Model):
-    """PageSummary.
-
+    """
     :param average_page_time:
     :type average_page_time: float
     :param page_url:
@@ -694,8 +672,7 @@ class PageSummary(Model):
 
 
 class RequestSummary(Model):
-    """RequestSummary.
-
+    """
     :param average_response_time:
     :type average_response_time: float
     :param failed_requests:
@@ -742,8 +719,7 @@ class RequestSummary(Model):
 
 
 class ScenarioSummary(Model):
-    """ScenarioSummary.
-
+    """
     :param max_user_load:
     :type max_user_load: int
     :param min_user_load:
@@ -766,8 +742,7 @@ class ScenarioSummary(Model):
 
 
 class StaticAgentRunSetting(Model):
-    """StaticAgentRunSetting.
-
+    """
     :param load_generator_machines_type:
     :type load_generator_machines_type: object
     :param static_agent_group_name:
@@ -786,8 +761,7 @@ class StaticAgentRunSetting(Model):
 
 
 class SubType(Model):
-    """SubType.
-
+    """
     :param count:
     :type count: int
     :param error_detail_list:
@@ -818,8 +792,7 @@ class SubType(Model):
 
 
 class SummaryPercentileData(Model):
-    """SummaryPercentileData.
-
+    """
     :param percentile:
     :type percentile: int
     :param percentile_value:
@@ -838,8 +811,7 @@ class SummaryPercentileData(Model):
 
 
 class TenantDetails(Model):
-    """TenantDetails.
-
+    """
     :param access_details:
     :type access_details: list of :class:`AgentGroupAccessData <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.AgentGroupAccessData>`
     :param id:
@@ -874,8 +846,7 @@ class TenantDetails(Model):
 
 
 class TestDefinitionBasic(Model):
-    """TestDefinitionBasic.
-
+    """
     :param access_data:
     :type access_data: :class:`DropAccessData <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.DropAccessData>`
     :param created_by:
@@ -918,8 +889,7 @@ class TestDefinitionBasic(Model):
 
 
 class TestDrop(Model):
-    """TestDrop.
-
+    """
     :param access_data:
     :type access_data: :class:`DropAccessData <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.DropAccessData>`
     :param created_date:
@@ -954,8 +924,7 @@ class TestDrop(Model):
 
 
 class TestDropRef(Model):
-    """TestDropRef.
-
+    """
     :param id:
     :type id: str
     :param url:
@@ -974,8 +943,7 @@ class TestDropRef(Model):
 
 
 class TestResults(Model):
-    """TestResults.
-
+    """
     :param cloud_load_test_solution_url:
     :type cloud_load_test_solution_url: str
     :param counter_groups:
@@ -1002,8 +970,7 @@ class TestResults(Model):
 
 
 class TestResultsSummary(Model):
-    """TestResultsSummary.
-
+    """
     :param overall_page_summary:
     :type overall_page_summary: :class:`PageSummary <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.PageSummary>`
     :param overall_request_summary:
@@ -1050,8 +1017,7 @@ class TestResultsSummary(Model):
 
 
 class TestRunAbortMessage(Model):
-    """TestRunAbortMessage.
-
+    """
     :param action:
     :type action: str
     :param cause:
@@ -1082,8 +1048,7 @@ class TestRunAbortMessage(Model):
 
 
 class TestRunBasic(Model):
-    """TestRunBasic.
-
+    """
     :param created_by:
     :type created_by: IdentityRef
     :param created_date:
@@ -1154,8 +1119,7 @@ class TestRunBasic(Model):
 
 
 class TestRunCounterInstance(Model):
-    """TestRunCounterInstance.
-
+    """
     :param category_name:
     :type category_name: str
     :param counter_instance_id:
@@ -1206,8 +1170,7 @@ class TestRunCounterInstance(Model):
 
 
 class TestRunMessage(Model):
-    """TestRunMessage.
-
+    """
     :param agent_id:
     :type agent_id: str
     :param error_code:
@@ -1254,8 +1217,7 @@ class TestRunMessage(Model):
 
 
 class TestSettings(Model):
-    """TestSettings.
-
+    """
     :param cleanup_command:
     :type cleanup_command: str
     :param host_process_platform:
@@ -1278,8 +1240,7 @@ class TestSettings(Model):
 
 
 class TestSummary(Model):
-    """TestSummary.
-
+    """
     :param average_test_time:
     :type average_test_time: float
     :param failed_tests:
@@ -1318,8 +1279,7 @@ class TestSummary(Model):
 
 
 class TransactionSummary(Model):
-    """TransactionSummary.
-
+    """
     :param average_response_time:
     :type average_response_time: float
     :param average_transaction_time:
@@ -1358,8 +1318,7 @@ class TransactionSummary(Model):
 
 
 class WebApiLoadTestMachineInput(Model):
-    """WebApiLoadTestMachineInput.
-
+    """
     :param machine_group_id:
     :type machine_group_id: str
     :param machine_type:
@@ -1386,8 +1345,7 @@ class WebApiLoadTestMachineInput(Model):
 
 
 class WebApiSetupParamaters(Model):
-    """WebApiSetupParamaters.
-
+    """
     :param configurations:
     :type configurations: dict
     """
@@ -1402,8 +1360,7 @@ class WebApiSetupParamaters(Model):
 
 
 class WebApiTestMachine(Model):
-    """WebApiTestMachine.
-
+    """
     :param last_heart_beat:
     :type last_heart_beat: datetime
     :param machine_name:
@@ -1426,8 +1383,7 @@ class WebApiTestMachine(Model):
 
 
 class WebApiUserLoadTestMachineInput(WebApiLoadTestMachineInput):
-    """WebApiUserLoadTestMachineInput.
-
+    """
     :param machine_group_id:
     :type machine_group_id: str
     :param machine_type:
@@ -1466,8 +1422,7 @@ class WebApiUserLoadTestMachineInput(WebApiLoadTestMachineInput):
 
 
 class WebInstanceSummaryData(Model):
-    """WebInstanceSummaryData.
-
+    """
     :param average:
     :type average: float
     :param max:
@@ -1490,8 +1445,7 @@ class WebInstanceSummaryData(Model):
 
 
 class LoadTestRunDetails(LoadTestRunSettings):
-    """LoadTestRunDetails.
-
+    """
     :param agent_count:
     :type agent_count: int
     :param core_count:
@@ -1527,8 +1481,7 @@ class LoadTestRunDetails(LoadTestRunSettings):
 
 
 class TestDefinition(TestDefinitionBasic):
-    """TestDefinition.
-
+    """
     :param access_data:
     :type access_data: :class:`DropAccessData <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.DropAccessData>`
     :param created_by:
@@ -1587,8 +1540,7 @@ class TestDefinition(TestDefinitionBasic):
 
 
 class TestRun(TestRunBasic):
-    """TestRun.
-
+    """
     :param created_by:
     :type created_by: IdentityRef
     :param created_date:
