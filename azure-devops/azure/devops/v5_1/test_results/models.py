@@ -10,8 +10,7 @@ from msrest.serialization import Model
 
 
 class AggregatedDataForResultTrend(Model):
-    """AggregatedDataForResultTrend.
-
+    """
     :param duration: This is tests execution duration.
     :type duration: object
     :param results_by_outcome:
@@ -42,8 +41,7 @@ class AggregatedDataForResultTrend(Model):
 
 
 class AggregatedResultsAnalysis(Model):
-    """AggregatedResultsAnalysis.
-
+    """
     :param duration:
     :type duration: object
     :param not_reported_results_by_outcome:
@@ -86,8 +84,7 @@ class AggregatedResultsAnalysis(Model):
 
 
 class AggregatedResultsByOutcome(Model):
-    """AggregatedResultsByOutcome.
-
+    """
     :param count:
     :type count: int
     :param duration:
@@ -122,8 +119,7 @@ class AggregatedResultsByOutcome(Model):
 
 
 class AggregatedResultsDifference(Model):
-    """AggregatedResultsDifference.
-
+    """
     :param increase_in_duration:
     :type increase_in_duration: object
     :param increase_in_failures:
@@ -154,8 +150,7 @@ class AggregatedResultsDifference(Model):
 
 
 class AggregatedRunsByOutcome(Model):
-    """AggregatedRunsByOutcome.
-
+    """
     :param outcome:
     :type outcome: object
     :param runs_count:
@@ -174,8 +169,7 @@ class AggregatedRunsByOutcome(Model):
 
 
 class AggregatedRunsByState(Model):
-    """AggregatedRunsByState.
-
+    """
     :param results_by_outcome:
     :type results_by_outcome: dict
     :param runs_count:
@@ -198,7 +192,8 @@ class AggregatedRunsByState(Model):
 
 
 class BuildConfiguration(Model):
-    """BuildConfiguration.
+    """
+    BuildConfiguration Details.
 
     :param branch_name: Branch name for which build is generated.
     :type branch_name: str
@@ -270,7 +265,8 @@ class BuildConfiguration(Model):
 
 
 class BuildCoverage(Model):
-    """BuildCoverage.
+    """
+    Build Coverage Detail
 
     :param code_coverage_file_url: Code Coverage File Url
     :type code_coverage_file_url: str
@@ -302,7 +298,8 @@ class BuildCoverage(Model):
 
 
 class BuildReference(Model):
-    """BuildReference.
+    """
+    Reference to a build.
 
     :param branch_name: Branch name.
     :type branch_name: str
@@ -342,7 +339,8 @@ class BuildReference(Model):
 
 
 class CodeCoverageData(Model):
-    """CodeCoverageData.
+    """
+    Represents the build configuration (platform, flavor) and coverage data for the build
 
     :param build_flavor: Flavor of build for which data is retrieved/published
     :type build_flavor: str
@@ -366,7 +364,8 @@ class CodeCoverageData(Model):
 
 
 class CodeCoverageStatistics(Model):
-    """CodeCoverageStatistics.
+    """
+    Represents the code coverage statistics for a particular coverage label (modules, statements, blocks, etc.)
 
     :param covered: Covered units
     :type covered: int
@@ -402,7 +401,8 @@ class CodeCoverageStatistics(Model):
 
 
 class CodeCoverageSummary(Model):
-    """CodeCoverageSummary.
+    """
+    Represents the code coverage summary results Used to publish or retrieve code coverage summary against a build
 
     :param build: Uri of build for which data is retrieved/published
     :type build: :class:`ShallowReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.ShallowReference>`
@@ -430,8 +430,7 @@ class CodeCoverageSummary(Model):
 
 
 class CoverageStatistics(Model):
-    """CoverageStatistics.
-
+    """
     :param blocks_covered:
     :type blocks_covered: int
     :param blocks_not_covered:
@@ -462,7 +461,8 @@ class CoverageStatistics(Model):
 
 
 class CustomTestField(Model):
-    """CustomTestField.
+    """
+    A custom field information. Allowed Key : Value pairs - ( AttemptId: IntVaue , IsTestResultFlaky: bool)
 
     :param field_name: Field Name.
     :type field_name: str
@@ -482,7 +482,8 @@ class CustomTestField(Model):
 
 
 class DtlEnvironmentDetails(Model):
-    """DtlEnvironmentDetails.
+    """
+    This is a temporary class to provide the details for the test run environment.
 
     :param csm_content:
     :type csm_content: str
@@ -506,7 +507,8 @@ class DtlEnvironmentDetails(Model):
 
 
 class FailingSince(Model):
-    """FailingSince.
+    """
+    Failing since information of a test result.
 
     :param build: Build reference since failing.
     :type build: :class:`BuildReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.BuildReference>`
@@ -530,8 +532,7 @@ class FailingSince(Model):
 
 
 class FieldDetailsForTestResults(Model):
-    """FieldDetailsForTestResults.
-
+    """
     :param field_name: Group by field name
     :type field_name: str
     :param groups_for_field: Group by field values
@@ -550,8 +551,7 @@ class FieldDetailsForTestResults(Model):
 
 
 class FileCoverageRequest(Model):
-    """FileCoverageRequest.
-
+    """
     :param file_path:
     :type file_path: str
     :param pull_request_base_iteration_id:
@@ -582,8 +582,7 @@ class FileCoverageRequest(Model):
 
 
 class FlakyDetection(Model):
-    """FlakyDetection.
-
+    """
     :param flaky_detection_pipelines: FlakyDetectionPipelines defines Pipelines for Detection.
     :type flaky_detection_pipelines: :class:`FlakyDetectionPipelines <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.FlakyDetectionPipelines>`
     :param flaky_detection_type: FlakyDetectionType defines Detection type i.e. 1. System or 2. Manual.
@@ -602,8 +601,7 @@ class FlakyDetection(Model):
 
 
 class FlakyDetectionPipelines(Model):
-    """FlakyDetectionPipelines.
-
+    """
     :param allowed_pipelines: AllowedPipelines - List All Pipelines allowed for detection.
     :type allowed_pipelines: list of int
     :param is_all_pipelines_allowed: IsAllPipelinesAllowed if users configure all system's pipelines.
@@ -622,8 +620,7 @@ class FlakyDetectionPipelines(Model):
 
 
 class FlakySettings(Model):
-    """FlakySettings.
-
+    """
     :param flaky_detection: FlakyDetection defines types of detection.
     :type flaky_detection: :class:`FlakyDetection <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.FlakyDetection>`
     :param flaky_in_summary_report: FlakyInSummaryReport defines flaky data should show in summary report or not.
@@ -646,8 +643,7 @@ class FlakySettings(Model):
 
 
 class FunctionCoverage(Model):
-    """FunctionCoverage.
-
+    """
     :param class_:
     :type class_: str
     :param name:
@@ -678,7 +674,8 @@ class FunctionCoverage(Model):
 
 
 class JobReference(Model):
-    """JobReference.
+    """
+    Job in pipeline. This is related to matrixing in YAML.
 
     :param attempt: Attempt number of the job
     :type attempt: int
@@ -698,8 +695,7 @@ class JobReference(Model):
 
 
 class ModuleCoverage(Model):
-    """ModuleCoverage.
-
+    """
     :param block_count:
     :type block_count: int
     :param block_data:
@@ -742,7 +738,8 @@ class ModuleCoverage(Model):
 
 
 class PhaseReference(Model):
-    """PhaseReference.
+    """
+    Phase in pipeline
 
     :param attempt: Attempt number of the pahse
     :type attempt: int
@@ -762,7 +759,8 @@ class PhaseReference(Model):
 
 
 class PipelineReference(Model):
-    """PipelineReference.
+    """
+    Pipeline reference
 
     :param job_reference: Reference of the job
     :type job_reference: :class:`JobReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.JobReference>`
@@ -790,8 +788,7 @@ class PipelineReference(Model):
 
 
 class QueryModel(Model):
-    """QueryModel.
-
+    """
     :param query:
     :type query: str
     """
@@ -806,7 +803,8 @@ class QueryModel(Model):
 
 
 class ReleaseReference(Model):
-    """ReleaseReference.
+    """
+    Reference to a release.
 
     :param attempt: Number of Release Attempt.
     :type attempt: int
@@ -858,8 +856,7 @@ class ReleaseReference(Model):
 
 
 class ResultsFilter(Model):
-    """ResultsFilter.
-
+    """
     :param automated_test_name:
     :type automated_test_name: str
     :param branch:
@@ -918,7 +915,8 @@ class ResultsFilter(Model):
 
 
 class RunCreateModel(Model):
-    """RunCreateModel.
+    """
+    Test run create details.
 
     :param automated: true if test run is automated, false otherwise. By default it will be false.
     :type automated: bool
@@ -1074,7 +1072,8 @@ class RunCreateModel(Model):
 
 
 class RunFilter(Model):
-    """RunFilter.
+    """
+    This class is used to provide the filters used for discovery
 
     :param source_filter: filter for the test case sources (test containers)
     :type source_filter: str
@@ -1094,7 +1093,8 @@ class RunFilter(Model):
 
 
 class RunStatistic(Model):
-    """RunStatistic.
+    """
+    Test run statistics per outcome.
 
     :param count: Test result count fo the given outcome.
     :type count: int
@@ -1122,7 +1122,8 @@ class RunStatistic(Model):
 
 
 class RunSummaryModel(Model):
-    """RunSummaryModel.
+    """
+    Run summary for each output type of test.
 
     :param duration: Total time taken in milliseconds.
     :type duration: long
@@ -1146,8 +1147,7 @@ class RunSummaryModel(Model):
 
 
 class RunUpdateModel(Model):
-    """RunUpdateModel.
-
+    """
     :param build: An abstracted reference to the build that it belongs.
     :type build: :class:`ShallowReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.ShallowReference>`
     :param build_drop_location: Drop location of the build used for test run.
@@ -1262,7 +1262,8 @@ class RunUpdateModel(Model):
 
 
 class ShallowReference(Model):
-    """ShallowReference.
+    """
+    An abstracted reference to some other resource. This class is used to provide the build data contracts with a uniform way to reference other resources in a way that provides easy traversal through links.
 
     :param id: ID of the resource
     :type id: str
@@ -1286,8 +1287,7 @@ class ShallowReference(Model):
 
 
 class ShallowTestCaseResult(Model):
-    """ShallowTestCaseResult.
-
+    """
     :param automated_test_name:
     :type automated_test_name: str
     :param automated_test_storage:
@@ -1346,7 +1346,8 @@ class ShallowTestCaseResult(Model):
 
 
 class SharedStepModel(Model):
-    """SharedStepModel.
+    """
+    Reference to shared step workitem.
 
     :param id: WorkItem shared step ID.
     :type id: int
@@ -1366,7 +1367,8 @@ class SharedStepModel(Model):
 
 
 class StageReference(Model):
-    """StageReference.
+    """
+    Stage in pipeline
 
     :param attempt: Attempt number of stage
     :type attempt: int
@@ -1386,8 +1388,7 @@ class StageReference(Model):
 
 
 class TestAttachment(Model):
-    """TestAttachment.
-
+    """
     :param attachment_type: Attachment type.
     :type attachment_type: object
     :param comment: Comment associated with attachment.
@@ -1426,7 +1427,8 @@ class TestAttachment(Model):
 
 
 class TestAttachmentReference(Model):
-    """TestAttachmentReference.
+    """
+    Reference to test attachment.
 
     :param id: ID of the attachment.
     :type id: int
@@ -1446,7 +1448,8 @@ class TestAttachmentReference(Model):
 
 
 class TestAttachmentRequestModel(Model):
-    """TestAttachmentRequestModel.
+    """
+    Test attachment request model
 
     :param attachment_type: Attachment type By Default it will be GeneralAttachment. It can be one of the following type. { GeneralAttachment, AfnStrip, BugFilingData, CodeCoverage, IntermediateCollectorData, RunConfig, TestImpactDetails, TmiTestRunDeploymentFiles, TmiTestRunReverseDeploymentFiles, TmiTestResultDetail, TmiTestRunSummary }
     :type attachment_type: str
@@ -1474,7 +1477,8 @@ class TestAttachmentRequestModel(Model):
 
 
 class TestCaseResult(Model):
-    """TestCaseResult.
+    """
+    Represents a test result.
 
     :param afn_strip_id: Test attachment ID of action recording.
     :type afn_strip_id: int
@@ -1682,7 +1686,8 @@ class TestCaseResult(Model):
 
 
 class TestCaseResultAttachmentModel(Model):
-    """TestCaseResultAttachmentModel.
+    """
+    Test attachment information in a test iteration.
 
     :param action_path: Path identifier test step in test case workitem.
     :type action_path: str
@@ -1718,7 +1723,8 @@ class TestCaseResultAttachmentModel(Model):
 
 
 class TestCaseResultIdentifier(Model):
-    """TestCaseResultIdentifier.
+    """
+    Reference to a test result.
 
     :param test_result_id: Test result ID.
     :type test_result_id: int
@@ -1738,7 +1744,8 @@ class TestCaseResultIdentifier(Model):
 
 
 class TestEnvironment(Model):
-    """TestEnvironment.
+    """
+    Test environment Detail.
 
     :param environment_id: Test Environment Id.
     :type environment_id: str
@@ -1758,8 +1765,7 @@ class TestEnvironment(Model):
 
 
 class TestFailureDetails(Model):
-    """TestFailureDetails.
-
+    """
     :param count:
     :type count: int
     :param test_results:
@@ -1778,8 +1784,7 @@ class TestFailureDetails(Model):
 
 
 class TestFailuresAnalysis(Model):
-    """TestFailuresAnalysis.
-
+    """
     :param existing_failures:
     :type existing_failures: :class:`TestFailureDetails <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.TestFailureDetails>`
     :param fixed_tests:
@@ -1806,7 +1811,8 @@ class TestFailuresAnalysis(Model):
 
 
 class TestFlakyIdentifier(Model):
-    """TestFlakyIdentifier.
+    """
+    Test Flaky Identifier
 
     :param branch_name: Branch Name where Flakiness has to be Marked/Unmarked
     :type branch_name: str
@@ -1826,7 +1832,8 @@ class TestFlakyIdentifier(Model):
 
 
 class TestHistoryQuery(Model):
-    """TestHistoryQuery.
+    """
+    Filter to get TestCase result history.
 
     :param automated_test_name: Automated test name of the TestCase.
     :type automated_test_name: str
@@ -1878,7 +1885,8 @@ class TestHistoryQuery(Model):
 
 
 class TestIterationDetailsModel(Model):
-    """TestIterationDetailsModel.
+    """
+    Represents a test iteration result.
 
     :param action_results: Test step results in an iteration.
     :type action_results: list of :class:`TestActionResultModel <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.TestActionResultModel>`
@@ -1934,7 +1942,8 @@ class TestIterationDetailsModel(Model):
 
 
 class TestLog(Model):
-    """TestLog.
+    """
+    Represents Test Log Result object.
 
     :param log_reference: Test Log Context run, build
     :type log_reference: :class:`TestLogReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.TestLogReference>`
@@ -1962,8 +1971,7 @@ class TestLog(Model):
 
 
 class TestLogReference(Model):
-    """TestLogReference.
-
+    """
     :param build_id: BuildId for test log, if context is build
     :type build_id: int
     :param file_path: FileName for log file
@@ -2010,7 +2018,8 @@ class TestLogReference(Model):
 
 
 class TestLogStoreEndpointDetails(Model):
-    """TestLogStoreEndpointDetails.
+    """
+    Represents Test Log store endpoint details.
 
     :param endpoint_sASUri: Test log store connection Uri.
     :type endpoint_sASUri: str
@@ -2034,7 +2043,8 @@ class TestLogStoreEndpointDetails(Model):
 
 
 class TestMessageLogDetails(Model):
-    """TestMessageLogDetails.
+    """
+    An abstracted reference to some other resource. This class is used to provide the build data contracts with a uniform way to reference other resources in a way that provides easy traversal through links.
 
     :param date_created: Date when the resource is created
     :type date_created: datetime
@@ -2058,8 +2068,7 @@ class TestMessageLogDetails(Model):
 
 
 class TestMethod(Model):
-    """TestMethod.
-
+    """
     :param container:
     :type container: str
     :param name:
@@ -2078,7 +2087,8 @@ class TestMethod(Model):
 
 
 class TestOperationReference(Model):
-    """TestOperationReference.
+    """
+    Class representing a reference to an operation.
 
     :param id:
     :type id: str
@@ -2102,7 +2112,8 @@ class TestOperationReference(Model):
 
 
 class TestResolutionState(Model):
-    """TestResolutionState.
+    """
+    Test Resolution State Details.
 
     :param id: Test Resolution state Id.
     :type id: int
@@ -2126,8 +2137,7 @@ class TestResolutionState(Model):
 
 
 class TestResultDocument(Model):
-    """TestResultDocument.
-
+    """
     :param operation_reference:
     :type operation_reference: :class:`TestOperationReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.TestOperationReference>`
     :param payload:
@@ -2146,8 +2156,7 @@ class TestResultDocument(Model):
 
 
 class TestResultHistory(Model):
-    """TestResultHistory.
-
+    """
     :param group_by_field:
     :type group_by_field: str
     :param results_for_group:
@@ -2166,8 +2175,7 @@ class TestResultHistory(Model):
 
 
 class TestResultHistoryDetailsForGroup(Model):
-    """TestResultHistoryDetailsForGroup.
-
+    """
     :param group_by_value:
     :type group_by_value: object
     :param latest_result:
@@ -2186,7 +2194,8 @@ class TestResultHistoryDetailsForGroup(Model):
 
 
 class TestResultHistoryForGroup(Model):
-    """TestResultHistoryForGroup.
+    """
+    List of test results filtered on the basis of GroupByValue
 
     :param display_name: Display name of the group.
     :type display_name: str
@@ -2210,7 +2219,8 @@ class TestResultHistoryForGroup(Model):
 
 
 class TestResultMetaData(Model):
-    """TestResultMetaData.
+    """
+    Represents a Meta Data of a test result.
 
     :param automated_test_name: AutomatedTestName of test result.
     :type automated_test_name: str
@@ -2250,7 +2260,8 @@ class TestResultMetaData(Model):
 
 
 class TestResultMetaDataUpdateInput(Model):
-    """TestResultMetaDataUpdateInput.
+    """
+    Represents a TestResultMetaData Input
 
     :param flaky_identifiers: List of Flaky Identifiers
     :type flaky_identifiers: list of :class:`TestFlakyIdentifier <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.TestFlakyIdentifier>`
@@ -2266,8 +2277,7 @@ class TestResultMetaDataUpdateInput(Model):
 
 
 class TestResultModelBase(Model):
-    """TestResultModelBase.
-
+    """
     :param comment: Comment in result.
     :type comment: str
     :param completed_date: Time when execution completed.
@@ -2302,7 +2312,8 @@ class TestResultModelBase(Model):
 
 
 class TestResultParameterModel(Model):
-    """TestResultParameterModel.
+    """
+    Test parameter information in a test iteration.
 
     :param action_path: Test step path where parameter is referenced.
     :type action_path: str
@@ -2338,8 +2349,7 @@ class TestResultParameterModel(Model):
 
 
 class TestResultPayload(Model):
-    """TestResultPayload.
-
+    """
     :param comment:
     :type comment: str
     :param name:
@@ -2362,8 +2372,7 @@ class TestResultPayload(Model):
 
 
 class TestResultsContext(Model):
-    """TestResultsContext.
-
+    """
     :param build:
     :type build: :class:`BuildReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.BuildReference>`
     :param context_type:
@@ -2386,8 +2395,7 @@ class TestResultsContext(Model):
 
 
 class TestResultsDetails(Model):
-    """TestResultsDetails.
-
+    """
     :param group_by_field:
     :type group_by_field: str
     :param results_for_group:
@@ -2406,8 +2414,7 @@ class TestResultsDetails(Model):
 
 
 class TestResultsDetailsForGroup(Model):
-    """TestResultsDetailsForGroup.
-
+    """
     :param group_by_value:
     :type group_by_value: object
     :param results:
@@ -2434,8 +2441,7 @@ class TestResultsDetailsForGroup(Model):
 
 
 class TestResultsQuery(Model):
-    """TestResultsQuery.
-
+    """
     :param fields:
     :type fields: list of str
     :param results:
@@ -2458,8 +2464,7 @@ class TestResultsQuery(Model):
 
 
 class TestResultsSettings(Model):
-    """TestResultsSettings.
-
+    """
     :param flaky_settings: IsRequired and EmitDefaultValue are passed as false as if users doesn't pass anything, should not come for serialisation and deserialisation.
     :type flaky_settings: :class:`FlakySettings <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.FlakySettings>`
     """
@@ -2474,8 +2479,7 @@ class TestResultsSettings(Model):
 
 
 class TestResultSummary(Model):
-    """TestResultSummary.
-
+    """
     :param aggregated_results_analysis:
     :type aggregated_results_analysis: :class:`AggregatedResultsAnalysis <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.AggregatedResultsAnalysis>`
     :param no_config_runs_count:
@@ -2510,8 +2514,7 @@ class TestResultSummary(Model):
 
 
 class TestResultsUpdateSettings(Model):
-    """TestResultsUpdateSettings.
-
+    """
     :param flaky_settings: FlakySettings defines Flaky Setttings Data.
     :type flaky_settings: :class:`FlakySettings <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.FlakySettings>`
     """
@@ -2526,8 +2529,7 @@ class TestResultsUpdateSettings(Model):
 
 
 class TestResultTrendFilter(Model):
-    """TestResultTrendFilter.
-
+    """
     :param branch_names:
     :type branch_names: list of str
     :param build_count:
@@ -2570,7 +2572,8 @@ class TestResultTrendFilter(Model):
 
 
 class TestRun(Model):
-    """TestRun.
+    """
+    Test run details.
 
     :param build: Build associated with this test run.
     :type build: :class:`ShallowReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.ShallowReference>`
@@ -2762,7 +2765,8 @@ class TestRun(Model):
 
 
 class TestRunCoverage(Model):
-    """TestRunCoverage.
+    """
+    Test Run Code Coverage Details
 
     :param last_error: Last Error
     :type last_error: str
@@ -2790,7 +2794,8 @@ class TestRunCoverage(Model):
 
 
 class TestRunStatistic(Model):
-    """TestRunStatistic.
+    """
+    Test run statistics.
 
     :param run:
     :type run: :class:`ShallowReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.ShallowReference>`
@@ -2810,7 +2815,8 @@ class TestRunStatistic(Model):
 
 
 class TestSettings(Model):
-    """TestSettings.
+    """
+    Represents the test settings of the run. Used to create test settings and fetch test settings
 
     :param area_path: Area path required to create test settings
     :type area_path: str
@@ -2850,7 +2856,8 @@ class TestSettings(Model):
 
 
 class TestSubResult(Model):
-    """TestSubResult.
+    """
+    Represents a sub result of a test result.
 
     :param comment: Comment in sub result.
     :type comment: str
@@ -2938,8 +2945,7 @@ class TestSubResult(Model):
 
 
 class TestSummaryForWorkItem(Model):
-    """TestSummaryForWorkItem.
-
+    """
     :param summary:
     :type summary: :class:`AggregatedDataForResultTrend <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.AggregatedDataForResultTrend>`
     :param work_item:
@@ -2958,7 +2964,8 @@ class TestSummaryForWorkItem(Model):
 
 
 class TestTag(Model):
-    """TestTag.
+    """
+    Tag attached to a run or result.
 
     :param name: Name of the tag, alphanumeric value less than 30 chars
     :type name: str
@@ -2974,7 +2981,8 @@ class TestTag(Model):
 
 
 class TestTagSummary(Model):
-    """TestTagSummary.
+    """
+    Test tag summary for build or release grouped by test run.
 
     :param tags_group_by_test_artifact: Dictionary which contains tags associated with a test run.
     :type tags_group_by_test_artifact: dict
@@ -2990,7 +2998,8 @@ class TestTagSummary(Model):
 
 
 class TestTagsUpdateModel(Model):
-    """TestTagsUpdateModel.
+    """
+    Tags to update to a run or result.
 
     :param tags:
     :type tags: list of { key: OperationType; value: [TestTag] }
@@ -3006,8 +3015,7 @@ class TestTagsUpdateModel(Model):
 
 
 class TestToWorkItemLinks(Model):
-    """TestToWorkItemLinks.
-
+    """
     :param test:
     :type test: :class:`TestMethod <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.TestMethod>`
     :param work_items:
@@ -3026,7 +3034,8 @@ class TestToWorkItemLinks(Model):
 
 
 class WorkItemReference(Model):
-    """WorkItemReference.
+    """
+    WorkItem reference Details.
 
     :param id: WorkItem Id.
     :type id: str
@@ -3058,8 +3067,7 @@ class WorkItemReference(Model):
 
 
 class WorkItemToTestLinks(Model):
-    """WorkItemToTestLinks.
-
+    """
     :param executed_in:
     :type executed_in: object
     :param tests:
@@ -3082,7 +3090,8 @@ class WorkItemToTestLinks(Model):
 
 
 class TestActionResultModel(TestResultModelBase):
-    """TestActionResultModel.
+    """
+    Represents a test step result.
 
     :param comment: Comment in result.
     :type comment: str

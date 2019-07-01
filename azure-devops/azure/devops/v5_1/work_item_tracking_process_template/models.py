@@ -10,7 +10,8 @@ from msrest.serialization import Model
 
 
 class AdminBehavior(Model):
-    """AdminBehavior.
+    """
+    Describes an admin behavior for a process.
 
     :param abstract: Is the behavior abstract (i.e. can not be associated with any work item type).
     :type abstract: bool
@@ -62,7 +63,8 @@ class AdminBehavior(Model):
 
 
 class AdminBehaviorField(Model):
-    """AdminBehaviorField.
+    """
+    Describes an admin behavior field.
 
     :param behavior_field_id: The behavior field identifier.
     :type behavior_field_id: str
@@ -86,7 +88,8 @@ class AdminBehaviorField(Model):
 
 
 class CheckTemplateExistenceResult(Model):
-    """CheckTemplateExistenceResult.
+    """
+    Describes result of a check template existence request.
 
     :param does_template_exist: Indicates whether a template exists.
     :type does_template_exist: bool
@@ -114,7 +117,8 @@ class CheckTemplateExistenceResult(Model):
 
 
 class ProcessImportResult(Model):
-    """ProcessImportResult.
+    """
+    Describes the result of a Process Import request.
 
     :param check_existence_result: Check template existence result.
     :type check_existence_result: :class:`CheckTemplateExistenceResult <azure.devops.v5_1.work_item_tracking_process_template.models.CheckTemplateExistenceResult>`
@@ -150,7 +154,8 @@ class ProcessImportResult(Model):
 
 
 class ProcessPromoteStatus(Model):
-    """ProcessPromoteStatus.
+    """
+    Describes result of process operation promote.
 
     :param complete: Number of projects for which promote is complete.
     :type complete: int
@@ -186,8 +191,7 @@ class ProcessPromoteStatus(Model):
 
 
 class ValidationIssue(Model):
-    """ValidationIssue.
-
+    """
     :param description:
     :type description: str
     :param file:

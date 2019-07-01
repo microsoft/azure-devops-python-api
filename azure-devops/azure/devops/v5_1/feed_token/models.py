@@ -10,7 +10,8 @@ from msrest.serialization import Model
 
 
 class FeedSessionToken(Model):
-    """FeedSessionToken.
+    """
+    A cut-down version of SessionToken that just has what FeedSessionTokenController needs to serve the UI and which actually generates a TypeScript type for the UI to use
 
     :param token:
     :type token: str

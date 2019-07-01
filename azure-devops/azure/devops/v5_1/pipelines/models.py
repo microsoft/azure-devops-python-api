@@ -10,8 +10,7 @@ from msrest.serialization import Model
 
 
 class CreatePipelineConfigurationParameters(Model):
-    """CreatePipelineConfigurationParameters.
-
+    """
     :param type:
     :type type: object
     """
@@ -26,8 +25,7 @@ class CreatePipelineConfigurationParameters(Model):
 
 
 class CreatePipelineParameters(Model):
-    """CreatePipelineParameters.
-
+    """
     :param configuration:
     :type configuration: :class:`CreatePipelineConfigurationParameters <azure.devops.v5_1.pipelines.models.CreatePipelineConfigurationParameters>`
     :param folder:
@@ -50,8 +48,7 @@ class CreatePipelineParameters(Model):
 
 
 class Log(Model):
-    """Log.
-
+    """
     :param created_on: The date and time the log was created.
     :type created_on: datetime
     :param id: The ID of the log.
@@ -86,8 +83,7 @@ class Log(Model):
 
 
 class LogCollection(Model):
-    """LogCollection.
-
+    """
     :param logs:
     :type logs: list of :class:`Log <azure.devops.v5_1.pipelines.models.Log>`
     :param signed_content:
@@ -110,8 +106,7 @@ class LogCollection(Model):
 
 
 class PipelineBase(Model):
-    """PipelineBase.
-
+    """
     :param folder:
     :type folder: str
     :param id:
@@ -138,8 +133,7 @@ class PipelineBase(Model):
 
 
 class PipelineConfiguration(Model):
-    """PipelineConfiguration.
-
+    """
     :param type:
     :type type: object
     """
@@ -154,7 +148,8 @@ class PipelineConfiguration(Model):
 
 
 class PipelineReference(PipelineBase):
-    """PipelineReference.
+    """
+    A reference to a Pipeline.
 
     :param folder:
     :type folder: str
@@ -182,7 +177,8 @@ class PipelineReference(PipelineBase):
 
 
 class ReferenceLinks(Model):
-    """ReferenceLinks.
+    """
+    The class to represent a collection of REST reference links.
 
     :param links: The readonly view of the links.  Because Reference links are readonly, we only want to expose them as read only.
     :type links: dict
@@ -198,8 +194,7 @@ class ReferenceLinks(Model):
 
 
 class Repository(Model):
-    """Repository.
-
+    """
     :param type:
     :type type: object
     """
@@ -214,8 +209,7 @@ class Repository(Model):
 
 
 class RepositoryResource(Model):
-    """RepositoryResource.
-
+    """
     :param ref_name:
     :type ref_name: str
     :param repository:
@@ -238,8 +232,7 @@ class RepositoryResource(Model):
 
 
 class RepositoryResourceParameters(Model):
-    """RepositoryResourceParameters.
-
+    """
     :param ref_name:
     :type ref_name: str
     :param token: This is the security token to use when connecting to the repository.
@@ -266,8 +259,7 @@ class RepositoryResourceParameters(Model):
 
 
 class RunPipelineParameters(Model):
-    """RunPipelineParameters.
-
+    """
     :param configuration:
     :type configuration: JustInTimeConfiguration
     :param context:
@@ -298,8 +290,7 @@ class RunPipelineParameters(Model):
 
 
 class RunReference(Model):
-    """RunReference.
-
+    """
     :param id:
     :type id: int
     :param name:
@@ -318,8 +309,7 @@ class RunReference(Model):
 
 
 class RunResources(Model):
-    """RunResources.
-
+    """
     :param repositories:
     :type repositories: dict
     """
@@ -334,8 +324,7 @@ class RunResources(Model):
 
 
 class RunResourcesParameters(Model):
-    """RunResourcesParameters.
-
+    """
     :param repositories:
     :type repositories: dict
     """
@@ -350,7 +339,8 @@ class RunResourcesParameters(Model):
 
 
 class SignedUrl(Model):
-    """SignedUrl.
+    """
+    A signed url allowing limited-time anonymous access to private resources.
 
     :param signature_expires:
     :type signature_expires: datetime
@@ -370,8 +360,7 @@ class SignedUrl(Model):
 
 
 class Variable(Model):
-    """Variable.
-
+    """
     :param is_secret:
     :type is_secret: bool
     :param value:
@@ -390,8 +379,7 @@ class Variable(Model):
 
 
 class Pipeline(PipelineBase):
-    """Pipeline.
-
+    """
     :param folder:
     :type folder: str
     :param id:
@@ -426,8 +414,7 @@ class Pipeline(PipelineBase):
 
 
 class Run(RunReference):
-    """Run.
-
+    """
     :param id:
     :type id: int
     :param name:
