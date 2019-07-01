@@ -2331,7 +2331,7 @@ class TaskAgentMessage(Model):
 
     _attribute_map = {
         'body': {'key': 'body', 'type': 'str'},
-        'iV': {'key': 'iV', 'type': 'str'},
+        'iV': {'key': 'iv', 'type': 'str'},
         'message_id': {'key': 'messageId', 'type': 'long'},
         'message_type': {'key': 'messageType', 'type': 'str'}
     }
@@ -2661,7 +2661,7 @@ class TaskAgentReference(Model):
         'enabled': {'key': 'enabled', 'type': 'bool'},
         'id': {'key': 'id', 'type': 'int'},
         'name': {'key': 'name', 'type': 'str'},
-        'oSDescription': {'key': 'oSDescription', 'type': 'str'},
+        'oSDescription': {'key': 'osDescription', 'type': 'str'},
         'provisioning_state': {'key': 'provisioningState', 'type': 'str'},
         'status': {'key': 'status', 'type': 'object'},
         'version': {'key': 'version', 'type': 'str'}
@@ -4155,7 +4155,7 @@ class TaskAgent(TaskAgentReference):
         'enabled': {'key': 'enabled', 'type': 'bool'},
         'id': {'key': 'id', 'type': 'int'},
         'name': {'key': 'name', 'type': 'str'},
-        'oSDescription': {'key': 'oSDescription', 'type': 'str'},
+        'oSDescription': {'key': 'osDescription', 'type': 'str'},
         'provisioning_state': {'key': 'provisioningState', 'type': 'str'},
         'status': {'key': 'status', 'type': 'object'},
         'version': {'key': 'version', 'type': 'str'},

@@ -1453,7 +1453,7 @@ class MailMessage(Model):
 
     _attribute_map = {
         'body': {'key': 'body', 'type': 'str'},
-        'cC': {'key': 'cC', 'type': 'EmailRecipients'},
+        'cC': {'key': 'cc', 'type': 'EmailRecipients'},
         'in_reply_to': {'key': 'inReplyTo', 'type': 'str'},
         'message_id': {'key': 'messageId', 'type': 'str'},
         'reply_by': {'key': 'replyBy', 'type': 'iso-8601'},
