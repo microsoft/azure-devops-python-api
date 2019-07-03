@@ -7,7 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
-from .test_results_client import testResultsClient
+from .test_results_client import TestResultsClient
 
 __all__ = [
     'AggregatedDataForResultTrend',
