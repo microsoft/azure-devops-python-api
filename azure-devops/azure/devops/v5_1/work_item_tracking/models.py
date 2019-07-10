@@ -85,7 +85,7 @@ class AccountRecentMentionWorkItemModel(Model):
     :type assigned_to: str
     :param id: Work Item Id
     :type id: int
-    :param mentioned_date_field: Lastest date that the user were mentioned
+    :param mentioned_date_field: Latest date that the user were mentioned
     :type mentioned_date_field: datetime
     :param state: State of the work item
     :type state: str
@@ -575,7 +575,7 @@ class ReferenceLinks(Model):
 
 class ReportingWorkItemRevisionsFilter(Model):
     """
-    The class reprensents the reporting work item revision filer.
+    The class represents the reporting work item revision filer.
 
     :param fields: A list of fields to return in work item revisions. Omit this parameter to get all reportable fields.
     :type fields: list of str
@@ -614,7 +614,7 @@ class StreamedBatch(Model):
     """
     The class describes reporting work item revision batch.
 
-    :param continuation_token: ContinuationToken acts as a waterMark. Used while quering large results.
+    :param continuation_token: ContinuationToken acts as a waterMark. Used while querying large results.
     :type continuation_token: str
     :param is_last_batch: Returns 'true' if it's last batch, 'false' otherwise.
     :type is_last_batch: bool
@@ -1118,7 +1118,7 @@ class WorkItemRelation(Link):
 
 class WorkItemRelationUpdates(Model):
     """
-    Descrives updates to a work item's relations.
+    Describes updates to a work item's relations.
 
     :param added: List of newly added relations.
     :type added: list of :class:`WorkItemRelation <azure.devops.v5_1.work_item_tracking.models.WorkItemRelation>`
@@ -1235,7 +1235,7 @@ class WorkItemTypeColorAndIcon(Model):
 
     :param color: The color of the work item type in hex format.
     :type color: str
-    :param icon: Tthe work item type icon.
+    :param icon: The work item type icon.
     :type icon: str
     :param work_item_type_name: The name of the work item type.
     :type work_item_type_name: str
@@ -1701,7 +1701,7 @@ class WorkItemTypeCategory(WorkItemTrackingResource):
     :type name: str
     :param reference_name: The reference name of the category.
     :type reference_name: str
-    :param work_item_types: The work item types that belond to the category.
+    :param work_item_types: The work item types that belong to the category.
     :type work_item_types: list of :class:`WorkItemTypeReference <azure.devops.v5_1.work_item_tracking.models.WorkItemTypeReference>`
     """
 
@@ -2517,7 +2517,7 @@ class WorkItemTrackingReference(WorkItemTrackingResource):
 
 class WorkItemRelationType(WorkItemTrackingReference):
     """
-    Represents the work item type relatiion type.
+    Represents the work item type relation type.
 
     :param url:
     :type url: str
