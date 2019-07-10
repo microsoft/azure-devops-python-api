@@ -413,17 +413,17 @@ class ExtensionEventCallbackCollection(Model):
     """
     Collection of event callbacks - endpoints called when particular extension events occur.
 
-    :param post_disable: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension disable has occurred.
+    :param post_disable: Optional.  Defines an endpoint that gets called via a POST request to notify that an extension disable has occurred.
     :type post_disable: :class:`ExtensionEventCallback <azure.devops.v5_1.extension_management.models.ExtensionEventCallback>`
-    :param post_enable: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension enable has occurred.
+    :param post_enable: Optional.  Defines an endpoint that gets called via a POST request to notify that an extension enable has occurred.
     :type post_enable: :class:`ExtensionEventCallback <azure.devops.v5_1.extension_management.models.ExtensionEventCallback>`
-    :param post_install: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension install has completed.
+    :param post_install: Optional.  Defines an endpoint that gets called via a POST request to notify that an extension install has completed.
     :type post_install: :class:`ExtensionEventCallback <azure.devops.v5_1.extension_management.models.ExtensionEventCallback>`
-    :param post_uninstall: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension uninstall has occurred.
+    :param post_uninstall: Optional.  Defines an endpoint that gets called via a POST request to notify that an extension uninstall has occurred.
     :type post_uninstall: :class:`ExtensionEventCallback <azure.devops.v5_1.extension_management.models.ExtensionEventCallback>`
-    :param post_update: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension update has occurred.
+    :param post_update: Optional.  Defines an endpoint that gets called via a POST request to notify that an extension update has occurred.
     :type post_update: :class:`ExtensionEventCallback <azure.devops.v5_1.extension_management.models.ExtensionEventCallback>`
-    :param pre_install: Optional.  Defines an endpoint that gets called via a POST reqeust to notify that an extension install is about to occur.  Response indicates whether to proceed or abort.
+    :param pre_install: Optional.  Defines an endpoint that gets called via a POST request to notify that an extension install is about to occur.  Response indicates whether to proceed or abort.
     :type pre_install: :class:`ExtensionEventCallback <azure.devops.v5_1.extension_management.models.ExtensionEventCallback>`
     :param version_check: For multi-version extensions, defines an endpoint that gets called via an OPTIONS request to determine the particular version of the extension to be used
     :type version_check: :class:`ExtensionEventCallback <azure.devops.v5_1.extension_management.models.ExtensionEventCallback>`
@@ -535,7 +535,7 @@ class ExtensionManifest(Model):
     :type licensing: :class:`ExtensionLicensing <azure.devops.v5_1.extension_management.models.ExtensionLicensing>`
     :param manifest_version: Version of the extension manifest format/content
     :type manifest_version: float
-    :param restricted_to: Default user claims applied to all contributions (except the ones which have been speficied restrictedTo explicitly) to control the visibility of a contribution.
+    :param restricted_to: Default user claims applied to all contributions (except the ones which have been specified restrictedTo explicitly) to control the visibility of a contribution.
     :type restricted_to: list of str
     :param scopes: List of all oauth scopes required by this extension
     :type scopes: list of str
@@ -864,7 +864,7 @@ class InstalledExtension(ExtensionManifest):
     :type licensing: :class:`ExtensionLicensing <azure.devops.v5_1.extension_management.models.ExtensionLicensing>`
     :param manifest_version: Version of the extension manifest format/content
     :type manifest_version: float
-    :param restricted_to: Default user claims applied to all contributions (except the ones which have been speficied restrictedTo explicitly) to control the visibility of a contribution.
+    :param restricted_to: Default user claims applied to all contributions (except the ones which have been specified restrictedTo explicitly) to control the visibility of a contribution.
     :type restricted_to: list of str
     :param scopes: List of all oauth scopes required by this extension
     :type scopes: list of str

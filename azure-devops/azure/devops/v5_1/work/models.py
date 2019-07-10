@@ -146,7 +146,7 @@ class BacklogLevelConfiguration(Model):
     :type color: str
     :param column_fields: Default list of columns for the backlog
     :type column_fields: list of :class:`BacklogColumn <azure.devops.v5_1.work.models.BacklogColumn>`
-    :param default_work_item_type: Defaulst Work Item Type for the backlog
+    :param default_work_item_type: Default Work Item Type for the backlog
     :type default_work_item_type: :class:`WorkItemTypeReference <azure.devops.v5_1.work.models.WorkItemTypeReference>`
     :param id: Backlog Id (for Legacy Backlog Level from process config it can be categoryref name)
     :type id: str
@@ -1692,7 +1692,7 @@ class DeliveryViewData(PlanViewData):
     :type id: str
     :param revision:
     :type revision: int
-    :param child_id_to_parent_id_map: Work item child id to parenet id map
+    :param child_id_to_parent_id_map: Work item child id to parent id map
     :type child_id_to_parent_id_map: dict
     :param criteria_status: Filter criteria status of the timeline
     :type criteria_status: :class:`TimelineCriteriaStatus <azure.devops.v5_1.work.models.TimelineCriteriaStatus>`

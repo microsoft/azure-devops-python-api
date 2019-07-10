@@ -570,7 +570,7 @@ class ExtensionFilterResult(Model):
     """
     The FilterResult is the set of extensions that matched a particular query filter.
 
-    :param extensions: This is the set of appplications that matched the query filter supplied.
+    :param extensions: This is the set of applications that matched the query filter supplied.
     :type extensions: list of :class:`PublishedExtension <azure.devops.v5_1.gallery.models.PublishedExtension>`
     :param paging_token: The PagingToken is returned from a request when more records exist that match the result than were requested or could be returned. A follow-up query with this paging token can be used to retrieve more results.
     :type paging_token: str
@@ -684,7 +684,7 @@ class ExtensionQuery(Model):
     :type asset_types: list of str
     :param filters: Each filter is a unique query and will have matching set of extensions returned from the request. Each result will have the same index in the resulting array that the filter had in the incoming query.
     :type filters: list of :class:`QueryFilter <azure.devops.v5_1.gallery.models.QueryFilter>`
-    :param flags: The Flags are used to deterine which set of information the caller would like returned for the matched extensions.
+    :param flags: The Flags are used to determine which set of information the caller would like returned for the matched extensions.
     :type flags: object
     """
 
@@ -1225,7 +1225,7 @@ class PublisherFilterResult(Model):
     """
     The FilterResult is the set of publishers that matched a particular query filter.
 
-    :param publishers: This is the set of appplications that matched the query filter supplied.
+    :param publishers: This is the set of applications that matched the query filter supplied.
     :type publishers: list of :class:`Publisher <azure.devops.v5_1.gallery.models.Publisher>`
     """
 
@@ -1244,7 +1244,7 @@ class PublisherQuery(Model):
 
     :param filters: Each filter is a unique query and will have matching set of publishers returned from the request. Each result will have the same index in the resulting array that the filter had in the incoming query.
     :type filters: list of :class:`QueryFilter <azure.devops.v5_1.gallery.models.QueryFilter>`
-    :param flags: The Flags are used to deterine which set of information the caller would like returned for the matched publishers.
+    :param flags: The Flags are used to determine which set of information the caller would like returned for the matched publishers.
     :type flags: object
     """
 
@@ -1718,7 +1718,7 @@ class ReviewSummary(Model):
     :type average_rating: int
     :param rating_count: Count of total ratings
     :type rating_count: long
-    :param rating_split: Split of count accross rating
+    :param rating_split: Split of count across rating
     :type rating_split: list of :class:`RatingCountPerRating <azure.devops.v5_1.gallery.models.RatingCountPerRating>`
     """
 
