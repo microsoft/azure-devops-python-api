@@ -12,7 +12,7 @@ from msrest.serialization import Model
 class GitRepository(Model):
     """
     :param _links:
-    :type _links: ReferenceLinks
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._team_foundation._source_control._web_api.models.ReferenceLinks>`
     :param default_branch:
     :type default_branch: str
     :param id:
@@ -24,7 +24,7 @@ class GitRepository(Model):
     :param parent_repository:
     :type parent_repository: :class:`GitRepositoryRef <azure.devops.v5_1.microsoft._team_foundation._source_control._web_api.models.GitRepositoryRef>`
     :param project:
-    :type project: TeamProjectReference
+    :type project: :class:`TeamProjectReference <azure.devops.v5_1.microsoft._team_foundation._source_control._web_api.models.TeamProjectReference>`
     :param remote_url:
     :type remote_url: str
     :param size: Compressed size (bytes) of the repository.
@@ -75,7 +75,7 @@ class GitRepository(Model):
 class GitRepositoryRef(Model):
     """
     :param collection: Team Project Collection where this Fork resides
-    :type collection: TeamProjectCollectionReference
+    :type collection: :class:`TeamProjectCollectionReference <azure.devops.v5_1.microsoft._team_foundation._source_control._web_api.models.TeamProjectCollectionReference>`
     :param id:
     :type id: str
     :param is_fork: True if the repository was created as a fork
@@ -83,7 +83,7 @@ class GitRepositoryRef(Model):
     :param name:
     :type name: str
     :param project:
-    :type project: TeamProjectReference
+    :type project: :class:`TeamProjectReference <azure.devops.v5_1.microsoft._team_foundation._source_control._web_api.models.TeamProjectReference>`
     :param remote_url:
     :type remote_url: str
     :param ssh_url:
@@ -136,6 +136,95 @@ class GitVersionDescriptor(Model):
         self.version = version
         self.version_options = version_options
         self.version_type = version_type
+
+
+class ReferenceLinks(Model):
+    """
+    :param links:
+    :type links: dict
+    """
+
+    _attribute_map = {
+        'links': {'key': 'links', 'type': '{object}'}
+    }
+
+    def __init__(self, links=None):
+        super(ReferenceLinks, self).__init__()
+        self.links = links
+
+
+class TeamProjectCollectionReference(Model):
+    """
+    :param id:
+    :type id: str
+    :param name:
+    :type name: str
+    :param url:
+    :type url: str
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'name': {'key': 'name', 'type': 'str'},
+        'url': {'key': 'url', 'type': 'str'}
+    }
+
+    def __init__(self, id=None, name=None, url=None):
+        super(TeamProjectCollectionReference, self).__init__()
+        self.id = id
+        self.name = name
+        self.url = url
+
+
+class TeamProjectReference(Model):
+    """
+    :param abbreviation:
+    :type abbreviation: str
+    :param default_team_image_url:
+    :type default_team_image_url: str
+    :param description:
+    :type description: str
+    :param id:
+    :type id: str
+    :param last_update_time:
+    :type last_update_time: datetime
+    :param name:
+    :type name: str
+    :param revision:
+    :type revision: long
+    :param state:
+    :type state: object
+    :param url:
+    :type url: str
+    :param visibility:
+    :type visibility: object
+    """
+
+    _attribute_map = {
+        'abbreviation': {'key': 'abbreviation', 'type': 'str'},
+        'default_team_image_url': {'key': 'defaultTeamImageUrl', 'type': 'str'},
+        'description': {'key': 'description', 'type': 'str'},
+        'id': {'key': 'id', 'type': 'str'},
+        'last_update_time': {'key': 'lastUpdateTime', 'type': 'iso-8601'},
+        'name': {'key': 'name', 'type': 'str'},
+        'revision': {'key': 'revision', 'type': 'long'},
+        'state': {'key': 'state', 'type': 'object'},
+        'url': {'key': 'url', 'type': 'str'},
+        'visibility': {'key': 'visibility', 'type': 'object'}
+    }
+
+    def __init__(self, abbreviation=None, default_team_image_url=None, description=None, id=None, last_update_time=None, name=None, revision=None, state=None, url=None, visibility=None):
+        super(TeamProjectReference, self).__init__()
+        self.abbreviation = abbreviation
+        self.default_team_image_url = default_team_image_url
+        self.description = description
+        self.id = id
+        self.last_update_time = last_update_time
+        self.name = name
+        self.revision = revision
+        self.state = state
+        self.url = url
+        self.visibility = visibility
 
 
 class WikiAttachment(Model):
@@ -505,6 +594,9 @@ __all__ = [
     'GitRepository',
     'GitRepositoryRef',
     'GitVersionDescriptor',
+    'ReferenceLinks',
+    'TeamProjectCollectionReference',
+    'TeamProjectReference',
     'WikiAttachment',
     'WikiAttachmentResponse',
     'WikiCreateBaseParameters',

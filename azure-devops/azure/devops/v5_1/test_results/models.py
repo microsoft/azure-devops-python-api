@@ -673,6 +673,92 @@ class FunctionCoverage(Model):
         self.statistics = statistics
 
 
+class GraphSubjectBase(Model):
+    """
+    :param _links:
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.ReferenceLinks>`
+    :param descriptor:
+    :type descriptor: str
+    :param display_name:
+    :type display_name: str
+    :param url:
+    :type url: str
+    """
+
+    _attribute_map = {
+        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'descriptor': {'key': 'descriptor', 'type': 'str'},
+        'display_name': {'key': 'displayName', 'type': 'str'},
+        'url': {'key': 'url', 'type': 'str'}
+    }
+
+    def __init__(self, _links=None, descriptor=None, display_name=None, url=None):
+        super(GraphSubjectBase, self).__init__()
+        self._links = _links
+        self.descriptor = descriptor
+        self.display_name = display_name
+        self.url = url
+
+
+class IdentityRef(GraphSubjectBase):
+    """
+    :param _links:
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.ReferenceLinks>`
+    :param descriptor:
+    :type descriptor: str
+    :param display_name:
+    :type display_name: str
+    :param url:
+    :type url: str
+    :param directory_alias:
+    :type directory_alias: str
+    :param id:
+    :type id: str
+    :param image_url:
+    :type image_url: str
+    :param inactive:
+    :type inactive: bool
+    :param is_aad_identity:
+    :type is_aad_identity: bool
+    :param is_container:
+    :type is_container: bool
+    :param is_deleted_in_origin:
+    :type is_deleted_in_origin: bool
+    :param profile_url:
+    :type profile_url: str
+    :param unique_name:
+    :type unique_name: str
+    """
+
+    _attribute_map = {
+        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'descriptor': {'key': 'descriptor', 'type': 'str'},
+        'display_name': {'key': 'displayName', 'type': 'str'},
+        'url': {'key': 'url', 'type': 'str'},
+        'directory_alias': {'key': 'directoryAlias', 'type': 'str'},
+        'id': {'key': 'id', 'type': 'str'},
+        'image_url': {'key': 'imageUrl', 'type': 'str'},
+        'inactive': {'key': 'inactive', 'type': 'bool'},
+        'is_aad_identity': {'key': 'isAadIdentity', 'type': 'bool'},
+        'is_container': {'key': 'isContainer', 'type': 'bool'},
+        'is_deleted_in_origin': {'key': 'isDeletedInOrigin', 'type': 'bool'},
+        'profile_url': {'key': 'profileUrl', 'type': 'str'},
+        'unique_name': {'key': 'uniqueName', 'type': 'str'}
+    }
+
+    def __init__(self, _links=None, descriptor=None, display_name=None, url=None, directory_alias=None, id=None, image_url=None, inactive=None, is_aad_identity=None, is_container=None, is_deleted_in_origin=None, profile_url=None, unique_name=None):
+        super(IdentityRef, self).__init__(_links=_links, descriptor=descriptor, display_name=display_name, url=url)
+        self.directory_alias = directory_alias
+        self.id = id
+        self.image_url = image_url
+        self.inactive = inactive
+        self.is_aad_identity = is_aad_identity
+        self.is_container = is_container
+        self.is_deleted_in_origin = is_deleted_in_origin
+        self.profile_url = profile_url
+        self.unique_name = unique_name
+
+
 class JobReference(Model):
     """
     Job in pipeline. This is related to matrixing in YAML.
@@ -800,6 +886,21 @@ class QueryModel(Model):
     def __init__(self, query=None):
         super(QueryModel, self).__init__()
         self.query = query
+
+
+class ReferenceLinks(Model):
+    """
+    :param links:
+    :type links: dict
+    """
+
+    _attribute_map = {
+        'links': {'key': 'links', 'type': '{object}'}
+    }
+
+    def __init__(self, links=None):
+        super(ReferenceLinks, self).__init__()
+        self.links = links
 
 
 class ReleaseReference(Model):
@@ -957,7 +1058,7 @@ class RunCreateModel(Model):
     :param name: Name of the test run.
     :type name: str
     :param owner: Display name of the owner of the run.
-    :type owner: IdentityRef
+    :type owner: :class:`IdentityRef <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.IdentityRef>`
     :param pipeline_reference: Reference of the pipeline to which this test run belongs. PipelineReference.PipelineId should be equal to RunCreateModel.Build.Id
     :type pipeline_reference: :class:`PipelineReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.PipelineReference>`
     :param plan: An abstracted reference to the plan that it belongs.
@@ -1387,6 +1488,57 @@ class StageReference(Model):
         self.stage_name = stage_name
 
 
+class TeamProjectReference(Model):
+    """
+    :param abbreviation:
+    :type abbreviation: str
+    :param default_team_image_url:
+    :type default_team_image_url: str
+    :param description:
+    :type description: str
+    :param id:
+    :type id: str
+    :param last_update_time:
+    :type last_update_time: datetime
+    :param name:
+    :type name: str
+    :param revision:
+    :type revision: long
+    :param state:
+    :type state: object
+    :param url:
+    :type url: str
+    :param visibility:
+    :type visibility: object
+    """
+
+    _attribute_map = {
+        'abbreviation': {'key': 'abbreviation', 'type': 'str'},
+        'default_team_image_url': {'key': 'defaultTeamImageUrl', 'type': 'str'},
+        'description': {'key': 'description', 'type': 'str'},
+        'id': {'key': 'id', 'type': 'str'},
+        'last_update_time': {'key': 'lastUpdateTime', 'type': 'iso-8601'},
+        'name': {'key': 'name', 'type': 'str'},
+        'revision': {'key': 'revision', 'type': 'long'},
+        'state': {'key': 'state', 'type': 'object'},
+        'url': {'key': 'url', 'type': 'str'},
+        'visibility': {'key': 'visibility', 'type': 'object'}
+    }
+
+    def __init__(self, abbreviation=None, default_team_image_url=None, description=None, id=None, last_update_time=None, name=None, revision=None, state=None, url=None, visibility=None):
+        super(TeamProjectReference, self).__init__()
+        self.abbreviation = abbreviation
+        self.default_team_image_url = default_team_image_url
+        self.description = description
+        self.id = id
+        self.last_update_time = last_update_time
+        self.name = name
+        self.revision = revision
+        self.state = state
+        self.url = url
+        self.visibility = visibility
+
+
 class TestAttachment(Model):
     """
     :param attachment_type: Attachment type.
@@ -1525,13 +1677,13 @@ class TestCaseResult(Model):
     :param iteration_details: Test result details of test iterations used only for Manual Testing.
     :type iteration_details: list of :class:`TestIterationDetailsModel <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.TestIterationDetailsModel>`
     :param last_updated_by: Reference to identity last updated test result.
-    :type last_updated_by: IdentityRef
+    :type last_updated_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.IdentityRef>`
     :param last_updated_date: Last updated datetime of test result.
     :type last_updated_date: datetime
     :param outcome: Test outcome of test result. Valid values = (Unspecified, None, Passed, Failed, Inconclusive, Timeout, Aborted, Blocked, NotExecuted, Warning, Error, NotApplicable, Paused, InProgress, NotImpacted)
     :type outcome: str
     :param owner: Reference to test owner.
-    :type owner: IdentityRef
+    :type owner: :class:`IdentityRef <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.IdentityRef>`
     :param priority: Priority of test executed.
     :type priority: int
     :param project: Reference to team project.
@@ -1551,7 +1703,7 @@ class TestCaseResult(Model):
     :param revision: Revision number of test result.
     :type revision: int
     :param run_by: Reference to identity executed the test.
-    :type run_by: IdentityRef
+    :type run_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.IdentityRef>`
     :param stack_trace: Stacktrace with maxSize= 1000 chars.
     :type stack_trace: str
     :param started_date: Time when test execution started.
@@ -2485,7 +2637,7 @@ class TestResultSummary(Model):
     :param no_config_runs_count:
     :type no_config_runs_count: int
     :param team_project:
-    :type team_project: TeamProjectReference
+    :type team_project: :class:`TeamProjectReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.TeamProjectReference>`
     :param test_failures:
     :type test_failures: :class:`TestFailuresAnalysis <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.TestFailuresAnalysis>`
     :param test_results_context:
@@ -2612,7 +2764,7 @@ class TestRun(Model):
     :param iteration: The iteration to which the run belongs.
     :type iteration: str
     :param last_updated_by: Team foundation ID of the last updated the test run.
-    :type last_updated_by: IdentityRef
+    :type last_updated_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.IdentityRef>`
     :param last_updated_date: Last updated date and time
     :type last_updated_date: datetime
     :param name: Name of the test run.
@@ -2620,7 +2772,7 @@ class TestRun(Model):
     :param not_applicable_tests: Number of Not Applicable Tests.
     :type not_applicable_tests: int
     :param owner: Team Foundation ID of the owner of the runs.
-    :type owner: IdentityRef
+    :type owner: :class:`IdentityRef <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.IdentityRef>`
     :param passed_tests: Number of passed tests in the run
     :type passed_tests: int
     :param phase: Phase/State for the testRun.
@@ -3163,11 +3315,14 @@ __all__ = [
     'FlakyDetectionPipelines',
     'FlakySettings',
     'FunctionCoverage',
+    'GraphSubjectBase',
+    'IdentityRef',
     'JobReference',
     'ModuleCoverage',
     'PhaseReference',
     'PipelineReference',
     'QueryModel',
+    'ReferenceLinks',
     'ReleaseReference',
     'ResultsFilter',
     'RunCreateModel',
@@ -3179,6 +3334,7 @@ __all__ = [
     'ShallowTestCaseResult',
     'SharedStepModel',
     'StageReference',
+    'TeamProjectReference',
     'TestAttachment',
     'TestAttachmentReference',
     'TestAttachmentRequestModel',
