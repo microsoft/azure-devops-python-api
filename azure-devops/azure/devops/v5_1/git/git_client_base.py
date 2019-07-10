@@ -783,7 +783,7 @@ class GitClientBase(Client):
         :param str scope_path: The path scope.  The default is null.
         :param str recursion_level: The recursion level of this request. The default is 'none', no recursion.
         :param bool include_content_metadata: Set to true to include content metadata.  Default is false.
-        :param bool latest_processed_change: Set to true to include the lastest changes.  Default is false.
+        :param bool latest_processed_change: Set to true to include the latest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
         :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.git.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is the default branch for the repository.
         :param bool include_content: Set to true to include item content when requesting json.  Default is false.
@@ -835,7 +835,7 @@ class GitClientBase(Client):
         :param str scope_path: The path scope.  The default is null.
         :param str recursion_level: The recursion level of this request. The default is 'none', no recursion.
         :param bool include_content_metadata: Set to true to include content metadata.  Default is false.
-        :param bool latest_processed_change: Set to true to include the lastest changes.  Default is false.
+        :param bool latest_processed_change: Set to true to include the latest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
         :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.git.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is the default branch for the repository.
         :param bool include_content: Set to true to include item content when requesting json.  Default is false.
@@ -891,7 +891,7 @@ class GitClientBase(Client):
         :param str scope_path: The path scope.  The default is null.
         :param str recursion_level: The recursion level of this request. The default is 'none', no recursion.
         :param bool include_content_metadata: Set to true to include content metadata.  Default is false.
-        :param bool latest_processed_change: Set to true to include the lastest changes.  Default is false.
+        :param bool latest_processed_change: Set to true to include the latest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
         :param bool include_links: Set to true to include links to items.  Default is false.
         :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.git.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is the default branch for the repository.
@@ -938,7 +938,7 @@ class GitClientBase(Client):
         :param str scope_path: The path scope.  The default is null.
         :param str recursion_level: The recursion level of this request. The default is 'none', no recursion.
         :param bool include_content_metadata: Set to true to include content metadata.  Default is false.
-        :param bool latest_processed_change: Set to true to include the lastest changes.  Default is false.
+        :param bool latest_processed_change: Set to true to include the latest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
         :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.git.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is the default branch for the repository.
         :param bool include_content: Set to true to include item content when requesting json.  Default is false.
@@ -995,7 +995,7 @@ class GitClientBase(Client):
         :param str scope_path: The path scope.  The default is null.
         :param str recursion_level: The recursion level of this request. The default is 'none', no recursion.
         :param bool include_content_metadata: Set to true to include content metadata.  Default is false.
-        :param bool latest_processed_change: Set to true to include the lastest changes.  Default is false.
+        :param bool latest_processed_change: Set to true to include the latest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
         :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.git.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is the default branch for the repository.
         :param bool include_content: Set to true to include item content when requesting json.  Default is false.

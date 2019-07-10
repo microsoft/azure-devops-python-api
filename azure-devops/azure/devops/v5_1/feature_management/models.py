@@ -23,7 +23,7 @@ class ContributedFeature(Model):
     :type description: str
     :param feature_properties: Extra properties for the feature
     :type feature_properties: dict
-    :param feature_state_changed_listeners: Handler for listening to setter calls on feature value. These listeners are only invoked after a successful set has occured
+    :param feature_state_changed_listeners: Handler for listening to setter calls on feature value. These listeners are only invoked after a successful set has occurred
     :type feature_state_changed_listeners: list of :class:`ContributedFeatureListener <azure.devops.v5_1.feature_management.models.ContributedFeatureListener>`
     :param id: The full contribution id of the feature
     :type id: str

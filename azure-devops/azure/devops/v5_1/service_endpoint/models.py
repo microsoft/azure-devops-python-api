@@ -922,7 +922,7 @@ class ReferenceLinks(Model):
 
 class ResultTransformationDetails(Model):
     """
-    Represents template to tranform the result data.
+    Represents template to transform the result data.
 
     :param callback_context_template: Gets or sets the template for callback parameters
     :type callback_context_template: str
@@ -963,7 +963,7 @@ class ServiceEndpoint(Model):
     :type group_scope_id: str
     :param id: Gets or sets the identifier of this endpoint.
     :type id: str
-    :param is_ready: EndPoint state indictor
+    :param is_ready: EndPoint state indicator
     :type is_ready: bool
     :param is_shared: Indicates whether service endpoint is shared with other projects or not.
     :type is_shared: bool

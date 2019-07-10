@@ -185,19 +185,19 @@ class ArtifactTriggerConfiguration(Model):
 
 class ArtifactTypeDefinition(Model):
     """
-    :param artifact_trigger_configuration: Gets or sets the artifact trigger configuration of artifact type defintion.
+    :param artifact_trigger_configuration: Gets or sets the artifact trigger configuration of artifact type definition.
     :type artifact_trigger_configuration: :class:`ArtifactTriggerConfiguration <azure.devops.v5_1.release.models.ArtifactTriggerConfiguration>`
-    :param artifact_type: Gets or sets the artifact type of artifact type defintion. Valid values are 'Build', 'Package', 'Source' or 'ContainerImage'.
+    :param artifact_type: Gets or sets the artifact type of artifact type definition. Valid values are 'Build', 'Package', 'Source' or 'ContainerImage'.
     :type artifact_type: str
-    :param display_name: Gets or sets the display name of artifact type defintion.
+    :param display_name: Gets or sets the display name of artifact type definition.
     :type display_name: str
-    :param endpoint_type_id: Gets or sets the endpoint type id of artifact type defintion.
+    :param endpoint_type_id: Gets or sets the endpoint type id of artifact type definition.
     :type endpoint_type_id: str
-    :param input_descriptors: Gets or sets the input descriptors of artifact type defintion.
+    :param input_descriptors: Gets or sets the input descriptors of artifact type definition.
     :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1.release.models.InputDescriptor>`
-    :param name: Gets or sets the name of artifact type defintion.
+    :param name: Gets or sets the name of artifact type definition.
     :type name: str
-    :param unique_source_identifier: Gets or sets the unique source identifier of artifact type defintion.
+    :param unique_source_identifier: Gets or sets the unique source identifier of artifact type definition.
     :type unique_source_identifier: str
     """
 
@@ -228,7 +228,7 @@ class ArtifactVersion(Model):
     :type alias: str
     :param default_version: Gets or sets the default version of artifact.
     :type default_version: :class:`BuildVersion <azure.devops.v5_1.release.models.BuildVersion>`
-    :param error_message: Gets or sets the error message encountered during quering of versions for artifact.
+    :param error_message: Gets or sets the error message encountered during querying of versions for artifact.
     :type error_message: str
     :param source_id:
     :type source_id: str
@@ -694,7 +694,7 @@ class DeploymentAttempt(Model):
     :type last_modified_by: :class:`IdentityRef <azure.devops.v5_1.release.models.IdentityRef>`
     :param last_modified_on: Time when this deployment last modified.
     :type last_modified_on: datetime
-    :param operation_status: Deployment opeartion status.
+    :param operation_status: Deployment operation status.
     :type operation_status: object
     :param post_deployment_gates: Post deployment gates that executed in this deployment.
     :type post_deployment_gates: :class:`ReleaseGates <azure.devops.v5_1.release.models.ReleaseGates>`
@@ -1888,13 +1888,13 @@ class ReleaseApprovalHistory(Model):
     :type approver: :class:`IdentityRef <azure.devops.v5_1.release.models.IdentityRef>`
     :param changed_by: Identity of the object who changed approval.
     :type changed_by: :class:`IdentityRef <azure.devops.v5_1.release.models.IdentityRef>`
-    :param comments: Approval histroy comments.
+    :param comments: Approval history comments.
     :type comments: str
     :param created_on: Time when this approval created.
     :type created_on: datetime
     :param modified_on: Time when this approval modified.
     :type modified_on: datetime
-    :param revision: Approval histroy revision.
+    :param revision: Approval history revision.
     :type revision: int
     """
 
@@ -2309,7 +2309,7 @@ class ReleaseDefinitionSummary(Model):
     :type environments: list of :class:`ReleaseDefinitionEnvironmentSummary <azure.devops.v5_1.release.models.ReleaseDefinitionEnvironmentSummary>`
     :param release_definition: Release Definition reference.
     :type release_definition: :class:`ReleaseDefinitionShallowReference <azure.devops.v5_1.release.models.ReleaseDefinitionShallowReference>`
-    :param releases: List of releases deployed using this Release Defintion.
+    :param releases: List of releases deployed using this Release Definition.
     :type releases: list of :class:`Release <azure.devops.v5_1.release.models.Release>`
     """
 

@@ -103,7 +103,7 @@ class AzureManagementGroup(Model):
     :type id: str
     :param name: Azure management group name
     :type name: str
-    :param tenant_id: Id of tenant from which azure management group belogs
+    :param tenant_id: Id of tenant from which azure management group belongs
     :type tenant_id: str
     """
 
@@ -1698,7 +1698,7 @@ class ServiceEndpoint(Model):
     :type group_scope_id: str
     :param id: Gets or sets the identifier of this endpoint.
     :type id: str
-    :param is_ready: EndPoint state indictor
+    :param is_ready: EndPoint state indicator
     :type is_ready: bool
     :param is_shared: Indicates whether service endpoint is shared with other projects or not.
     :type is_shared: bool
@@ -2142,7 +2142,7 @@ class TaskAgentCloudRequest(Model):
 
 class TaskAgentCloudType(Model):
     """
-    :param display_name: Gets or sets the display name of agnet cloud type.
+    :param display_name: Gets or sets the display name of agent cloud type.
     :type display_name: str
     :param input_descriptors: Gets or sets the input descriptors
     :type input_descriptors: list of :class:`InputDescriptor <azure.devops.v5_1.task_agent.models.InputDescriptor>`
@@ -2321,7 +2321,7 @@ class TaskAgentMessage(Model):
 
     :param body: Gets or sets the body of the message. If the <c>IV</c> property is provided the body will need to be decrypted using the <c>TaskAgentSession.EncryptionKey</c> value in addition to the <c>IV</c>.
     :type body: str
-    :param iV: Gets or sets the intialization vector used to encrypt this message.
+    :param iV: Gets or sets the initialization vector used to encrypt this message.
     :type iV: str
     :param message_id: Gets or sets the message identifier.
     :type message_id: long
@@ -2963,7 +2963,7 @@ class TaskDefinitionEndpoint(Model):
     :type connection_id: str
     :param key_selector: An Json based keyselector to filter response returned by fetching the endpoint <c>Url</c>.A Json based keyselector must be prefixed with "jsonpath:". KeySelector can be used to specify the filter to get the keys for the values specified with Selector. <example> The following keyselector defines an Json for extracting nodes named 'ServiceName'. <code> endpoint.KeySelector = "jsonpath://ServiceName"; </code></example>
     :type key_selector: str
-    :param scope: The scope as understood by Connected Services. Essentialy, a project-id for now.
+    :param scope: The scope as understood by Connected Services. Essentially, a project-id for now.
     :type scope: str
     :param selector: An XPath/Json based selector to filter response returned by fetching the endpoint <c>Url</c>. An XPath based selector must be prefixed with the string "xpath:". A Json based selector must be prefixed with "jsonpath:". <example> The following selector defines an XPath for extracting nodes named 'ServiceName'. <code> endpoint.Selector = "xpath://ServiceName"; </code></example>
     :type selector: str
