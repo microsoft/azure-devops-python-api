@@ -1410,7 +1410,7 @@ class WebApiUserLoadTestMachineInput(WebApiLoadTestMachineInput):
         'agent_group_name': {'key': 'agentGroupName', 'type': 'str'},
         'tenant_id': {'key': 'tenantId', 'type': 'str'},
         'user_load_agent_resources_uri': {'key': 'userLoadAgentResourcesUri', 'type': 'str'},
-        'vSTSAccount_uri': {'key': 'vSTSAccountUri', 'type': 'str'}
+        'vSTSAccount_uri': {'key': 'vstsAccountUri', 'type': 'str'}
     }
 
     def __init__(self, machine_group_id=None, machine_type=None, setup_configuration=None, supported_run_types=None, agent_group_name=None, tenant_id=None, user_load_agent_resources_uri=None, vSTSAccount_uri=None):

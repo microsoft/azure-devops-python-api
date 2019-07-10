@@ -786,7 +786,7 @@ class TeamProjectCollection(TeamProjectCollectionReference):
     :type _links: :class:`ReferenceLinks <azure.devops.v5_1.core.models.ReferenceLinks>`
     :param description: Project collection description.
     :type description: str
-    :param process_customization_type: Process customzation type on this collection. It can be Xml or Inherited.
+    :param process_customization_type: Process customization type on this collection. It can be Xml or Inherited.
     :type process_customization_type: object
     :param state: Project collection state.
     :type state: str

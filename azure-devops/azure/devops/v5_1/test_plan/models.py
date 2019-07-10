@@ -79,7 +79,7 @@ class CloneOptions(Model):
     :type clone_requirements: bool
     :param copy_all_suites: copy all suites from a source plan
     :type copy_all_suites: bool
-    :param copy_ancestor_hierarchy: copy ancestor hieracrchy
+    :param copy_ancestor_hierarchy: copy ancestor hierarchy
     :type copy_ancestor_hierarchy: bool
     :param destination_work_item_type: Name of the workitem type of the clone
     :type destination_work_item_type: str
@@ -112,7 +112,7 @@ class CloneStatistics(Model):
     """
     Clone Statistics Details.
 
-    :param cloned_requirements_count: Number of Requirments cloned so far.
+    :param cloned_requirements_count: Number of requirements cloned so far.
     :type cloned_requirements_count: int
     :param cloned_shared_steps_count: Number of shared steps cloned so far.
     :type cloned_shared_steps_count: int
@@ -552,7 +552,7 @@ class SuiteEntryUpdateParams(Model):
     :type id: int
     :param sequence_number: Sequence number for the suite entry object in the test suite.
     :type sequence_number: int
-    :param suite_entry_type: Defines whther the entry is of type test case or suite.
+    :param suite_entry_type: Defines whether the entry is of type test case or suite.
     :type suite_entry_type: object
     """
 
@@ -807,7 +807,7 @@ class TestOutcomeSettings(Model):
 
 class TestPlanCreateParams(Model):
     """
-    The test plan cerate parameters.
+    The test plan create parameters.
 
     :param area_path: Area of the test plan.
     :type area_path: str
@@ -1312,7 +1312,7 @@ class TestSuiteReferenceWithProject(TestSuiteReference):
     :type id: int
     :param name: Name of the test suite.
     :type name: str
-    :param project: Refernce of destination Project
+    :param project: Reference of destination Project
     :type project: :class:`TeamProjectReference <azure.devops.v5_1.test_plan.models.TeamProjectReference>`
     """
 
@@ -1529,7 +1529,7 @@ class SuiteEntry(SuiteEntryUpdateParams):
     :type id: int
     :param sequence_number: Sequence number for the suite entry object in the test suite.
     :type sequence_number: int
-    :param suite_entry_type: Defines whther the entry is of type test case or suite.
+    :param suite_entry_type: Defines whether the entry is of type test case or suite.
     :type suite_entry_type: object
     :param suite_id: Id for the test suite.
     :type suite_id: int
@@ -1625,7 +1625,7 @@ class TestPlan(TestPlanUpdateParams):
     :type _links: :class:`ReferenceLinks <azure.devops.v5_1.test_plan.models.ReferenceLinks>`
     :param id: ID of the test plan.
     :type id: int
-    :param previous_build_id: Previous build Id assocaited with the test plan
+    :param previous_build_id: Previous build Id associated with the test plan
     :type previous_build_id: int
     :param project: Project which contains the test plan.
     :type project: :class:`TeamProjectReference <azure.devops.v5_1.test_plan.models.TeamProjectReference>`

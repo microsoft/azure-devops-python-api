@@ -197,7 +197,7 @@ class BuildConfiguration(Model):
 
     :param branch_name: Branch name for which build is generated.
     :type branch_name: str
-    :param build_definition_id: BuildDefnitionId for build.
+    :param build_definition_id: BuildDefinitionId for build.
     :type build_definition_id: int
     :param build_system: Build system.
     :type build_system: str
@@ -213,7 +213,7 @@ class BuildConfiguration(Model):
     :type platform: str
     :param project: Project associated with this BuildConfiguration.
     :type project: :class:`ShallowReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.ShallowReference>`
-    :param repository_guid: ResposotoryGuid for the Build.
+    :param repository_guid: Repository Guid for the Build.
     :type repository_guid: str
     :param repository_id: Repository Id.
     :type repository_id: int
@@ -462,7 +462,7 @@ class CoverageStatistics(Model):
 
 class CustomTestField(Model):
     """
-    A custom field information. Allowed Key : Value pairs - ( AttemptId: IntVaue , IsTestResultFlaky: bool)
+    A custom field information. Allowed Key : Value pairs - ( AttemptId: int value, IsTestResultFlaky: bool)
 
     :param field_name: Field Name.
     :type field_name: str
@@ -741,7 +741,7 @@ class PhaseReference(Model):
     """
     Phase in pipeline
 
-    :param attempt: Attempt number of the pahse
+    :param attempt: Attempt number of the phase
     :type attempt: int
     :param phase_name: Name of the phase. Maximum supported length for name is 256 character.
     :type phase_name: str
@@ -766,7 +766,7 @@ class PipelineReference(Model):
     :type job_reference: :class:`JobReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.JobReference>`
     :param phase_reference: Reference of the phase.
     :type phase_reference: :class:`PhaseReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.PhaseReference>`
-    :param pipeline_id: Reference of the pipeline with which this pipeline intance is related.
+    :param pipeline_id: Reference of the pipeline with which this pipeline instance is related.
     :type pipeline_id: int
     :param stage_reference: Reference of the stage.
     :type stage_reference: :class:`StageReference <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.StageReference>`
@@ -972,7 +972,7 @@ class RunCreateModel(Model):
     :type release_uri: str
     :param run_summary: Run summary for run Type = NoConfigRun.
     :type run_summary: list of :class:`RunSummaryModel <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.RunSummaryModel>`
-    :param run_timeout: Timespan till the Run RunTimesout.
+    :param run_timeout: Timespan till the run times out.
     :type run_timeout: object
     :param source_workflow: SourceWorkFlow(CI/CD) of the test run.
     :type source_workflow: str
@@ -982,7 +982,7 @@ class RunCreateModel(Model):
     :type state: str
     :param tags: Tags to attach with the test run, maximum of 5 tags can be added to run.
     :type tags: list of :class:`TestTag <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.TestTag>`
-    :param test_configurations_mapping: TestConfgurationMapping of the test run.
+    :param test_configurations_mapping: TestConfigurationMapping of the test run.
     :type test_configurations_mapping: str
     :param test_environment_id: ID of the test environment associated with the run.
     :type test_environment_id: str
@@ -1839,7 +1839,7 @@ class TestHistoryQuery(Model):
     :type automated_test_name: str
     :param branch: Results to be get for a particular branches.
     :type branch: str
-    :param build_definition_id: Get the results history only for this BuildDefinationId. This to get used in query GroupBy should be Branch. If this is provided, Branch will have no use.
+    :param build_definition_id: Get the results history only for this BuildDefinitionId. This to get used in query GroupBy should be Branch. If this is provided, Branch will have no use.
     :type build_definition_id: int
     :param continuation_token: It will be filled by server. If not null means there are some results still to be get, and we need to call this REST API with this ContinuousToken. It is not supposed to be created (or altered, if received from server in last batch) by user.
     :type continuation_token: str
@@ -1890,7 +1890,7 @@ class TestIterationDetailsModel(Model):
 
     :param action_results: Test step results in an iteration.
     :type action_results: list of :class:`TestActionResultModel <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.TestActionResultModel>`
-    :param attachments: Refence to attachments in test iteration result.
+    :param attachments: Reference to attachments in test iteration result.
     :type attachments: list of :class:`TestCaseResultAttachmentModel <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.TestCaseResultAttachmentModel>`
     :param comment: Comment in test iteration result.
     :type comment: str
@@ -2515,7 +2515,7 @@ class TestResultSummary(Model):
 
 class TestResultsUpdateSettings(Model):
     """
-    :param flaky_settings: FlakySettings defines Flaky Setttings Data.
+    :param flaky_settings: FlakySettings defines Flaky Settings Data.
     :type flaky_settings: :class:`FlakySettings <azure.devops.v5_1.microsoft._team_foundation._test_management._web_api.models.FlakySettings>`
     """
 

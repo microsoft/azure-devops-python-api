@@ -700,7 +700,7 @@ class NotificationDetails(Model):
     :type request_attempts: int
     :param request_duration: Duration of the request to the consumer in seconds
     :type request_duration: float
-    :param response: Gets or sets this notification detail's reponse.
+    :param response: Gets or sets this notification detail's response.
     :type response: str
     """
 
@@ -980,7 +980,7 @@ class ResourceContainer(Model):
     """
     The base class for all resource containers, i.e. Account, Collection, Project
 
-    :param base_url: Gets or sets the container's base URL, i.e. the URL of the host (collection, application, or deploument) containing the container resource.
+    :param base_url: Gets or sets the container's base URL, i.e. the URL of the host (collection, application, or deployment) containing the container resource.
     :type base_url: str
     :param id: Gets or sets the container's specific Id.
     :type id: str
