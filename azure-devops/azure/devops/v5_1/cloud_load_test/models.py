@@ -12,7 +12,7 @@ from msrest.serialization import Model
 class AgentGroup(Model):
     """
     :param created_by:
-    :type created_by: IdentityRef
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param creation_time:
     :type creation_time: datetime
     :param group_id:
@@ -458,6 +458,92 @@ class ErrorDetails(Model):
         self.test_case_name = test_case_name
 
 
+class GraphSubjectBase(Model):
+    """
+    :param _links:
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.ReferenceLinks>`
+    :param descriptor:
+    :type descriptor: str
+    :param display_name:
+    :type display_name: str
+    :param url:
+    :type url: str
+    """
+
+    _attribute_map = {
+        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'descriptor': {'key': 'descriptor', 'type': 'str'},
+        'display_name': {'key': 'displayName', 'type': 'str'},
+        'url': {'key': 'url', 'type': 'str'}
+    }
+
+    def __init__(self, _links=None, descriptor=None, display_name=None, url=None):
+        super(GraphSubjectBase, self).__init__()
+        self._links = _links
+        self.descriptor = descriptor
+        self.display_name = display_name
+        self.url = url
+
+
+class IdentityRef(GraphSubjectBase):
+    """
+    :param _links:
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.ReferenceLinks>`
+    :param descriptor:
+    :type descriptor: str
+    :param display_name:
+    :type display_name: str
+    :param url:
+    :type url: str
+    :param directory_alias:
+    :type directory_alias: str
+    :param id:
+    :type id: str
+    :param image_url:
+    :type image_url: str
+    :param inactive:
+    :type inactive: bool
+    :param is_aad_identity:
+    :type is_aad_identity: bool
+    :param is_container:
+    :type is_container: bool
+    :param is_deleted_in_origin:
+    :type is_deleted_in_origin: bool
+    :param profile_url:
+    :type profile_url: str
+    :param unique_name:
+    :type unique_name: str
+    """
+
+    _attribute_map = {
+        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'descriptor': {'key': 'descriptor', 'type': 'str'},
+        'display_name': {'key': 'displayName', 'type': 'str'},
+        'url': {'key': 'url', 'type': 'str'},
+        'directory_alias': {'key': 'directoryAlias', 'type': 'str'},
+        'id': {'key': 'id', 'type': 'str'},
+        'image_url': {'key': 'imageUrl', 'type': 'str'},
+        'inactive': {'key': 'inactive', 'type': 'bool'},
+        'is_aad_identity': {'key': 'isAadIdentity', 'type': 'bool'},
+        'is_container': {'key': 'isContainer', 'type': 'bool'},
+        'is_deleted_in_origin': {'key': 'isDeletedInOrigin', 'type': 'bool'},
+        'profile_url': {'key': 'profileUrl', 'type': 'str'},
+        'unique_name': {'key': 'uniqueName', 'type': 'str'}
+    }
+
+    def __init__(self, _links=None, descriptor=None, display_name=None, url=None, directory_alias=None, id=None, image_url=None, inactive=None, is_aad_identity=None, is_container=None, is_deleted_in_origin=None, profile_url=None, unique_name=None):
+        super(IdentityRef, self).__init__(_links=_links, descriptor=descriptor, display_name=display_name, url=url)
+        self.directory_alias = directory_alias
+        self.id = id
+        self.image_url = image_url
+        self.inactive = inactive
+        self.is_aad_identity = is_aad_identity
+        self.is_container = is_container
+        self.is_deleted_in_origin = is_deleted_in_origin
+        self.profile_url = profile_url
+        self.unique_name = unique_name
+
+
 class LoadGenerationGeoLocation(Model):
     """
     :param location:
@@ -671,6 +757,21 @@ class PageSummary(Model):
         self.total_pages = total_pages
 
 
+class ReferenceLinks(Model):
+    """
+    :param links:
+    :type links: dict
+    """
+
+    _attribute_map = {
+        'links': {'key': 'links', 'type': '{object}'}
+    }
+
+    def __init__(self, links=None):
+        super(ReferenceLinks, self).__init__()
+        self.links = links
+
+
 class RequestSummary(Model):
     """
     :param average_response_time:
@@ -850,13 +951,13 @@ class TestDefinitionBasic(Model):
     :param access_data:
     :type access_data: :class:`DropAccessData <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.DropAccessData>`
     :param created_by:
-    :type created_by: IdentityRef
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param created_date:
     :type created_date: datetime
     :param id:
     :type id: str
     :param last_modified_by:
-    :type last_modified_by: IdentityRef
+    :type last_modified_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param last_modified_date:
     :type last_modified_date: datetime
     :param load_test_type:
@@ -1050,11 +1151,11 @@ class TestRunAbortMessage(Model):
 class TestRunBasic(Model):
     """
     :param created_by:
-    :type created_by: IdentityRef
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param created_date:
     :type created_date: datetime
     :param deleted_by:
-    :type deleted_by: IdentityRef
+    :type deleted_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param deleted_date:
     :type deleted_date: datetime
     :param finished_date:
@@ -1485,13 +1586,13 @@ class TestDefinition(TestDefinitionBasic):
     :param access_data:
     :type access_data: :class:`DropAccessData <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.DropAccessData>`
     :param created_by:
-    :type created_by: IdentityRef
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param created_date:
     :type created_date: datetime
     :param id:
     :type id: str
     :param last_modified_by:
-    :type last_modified_by: IdentityRef
+    :type last_modified_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param last_modified_date:
     :type last_modified_date: datetime
     :param load_test_type:
@@ -1542,11 +1643,11 @@ class TestDefinition(TestDefinitionBasic):
 class TestRun(TestRunBasic):
     """
     :param created_by:
-    :type created_by: IdentityRef
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param created_date:
     :type created_date: datetime
     :param deleted_by:
-    :type deleted_by: IdentityRef
+    :type deleted_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param deleted_date:
     :type deleted_date: datetime
     :param finished_date:
@@ -1594,11 +1695,11 @@ class TestRun(TestRunBasic):
     :param run_source_url:
     :type run_source_url: str
     :param started_by:
-    :type started_by: IdentityRef
+    :type started_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param started_date:
     :type started_date: datetime
     :param stopped_by:
-    :type stopped_by: IdentityRef
+    :type stopped_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param sub_state:
     :type sub_state: object
     :param supersede_run_settings:
@@ -1691,6 +1792,8 @@ __all__ = [
     'Diagnostics',
     'DropAccessData',
     'ErrorDetails',
+    'GraphSubjectBase',
+    'IdentityRef',
     'LoadGenerationGeoLocation',
     'LoadTest',
     'LoadTestDefinition',
@@ -1698,6 +1801,7 @@ __all__ = [
     'LoadTestRunSettings',
     'OverridableRunSettings',
     'PageSummary',
+    'ReferenceLinks',
     'RequestSummary',
     'ScenarioSummary',
     'StaticAgentRunSetting',
