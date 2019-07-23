@@ -1156,7 +1156,7 @@ class ServiceEndpointExecutionOwner(Model):
 
 class ServiceEndpointExecutionRecord(Model):
     """
-    Represents the details of service ednpoint execution.
+    Represents the details of service endpoint execution.
 
     :param data: Gets the execution data of service endpoint execution.
     :type data: :class:`ServiceEndpointExecutionData <azure.devops.v5_1.service_endpoint.models.ServiceEndpointExecutionData>`

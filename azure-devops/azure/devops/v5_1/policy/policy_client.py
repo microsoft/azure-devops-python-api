@@ -27,7 +27,7 @@ class PolicyClient(Client):
 
     def create_policy_configuration(self, configuration, project, configuration_id=None):
         """CreatePolicyConfiguration.
-        [Preview API] Create a policy configuration of a given policy type.
+        Create a policy configuration of a given policy type.
         :param :class:`<PolicyConfiguration> <azure.devops.v5_1.policy.models.PolicyConfiguration>` configuration: The policy configuration to create.
         :param str project: Project ID or project name
         :param int configuration_id:
@@ -41,14 +41,14 @@ class PolicyClient(Client):
         content = self._serialize.body(configuration, 'PolicyConfiguration')
         response = self._send(http_method='POST',
                               location_id='dad91cbe-d183-45f8-9c6e-9c1164472121',
-                              version='5.1-preview.1',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('PolicyConfiguration', response)
 
     def delete_policy_configuration(self, project, configuration_id):
         """DeletePolicyConfiguration.
-        [Preview API] Delete a policy configuration by its ID.
+        Delete a policy configuration by its ID.
         :param str project: Project ID or project name
         :param int configuration_id: ID of the policy configuration to delete.
         """
@@ -59,12 +59,12 @@ class PolicyClient(Client):
             route_values['configurationId'] = self._serialize.url('configuration_id', configuration_id, 'int')
         self._send(http_method='DELETE',
                    location_id='dad91cbe-d183-45f8-9c6e-9c1164472121',
-                   version='5.1-preview.1',
+                   version='5.1',
                    route_values=route_values)
 
     def get_policy_configuration(self, project, configuration_id):
         """GetPolicyConfiguration.
-        [Preview API] Get a policy configuration by its ID.
+        Get a policy configuration by its ID.
         :param str project: Project ID or project name
         :param int configuration_id: ID of the policy configuration
         :rtype: :class:`<PolicyConfiguration> <azure.devops.v5_1.policy.models.PolicyConfiguration>`
@@ -76,13 +76,13 @@ class PolicyClient(Client):
             route_values['configurationId'] = self._serialize.url('configuration_id', configuration_id, 'int')
         response = self._send(http_method='GET',
                               location_id='dad91cbe-d183-45f8-9c6e-9c1164472121',
-                              version='5.1-preview.1',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('PolicyConfiguration', response)
 
     def get_policy_configurations(self, project, scope=None, policy_type=None):
         """GetPolicyConfigurations.
-        [Preview API] Get a list of policy configurations in a project.
+        Get a list of policy configurations in a project.
         :param str project: Project ID or project name
         :param str scope: [Provided for legacy reasons] The scope on which a subset of policies is defined.
         :param str policy_type: Filter returned policies to only this type
@@ -98,14 +98,14 @@ class PolicyClient(Client):
             query_parameters['policyType'] = self._serialize.query('policy_type', policy_type, 'str')
         response = self._send(http_method='GET',
                               location_id='dad91cbe-d183-45f8-9c6e-9c1164472121',
-                              version='5.1-preview.1',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[PolicyConfiguration]', self._unwrap_collection(response))
 
     def update_policy_configuration(self, configuration, project, configuration_id):
         """UpdatePolicyConfiguration.
-        [Preview API] Update a policy configuration by its ID.
+        Update a policy configuration by its ID.
         :param :class:`<PolicyConfiguration> <azure.devops.v5_1.policy.models.PolicyConfiguration>` configuration: The policy configuration to update.
         :param str project: Project ID or project name
         :param int configuration_id: ID of the existing policy configuration to be updated.
@@ -119,7 +119,7 @@ class PolicyClient(Client):
         content = self._serialize.body(configuration, 'PolicyConfiguration')
         response = self._send(http_method='PUT',
                               location_id='dad91cbe-d183-45f8-9c6e-9c1164472121',
-                              version='5.1-preview.1',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('PolicyConfiguration', response)
@@ -191,7 +191,7 @@ class PolicyClient(Client):
 
     def get_policy_configuration_revision(self, project, configuration_id, revision_id):
         """GetPolicyConfigurationRevision.
-        [Preview API] Retrieve a specific revision of a given policy by ID.
+        Retrieve a specific revision of a given policy by ID.
         :param str project: Project ID or project name
         :param int configuration_id: The policy configuration ID.
         :param int revision_id: The revision ID.
@@ -206,13 +206,13 @@ class PolicyClient(Client):
             route_values['revisionId'] = self._serialize.url('revision_id', revision_id, 'int')
         response = self._send(http_method='GET',
                               location_id='fe1e68a2-60d3-43cb-855b-85e41ae97c95',
-                              version='5.1-preview.1',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('PolicyConfiguration', response)
 
     def get_policy_configuration_revisions(self, project, configuration_id, top=None, skip=None):
         """GetPolicyConfigurationRevisions.
-        [Preview API] Retrieve all revisions for a given policy.
+        Retrieve all revisions for a given policy.
         :param str project: Project ID or project name
         :param int configuration_id: The policy configuration ID.
         :param int top: The number of revisions to retrieve.
@@ -231,14 +231,14 @@ class PolicyClient(Client):
             query_parameters['$skip'] = self._serialize.query('skip', skip, 'int')
         response = self._send(http_method='GET',
                               location_id='fe1e68a2-60d3-43cb-855b-85e41ae97c95',
-                              version='5.1-preview.1',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[PolicyConfiguration]', self._unwrap_collection(response))
 
     def get_policy_type(self, project, type_id):
         """GetPolicyType.
-        [Preview API] Retrieve a specific policy type by ID.
+        Retrieve a specific policy type by ID.
         :param str project: Project ID or project name
         :param str type_id: The policy ID.
         :rtype: :class:`<PolicyType> <azure.devops.v5_1.policy.models.PolicyType>`
@@ -250,13 +250,13 @@ class PolicyClient(Client):
             route_values['typeId'] = self._serialize.url('type_id', type_id, 'str')
         response = self._send(http_method='GET',
                               location_id='44096322-2d3d-466a-bb30-d1b7de69f61f',
-                              version='5.1-preview.1',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('PolicyType', response)
 
     def get_policy_types(self, project):
         """GetPolicyTypes.
-        [Preview API] Retrieve all available policy types.
+        Retrieve all available policy types.
         :param str project: Project ID or project name
         :rtype: [PolicyType]
         """
@@ -265,7 +265,7 @@ class PolicyClient(Client):
             route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='44096322-2d3d-466a-bb30-d1b7de69f61f',
-                              version='5.1-preview.1',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('[PolicyType]', self._unwrap_collection(response))
 
