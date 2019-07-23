@@ -97,7 +97,7 @@ class DashboardGroup(Model):
 
 class DashboardGroupEntry(Dashboard):
     """
-    Dashboard group entry, wraping around Dashboard (needed?)
+    Dashboard group entry, wrapping around Dashboard (needed?)
 
     :param _links:
     :type _links: :class:`ReferenceLinks <azure.devops.v5_1.dashboard.models.ReferenceLinks>`

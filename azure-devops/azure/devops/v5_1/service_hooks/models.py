@@ -909,7 +909,7 @@ class PublisherEvent(Model):
     :type other_resource_versions: list of :class:`VersionedResource <azure.devops.v5_1.service_hooks.models.VersionedResource>`
     :param publisher_input_filters: Optional publisher-input filters which restricts the set of subscriptions which are triggered by the event
     :type publisher_input_filters: list of :class:`InputFilter <azure.devops.v5_1.service_hooks.models.InputFilter>`
-    :param subscription: Gets or sets matchd hooks subscription which caused this event.
+    :param subscription: Gets or sets matched hooks subscription which caused this event.
     :type subscription: :class:`Subscription <azure.devops.v5_1.service_hooks.models.Subscription>`
     """
 
