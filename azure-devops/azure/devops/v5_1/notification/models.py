@@ -1304,7 +1304,7 @@ class SubscriptionEvaluationRequest(Model):
 
 class SubscriptionEvaluationResult(Model):
     """
-    Ecapsulates the subscription evaluation results. It defines the Date Interval that was used, number of events evaluated and events and notifications results
+    Encapsulates the subscription evaluation results. It defines the Date Interval that was used, number of events evaluated and events and notifications results
 
     :param evaluation_job_status: Subscription evaluation job status
     :type evaluation_job_status: object

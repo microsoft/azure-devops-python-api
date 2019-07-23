@@ -65,7 +65,7 @@ class Answers(Model):
     """
     :param vSMarketplace_extension_name: Gets or sets the vs marketplace extension name
     :type vSMarketplace_extension_name: str
-    :param vSMarketplace_publisher_name: Gets or sets the vs marketplace publsiher name
+    :param vSMarketplace_publisher_name: Gets or sets the vs marketplace publisher name
     :type vSMarketplace_publisher_name: str
     """
 
@@ -1576,7 +1576,7 @@ class Review(Model):
     :type is_ignored: bool
     :param product_version: Version of the product for which review was submitted
     :type product_version: str
-    :param rating: Rating procided by the user
+    :param rating: Rating provided by the user
     :type rating: str
     :param reply: Reply, if any, for this review
     :type reply: :class:`ReviewReply <azure.devops.v5_1.gallery.models.ReviewReply>`
