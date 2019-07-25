@@ -10,8 +10,7 @@ from msrest.serialization import Model
 
 
 class ConfigurationFile(Model):
-    """ConfigurationFile.
-
+    """
     :param content: The content of the file.
     :type content: str
     :param is_base64_encoded: Indicates if the content is base64 encoded.
@@ -34,8 +33,7 @@ class ConfigurationFile(Model):
 
 
 class CreatedResources(Model):
-    """CreatedResources.
-
+    """
     :param resources:
     :type resources: dict
     """
@@ -50,7 +48,8 @@ class CreatedResources(Model):
 
 
 class CreatePipelineConnectionInputs(Model):
-    """CreatePipelineConnectionInputs.
+    """
+    This class is used to create a pipeline connection within the team project provided. If the team project does not exist, it will be created.
 
     :param project: The team project settings for an existing team project or for a new team project.
     :type project: :class:`TeamProject <azure.devops.v5_1.pipelines.models.TeamProject>`
@@ -82,8 +81,7 @@ class CreatePipelineConnectionInputs(Model):
 
 
 class DetectedBuildFramework(Model):
-    """DetectedBuildFramework.
-
+    """
     :param build_targets: List of build targets discovered for the framework to act upon.
     :type build_targets: list of :class:`DetectedBuildTarget <azure.devops.v5_1.pipelines.models.DetectedBuildTarget>`
     :param id: The unique identifier of the build framework.
@@ -110,8 +108,7 @@ class DetectedBuildFramework(Model):
 
 
 class DetectedBuildTarget(Model):
-    """DetectedBuildTarget.
-
+    """
     :param path:
     :type path: str
     :param settings:
@@ -134,7 +131,8 @@ class DetectedBuildTarget(Model):
 
 
 class OperationReference(Model):
-    """OperationReference.
+    """
+    Reference for an async operation.
 
     :param id: Unique identifier for the operation.
     :type id: str
@@ -162,8 +160,7 @@ class OperationReference(Model):
 
 
 class OperationResultReference(Model):
-    """OperationResultReference.
-
+    """
     :param result_url: URL to the operation result.
     :type result_url: str
     """
@@ -178,8 +175,7 @@ class OperationResultReference(Model):
 
 
 class PipelineConnection(Model):
-    """PipelineConnection.
-
+    """
     :param account_id: The account id that contains the team project for the connection.
     :type account_id: str
     :param definition_id: The definition id that was created for the connection.
@@ -210,7 +206,8 @@ class PipelineConnection(Model):
 
 
 class ReferenceLinks(Model):
-    """ReferenceLinks.
+    """
+    The class to represent a collection of REST reference links.
 
     :param links: The readonly view of the links.  Because Reference links are readonly, we only want to expose them as read only.
     :type links: dict
@@ -226,8 +223,7 @@ class ReferenceLinks(Model):
 
 
 class ResourceCreationParameter(Model):
-    """ResourceCreationParameter.
-
+    """
     :param resource_to_create:
     :type resource_to_create: :class:`object <azure.devops.v5_1.pipelines.models.object>`
     :param type:
@@ -246,7 +242,8 @@ class ResourceCreationParameter(Model):
 
 
 class TeamProjectReference(Model):
-    """TeamProjectReference.
+    """
+    Represents a shallow reference to a TeamProject.
 
     :param abbreviation: Project abbreviation.
     :type abbreviation: str
@@ -298,8 +295,7 @@ class TeamProjectReference(Model):
 
 
 class Template(Model):
-    """Template.
-
+    """
     :param assets:
     :type assets: list of :class:`TemplateAsset <azure.devops.v5_1.pipelines.models.TemplateAsset>`
     :param content:
@@ -346,8 +342,7 @@ class Template(Model):
 
 
 class TemplateAsset(Model):
-    """TemplateAsset.
-
+    """
     :param content:
     :type content: str
     :param description:
@@ -378,8 +373,7 @@ class TemplateAsset(Model):
 
 
 class TemplateDataSourceBinding(Model):
-    """TemplateDataSourceBinding.
-
+    """
     :param data_source_name:
     :type data_source_name: str
     :param endpoint_parameter_name:
@@ -410,8 +404,7 @@ class TemplateDataSourceBinding(Model):
 
 
 class TemplateParameterDefinition(Model):
-    """TemplateParameterDefinition.
-
+    """
     :param default_value:
     :type default_value: str
     :param display_name:
@@ -446,8 +439,7 @@ class TemplateParameterDefinition(Model):
 
 
 class TemplateParameters(Model):
-    """TemplateParameters.
-
+    """
     :param tokens:
     :type tokens: dict
     """
@@ -462,8 +454,7 @@ class TemplateParameters(Model):
 
 
 class WebApiTeamRef(Model):
-    """WebApiTeamRef.
-
+    """
     :param id: Team (Identity) Guid. A Team Foundation ID.
     :type id: str
     :param name: Team name
@@ -486,7 +477,8 @@ class WebApiTeamRef(Model):
 
 
 class Operation(OperationReference):
-    """Operation.
+    """
+    Contains information about the progress or result of an async operation.
 
     :param id: Unique identifier for the operation.
     :type id: str
@@ -526,7 +518,8 @@ class Operation(OperationReference):
 
 
 class TeamProject(TeamProjectReference):
-    """TeamProject.
+    """
+    Represents a Team Project object.
 
     :param abbreviation: Project abbreviation.
     :type abbreviation: str

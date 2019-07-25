@@ -945,24 +945,6 @@ class TestResultsClient(Client):
                               content=content)
         return self._deserialize('[AggregatedDataForResultTrend]', self._unwrap_collection(response))
 
-    def get_test_run_statistics(self, project, run_id):
-        """GetTestRunStatistics.
-        [Preview API] Get test run statistics , used when we want to get summary of a run by outcome.
-        :param str project: Project ID or project name
-        :param int run_id: ID of the run to get.
-        :rtype: :class:`<TestRunStatistic> <azure.devops.v5_1.test_results.models.TestRunStatistic>`
-        """
-        route_values = {}
-        if project is not None:
-            route_values['project'] = self._serialize.url('project', project, 'str')
-        if run_id is not None:
-            route_values['runId'] = self._serialize.url('run_id', run_id, 'int')
-        response = self._send(http_method='GET',
-                              location_id='82b986e8-ca9e-4a89-b39e-f65c69bc104a',
-                              version='5.1-preview.1',
-                              route_values=route_values)
-        return self._deserialize('TestRunStatistic', response)
-
     def create_test_run(self, test_run, project):
         """CreateTestRun.
         [Preview API]
@@ -1156,6 +1138,24 @@ class TestResultsClient(Client):
                               route_values=route_values,
                               content=content)
         return self._deserialize('TestRun', response)
+
+    def get_test_run_statistics(self, project, run_id):
+        """GetTestRunStatistics.
+        Get test run statistics , used when we want to get summary of a run by outcome.
+        :param str project: Project ID or project name
+        :param int run_id: ID of the run to get.
+        :rtype: :class:`<TestRunStatistic> <azure.devops.v5_1.test_results.models.TestRunStatistic>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if run_id is not None:
+            route_values['runId'] = self._serialize.url('run_id', run_id, 'int')
+        response = self._send(http_method='GET',
+                              location_id='82b986e8-ca9e-4a89-b39e-f65c69bc104a',
+                              version='5.1',
+                              route_values=route_values)
+        return self._deserialize('TestRunStatistic', response)
 
     def get_test_results_settings(self, project, settings_type=None):
         """GetTestResultsSettings.

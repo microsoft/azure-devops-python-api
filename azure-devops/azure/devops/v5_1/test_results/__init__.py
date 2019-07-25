@@ -7,7 +7,7 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
-from .test_results_client import testResultsClient
+from .test_results_client import TestResultsClient
 
 __all__ = [
     'AggregatedDataForResultTrend',
@@ -32,11 +32,14 @@ __all__ = [
     'FlakyDetectionPipelines',
     'FlakySettings',
     'FunctionCoverage',
+    'GraphSubjectBase',
+    'IdentityRef',
     'JobReference',
     'ModuleCoverage',
     'PhaseReference',
     'PipelineReference',
     'QueryModel',
+    'ReferenceLinks',
     'ReleaseReference',
     'ResultsFilter',
     'RunCreateModel',
@@ -48,6 +51,7 @@ __all__ = [
     'ShallowTestCaseResult',
     'SharedStepModel',
     'StageReference',
+    'TeamProjectReference',
     'TestActionResultModel',
     'TestAttachment',
     'TestAttachmentReference',
@@ -97,5 +101,5 @@ __all__ = [
     'TestToWorkItemLinks',
     'WorkItemReference',
     'WorkItemToTestLinks',
-    'testResultsClient'
+    'TestResultsClient'
 ]

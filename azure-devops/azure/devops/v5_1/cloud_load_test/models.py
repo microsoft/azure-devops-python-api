@@ -10,10 +10,9 @@ from msrest.serialization import Model
 
 
 class AgentGroup(Model):
-    """AgentGroup.
-
+    """
     :param created_by:
-    :type created_by: IdentityRef
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param creation_time:
     :type creation_time: datetime
     :param group_id:
@@ -50,8 +49,7 @@ class AgentGroup(Model):
 
 
 class AgentGroupAccessData(Model):
-    """AgentGroupAccessData.
-
+    """
     :param details:
     :type details: str
     :param storage_connection_string:
@@ -82,8 +80,7 @@ class AgentGroupAccessData(Model):
 
 
 class Application(Model):
-    """Application.
-
+    """
     :param application_id:
     :type application_id: str
     :param description:
@@ -122,8 +119,7 @@ class Application(Model):
 
 
 class ApplicationCounters(Model):
-    """ApplicationCounters.
-
+    """
     :param application_id:
     :type application_id: str
     :param description:
@@ -158,8 +154,7 @@ class ApplicationCounters(Model):
 
 
 class ApplicationType(Model):
-    """ApplicationType.
-
+    """
     :param action_uri_link:
     :type action_uri_link: str
     :param aut_portal_link:
@@ -194,8 +189,7 @@ class ApplicationType(Model):
 
 
 class BrowserMix(Model):
-    """BrowserMix.
-
+    """
     :param browser_name:
     :type browser_name: str
     :param browser_percentage:
@@ -214,8 +208,7 @@ class BrowserMix(Model):
 
 
 class CltCustomerIntelligenceData(Model):
-    """CltCustomerIntelligenceData.
-
+    """
     :param area:
     :type area: str
     :param feature:
@@ -238,8 +231,7 @@ class CltCustomerIntelligenceData(Model):
 
 
 class CounterGroup(Model):
-    """CounterGroup.
-
+    """
     :param group_name:
     :type group_name: str
     :param url:
@@ -258,8 +250,7 @@ class CounterGroup(Model):
 
 
 class CounterInstanceSamples(Model):
-    """CounterInstanceSamples.
-
+    """
     :param count:
     :type count: int
     :param counter_instance_id:
@@ -286,8 +277,7 @@ class CounterInstanceSamples(Model):
 
 
 class CounterSample(Model):
-    """CounterSample.
-
+    """
     :param base_value:
     :type base_value: long
     :param computed_value:
@@ -338,8 +328,7 @@ class CounterSample(Model):
 
 
 class CounterSampleQueryDetails(Model):
-    """CounterSampleQueryDetails.
-
+    """
     :param counter_instance_id:
     :type counter_instance_id: str
     :param from_interval:
@@ -362,8 +351,7 @@ class CounterSampleQueryDetails(Model):
 
 
 class CounterSamplesResult(Model):
-    """CounterSamplesResult.
-
+    """
     :param count:
     :type count: int
     :param max_batch_size:
@@ -390,8 +378,7 @@ class CounterSamplesResult(Model):
 
 
 class Diagnostics(Model):
-    """Diagnostics.
-
+    """
     :param diagnostic_store_connection_string:
     :type diagnostic_store_connection_string: str
     :param last_modified_time:
@@ -414,8 +401,7 @@ class Diagnostics(Model):
 
 
 class DropAccessData(Model):
-    """DropAccessData.
-
+    """
     :param drop_container_url:
     :type drop_container_url: str
     :param sas_key:
@@ -434,8 +420,7 @@ class DropAccessData(Model):
 
 
 class ErrorDetails(Model):
-    """ErrorDetails.
-
+    """
     :param last_error_date:
     :type last_error_date: datetime
     :param message_text:
@@ -473,9 +458,94 @@ class ErrorDetails(Model):
         self.test_case_name = test_case_name
 
 
-class LoadGenerationGeoLocation(Model):
-    """LoadGenerationGeoLocation.
+class GraphSubjectBase(Model):
+    """
+    :param _links:
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.ReferenceLinks>`
+    :param descriptor:
+    :type descriptor: str
+    :param display_name:
+    :type display_name: str
+    :param url:
+    :type url: str
+    """
 
+    _attribute_map = {
+        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'descriptor': {'key': 'descriptor', 'type': 'str'},
+        'display_name': {'key': 'displayName', 'type': 'str'},
+        'url': {'key': 'url', 'type': 'str'}
+    }
+
+    def __init__(self, _links=None, descriptor=None, display_name=None, url=None):
+        super(GraphSubjectBase, self).__init__()
+        self._links = _links
+        self.descriptor = descriptor
+        self.display_name = display_name
+        self.url = url
+
+
+class IdentityRef(GraphSubjectBase):
+    """
+    :param _links:
+    :type _links: :class:`ReferenceLinks <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.ReferenceLinks>`
+    :param descriptor:
+    :type descriptor: str
+    :param display_name:
+    :type display_name: str
+    :param url:
+    :type url: str
+    :param directory_alias:
+    :type directory_alias: str
+    :param id:
+    :type id: str
+    :param image_url:
+    :type image_url: str
+    :param inactive:
+    :type inactive: bool
+    :param is_aad_identity:
+    :type is_aad_identity: bool
+    :param is_container:
+    :type is_container: bool
+    :param is_deleted_in_origin:
+    :type is_deleted_in_origin: bool
+    :param profile_url:
+    :type profile_url: str
+    :param unique_name:
+    :type unique_name: str
+    """
+
+    _attribute_map = {
+        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'descriptor': {'key': 'descriptor', 'type': 'str'},
+        'display_name': {'key': 'displayName', 'type': 'str'},
+        'url': {'key': 'url', 'type': 'str'},
+        'directory_alias': {'key': 'directoryAlias', 'type': 'str'},
+        'id': {'key': 'id', 'type': 'str'},
+        'image_url': {'key': 'imageUrl', 'type': 'str'},
+        'inactive': {'key': 'inactive', 'type': 'bool'},
+        'is_aad_identity': {'key': 'isAadIdentity', 'type': 'bool'},
+        'is_container': {'key': 'isContainer', 'type': 'bool'},
+        'is_deleted_in_origin': {'key': 'isDeletedInOrigin', 'type': 'bool'},
+        'profile_url': {'key': 'profileUrl', 'type': 'str'},
+        'unique_name': {'key': 'uniqueName', 'type': 'str'}
+    }
+
+    def __init__(self, _links=None, descriptor=None, display_name=None, url=None, directory_alias=None, id=None, image_url=None, inactive=None, is_aad_identity=None, is_container=None, is_deleted_in_origin=None, profile_url=None, unique_name=None):
+        super(IdentityRef, self).__init__(_links=_links, descriptor=descriptor, display_name=display_name, url=url)
+        self.directory_alias = directory_alias
+        self.id = id
+        self.image_url = image_url
+        self.inactive = inactive
+        self.is_aad_identity = is_aad_identity
+        self.is_container = is_container
+        self.is_deleted_in_origin = is_deleted_in_origin
+        self.profile_url = profile_url
+        self.unique_name = unique_name
+
+
+class LoadGenerationGeoLocation(Model):
+    """
     :param location:
     :type location: str
     :param percentage:
@@ -494,8 +564,7 @@ class LoadGenerationGeoLocation(Model):
 
 
 class LoadTest(Model):
-    """LoadTest.
-
+    """
     """
 
     _attribute_map = {
@@ -506,8 +575,7 @@ class LoadTest(Model):
 
 
 class LoadTestDefinition(Model):
-    """LoadTestDefinition.
-
+    """
     :param agent_count:
     :type agent_count: int
     :param browser_mixs:
@@ -566,8 +634,7 @@ class LoadTestDefinition(Model):
 
 
 class LoadTestErrors(Model):
-    """LoadTestErrors.
-
+    """
     :param count:
     :type count: int
     :param occurrences:
@@ -594,8 +661,7 @@ class LoadTestErrors(Model):
 
 
 class LoadTestRunSettings(Model):
-    """LoadTestRunSettings.
-
+    """
     :param agent_count:
     :type agent_count: int
     :param core_count:
@@ -634,8 +700,7 @@ class LoadTestRunSettings(Model):
 
 
 class OverridableRunSettings(Model):
-    """OverridableRunSettings.
-
+    """
     :param load_generator_machines_type:
     :type load_generator_machines_type: object
     :param static_agent_run_settings:
@@ -654,8 +719,7 @@ class OverridableRunSettings(Model):
 
 
 class PageSummary(Model):
-    """PageSummary.
-
+    """
     :param average_page_time:
     :type average_page_time: float
     :param page_url:
@@ -693,9 +757,23 @@ class PageSummary(Model):
         self.total_pages = total_pages
 
 
-class RequestSummary(Model):
-    """RequestSummary.
+class ReferenceLinks(Model):
+    """
+    :param links:
+    :type links: dict
+    """
 
+    _attribute_map = {
+        'links': {'key': 'links', 'type': '{object}'}
+    }
+
+    def __init__(self, links=None):
+        super(ReferenceLinks, self).__init__()
+        self.links = links
+
+
+class RequestSummary(Model):
+    """
     :param average_response_time:
     :type average_response_time: float
     :param failed_requests:
@@ -742,8 +820,7 @@ class RequestSummary(Model):
 
 
 class ScenarioSummary(Model):
-    """ScenarioSummary.
-
+    """
     :param max_user_load:
     :type max_user_load: int
     :param min_user_load:
@@ -766,8 +843,7 @@ class ScenarioSummary(Model):
 
 
 class StaticAgentRunSetting(Model):
-    """StaticAgentRunSetting.
-
+    """
     :param load_generator_machines_type:
     :type load_generator_machines_type: object
     :param static_agent_group_name:
@@ -786,8 +862,7 @@ class StaticAgentRunSetting(Model):
 
 
 class SubType(Model):
-    """SubType.
-
+    """
     :param count:
     :type count: int
     :param error_detail_list:
@@ -818,8 +893,7 @@ class SubType(Model):
 
 
 class SummaryPercentileData(Model):
-    """SummaryPercentileData.
-
+    """
     :param percentile:
     :type percentile: int
     :param percentile_value:
@@ -838,8 +912,7 @@ class SummaryPercentileData(Model):
 
 
 class TenantDetails(Model):
-    """TenantDetails.
-
+    """
     :param access_details:
     :type access_details: list of :class:`AgentGroupAccessData <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.AgentGroupAccessData>`
     :param id:
@@ -874,18 +947,17 @@ class TenantDetails(Model):
 
 
 class TestDefinitionBasic(Model):
-    """TestDefinitionBasic.
-
+    """
     :param access_data:
     :type access_data: :class:`DropAccessData <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.DropAccessData>`
     :param created_by:
-    :type created_by: IdentityRef
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param created_date:
     :type created_date: datetime
     :param id:
     :type id: str
     :param last_modified_by:
-    :type last_modified_by: IdentityRef
+    :type last_modified_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param last_modified_date:
     :type last_modified_date: datetime
     :param load_test_type:
@@ -918,8 +990,7 @@ class TestDefinitionBasic(Model):
 
 
 class TestDrop(Model):
-    """TestDrop.
-
+    """
     :param access_data:
     :type access_data: :class:`DropAccessData <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.DropAccessData>`
     :param created_date:
@@ -954,8 +1025,7 @@ class TestDrop(Model):
 
 
 class TestDropRef(Model):
-    """TestDropRef.
-
+    """
     :param id:
     :type id: str
     :param url:
@@ -974,8 +1044,7 @@ class TestDropRef(Model):
 
 
 class TestResults(Model):
-    """TestResults.
-
+    """
     :param cloud_load_test_solution_url:
     :type cloud_load_test_solution_url: str
     :param counter_groups:
@@ -1002,8 +1071,7 @@ class TestResults(Model):
 
 
 class TestResultsSummary(Model):
-    """TestResultsSummary.
-
+    """
     :param overall_page_summary:
     :type overall_page_summary: :class:`PageSummary <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.PageSummary>`
     :param overall_request_summary:
@@ -1050,8 +1118,7 @@ class TestResultsSummary(Model):
 
 
 class TestRunAbortMessage(Model):
-    """TestRunAbortMessage.
-
+    """
     :param action:
     :type action: str
     :param cause:
@@ -1082,14 +1149,13 @@ class TestRunAbortMessage(Model):
 
 
 class TestRunBasic(Model):
-    """TestRunBasic.
-
+    """
     :param created_by:
-    :type created_by: IdentityRef
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param created_date:
     :type created_date: datetime
     :param deleted_by:
-    :type deleted_by: IdentityRef
+    :type deleted_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param deleted_date:
     :type deleted_date: datetime
     :param finished_date:
@@ -1154,8 +1220,7 @@ class TestRunBasic(Model):
 
 
 class TestRunCounterInstance(Model):
-    """TestRunCounterInstance.
-
+    """
     :param category_name:
     :type category_name: str
     :param counter_instance_id:
@@ -1206,8 +1271,7 @@ class TestRunCounterInstance(Model):
 
 
 class TestRunMessage(Model):
-    """TestRunMessage.
-
+    """
     :param agent_id:
     :type agent_id: str
     :param error_code:
@@ -1254,8 +1318,7 @@ class TestRunMessage(Model):
 
 
 class TestSettings(Model):
-    """TestSettings.
-
+    """
     :param cleanup_command:
     :type cleanup_command: str
     :param host_process_platform:
@@ -1278,8 +1341,7 @@ class TestSettings(Model):
 
 
 class TestSummary(Model):
-    """TestSummary.
-
+    """
     :param average_test_time:
     :type average_test_time: float
     :param failed_tests:
@@ -1318,8 +1380,7 @@ class TestSummary(Model):
 
 
 class TransactionSummary(Model):
-    """TransactionSummary.
-
+    """
     :param average_response_time:
     :type average_response_time: float
     :param average_transaction_time:
@@ -1358,8 +1419,7 @@ class TransactionSummary(Model):
 
 
 class WebApiLoadTestMachineInput(Model):
-    """WebApiLoadTestMachineInput.
-
+    """
     :param machine_group_id:
     :type machine_group_id: str
     :param machine_type:
@@ -1386,8 +1446,7 @@ class WebApiLoadTestMachineInput(Model):
 
 
 class WebApiSetupParamaters(Model):
-    """WebApiSetupParamaters.
-
+    """
     :param configurations:
     :type configurations: dict
     """
@@ -1402,8 +1461,7 @@ class WebApiSetupParamaters(Model):
 
 
 class WebApiTestMachine(Model):
-    """WebApiTestMachine.
-
+    """
     :param last_heart_beat:
     :type last_heart_beat: datetime
     :param machine_name:
@@ -1426,8 +1484,7 @@ class WebApiTestMachine(Model):
 
 
 class WebApiUserLoadTestMachineInput(WebApiLoadTestMachineInput):
-    """WebApiUserLoadTestMachineInput.
-
+    """
     :param machine_group_id:
     :type machine_group_id: str
     :param machine_type:
@@ -1454,7 +1511,7 @@ class WebApiUserLoadTestMachineInput(WebApiLoadTestMachineInput):
         'agent_group_name': {'key': 'agentGroupName', 'type': 'str'},
         'tenant_id': {'key': 'tenantId', 'type': 'str'},
         'user_load_agent_resources_uri': {'key': 'userLoadAgentResourcesUri', 'type': 'str'},
-        'vSTSAccount_uri': {'key': 'vSTSAccountUri', 'type': 'str'}
+        'vSTSAccount_uri': {'key': 'vstsAccountUri', 'type': 'str'}
     }
 
     def __init__(self, machine_group_id=None, machine_type=None, setup_configuration=None, supported_run_types=None, agent_group_name=None, tenant_id=None, user_load_agent_resources_uri=None, vSTSAccount_uri=None):
@@ -1466,8 +1523,7 @@ class WebApiUserLoadTestMachineInput(WebApiLoadTestMachineInput):
 
 
 class WebInstanceSummaryData(Model):
-    """WebInstanceSummaryData.
-
+    """
     :param average:
     :type average: float
     :param max:
@@ -1490,8 +1546,7 @@ class WebInstanceSummaryData(Model):
 
 
 class LoadTestRunDetails(LoadTestRunSettings):
-    """LoadTestRunDetails.
-
+    """
     :param agent_count:
     :type agent_count: int
     :param core_count:
@@ -1527,18 +1582,17 @@ class LoadTestRunDetails(LoadTestRunSettings):
 
 
 class TestDefinition(TestDefinitionBasic):
-    """TestDefinition.
-
+    """
     :param access_data:
     :type access_data: :class:`DropAccessData <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.DropAccessData>`
     :param created_by:
-    :type created_by: IdentityRef
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param created_date:
     :type created_date: datetime
     :param id:
     :type id: str
     :param last_modified_by:
-    :type last_modified_by: IdentityRef
+    :type last_modified_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param last_modified_date:
     :type last_modified_date: datetime
     :param load_test_type:
@@ -1587,14 +1641,13 @@ class TestDefinition(TestDefinitionBasic):
 
 
 class TestRun(TestRunBasic):
-    """TestRun.
-
+    """
     :param created_by:
-    :type created_by: IdentityRef
+    :type created_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param created_date:
     :type created_date: datetime
     :param deleted_by:
-    :type deleted_by: IdentityRef
+    :type deleted_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param deleted_date:
     :type deleted_date: datetime
     :param finished_date:
@@ -1642,11 +1695,11 @@ class TestRun(TestRunBasic):
     :param run_source_url:
     :type run_source_url: str
     :param started_by:
-    :type started_by: IdentityRef
+    :type started_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param started_date:
     :type started_date: datetime
     :param stopped_by:
-    :type stopped_by: IdentityRef
+    :type stopped_by: :class:`IdentityRef <azure.devops.v5_1.microsoft._visual_studio._test_service._web_api_model.models.IdentityRef>`
     :param sub_state:
     :type sub_state: object
     :param supersede_run_settings:
@@ -1739,6 +1792,8 @@ __all__ = [
     'Diagnostics',
     'DropAccessData',
     'ErrorDetails',
+    'GraphSubjectBase',
+    'IdentityRef',
     'LoadGenerationGeoLocation',
     'LoadTest',
     'LoadTestDefinition',
@@ -1746,6 +1801,7 @@ __all__ = [
     'LoadTestRunSettings',
     'OverridableRunSettings',
     'PageSummary',
+    'ReferenceLinks',
     'RequestSummary',
     'ScenarioSummary',
     'StaticAgentRunSetting',
