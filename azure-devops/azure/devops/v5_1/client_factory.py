@@ -253,6 +253,13 @@ class ClientFactoryV5_1(object):
         """
         return self._connection.get_client('azure.devops.v5_1.release.release_client.ReleaseClient')
 
+    def get_search_client(self):
+        """get_search_client.
+        Gets the 5.1 version of the SearchClient
+        :rtype: :class:`<SearchClient> <azure.devops.v5_1.search.search_client.SearchClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.search.search_client.SearchClient')
+
     def get_security_client(self):
         """get_security_client.
         Gets the 5.1 version of the SecurityClient
