@@ -124,24 +124,23 @@ class Client(object):
             route_values = {}
         route_values['area'] = location.area
         route_values['resource'] = location.resource_name
-        route_template = self._remove_optional_route_parameters(location.route_template,
-                                                                route_values)
+        url = self._transform_route_template(location.route_template, route_values)
         logger.debug('Route template: %s', location.route_template)
-        url = self._client.format_url(route_template, **route_values)
         request = ClientRequest(method=http_method, url=self._client.format_url(url))
         if query_parameters:
             request.format_parameters(query_parameters)
         return request
 
     @staticmethod
-    def _remove_optional_route_parameters(route_template, route_values):
+    def _transform_route_template(route_template, route_values):
         new_template = ''
         route_template = route_template.replace('{*', '{')
         for path_segment in route_template.split('/'):
             if (len(path_segment) <= 2 or not path_segment[0] == '{'
-                    or not path_segment[len(path_segment) - 1] == '}'
-                    or path_segment[1:len(path_segment) - 1] in route_values):
+                    or not path_segment[len(path_segment) - 1] == '}'):
                 new_template = new_template + '/' + path_segment
+            elif path_segment[1:len(path_segment) - 1] in route_values:
+                new_template = new_template + '/' + route_values[path_segment[1:len(path_segment) - 1]]
         return new_template
 
     def _get_resource_location(self, location_id):
@@ -222,7 +221,7 @@ class Client(object):
         else:
             # We can send at the requested api version. Make sure the resource version
             # is not bigger than what the server supports
-            negotiated_version = str(requested_api_version)
+            negotiated_version = match.group(1)
             is_preview = match.group(3) is not None
             if is_preview:
                 negotiated_version += '-preview'
@@ -267,7 +266,7 @@ class Client(object):
             raise AzureDevOpsAuthenticationError(full_message_format.format(error_message=error_message,
                                                                             url=request.url))
         else:
-            full_message_format = '{error_message}Operation returned an invalid status code of {status_code}.'
+            full_message_format = '{error_message}Operation returned a {status_code} status code.'
             raise AzureDevOpsClientRequestError(full_message_format.format(error_message=error_message,
                                                                            status_code=response.status_code))
 
