@@ -90,7 +90,7 @@ class SessionToken(Model):
 
 class TokenAdminPagedSessionTokens(Model):
     """
-    A paginatated list of session tokens. Session tokens correspond to OAuth credentials such as personal access tokens (PATs) and other OAuth authorizations.
+    A paginated list of session tokens. Session tokens correspond to OAuth credentials such as personal access tokens (PATs) and other OAuth authorizations.
 
     :param continuation_token: The continuation token that can be used to retrieve the next page of session tokens, or <code>null</code> if there is no next page.
     :type continuation_token: str
@@ -130,9 +130,9 @@ class TokenAdminRevocationRule(Model):
     """
     A rule which is applied to disable any incoming delegated authorization which matches the given properties.
 
-    :param created_before: A datetime cutoff. Tokens created before this time will be rejected. This is an optional paramter. If omitted, defaults to the time at which the rule was created.
+    :param created_before: A datetime cutoff. Tokens created before this time will be rejected. This is an optional parameter. If omitted, defaults to the time at which the rule was created.
     :type created_before: datetime
-    :param scopes: A string containing a space-delimited list of OAuth scopes. A token matching any one of the scopes will be rejected. For a list of all OAuth scopes supported by VSTS, see: https://docs.microsoft.com/en-us/vsts/integrate/get-started/authentication/oauth?view=vsts#scopes. This is a mandatory parameter.
+    :param scopes: A string containing a space-delimited list of OAuth scopes. A token matching any one of the scopes will be rejected. For a list of all OAuth scopes supported by Azure DevOps, see: https://docs.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/oauth?view=azure-devops#scopes This is a mandatory parameter.
     :type scopes: str
     """
 
