@@ -109,7 +109,7 @@ class TokenAdministrationRevocation(Model):
 
 class TokenAdminPagedSessionTokens(Model):
     """
-    A paginatated list of session tokens. Session tokens correspond to OAuth credentials such as personal access tokens (PATs) and other OAuth authorizations.
+    A paginated list of session tokens. Session tokens correspond to OAuth credentials such as personal access tokens (PATs) and other OAuth authorizations.
 
     :param continuation_token: The continuation token that can be used to retrieve the next page of session tokens, or <code>null</code> if there is no next page.
     :type continuation_token: str
