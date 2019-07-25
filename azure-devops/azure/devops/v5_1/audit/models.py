@@ -119,7 +119,7 @@ class DecoratedAuditLogEntry(Model):
     :type category: object
     :param category_display_name: DisplayName of the category
     :type category_display_name: str
-    :param correlation_id: This allows related audit entries to be grouped together. Generally this occurs when a single action cases a cascade of audit entries. For example, project creation.
+    :param correlation_id: This allows related audit entries to be grouped together. Generally this occurs when a single action causes a cascade of audit entries. For example, project creation.
     :type correlation_id: str
     :param data: External data such as CUIDs, item names, etc.
     :type data: dict
