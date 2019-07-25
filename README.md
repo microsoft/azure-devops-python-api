@@ -1,5 +1,5 @@
-[![Visual Studio Team services](https://mseng.visualstudio.com/_apis/public/build/definitions/698eacea-9ea2-4eb8-80a4-d06170edf6bc/5904/badge)]()
-[![Python](https://img.shields.io/pypi/pyversions/vsts-cli.svg)](https://pypi.python.org/pypi/vsts)
+[![Build Status](https://dev.azure.com/mseng/vsts-cli/_apis/build/status/vsts-python-api?branchName=dev)](https://dev.azure.com/mseng/vsts-cli/_build/latest?definitionId=5904&branchName=dev)
+[![Python](https://img.shields.io/pypi/pyversions/azure-devops.svg)](https://pypi.python.org/pypi/azure-devops)
 
 # Azure DevOps Python API
 
