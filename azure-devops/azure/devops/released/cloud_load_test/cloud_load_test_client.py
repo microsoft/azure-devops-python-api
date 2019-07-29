@@ -39,7 +39,7 @@ class CloudLoadTestClient(Client):
 
     def get_agent_groups(self, agent_group_id=None, machine_setup_input=None, machine_access_data=None, outgoing_request_urls=None, agent_group_name=None):
         """GetAgentGroups.
-        :param str agent_group_id: The agent group indentifier
+        :param str agent_group_id: The agent group identifier
         :param bool machine_setup_input:
         :param bool machine_access_data:
         :param bool outgoing_request_urls:
