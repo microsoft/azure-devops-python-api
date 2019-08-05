@@ -30,6 +30,7 @@ __all__ = [
     'Repository',
     'ScrollSearchRequest',
     'SortOption',
+    'Version',
     'Wiki',
     'WikiHit',
     'WikiResult',
