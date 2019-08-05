@@ -28,7 +28,7 @@ class CodeResult(Model):
     :param repository: Repository of the result file.
     :type repository: :class:`Repository <azure.devops.v5_1.search.models.Repository>`
     :param versions: Versions of the result file.
-    :type versions: list of :class:`str <azure.devops.v5_1.search.models.str>`
+    :type versions: list of :class:`Version <azure.devops.v5_1.search.models.Version>`
     """
 
     _attribute_map = {
@@ -39,7 +39,7 @@ class CodeResult(Model):
         'path': {'key': 'path', 'type': 'str'},
         'project': {'key': 'project', 'type': 'Project'},
         'repository': {'key': 'repository', 'type': 'Repository'},
-        'versions': {'key': 'versions', 'type': '[str]'}
+        'versions': {'key': 'versions', 'type': '[Version]'}
     }
 
     def __init__(self, collection=None, content_id=None, file_name=None, matches=None, path=None, project=None, repository=None, versions=None):
@@ -425,6 +425,27 @@ class SortOption(Model):
         super(SortOption, self).__init__()
         self.field = field
         self.sort_order = sort_order
+
+
+class Version(Model):
+    """
+    Describes the details pertaining to a version of the result file.
+
+    :param branch_name: Name of the branch.
+    :type branch_name: str
+    :param change_id: ChangeId in the given branch associated with this match.
+    :type change_id: str
+    """
+
+    _attribute_map = {
+        'branch_name': {'key': 'branchName', 'type': 'str'},
+        'change_id': {'key': 'changeId', 'type': 'str'}
+    }
+
+    def __init__(self, branch_name=None, change_id=None):
+        super(Version, self).__init__()
+        self.branch_name = branch_name
+        self.change_id = change_id
 
 
 class Wiki(Model):
@@ -825,6 +846,7 @@ __all__ = [
     'Repository',
     'ScrollSearchRequest',
     'SortOption',
+    'Version',
     'Wiki',
     'WikiHit',
     'WikiResult',
