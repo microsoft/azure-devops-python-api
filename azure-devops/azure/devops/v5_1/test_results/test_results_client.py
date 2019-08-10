@@ -1066,7 +1066,7 @@ class TestResultsClient(Client):
         :param str run_title: Run Title of the Runs to be queried.
         :param int top: Number of runs to be queried. Limit is 100
         :param str continuation_token: continuationToken received from previous batch or null for first batch. It is not supposed to be created (or altered, if received from last batch) by user.
-        :rtype: [TestRun]
+        :rtype: :class:`<QueryTestRunsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -1116,7 +1116,22 @@ class TestResultsClient(Client):
                               version='5.1-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[TestRun]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TestRun]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.QueryTestRunsResponseValue(response_value, continuation_token)
+
+    class QueryTestRunsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the query_test_runs method
+
+            :param value:
+            :type value: :class:`<[TestRun]> <azure.devops.v5_1.test_results.models.[TestRun]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_test_run(self, run_update_model, project, run_id):
         """UpdateTestRun.
@@ -1224,7 +1239,7 @@ class TestResultsClient(Client):
         :param bool fetch_meta_data:
         :param int top:
         :param String continuation_token: Header to pass the continuationToken
-        :rtype: [TestLog]
+        :rtype: :class:`<GetTestLogsForBuildResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -1251,7 +1266,22 @@ class TestResultsClient(Client):
                               route_values=route_values,
                               query_parameters=query_parameters,
                               additional_headers=additional_headers)
-        return self._deserialize('[TestLog]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TestLog]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetTestLogsForBuildResponseValue(response_value, continuation_token)
+
+    class GetTestLogsForBuildResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_test_logs_for_build method
+
+            :param value:
+            :type value: :class:`<[TestLog]> <azure.devops.v5_1.test_results.models.[TestLog]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def get_test_result_logs(self, project, run_id, result_id, type, directory_path=None, file_name_prefix=None, fetch_meta_data=None, top=None, continuation_token=None):
         """GetTestResultLogs.
@@ -1265,7 +1295,7 @@ class TestResultsClient(Client):
         :param bool fetch_meta_data:
         :param int top:
         :param String continuation_token: Header to pass the continuationToken
-        :rtype: [TestLog]
+        :rtype: :class:`<GetTestResultLogsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -1294,7 +1324,22 @@ class TestResultsClient(Client):
                               route_values=route_values,
                               query_parameters=query_parameters,
                               additional_headers=additional_headers)
-        return self._deserialize('[TestLog]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TestLog]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetTestResultLogsResponseValue(response_value, continuation_token)
+
+    class GetTestResultLogsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_test_result_logs method
+
+            :param value:
+            :type value: :class:`<[TestLog]> <azure.devops.v5_1.test_results.models.[TestLog]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def get_test_sub_result_logs(self, project, run_id, result_id, sub_result_id, type, directory_path=None, file_name_prefix=None, fetch_meta_data=None, top=None, continuation_token=None):
         """GetTestSubResultLogs.
@@ -1309,7 +1354,7 @@ class TestResultsClient(Client):
         :param bool fetch_meta_data:
         :param int top:
         :param String continuation_token: Header to pass the continuationToken
-        :rtype: [TestLog]
+        :rtype: :class:`<GetTestSubResultLogsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -1340,7 +1385,22 @@ class TestResultsClient(Client):
                               route_values=route_values,
                               query_parameters=query_parameters,
                               additional_headers=additional_headers)
-        return self._deserialize('[TestLog]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TestLog]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetTestSubResultLogsResponseValue(response_value, continuation_token)
+
+    class GetTestSubResultLogsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_test_sub_result_logs method
+
+            :param value:
+            :type value: :class:`<[TestLog]> <azure.devops.v5_1.test_results.models.[TestLog]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def get_test_run_logs(self, project, run_id, type, directory_path=None, file_name_prefix=None, fetch_meta_data=None, top=None, continuation_token=None):
         """GetTestRunLogs.
@@ -1353,7 +1413,7 @@ class TestResultsClient(Client):
         :param bool fetch_meta_data:
         :param int top:
         :param String continuation_token: Header to pass the continuationToken
-        :rtype: [TestLog]
+        :rtype: :class:`<GetTestRunLogsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -1380,7 +1440,22 @@ class TestResultsClient(Client):
                               route_values=route_values,
                               query_parameters=query_parameters,
                               additional_headers=additional_headers)
-        return self._deserialize('[TestLog]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TestLog]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetTestRunLogsResponseValue(response_value, continuation_token)
+
+    class GetTestRunLogsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_test_run_logs method
+
+            :param value:
+            :type value: :class:`<[TestLog]> <azure.devops.v5_1.test_results.models.[TestLog]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def get_test_log_store_endpoint_details_for_build_log(self, project, build, type, file_path):
         """GetTestLogStoreEndpointDetailsForBuildLog.

@@ -140,7 +140,7 @@ class CoreClient(Client):
         :param int skip:
         :param str continuation_token:
         :param bool get_default_team_image_url:
-        :rtype: [TeamProjectReference]
+        :rtype: :class:`<GetProjectsResponseValue>`
         """
         query_parameters = {}
         if state_filter is not None:
@@ -157,7 +157,22 @@ class CoreClient(Client):
                               location_id='603fe2ac-9723-48b9-88ad-09305aa6c6e1',
                               version='5.1',
                               query_parameters=query_parameters)
-        return self._deserialize('[TeamProjectReference]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TeamProjectReference]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetProjectsResponseValue(response_value, continuation_token)
+
+    class GetProjectsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_projects method
+
+            :param value:
+            :type value: :class:`<[TeamProjectReference]> <azure.devops.v5_1.core.models.[TeamProjectReference]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def queue_create_project(self, project_to_create):
         """QueueCreateProject.

@@ -37,7 +37,7 @@ class ReleaseClient(Client):
         :param int continuation_token: Gets the approvals after the continuation token provided.
         :param str query_order: Gets the results in the defined order of created approvals. Default is 'descending'.
         :param bool include_my_group_approvals: 'true' to include my group approvals. Default is 'false'.
-        :rtype: [ReleaseApproval]
+        :rtype: :class:`<GetApprovalsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -65,7 +65,22 @@ class ReleaseClient(Client):
                               version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[ReleaseApproval]', self._unwrap_collection(response))
+        response_value = self._deserialize('[ReleaseApproval]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetApprovalsResponseValue(response_value, continuation_token)
+
+    class GetApprovalsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_approvals method
+
+            :param value:
+            :type value: :class:`<[ReleaseApproval]> <azure.devops.v5_1.release.models.[ReleaseApproval]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_release_approval(self, approval, project, approval_id):
         """UpdateReleaseApproval.
@@ -246,7 +261,7 @@ class ReleaseClient(Client):
         :param [str] definition_id_filter: A comma-delimited list of release definitions to retrieve.
         :param bool is_deleted: 'true' to get release definitions that has been deleted. Default is 'false'
         :param bool search_text_contains_folder_name: 'true' to get the release definitions under the folder with name as specified in searchText. Default is 'false'.
-        :rtype: [ReleaseDefinition]
+        :rtype: :class:`<GetReleaseDefinitionsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -288,7 +303,22 @@ class ReleaseClient(Client):
                               version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[ReleaseDefinition]', self._unwrap_collection(response))
+        response_value = self._deserialize('[ReleaseDefinition]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetReleaseDefinitionsResponseValue(response_value, continuation_token)
+
+    class GetReleaseDefinitionsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_release_definitions method
+
+            :param value:
+            :type value: :class:`<[ReleaseDefinition]> <azure.devops.v5_1.release.models.[ReleaseDefinition]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_release_definition(self, release_definition, project):
         """UpdateReleaseDefinition.
@@ -326,7 +356,7 @@ class ReleaseClient(Client):
         :param datetime min_started_time:
         :param datetime max_started_time:
         :param str source_branch:
-        :rtype: [Deployment]
+        :rtype: :class:`<GetDeploymentsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -367,7 +397,22 @@ class ReleaseClient(Client):
                               version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[Deployment]', self._unwrap_collection(response))
+        response_value = self._deserialize('[Deployment]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetDeploymentsResponseValue(response_value, continuation_token)
+
+    class GetDeploymentsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_deployments method
+
+            :param value:
+            :type value: :class:`<[Deployment]> <azure.devops.v5_1.release.models.[Deployment]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def get_release_environment(self, project, release_id, environment_id):
         """GetReleaseEnvironment.
@@ -646,7 +691,7 @@ class ReleaseClient(Client):
         :param [str] property_filters: A comma-delimited list of extended properties to be retrieved. If set, the returned Releases will contain values for the specified property Ids (if they exist). If not set, properties will not be included. Note that this will not filter out any Release from results irrespective of whether it has property set or not.
         :param [int] release_id_filter: A comma-delimited list of releases Ids. Only releases with these Ids will be returned.
         :param str path: Releases under this folder path will be returned
-        :rtype: [Release]
+        :rtype: :class:`<GetReleasesResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -702,7 +747,22 @@ class ReleaseClient(Client):
                               version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[Release]', self._unwrap_collection(response))
+        response_value = self._deserialize('[Release]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetReleasesResponseValue(response_value, continuation_token)
+
+    class GetReleasesResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_releases method
+
+            :param value:
+            :type value: :class:`<[Release]> <azure.devops.v5_1.release.models.[Release]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def create_release(self, release_start_metadata, project):
         """CreateRelease.

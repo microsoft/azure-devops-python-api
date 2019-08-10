@@ -212,7 +212,7 @@ class BuildClient(Client):
         :param [int] build_ids: A comma-delimited list that specifies the IDs of builds to retrieve.
         :param str repository_id: If specified, filters to builds that built from this repository.
         :param str repository_type: If specified, filters to builds that built from repositories of this type.
-        :rtype: [Build]
+        :rtype: :class:`<GetBuildsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -268,7 +268,22 @@ class BuildClient(Client):
                               version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[Build]', self._unwrap_collection(response))
+        response_value = self._deserialize('[Build]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetBuildsResponseValue(response_value, continuation_token)
+
+    class GetBuildsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_builds method
+
+            :param value:
+            :type value: :class:`<[Build]> <azure.devops.v5_1.build.models.[Build]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def queue_build(self, build, project, ignore_warnings=None, check_in_ticket=None, source_build_id=None):
         """QueueBuild.
@@ -351,7 +366,7 @@ class BuildClient(Client):
         :param str continuation_token:
         :param int top: The maximum number of changes to return
         :param bool include_source_change:
-        :rtype: [Change]
+        :rtype: :class:`<GetBuildChangesResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -370,7 +385,22 @@ class BuildClient(Client):
                               version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[Change]', self._unwrap_collection(response))
+        response_value = self._deserialize('[Change]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetBuildChangesResponseValue(response_value, continuation_token)
+
+    class GetBuildChangesResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_build_changes method
+
+            :param value:
+            :type value: :class:`<[Change]> <azure.devops.v5_1.build.models.[Change]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def get_build_controller(self, controller_id):
         """GetBuildController.
@@ -497,7 +527,7 @@ class BuildClient(Client):
         :param str task_id_filter: If specified, filters to definitions that use the specified task.
         :param int process_type: If specified, filters to definitions with the given process type.
         :param str yaml_filename: If specified, filters to YAML definitions that match the given filename.
-        :rtype: [BuildDefinitionReference]
+        :rtype: :class:`<GetDefinitionsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -541,7 +571,22 @@ class BuildClient(Client):
                               version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[BuildDefinitionReference]', self._unwrap_collection(response))
+        response_value = self._deserialize('[BuildDefinitionReference]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetDefinitionsResponseValue(response_value, continuation_token)
+
+    class GetDefinitionsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_definitions method
+
+            :param value:
+            :type value: :class:`<[BuildDefinitionReference]> <azure.devops.v5_1.build.models.[BuildDefinitionReference]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def restore_definition(self, project, definition_id, deleted):
         """RestoreDefinition.

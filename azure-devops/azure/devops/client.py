@@ -270,11 +270,18 @@ class Client(object):
             raise AzureDevOpsClientRequestError(full_message_format.format(error_message=error_message,
                                                                            status_code=response.status_code))
 
+    def _get_continuation_token(self, response):
+        if self._continuation_token_header_key in response.headers:
+            return response.headers[self._continuation_token_header_key]
+        else:
+            return None
+
     @staticmethod
     def _normalize_url(url):
         return url.rstrip('/').lower()
 
     _locations_cache = {}
+    _continuation_token_header_key = 'X-MS-ContinuationToken'
     _session_header_key = 'X-TFS-Session'
     _session_data = {_session_header_key: str(uuid.uuid4())}
 
