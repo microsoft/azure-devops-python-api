@@ -781,13 +781,15 @@ class GitClientBase(Client):
                               query_parameters=query_parameters)
         return self._deserialize('[GitCommitRef]', self._unwrap_collection(response))
 
-    def get_pull_request_commits(self, repository_id, pull_request_id, project=None):
+    def get_pull_request_commits(self, repository_id, pull_request_id, project=None, top=None, continuation_token=None):
         """GetPullRequestCommits.
         Get the commits for the specified pull request.
         :param str repository_id: ID or name of the repository.
         :param int pull_request_id: ID of the pull request.
         :param str project: Project ID or project name
-        :rtype: [GitCommitRef]
+        :param int top: Maximum number of commits to return.
+        :param str continuation_token: The continuation token used for pagination.
+        :rtype: :class:`<GetPullRequestCommitsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -796,11 +798,32 @@ class GitClientBase(Client):
             route_values['repositoryId'] = self._serialize.url('repository_id', repository_id, 'str')
         if pull_request_id is not None:
             route_values['pullRequestId'] = self._serialize.url('pull_request_id', pull_request_id, 'int')
+        query_parameters = {}
+        if top is not None:
+            query_parameters['$top'] = self._serialize.query('top', top, 'int')
+        if continuation_token is not None:
+            query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
         response = self._send(http_method='GET',
                               location_id='52823034-34a8-4576-922c-8d8b77e9e4c4',
                               version='5.1',
-                              route_values=route_values)
-        return self._deserialize('[GitCommitRef]', self._unwrap_collection(response))
+                              route_values=route_values,
+                              query_parameters=query_parameters)
+        response_value = self._deserialize('[GitCommitRef]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetPullRequestCommitsResponseValue(response_value, continuation_token)
+
+    class GetPullRequestCommitsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_pull_request_commits method
+
+            :param value:
+            :type value: :class:`<[GitCommitRef]> <azure.devops.v5_1.git.models.[GitCommitRef]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def get_pull_request_iteration_changes(self, repository_id, pull_request_id, iteration_id, project=None, top=None, skip=None, compare_to=None):
         """GetPullRequestIterationChanges.
@@ -1601,7 +1624,7 @@ class GitClientBase(Client):
                               query_parameters=query_parameters)
         return self._deserialize('[GitPush]', self._unwrap_collection(response))
 
-    def get_refs(self, repository_id, project=None, filter=None, include_links=None, include_statuses=None, include_my_branches=None, latest_statuses_only=None, peel_tags=None, filter_contains=None):
+    def get_refs(self, repository_id, project=None, filter=None, include_links=None, include_statuses=None, include_my_branches=None, latest_statuses_only=None, peel_tags=None, filter_contains=None, top=None, continuation_token=None):
         """GetRefs.
         Queries the provided repository for its refs and returns them.
         :param str repository_id: The name or ID of the repository.
@@ -1613,7 +1636,9 @@ class GitClientBase(Client):
         :param bool latest_statuses_only: [optional] True to include only the tip commit status for each ref. This option requires `includeStatuses` to be true. The default value is false.
         :param bool peel_tags: [optional] Annotated tags will populate the PeeledObjectId property. default is false.
         :param str filter_contains: [optional] A filter to apply to the refs (contains).
-        :rtype: [GitRef]
+        :param int top: [optional] Maximum number of refs to return. It cannot be bigger than 1000. If it is not provided but continuationToken is, top will default to 100.
+        :param str continuation_token: The continuation token used for pagination.
+        :rtype: :class:`<GetRefsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -1635,12 +1660,31 @@ class GitClientBase(Client):
             query_parameters['peelTags'] = self._serialize.query('peel_tags', peel_tags, 'bool')
         if filter_contains is not None:
             query_parameters['filterContains'] = self._serialize.query('filter_contains', filter_contains, 'str')
+        if top is not None:
+            query_parameters['$top'] = self._serialize.query('top', top, 'int')
+        if continuation_token is not None:
+            query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
         response = self._send(http_method='GET',
                               location_id='2d874a60-a811-4f62-9c9f-963a6ea0a55b',
                               version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[GitRef]', self._unwrap_collection(response))
+        response_value = self._deserialize('[GitRef]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetRefsResponseValue(response_value, continuation_token)
+
+    class GetRefsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_refs method
+
+            :param value:
+            :type value: :class:`<[GitRef]> <azure.devops.v5_1.git.models.[GitRef]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_ref(self, new_ref_info, repository_id, filter, project=None, project_id=None):
         """UpdateRef.

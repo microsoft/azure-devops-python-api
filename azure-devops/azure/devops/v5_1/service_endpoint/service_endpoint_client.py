@@ -230,7 +230,7 @@ class ServiceEndpointClient(Client):
         :param str endpoint_id: Id of the service endpoint.
         :param int top: Number of service endpoint execution records to get.
         :param long continuation_token: A continuation token, returned by a previous call to this method, that can be used to return the next set of records
-        :rtype: [ServiceEndpointExecutionRecord]
+        :rtype: :class:`<GetServiceEndpointExecutionRecordsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -247,7 +247,22 @@ class ServiceEndpointClient(Client):
                               version='5.1-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[ServiceEndpointExecutionRecord]', self._unwrap_collection(response))
+        response_value = self._deserialize('[ServiceEndpointExecutionRecord]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetServiceEndpointExecutionRecordsResponseValue(response_value, continuation_token)
+
+    class GetServiceEndpointExecutionRecordsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_service_endpoint_execution_records method
+
+            :param value:
+            :type value: :class:`<[ServiceEndpointExecutionRecord]> <azure.devops.v5_1.service_endpoint.models.[ServiceEndpointExecutionRecord]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def get_service_endpoint_types(self, type=None, scheme=None):
         """GetServiceEndpointTypes.
