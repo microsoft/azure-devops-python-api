@@ -128,8 +128,6 @@ class Client(object):
                                                                 route_values)
         logger.debug('Route template: %s', location.route_template)
         url = self._client.format_url(route_template, **route_values)
-        import pprint
-        pprint.pprint("url=" + url)
         request = ClientRequest(method=http_method, url=self._client.format_url(url))
         if query_parameters:
             request.format_parameters(query_parameters)
