@@ -473,7 +473,7 @@ class TestClient(Client):
         :param str run_title: Run Title of the Runs to be queried.
         :param int top: Number of runs to be queried. Limit is 100
         :param str continuation_token: continuationToken received from previous batch or null for first batch. It is not supposed to be created (or altered, if received from last batch) by user.
-        :rtype: [TestRun]
+        :rtype: :class:`<QueryTestRunsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -523,7 +523,22 @@ class TestClient(Client):
                               version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[TestRun]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TestRun]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.QueryTestRunsResponseValue(response_value, continuation_token)
+
+    class QueryTestRunsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the query_test_runs method
+
+            :param value:
+            :type value: :class:`<[TestRun]> <azure.devops.v5_1.test.models.[TestRun]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_test_run(self, run_update_model, project, run_id):
         """UpdateTestRun.

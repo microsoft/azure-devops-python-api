@@ -106,13 +106,14 @@ class TfvcClient(Client):
                               query_parameters=query_parameters)
         return self._deserialize('[TfvcBranchRef]', self._unwrap_collection(response))
 
-    def get_changeset_changes(self, id=None, skip=None, top=None):
+    def get_changeset_changes(self, id=None, skip=None, top=None, continuation_token=None):
         """GetChangesetChanges.
         Retrieve Tfvc changes for a given changeset.
         :param int id: ID of the changeset. Default: null
         :param int skip: Number of results to skip. Default: null
         :param int top: The maximum number of results to return. Default: null
-        :rtype: [TfvcChange]
+        :param str continuation_token: Return the next page of results. Default: null
+        :rtype: :class:`<GetChangesetChangesResponseValue>`
         """
         route_values = {}
         if id is not None:
@@ -122,12 +123,29 @@ class TfvcClient(Client):
             query_parameters['$skip'] = self._serialize.query('skip', skip, 'int')
         if top is not None:
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
+        if continuation_token is not None:
+            query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
         response = self._send(http_method='GET',
                               location_id='f32b86f2-15b9-4fe6-81b1-6f8938617ee5',
                               version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[TfvcChange]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TfvcChange]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetChangesetChangesResponseValue(response_value, continuation_token)
+
+    class GetChangesetChangesResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_changeset_changes method
+
+            :param value:
+            :type value: :class:`<[TfvcChange]> <azure.devops.v5_1.tfvc.models.[TfvcChange]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def create_changeset(self, changeset, project=None):
         """CreateChangeset.

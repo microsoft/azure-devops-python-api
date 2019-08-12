@@ -124,23 +124,26 @@ class Client(object):
             route_values = {}
         route_values['area'] = location.area
         route_values['resource'] = location.resource_name
-        url = self._transform_route_template(location.route_template, route_values)
+        route_template = self._remove_optional_route_parameters(location.route_template,
+                                                                route_values)
         logger.debug('Route template: %s', location.route_template)
+        url = self._client.format_url(route_template, **route_values)
+        import pprint
+        pprint.pprint("url=" + url)
         request = ClientRequest(method=http_method, url=self._client.format_url(url))
         if query_parameters:
             request.format_parameters(query_parameters)
         return request
 
     @staticmethod
-    def _transform_route_template(route_template, route_values):
+    def _remove_optional_route_parameters(route_template, route_values):
         new_template = ''
         route_template = route_template.replace('{*', '{')
         for path_segment in route_template.split('/'):
             if (len(path_segment) <= 2 or not path_segment[0] == '{'
-                    or not path_segment[len(path_segment) - 1] == '}'):
+                    or not path_segment[len(path_segment) - 1] == '}'
+                    or path_segment[1:len(path_segment) - 1] in route_values):
                 new_template = new_template + '/' + path_segment
-            elif path_segment[1:len(path_segment) - 1] in route_values:
-                new_template = new_template + '/' + route_values[path_segment[1:len(path_segment) - 1]]
         return new_template
 
     def _get_resource_location(self, location_id):
@@ -270,11 +273,18 @@ class Client(object):
             raise AzureDevOpsClientRequestError(full_message_format.format(error_message=error_message,
                                                                            status_code=response.status_code))
 
+    def _get_continuation_token(self, response):
+        if self._continuation_token_header_key in response.headers:
+            return response.headers[self._continuation_token_header_key]
+        else:
+            return None
+
     @staticmethod
     def _normalize_url(url):
         return url.rstrip('/').lower()
 
     _locations_cache = {}
+    _continuation_token_header_key = 'X-MS-ContinuationToken'
     _session_header_key = 'X-TFS-Session'
     _session_data = {_session_header_key: str(uuid.uuid4())}
 
