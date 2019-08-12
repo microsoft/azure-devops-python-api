@@ -304,7 +304,7 @@ class TaskAgentClient(Client):
         :param str continuation_token: Get deployment groups with names greater than this continuationToken lexicographically.
         :param int top: Maximum number of deployment groups to return. Default is **1000**.
         :param [int] ids: Comma separated list of IDs of the deployment groups.
-        :rtype: [DeploymentGroup]
+        :rtype: :class:`<GetDeploymentGroupsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -328,7 +328,22 @@ class TaskAgentClient(Client):
                               version='5.1-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[DeploymentGroup]', self._unwrap_collection(response))
+        response_value = self._deserialize('[DeploymentGroup]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetDeploymentGroupsResponseValue(response_value, continuation_token)
+
+    class GetDeploymentGroupsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_deployment_groups method
+
+            :param value:
+            :type value: :class:`<[DeploymentGroup]> <azure.devops.v5_1.task_agent.models.[DeploymentGroup]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_deployment_group(self, deployment_group, project, deployment_group_id):
         """UpdateDeploymentGroup.
@@ -671,7 +686,7 @@ class TaskAgentClient(Client):
         :param int top: Maximum number of deployment targets to return. Default is **1000**.
         :param bool enabled: Get only deployment targets that are enabled or disabled. Default is 'null' which returns all the targets.
         :param [str] property_filters:
-        :rtype: [DeploymentMachine]
+        :rtype: :class:`<GetDeploymentTargetsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -706,7 +721,22 @@ class TaskAgentClient(Client):
                               version='5.1-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[DeploymentMachine]', self._unwrap_collection(response))
+        response_value = self._deserialize('[DeploymentMachine]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetDeploymentTargetsResponseValue(response_value, continuation_token)
+
+    class GetDeploymentTargetsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_deployment_targets method
+
+            :param value:
+            :type value: :class:`<[DeploymentMachine]> <azure.devops.v5_1.task_agent.models.[DeploymentMachine]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_deployment_targets(self, machines, project, deployment_group_id):
         """UpdateDeploymentTargets.

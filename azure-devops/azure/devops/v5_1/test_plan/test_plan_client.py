@@ -84,7 +84,7 @@ class TestPlanClient(Client):
         [Preview API] Get a list of test configurations.
         :param str project: Project ID or project name
         :param str continuation_token: If the list of configurations returned is not complete, a continuation token to query next batch of configurations is included in the response header as "x-ms-continuationtoken". Omit this parameter to get the first batch of test configurations.
-        :rtype: [TestConfiguration]
+        :rtype: :class:`<GetTestConfigurationsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -97,7 +97,22 @@ class TestPlanClient(Client):
                               version='5.1-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[TestConfiguration]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TestConfiguration]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetTestConfigurationsResponseValue(response_value, continuation_token)
+
+    class GetTestConfigurationsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_test_configurations method
+
+            :param value:
+            :type value: :class:`<[TestConfiguration]> <azure.devops.v5_1.test_plan.models.[TestConfiguration]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_test_configuration(self, test_configuration_create_update_parameters, project, test_configuartion_id):
         """UpdateTestConfiguration.
@@ -182,7 +197,7 @@ class TestPlanClient(Client):
         :param str continuation_token: If the list of plans returned is not complete, a continuation token to query next batch of plans is included in the response header as "x-ms-continuationtoken". Omit this parameter to get the first batch of test plans.
         :param bool include_plan_details: Get all properties of the test plan
         :param bool filter_active_plans: Get just the active plans
-        :rtype: [TestPlan]
+        :rtype: :class:`<GetTestPlansResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -201,7 +216,22 @@ class TestPlanClient(Client):
                               version='5.1-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[TestPlan]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TestPlan]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetTestPlansResponseValue(response_value, continuation_token)
+
+    class GetTestPlansResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_test_plans method
+
+            :param value:
+            :type value: :class:`<[TestPlan]> <azure.devops.v5_1.test_plan.models.[TestPlan]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_test_plan(self, test_plan_update_params, project, plan_id):
         """UpdateTestPlan.
@@ -342,7 +372,7 @@ class TestPlanClient(Client):
         :param str expand: Include the children suites and testers details.
         :param str continuation_token: If the list of suites returned is not complete, a continuation token to query next batch of suites is included in the response header as "x-ms-continuationtoken". Omit this parameter to get the first batch of test suites.
         :param bool as_tree_view: If the suites returned should be in a tree structure.
-        :rtype: [TestSuite]
+        :rtype: :class:`<GetTestSuitesForPlanResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -361,7 +391,22 @@ class TestPlanClient(Client):
                               version='5.1-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[TestSuite]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TestSuite]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetTestSuitesForPlanResponseValue(response_value, continuation_token)
+
+    class GetTestSuitesForPlanResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_test_suites_for_plan method
+
+            :param value:
+            :type value: :class:`<[TestSuite]> <azure.devops.v5_1.test_plan.models.[TestSuite]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_test_suite(self, test_suite_update_params, project, plan_id, suite_id):
         """UpdateTestSuite.
@@ -470,7 +515,7 @@ class TestPlanClient(Client):
         :param str continuation_token: If the list of test cases returned is not complete, a continuation token to query next batch of test cases is included in the response header as "x-ms-continuationtoken". Omit this parameter to get the first batch of test cases.
         :param bool return_identity_ref: If set to true, returns all identity fields, like AssignedTo, ActivatedBy etc., as IdentityRef objects. If set to false, these fields are returned as unique names in string format. This is false by default.
         :param bool expand: If set to false, will get a smaller payload containing only basic details about the suite test case object
-        :rtype: [TestCase]
+        :rtype: :class:`<GetTestCaseListResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -497,7 +542,22 @@ class TestPlanClient(Client):
                               version='5.1-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[TestCase]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TestCase]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetTestCaseListResponseValue(response_value, continuation_token)
+
+    class GetTestCaseListResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_test_case_list method
+
+            :param value:
+            :type value: :class:`<[TestCase]> <azure.devops.v5_1.test_plan.models.[TestCase]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def remove_test_cases_from_suite(self, project, plan_id, suite_id, test_case_ids):
         """RemoveTestCasesFromSuite.
@@ -642,7 +702,7 @@ class TestPlanClient(Client):
         :param str continuation_token: If the list of test point returned is not complete, a continuation token to query next batch of test points is included in the response header as "x-ms-continuationtoken". Omit this parameter to get the first batch of test points.
         :param bool return_identity_ref: If set to true, returns the AssignedTo field in TestCaseReference as IdentityRef object.
         :param bool include_point_details: If set to false, returns only necessary information
-        :rtype: [TestPoint]
+        :rtype: :class:`<GetPointsListResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -667,7 +727,22 @@ class TestPlanClient(Client):
                               version='5.1-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[TestPoint]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TestPoint]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetPointsListResponseValue(response_value, continuation_token)
+
+    class GetPointsListResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_points_list method
+
+            :param value:
+            :type value: :class:`<[TestPoint]> <azure.devops.v5_1.test_plan.models.[TestPoint]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_test_points(self, test_point_update_params, project, plan_id, suite_id):
         """UpdateTestPoints.
@@ -791,7 +866,7 @@ class TestPlanClient(Client):
         [Preview API] Get a list of test variables.
         :param str project: Project ID or project name
         :param str continuation_token: If the list of variables returned is not complete, a continuation token to query next batch of variables is included in the response header as "x-ms-continuationtoken". Omit this parameter to get the first batch of test variables.
-        :rtype: [TestVariable]
+        :rtype: :class:`<GetTestVariablesResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -804,7 +879,22 @@ class TestPlanClient(Client):
                               version='5.1-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[TestVariable]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TestVariable]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetTestVariablesResponseValue(response_value, continuation_token)
+
+    class GetTestVariablesResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_test_variables method
+
+            :param value:
+            :type value: :class:`<[TestVariable]> <azure.devops.v5_1.test_plan.models.[TestVariable]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_test_variable(self, test_variable_create_update_parameters, project, test_variable_id):
         """UpdateTestVariable.
