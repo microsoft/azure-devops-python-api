@@ -14,3 +14,6 @@
 
 # Shell scripts
 *.sh eol=lf
+
+# Python
+*.py eol=lf

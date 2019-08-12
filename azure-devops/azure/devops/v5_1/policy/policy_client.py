@@ -80,13 +80,15 @@ class PolicyClient(Client):
                               route_values=route_values)
         return self._deserialize('PolicyConfiguration', response)
 
-    def get_policy_configurations(self, project, scope=None, policy_type=None):
+    def get_policy_configurations(self, project, scope=None, top=None, continuation_token=None, policy_type=None):
         """GetPolicyConfigurations.
         Get a list of policy configurations in a project.
         :param str project: Project ID or project name
         :param str scope: [Provided for legacy reasons] The scope on which a subset of policies is defined.
+        :param int top: Maximum number of policies to return.
+        :param str continuation_token: The continuation token used for pagination.
         :param str policy_type: Filter returned policies to only this type
-        :rtype: [PolicyConfiguration]
+        :rtype: :class:`<GetPolicyConfigurationsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -94,6 +96,10 @@ class PolicyClient(Client):
         query_parameters = {}
         if scope is not None:
             query_parameters['scope'] = self._serialize.query('scope', scope, 'str')
+        if top is not None:
+            query_parameters['$top'] = self._serialize.query('top', top, 'int')
+        if continuation_token is not None:
+            query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
         if policy_type is not None:
             query_parameters['policyType'] = self._serialize.query('policy_type', policy_type, 'str')
         response = self._send(http_method='GET',
@@ -101,7 +107,22 @@ class PolicyClient(Client):
                               version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[PolicyConfiguration]', self._unwrap_collection(response))
+        response_value = self._deserialize('[PolicyConfiguration]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetPolicyConfigurationsResponseValue(response_value, continuation_token)
+
+    class GetPolicyConfigurationsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_policy_configurations method
+
+            :param value:
+            :type value: :class:`<[PolicyConfiguration]> <azure.devops.v5_1.policy.models.[PolicyConfiguration]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_policy_configuration(self, configuration, project, configuration_id):
         """UpdatePolicyConfiguration.
