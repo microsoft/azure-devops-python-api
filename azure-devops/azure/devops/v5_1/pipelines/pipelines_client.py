@@ -128,7 +128,7 @@ class PipelinesClient(Client):
         :param str order_by: A sort expression. Defaults to "name asc"
         :param int top: The maximum number of pipelines to return
         :param str continuation_token: A continuation token from a previous request, to retrieve the next page of results
-        :rtype: [Pipeline]
+        :rtype: :class:`<ListPipelinesResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -145,7 +145,22 @@ class PipelinesClient(Client):
                               version='5.1-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[Pipeline]', self._unwrap_collection(response))
+        response_value = self._deserialize('[Pipeline]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.ListPipelinesResponseValue(response_value, continuation_token)
+
+    class ListPipelinesResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the list_pipelines method
+
+            :param value:
+            :type value: :class:`<[Pipeline]> <azure.devops.v5_1.pipelines.models.[Pipeline]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def get_run(self, project, pipeline_id, run_id):
         """GetRun.
