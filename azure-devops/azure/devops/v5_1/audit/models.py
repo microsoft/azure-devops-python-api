@@ -27,8 +27,8 @@ class AuditLogEntry(Model):
     :type data: dict
     :param id: EventId, should be unique
     :type id: str
-    :param iPAddress: IP Address where the event was originated
-    :type iPAddress: str
+    :param ip_address: IP Address where the event was originated
+    :type ip_address: str
     :param scope_id: The org, collection or project Id
     :type scope_id: str
     :param scope_type: The type of the scope, Enterprise, Organization or Project
@@ -48,14 +48,14 @@ class AuditLogEntry(Model):
         'correlation_id': {'key': 'correlationId', 'type': 'str'},
         'data': {'key': 'data', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
-        'iPAddress': {'key': 'ipAddress', 'type': 'str'},
+        'ip_address': {'key': 'ipAddress', 'type': 'str'},
         'scope_id': {'key': 'scopeId', 'type': 'str'},
         'scope_type': {'key': 'scopeType', 'type': 'object'},
         'timestamp': {'key': 'timestamp', 'type': 'iso-8601'},
         'user_agent': {'key': 'userAgent', 'type': 'str'}
     }
 
-    def __init__(self, action_id=None, activity_id=None, actor_cUID=None, actor_user_id=None, authentication_mechanism=None, correlation_id=None, data=None, id=None, iPAddress=None, scope_id=None, scope_type=None, timestamp=None, user_agent=None):
+    def __init__(self, action_id=None, activity_id=None, actor_cUID=None, actor_user_id=None, authentication_mechanism=None, correlation_id=None, data=None, id=None, ip_address=None, scope_id=None, scope_type=None, timestamp=None, user_agent=None):
         super(AuditLogEntry, self).__init__()
         self.action_id = action_id
         self.activity_id = activity_id
@@ -65,7 +65,7 @@ class AuditLogEntry(Model):
         self.correlation_id = correlation_id
         self.data = data
         self.id = id
-        self.iPAddress = iPAddress
+        self.ip_address = ip_address
         self.scope_id = scope_id
         self.scope_type = scope_type
         self.timestamp = timestamp
