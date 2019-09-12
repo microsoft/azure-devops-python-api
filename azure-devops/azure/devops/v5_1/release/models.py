@@ -1431,8 +1431,8 @@ class MailMessage(Model):
     """
     :param body: Body of mail.
     :type body: str
-    :param cC: Mail CC recipients.
-    :type cC: :class:`EmailRecipients <azure.devops.v5_1.release.models.EmailRecipients>`
+    :param cc: Mail CC recipients.
+    :type cc: :class:`EmailRecipients <azure.devops.v5_1.release.models.EmailRecipients>`
     :param in_reply_to: Reply to.
     :type in_reply_to: str
     :param message_id: Message ID of the mail.
@@ -1453,7 +1453,7 @@ class MailMessage(Model):
 
     _attribute_map = {
         'body': {'key': 'body', 'type': 'str'},
-        'cC': {'key': 'cc', 'type': 'EmailRecipients'},
+        'cc': {'key': 'cc', 'type': 'EmailRecipients'},
         'in_reply_to': {'key': 'inReplyTo', 'type': 'str'},
         'message_id': {'key': 'messageId', 'type': 'str'},
         'reply_by': {'key': 'replyBy', 'type': 'iso-8601'},
@@ -1464,10 +1464,10 @@ class MailMessage(Model):
         'to': {'key': 'to', 'type': 'EmailRecipients'}
     }
 
-    def __init__(self, body=None, cC=None, in_reply_to=None, message_id=None, reply_by=None, reply_to=None, sections=None, sender_type=None, subject=None, to=None):
+    def __init__(self, body=None, cc=None, in_reply_to=None, message_id=None, reply_by=None, reply_to=None, sections=None, sender_type=None, subject=None, to=None):
         super(MailMessage, self).__init__()
         self.body = body
-        self.cC = cC
+        self.cc = cc
         self.in_reply_to = in_reply_to
         self.message_id = message_id
         self.reply_by = reply_by
