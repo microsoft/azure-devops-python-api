@@ -300,3 +300,6 @@ vsts/build/bdist.win32/
 !azure-devops/azure/devops/released/release
 !azure-devops/azure/devops/v5_0/release
 !azure-devops/azure/devops/v5_1/release
+
+# ignore private folder for testing reported issues
+issues/
