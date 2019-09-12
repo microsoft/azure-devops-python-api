@@ -2321,8 +2321,8 @@ class TaskAgentMessage(Model):
 
     :param body: Gets or sets the body of the message. If the <c>IV</c> property is provided the body will need to be decrypted using the <c>TaskAgentSession.EncryptionKey</c> value in addition to the <c>IV</c>.
     :type body: str
-    :param iV: Gets or sets the initialization vector used to encrypt this message.
-    :type iV: str
+    :param iv: Gets or sets the initialization vector used to encrypt this message.
+    :type iv: str
     :param message_id: Gets or sets the message identifier.
     :type message_id: long
     :param message_type: Gets or sets the message type, describing the data contract found in <c>TaskAgentMessage.Body</c>.
@@ -2331,15 +2331,15 @@ class TaskAgentMessage(Model):
 
     _attribute_map = {
         'body': {'key': 'body', 'type': 'str'},
-        'iV': {'key': 'iv', 'type': 'str'},
+        'iv': {'key': 'iv', 'type': 'str'},
         'message_id': {'key': 'messageId', 'type': 'long'},
         'message_type': {'key': 'messageType', 'type': 'str'}
     }
 
-    def __init__(self, body=None, iV=None, message_id=None, message_type=None):
+    def __init__(self, body=None, iv=None, message_id=None, message_type=None):
         super(TaskAgentMessage, self).__init__()
         self.body = body
-        self.iV = iV
+        self.iv = iv
         self.message_id = message_id
         self.message_type = message_type
 
@@ -2645,8 +2645,8 @@ class TaskAgentReference(Model):
     :type id: int
     :param name: Name of the agent.
     :type name: str
-    :param oSDescription: Agent OS.
-    :type oSDescription: str
+    :param os_description: Agent OS.
+    :type os_description: str
     :param provisioning_state: Provisioning state of this agent.
     :type provisioning_state: str
     :param status: Whether or not the agent is online.
@@ -2661,20 +2661,20 @@ class TaskAgentReference(Model):
         'enabled': {'key': 'enabled', 'type': 'bool'},
         'id': {'key': 'id', 'type': 'int'},
         'name': {'key': 'name', 'type': 'str'},
-        'oSDescription': {'key': 'osDescription', 'type': 'str'},
+        'os_description': {'key': 'osDescription', 'type': 'str'},
         'provisioning_state': {'key': 'provisioningState', 'type': 'str'},
         'status': {'key': 'status', 'type': 'object'},
         'version': {'key': 'version', 'type': 'str'}
     }
 
-    def __init__(self, _links=None, access_point=None, enabled=None, id=None, name=None, oSDescription=None, provisioning_state=None, status=None, version=None):
+    def __init__(self, _links=None, access_point=None, enabled=None, id=None, name=None, os_description=None, provisioning_state=None, status=None, version=None):
         super(TaskAgentReference, self).__init__()
         self._links = _links
         self.access_point = access_point
         self.enabled = enabled
         self.id = id
         self.name = name
-        self.oSDescription = oSDescription
+        self.os_description = os_description
         self.provisioning_state = provisioning_state
         self.status = status
         self.version = version
@@ -4117,8 +4117,8 @@ class TaskAgent(TaskAgentReference):
     :type id: int
     :param name: Name of the agent.
     :type name: str
-    :param oSDescription: Agent OS.
-    :type oSDescription: str
+    :param os_description: Agent OS.
+    :type os_description: str
     :param provisioning_state: Provisioning state of this agent.
     :type provisioning_state: str
     :param status: Whether or not the agent is online.
@@ -4155,7 +4155,7 @@ class TaskAgent(TaskAgentReference):
         'enabled': {'key': 'enabled', 'type': 'bool'},
         'id': {'key': 'id', 'type': 'int'},
         'name': {'key': 'name', 'type': 'str'},
-        'oSDescription': {'key': 'osDescription', 'type': 'str'},
+        'os_description': {'key': 'osDescription', 'type': 'str'},
         'provisioning_state': {'key': 'provisioningState', 'type': 'str'},
         'status': {'key': 'status', 'type': 'object'},
         'version': {'key': 'version', 'type': 'str'},
@@ -4172,8 +4172,8 @@ class TaskAgent(TaskAgentReference):
         'user_capabilities': {'key': 'userCapabilities', 'type': '{str}'}
     }
 
-    def __init__(self, _links=None, access_point=None, enabled=None, id=None, name=None, oSDescription=None, provisioning_state=None, status=None, version=None, assigned_agent_cloud_request=None, assigned_request=None, authorization=None, created_on=None, last_completed_request=None, max_parallelism=None, pending_update=None, properties=None, status_changed_on=None, system_capabilities=None, user_capabilities=None):
-        super(TaskAgent, self).__init__(_links=_links, access_point=access_point, enabled=enabled, id=id, name=name, oSDescription=oSDescription, provisioning_state=provisioning_state, status=status, version=version)
+    def __init__(self, _links=None, access_point=None, enabled=None, id=None, name=None, os_description=None, provisioning_state=None, status=None, version=None, assigned_agent_cloud_request=None, assigned_request=None, authorization=None, created_on=None, last_completed_request=None, max_parallelism=None, pending_update=None, properties=None, status_changed_on=None, system_capabilities=None, user_capabilities=None):
+        super(TaskAgent, self).__init__(_links=_links, access_point=access_point, enabled=enabled, id=id, name=name, os_description=os_description, provisioning_state=provisioning_state, status=status, version=version)
         self.assigned_agent_cloud_request = assigned_agent_cloud_request
         self.assigned_request = assigned_request
         self.authorization = authorization

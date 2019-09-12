@@ -27,11 +27,11 @@ class NotificationClient(Client):
 
     def list_logs(self, source, entry_id=None, start_time=None, end_time=None):
         """ListLogs.
-        List diagnostic logs this service.
-        :param str source:
-        :param str entry_id:
-        :param datetime start_time:
-        :param datetime end_time:
+        Get a list of diagnostic logs for this service.
+        :param str source: ID specifying which type of logs to check diagnostics for.
+        :param str entry_id: The ID of the specific log to query for.
+        :param datetime start_time: Start time for the time range to query in.
+        :param datetime end_time: End time for the time range to query in.
         :rtype: [INotificationDiagnosticLog]
         """
         route_values = {}
@@ -53,7 +53,8 @@ class NotificationClient(Client):
 
     def get_subscription_diagnostics(self, subscription_id):
         """GetSubscriptionDiagnostics.
-        :param str subscription_id:
+        Get the diagnostics settings for a subscription.
+        :param str subscription_id: The id of the notifications subscription.
         :rtype: :class:`<SubscriptionDiagnostics> <azure.devops.v5_1.notification.models.SubscriptionDiagnostics>`
         """
         route_values = {}
@@ -67,8 +68,9 @@ class NotificationClient(Client):
 
     def update_subscription_diagnostics(self, update_parameters, subscription_id):
         """UpdateSubscriptionDiagnostics.
+        Update the diagnostics settings for a subscription.
         :param :class:`<UpdateSubscripitonDiagnosticsParameters> <azure.devops.v5_1.notification.models.UpdateSubscripitonDiagnosticsParameters>` update_parameters:
-        :param str subscription_id:
+        :param str subscription_id: The id of the notifications subscription.
         :rtype: :class:`<SubscriptionDiagnostics> <azure.devops.v5_1.notification.models.SubscriptionDiagnostics>`
         """
         route_values = {}
@@ -85,7 +87,7 @@ class NotificationClient(Client):
     def get_event_type(self, event_type):
         """GetEventType.
         Get a specific event type.
-        :param str event_type:
+        :param str event_type: The ID of the event type.
         :rtype: :class:`<NotificationEventType> <azure.devops.v5_1.notification.models.NotificationEventType>`
         """
         route_values = {}
@@ -135,7 +137,8 @@ class NotificationClient(Client):
 
     def get_subscriber(self, subscriber_id):
         """GetSubscriber.
-        :param str subscriber_id:
+        Get delivery preferences of a notifications subscriber.
+        :param str subscriber_id: ID of the user or group.
         :rtype: :class:`<NotificationSubscriber> <azure.devops.v5_1.notification.models.NotificationSubscriber>`
         """
         route_values = {}
@@ -149,8 +152,9 @@ class NotificationClient(Client):
 
     def update_subscriber(self, update_parameters, subscriber_id):
         """UpdateSubscriber.
+        Update delivery preferences of a notifications subscriber.
         :param :class:`<NotificationSubscriberUpdateParameters> <azure.devops.v5_1.notification.models.NotificationSubscriberUpdateParameters>` update_parameters:
-        :param str subscriber_id:
+        :param str subscriber_id: ID of the user or group.
         :rtype: :class:`<NotificationSubscriber> <azure.devops.v5_1.notification.models.NotificationSubscriber>`
         """
         route_values = {}
