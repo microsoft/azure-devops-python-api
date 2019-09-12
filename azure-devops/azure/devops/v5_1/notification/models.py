@@ -335,23 +335,23 @@ class INotificationDiagnosticLog(Model):
     """
     Abstraction interface for the diagnostic log.  Primarily for deserialization.
 
-    :param activity_id:
+    :param activity_id: Identifier used for correlating to other diagnostics that may have been recorded elsewhere.
     :type activity_id: str
-    :param description:
+    :param description: Description of what subscription or notification job is being logged.
     :type description: str
-    :param end_time:
+    :param end_time: Time the log ended.
     :type end_time: datetime
-    :param id:
+    :param id: Unique instance identifier.
     :type id: str
-    :param log_type:
+    :param log_type: Type of information being logged.
     :type log_type: str
-    :param messages:
+    :param messages: List of log messages.
     :type messages: list of :class:`NotificationDiagnosticLogMessage <azure.devops.v5_1.notification.models.NotificationDiagnosticLogMessage>`
-    :param properties:
+    :param properties: Dictionary of log properties and settings for the job.
     :type properties: dict
-    :param source:
+    :param source: This identifier depends on the logType.  For notification jobs, this will be the job Id. For subscription tracing, this will be a special root Guid with the subscription Id encoded.
     :type source: str
-    :param start_time:
+    :param start_time: Time the log started.
     :type start_time: datetime
     """
 
@@ -1260,11 +1260,13 @@ class SubscriptionChannelWithAddress(Model):
 
 class SubscriptionDiagnostics(Model):
     """
-    :param delivery_results:
+    Contains all the diagonstics settings for a subscription.
+
+    :param delivery_results: Diagnostics settings for retaining delivery results.  Used for Service Hooks subscriptions.
     :type delivery_results: :class:`SubscriptionTracing <azure.devops.v5_1.notification.models.SubscriptionTracing>`
-    :param delivery_tracing:
+    :param delivery_tracing: Diagnostics settings for troubleshooting notification delivery.
     :type delivery_tracing: :class:`SubscriptionTracing <azure.devops.v5_1.notification.models.SubscriptionTracing>`
-    :param evaluation_tracing:
+    :param evaluation_tracing: Diagnostics settings for troubleshooting event matching.
     :type evaluation_tracing: :class:`SubscriptionTracing <azure.devops.v5_1.notification.models.SubscriptionTracing>`
     """
 
@@ -1459,7 +1461,9 @@ class SubscriptionScope(EventScope):
 
 class SubscriptionTracing(Model):
     """
-    :param enabled:
+    Data controlling a single diagnostic setting for a subscription.
+
+    :param enabled: Indicates whether the diagnostic tracing is enabled or not.
     :type enabled: bool
     :param end_date: Trace until the specified end date.
     :type end_date: datetime
@@ -1507,11 +1511,13 @@ class SubscriptionUserSettings(Model):
 
 class UpdateSubscripitonDiagnosticsParameters(Model):
     """
-    :param delivery_results:
+    Parameters to update diagnostics settings for a subscription.
+
+    :param delivery_results: Diagnostics settings for retaining delivery results.  Used for Service Hooks subscriptions.
     :type delivery_results: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1.notification.models.UpdateSubscripitonTracingParameters>`
-    :param delivery_tracing:
+    :param delivery_tracing: Diagnostics settings for troubleshooting notification delivery.
     :type delivery_tracing: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1.notification.models.UpdateSubscripitonTracingParameters>`
-    :param evaluation_tracing:
+    :param evaluation_tracing: Diagnostics settings for troubleshooting event matching.
     :type evaluation_tracing: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1.notification.models.UpdateSubscripitonTracingParameters>`
     """
 
@@ -1530,7 +1536,9 @@ class UpdateSubscripitonDiagnosticsParameters(Model):
 
 class UpdateSubscripitonTracingParameters(Model):
     """
-    :param enabled:
+    Parameters to update a specific diagnostic setting.
+
+    :param enabled: Indicates whether to enable to disable the diagnostic tracing.
     :type enabled: bool
     """
 
