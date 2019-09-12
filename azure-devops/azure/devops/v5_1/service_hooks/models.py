@@ -1121,11 +1121,13 @@ class Subscription(Model):
 
 class SubscriptionDiagnostics(Model):
     """
-    :param delivery_results:
+    Contains all the diagonstics settings for a subscription.
+
+    :param delivery_results: Diagnostics settings for retaining delivery results.  Used for Service Hooks subscriptions.
     :type delivery_results: :class:`SubscriptionTracing <azure.devops.v5_1.microsoft._visual_studio._services._notifications._web_api.models.SubscriptionTracing>`
-    :param delivery_tracing:
+    :param delivery_tracing: Diagnostics settings for troubleshooting notification delivery.
     :type delivery_tracing: :class:`SubscriptionTracing <azure.devops.v5_1.microsoft._visual_studio._services._notifications._web_api.models.SubscriptionTracing>`
-    :param evaluation_tracing:
+    :param evaluation_tracing: Diagnostics settings for troubleshooting event matching.
     :type evaluation_tracing: :class:`SubscriptionTracing <azure.devops.v5_1.microsoft._visual_studio._services._notifications._web_api.models.SubscriptionTracing>`
     """
 
@@ -1214,7 +1216,9 @@ class SubscriptionsQuery(Model):
 
 class SubscriptionTracing(Model):
     """
-    :param enabled:
+    Data controlling a single diagnostic setting for a subscription.
+
+    :param enabled: Indicates whether the diagnostic tracing is enabled or not.
     :type enabled: bool
     :param end_date: Trace until the specified end date.
     :type end_date: datetime
@@ -1245,11 +1249,13 @@ class SubscriptionTracing(Model):
 
 class UpdateSubscripitonDiagnosticsParameters(Model):
     """
-    :param delivery_results:
+    Parameters to update diagnostics settings for a subscription.
+
+    :param delivery_results: Diagnostics settings for retaining delivery results.  Used for Service Hooks subscriptions.
     :type delivery_results: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1.microsoft._visual_studio._services._notifications._web_api.models.UpdateSubscripitonTracingParameters>`
-    :param delivery_tracing:
+    :param delivery_tracing: Diagnostics settings for troubleshooting notification delivery.
     :type delivery_tracing: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1.microsoft._visual_studio._services._notifications._web_api.models.UpdateSubscripitonTracingParameters>`
-    :param evaluation_tracing:
+    :param evaluation_tracing: Diagnostics settings for troubleshooting event matching.
     :type evaluation_tracing: :class:`UpdateSubscripitonTracingParameters <azure.devops.v5_1.microsoft._visual_studio._services._notifications._web_api.models.UpdateSubscripitonTracingParameters>`
     """
 
@@ -1268,7 +1274,9 @@ class UpdateSubscripitonDiagnosticsParameters(Model):
 
 class UpdateSubscripitonTracingParameters(Model):
     """
-    :param enabled:
+    Parameters to update a specific diagnostic setting.
+
+    :param enabled: Indicates whether to enable to disable the diagnostic tracing.
     :type enabled: bool
     """
 
