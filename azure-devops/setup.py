@@ -6,7 +6,7 @@
 from setuptools import setup, find_packages
 
 NAME = "azure-devops"
-VERSION = "5.1.0b4"
+VERSION = "5.1.0b5"
 
 # To install the library, run the following
 #
