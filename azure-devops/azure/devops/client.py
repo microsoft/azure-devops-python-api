@@ -162,7 +162,9 @@ class Client(object):
     def _get_deployment_url(self):
         pos = self.normalized_url.rfind('/')
         if pos > 0:
-            return self.normalized_url[:pos]
+            deployment_url = self.normalized_url[:pos]
+            if deployment_url.find('://') > 0:
+                return deployment_url
         return None
 
     def _get_resource_location(self, url, location_id):
