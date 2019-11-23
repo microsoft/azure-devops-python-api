@@ -17,6 +17,7 @@
 env/**
 dist/
 lib/
+.eggs/
 
 # Build results
 [Dd]ebug/
