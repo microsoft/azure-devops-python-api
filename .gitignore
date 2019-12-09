@@ -17,6 +17,7 @@
 env/**
 dist/
 lib/
+.eggs/
 
 # Build results
 [Dd]ebug/
@@ -298,8 +299,8 @@ vsts/build/bdist.win32/
 
 # don't ignore release management client
 !azure-devops/azure/devops/released/release
-!azure-devops/azure/devops/v5_0/release
 !azure-devops/azure/devops/v5_1/release
+!azure-devops/azure/devops/v6_0/release
 
 # ignore private folder for testing reported issues
 issues/
