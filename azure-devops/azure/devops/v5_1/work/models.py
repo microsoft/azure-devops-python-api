@@ -12,13 +12,13 @@ from msrest.serialization import Model
 class Activity(Model):
     """
     :param capacity_per_day:
-    :type capacity_per_day: int
+    :type capacity_per_day: float
     :param name:
     :type name: str
     """
 
     _attribute_map = {
-        'capacity_per_day': {'key': 'capacityPerDay', 'type': 'int'},
+        'capacity_per_day': {'key': 'capacityPerDay', 'type': 'float'},
         'name': {'key': 'name', 'type': 'str'}
     }
 
