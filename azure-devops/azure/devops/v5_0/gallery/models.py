@@ -213,7 +213,7 @@ class EventCounts(Model):
     """EventCounts.
 
     :param average_rating: Average rating on the day for extension
-    :type average_rating: int
+    :type average_rating: float
     :param buy_count: Number of times the extension was bought in hosted scenario (applies only to VSTS extensions)
     :type buy_count: int
     :param connected_buy_count: Number of times the extension was bought in connected scenario (applies only to VSTS extensions)
@@ -233,7 +233,7 @@ class EventCounts(Model):
     """
 
     _attribute_map = {
-        'average_rating': {'key': 'averageRating', 'type': 'int'},
+        'average_rating': {'key': 'averageRating', 'type': 'float'},
         'buy_count': {'key': 'buyCount', 'type': 'int'},
         'connected_buy_count': {'key': 'connectedBuyCount', 'type': 'int'},
         'connected_install_count': {'key': 'connectedInstallCount', 'type': 'int'},
@@ -1541,7 +1541,7 @@ class ReviewSummary(Model):
     """ReviewSummary.
 
     :param average_rating: Average Rating
-    :type average_rating: int
+    :type average_rating: float
     :param rating_count: Count of total ratings
     :type rating_count: long
     :param rating_split: Split of count accross rating
@@ -1549,7 +1549,7 @@ class ReviewSummary(Model):
     """
 
     _attribute_map = {
-        'average_rating': {'key': 'averageRating', 'type': 'int'},
+        'average_rating': {'key': 'averageRating', 'type': 'float'},
         'rating_count': {'key': 'ratingCount', 'type': 'long'},
         'rating_split': {'key': 'ratingSplit', 'type': '[RatingCountPerRating]'}
     }
