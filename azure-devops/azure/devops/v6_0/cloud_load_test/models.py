@@ -193,12 +193,12 @@ class BrowserMix(Model):
     :param browser_name:
     :type browser_name: str
     :param browser_percentage:
-    :type browser_percentage: int
+    :type browser_percentage: float
     """
 
     _attribute_map = {
         'browser_name': {'key': 'browserName', 'type': 'str'},
-        'browser_percentage': {'key': 'browserPercentage', 'type': 'int'}
+        'browser_percentage': {'key': 'browserPercentage', 'type': 'float'}
     }
 
     def __init__(self, browser_name=None, browser_percentage=None):
@@ -281,7 +281,7 @@ class CounterSample(Model):
     :param base_value:
     :type base_value: long
     :param computed_value:
-    :type computed_value: int
+    :type computed_value: float
     :param counter_frequency:
     :type counter_frequency: long
     :param counter_instance_id:
@@ -302,7 +302,7 @@ class CounterSample(Model):
 
     _attribute_map = {
         'base_value': {'key': 'baseValue', 'type': 'long'},
-        'computed_value': {'key': 'computedValue', 'type': 'int'},
+        'computed_value': {'key': 'computedValue', 'type': 'float'},
         'counter_frequency': {'key': 'counterFrequency', 'type': 'long'},
         'counter_instance_id': {'key': 'counterInstanceId', 'type': 'str'},
         'counter_type': {'key': 'counterType', 'type': 'str'},
