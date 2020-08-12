@@ -204,12 +204,26 @@ class ClientFactoryV5_1(object):
         """
         return self._connection.get_client('azure.devops.v5_1.operations.operations_client.OperationsClient')
 
+    def get_pipeline_permissions_client(self):
+        """get_pipeline_permissions_client.
+        Gets the 5.1 version of the PipelinePermissionsClient
+        :rtype: :class:`<PipelinePermissionsClient> <azure.devops.v5_1.pipeline_permissions.pipeline_permissions_client.PipelinePermissionsClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.pipeline_permissions.pipeline_permissions_client.PipelinePermissionsClient')
+
     def get_pipelines_client(self):
         """get_pipelines_client.
         Gets the 5.1 version of the PipelinesClient
         :rtype: :class:`<PipelinesClient> <azure.devops.v5_1.pipelines.pipelines_client.PipelinesClient>`
         """
         return self._connection.get_client('azure.devops.v5_1.pipelines.pipelines_client.PipelinesClient')
+
+    def get_pipelines_checks_client(self):
+        """get_pipelines_checks_client.
+        Gets the 5.1 version of the PipelinesChecksClient
+        :rtype: :class:`<PipelinesChecksClient> <azure.devops.v5_1.pipelines_checks.pipelines_checks_client.PipelinesChecksClient>`
+        """
+        return self._connection.get_client('azure.devops.v5_1.pipelines_checks.pipelines_checks_client.PipelinesChecksClient')
 
     def get_policy_client(self):
         """get_policy_client.
