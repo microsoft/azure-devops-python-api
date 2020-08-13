@@ -116,9 +116,11 @@ def get_cache_dir():
     if not os.path.exists(azure_devops_cache_dir):
         try:
             os.makedirs(azure_devops_cache_dir)
-        except FileExistsError:
+        except OSError:
             # https://github.com/microsoft/azure-devops-python-api/issues/354
-            pass
+            # FileExistsError is not available in python 2.7
+            if not os.path.exists(azure_devops_cache_dir):
+                raise
     return azure_devops_cache_dir
 
 
