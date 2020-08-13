@@ -93,15 +93,15 @@ class IdentityBase(Model):
     :type custom_display_name: str
     :param descriptor:
     :type descriptor: :class:`str <azure.devops.v6_0.microsoft._visual_studio._services._web_api.models.str>`
-    :param id:
+    :param id: Identity Identifier. Also called Storage Key, or VSID
     :type id: str
-    :param is_active:
+    :param is_active: True if the identity has a membership in any Azure Devops group in the organization.
     :type is_active: bool
-    :param is_container:
+    :param is_container: True if the identity is a group.
     :type is_container: bool
     :param master_id:
     :type master_id: str
-    :param member_ids:
+    :param member_ids: Id of the members of the identity (groups only).
     :type member_ids: list of str
     :param member_of:
     :type member_of: list of :class:`str <azure.devops.v6_0.microsoft._visual_studio._services._web_api.models.str>`
@@ -117,7 +117,7 @@ class IdentityBase(Model):
     :type resource_version: int
     :param social_descriptor:
     :type social_descriptor: :class:`str <azure.devops.v6_0.microsoft._visual_studio._services._web_api.models.str>`
-    :param subject_descriptor:
+    :param subject_descriptor: Subject descriptor of a Graph entity.
     :type subject_descriptor: :class:`str <azure.devops.v6_0.microsoft._visual_studio._services._web_api.models.str>`
     :param unique_user_id:
     :type unique_user_id: int
@@ -338,15 +338,15 @@ class Identity(IdentityBase):
     :type custom_display_name: str
     :param descriptor:
     :type descriptor: :class:`str <azure.devops.v6_0.microsoft._visual_studio._services._web_api.models.str>`
-    :param id:
+    :param id: Identity Identifier. Also called Storage Key, or VSID
     :type id: str
-    :param is_active:
+    :param is_active: True if the identity has a membership in any Azure Devops group in the organization.
     :type is_active: bool
-    :param is_container:
+    :param is_container: True if the identity is a group.
     :type is_container: bool
     :param master_id:
     :type master_id: str
-    :param member_ids:
+    :param member_ids: Id of the members of the identity (groups only).
     :type member_ids: list of str
     :param member_of:
     :type member_of: list of :class:`str <azure.devops.v6_0.microsoft._visual_studio._services._web_api.models.str>`
@@ -362,7 +362,7 @@ class Identity(IdentityBase):
     :type resource_version: int
     :param social_descriptor:
     :type social_descriptor: :class:`str <azure.devops.v6_0.microsoft._visual_studio._services._web_api.models.str>`
-    :param subject_descriptor:
+    :param subject_descriptor: Subject descriptor of a Graph entity.
     :type subject_descriptor: :class:`str <azure.devops.v6_0.microsoft._visual_studio._services._web_api.models.str>`
     :param unique_user_id:
     :type unique_user_id: int

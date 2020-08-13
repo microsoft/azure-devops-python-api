@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v5_1.cloud_load_test.models import *
+from ...v6_0.cloud_load_test.models import *
 from .cloud_load_test_client import CloudLoadTestClient
 
 __all__ = [

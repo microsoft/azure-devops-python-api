@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v5_1.work.models import *
+from ...v6_0.work.models import *
 from .work_client import WorkClient
 
 __all__ = [
@@ -39,6 +39,7 @@ __all__ = [
     'FilterClause',
     'GraphSubjectBase',
     'IdentityRef',
+    'ITaskboardColumnMapping',
     'IterationWorkItems',
     'Link',
     'Member',
@@ -51,6 +52,10 @@ __all__ = [
     'ReorderOperation',
     'ReorderResult',
     'Rule',
+    'TaskboardColumn',
+    'TaskboardColumnMapping',
+    'TaskboardColumns',
+    'TaskboardWorkItemColumn',
     'TeamContext',
     'TeamFieldValue',
     'TeamFieldValues',
@@ -70,6 +75,8 @@ __all__ = [
     'TimelineTeamIteration',
     'TimelineTeamStatus',
     'UpdatePlan',
+    'UpdateTaskboardColumn',
+    'UpdateTaskboardWorkItemColumn',
     'WorkItem',
     'WorkItemColor',
     'WorkItemCommentVersionRef',

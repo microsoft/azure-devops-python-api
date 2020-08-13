@@ -37,6 +37,7 @@ __all__ = [
     'IdentityRef',
     'JobReference',
     'ModuleCoverage',
+    'NewTestResultLoggingSettings',
     'PhaseReference',
     'PipelineReference',
     'PipelineTestMetrics',

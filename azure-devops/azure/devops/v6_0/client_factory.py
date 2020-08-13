@@ -9,7 +9,7 @@
 
 class ClientFactoryV6_0(object):
     """ClientFactoryV6_0.
-    A factory class to get the 6.0 preview clients.
+    A factory class to get the 6.0 clients.
     """
 
     def __init__(self, connection):
@@ -113,13 +113,6 @@ class ClientFactoryV6_0(object):
         """
         return self._connection.get_client('azure.devops.v6_0.feed.feed_client.FeedClient')
 
-    def get_feed_token_client(self):
-        """get_feed_token_client.
-        Gets the 6.0 version of the FeedTokenClient
-        :rtype: :class:`<FeedTokenClient> <azure.devops.v6_0.feed_token.feed_token_client.FeedTokenClient>`
-        """
-        return self._connection.get_client('azure.devops.v6_0.feed_token.feed_token_client.FeedTokenClient')
-
     def get_file_container_client(self):
         """get_file_container_client.
         Gets the 6.0 version of the FileContainerClient
@@ -204,12 +197,26 @@ class ClientFactoryV6_0(object):
         """
         return self._connection.get_client('azure.devops.v6_0.operations.operations_client.OperationsClient')
 
+    def get_pipeline_permissions_client(self):
+        """get_pipeline_permissions_client.
+        Gets the 6.0 version of the PipelinePermissionsClient
+        :rtype: :class:`<PipelinePermissionsClient> <azure.devops.v6_0.pipeline_permissions.pipeline_permissions_client.PipelinePermissionsClient>`
+        """
+        return self._connection.get_client('azure.devops.v6_0.pipeline_permissions.pipeline_permissions_client.PipelinePermissionsClient')
+
     def get_pipelines_client(self):
         """get_pipelines_client.
         Gets the 6.0 version of the PipelinesClient
         :rtype: :class:`<PipelinesClient> <azure.devops.v6_0.pipelines.pipelines_client.PipelinesClient>`
         """
         return self._connection.get_client('azure.devops.v6_0.pipelines.pipelines_client.PipelinesClient')
+
+    def get_pipelines_checks_client(self):
+        """get_pipelines_checks_client.
+        Gets the 6.0 version of the PipelinesChecksClient
+        :rtype: :class:`<PipelinesChecksClient> <azure.devops.v6_0.pipelines_checks.pipelines_checks_client.PipelinesChecksClient>`
+        """
+        return self._connection.get_client('azure.devops.v6_0.pipelines_checks.pipelines_checks_client.PipelinesChecksClient')
 
     def get_policy_client(self):
         """get_policy_client.
@@ -350,13 +357,6 @@ class ClientFactoryV6_0(object):
         :rtype: :class:`<TokenAdminClient> <azure.devops.v6_0.token_admin.token_admin_client.TokenAdminClient>`
         """
         return self._connection.get_client('azure.devops.v6_0.token_admin.token_admin_client.TokenAdminClient')
-
-    def get_token_administration_client(self):
-        """get_token_administration_client.
-        Gets the 6.0 version of the TokenAdministrationClient
-        :rtype: :class:`<TokenAdministrationClient> <azure.devops.v6_0.token_administration.token_administration_client.TokenAdministrationClient>`
-        """
-        return self._connection.get_client('azure.devops.v6_0.token_administration.token_administration_client.TokenAdministrationClient')
 
     def get_upack_api_client(self):
         """get_upack_api_client.

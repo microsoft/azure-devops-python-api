@@ -40,6 +40,8 @@ class AuditLogEntry(Model):
     :type activity_id: str
     :param actor_cUID: The Actor's CUID
     :type actor_cUID: str
+    :param actor_uPN: The Actor's UPN
+    :type actor_uPN: str
     :param actor_user_id: The Actor's User Id
     :type actor_user_id: str
     :param authentication_mechanism: Type of authentication used by the author
@@ -68,6 +70,7 @@ class AuditLogEntry(Model):
         'action_id': {'key': 'actionId', 'type': 'str'},
         'activity_id': {'key': 'activityId', 'type': 'str'},
         'actor_cUID': {'key': 'actorCUID', 'type': 'str'},
+        'actor_uPN': {'key': 'actorUPN', 'type': 'str'},
         'actor_user_id': {'key': 'actorUserId', 'type': 'str'},
         'authentication_mechanism': {'key': 'authenticationMechanism', 'type': 'str'},
         'correlation_id': {'key': 'correlationId', 'type': 'str'},
@@ -81,11 +84,12 @@ class AuditLogEntry(Model):
         'user_agent': {'key': 'userAgent', 'type': 'str'}
     }
 
-    def __init__(self, action_id=None, activity_id=None, actor_cUID=None, actor_user_id=None, authentication_mechanism=None, correlation_id=None, data=None, id=None, ip_address=None, project_id=None, scope_id=None, scope_type=None, timestamp=None, user_agent=None):
+    def __init__(self, action_id=None, activity_id=None, actor_cUID=None, actor_uPN=None, actor_user_id=None, authentication_mechanism=None, correlation_id=None, data=None, id=None, ip_address=None, project_id=None, scope_id=None, scope_type=None, timestamp=None, user_agent=None):
         super(AuditLogEntry, self).__init__()
         self.action_id = action_id
         self.activity_id = activity_id
         self.actor_cUID = actor_cUID
+        self.actor_uPN = actor_uPN
         self.actor_user_id = actor_user_id
         self.authentication_mechanism = authentication_mechanism
         self.correlation_id = correlation_id
@@ -181,6 +185,8 @@ class DecoratedAuditLogEntry(Model):
     :type actor_display_name: str
     :param actor_image_url: URL of Actor's Profile image
     :type actor_image_url: str
+    :param actor_uPN: The Actor's UPN
+    :type actor_uPN: str
     :param actor_user_id: The Actor's User Id
     :type actor_user_id: str
     :param area: Area of Azure DevOps the action occurred
@@ -223,6 +229,7 @@ class DecoratedAuditLogEntry(Model):
         'actor_cUID': {'key': 'actorCUID', 'type': 'str'},
         'actor_display_name': {'key': 'actorDisplayName', 'type': 'str'},
         'actor_image_url': {'key': 'actorImageUrl', 'type': 'str'},
+        'actor_uPN': {'key': 'actorUPN', 'type': 'str'},
         'actor_user_id': {'key': 'actorUserId', 'type': 'str'},
         'area': {'key': 'area', 'type': 'str'},
         'authentication_mechanism': {'key': 'authenticationMechanism', 'type': 'str'},
@@ -242,13 +249,14 @@ class DecoratedAuditLogEntry(Model):
         'user_agent': {'key': 'userAgent', 'type': 'str'}
     }
 
-    def __init__(self, action_id=None, activity_id=None, actor_cUID=None, actor_display_name=None, actor_image_url=None, actor_user_id=None, area=None, authentication_mechanism=None, category=None, category_display_name=None, correlation_id=None, data=None, details=None, id=None, ip_address=None, project_id=None, project_name=None, scope_display_name=None, scope_id=None, scope_type=None, timestamp=None, user_agent=None):
+    def __init__(self, action_id=None, activity_id=None, actor_cUID=None, actor_display_name=None, actor_image_url=None, actor_uPN=None, actor_user_id=None, area=None, authentication_mechanism=None, category=None, category_display_name=None, correlation_id=None, data=None, details=None, id=None, ip_address=None, project_id=None, project_name=None, scope_display_name=None, scope_id=None, scope_type=None, timestamp=None, user_agent=None):
         super(DecoratedAuditLogEntry, self).__init__()
         self.action_id = action_id
         self.activity_id = activity_id
         self.actor_cUID = actor_cUID
         self.actor_display_name = actor_display_name
         self.actor_image_url = actor_image_url
+        self.actor_uPN = actor_uPN
         self.actor_user_id = actor_user_id
         self.area = area
         self.authentication_mechanism = authentication_mechanism
