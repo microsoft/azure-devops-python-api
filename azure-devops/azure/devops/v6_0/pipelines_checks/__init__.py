@@ -7,13 +7,24 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
-from .token_admin_client import TokenAdminClient
+from .pipelines_checks_client import PipelinesChecksClient
 
 __all__ = [
-    'SessionToken',
-    'SessionTokenResult',
-    'TokenAdminPagedSessionTokens',
-    'TokenAdminRevocation',
-    'TokenAdminRevocationRule',
-    'TokenAdminClient'
+    'ApprovalConfig',
+    'ApprovalConfigSettings',
+    'CheckConfiguration',
+    'CheckConfigurationRef',
+    'CheckRun',
+    'CheckRunResult',
+    'CheckSuite',
+    'CheckSuiteRef',
+    'CheckSuiteRequest',
+    'CheckType',
+    'GraphSubjectBase',
+    'IdentityRef',
+    'ReferenceLinks',
+    'Resource',
+    'TaskCheckConfig',
+    'TaskCheckDefinitionReference',
+    'PipelinesChecksClient'
 ]

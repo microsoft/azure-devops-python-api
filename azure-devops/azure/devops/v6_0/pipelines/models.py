@@ -11,6 +11,8 @@ from msrest.serialization import Model
 
 class Artifact(Model):
     """
+    Artifacts are collections of files produced by a pipeline. Use artifacts to share files between stages in a pipeline or between different pipelines.
+
     :param name: The name of the artifact.
     :type name: str
     :param signed_content: Signed url for downloading this artifact
@@ -32,9 +34,41 @@ class Artifact(Model):
         self.url = url
 
 
+class BuildResourceParameters(Model):
+    """
+    :param version:
+    :type version: str
+    """
+
+    _attribute_map = {
+        'version': {'key': 'version', 'type': 'str'}
+    }
+
+    def __init__(self, version=None):
+        super(BuildResourceParameters, self).__init__()
+        self.version = version
+
+
+class ContainerResourceParameters(Model):
+    """
+    :param version:
+    :type version: str
+    """
+
+    _attribute_map = {
+        'version': {'key': 'version', 'type': 'str'}
+    }
+
+    def __init__(self, version=None):
+        super(ContainerResourceParameters, self).__init__()
+        self.version = version
+
+
 class CreatePipelineConfigurationParameters(Model):
     """
-    :param type:
+    Configuration parameters of the pipeline.
+
+    :param type: Type of configuration.
     :type type: object
     """
 
@@ -49,11 +83,13 @@ class CreatePipelineConfigurationParameters(Model):
 
 class CreatePipelineParameters(Model):
     """
-    :param configuration:
+    Parameters to create a pipeline.
+
+    :param configuration: Configuration parameters of the pipeline.
     :type configuration: :class:`CreatePipelineConfigurationParameters <azure.devops.v6_0.pipelines.models.CreatePipelineConfigurationParameters>`
-    :param folder:
+    :param folder: Folder of the pipeline.
     :type folder: str
-    :param name:
+    :param name: Name of the pipeline.
     :type name: str
     """
 
@@ -72,6 +108,8 @@ class CreatePipelineParameters(Model):
 
 class Log(Model):
     """
+    Log for a pipeline.
+
     :param created_on: The date and time the log was created.
     :type created_on: datetime
     :param id: The ID of the log.
@@ -107,11 +145,13 @@ class Log(Model):
 
 class LogCollection(Model):
     """
-    :param logs:
+    A collection of logs.
+
+    :param logs: The list of logs.
     :type logs: list of :class:`Log <azure.devops.v6_0.pipelines.models.Log>`
     :param signed_content:
     :type signed_content: :class:`SignedUrl <azure.devops.v6_0.pipelines.models.SignedUrl>`
-    :param url:
+    :param url: URL of the log.
     :type url: str
     """
 
@@ -128,15 +168,30 @@ class LogCollection(Model):
         self.url = url
 
 
+class PackageResourceParameters(Model):
+    """
+    :param version:
+    :type version: str
+    """
+
+    _attribute_map = {
+        'version': {'key': 'version', 'type': 'str'}
+    }
+
+    def __init__(self, version=None):
+        super(PackageResourceParameters, self).__init__()
+        self.version = version
+
+
 class PipelineBase(Model):
     """
-    :param folder:
+    :param folder: Pipeline folder
     :type folder: str
-    :param id:
+    :param id: Pipeline ID
     :type id: int
-    :param name:
+    :param name: Pipeline name
     :type name: str
-    :param revision:
+    :param revision: Revision number
     :type revision: int
     """
 
@@ -174,13 +229,13 @@ class PipelineReference(PipelineBase):
     """
     A reference to a Pipeline.
 
-    :param folder:
+    :param folder: Pipeline folder
     :type folder: str
-    :param id:
+    :param id: Pipeline ID
     :type id: int
-    :param name:
+    :param name: Pipeline name
     :type name: str
-    :param revision:
+    :param revision: Revision number
     :type revision: int
     :param url:
     :type url: str
@@ -197,6 +252,21 @@ class PipelineReference(PipelineBase):
     def __init__(self, folder=None, id=None, name=None, revision=None, url=None):
         super(PipelineReference, self).__init__(folder=folder, id=id, name=name, revision=revision)
         self.url = url
+
+
+class PipelineResourceParameters(Model):
+    """
+    :param version:
+    :type version: str
+    """
+
+    _attribute_map = {
+        'version': {'key': 'version', 'type': 'str'}
+    }
+
+    def __init__(self, version=None):
+        super(PipelineResourceParameters, self).__init__()
+        self.version = version
 
 
 class ReferenceLinks(Model):
@@ -283,21 +353,39 @@ class RepositoryResourceParameters(Model):
 
 class RunPipelineParameters(Model):
     """
-    :param resources:
+    Settings which influence pipeline runs.
+
+    :param preview_run: If true, don't actually create a new run. Instead, return the final YAML document after parsing templates.
+    :type preview_run: bool
+    :param resources: The resources the run requires.
     :type resources: :class:`RunResourcesParameters <azure.devops.v6_0.pipelines.models.RunResourcesParameters>`
+    :param stages_to_skip:
+    :type stages_to_skip: list of str
+    :param template_parameters:
+    :type template_parameters: dict
     :param variables:
     :type variables: dict
+    :param yaml_override: If you use the preview run option, you may optionally supply different YAML. This allows you to preview the final YAML document without committing a changed file.
+    :type yaml_override: str
     """
 
     _attribute_map = {
+        'preview_run': {'key': 'previewRun', 'type': 'bool'},
         'resources': {'key': 'resources', 'type': 'RunResourcesParameters'},
-        'variables': {'key': 'variables', 'type': '{Variable}'}
+        'stages_to_skip': {'key': 'stagesToSkip', 'type': '[str]'},
+        'template_parameters': {'key': 'templateParameters', 'type': '{str}'},
+        'variables': {'key': 'variables', 'type': '{Variable}'},
+        'yaml_override': {'key': 'yamlOverride', 'type': 'str'}
     }
 
-    def __init__(self, resources=None, variables=None):
+    def __init__(self, preview_run=None, resources=None, stages_to_skip=None, template_parameters=None, variables=None, yaml_override=None):
         super(RunPipelineParameters, self).__init__()
+        self.preview_run = preview_run
         self.resources = resources
+        self.stages_to_skip = stages_to_skip
+        self.template_parameters = template_parameters
         self.variables = variables
+        self.yaml_override = yaml_override
 
 
 class RunReference(Model):
@@ -336,16 +424,32 @@ class RunResources(Model):
 
 class RunResourcesParameters(Model):
     """
+    :param builds:
+    :type builds: dict
+    :param containers:
+    :type containers: dict
+    :param packages:
+    :type packages: dict
+    :param pipelines:
+    :type pipelines: dict
     :param repositories:
     :type repositories: dict
     """
 
     _attribute_map = {
+        'builds': {'key': 'builds', 'type': '{BuildResourceParameters}'},
+        'containers': {'key': 'containers', 'type': '{ContainerResourceParameters}'},
+        'packages': {'key': 'packages', 'type': '{PackageResourceParameters}'},
+        'pipelines': {'key': 'pipelines', 'type': '{PipelineResourceParameters}'},
         'repositories': {'key': 'repositories', 'type': '{RepositoryResourceParameters}'}
     }
 
-    def __init__(self, repositories=None):
+    def __init__(self, builds=None, containers=None, packages=None, pipelines=None, repositories=None):
         super(RunResourcesParameters, self).__init__()
+        self.builds = builds
+        self.containers = containers
+        self.packages = packages
+        self.pipelines = pipelines
         self.repositories = repositories
 
 
@@ -368,9 +472,9 @@ class SignedUrl(Model):
     """
     A signed url allowing limited-time anonymous access to private resources.
 
-    :param signature_expires:
+    :param signature_expires: Timestamp when access expires.
     :type signature_expires: datetime
-    :param url:
+    :param url: The URL to allow access to.
     :type url: str
     """
 
@@ -406,19 +510,21 @@ class Variable(Model):
 
 class Pipeline(PipelineBase):
     """
-    :param folder:
+    Definition of a pipeline.
+
+    :param folder: Pipeline folder
     :type folder: str
-    :param id:
+    :param id: Pipeline ID
     :type id: int
-    :param name:
+    :param name: Pipeline name
     :type name: str
-    :param revision:
+    :param revision: Revision number
     :type revision: int
     :param _links:
     :type _links: :class:`ReferenceLinks <azure.devops.v6_0.pipelines.models.ReferenceLinks>`
     :param configuration:
     :type configuration: :class:`PipelineConfiguration <azure.devops.v6_0.pipelines.models.PipelineConfiguration>`
-    :param url:
+    :param url: URL of the pipeline
     :type url: str
     """
 
@@ -449,6 +555,8 @@ class Run(RunReference):
     :type _links: :class:`ReferenceLinks <azure.devops.v6_0.pipelines.models.ReferenceLinks>`
     :param created_date:
     :type created_date: datetime
+    :param final_yaml:
+    :type final_yaml: str
     :param finished_date:
     :type finished_date: datetime
     :param pipeline:
@@ -470,6 +578,7 @@ class Run(RunReference):
         'name': {'key': 'name', 'type': 'str'},
         '_links': {'key': '_links', 'type': 'ReferenceLinks'},
         'created_date': {'key': 'createdDate', 'type': 'iso-8601'},
+        'final_yaml': {'key': 'finalYaml', 'type': 'str'},
         'finished_date': {'key': 'finishedDate', 'type': 'iso-8601'},
         'pipeline': {'key': 'pipeline', 'type': 'PipelineReference'},
         'resources': {'key': 'resources', 'type': 'RunResources'},
@@ -479,10 +588,11 @@ class Run(RunReference):
         'variables': {'key': 'variables', 'type': '{Variable}'}
     }
 
-    def __init__(self, id=None, name=None, _links=None, created_date=None, finished_date=None, pipeline=None, resources=None, result=None, state=None, url=None, variables=None):
+    def __init__(self, id=None, name=None, _links=None, created_date=None, final_yaml=None, finished_date=None, pipeline=None, resources=None, result=None, state=None, url=None, variables=None):
         super(Run, self).__init__(id=id, name=name)
         self._links = _links
         self.created_date = created_date
+        self.final_yaml = final_yaml
         self.finished_date = finished_date
         self.pipeline = pipeline
         self.resources = resources
@@ -494,13 +604,17 @@ class Run(RunReference):
 
 __all__ = [
     'Artifact',
+    'BuildResourceParameters',
+    'ContainerResourceParameters',
     'CreatePipelineConfigurationParameters',
     'CreatePipelineParameters',
     'Log',
     'LogCollection',
+    'PackageResourceParameters',
     'PipelineBase',
     'PipelineConfiguration',
     'PipelineReference',
+    'PipelineResourceParameters',
     'ReferenceLinks',
     'Repository',
     'RepositoryResource',

@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v5_1.notification.models import *
+from ...v6_0.notification.models import *
 from .notification_client import NotificationClient
 
 __all__ = [

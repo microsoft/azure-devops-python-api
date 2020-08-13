@@ -140,6 +140,8 @@ class DebugEntry(ResourceBase):
     :type information_level: object
     :param request_id: The identifier of symbol request to which this debug entry belongs.
     :type request_id: str
+    :param size: The size for the debug entry.
+    :type size: long
     :param status: The status of debug entry.
     :type status: object
     """
@@ -156,10 +158,11 @@ class DebugEntry(ResourceBase):
         'client_key': {'key': 'clientKey', 'type': 'str'},
         'information_level': {'key': 'informationLevel', 'type': 'object'},
         'request_id': {'key': 'requestId', 'type': 'str'},
+        'size': {'key': 'size', 'type': 'long'},
         'status': {'key': 'status', 'type': 'object'}
     }
 
-    def __init__(self, created_by=None, created_date=None, id=None, storage_eTag=None, url=None, blob_details=None, blob_identifier=None, blob_uri=None, client_key=None, information_level=None, request_id=None, status=None):
+    def __init__(self, created_by=None, created_date=None, id=None, storage_eTag=None, url=None, blob_details=None, blob_identifier=None, blob_uri=None, client_key=None, information_level=None, request_id=None, size=None, status=None):
         super(DebugEntry, self).__init__(created_by=created_by, created_date=created_date, id=id, storage_eTag=storage_eTag, url=url)
         self.blob_details = blob_details
         self.blob_identifier = blob_identifier
@@ -167,6 +170,7 @@ class DebugEntry(ResourceBase):
         self.client_key = client_key
         self.information_level = information_level
         self.request_id = request_id
+        self.size = size
         self.status = status
 
 
@@ -190,6 +194,8 @@ class Request(ResourceBase):
     :type expiration_date: datetime
     :param name: A human-facing name for the request. Required on POST, ignored on PATCH.
     :type name: str
+    :param size: The total Size for this request.
+    :type size: long
     :param status: The status for this request.
     :type status: object
     """
@@ -203,14 +209,16 @@ class Request(ResourceBase):
         'description': {'key': 'description', 'type': 'str'},
         'expiration_date': {'key': 'expirationDate', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'size': {'key': 'size', 'type': 'long'},
         'status': {'key': 'status', 'type': 'object'}
     }
 
-    def __init__(self, created_by=None, created_date=None, id=None, storage_eTag=None, url=None, description=None, expiration_date=None, name=None, status=None):
+    def __init__(self, created_by=None, created_date=None, id=None, storage_eTag=None, url=None, description=None, expiration_date=None, name=None, size=None, status=None):
         super(Request, self).__init__(created_by=created_by, created_date=created_date, id=id, storage_eTag=storage_eTag, url=url)
         self.description = description
         self.expiration_date = expiration_date
         self.name = name
+        self.size = size
         self.status = status
 
 
