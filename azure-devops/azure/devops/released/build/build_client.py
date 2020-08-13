@@ -8,7 +8,7 @@
 
 from msrest import Serializer, Deserializer
 from ...client import Client
-from ...v5_1.build import models
+from ...v6_0.build import models
 
 
 class BuildClient(Client):
@@ -28,10 +28,10 @@ class BuildClient(Client):
     def create_artifact(self, artifact, project, build_id):
         """CreateArtifact.
         Associates an artifact with a build.
-        :param :class:`<BuildArtifact> <azure.devops.v5_1.build.models.BuildArtifact>` artifact: The artifact.
+        :param :class:`<BuildArtifact> <azure.devops.v6_0.build.models.BuildArtifact>` artifact: The artifact.
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
-        :rtype: :class:`<BuildArtifact> <azure.devops.v5_1.build.models.BuildArtifact>`
+        :rtype: :class:`<BuildArtifact> <azure.devops.v6_0.build.models.BuildArtifact>`
         """
         route_values = {}
         if project is not None:
@@ -41,7 +41,7 @@ class BuildClient(Client):
         content = self._serialize.body(artifact, 'BuildArtifact')
         response = self._send(http_method='POST',
                               location_id='1db06c96-014e-44e1-ac91-90b2d4b3e984',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               content=content)
         return self._deserialize('BuildArtifact', response)
@@ -52,7 +52,7 @@ class BuildClient(Client):
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
         :param str artifact_name: The name of the artifact.
-        :rtype: :class:`<BuildArtifact> <azure.devops.v5_1.build.models.BuildArtifact>`
+        :rtype: :class:`<BuildArtifact> <azure.devops.v6_0.build.models.BuildArtifact>`
         """
         route_values = {}
         if project is not None:
@@ -64,7 +64,7 @@ class BuildClient(Client):
             query_parameters['artifactName'] = self._serialize.query('artifact_name', artifact_name, 'str')
         response = self._send(http_method='GET',
                               location_id='1db06c96-014e-44e1-ac91-90b2d4b3e984',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('BuildArtifact', response)
@@ -87,7 +87,7 @@ class BuildClient(Client):
             query_parameters['artifactName'] = self._serialize.query('artifact_name', artifact_name, 'str')
         response = self._send(http_method='GET',
                               location_id='1db06c96-014e-44e1-ac91-90b2d4b3e984',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               accept_media_type='application/zip')
@@ -111,7 +111,7 @@ class BuildClient(Client):
             route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         response = self._send(http_method='GET',
                               location_id='1db06c96-014e-44e1-ac91-90b2d4b3e984',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values)
         return self._deserialize('[BuildArtifact]', self._unwrap_collection(response))
 
@@ -139,7 +139,7 @@ class BuildClient(Client):
             query_parameters['fileName'] = self._serialize.query('file_name', file_name, 'str')
         response = self._send(http_method='GET',
                               location_id='1db06c96-014e-44e1-ac91-90b2d4b3e984',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               accept_media_type='application/octet-stream')
@@ -162,7 +162,7 @@ class BuildClient(Client):
             route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         self._send(http_method='DELETE',
                    location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                   version='5.1',
+                   version='6.0',
                    route_values=route_values)
 
     def get_build(self, project, build_id, property_filters=None):
@@ -171,7 +171,7 @@ class BuildClient(Client):
         :param str project: Project ID or project name
         :param int build_id:
         :param str property_filters:
-        :rtype: :class:`<Build> <azure.devops.v5_1.build.models.Build>`
+        :rtype: :class:`<Build> <azure.devops.v6_0.build.models.Build>`
         """
         route_values = {}
         if project is not None:
@@ -183,7 +183,7 @@ class BuildClient(Client):
             query_parameters['propertyFilters'] = self._serialize.query('property_filters', property_filters, 'str')
         response = self._send(http_method='GET',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('Build', response)
@@ -212,7 +212,7 @@ class BuildClient(Client):
         :param [int] build_ids: A comma-delimited list that specifies the IDs of builds to retrieve.
         :param str repository_id: If specified, filters to builds that built from this repository.
         :param str repository_type: If specified, filters to builds that built from repositories of this type.
-        :rtype: :class:`<GetBuildsResponseValue>`
+        :rtype: :class:`<[Build]> <azure.devops.v6_0.build.models.[Build]>`
         """
         route_values = {}
         if project is not None:
@@ -265,35 +265,21 @@ class BuildClient(Client):
             query_parameters['repositoryType'] = self._serialize.query('repository_type', repository_type, 'str')
         response = self._send(http_method='GET',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        response_value = self._deserialize('[Build]', self._unwrap_collection(response))
-        continuation_token = self._get_continuation_token(response)
-        return self.GetBuildsResponseValue(response_value, continuation_token)
+        return self._deserialize('[Build]', self._unwrap_collection(response))
 
-    class GetBuildsResponseValue(object):
-        def __init__(self, value, continuation_token):
-            """
-            Response for the get_builds method
-
-            :param value:
-            :type value: :class:`<[Build]> <azure.devops.v5_1.build.models.[Build]>`
-            :param continuation_token: The continuation token to be used to get the next page of results.
-            :type continuation_token: str
-            """
-            self.value = value
-            self.continuation_token = continuation_token
-
-    def queue_build(self, build, project, ignore_warnings=None, check_in_ticket=None, source_build_id=None):
+    def queue_build(self, build, project, ignore_warnings=None, check_in_ticket=None, source_build_id=None, definition_id=None):
         """QueueBuild.
         Queues a build
-        :param :class:`<Build> <azure.devops.v5_1.build.models.Build>` build:
+        :param :class:`<Build> <azure.devops.v6_0.build.models.Build>` build:
         :param str project: Project ID or project name
         :param bool ignore_warnings:
         :param str check_in_ticket:
         :param int source_build_id:
-        :rtype: :class:`<Build> <azure.devops.v5_1.build.models.Build>`
+        :param int definition_id: Optional definition id to queue a build without a body. Ignored if there's a valid body
+        :rtype: :class:`<Build> <azure.devops.v6_0.build.models.Build>`
         """
         route_values = {}
         if project is not None:
@@ -305,10 +291,12 @@ class BuildClient(Client):
             query_parameters['checkInTicket'] = self._serialize.query('check_in_ticket', check_in_ticket, 'str')
         if source_build_id is not None:
             query_parameters['sourceBuildId'] = self._serialize.query('source_build_id', source_build_id, 'int')
+        if definition_id is not None:
+            query_parameters['definitionId'] = self._serialize.query('definition_id', definition_id, 'int')
         content = self._serialize.body(build, 'Build')
         response = self._send(http_method='POST',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -317,11 +305,11 @@ class BuildClient(Client):
     def update_build(self, build, project, build_id, retry=None):
         """UpdateBuild.
         Updates a build.
-        :param :class:`<Build> <azure.devops.v5_1.build.models.Build>` build: The build.
+        :param :class:`<Build> <azure.devops.v6_0.build.models.Build>` build: The build.
         :param str project: Project ID or project name
         :param int build_id: The ID of the build.
         :param bool retry:
-        :rtype: :class:`<Build> <azure.devops.v5_1.build.models.Build>`
+        :rtype: :class:`<Build> <azure.devops.v6_0.build.models.Build>`
         """
         route_values = {}
         if project is not None:
@@ -334,7 +322,7 @@ class BuildClient(Client):
         content = self._serialize.body(build, 'Build')
         response = self._send(http_method='PATCH',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -353,7 +341,7 @@ class BuildClient(Client):
         content = self._serialize.body(builds, '[Build]')
         response = self._send(http_method='PATCH',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               content=content)
         return self._deserialize('[Build]', self._unwrap_collection(response))
@@ -366,7 +354,7 @@ class BuildClient(Client):
         :param str continuation_token:
         :param int top: The maximum number of changes to return
         :param bool include_source_change:
-        :rtype: :class:`<GetBuildChangesResponseValue>`
+        :rtype: :class:`<[Change]> <azure.devops.v6_0.build.models.[Change]>`
         """
         route_values = {}
         if project is not None:
@@ -382,38 +370,23 @@ class BuildClient(Client):
             query_parameters['includeSourceChange'] = self._serialize.query('include_source_change', include_source_change, 'bool')
         response = self._send(http_method='GET',
                               location_id='54572c7b-bbd3-45d4-80dc-28be08941620',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        response_value = self._deserialize('[Change]', self._unwrap_collection(response))
-        continuation_token = self._get_continuation_token(response)
-        return self.GetBuildChangesResponseValue(response_value, continuation_token)
-
-    class GetBuildChangesResponseValue(object):
-        def __init__(self, value, continuation_token):
-            """
-            Response for the get_build_changes method
-
-            :param value:
-            :type value: :class:`<[Change]> <azure.devops.v5_1.build.models.[Change]>`
-            :param continuation_token: The continuation token to be used to get the next page of results.
-            :type continuation_token: str
-            """
-            self.value = value
-            self.continuation_token = continuation_token
+        return self._deserialize('[Change]', self._unwrap_collection(response))
 
     def get_build_controller(self, controller_id):
         """GetBuildController.
         Gets a controller
         :param int controller_id:
-        :rtype: :class:`<BuildController> <azure.devops.v5_1.build.models.BuildController>`
+        :rtype: :class:`<BuildController> <azure.devops.v6_0.build.models.BuildController>`
         """
         route_values = {}
         if controller_id is not None:
             route_values['controllerId'] = self._serialize.url('controller_id', controller_id, 'int')
         response = self._send(http_method='GET',
                               location_id='fcac1932-2ee1-437f-9b6f-7f696be858f6',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values)
         return self._deserialize('BuildController', response)
 
@@ -428,18 +401,18 @@ class BuildClient(Client):
             query_parameters['name'] = self._serialize.query('name', name, 'str')
         response = self._send(http_method='GET',
                               location_id='fcac1932-2ee1-437f-9b6f-7f696be858f6',
-                              version='5.1',
+                              version='6.0',
                               query_parameters=query_parameters)
         return self._deserialize('[BuildController]', self._unwrap_collection(response))
 
     def create_definition(self, definition, project, definition_to_clone_id=None, definition_to_clone_revision=None):
         """CreateDefinition.
         Creates a new definition.
-        :param :class:`<BuildDefinition> <azure.devops.v5_1.build.models.BuildDefinition>` definition: The definition.
+        :param :class:`<BuildDefinition> <azure.devops.v6_0.build.models.BuildDefinition>` definition: The definition.
         :param str project: Project ID or project name
         :param int definition_to_clone_id:
         :param int definition_to_clone_revision:
-        :rtype: :class:`<BuildDefinition> <azure.devops.v5_1.build.models.BuildDefinition>`
+        :rtype: :class:`<BuildDefinition> <azure.devops.v6_0.build.models.BuildDefinition>`
         """
         route_values = {}
         if project is not None:
@@ -452,7 +425,7 @@ class BuildClient(Client):
         content = self._serialize.body(definition, 'BuildDefinition')
         response = self._send(http_method='POST',
                               location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -471,7 +444,7 @@ class BuildClient(Client):
             route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
         self._send(http_method='DELETE',
                    location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
-                   version='5.1',
+                   version='6.0',
                    route_values=route_values)
 
     def get_definition(self, project, definition_id, revision=None, min_metrics_time=None, property_filters=None, include_latest_builds=None):
@@ -483,7 +456,7 @@ class BuildClient(Client):
         :param datetime min_metrics_time: If specified, indicates the date from which metrics should be included.
         :param [str] property_filters: A comma-delimited list of properties to include in the results.
         :param bool include_latest_builds:
-        :rtype: :class:`<BuildDefinition> <azure.devops.v5_1.build.models.BuildDefinition>`
+        :rtype: :class:`<BuildDefinition> <azure.devops.v6_0.build.models.BuildDefinition>`
         """
         route_values = {}
         if project is not None:
@@ -502,7 +475,7 @@ class BuildClient(Client):
             query_parameters['includeLatestBuilds'] = self._serialize.query('include_latest_builds', include_latest_builds, 'bool')
         response = self._send(http_method='GET',
                               location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('BuildDefinition', response)
@@ -527,7 +500,7 @@ class BuildClient(Client):
         :param str task_id_filter: If specified, filters to definitions that use the specified task.
         :param int process_type: If specified, filters to definitions with the given process type.
         :param str yaml_filename: If specified, filters to YAML definitions that match the given filename.
-        :rtype: :class:`<GetDefinitionsResponseValue>`
+        :rtype: :class:`<[BuildDefinitionReference]> <azure.devops.v6_0.build.models.[BuildDefinitionReference]>`
         """
         route_values = {}
         if project is not None:
@@ -568,25 +541,10 @@ class BuildClient(Client):
             query_parameters['yamlFilename'] = self._serialize.query('yaml_filename', yaml_filename, 'str')
         response = self._send(http_method='GET',
                               location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        response_value = self._deserialize('[BuildDefinitionReference]', self._unwrap_collection(response))
-        continuation_token = self._get_continuation_token(response)
-        return self.GetDefinitionsResponseValue(response_value, continuation_token)
-
-    class GetDefinitionsResponseValue(object):
-        def __init__(self, value, continuation_token):
-            """
-            Response for the get_definitions method
-
-            :param value:
-            :type value: :class:`<[BuildDefinitionReference]> <azure.devops.v5_1.build.models.[BuildDefinitionReference]>`
-            :param continuation_token: The continuation token to be used to get the next page of results.
-            :type continuation_token: str
-            """
-            self.value = value
-            self.continuation_token = continuation_token
+        return self._deserialize('[BuildDefinitionReference]', self._unwrap_collection(response))
 
     def restore_definition(self, project, definition_id, deleted):
         """RestoreDefinition.
@@ -594,7 +552,7 @@ class BuildClient(Client):
         :param str project: Project ID or project name
         :param int definition_id: The identifier of the definition to restore.
         :param bool deleted: When false, restores a deleted definition.
-        :rtype: :class:`<BuildDefinition> <azure.devops.v5_1.build.models.BuildDefinition>`
+        :rtype: :class:`<BuildDefinition> <azure.devops.v6_0.build.models.BuildDefinition>`
         """
         route_values = {}
         if project is not None:
@@ -606,7 +564,7 @@ class BuildClient(Client):
             query_parameters['deleted'] = self._serialize.query('deleted', deleted, 'bool')
         response = self._send(http_method='PATCH',
                               location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('BuildDefinition', response)
@@ -614,12 +572,12 @@ class BuildClient(Client):
     def update_definition(self, definition, project, definition_id, secrets_source_definition_id=None, secrets_source_definition_revision=None):
         """UpdateDefinition.
         Updates an existing definition.
-        :param :class:`<BuildDefinition> <azure.devops.v5_1.build.models.BuildDefinition>` definition: The new version of the definition.
+        :param :class:`<BuildDefinition> <azure.devops.v6_0.build.models.BuildDefinition>` definition: The new version of the definition.
         :param str project: Project ID or project name
         :param int definition_id: The ID of the definition.
         :param int secrets_source_definition_id:
         :param int secrets_source_definition_revision:
-        :rtype: :class:`<BuildDefinition> <azure.devops.v5_1.build.models.BuildDefinition>`
+        :rtype: :class:`<BuildDefinition> <azure.devops.v6_0.build.models.BuildDefinition>`
         """
         route_values = {}
         if project is not None:
@@ -634,7 +592,7 @@ class BuildClient(Client):
         content = self._serialize.body(definition, 'BuildDefinition')
         response = self._send(http_method='PUT',
                               location_id='dbeaf647-6167-421a-bda9-c9327b25e2e6',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -664,7 +622,7 @@ class BuildClient(Client):
             query_parameters['endLine'] = self._serialize.query('end_line', end_line, 'long')
         response = self._send(http_method='GET',
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               accept_media_type='text/plain')
@@ -698,7 +656,7 @@ class BuildClient(Client):
             query_parameters['endLine'] = self._serialize.query('end_line', end_line, 'long')
         response = self._send(http_method='GET',
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[str]', self._unwrap_collection(response))
@@ -717,7 +675,7 @@ class BuildClient(Client):
             route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         response = self._send(http_method='GET',
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values)
         return self._deserialize('[BuildLog]', self._unwrap_collection(response))
 
@@ -735,7 +693,7 @@ class BuildClient(Client):
             route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         response = self._send(http_method='GET',
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               accept_media_type='application/zip')
         if "callback" in kwargs:
@@ -768,7 +726,7 @@ class BuildClient(Client):
             query_parameters['endLine'] = self._serialize.query('end_line', end_line, 'long')
         response = self._send(http_method='GET',
                               location_id='35a80daf-7f30-45fc-86e8-6b813d9c90df',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               accept_media_type='application/zip')
@@ -789,7 +747,7 @@ class BuildClient(Client):
             route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='591cb5a4-2d46-4f3a-a697-5cd42b6bd332',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values)
         return self._deserialize('[BuildOptionDefinition]', self._unwrap_collection(response))
 
@@ -807,7 +765,7 @@ class BuildClient(Client):
             route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
         response = self._send(http_method='GET',
                               location_id='7c116775-52e5-453e-8c5d-914d9762d8c4',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values)
         return self._deserialize('[BuildDefinitionRevision]', self._unwrap_collection(response))
 
@@ -815,23 +773,23 @@ class BuildClient(Client):
         """GetBuildSettings.
         Gets the build settings.
         :param str project: Project ID or project name
-        :rtype: :class:`<BuildSettings> <azure.devops.v5_1.build.models.BuildSettings>`
+        :rtype: :class:`<BuildSettings> <azure.devops.v6_0.build.models.BuildSettings>`
         """
         route_values = {}
         if project is not None:
             route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='aa8c1c9c-ef8b-474a-b8c4-785c7b191d0d',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values)
         return self._deserialize('BuildSettings', response)
 
     def update_build_settings(self, settings, project=None):
         """UpdateBuildSettings.
         Updates the build settings.
-        :param :class:`<BuildSettings> <azure.devops.v5_1.build.models.BuildSettings>` settings: The new settings.
+        :param :class:`<BuildSettings> <azure.devops.v6_0.build.models.BuildSettings>` settings: The new settings.
         :param str project: Project ID or project name
-        :rtype: :class:`<BuildSettings> <azure.devops.v5_1.build.models.BuildSettings>`
+        :rtype: :class:`<BuildSettings> <azure.devops.v6_0.build.models.BuildSettings>`
         """
         route_values = {}
         if project is not None:
@@ -839,7 +797,7 @@ class BuildClient(Client):
         content = self._serialize.body(settings, 'BuildSettings')
         response = self._send(http_method='PATCH',
                               location_id='aa8c1c9c-ef8b-474a-b8c4-785c7b191d0d',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               content=content)
         return self._deserialize('BuildSettings', response)
@@ -861,7 +819,7 @@ class BuildClient(Client):
             route_values['tag'] = self._serialize.url('tag', tag, 'str')
         response = self._send(http_method='PUT',
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values)
         return self._deserialize('[str]', self._unwrap_collection(response))
 
@@ -881,7 +839,7 @@ class BuildClient(Client):
         content = self._serialize.body(tags, '[str]')
         response = self._send(http_method='POST',
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               content=content)
         return self._deserialize('[str]', self._unwrap_collection(response))
@@ -903,7 +861,7 @@ class BuildClient(Client):
             route_values['tag'] = self._serialize.url('tag', tag, 'str')
         response = self._send(http_method='DELETE',
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values)
         return self._deserialize('[str]', self._unwrap_collection(response))
 
@@ -921,13 +879,31 @@ class BuildClient(Client):
             route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         response = self._send(http_method='GET',
                               location_id='6e6114b2-8161-44c8-8f6c-c5505782427f',
-                              version='5.1',
+                              version='6.0',
+                              route_values=route_values)
+        return self._deserialize('[str]', self._unwrap_collection(response))
+
+    def delete_tag(self, project, tag):
+        """DeleteTag.
+        Removes a tag from builds, definitions, and from the tag store
+        :param str project: Project ID or project name
+        :param str tag: The tag to remove.
+        :rtype: [str]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if tag is not None:
+            route_values['tag'] = self._serialize.url('tag', tag, 'str')
+        response = self._send(http_method='DELETE',
+                              location_id='d84ac5c6-edc7-43d5-adc9-1b34be5dea09',
+                              version='6.0',
                               route_values=route_values)
         return self._deserialize('[str]', self._unwrap_collection(response))
 
     def get_tags(self, project):
         """GetTags.
-        Gets a list of all build and definition tags in the project.
+        Gets a list of all build tags in the project.
         :param str project: Project ID or project name
         :rtype: [str]
         """
@@ -936,7 +912,7 @@ class BuildClient(Client):
             route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='d84ac5c6-edc7-43d5-adc9-1b34be5dea09',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values)
         return self._deserialize('[str]', self._unwrap_collection(response))
 
@@ -953,7 +929,7 @@ class BuildClient(Client):
             route_values['templateId'] = self._serialize.url('template_id', template_id, 'str')
         self._send(http_method='DELETE',
                    location_id='e884571e-7f92-4d6a-9274-3f5649900835',
-                   version='5.1',
+                   version='6.0',
                    route_values=route_values)
 
     def get_template(self, project, template_id):
@@ -961,7 +937,7 @@ class BuildClient(Client):
         Gets a specific build definition template.
         :param str project: Project ID or project name
         :param str template_id: The ID of the requested template.
-        :rtype: :class:`<BuildDefinitionTemplate> <azure.devops.v5_1.build.models.BuildDefinitionTemplate>`
+        :rtype: :class:`<BuildDefinitionTemplate> <azure.devops.v6_0.build.models.BuildDefinitionTemplate>`
         """
         route_values = {}
         if project is not None:
@@ -970,7 +946,7 @@ class BuildClient(Client):
             route_values['templateId'] = self._serialize.url('template_id', template_id, 'str')
         response = self._send(http_method='GET',
                               location_id='e884571e-7f92-4d6a-9274-3f5649900835',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values)
         return self._deserialize('BuildDefinitionTemplate', response)
 
@@ -985,17 +961,17 @@ class BuildClient(Client):
             route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='e884571e-7f92-4d6a-9274-3f5649900835',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values)
         return self._deserialize('[BuildDefinitionTemplate]', self._unwrap_collection(response))
 
     def save_template(self, template, project, template_id):
         """SaveTemplate.
         Updates an existing build definition template.
-        :param :class:`<BuildDefinitionTemplate> <azure.devops.v5_1.build.models.BuildDefinitionTemplate>` template: The new version of the template.
+        :param :class:`<BuildDefinitionTemplate> <azure.devops.v6_0.build.models.BuildDefinitionTemplate>` template: The new version of the template.
         :param str project: Project ID or project name
         :param str template_id: The ID of the template.
-        :rtype: :class:`<BuildDefinitionTemplate> <azure.devops.v5_1.build.models.BuildDefinitionTemplate>`
+        :rtype: :class:`<BuildDefinitionTemplate> <azure.devops.v6_0.build.models.BuildDefinitionTemplate>`
         """
         route_values = {}
         if project is not None:
@@ -1005,7 +981,7 @@ class BuildClient(Client):
         content = self._serialize.body(template, 'BuildDefinitionTemplate')
         response = self._send(http_method='PUT',
                               location_id='e884571e-7f92-4d6a-9274-3f5649900835',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               content=content)
         return self._deserialize('BuildDefinitionTemplate', response)
@@ -1018,7 +994,7 @@ class BuildClient(Client):
         :param str timeline_id:
         :param int change_id:
         :param str plan_id:
-        :rtype: :class:`<Timeline> <azure.devops.v5_1.build.models.Timeline>`
+        :rtype: :class:`<Timeline> <azure.devops.v6_0.build.models.Timeline>`
         """
         route_values = {}
         if project is not None:
@@ -1034,7 +1010,7 @@ class BuildClient(Client):
             query_parameters['planId'] = self._serialize.query('plan_id', plan_id, 'str')
         response = self._send(http_method='GET',
                               location_id='8baac422-4c6e-4de5-8532-db96d92acffa',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('Timeline', response)
@@ -1057,7 +1033,7 @@ class BuildClient(Client):
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         response = self._send(http_method='GET',
                               location_id='5a21f5d2-5642-47e4-a0bd-1356e6731bee',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[ResourceRef]', self._unwrap_collection(response))
@@ -1082,7 +1058,7 @@ class BuildClient(Client):
         content = self._serialize.body(commit_ids, '[str]')
         response = self._send(http_method='POST',
                               location_id='5a21f5d2-5642-47e4-a0bd-1356e6731bee',
-                              version='5.1',
+                              version='6.0',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)

@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v5_1.release.models import *
+from ...v6_0.release.models import *
 from .release_client import ReleaseClient
 
 __all__ = [
@@ -54,8 +54,12 @@ __all__ = [
     'ManualIntervention',
     'ManualInterventionUpdateMetadata',
     'Metric',
+    'OrgPipelineReleaseSettings',
+    'OrgPipelineReleaseSettingsUpdateParameters',
     'PipelineProcess',
     'ProcessParameters',
+    'ProjectPipelineReleaseSettings',
+    'ProjectPipelineReleaseSettingsUpdateParameters',
     'ProjectReference',
     'QueuedReleaseData',
     'ReferenceLinks',
@@ -102,6 +106,7 @@ __all__ = [
     'TaskInputValidation',
     'TaskSourceDefinitionBase',
     'VariableGroup',
+    'VariableGroupProjectReference',
     'VariableGroupProviderData',
     'VariableValue',
     'WorkflowTask',

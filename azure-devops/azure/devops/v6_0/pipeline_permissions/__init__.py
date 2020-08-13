@@ -7,13 +7,15 @@
 # --------------------------------------------------------------------------------------------
 
 from .models import *
-from .token_admin_client import TokenAdminClient
+from .pipeline_permissions_client import PipelinePermissionsClient
 
 __all__ = [
-    'SessionToken',
-    'SessionTokenResult',
-    'TokenAdminPagedSessionTokens',
-    'TokenAdminRevocation',
-    'TokenAdminRevocationRule',
-    'TokenAdminClient'
+    'GraphSubjectBase',
+    'IdentityRef',
+    'Permission',
+    'PipelinePermission',
+    'ReferenceLinks',
+    'Resource',
+    'ResourcePipelinePermissions',
+    'PipelinePermissionsClient'
 ]

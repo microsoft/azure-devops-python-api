@@ -50,22 +50,23 @@ class ServiceEndpointClient(Client):
 
     def create_service_endpoint(self, endpoint):
         """CreateServiceEndpoint.
-        [Preview API]
-        :param :class:`<ServiceEndpoint> <azure.devops.v6_0.service_endpoint.models.ServiceEndpoint>` endpoint:
+        [Preview API] Creates a new service endpoint
+        :param :class:`<ServiceEndpoint> <azure.devops.v6_0.service_endpoint.models.ServiceEndpoint>` endpoint: Service endpoint to create
         :rtype: :class:`<ServiceEndpoint> <azure.devops.v6_0.service_endpoint.models.ServiceEndpoint>`
         """
         content = self._serialize.body(endpoint, 'ServiceEndpoint')
         response = self._send(http_method='POST',
                               location_id='14e48fdc-2c8b-41ce-a0c3-e26f6cc55bd0',
-                              version='6.0-preview.3',
+                              version='6.0-preview.4',
                               content=content)
         return self._deserialize('ServiceEndpoint', response)
 
-    def delete_service_endpoint(self, endpoint_id, project_ids):
+    def delete_service_endpoint(self, endpoint_id, project_ids, deep=None):
         """DeleteServiceEndpoint.
-        [Preview API]
-        :param str endpoint_id:
-        :param [str] project_ids:
+        [Preview API] Delete a service endpoint
+        :param str endpoint_id: Endpoint Id of endpoint to delete
+        :param [str] project_ids: project Ids from which endpoint needs to be deleted
+        :param bool deep: delete the spn created by endpoint
         """
         route_values = {}
         if endpoint_id is not None:
@@ -74,17 +75,19 @@ class ServiceEndpointClient(Client):
         if project_ids is not None:
             project_ids = ",".join(project_ids)
             query_parameters['projectIds'] = self._serialize.query('project_ids', project_ids, 'str')
+        if deep is not None:
+            query_parameters['deep'] = self._serialize.query('deep', deep, 'bool')
         self._send(http_method='DELETE',
                    location_id='14e48fdc-2c8b-41ce-a0c3-e26f6cc55bd0',
-                   version='6.0-preview.3',
+                   version='6.0-preview.4',
                    route_values=route_values,
                    query_parameters=query_parameters)
 
     def share_service_endpoint(self, endpoint_project_references, endpoint_id):
         """ShareServiceEndpoint.
-        [Preview API]
-        :param [ServiceEndpointProjectReference] endpoint_project_references:
-        :param str endpoint_id:
+        [Preview API] Share service endpoint across projects
+        :param [ServiceEndpointProjectReference] endpoint_project_references: Project reference details of the target project
+        :param str endpoint_id: Endpoint Id of the endpoint to share
         """
         route_values = {}
         if endpoint_id is not None:
@@ -92,16 +95,16 @@ class ServiceEndpointClient(Client):
         content = self._serialize.body(endpoint_project_references, '[ServiceEndpointProjectReference]')
         self._send(http_method='PATCH',
                    location_id='14e48fdc-2c8b-41ce-a0c3-e26f6cc55bd0',
-                   version='6.0-preview.3',
+                   version='6.0-preview.4',
                    route_values=route_values,
                    content=content)
 
-    def update_service_endpoint(self, endpoint, endpoint_id, operation):
+    def update_service_endpoint(self, endpoint, endpoint_id, operation=None):
         """UpdateServiceEndpoint.
-        [Preview API]
-        :param :class:`<ServiceEndpoint> <azure.devops.v6_0.service_endpoint.models.ServiceEndpoint>` endpoint:
-        :param str endpoint_id:
-        :param str operation:
+        [Preview API] Update the service endpoint
+        :param :class:`<ServiceEndpoint> <azure.devops.v6_0.service_endpoint.models.ServiceEndpoint>` endpoint: Updated data for the endpoint
+        :param str endpoint_id: Endpoint Id of the endpoint to update
+        :param str operation: operation type
         :rtype: :class:`<ServiceEndpoint> <azure.devops.v6_0.service_endpoint.models.ServiceEndpoint>`
         """
         route_values = {}
@@ -113,17 +116,31 @@ class ServiceEndpointClient(Client):
         content = self._serialize.body(endpoint, 'ServiceEndpoint')
         response = self._send(http_method='PUT',
                               location_id='14e48fdc-2c8b-41ce-a0c3-e26f6cc55bd0',
-                              version='6.0-preview.3',
+                              version='6.0-preview.4',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
         return self._deserialize('ServiceEndpoint', response)
 
-    def get_service_endpoint_details(self, project, endpoint_id):
+    def update_service_endpoints(self, endpoints):
+        """UpdateServiceEndpoints.
+        [Preview API] Update the service endpoints.
+        :param [ServiceEndpoint] endpoints: Names of the service endpoints to update.
+        :rtype: [ServiceEndpoint]
+        """
+        content = self._serialize.body(endpoints, '[ServiceEndpoint]')
+        response = self._send(http_method='PUT',
+                              location_id='14e48fdc-2c8b-41ce-a0c3-e26f6cc55bd0',
+                              version='6.0-preview.4',
+                              content=content)
+        return self._deserialize('[ServiceEndpoint]', self._unwrap_collection(response))
+
+    def get_service_endpoint_details(self, project, endpoint_id, action_filter=None):
         """GetServiceEndpointDetails.
         [Preview API] Get the service endpoint details.
         :param str project: Project ID or project name
         :param str endpoint_id: Id of the service endpoint.
+        :param str action_filter: Action filter for the service connection. It specifies the action which can be performed on the service connection.
         :rtype: :class:`<ServiceEndpoint> <azure.devops.v6_0.service_endpoint.models.ServiceEndpoint>`
         """
         route_values = {}
@@ -131,10 +148,14 @@ class ServiceEndpointClient(Client):
             route_values['project'] = self._serialize.url('project', project, 'str')
         if endpoint_id is not None:
             route_values['endpointId'] = self._serialize.url('endpoint_id', endpoint_id, 'str')
+        query_parameters = {}
+        if action_filter is not None:
+            query_parameters['actionFilter'] = self._serialize.query('action_filter', action_filter, 'str')
         response = self._send(http_method='GET',
                               location_id='e85f1c62-adfc-4b74-b618-11a150fb195e',
-                              version='6.0-preview.3',
-                              route_values=route_values)
+                              version='6.0-preview.4',
+                              route_values=route_values,
+                              query_parameters=query_parameters)
         return self._deserialize('ServiceEndpoint', response)
 
     def get_service_endpoints(self, project, type=None, auth_schemes=None, endpoint_ids=None, owner=None, include_failed=None, include_details=None):
@@ -169,7 +190,7 @@ class ServiceEndpointClient(Client):
             query_parameters['includeDetails'] = self._serialize.query('include_details', include_details, 'bool')
         response = self._send(http_method='GET',
                               location_id='e85f1c62-adfc-4b74-b618-11a150fb195e',
-                              version='6.0-preview.3',
+                              version='6.0-preview.4',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[ServiceEndpoint]', self._unwrap_collection(response))
@@ -206,9 +227,33 @@ class ServiceEndpointClient(Client):
             query_parameters['includeDetails'] = self._serialize.query('include_details', include_details, 'bool')
         response = self._send(http_method='GET',
                               location_id='e85f1c62-adfc-4b74-b618-11a150fb195e',
-                              version='6.0-preview.3',
+                              version='6.0-preview.4',
                               route_values=route_values,
                               query_parameters=query_parameters)
+        return self._deserialize('[ServiceEndpoint]', self._unwrap_collection(response))
+
+    def get_service_endpoints_with_refreshed_authentication(self, refresh_authentication_parameters, project, endpoint_ids):
+        """GetServiceEndpointsWithRefreshedAuthentication.
+        [Preview API] Gets the service endpoints and patch new authorization parameters
+        :param [RefreshAuthenticationParameters] refresh_authentication_parameters: Scope, Validity of Token requested.
+        :param str project: Project ID or project name
+        :param [str] endpoint_ids: Ids of the service endpoints.
+        :rtype: [ServiceEndpoint]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        query_parameters = {}
+        if endpoint_ids is not None:
+            endpoint_ids = ",".join(endpoint_ids)
+            query_parameters['endpointIds'] = self._serialize.query('endpoint_ids', endpoint_ids, 'str')
+        content = self._serialize.body(refresh_authentication_parameters, '[RefreshAuthenticationParameters]')
+        response = self._send(http_method='POST',
+                              location_id='e85f1c62-adfc-4b74-b618-11a150fb195e',
+                              version='6.0-preview.4',
+                              route_values=route_values,
+                              query_parameters=query_parameters,
+                              content=content)
         return self._deserialize('[ServiceEndpoint]', self._unwrap_collection(response))
 
     def get_service_endpoint_execution_records(self, project, endpoint_id, top=None, continuation_token=None):

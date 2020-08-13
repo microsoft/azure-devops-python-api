@@ -1587,6 +1587,40 @@ class Metric(Model):
         self.value = value
 
 
+class OrgPipelineReleaseSettings(Model):
+    """
+    :param has_manage_pipeline_policies_permission: Defines whether user can manage pipeline settings.
+    :type has_manage_pipeline_policies_permission: bool
+    :param org_enforce_job_auth_scope: EnforceJobAuthScope setting at organisaion level. If enabled, scope of access for all release pipelines in the organisation reduces to the current project.
+    :type org_enforce_job_auth_scope: bool
+    """
+
+    _attribute_map = {
+        'has_manage_pipeline_policies_permission': {'key': 'hasManagePipelinePoliciesPermission', 'type': 'bool'},
+        'org_enforce_job_auth_scope': {'key': 'orgEnforceJobAuthScope', 'type': 'bool'}
+    }
+
+    def __init__(self, has_manage_pipeline_policies_permission=None, org_enforce_job_auth_scope=None):
+        super(OrgPipelineReleaseSettings, self).__init__()
+        self.has_manage_pipeline_policies_permission = has_manage_pipeline_policies_permission
+        self.org_enforce_job_auth_scope = org_enforce_job_auth_scope
+
+
+class OrgPipelineReleaseSettingsUpdateParameters(Model):
+    """
+    :param org_enforce_job_auth_scope: EnforceJobAuthScope setting at organisaion level. If enabled, scope of access for all release pipelines in the organisation reduces to the current project.
+    :type org_enforce_job_auth_scope: bool
+    """
+
+    _attribute_map = {
+        'org_enforce_job_auth_scope': {'key': 'orgEnforceJobAuthScope', 'type': 'bool'}
+    }
+
+    def __init__(self, org_enforce_job_auth_scope=None):
+        super(OrgPipelineReleaseSettingsUpdateParameters, self).__init__()
+        self.org_enforce_job_auth_scope = org_enforce_job_auth_scope
+
+
 class PipelineProcess(Model):
     """
     :param type: Pipeline process type.
@@ -1623,6 +1657,48 @@ class ProcessParameters(Model):
         self.data_source_bindings = data_source_bindings
         self.inputs = inputs
         self.source_definitions = source_definitions
+
+
+class ProjectPipelineReleaseSettings(Model):
+    """
+    :param enforce_job_auth_scope: EnforceJobAuthScope setting at project level. If enabled, scope of access for all release pipelines reduces to the current project.
+    :type enforce_job_auth_scope: bool
+    :param has_manage_settings_permission: Defines whether user can manage pipeline settings.
+    :type has_manage_settings_permission: bool
+    :param org_enforce_job_auth_scope: EnforceJobAuthScope setting at organisaion level. If enabled, scope of access for all release pipelines in the organisation reduces to the current project.
+    :type org_enforce_job_auth_scope: bool
+    :param public_project: Defines whether project is public.
+    :type public_project: bool
+    """
+
+    _attribute_map = {
+        'enforce_job_auth_scope': {'key': 'enforceJobAuthScope', 'type': 'bool'},
+        'has_manage_settings_permission': {'key': 'hasManageSettingsPermission', 'type': 'bool'},
+        'org_enforce_job_auth_scope': {'key': 'orgEnforceJobAuthScope', 'type': 'bool'},
+        'public_project': {'key': 'publicProject', 'type': 'bool'}
+    }
+
+    def __init__(self, enforce_job_auth_scope=None, has_manage_settings_permission=None, org_enforce_job_auth_scope=None, public_project=None):
+        super(ProjectPipelineReleaseSettings, self).__init__()
+        self.enforce_job_auth_scope = enforce_job_auth_scope
+        self.has_manage_settings_permission = has_manage_settings_permission
+        self.org_enforce_job_auth_scope = org_enforce_job_auth_scope
+        self.public_project = public_project
+
+
+class ProjectPipelineReleaseSettingsUpdateParameters(Model):
+    """
+    :param enforce_job_auth_scope: EnforceJobAuthScope setting at project level. If enabled, scope of access for all release pipelines reduces to the current project.
+    :type enforce_job_auth_scope: bool
+    """
+
+    _attribute_map = {
+        'enforce_job_auth_scope': {'key': 'enforceJobAuthScope', 'type': 'bool'}
+    }
+
+    def __init__(self, enforce_job_auth_scope=None):
+        super(ProjectPipelineReleaseSettingsUpdateParameters, self).__init__()
+        self.enforce_job_auth_scope = enforce_job_auth_scope
 
 
 class ProjectReference(Model):
@@ -3399,6 +3475,8 @@ class VariableGroupProviderData(Model):
 
 class VariableValue(Model):
     """
+    :param is_read_only: Gets or sets if the variable is read only or not.
+    :type is_read_only: bool
     :param is_secret: Gets or sets as the variable is secret or not.
     :type is_secret: bool
     :param value: Gets or sets the value.
@@ -3406,12 +3484,14 @@ class VariableValue(Model):
     """
 
     _attribute_map = {
+        'is_read_only': {'key': 'isReadOnly', 'type': 'bool'},
         'is_secret': {'key': 'isSecret', 'type': 'bool'},
         'value': {'key': 'value', 'type': 'str'}
     }
 
-    def __init__(self, is_secret=None, value=None):
+    def __init__(self, is_read_only=None, is_secret=None, value=None):
         super(VariableValue, self).__init__()
+        self.is_read_only = is_read_only
         self.is_secret = is_secret
         self.value = value
 
@@ -3704,8 +3784,12 @@ __all__ = [
     'ManualIntervention',
     'ManualInterventionUpdateMetadata',
     'Metric',
+    'OrgPipelineReleaseSettings',
+    'OrgPipelineReleaseSettingsUpdateParameters',
     'PipelineProcess',
     'ProcessParameters',
+    'ProjectPipelineReleaseSettings',
+    'ProjectPipelineReleaseSettingsUpdateParameters',
     'ProjectReference',
     'QueuedReleaseData',
     'ReferenceLinks',
