@@ -78,3 +78,37 @@ class TokenAdminClient(Client):
                    query_parameters=query_parameters,
                    content=content)
 
+    def get_personal_access_token(self, access_token_key, is_public):
+        """GetPersonalAccessToken.
+        [Preview API]
+        :param str access_token_key:
+        :param bool is_public:
+        :rtype: :class:`<SessionTokenResult> <azure.devops.v6_0.token_admin.models.SessionTokenResult>`
+        """
+        query_parameters = {}
+        if is_public is not None:
+            query_parameters['isPublic'] = self._serialize.query('is_public', is_public, 'bool')
+        content = self._serialize.body(access_token_key, 'str')
+        response = self._send(http_method='POST',
+                              location_id='11e3d37f-fa7e-4721-ab2d-2d931bd944c4',
+                              version='6.0-preview.1',
+                              query_parameters=query_parameters,
+                              content=content)
+        return self._deserialize('SessionTokenResult', response)
+
+    def revoke_personal_access_token(self, access_token_key, is_public):
+        """RevokePersonalAccessToken.
+        [Preview API]
+        :param str access_token_key:
+        :param bool is_public:
+        """
+        query_parameters = {}
+        if is_public is not None:
+            query_parameters['isPublic'] = self._serialize.query('is_public', is_public, 'bool')
+        content = self._serialize.body(access_token_key, 'str')
+        self._send(http_method='PUT',
+                   location_id='55687c95-c811-41e7-889f-25afb03eda19',
+                   version='6.0-preview.1',
+                   query_parameters=query_parameters,
+                   content=content)
+

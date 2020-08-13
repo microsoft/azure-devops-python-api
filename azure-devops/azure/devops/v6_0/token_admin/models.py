@@ -88,6 +88,29 @@ class SessionToken(Model):
         self.valid_to = valid_to
 
 
+class SessionTokenResult(Model):
+    """
+    :param has_error:
+    :type has_error: bool
+    :param session_token:
+    :type session_token: :class:`SessionToken <azure.devops.v6_0.microsoft._visual_studio._services._web_api.models.SessionToken>`
+    :param session_token_error:
+    :type session_token_error: object
+    """
+
+    _attribute_map = {
+        'has_error': {'key': 'hasError', 'type': 'bool'},
+        'session_token': {'key': 'sessionToken', 'type': 'SessionToken'},
+        'session_token_error': {'key': 'sessionTokenError', 'type': 'object'}
+    }
+
+    def __init__(self, has_error=None, session_token=None, session_token_error=None):
+        super(SessionTokenResult, self).__init__()
+        self.has_error = has_error
+        self.session_token = session_token
+        self.session_token_error = session_token_error
+
+
 class TokenAdminPagedSessionTokens(Model):
     """
     A paginated list of session tokens. Session tokens correspond to OAuth credentials such as personal access tokens (PATs) and other OAuth authorizations.
@@ -149,6 +172,7 @@ class TokenAdminRevocationRule(Model):
 
 __all__ = [
     'SessionToken',
+    'SessionTokenResult',
     'TokenAdminPagedSessionTokens',
     'TokenAdminRevocation',
     'TokenAdminRevocationRule',

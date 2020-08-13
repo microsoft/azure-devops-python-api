@@ -860,6 +860,21 @@ class ModuleCoverage(Model):
         self.statistics = statistics
 
 
+class NewTestResultLoggingSettings(Model):
+    """
+    :param log_new_tests: LogNewTests defines whether or not we will record new test cases coming into the system
+    :type log_new_tests: bool
+    """
+
+    _attribute_map = {
+        'log_new_tests': {'key': 'logNewTests', 'type': 'bool'}
+    }
+
+    def __init__(self, log_new_tests=None):
+        super(NewTestResultLoggingSettings, self).__init__()
+        self.log_new_tests = log_new_tests
+
+
 class PhaseReference(Model):
     """
     Phase in pipeline
@@ -2826,15 +2841,19 @@ class TestResultsSettings(Model):
     """
     :param flaky_settings: IsRequired and EmitDefaultValue are passed as false as if users doesn't pass anything, should not come for serialisation and deserialisation.
     :type flaky_settings: :class:`FlakySettings <azure.devops.v6_0.microsoft._team_foundation._test_management._web_api.models.FlakySettings>`
+    :param new_test_result_logging_settings:
+    :type new_test_result_logging_settings: :class:`NewTestResultLoggingSettings <azure.devops.v6_0.microsoft._team_foundation._test_management._web_api.models.NewTestResultLoggingSettings>`
     """
 
     _attribute_map = {
-        'flaky_settings': {'key': 'flakySettings', 'type': 'FlakySettings'}
+        'flaky_settings': {'key': 'flakySettings', 'type': 'FlakySettings'},
+        'new_test_result_logging_settings': {'key': 'newTestResultLoggingSettings', 'type': 'NewTestResultLoggingSettings'}
     }
 
-    def __init__(self, flaky_settings=None):
+    def __init__(self, flaky_settings=None, new_test_result_logging_settings=None):
         super(TestResultsSettings, self).__init__()
         self.flaky_settings = flaky_settings
+        self.new_test_result_logging_settings = new_test_result_logging_settings
 
 
 class TestResultSummary(Model):
@@ -2876,15 +2895,19 @@ class TestResultsUpdateSettings(Model):
     """
     :param flaky_settings: FlakySettings defines Flaky Settings Data.
     :type flaky_settings: :class:`FlakySettings <azure.devops.v6_0.microsoft._team_foundation._test_management._web_api.models.FlakySettings>`
+    :param new_test_result_logging_settings: NewTestResultLoggingSettings defines the setting for logging new test results
+    :type new_test_result_logging_settings: :class:`NewTestResultLoggingSettings <azure.devops.v6_0.microsoft._team_foundation._test_management._web_api.models.NewTestResultLoggingSettings>`
     """
 
     _attribute_map = {
-        'flaky_settings': {'key': 'flakySettings', 'type': 'FlakySettings'}
+        'flaky_settings': {'key': 'flakySettings', 'type': 'FlakySettings'},
+        'new_test_result_logging_settings': {'key': 'newTestResultLoggingSettings', 'type': 'NewTestResultLoggingSettings'}
     }
 
-    def __init__(self, flaky_settings=None):
+    def __init__(self, flaky_settings=None, new_test_result_logging_settings=None):
         super(TestResultsUpdateSettings, self).__init__()
         self.flaky_settings = flaky_settings
+        self.new_test_result_logging_settings = new_test_result_logging_settings
 
 
 class TestResultTrendFilter(Model):
@@ -3527,6 +3550,7 @@ __all__ = [
     'IdentityRef',
     'JobReference',
     'ModuleCoverage',
+    'NewTestResultLoggingSettings',
     'PhaseReference',
     'PipelineReference',
     'PipelineTestMetrics',

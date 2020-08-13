@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v5_1.task_agent.models import *
+from ...v6_0.task_agent.models import *
 from .task_agent_client import TaskAgentClient
 
 __all__ = [
@@ -57,7 +57,6 @@ __all__ = [
     'InputValuesError',
     'KubernetesResource',
     'KubernetesResourceCreateParameters',
-    'MarketplacePurchasedLicense',
     'MetricsColumnMetaData',
     'MetricsColumnsHeader',
     'MetricsRow',
@@ -112,6 +111,7 @@ __all__ = [
     'TaskGroupRevision',
     'TaskGroupStep',
     'TaskGroupUpdateParameter',
+    'TaskGroupUpdatePropertiesBase',
     'TaskHubLicenseDetails',
     'TaskInputDefinition',
     'TaskInputDefinitionBase',
@@ -126,6 +126,7 @@ __all__ = [
     'ValidationItem',
     'VariableGroup',
     'VariableGroupParameters',
+    'VariableGroupProjectReference',
     'VariableGroupProviderData',
     'VariableValue',
     'VirtualMachine',

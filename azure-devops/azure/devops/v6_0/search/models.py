@@ -40,18 +40,26 @@ class BoardResult(Model):
 
 class BranchInfo(Model):
     """
-    Defines the Configured branch.
+    Information about the configured branch.
 
-    :param name: Indexed branch.
+    :param last_indexed_change_id: The commit Id of the last Git commit indexed in this branch
+    :type last_indexed_change_id: str
+    :param last_processed_time: The last time this branch was processed by the Search service
+    :type last_processed_time: datetime
+    :param name: Name of the indexed branch
     :type name: str
     """
 
     _attribute_map = {
+        'last_indexed_change_id': {'key': 'lastIndexedChangeId', 'type': 'str'},
+        'last_processed_time': {'key': 'lastProcessedTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'}
     }
 
-    def __init__(self, name=None):
+    def __init__(self, last_indexed_change_id=None, last_processed_time=None, name=None):
         super(BranchInfo, self).__init__()
+        self.last_indexed_change_id = last_indexed_change_id
+        self.last_processed_time = last_processed_time
         self.name = name
 
 
@@ -114,6 +122,52 @@ class Collection(Model):
 
     def __init__(self, name=None):
         super(Collection, self).__init__()
+        self.name = name
+
+
+class CustomRepositoryStatusResponse(Model):
+    """
+    Defines the custom repository status.
+
+    :param id: Repository Id.
+    :type id: str
+    :param indexed_top_level_folders: List of indexed top level folders info.
+    :type indexed_top_level_folders: list of :class:`DepotInfo <azure.devops.v6_0.search.models.DepotInfo>`
+    :param name: Repository Name.
+    :type name: str
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'indexed_top_level_folders': {'key': 'indexedTopLevelFolders', 'type': '[DepotInfo]'},
+        'name': {'key': 'name', 'type': 'str'}
+    }
+
+    def __init__(self, id=None, indexed_top_level_folders=None, name=None):
+        super(CustomRepositoryStatusResponse, self).__init__()
+        self.id = id
+        self.indexed_top_level_folders = indexed_top_level_folders
+        self.name = name
+
+
+class DepotInfo(Model):
+    """
+    Information about the custom repository indexing freshness for configured branches and depots.
+
+    :param indexed_branches: List of Indexed branches info.
+    :type indexed_branches: list of :class:`BranchInfo <azure.devops.v6_0.search.models.BranchInfo>`
+    :param name: Name of the indexed top level folder (depot).
+    :type name: str
+    """
+
+    _attribute_map = {
+        'indexed_branches': {'key': 'indexedBranches', 'type': '[BranchInfo]'},
+        'name': {'key': 'name', 'type': 'str'}
+    }
+
+    def __init__(self, indexed_branches=None, name=None):
+        super(DepotInfo, self).__init__()
+        self.indexed_branches = indexed_branches
         self.name = name
 
 
@@ -235,22 +289,34 @@ class Hit(Model):
 
     :param char_offset: Gets or sets the start character offset of a piece of text.
     :type char_offset: int
+    :param code_snippet: Gets or sets an extract of code where the match appears. Usually it is the line where there is the match.
+    :type code_snippet: str
+    :param column: Gets or sets the column number where the match appears in the line.
+    :type column: int
     :param length: Gets or sets the length of a piece of text.
     :type length: int
+    :param line: Gets or sets the line number where the match appears in the file.
+    :type line: int
     :param type: Gets or sets the name of type of a piece of text.
     :type type: str
     """
 
     _attribute_map = {
         'char_offset': {'key': 'charOffset', 'type': 'int'},
+        'code_snippet': {'key': 'codeSnippet', 'type': 'str'},
+        'column': {'key': 'column', 'type': 'int'},
         'length': {'key': 'length', 'type': 'int'},
+        'line': {'key': 'line', 'type': 'int'},
         'type': {'key': 'type', 'type': 'str'}
     }
 
-    def __init__(self, char_offset=None, length=None, type=None):
+    def __init__(self, char_offset=None, code_snippet=None, column=None, length=None, line=None, type=None):
         super(Hit, self).__init__()
         self.char_offset = char_offset
+        self.code_snippet = code_snippet
+        self.column = column
         self.length = length
+        self.line = line
         self.type = type
 
 
@@ -437,17 +503,21 @@ class RepositoryStatusResponse(Model):
     :type id: str
     :param indexed_branches: List of Indexed branches info.
     :type indexed_branches: list of :class:`BranchInfo <azure.devops.v6_0.search.models.BranchInfo>`
+    :param name: Repository Name.
+    :type name: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'indexed_branches': {'key': 'indexedBranches', 'type': '[BranchInfo]'}
+        'indexed_branches': {'key': 'indexedBranches', 'type': '[BranchInfo]'},
+        'name': {'key': 'name', 'type': 'str'}
     }
 
-    def __init__(self, id=None, indexed_branches=None):
+    def __init__(self, id=None, indexed_branches=None, name=None):
         super(RepositoryStatusResponse, self).__init__()
         self.id = id
         self.indexed_branches = indexed_branches
+        self.name = name
 
 
 class ScrollSearchRequest(EntitySearchRequestBase):
@@ -580,6 +650,31 @@ class Team(Model):
     def __init__(self, id=None, name=None):
         super(Team, self).__init__()
         self.id = id
+        self.name = name
+
+
+class TfvcRepositoryStatusResponse(Model):
+    """
+    Defines the TFVC repository status.
+
+    :param id: Repository Id.
+    :type id: str
+    :param indexing_information: List of Indexing Information for TFVC repository
+    :type indexing_information: list of :class:`BranchInfo <azure.devops.v6_0.search.models.BranchInfo>`
+    :param name: Repository Name.
+    :type name: str
+    """
+
+    _attribute_map = {
+        'id': {'key': 'id', 'type': 'str'},
+        'indexing_information': {'key': 'indexingInformation', 'type': '[BranchInfo]'},
+        'name': {'key': 'name', 'type': 'str'}
+    }
+
+    def __init__(self, id=None, indexing_information=None, name=None):
+        super(TfvcRepositoryStatusResponse, self).__init__()
+        self.id = id
+        self.indexing_information = indexing_information
         self.name = name
 
 
@@ -1059,6 +1154,8 @@ class CodeSearchRequest(EntitySearchRequest):
     :type top: int
     :param include_facets: Flag to opt for faceting in the result. Default behavior is false.
     :type include_facets: bool
+    :param include_snippet: Flag to opt for including matched code snippet in the result. Default behavior is false.
+    :type include_snippet: bool
     """
 
     _attribute_map = {
@@ -1068,10 +1165,12 @@ class CodeSearchRequest(EntitySearchRequest):
         'skip': {'key': '$skip', 'type': 'int'},
         'top': {'key': '$top', 'type': 'int'},
         'include_facets': {'key': 'includeFacets', 'type': 'bool'},
+        'include_snippet': {'key': 'includeSnippet', 'type': 'bool'}
     }
 
-    def __init__(self, filters=None, search_text=None, order_by=None, skip=None, top=None, include_facets=None):
+    def __init__(self, filters=None, search_text=None, order_by=None, skip=None, top=None, include_facets=None, include_snippet=None):
         super(CodeSearchRequest, self).__init__(filters=filters, search_text=search_text, order_by=order_by, skip=skip, top=top, include_facets=include_facets)
+        self.include_snippet = include_snippet
 
 
 __all__ = [
@@ -1079,6 +1178,8 @@ __all__ = [
     'BranchInfo',
     'CodeResult',
     'Collection',
+    'CustomRepositoryStatusResponse',
+    'DepotInfo',
     'EntitySearchRequestBase',
     'EntitySearchResponse',
     'FeedInfo',
@@ -1097,6 +1198,7 @@ __all__ = [
     'SettingSearchResponse',
     'SortOption',
     'Team',
+    'TfvcRepositoryStatusResponse',
     'Version',
     'Wiki',
     'WikiHit',
