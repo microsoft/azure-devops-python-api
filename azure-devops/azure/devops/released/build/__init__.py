@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v6_0.build.models import *
+from ...v5_1.build.models import *
 from .build_client import BuildClient
 
 __all__ = [
@@ -56,28 +56,18 @@ __all__ = [
     'GraphSubjectBase',
     'IdentityRef',
     'Issue',
-    'JobReference',
     'JsonPatchOperation',
-    'MinimalRetentionLease',
-    'NewRetentionLease',
-    'PhaseReference',
-    'PipelineGeneralSettings',
-    'PipelineReference',
     'ProcessParameters',
-    'ProjectRetentionSetting',
     'PullRequest',
     'ReferenceLinks',
     'ReleaseReference',
     'RepositoryWebhook',
     'ResourceRef',
-    'RetentionLease',
     'RetentionPolicy',
-    'RetentionSetting',
     'SourceProviderAttributes',
     'SourceRepositories',
     'SourceRepository',
     'SourceRepositoryItem',
-    'StageReference',
     'SupportedTrigger',
     'TaskAgentPoolReference',
     'TaskDefinitionReference',
@@ -92,9 +82,6 @@ __all__ = [
     'TimelineAttempt',
     'TimelineRecord',
     'TimelineReference',
-    'UpdateProjectRetentionSettingModel',
-    'UpdateRetentionSettingModel',
-    'UpdateStageParameters',
     'VariableGroup',
     'VariableGroupReference',
     'WebApiConnectedServiceRef',

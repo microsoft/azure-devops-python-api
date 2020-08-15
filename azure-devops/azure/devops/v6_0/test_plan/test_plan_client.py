@@ -389,7 +389,7 @@ class TestPlanClient(Client):
 
     def get_suites_by_test_case_id(self, test_case_id):
         """GetSuitesByTestCaseId.
-        Find the list of all test suites in which a given test case is present. This is helpful if you need to find out which test suites are using a test case, when you need to make changes to a test case.
+        [Preview API] Find the list of all test suites in which a given test case is present. This is helpful if you need to find out which test suites are using a test case, when you need to make changes to a test case.
         :param int test_case_id: ID of the test case for which suites need to be fetched.
         :rtype: [TestSuite]
         """
@@ -398,7 +398,7 @@ class TestPlanClient(Client):
             query_parameters['testCaseId'] = self._serialize.query('test_case_id', test_case_id, 'int')
         response = self._send(http_method='GET',
                               location_id='a4080e84-f17b-4fad-84f1-7960b6525bf2',
-                              version='6.0',
+                              version='6.0-preview.1',
                               query_parameters=query_parameters)
         return self._deserialize('[TestSuite]', self._unwrap_collection(response))
 

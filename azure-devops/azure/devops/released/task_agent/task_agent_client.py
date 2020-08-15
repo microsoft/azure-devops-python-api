@@ -8,7 +8,7 @@
 
 from msrest import Serializer, Deserializer
 from ...client import Client
-from ...v6_0.task_agent import models
+from ...v5_1.task_agent import models
 
 
 class TaskAgentClient(Client):
@@ -28,9 +28,9 @@ class TaskAgentClient(Client):
     def add_agent(self, agent, pool_id):
         """AddAgent.
         Adds an agent to a pool.  You probably don't want to call this endpoint directly. Instead, [configure an agent](https://docs.microsoft.com/azure/devops/pipelines/agents/agents) using the agent download package.
-        :param :class:`<TaskAgent> <azure.devops.v6_0.task_agent.models.TaskAgent>` agent: Details about the agent being added
+        :param :class:`<TaskAgent> <azure.devops.v5_1.task_agent.models.TaskAgent>` agent: Details about the agent being added
         :param int pool_id: The agent pool in which to add the agent
-        :rtype: :class:`<TaskAgent> <azure.devops.v6_0.task_agent.models.TaskAgent>`
+        :rtype: :class:`<TaskAgent> <azure.devops.v5_1.task_agent.models.TaskAgent>`
         """
         route_values = {}
         if pool_id is not None:
@@ -38,7 +38,7 @@ class TaskAgentClient(Client):
         content = self._serialize.body(agent, 'TaskAgent')
         response = self._send(http_method='POST',
                               location_id='e298ef32-5878-4cab-993c-043836571f42',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TaskAgent', response)
@@ -56,7 +56,7 @@ class TaskAgentClient(Client):
             route_values['agentId'] = self._serialize.url('agent_id', agent_id, 'int')
         self._send(http_method='DELETE',
                    location_id='e298ef32-5878-4cab-993c-043836571f42',
-                   version='6.0',
+                   version='5.1',
                    route_values=route_values)
 
     def get_agent(self, pool_id, agent_id, include_capabilities=None, include_assigned_request=None, include_last_completed_request=None, property_filters=None):
@@ -68,7 +68,7 @@ class TaskAgentClient(Client):
         :param bool include_assigned_request: Whether to include details about the agent's current work
         :param bool include_last_completed_request: Whether to include details about the agents' most recent completed work
         :param [str] property_filters: Filter which custom properties will be returned
-        :rtype: :class:`<TaskAgent> <azure.devops.v6_0.task_agent.models.TaskAgent>`
+        :rtype: :class:`<TaskAgent> <azure.devops.v5_1.task_agent.models.TaskAgent>`
         """
         route_values = {}
         if pool_id is not None:
@@ -87,7 +87,7 @@ class TaskAgentClient(Client):
             query_parameters['propertyFilters'] = self._serialize.query('property_filters', property_filters, 'str')
         response = self._send(http_method='GET',
                               location_id='e298ef32-5878-4cab-993c-043836571f42',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('TaskAgent', response)
@@ -124,7 +124,7 @@ class TaskAgentClient(Client):
             query_parameters['demands'] = self._serialize.query('demands', demands, 'str')
         response = self._send(http_method='GET',
                               location_id='e298ef32-5878-4cab-993c-043836571f42',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[TaskAgent]', self._unwrap_collection(response))
@@ -132,10 +132,10 @@ class TaskAgentClient(Client):
     def replace_agent(self, agent, pool_id, agent_id):
         """ReplaceAgent.
         Replace an agent.  You probably don't want to call this endpoint directly. Instead, [use the agent configuration script](https://docs.microsoft.com/azure/devops/pipelines/agents/agents) to remove and reconfigure an agent from your organization.
-        :param :class:`<TaskAgent> <azure.devops.v6_0.task_agent.models.TaskAgent>` agent: Updated details about the replacing agent
+        :param :class:`<TaskAgent> <azure.devops.v5_1.task_agent.models.TaskAgent>` agent: Updated details about the replacing agent
         :param int pool_id: The agent pool to use
         :param int agent_id: The agent to replace
-        :rtype: :class:`<TaskAgent> <azure.devops.v6_0.task_agent.models.TaskAgent>`
+        :rtype: :class:`<TaskAgent> <azure.devops.v5_1.task_agent.models.TaskAgent>`
         """
         route_values = {}
         if pool_id is not None:
@@ -145,7 +145,7 @@ class TaskAgentClient(Client):
         content = self._serialize.body(agent, 'TaskAgent')
         response = self._send(http_method='PUT',
                               location_id='e298ef32-5878-4cab-993c-043836571f42',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TaskAgent', response)
@@ -153,10 +153,10 @@ class TaskAgentClient(Client):
     def update_agent(self, agent, pool_id, agent_id):
         """UpdateAgent.
         Update agent details.
-        :param :class:`<TaskAgent> <azure.devops.v6_0.task_agent.models.TaskAgent>` agent: Updated details about the agent
+        :param :class:`<TaskAgent> <azure.devops.v5_1.task_agent.models.TaskAgent>` agent: Updated details about the agent
         :param int pool_id: The agent pool to use
         :param int agent_id: The agent to update
-        :rtype: :class:`<TaskAgent> <azure.devops.v6_0.task_agent.models.TaskAgent>`
+        :rtype: :class:`<TaskAgent> <azure.devops.v5_1.task_agent.models.TaskAgent>`
         """
         route_values = {}
         if pool_id is not None:
@@ -166,7 +166,7 @@ class TaskAgentClient(Client):
         content = self._serialize.body(agent, 'TaskAgent')
         response = self._send(http_method='PATCH',
                               location_id='e298ef32-5878-4cab-993c-043836571f42',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TaskAgent', response)
@@ -174,13 +174,13 @@ class TaskAgentClient(Client):
     def add_agent_pool(self, pool):
         """AddAgentPool.
         Create an agent pool.
-        :param :class:`<TaskAgentPool> <azure.devops.v6_0.task_agent.models.TaskAgentPool>` pool: Details about the new agent pool
-        :rtype: :class:`<TaskAgentPool> <azure.devops.v6_0.task_agent.models.TaskAgentPool>`
+        :param :class:`<TaskAgentPool> <azure.devops.v5_1.task_agent.models.TaskAgentPool>` pool: Details about the new agent pool
+        :rtype: :class:`<TaskAgentPool> <azure.devops.v5_1.task_agent.models.TaskAgentPool>`
         """
         content = self._serialize.body(pool, 'TaskAgentPool')
         response = self._send(http_method='POST',
                               location_id='a8c47e17-4d56-4a56-92bb-de7ea7dc65be',
-                              version='6.0',
+                              version='5.1',
                               content=content)
         return self._deserialize('TaskAgentPool', response)
 
@@ -194,7 +194,7 @@ class TaskAgentClient(Client):
             route_values['poolId'] = self._serialize.url('pool_id', pool_id, 'int')
         self._send(http_method='DELETE',
                    location_id='a8c47e17-4d56-4a56-92bb-de7ea7dc65be',
-                   version='6.0',
+                   version='5.1',
                    route_values=route_values)
 
     def get_agent_pool(self, pool_id, properties=None, action_filter=None):
@@ -203,7 +203,7 @@ class TaskAgentClient(Client):
         :param int pool_id: An agent pool ID
         :param [str] properties: Agent pool properties (comma-separated)
         :param str action_filter: Filter by whether the calling user has use or manage permissions
-        :rtype: :class:`<TaskAgentPool> <azure.devops.v6_0.task_agent.models.TaskAgentPool>`
+        :rtype: :class:`<TaskAgentPool> <azure.devops.v5_1.task_agent.models.TaskAgentPool>`
         """
         route_values = {}
         if pool_id is not None:
@@ -216,7 +216,7 @@ class TaskAgentClient(Client):
             query_parameters['actionFilter'] = self._serialize.query('action_filter', action_filter, 'str')
         response = self._send(http_method='GET',
                               location_id='a8c47e17-4d56-4a56-92bb-de7ea7dc65be',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('TaskAgentPool', response)
@@ -242,7 +242,7 @@ class TaskAgentClient(Client):
             query_parameters['actionFilter'] = self._serialize.query('action_filter', action_filter, 'str')
         response = self._send(http_method='GET',
                               location_id='a8c47e17-4d56-4a56-92bb-de7ea7dc65be',
-                              version='6.0',
+                              version='5.1',
                               query_parameters=query_parameters)
         return self._deserialize('[TaskAgentPool]', self._unwrap_collection(response))
 
@@ -261,16 +261,16 @@ class TaskAgentClient(Client):
             query_parameters['actionFilter'] = self._serialize.query('action_filter', action_filter, 'str')
         response = self._send(http_method='GET',
                               location_id='a8c47e17-4d56-4a56-92bb-de7ea7dc65be',
-                              version='6.0',
+                              version='5.1',
                               query_parameters=query_parameters)
         return self._deserialize('[TaskAgentPool]', self._unwrap_collection(response))
 
     def update_agent_pool(self, pool, pool_id):
         """UpdateAgentPool.
         Update properties on an agent pool
-        :param :class:`<TaskAgentPool> <azure.devops.v6_0.task_agent.models.TaskAgentPool>` pool: Updated agent pool details
+        :param :class:`<TaskAgentPool> <azure.devops.v5_1.task_agent.models.TaskAgentPool>` pool: Updated agent pool details
         :param int pool_id: The agent pool to update
-        :rtype: :class:`<TaskAgentPool> <azure.devops.v6_0.task_agent.models.TaskAgentPool>`
+        :rtype: :class:`<TaskAgentPool> <azure.devops.v5_1.task_agent.models.TaskAgentPool>`
         """
         route_values = {}
         if pool_id is not None:
@@ -278,23 +278,17 @@ class TaskAgentClient(Client):
         content = self._serialize.body(pool, 'TaskAgentPool')
         response = self._send(http_method='PATCH',
                               location_id='a8c47e17-4d56-4a56-92bb-de7ea7dc65be',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TaskAgentPool', response)
 
-    def get_yaml_schema(self, validate_task_names=None):
+    def get_yaml_schema(self):
         """GetYamlSchema.
-        GET the Yaml schema used for Yaml file validation.
-        :param bool validate_task_names: Whether the schema should validate that tasks are actually installed (useful for offline tools where you don't want validation).
         :rtype: object
         """
-        query_parameters = {}
-        if validate_task_names is not None:
-            query_parameters['validateTaskNames'] = self._serialize.query('validate_task_names', validate_task_names, 'bool')
         response = self._send(http_method='GET',
                               location_id='1f9990b9-1dba-441f-9c2e-6485888c42b6',
-                              version='6.0',
-                              query_parameters=query_parameters)
+                              version='5.1')
         return self._deserialize('object', response)
 
