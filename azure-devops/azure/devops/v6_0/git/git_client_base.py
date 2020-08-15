@@ -315,7 +315,7 @@ class GitClientBase(Client):
 
     def get_cherry_pick(self, project, cherry_pick_id, repository_id):
         """GetCherryPick.
-        [Preview API] Retrieve information about a cherry pick by cherry pick Id.
+        [Preview API] Retrieve information about a cherry pick operation by cherry pick Id.
         :param str project: Project ID or project name
         :param int cherry_pick_id: ID of the cherry pick.
         :param str repository_id: ID of the repository.
@@ -336,7 +336,7 @@ class GitClientBase(Client):
 
     def get_cherry_pick_for_ref_name(self, project, repository_id, ref_name):
         """GetCherryPickForRefName.
-        [Preview API] Retrieve information about a cherry pick for a specific branch.
+        [Preview API] Retrieve information about a cherry pick operation for a specific branch. This operation is expensive due to the underlying object structure, so this API only looks at the 1000 most recent cherry pick operations.
         :param str project: Project ID or project name
         :param str repository_id: ID of the repository.
         :param str ref_name: The GitAsyncRefOperationParameters generatedRefName used for the cherry pick operation.
@@ -1864,7 +1864,7 @@ class GitClientBase(Client):
         """CreatePullRequestReviewer.
         [Preview API] Add a reviewer to a pull request or cast a vote.
         :param :class:`<IdentityRefWithVote> <azure.devops.v6_0.git.models.IdentityRefWithVote>` reviewer: Reviewer's vote.<br />If the reviewer's ID is included here, it must match the reviewerID parameter.<br />Reviewers can set their own vote with this method.  When adding other reviewers, vote must be set to zero.
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request.
         :param str reviewer_id: ID of the reviewer.
         :param str project: Project ID or project name
@@ -1891,7 +1891,7 @@ class GitClientBase(Client):
         """CreatePullRequestReviewers.
         [Preview API] Add reviewers to a pull request.
         :param [IdentityRef] reviewers: Reviewers to add to the pull request.
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request.
         :param str project: Project ID or project name
         :rtype: [IdentityRefWithVote]
@@ -1911,10 +1911,34 @@ class GitClientBase(Client):
                               content=content)
         return self._deserialize('[IdentityRefWithVote]', self._unwrap_collection(response))
 
+    def create_unmaterialized_pull_request_reviewer(self, reviewer, repository_id, pull_request_id, project=None):
+        """CreateUnmaterializedPullRequestReviewer.
+        [Preview API] Add an unmaterialized identity to the reviewers of a pull request.
+        :param :class:`<IdentityRefWithVote> <azure.devops.v6_0.git.models.IdentityRefWithVote>` reviewer: Reviewer to add to the pull request.
+        :param str repository_id: The repository ID of the pull request's target branch.
+        :param int pull_request_id: ID of the pull request.
+        :param str project: Project ID or project name
+        :rtype: :class:`<IdentityRefWithVote> <azure.devops.v6_0.git.models.IdentityRefWithVote>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if repository_id is not None:
+            route_values['repositoryId'] = self._serialize.url('repository_id', repository_id, 'str')
+        if pull_request_id is not None:
+            route_values['pullRequestId'] = self._serialize.url('pull_request_id', pull_request_id, 'int')
+        content = self._serialize.body(reviewer, 'IdentityRefWithVote')
+        response = self._send(http_method='PUT',
+                              location_id='4b6702c7-aa35-4b89-9c96-b9abf6d3e540',
+                              version='6.0-preview.1',
+                              route_values=route_values,
+                              content=content)
+        return self._deserialize('IdentityRefWithVote', response)
+
     def delete_pull_request_reviewer(self, repository_id, pull_request_id, reviewer_id, project=None):
         """DeletePullRequestReviewer.
         [Preview API] Remove a reviewer from a pull request.
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request.
         :param str reviewer_id: ID of the reviewer to remove.
         :param str project: Project ID or project name
@@ -1936,7 +1960,7 @@ class GitClientBase(Client):
     def get_pull_request_reviewer(self, repository_id, pull_request_id, reviewer_id, project=None):
         """GetPullRequestReviewer.
         [Preview API] Retrieve information about a particular reviewer on a pull request
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request.
         :param str reviewer_id: ID of the reviewer.
         :param str project: Project ID or project name
@@ -1960,7 +1984,7 @@ class GitClientBase(Client):
     def get_pull_request_reviewers(self, repository_id, pull_request_id, project=None):
         """GetPullRequestReviewers.
         [Preview API] Retrieve the reviewers for a pull request
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request.
         :param str project: Project ID or project name
         :rtype: [IdentityRefWithVote]
@@ -1980,9 +2004,9 @@ class GitClientBase(Client):
 
     def update_pull_request_reviewer(self, reviewer, repository_id, pull_request_id, reviewer_id, project=None):
         """UpdatePullRequestReviewer.
-        [Preview API] Edit a reviewer entry. These fields are patchable: isFlagged
+        [Preview API] Edit a reviewer entry. These fields are patchable: isFlagged, hasDeclined
         :param :class:`<IdentityRefWithVote> <azure.devops.v6_0.git.models.IdentityRefWithVote>` reviewer: Reviewer data.<br />If the reviewer's ID is included here, it must match the reviewerID parameter.
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request.
         :param str reviewer_id: ID of the reviewer.
         :param str project: Project ID or project name
@@ -2009,7 +2033,7 @@ class GitClientBase(Client):
         """UpdatePullRequestReviewers.
         [Preview API] Reset the votes of multiple reviewers on a pull request.  NOTE: This endpoint only supports updating votes, but does not support updating required reviewers (use policy) or display names.
         :param [IdentityRefWithVote] patch_votes: IDs of the reviewers whose votes will be reset to zero
-        :param str repository_id: The repository ID of the pull request’s target branch.
+        :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request
         :param str project: Project ID or project name
         """

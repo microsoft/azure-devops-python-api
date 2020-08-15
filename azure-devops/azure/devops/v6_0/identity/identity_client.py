@@ -152,14 +152,14 @@ class IdentityClient(Client):
 
     def read_identities(self, descriptors=None, identity_ids=None, subject_descriptors=None, social_descriptors=None, search_filter=None, filter_value=None, query_membership=None, properties=None, include_restricted_visibility=None, options=None):
         """ReadIdentities.
-        [Preview API]
-        :param str descriptors:
-        :param str identity_ids:
-        :param str subject_descriptors:
+        [Preview API] Resolve legacy identity information for use with older APIs such as the Security APIs
+        :param str descriptors: A comma separated list of identity descriptors to resolve
+        :param str identity_ids: A comma seperated list of storage keys to resolve
+        :param str subject_descriptors: A comma seperated list of subject descriptors to resolve
         :param str social_descriptors:
-        :param str search_filter:
-        :param str filter_value:
-        :param str query_membership:
+        :param str search_filter: The type of search to perform. Values can be AccountName (domain\alias), DisplayName, MailAddress, General (display name, account name, or unique name), or LocalGroupName (only search Azure Devops groups).
+        :param str filter_value: The search value, as specified by the searchFilter.
+        :param str query_membership: The membership information to include with the identities. Values can be None for no membership data or Direct to include the groups that the identity is a member of and the identities that are a member of this identity (groups only)
         :param str properties:
         :param bool include_restricted_visibility:
         :param str options:

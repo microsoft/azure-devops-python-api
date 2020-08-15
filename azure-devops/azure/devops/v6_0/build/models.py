@@ -1520,6 +1520,29 @@ class JsonPatchOperation(Model):
         self.value = value
 
 
+class MinimalRetentionLease(Model):
+    """
+    :param definition_id: The pipeline definition of the run.
+    :type definition_id: int
+    :param owner_id: User-provided string that identifies the owner of a retention lease.
+    :type owner_id: str
+    :param run_id: The pipeline run to protect.
+    :type run_id: int
+    """
+
+    _attribute_map = {
+        'definition_id': {'key': 'definitionId', 'type': 'int'},
+        'owner_id': {'key': 'ownerId', 'type': 'str'},
+        'run_id': {'key': 'runId', 'type': 'int'}
+    }
+
+    def __init__(self, definition_id=None, owner_id=None, run_id=None):
+        super(MinimalRetentionLease, self).__init__()
+        self.definition_id = definition_id
+        self.owner_id = owner_id
+        self.run_id = run_id
+
+
 class NewRetentionLease(Model):
     """
     :param days_valid: The number of days to consider the lease valid.
@@ -1570,6 +1593,39 @@ class PhaseReference(Model):
         super(PhaseReference, self).__init__()
         self.attempt = attempt
         self.phase_name = phase_name
+
+
+class PipelineGeneralSettings(Model):
+    """
+    Contains pipeline general settings.
+
+    :param enforce_job_auth_scope: If enabled, scope of access for all pipelines reduces to the current project.
+    :type enforce_job_auth_scope: bool
+    :param enforce_referenced_repo_scoped_token: Restricts the scope of access for all pipelines to only repositories explicitly referenced by the pipeline.
+    :type enforce_referenced_repo_scoped_token: bool
+    :param enforce_settable_var: If enabled, only those variables that are explicitly marked as "Settable at queue time" can be set at queue time.
+    :type enforce_settable_var: bool
+    :param publish_pipeline_metadata: Allows pipelines to record metadata.
+    :type publish_pipeline_metadata: bool
+    :param status_badges_are_private: Anonymous users can access the status badge API for all pipelines unless this option is enabled.
+    :type status_badges_are_private: bool
+    """
+
+    _attribute_map = {
+        'enforce_job_auth_scope': {'key': 'enforceJobAuthScope', 'type': 'bool'},
+        'enforce_referenced_repo_scoped_token': {'key': 'enforceReferencedRepoScopedToken', 'type': 'bool'},
+        'enforce_settable_var': {'key': 'enforceSettableVar', 'type': 'bool'},
+        'publish_pipeline_metadata': {'key': 'publishPipelineMetadata', 'type': 'bool'},
+        'status_badges_are_private': {'key': 'statusBadgesArePrivate', 'type': 'bool'}
+    }
+
+    def __init__(self, enforce_job_auth_scope=None, enforce_referenced_repo_scoped_token=None, enforce_settable_var=None, publish_pipeline_metadata=None, status_badges_are_private=None):
+        super(PipelineGeneralSettings, self).__init__()
+        self.enforce_job_auth_scope = enforce_job_auth_scope
+        self.enforce_referenced_repo_scoped_token = enforce_referenced_repo_scoped_token
+        self.enforce_settable_var = enforce_settable_var
+        self.publish_pipeline_metadata = publish_pipeline_metadata
+        self.status_badges_are_private = status_badges_are_private
 
 
 class PipelineReference(Model):
@@ -2443,6 +2499,8 @@ class TimelineRecord(Model):
     :type percent_complete: int
     :param previous_attempts:
     :type previous_attempts: list of :class:`TimelineAttempt <azure.devops.v6_0.build.models.TimelineAttempt>`
+    :param queue_id: The queue ID of the queue that the operation ran on.
+    :type queue_id: int
     :param result: The result.
     :type result: object
     :param result_code: The result code.
@@ -2481,6 +2539,7 @@ class TimelineRecord(Model):
         'parent_id': {'key': 'parentId', 'type': 'str'},
         'percent_complete': {'key': 'percentComplete', 'type': 'int'},
         'previous_attempts': {'key': 'previousAttempts', 'type': '[TimelineAttempt]'},
+        'queue_id': {'key': 'queueId', 'type': 'int'},
         'result': {'key': 'result', 'type': 'object'},
         'result_code': {'key': 'resultCode', 'type': 'str'},
         'start_time': {'key': 'startTime', 'type': 'iso-8601'},
@@ -2492,7 +2551,7 @@ class TimelineRecord(Model):
         'worker_name': {'key': 'workerName', 'type': 'str'}
     }
 
-    def __init__(self, _links=None, attempt=None, change_id=None, current_operation=None, details=None, error_count=None, finish_time=None, id=None, identifier=None, issues=None, last_modified=None, log=None, name=None, order=None, parent_id=None, percent_complete=None, previous_attempts=None, result=None, result_code=None, start_time=None, state=None, task=None, type=None, url=None, warning_count=None, worker_name=None):
+    def __init__(self, _links=None, attempt=None, change_id=None, current_operation=None, details=None, error_count=None, finish_time=None, id=None, identifier=None, issues=None, last_modified=None, log=None, name=None, order=None, parent_id=None, percent_complete=None, previous_attempts=None, queue_id=None, result=None, result_code=None, start_time=None, state=None, task=None, type=None, url=None, warning_count=None, worker_name=None):
         super(TimelineRecord, self).__init__()
         self._links = _links
         self.attempt = attempt
@@ -2511,6 +2570,7 @@ class TimelineRecord(Model):
         self.parent_id = parent_id
         self.percent_complete = percent_complete
         self.previous_attempts = previous_attempts
+        self.queue_id = queue_id
         self.result = result
         self.result_code = result_code
         self.start_time = start_time
@@ -3338,8 +3398,10 @@ __all__ = [
     'Issue',
     'JobReference',
     'JsonPatchOperation',
+    'MinimalRetentionLease',
     'NewRetentionLease',
     'PhaseReference',
+    'PipelineGeneralSettings',
     'PipelineReference',
     'ProcessParameters',
     'ProjectRetentionSetting',

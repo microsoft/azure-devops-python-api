@@ -340,7 +340,7 @@ class BuildClient(Client):
             route_values['buildId'] = self._serialize.url('build_id', build_id, 'int')
         self._send(http_method='DELETE',
                    location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                   version='6.0-preview.5',
+                   version='6.0-preview.6',
                    route_values=route_values)
 
     def get_build(self, project, build_id, property_filters=None):
@@ -361,7 +361,7 @@ class BuildClient(Client):
             query_parameters['propertyFilters'] = self._serialize.query('property_filters', property_filters, 'str')
         response = self._send(http_method='GET',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='6.0-preview.5',
+                              version='6.0-preview.6',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('Build', response)
@@ -443,12 +443,12 @@ class BuildClient(Client):
             query_parameters['repositoryType'] = self._serialize.query('repository_type', repository_type, 'str')
         response = self._send(http_method='GET',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='6.0-preview.5',
+                              version='6.0-preview.6',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[Build]', self._unwrap_collection(response))
 
-    def queue_build(self, build, project, ignore_warnings=None, check_in_ticket=None, source_build_id=None):
+    def queue_build(self, build, project, ignore_warnings=None, check_in_ticket=None, source_build_id=None, definition_id=None):
         """QueueBuild.
         [Preview API] Queues a build
         :param :class:`<Build> <azure.devops.v6_0.build.models.Build>` build:
@@ -456,6 +456,7 @@ class BuildClient(Client):
         :param bool ignore_warnings:
         :param str check_in_ticket:
         :param int source_build_id:
+        :param int definition_id: Optional definition id to queue a build without a body. Ignored if there's a valid body
         :rtype: :class:`<Build> <azure.devops.v6_0.build.models.Build>`
         """
         route_values = {}
@@ -468,10 +469,12 @@ class BuildClient(Client):
             query_parameters['checkInTicket'] = self._serialize.query('check_in_ticket', check_in_ticket, 'str')
         if source_build_id is not None:
             query_parameters['sourceBuildId'] = self._serialize.query('source_build_id', source_build_id, 'int')
+        if definition_id is not None:
+            query_parameters['definitionId'] = self._serialize.query('definition_id', definition_id, 'int')
         content = self._serialize.body(build, 'Build')
         response = self._send(http_method='POST',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='6.0-preview.5',
+                              version='6.0-preview.6',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -497,7 +500,7 @@ class BuildClient(Client):
         content = self._serialize.body(build, 'Build')
         response = self._send(http_method='PATCH',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='6.0-preview.5',
+                              version='6.0-preview.6',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -516,7 +519,7 @@ class BuildClient(Client):
         content = self._serialize.body(builds, '[Build]')
         response = self._send(http_method='PATCH',
                               location_id='0cd358e1-9217-4d94-8269-1c1ee6f93dcf',
-                              version='6.0-preview.5',
+                              version='6.0-preview.6',
                               route_values=route_values,
                               content=content)
         return self._deserialize('[Build]', self._unwrap_collection(response))
@@ -923,6 +926,39 @@ class BuildClient(Client):
                               content=content)
         return self._deserialize('Folder', response)
 
+    def get_build_general_settings(self, project):
+        """GetBuildGeneralSettings.
+        [Preview API] Gets pipeline general settings.
+        :param str project: Project ID or project name
+        :rtype: :class:`<PipelineGeneralSettings> <azure.devops.v6_0.build.models.PipelineGeneralSettings>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        response = self._send(http_method='GET',
+                              location_id='c4aefd19-30ff-405b-80ad-aca021e7242a',
+                              version='6.0-preview.1',
+                              route_values=route_values)
+        return self._deserialize('PipelineGeneralSettings', response)
+
+    def update_build_general_settings(self, new_settings, project):
+        """UpdateBuildGeneralSettings.
+        [Preview API] Updates pipeline general settings.
+        :param :class:`<PipelineGeneralSettings> <azure.devops.v6_0.build.models.PipelineGeneralSettings>` new_settings:
+        :param str project: Project ID or project name
+        :rtype: :class:`<PipelineGeneralSettings> <azure.devops.v6_0.build.models.PipelineGeneralSettings>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        content = self._serialize.body(new_settings, 'PipelineGeneralSettings')
+        response = self._send(http_method='PATCH',
+                              location_id='c4aefd19-30ff-405b-80ad-aca021e7242a',
+                              version='6.0-preview.1',
+                              route_values=route_values,
+                              content=content)
+        return self._deserialize('PipelineGeneralSettings', response)
+
     def get_latest_build(self, project, definition, branch_name=None):
         """GetLatestBuild.
         [Preview API] Gets the latest build for a definition, optionally scoped to a specific branch.
@@ -1000,6 +1036,27 @@ class BuildClient(Client):
                               version='6.0-preview.1',
                               route_values=route_values)
         return self._deserialize('RetentionLease', response)
+
+    def get_retention_leases_by_minimal_retention_leases(self, project, leases_to_fetch):
+        """GetRetentionLeasesByMinimalRetentionLeases.
+        [Preview API] Returns any leases matching the specified MinimalRetentionLeases
+        :param str project: Project ID or project name
+        :param [MinimalRetentionLease] leases_to_fetch: List of JSON-serialized MinimalRetentionLeases separated by '|'
+        :rtype: [RetentionLease]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        query_parameters = {}
+        if leases_to_fetch is not None:
+            leases_to_fetch = "|".join(map(str, leases_to_fetch))
+            query_parameters['leasesToFetch'] = self._serialize.query('leases_to_fetch', leases_to_fetch, 'str')
+        response = self._send(http_method='GET',
+                              location_id='272051e4-9af1-45b5-ae22-8d960a5539d4',
+                              version='6.0-preview.1',
+                              route_values=route_values,
+                              query_parameters=query_parameters)
+        return self._deserialize('[RetentionLease]', self._unwrap_collection(response))
 
     def get_retention_leases_by_owner_id(self, project, owner_id=None, definition_id=None, run_id=None):
         """GetRetentionLeasesByOwnerId.

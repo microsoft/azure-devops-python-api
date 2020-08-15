@@ -594,11 +594,11 @@ class WikiPagesBatchRequest(Model):
     """
     Contract encapsulating parameters for the pages batch.
 
-    :param continuation_token: A string token that can be used for retrieving next page of Wiki Page Data if available. Otherwise null.
+    :param continuation_token: If the list of page data returned is not complete, a continuation token to query next batch of pages is included in the response header as "x-ms-continuationtoken". Omit this parameter to get the first batch of Wiki Page Data.
     :type continuation_token: str
     :param page_views_for_days: last N days from the current day for which page views is to be returned. It's inclusive of current day.
     :type page_views_for_days: int
-    :param top: Total count of pages on a wiki.
+    :param top: Total count of pages on a wiki to return.
     :type top: int
     """
 

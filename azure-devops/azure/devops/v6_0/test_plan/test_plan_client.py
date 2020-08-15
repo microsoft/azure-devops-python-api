@@ -548,6 +548,42 @@ class TestPlanClient(Client):
                               content=content)
         return self._deserialize('[TestCase]', self._unwrap_collection(response))
 
+    def clone_test_case(self, clone_request_body, project):
+        """CloneTestCase.
+        [Preview API]
+        :param :class:`<CloneTestCaseParams> <azure.devops.v6_0.test_plan.models.CloneTestCaseParams>` clone_request_body:
+        :param str project: Project ID or project name
+        :rtype: :class:`<CloneTestCaseOperationInformation> <azure.devops.v6_0.test_plan.models.CloneTestCaseOperationInformation>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        content = self._serialize.body(clone_request_body, 'CloneTestCaseParams')
+        response = self._send(http_method='POST',
+                              location_id='529b2b8d-82f4-4893-b1e4-1e74ea534673',
+                              version='6.0-preview.2',
+                              route_values=route_values,
+                              content=content)
+        return self._deserialize('CloneTestCaseOperationInformation', response)
+
+    def get_test_case_clone_information(self, project, clone_operation_id):
+        """GetTestCaseCloneInformation.
+        [Preview API] Get clone information.
+        :param str project: Project ID or project name
+        :param int clone_operation_id: Operation ID returned when we queue a clone operation
+        :rtype: :class:`<CloneTestCaseOperationInformation> <azure.devops.v6_0.test_plan.models.CloneTestCaseOperationInformation>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if clone_operation_id is not None:
+            route_values['cloneOperationId'] = self._serialize.url('clone_operation_id', clone_operation_id, 'int')
+        response = self._send(http_method='GET',
+                              location_id='529b2b8d-82f4-4893-b1e4-1e74ea534673',
+                              version='6.0-preview.2',
+                              route_values=route_values)
+        return self._deserialize('CloneTestCaseOperationInformation', response)
+
     def delete_test_case(self, project, test_case_id):
         """DeleteTestCase.
         [Preview API] Delete a test case.
@@ -637,7 +673,7 @@ class TestPlanClient(Client):
                               query_parameters=query_parameters)
         return self._deserialize('[TestPoint]', self._unwrap_collection(response))
 
-    def get_points_list(self, project, plan_id, suite_id, test_point_ids=None, test_case_id=None, continuation_token=None, return_identity_ref=None, include_point_details=None):
+    def get_points_list(self, project, plan_id, suite_id, test_point_ids=None, test_case_id=None, continuation_token=None, return_identity_ref=None, include_point_details=None, is_recursive=None):
         """GetPointsList.
         [Preview API] Get all the points inside a suite based on some filters
         :param str project: Project ID or project name
@@ -648,6 +684,7 @@ class TestPlanClient(Client):
         :param str continuation_token: If the list of test point returned is not complete, a continuation token to query next batch of test points is included in the response header as "x-ms-continuationtoken". Omit this parameter to get the first batch of test points.
         :param bool return_identity_ref: If set to true, returns the AssignedTo field in TestCaseReference as IdentityRef object.
         :param bool include_point_details: If set to false, will get a smaller payload containing only basic details about the test point object
+        :param bool is_recursive: If set to true, will also fetch test points belonging to child suites recursively.
         :rtype: :class:`<[TestPoint]> <azure.devops.v6_0.test_plan.models.[TestPoint]>`
         """
         route_values = {}
@@ -668,6 +705,8 @@ class TestPlanClient(Client):
             query_parameters['returnIdentityRef'] = self._serialize.query('return_identity_ref', return_identity_ref, 'bool')
         if include_point_details is not None:
             query_parameters['includePointDetails'] = self._serialize.query('include_point_details', include_point_details, 'bool')
+        if is_recursive is not None:
+            query_parameters['isRecursive'] = self._serialize.query('is_recursive', is_recursive, 'bool')
         response = self._send(http_method='GET',
                               location_id='52df686e-bae4-4334-b0ee-b6cf4e6f6b73',
                               version='6.0-preview.2',

@@ -27,7 +27,7 @@ class AccountsClient(Client):
 
     def get_accounts(self, owner_id=None, member_id=None, properties=None):
         """GetAccounts.
-        [Preview API] Get a list of accounts for a specific owner or a specific member.
+        [Preview API] Get a list of accounts for a specific owner or a specific member. One of the following parameters is required: ownerId, memberId.
         :param str owner_id: ID for the owner of the accounts.
         :param str member_id: ID for a member of the accounts.
         :param str properties:
