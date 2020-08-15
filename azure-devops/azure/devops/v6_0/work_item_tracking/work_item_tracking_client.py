@@ -65,7 +65,7 @@ class WorkItemTrackingClient(Client):
 
     def create_attachment(self, upload_stream, project=None, file_name=None, upload_type=None, area_path=None, **kwargs):
         """CreateAttachment.
-        Uploads an attachment.
+        [Preview API] Uploads an attachment.
         :param object upload_stream: Stream to upload
         :param str project: Project ID or project name
         :param str file_name: The name of the file
@@ -90,7 +90,7 @@ class WorkItemTrackingClient(Client):
         content = self._client.stream_upload(upload_stream, callback=callback)
         response = self._send(http_method='POST',
                               location_id='e07b5fa4-1499-494d-a496-64b860fd64ff',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content,
@@ -99,7 +99,7 @@ class WorkItemTrackingClient(Client):
 
     def get_attachment_content(self, id, project=None, file_name=None, download=None, **kwargs):
         """GetAttachmentContent.
-        Downloads an attachment.
+        [Preview API] Downloads an attachment.
         :param str id: Attachment ID
         :param str project: Project ID or project name
         :param str file_name: Name of the file
@@ -118,7 +118,7 @@ class WorkItemTrackingClient(Client):
             query_parameters['download'] = self._serialize.query('download', download, 'bool')
         response = self._send(http_method='GET',
                               location_id='e07b5fa4-1499-494d-a496-64b860fd64ff',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               accept_media_type='application/octet-stream')
@@ -130,7 +130,7 @@ class WorkItemTrackingClient(Client):
 
     def get_attachment_zip(self, id, project=None, file_name=None, download=None, **kwargs):
         """GetAttachmentZip.
-        Downloads an attachment.
+        [Preview API] Downloads an attachment.
         :param str id: Attachment ID
         :param str project: Project ID or project name
         :param str file_name: Name of the file
@@ -149,7 +149,7 @@ class WorkItemTrackingClient(Client):
             query_parameters['download'] = self._serialize.query('download', download, 'bool')
         response = self._send(http_method='GET',
                               location_id='e07b5fa4-1499-494d-a496-64b860fd64ff',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               accept_media_type='application/zip')
@@ -161,7 +161,7 @@ class WorkItemTrackingClient(Client):
 
     def get_classification_nodes(self, project, ids, depth=None, error_policy=None):
         """GetClassificationNodes.
-        Gets root classification nodes or list of classification nodes for a given list of nodes ids, for a given project. In case ids parameter is supplied you will  get list of classification nodes for those ids. Otherwise you will get root classification nodes for this project.
+        [Preview API] Gets root classification nodes or list of classification nodes for a given list of nodes ids, for a given project. In case ids parameter is supplied you will  get list of classification nodes for those ids. Otherwise you will get root classification nodes for this project.
         :param str project: Project ID or project name
         :param [int] ids: Comma separated integer classification nodes ids. It's not required, if you want root nodes.
         :param int depth: Depth of children to fetch.
@@ -181,14 +181,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['errorPolicy'] = self._serialize.query('error_policy', error_policy, 'str')
         response = self._send(http_method='GET',
                               location_id='a70579d1-f53a-48ee-a5be-7be8659023b9',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[WorkItemClassificationNode]', self._unwrap_collection(response))
 
     def get_root_nodes(self, project, depth=None):
         """GetRootNodes.
-        Gets root classification nodes under the project.
+        [Preview API] Gets root classification nodes under the project.
         :param str project: Project ID or project name
         :param int depth: Depth of children to fetch.
         :rtype: [WorkItemClassificationNode]
@@ -201,14 +201,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['$depth'] = self._serialize.query('depth', depth, 'int')
         response = self._send(http_method='GET',
                               location_id='a70579d1-f53a-48ee-a5be-7be8659023b9',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[WorkItemClassificationNode]', self._unwrap_collection(response))
 
     def create_or_update_classification_node(self, posted_node, project, structure_group, path=None):
         """CreateOrUpdateClassificationNode.
-        Create new or update an existing classification node.
+        [Preview API] Create new or update an existing classification node.
         :param :class:`<WorkItemClassificationNode> <azure.devops.v6_0.work_item_tracking.models.WorkItemClassificationNode>` posted_node: Node to create or update.
         :param str project: Project ID or project name
         :param TreeStructureGroup structure_group: Structure group of the classification node, area or iteration.
@@ -225,14 +225,14 @@ class WorkItemTrackingClient(Client):
         content = self._serialize.body(posted_node, 'WorkItemClassificationNode')
         response = self._send(http_method='POST',
                               location_id='5a172953-1b41-49d3-840a-33f79c3ce89f',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               content=content)
         return self._deserialize('WorkItemClassificationNode', response)
 
     def delete_classification_node(self, project, structure_group, path=None, reclassify_id=None):
         """DeleteClassificationNode.
-        Delete an existing classification node.
+        [Preview API] Delete an existing classification node.
         :param str project: Project ID or project name
         :param TreeStructureGroup structure_group: Structure group of the classification node, area or iteration.
         :param str path: Path of the classification node.
@@ -250,13 +250,13 @@ class WorkItemTrackingClient(Client):
             query_parameters['$reclassifyId'] = self._serialize.query('reclassify_id', reclassify_id, 'int')
         self._send(http_method='DELETE',
                    location_id='5a172953-1b41-49d3-840a-33f79c3ce89f',
-                   version='6.0',
+                   version='6.0-preview.2',
                    route_values=route_values,
                    query_parameters=query_parameters)
 
     def get_classification_node(self, project, structure_group, path=None, depth=None):
         """GetClassificationNode.
-        Gets the classification node for a given node path.
+        [Preview API] Gets the classification node for a given node path.
         :param str project: Project ID or project name
         :param TreeStructureGroup structure_group: Structure group of the classification node, area or iteration.
         :param str path: Path of the classification node.
@@ -275,14 +275,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['$depth'] = self._serialize.query('depth', depth, 'int')
         response = self._send(http_method='GET',
                               location_id='5a172953-1b41-49d3-840a-33f79c3ce89f',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('WorkItemClassificationNode', response)
 
     def update_classification_node(self, posted_node, project, structure_group, path=None):
         """UpdateClassificationNode.
-        Update an existing classification node.
+        [Preview API] Update an existing classification node.
         :param :class:`<WorkItemClassificationNode> <azure.devops.v6_0.work_item_tracking.models.WorkItemClassificationNode>` posted_node: Node to create or update.
         :param str project: Project ID or project name
         :param TreeStructureGroup structure_group: Structure group of the classification node, area or iteration.
@@ -299,7 +299,7 @@ class WorkItemTrackingClient(Client):
         content = self._serialize.body(posted_node, 'WorkItemClassificationNode')
         response = self._send(http_method='PATCH',
                               location_id='5a172953-1b41-49d3-840a-33f79c3ce89f',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               content=content)
         return self._deserialize('WorkItemClassificationNode', response)
@@ -610,7 +610,7 @@ class WorkItemTrackingClient(Client):
 
     def create_field(self, work_item_field, project=None):
         """CreateField.
-        Create a new field.
+        [Preview API] Create a new field.
         :param :class:`<WorkItemField> <azure.devops.v6_0.work_item_tracking.models.WorkItemField>` work_item_field: New field definition
         :param str project: Project ID or project name
         :rtype: :class:`<WorkItemField> <azure.devops.v6_0.work_item_tracking.models.WorkItemField>`
@@ -621,14 +621,14 @@ class WorkItemTrackingClient(Client):
         content = self._serialize.body(work_item_field, 'WorkItemField')
         response = self._send(http_method='POST',
                               location_id='b51fd764-e5c2-4b9b-aaf7-3395cf4bdd94',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               content=content)
         return self._deserialize('WorkItemField', response)
 
     def delete_field(self, field_name_or_ref_name, project=None):
         """DeleteField.
-        Deletes the field. To undelete a filed, see "Update Field" API.
+        [Preview API] Deletes the field. To undelete a filed, see "Update Field" API.
         :param str field_name_or_ref_name: Field simple name or reference name
         :param str project: Project ID or project name
         """
@@ -639,12 +639,12 @@ class WorkItemTrackingClient(Client):
             route_values['fieldNameOrRefName'] = self._serialize.url('field_name_or_ref_name', field_name_or_ref_name, 'str')
         self._send(http_method='DELETE',
                    location_id='b51fd764-e5c2-4b9b-aaf7-3395cf4bdd94',
-                   version='6.0',
+                   version='6.0-preview.2',
                    route_values=route_values)
 
     def get_field(self, field_name_or_ref_name, project=None):
         """GetField.
-        Gets information on a specific field.
+        [Preview API] Gets information on a specific field.
         :param str field_name_or_ref_name: Field simple name or reference name
         :param str project: Project ID or project name
         :rtype: :class:`<WorkItemField> <azure.devops.v6_0.work_item_tracking.models.WorkItemField>`
@@ -656,13 +656,13 @@ class WorkItemTrackingClient(Client):
             route_values['fieldNameOrRefName'] = self._serialize.url('field_name_or_ref_name', field_name_or_ref_name, 'str')
         response = self._send(http_method='GET',
                               location_id='b51fd764-e5c2-4b9b-aaf7-3395cf4bdd94',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values)
         return self._deserialize('WorkItemField', response)
 
     def get_fields(self, project=None, expand=None):
         """GetFields.
-        Returns information for all fields. The project ID/name parameter is optional.
+        [Preview API] Returns information for all fields. The project ID/name parameter is optional.
         :param str project: Project ID or project name
         :param str expand: Use ExtensionFields to include extension fields, otherwise exclude them. Unless the feature flag for this parameter is enabled, extension fields are always included.
         :rtype: [WorkItemField]
@@ -675,14 +675,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         response = self._send(http_method='GET',
                               location_id='b51fd764-e5c2-4b9b-aaf7-3395cf4bdd94',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[WorkItemField]', self._unwrap_collection(response))
 
     def update_field(self, payload, field_name_or_ref_name, project=None):
         """UpdateField.
-        Update a field.
+        [Preview API] Update a field.
         :param :class:`<UpdateWorkItemField> <azure.devops.v6_0.work_item_tracking.models.UpdateWorkItemField>` payload: Payload contains desired value of the field's properties
         :param str field_name_or_ref_name: Name/reference name of the field to be updated
         :param str project: Project ID or project name
@@ -696,7 +696,7 @@ class WorkItemTrackingClient(Client):
         content = self._serialize.body(payload, 'UpdateWorkItemField')
         response = self._send(http_method='PATCH',
                               location_id='b51fd764-e5c2-4b9b-aaf7-3395cf4bdd94',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               content=content)
         return self._deserialize('WorkItemField', response)
@@ -721,7 +721,7 @@ class WorkItemTrackingClient(Client):
 
     def create_query(self, posted_query, project, query, validate_wiql_only=None):
         """CreateQuery.
-        Creates a query, or moves a query.
+        [Preview API] Creates a query, or moves a query.
         :param :class:`<QueryHierarchyItem> <azure.devops.v6_0.work_item_tracking.models.QueryHierarchyItem>` posted_query: The query to create.
         :param str project: Project ID or project name
         :param str query: The parent id or path under which the query is to be created.
@@ -739,7 +739,7 @@ class WorkItemTrackingClient(Client):
         content = self._serialize.body(posted_query, 'QueryHierarchyItem')
         response = self._send(http_method='POST',
                               location_id='a67d190c-c41f-424b-814d-0e906f659301',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -747,7 +747,7 @@ class WorkItemTrackingClient(Client):
 
     def delete_query(self, project, query):
         """DeleteQuery.
-        Delete a query or a folder. This deletes any permission change on the deleted query or folder and any of its descendants if it is a folder. It is important to note that the deleted permission changes cannot be recovered upon undeleting the query or folder.
+        [Preview API] Delete a query or a folder. This deletes any permission change on the deleted query or folder and any of its descendants if it is a folder. It is important to note that the deleted permission changes cannot be recovered upon undeleting the query or folder.
         :param str project: Project ID or project name
         :param str query: ID or path of the query or folder to delete.
         """
@@ -758,12 +758,12 @@ class WorkItemTrackingClient(Client):
             route_values['query'] = self._serialize.url('query', query, 'str')
         self._send(http_method='DELETE',
                    location_id='a67d190c-c41f-424b-814d-0e906f659301',
-                   version='6.0',
+                   version='6.0-preview.2',
                    route_values=route_values)
 
     def get_queries(self, project, expand=None, depth=None, include_deleted=None):
         """GetQueries.
-        Gets the root queries and their children
+        [Preview API] Gets the root queries and their children
         :param str project: Project ID or project name
         :param str expand: Include the query string (wiql), clauses, query result columns, and sort options in the results.
         :param int depth: In the folder of queries, return child queries and folders to this depth.
@@ -782,14 +782,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['$includeDeleted'] = self._serialize.query('include_deleted', include_deleted, 'bool')
         response = self._send(http_method='GET',
                               location_id='a67d190c-c41f-424b-814d-0e906f659301',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[QueryHierarchyItem]', self._unwrap_collection(response))
 
     def get_query(self, project, query, expand=None, depth=None, include_deleted=None):
         """GetQuery.
-        Retrieves an individual query and its children
+        [Preview API] Retrieves an individual query and its children
         :param str project: Project ID or project name
         :param str query: ID or path of the query.
         :param str expand: Include the query string (wiql), clauses, query result columns, and sort options in the results.
@@ -811,14 +811,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['$includeDeleted'] = self._serialize.query('include_deleted', include_deleted, 'bool')
         response = self._send(http_method='GET',
                               location_id='a67d190c-c41f-424b-814d-0e906f659301',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('QueryHierarchyItem', response)
 
     def search_queries(self, project, filter, top=None, expand=None, include_deleted=None):
         """SearchQueries.
-        Searches all queries the user has access to in the current project
+        [Preview API] Searches all queries the user has access to in the current project
         :param str project: Project ID or project name
         :param str filter: The text to filter the queries with.
         :param int top: The number of queries to return (Default is 50 and maximum is 200).
@@ -840,14 +840,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['$includeDeleted'] = self._serialize.query('include_deleted', include_deleted, 'bool')
         response = self._send(http_method='GET',
                               location_id='a67d190c-c41f-424b-814d-0e906f659301',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('QueryHierarchyItemsResult', response)
 
     def update_query(self, query_update, project, query, undelete_descendants=None):
         """UpdateQuery.
-        Update a query or a folder. This allows you to update, rename and move queries and folders.
+        [Preview API] Update a query or a folder. This allows you to update, rename and move queries and folders.
         :param :class:`<QueryHierarchyItem> <azure.devops.v6_0.work_item_tracking.models.QueryHierarchyItem>` query_update: The query to update.
         :param str project: Project ID or project name
         :param str query: The ID or path for the query to update.
@@ -865,7 +865,7 @@ class WorkItemTrackingClient(Client):
         content = self._serialize.body(query_update, 'QueryHierarchyItem')
         response = self._send(http_method='PATCH',
                               location_id='a67d190c-c41f-424b-814d-0e906f659301',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -873,7 +873,7 @@ class WorkItemTrackingClient(Client):
 
     def get_queries_batch(self, query_get_request, project):
         """GetQueriesBatch.
-        Gets a list of queries by ids (Maximum 1000)
+        [Preview API] Gets a list of queries by ids (Maximum 1000)
         :param :class:`<QueryBatchGetRequest> <azure.devops.v6_0.work_item_tracking.models.QueryBatchGetRequest>` query_get_request:
         :param str project: Project ID or project name
         :rtype: [QueryHierarchyItem]
@@ -884,14 +884,14 @@ class WorkItemTrackingClient(Client):
         content = self._serialize.body(query_get_request, 'QueryBatchGetRequest')
         response = self._send(http_method='POST',
                               location_id='549816f9-09b0-4e75-9e81-01fbfcd07426',
-                              version='6.0',
+                              version='6.0-preview.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('[QueryHierarchyItem]', self._unwrap_collection(response))
 
     def destroy_work_item(self, id, project=None):
         """DestroyWorkItem.
-        Destroys the specified work item permanently from the Recycle Bin. This action can not be undone.
+        [Preview API] Destroys the specified work item permanently from the Recycle Bin. This action can not be undone.
         :param int id: ID of the work item to be destroyed permanently
         :param str project: Project ID or project name
         """
@@ -902,12 +902,12 @@ class WorkItemTrackingClient(Client):
             route_values['id'] = self._serialize.url('id', id, 'int')
         self._send(http_method='DELETE',
                    location_id='b70d8d39-926c-465e-b927-b1bf0e5ca0e0',
-                   version='6.0',
+                   version='6.0-preview.2',
                    route_values=route_values)
 
     def get_deleted_work_item(self, id, project=None):
         """GetDeletedWorkItem.
-        Gets a deleted work item from Recycle Bin.
+        [Preview API] Gets a deleted work item from Recycle Bin.
         :param int id: ID of the work item to be returned
         :param str project: Project ID or project name
         :rtype: :class:`<WorkItemDelete> <azure.devops.v6_0.work_item_tracking.models.WorkItemDelete>`
@@ -919,13 +919,13 @@ class WorkItemTrackingClient(Client):
             route_values['id'] = self._serialize.url('id', id, 'int')
         response = self._send(http_method='GET',
                               location_id='b70d8d39-926c-465e-b927-b1bf0e5ca0e0',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values)
         return self._deserialize('WorkItemDelete', response)
 
     def get_deleted_work_items(self, ids, project=None):
         """GetDeletedWorkItems.
-        Gets the work items from the recycle bin, whose IDs have been specified in the parameters
+        [Preview API] Gets the work items from the recycle bin, whose IDs have been specified in the parameters
         :param [int] ids: Comma separated list of IDs of the deleted work items to be returned
         :param str project: Project ID or project name
         :rtype: [WorkItemDeleteReference]
@@ -939,14 +939,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['ids'] = self._serialize.query('ids', ids, 'str')
         response = self._send(http_method='GET',
                               location_id='b70d8d39-926c-465e-b927-b1bf0e5ca0e0',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[WorkItemDeleteReference]', self._unwrap_collection(response))
 
     def get_deleted_work_item_shallow_references(self, project=None):
         """GetDeletedWorkItemShallowReferences.
-        Gets a list of the IDs and the URLs of the deleted the work items in the Recycle Bin.
+        [Preview API] Gets a list of the IDs and the URLs of the deleted the work items in the Recycle Bin.
         :param str project: Project ID or project name
         :rtype: [WorkItemDeleteShallowReference]
         """
@@ -955,13 +955,13 @@ class WorkItemTrackingClient(Client):
             route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='b70d8d39-926c-465e-b927-b1bf0e5ca0e0',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values)
         return self._deserialize('[WorkItemDeleteShallowReference]', self._unwrap_collection(response))
 
     def restore_work_item(self, payload, id, project=None):
         """RestoreWorkItem.
-        Restores the deleted work item from Recycle Bin.
+        [Preview API] Restores the deleted work item from Recycle Bin.
         :param :class:`<WorkItemDeleteUpdate> <azure.devops.v6_0.work_item_tracking.models.WorkItemDeleteUpdate>` payload: Paylod with instructions to update the IsDeleted flag to false
         :param int id: ID of the work item to be restored
         :param str project: Project ID or project name
@@ -975,14 +975,14 @@ class WorkItemTrackingClient(Client):
         content = self._serialize.body(payload, 'WorkItemDeleteUpdate')
         response = self._send(http_method='PATCH',
                               location_id='b70d8d39-926c-465e-b927-b1bf0e5ca0e0',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               content=content)
         return self._deserialize('WorkItemDelete', response)
 
     def get_revision(self, id, revision_number, project=None, expand=None):
         """GetRevision.
-        Returns a fully hydrated work item for the requested revision
+        [Preview API] Returns a fully hydrated work item for the requested revision
         :param int id:
         :param int revision_number:
         :param str project: Project ID or project name
@@ -1001,14 +1001,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         response = self._send(http_method='GET',
                               location_id='a00c85a5-80fa-4565-99c3-bcd2181434bb',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('WorkItem', response)
 
     def get_revisions(self, id, project=None, top=None, skip=None, expand=None):
         """GetRevisions.
-        Returns the list of fully hydrated work item revisions, paged.
+        [Preview API] Returns the list of fully hydrated work item revisions, paged.
         :param int id:
         :param str project: Project ID or project name
         :param int top:
@@ -1030,7 +1030,7 @@ class WorkItemTrackingClient(Client):
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         response = self._send(http_method='GET',
                               location_id='a00c85a5-80fa-4565-99c3-bcd2181434bb',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[WorkItem]', self._unwrap_collection(response))
@@ -1270,7 +1270,7 @@ class WorkItemTrackingClient(Client):
 
     def get_update(self, id, update_number, project=None):
         """GetUpdate.
-        Returns a single update for a work item
+        [Preview API] Returns a single update for a work item
         :param int id:
         :param int update_number:
         :param str project: Project ID or project name
@@ -1285,13 +1285,13 @@ class WorkItemTrackingClient(Client):
             route_values['updateNumber'] = self._serialize.url('update_number', update_number, 'int')
         response = self._send(http_method='GET',
                               location_id='6570bf97-d02c-4a91-8d93-3abe9895b1a9',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values)
         return self._deserialize('WorkItemUpdate', response)
 
     def get_updates(self, id, project=None, top=None, skip=None):
         """GetUpdates.
-        Returns a the deltas between work item revisions
+        [Preview API] Returns a the deltas between work item revisions
         :param int id:
         :param str project: Project ID or project name
         :param int top:
@@ -1310,14 +1310,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['$skip'] = self._serialize.query('skip', skip, 'int')
         response = self._send(http_method='GET',
                               location_id='6570bf97-d02c-4a91-8d93-3abe9895b1a9',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[WorkItemUpdate]', self._unwrap_collection(response))
 
     def query_by_wiql(self, wiql, team_context=None, time_precision=None, top=None):
         """QueryByWiql.
-        Gets the results of the query given its WIQL.
+        [Preview API] Gets the results of the query given its WIQL.
         :param :class:`<Wiql> <azure.devops.v6_0.work_item_tracking.models.Wiql>` wiql: The query containing the WIQL.
         :param :class:`<TeamContext> <azure.devops.v6_0.work_item_tracking.models.TeamContext>` team_context: The team context for the operation
         :param bool time_precision: Whether or not to use time precision.
@@ -1349,7 +1349,7 @@ class WorkItemTrackingClient(Client):
         content = self._serialize.body(wiql, 'Wiql')
         response = self._send(http_method='POST',
                               location_id='1a9c53f7-f243-4447-b110-35ef023636e4',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -1357,7 +1357,7 @@ class WorkItemTrackingClient(Client):
 
     def get_query_result_count(self, id, team_context=None, time_precision=None, top=None):
         """GetQueryResultCount.
-        Gets the results of the query given the query ID.
+        [Preview API] Gets the results of the query given the query ID.
         :param str id: The query ID.
         :param :class:`<TeamContext> <azure.devops.v6_0.work_item_tracking.models.TeamContext>` team_context: The team context for the operation
         :param bool time_precision: Whether or not to use time precision.
@@ -1390,14 +1390,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         response = self._send(http_method='HEAD',
                               location_id='a02355f5-5f8a-4671-8e32-369d23aac83d',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('int', response)
 
     def query_by_id(self, id, team_context=None, time_precision=None, top=None):
         """QueryById.
-        Gets the results of the query given the query ID.
+        [Preview API] Gets the results of the query given the query ID.
         :param str id: The query ID.
         :param :class:`<TeamContext> <azure.devops.v6_0.work_item_tracking.models.TeamContext>` team_context: The team context for the operation
         :param bool time_precision: Whether or not to use time precision.
@@ -1430,14 +1430,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         response = self._send(http_method='GET',
                               location_id='a02355f5-5f8a-4671-8e32-369d23aac83d',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('WorkItemQueryResult', response)
 
     def get_work_item_icon_json(self, icon, color=None, v=None):
         """GetWorkItemIconJson.
-        Get a work item icon given the friendly name and icon color.
+        [Preview API] Get a work item icon given the friendly name and icon color.
         :param str icon: The name of the icon
         :param str color: The 6-digit hex color for the icon
         :param int v: The version of the icon (used only for cache invalidation)
@@ -1453,24 +1453,24 @@ class WorkItemTrackingClient(Client):
             query_parameters['v'] = self._serialize.query('v', v, 'int')
         response = self._send(http_method='GET',
                               location_id='4e1eb4a5-1970-4228-a682-ec48eb2dca30',
-                              version='6.0',
+                              version='6.0-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('WorkItemIcon', response)
 
     def get_work_item_icons(self):
         """GetWorkItemIcons.
-        Get a list of all work item icons.
+        [Preview API] Get a list of all work item icons.
         :rtype: [WorkItemIcon]
         """
         response = self._send(http_method='GET',
                               location_id='4e1eb4a5-1970-4228-a682-ec48eb2dca30',
-                              version='6.0')
+                              version='6.0-preview.1')
         return self._deserialize('[WorkItemIcon]', self._unwrap_collection(response))
 
     def get_work_item_icon_svg(self, icon, color=None, v=None, **kwargs):
         """GetWorkItemIconSvg.
-        Get a work item icon given the friendly name and icon color.
+        [Preview API] Get a work item icon given the friendly name and icon color.
         :param str icon: The name of the icon
         :param str color: The 6-digit hex color for the icon
         :param int v: The version of the icon (used only for cache invalidation)
@@ -1486,7 +1486,7 @@ class WorkItemTrackingClient(Client):
             query_parameters['v'] = self._serialize.query('v', v, 'int')
         response = self._send(http_method='GET',
                               location_id='4e1eb4a5-1970-4228-a682-ec48eb2dca30',
-                              version='6.0',
+                              version='6.0-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               accept_media_type='image/svg+xml')
@@ -1498,7 +1498,7 @@ class WorkItemTrackingClient(Client):
 
     def get_work_item_icon_xaml(self, icon, color=None, v=None, **kwargs):
         """GetWorkItemIconXaml.
-        Get a work item icon given the friendly name and icon color.
+        [Preview API] Get a work item icon given the friendly name and icon color.
         :param str icon: The name of the icon
         :param str color: The 6-digit hex color for the icon
         :param int v: The version of the icon (used only for cache invalidation)
@@ -1514,7 +1514,7 @@ class WorkItemTrackingClient(Client):
             query_parameters['v'] = self._serialize.query('v', v, 'int')
         response = self._send(http_method='GET',
                               location_id='4e1eb4a5-1970-4228-a682-ec48eb2dca30',
-                              version='6.0',
+                              version='6.0-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               accept_media_type='image/xaml+xml')
@@ -1526,7 +1526,7 @@ class WorkItemTrackingClient(Client):
 
     def get_reporting_links_by_link_type(self, project=None, link_types=None, types=None, continuation_token=None, start_date_time=None):
         """GetReportingLinksByLinkType.
-        Get a batch of work item links
+        [Preview API] Get a batch of work item links
         :param str project: Project ID or project name
         :param [str] link_types: A list of types to filter the results to specific link types. Omit this parameter to get work item links of all link types.
         :param [str] types: A list of types to filter the results to specific work item types. Omit this parameter to get work item links of all work item types.
@@ -1550,14 +1550,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['startDateTime'] = self._serialize.query('start_date_time', start_date_time, 'iso-8601')
         response = self._send(http_method='GET',
                               location_id='b5b5b6d0-0308-40a1-b3f4-b9bb3c66878f',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('ReportingWorkItemLinksBatch', response)
 
     def get_relation_type(self, relation):
         """GetRelationType.
-        Gets the work item relation type definition.
+        [Preview API] Gets the work item relation type definition.
         :param str relation: The relation name
         :rtype: :class:`<WorkItemRelationType> <azure.devops.v6_0.work_item_tracking.models.WorkItemRelationType>`
         """
@@ -1566,23 +1566,23 @@ class WorkItemTrackingClient(Client):
             route_values['relation'] = self._serialize.url('relation', relation, 'str')
         response = self._send(http_method='GET',
                               location_id='f5d33bc9-5b49-4a3c-a9bd-f3cd46dd2165',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values)
         return self._deserialize('WorkItemRelationType', response)
 
     def get_relation_types(self):
         """GetRelationTypes.
-        Gets the work item relation types.
+        [Preview API] Gets the work item relation types.
         :rtype: [WorkItemRelationType]
         """
         response = self._send(http_method='GET',
                               location_id='f5d33bc9-5b49-4a3c-a9bd-f3cd46dd2165',
-                              version='6.0')
+                              version='6.0-preview.2')
         return self._deserialize('[WorkItemRelationType]', self._unwrap_collection(response))
 
     def read_reporting_revisions_get(self, project=None, fields=None, types=None, continuation_token=None, start_date_time=None, include_identity_ref=None, include_deleted=None, include_tag_ref=None, include_latest_only=None, expand=None, include_discussion_changes_only=None, max_page_size=None):
         """ReadReportingRevisionsGet.
-        Get a batch of work item revisions with the option of including deleted items
+        [Preview API] Get a batch of work item revisions with the option of including deleted items
         :param str project: Project ID or project name
         :param [str] fields: A list of fields to return in work item revisions. Omit this parameter to get all reportable fields.
         :param [str] types: A list of types to filter the results to specific work item types. Omit this parameter to get work item revisions of all work item types.
@@ -1627,14 +1627,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['$maxPageSize'] = self._serialize.query('max_page_size', max_page_size, 'int')
         response = self._send(http_method='GET',
                               location_id='f828fe59-dd87-495d-a17c-7a8d6211ca6c',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('ReportingWorkItemRevisionsBatch', response)
 
     def read_reporting_revisions_post(self, filter, project=None, continuation_token=None, start_date_time=None, expand=None):
         """ReadReportingRevisionsPost.
-        Get a batch of work item revisions. This request may be used if your list of fields is large enough that it may run the URL over the length limit.
+        [Preview API] Get a batch of work item revisions. This request may be used if your list of fields is large enough that it may run the URL over the length limit.
         :param :class:`<ReportingWorkItemRevisionsFilter> <azure.devops.v6_0.work_item_tracking.models.ReportingWorkItemRevisionsFilter>` filter: An object that contains request settings: field filter, type filter, identity format
         :param str project: Project ID or project name
         :param str continuation_token: Specifies the watermark to start the batch from. Omit this parameter to get the first batch of revisions.
@@ -1655,7 +1655,7 @@ class WorkItemTrackingClient(Client):
         content = self._serialize.body(filter, 'ReportingWorkItemRevisionsFilter')
         response = self._send(http_method='POST',
                               location_id='f828fe59-dd87-495d-a17c-7a8d6211ca6c',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -1686,7 +1686,7 @@ class WorkItemTrackingClient(Client):
 
     def create_work_item(self, document, project, type, validate_only=None, bypass_rules=None, suppress_notifications=None, expand=None):
         """CreateWorkItem.
-        Creates a single work item.
+        [Preview API] Creates a single work item.
         :param :class:`<[JsonPatchOperation]> <azure.devops.v6_0.work_item_tracking.models.[JsonPatchOperation]>` document: The JSON Patch document representing the work item
         :param str project: Project ID or project name
         :param str type: The work item type of the work item to create
@@ -1713,7 +1713,7 @@ class WorkItemTrackingClient(Client):
         content = self._serialize.body(document, '[JsonPatchOperation]')
         response = self._send(http_method='POST',
                               location_id='62d3d110-0047-428c-ad3c-4fe872c91c74',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content,
@@ -1722,7 +1722,7 @@ class WorkItemTrackingClient(Client):
 
     def get_work_item_template(self, project, type, fields=None, as_of=None, expand=None):
         """GetWorkItemTemplate.
-        Returns a single work item from a template.
+        [Preview API] Returns a single work item from a template.
         :param str project: Project ID or project name
         :param str type: The work item type name
         :param str fields: Comma-separated list of requested fields
@@ -1744,14 +1744,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         response = self._send(http_method='GET',
                               location_id='62d3d110-0047-428c-ad3c-4fe872c91c74',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('WorkItem', response)
 
     def delete_work_item(self, id, project=None, destroy=None):
         """DeleteWorkItem.
-        Deletes the specified work item and sends it to the Recycle Bin, so that it can be restored back, if required. Optionally, if the destroy parameter has been set to true, it destroys the work item permanently. WARNING: If the destroy parameter is set to true, work items deleted by this command will NOT go to recycle-bin and there is no way to restore/recover them after deletion. It is recommended NOT to use this parameter. If you do, please use this parameter with extreme caution.
+        [Preview API] Deletes the specified work item and sends it to the Recycle Bin, so that it can be restored back, if required. Optionally, if the destroy parameter has been set to true, it destroys the work item permanently. WARNING: If the destroy parameter is set to true, work items deleted by this command will NOT go to recycle-bin and there is no way to restore/recover them after deletion. It is recommended NOT to use this parameter. If you do, please use this parameter with extreme caution.
         :param int id: ID of the work item to be deleted
         :param str project: Project ID or project name
         :param bool destroy: Optional parameter, if set to true, the work item is deleted permanently. Please note: the destroy action is PERMANENT and cannot be undone.
@@ -1767,14 +1767,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['destroy'] = self._serialize.query('destroy', destroy, 'bool')
         response = self._send(http_method='DELETE',
                               location_id='72c7ddf8-2cdc-4f60-90cd-ab71c14a399b',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('WorkItemDelete', response)
 
     def get_work_item(self, id, project=None, fields=None, as_of=None, expand=None):
         """GetWorkItem.
-        Returns a single work item.
+        [Preview API] Returns a single work item.
         :param int id: The work item id
         :param str project: Project ID or project name
         :param [str] fields: Comma-separated list of requested fields
@@ -1797,14 +1797,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         response = self._send(http_method='GET',
                               location_id='72c7ddf8-2cdc-4f60-90cd-ab71c14a399b',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('WorkItem', response)
 
     def get_work_items(self, ids, project=None, fields=None, as_of=None, expand=None, error_policy=None):
         """GetWorkItems.
-        Returns a list of work items (Maximum 200)
+        [Preview API] Returns a list of work items (Maximum 200)
         :param [int] ids: The comma-separated list of requested work item ids. (Maximum 200 ids allowed).
         :param str project: Project ID or project name
         :param [str] fields: Comma-separated list of requested fields
@@ -1831,14 +1831,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['errorPolicy'] = self._serialize.query('error_policy', error_policy, 'str')
         response = self._send(http_method='GET',
                               location_id='72c7ddf8-2cdc-4f60-90cd-ab71c14a399b',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[WorkItem]', self._unwrap_collection(response))
 
     def update_work_item(self, document, id, project=None, validate_only=None, bypass_rules=None, suppress_notifications=None, expand=None):
         """UpdateWorkItem.
-        Updates a single work item.
+        [Preview API] Updates a single work item.
         :param :class:`<[JsonPatchOperation]> <azure.devops.v6_0.work_item_tracking.models.[JsonPatchOperation]>` document: The JSON Patch document representing the update
         :param int id: The id of the work item to update
         :param str project: Project ID or project name
@@ -1865,7 +1865,7 @@ class WorkItemTrackingClient(Client):
         content = self._serialize.body(document, '[JsonPatchOperation]')
         response = self._send(http_method='PATCH',
                               location_id='72c7ddf8-2cdc-4f60-90cd-ab71c14a399b',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content,
@@ -1874,7 +1874,7 @@ class WorkItemTrackingClient(Client):
 
     def get_work_items_batch(self, work_item_get_request, project=None):
         """GetWorkItemsBatch.
-        Gets work items for a list of work item ids (Maximum 200)
+        [Preview API] Gets work items for a list of work item ids (Maximum 200)
         :param :class:`<WorkItemBatchGetRequest> <azure.devops.v6_0.work_item_tracking.models.WorkItemBatchGetRequest>` work_item_get_request:
         :param str project: Project ID or project name
         :rtype: [WorkItem]
@@ -1885,7 +1885,7 @@ class WorkItemTrackingClient(Client):
         content = self._serialize.body(work_item_get_request, 'WorkItemBatchGetRequest')
         response = self._send(http_method='POST',
                               location_id='908509b6-4248-4475-a1cd-829139ba419f',
-                              version='6.0',
+                              version='6.0-preview.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('[WorkItem]', self._unwrap_collection(response))
@@ -1911,7 +1911,7 @@ class WorkItemTrackingClient(Client):
 
     def get_work_item_type_categories(self, project):
         """GetWorkItemTypeCategories.
-        Get all work item type categories.
+        [Preview API] Get all work item type categories.
         :param str project: Project ID or project name
         :rtype: [WorkItemTypeCategory]
         """
@@ -1920,13 +1920,13 @@ class WorkItemTrackingClient(Client):
             route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='9b9f5734-36c8-415e-ba67-f83b45c31408',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values)
         return self._deserialize('[WorkItemTypeCategory]', self._unwrap_collection(response))
 
     def get_work_item_type_category(self, project, category):
         """GetWorkItemTypeCategory.
-        Get specific work item type category by name.
+        [Preview API] Get specific work item type category by name.
         :param str project: Project ID or project name
         :param str category: The category name
         :rtype: :class:`<WorkItemTypeCategory> <azure.devops.v6_0.work_item_tracking.models.WorkItemTypeCategory>`
@@ -1938,13 +1938,13 @@ class WorkItemTrackingClient(Client):
             route_values['category'] = self._serialize.url('category', category, 'str')
         response = self._send(http_method='GET',
                               location_id='9b9f5734-36c8-415e-ba67-f83b45c31408',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values)
         return self._deserialize('WorkItemTypeCategory', response)
 
     def get_work_item_type(self, project, type):
         """GetWorkItemType.
-        Returns a work item type definition.
+        [Preview API] Returns a work item type definition.
         :param str project: Project ID or project name
         :param str type: Work item type name
         :rtype: :class:`<WorkItemType> <azure.devops.v6_0.work_item_tracking.models.WorkItemType>`
@@ -1956,13 +1956,13 @@ class WorkItemTrackingClient(Client):
             route_values['type'] = self._serialize.url('type', type, 'str')
         response = self._send(http_method='GET',
                               location_id='7c8d7a76-4a09-43e8-b5df-bd792f4ac6aa',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values)
         return self._deserialize('WorkItemType', response)
 
     def get_work_item_types(self, project):
         """GetWorkItemTypes.
-        Returns the list of work item types
+        [Preview API] Returns the list of work item types
         :param str project: Project ID or project name
         :rtype: [WorkItemType]
         """
@@ -1971,13 +1971,13 @@ class WorkItemTrackingClient(Client):
             route_values['project'] = self._serialize.url('project', project, 'str')
         response = self._send(http_method='GET',
                               location_id='7c8d7a76-4a09-43e8-b5df-bd792f4ac6aa',
-                              version='6.0',
+                              version='6.0-preview.2',
                               route_values=route_values)
         return self._deserialize('[WorkItemType]', self._unwrap_collection(response))
 
     def get_work_item_type_fields_with_references(self, project, type, expand=None):
         """GetWorkItemTypeFieldsWithReferences.
-        Get a list of fields for a work item type with detailed references.
+        [Preview API] Get a list of fields for a work item type with detailed references.
         :param str project: Project ID or project name
         :param str type: Work item type.
         :param str expand: Expand level for the API response. Properties: to include allowedvalues, default value, isRequired etc. as a part of response; None: to skip these properties.
@@ -1993,14 +1993,14 @@ class WorkItemTrackingClient(Client):
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         response = self._send(http_method='GET',
                               location_id='bd293ce5-3d25-4192-8e67-e8092e879efb',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[WorkItemTypeFieldWithReferences]', self._unwrap_collection(response))
 
     def get_work_item_type_field_with_references(self, project, type, field, expand=None):
         """GetWorkItemTypeFieldWithReferences.
-        Get a field for a work item type with detailed references.
+        [Preview API] Get a field for a work item type with detailed references.
         :param str project: Project ID or project name
         :param str type: Work item type.
         :param str field:
@@ -2019,7 +2019,7 @@ class WorkItemTrackingClient(Client):
             query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
         response = self._send(http_method='GET',
                               location_id='bd293ce5-3d25-4192-8e67-e8092e879efb',
-                              version='6.0',
+                              version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('WorkItemTypeFieldWithReferences', response)

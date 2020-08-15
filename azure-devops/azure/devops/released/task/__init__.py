@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v6_0.task.models import *
+from ...v5_1.task.models import *
 from .task_client import TaskClient
 
 __all__ = [

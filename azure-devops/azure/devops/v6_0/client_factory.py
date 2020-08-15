@@ -9,7 +9,7 @@
 
 class ClientFactoryV6_0(object):
     """ClientFactoryV6_0.
-    A factory class to get the 6.0 clients.
+    A factory class to get the 6.0 preview clients.
     """
 
     def __init__(self, connection):

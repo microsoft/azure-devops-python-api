@@ -8,7 +8,7 @@
 
 from msrest import Serializer, Deserializer
 from ...client import Client
-from ...v6_0.test import models
+from ...v5_1.test import models
 
 
 class TestClient(Client):
@@ -48,7 +48,7 @@ class TestClient(Client):
             route_values['actionPath'] = self._serialize.url('action_path', action_path, 'str')
         response = self._send(http_method='GET',
                               location_id='eaf40c31-ff84-4062-aafd-d5664be11a37',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('[TestActionResultModel]', self._unwrap_collection(response))
 
@@ -60,7 +60,7 @@ class TestClient(Client):
         :param int test_case_result_id: ID of the test result that contains the iterations.
         :param int iteration_id: Id of the test results Iteration.
         :param bool include_action_results: Include result details for each action performed in the test iteration. ActionResults refer to outcome (pass/fail) of test steps that are executed as part of a running a manual test. Including the ActionResults flag gets the outcome of test steps in the actionResults section and test parameters in the parameters section for each test iteration.
-        :rtype: :class:`<TestIterationDetailsModel> <azure.devops.v6_0.test.models.TestIterationDetailsModel>`
+        :rtype: :class:`<TestIterationDetailsModel> <azure.devops.v5_1.test.models.TestIterationDetailsModel>`
         """
         route_values = {}
         if project is not None:
@@ -76,7 +76,7 @@ class TestClient(Client):
             query_parameters['includeActionResults'] = self._serialize.query('include_action_results', include_action_results, 'bool')
         response = self._send(http_method='GET',
                               location_id='73eb9074-3446-4c44-8296-2f811950ff8d',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('TestIterationDetailsModel', response)
@@ -102,7 +102,7 @@ class TestClient(Client):
             query_parameters['includeActionResults'] = self._serialize.query('include_action_results', include_action_results, 'bool')
         response = self._send(http_method='GET',
                               location_id='73eb9074-3446-4c44-8296-2f811950ff8d',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[TestIterationDetailsModel]', self._unwrap_collection(response))
@@ -131,7 +131,7 @@ class TestClient(Client):
             query_parameters['paramName'] = self._serialize.query('param_name', param_name, 'str')
         response = self._send(http_method='GET',
                               location_id='7c69810d-3354-4af3-844a-180bd25db08a',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[TestResultParameterModel]', self._unwrap_collection(response))
@@ -144,7 +144,7 @@ class TestClient(Client):
         :param int suite_id: ID of the suite that contains the point.
         :param int point_ids: ID of the test point to get.
         :param str wit_fields: Comma-separated list of work item field names.
-        :rtype: :class:`<TestPoint> <azure.devops.v6_0.test.models.TestPoint>`
+        :rtype: :class:`<TestPoint> <azure.devops.v5_1.test.models.TestPoint>`
         """
         route_values = {}
         if project is not None:
@@ -160,7 +160,7 @@ class TestClient(Client):
             query_parameters['witFields'] = self._serialize.query('wit_fields', wit_fields, 'str')
         response = self._send(http_method='GET',
                               location_id='3bcfd5c8-be62-488e-b1da-b8289ce9299c',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('TestPoint', response)
@@ -204,7 +204,7 @@ class TestClient(Client):
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         response = self._send(http_method='GET',
                               location_id='3bcfd5c8-be62-488e-b1da-b8289ce9299c',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[TestPoint]', self._unwrap_collection(response))
@@ -212,7 +212,7 @@ class TestClient(Client):
     def update_test_points(self, point_update_model, project, plan_id, suite_id, point_ids):
         """UpdateTestPoints.
         Update test points.
-        :param :class:`<PointUpdateModel> <azure.devops.v6_0.test.models.PointUpdateModel>` point_update_model: Data to update.
+        :param :class:`<PointUpdateModel> <azure.devops.v5_1.test.models.PointUpdateModel>` point_update_model: Data to update.
         :param str project: Project ID or project name
         :param int plan_id: ID of the test plan.
         :param int suite_id: ID of the suite that contains the points.
@@ -231,7 +231,7 @@ class TestClient(Client):
         content = self._serialize.body(point_update_model, 'PointUpdateModel')
         response = self._send(http_method='PATCH',
                               location_id='3bcfd5c8-be62-488e-b1da-b8289ce9299c',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('[TestPoint]', self._unwrap_collection(response))
@@ -252,7 +252,7 @@ class TestClient(Client):
         content = self._serialize.body(results, '[TestCaseResult]')
         response = self._send(http_method='POST',
                               location_id='4637d869-3a76-4468-8057-0bb02aa385cf',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('[TestCaseResult]', self._unwrap_collection(response))
@@ -264,7 +264,7 @@ class TestClient(Client):
         :param int run_id: Test run ID of a test result to fetch.
         :param int test_case_result_id: Test result ID.
         :param str details_to_include: Details to include with test results. Default is None. Other values are Iterations, WorkItems and SubResults.
-        :rtype: :class:`<TestCaseResult> <azure.devops.v6_0.test.models.TestCaseResult>`
+        :rtype: :class:`<TestCaseResult> <azure.devops.v5_1.test.models.TestCaseResult>`
         """
         route_values = {}
         if project is not None:
@@ -278,7 +278,7 @@ class TestClient(Client):
             query_parameters['detailsToInclude'] = self._serialize.query('details_to_include', details_to_include, 'str')
         response = self._send(http_method='GET',
                               location_id='4637d869-3a76-4468-8057-0bb02aa385cf',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('TestCaseResult', response)
@@ -311,7 +311,7 @@ class TestClient(Client):
             query_parameters['outcomes'] = self._serialize.query('outcomes', outcomes, 'str')
         response = self._send(http_method='GET',
                               location_id='4637d869-3a76-4468-8057-0bb02aa385cf',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[TestCaseResult]', self._unwrap_collection(response))
@@ -332,7 +332,7 @@ class TestClient(Client):
         content = self._serialize.body(results, '[TestCaseResult]')
         response = self._send(http_method='PATCH',
                               location_id='4637d869-3a76-4468-8057-0bb02aa385cf',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('[TestCaseResult]', self._unwrap_collection(response))
@@ -342,7 +342,7 @@ class TestClient(Client):
         Get test run statistics , used when we want to get summary of a run by outcome.
         :param str project: Project ID or project name
         :param int run_id: ID of the run to get.
-        :rtype: :class:`<TestRunStatistic> <azure.devops.v6_0.test.models.TestRunStatistic>`
+        :rtype: :class:`<TestRunStatistic> <azure.devops.v5_1.test.models.TestRunStatistic>`
         """
         route_values = {}
         if project is not None:
@@ -351,16 +351,16 @@ class TestClient(Client):
             route_values['runId'] = self._serialize.url('run_id', run_id, 'int')
         response = self._send(http_method='GET',
                               location_id='0a42c424-d764-4a16-a2d5-5c85f87d0ae8',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('TestRunStatistic', response)
 
     def create_test_run(self, test_run, project):
         """CreateTestRun.
         Create new test run.
-        :param :class:`<RunCreateModel> <azure.devops.v6_0.test.models.RunCreateModel>` test_run: Run details RunCreateModel
+        :param :class:`<RunCreateModel> <azure.devops.v5_1.test.models.RunCreateModel>` test_run: Run details RunCreateModel
         :param str project: Project ID or project name
-        :rtype: :class:`<TestRun> <azure.devops.v6_0.test.models.TestRun>`
+        :rtype: :class:`<TestRun> <azure.devops.v5_1.test.models.TestRun>`
         """
         route_values = {}
         if project is not None:
@@ -368,7 +368,7 @@ class TestClient(Client):
         content = self._serialize.body(test_run, 'RunCreateModel')
         response = self._send(http_method='POST',
                               location_id='cadb3810-d47d-4a3c-a234-fe5f3be50138',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TestRun', response)
@@ -386,7 +386,7 @@ class TestClient(Client):
             route_values['runId'] = self._serialize.url('run_id', run_id, 'int')
         self._send(http_method='DELETE',
                    location_id='cadb3810-d47d-4a3c-a234-fe5f3be50138',
-                   version='6.0',
+                   version='5.1',
                    route_values=route_values)
 
     def get_test_run_by_id(self, project, run_id, include_details=None):
@@ -395,7 +395,7 @@ class TestClient(Client):
         :param str project: Project ID or project name
         :param int run_id: ID of the run to get.
         :param bool include_details: Default value is true. It includes details like run statistics, release, build, test environment, post process state, and more.
-        :rtype: :class:`<TestRun> <azure.devops.v6_0.test.models.TestRun>`
+        :rtype: :class:`<TestRun> <azure.devops.v5_1.test.models.TestRun>`
         """
         route_values = {}
         if project is not None:
@@ -407,7 +407,7 @@ class TestClient(Client):
             query_parameters['includeDetails'] = self._serialize.query('include_details', include_details, 'bool')
         response = self._send(http_method='GET',
                               location_id='cadb3810-d47d-4a3c-a234-fe5f3be50138',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('TestRun', response)
@@ -448,7 +448,7 @@ class TestClient(Client):
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         response = self._send(http_method='GET',
                               location_id='cadb3810-d47d-4a3c-a234-fe5f3be50138',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[TestRun]', self._unwrap_collection(response))
@@ -473,7 +473,7 @@ class TestClient(Client):
         :param str run_title: Run Title of the Runs to be queried.
         :param int top: Number of runs to be queried. Limit is 100
         :param str continuation_token: continuationToken received from previous batch or null for first batch. It is not supposed to be created (or altered, if received from last batch) by user.
-        :rtype: :class:`<[TestRun]> <azure.devops.v6_0.test.models.[TestRun]>`
+        :rtype: :class:`<QueryTestRunsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -520,18 +520,33 @@ class TestClient(Client):
             query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
         response = self._send(http_method='GET',
                               location_id='cadb3810-d47d-4a3c-a234-fe5f3be50138',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[TestRun]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TestRun]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.QueryTestRunsResponseValue(response_value, continuation_token)
+
+    class QueryTestRunsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the query_test_runs method
+
+            :param value:
+            :type value: :class:`<[TestRun]> <azure.devops.v5_1.test.models.[TestRun]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_test_run(self, run_update_model, project, run_id):
         """UpdateTestRun.
         Update test run by its ID.
-        :param :class:`<RunUpdateModel> <azure.devops.v6_0.test.models.RunUpdateModel>` run_update_model: Run details RunUpdateModel
+        :param :class:`<RunUpdateModel> <azure.devops.v5_1.test.models.RunUpdateModel>` run_update_model: Run details RunUpdateModel
         :param str project: Project ID or project name
         :param int run_id: ID of the run to update.
-        :rtype: :class:`<TestRun> <azure.devops.v6_0.test.models.TestRun>`
+        :rtype: :class:`<TestRun> <azure.devops.v5_1.test.models.TestRun>`
         """
         route_values = {}
         if project is not None:
@@ -541,7 +556,7 @@ class TestClient(Client):
         content = self._serialize.body(run_update_model, 'RunUpdateModel')
         response = self._send(http_method='PATCH',
                               location_id='cadb3810-d47d-4a3c-a234-fe5f3be50138',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('TestRun', response)
@@ -567,7 +582,7 @@ class TestClient(Client):
         route_values['action'] = 'TestCases'
         response = self._send(http_method='POST',
                               location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('[SuiteTestCase]', self._unwrap_collection(response))
 
@@ -578,7 +593,7 @@ class TestClient(Client):
         :param int plan_id: ID of the test plan that contains the suites.
         :param int suite_id: ID of the suite that contains the test case.
         :param int test_case_ids: ID of the test case to get.
-        :rtype: :class:`<SuiteTestCase> <azure.devops.v6_0.test.models.SuiteTestCase>`
+        :rtype: :class:`<SuiteTestCase> <azure.devops.v5_1.test.models.SuiteTestCase>`
         """
         route_values = {}
         if project is not None:
@@ -592,7 +607,7 @@ class TestClient(Client):
         route_values['action'] = 'TestCases'
         response = self._send(http_method='GET',
                               location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('SuiteTestCase', response)
 
@@ -614,7 +629,7 @@ class TestClient(Client):
         route_values['action'] = 'TestCases'
         response = self._send(http_method='GET',
                               location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('[SuiteTestCase]', self._unwrap_collection(response))
 
@@ -638,13 +653,13 @@ class TestClient(Client):
         route_values['action'] = 'TestCases'
         self._send(http_method='DELETE',
                    location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
-                   version='6.0',
+                   version='5.1',
                    route_values=route_values)
 
     def update_suite_test_cases(self, suite_test_case_update_model, project, plan_id, suite_id, test_case_ids):
         """UpdateSuiteTestCases.
         Updates the properties of the test case association in a suite.
-        :param :class:`<SuiteTestCaseUpdateModel> <azure.devops.v6_0.test.models.SuiteTestCaseUpdateModel>` suite_test_case_update_model: Model for updation of the properties of test case suite association.
+        :param :class:`<SuiteTestCaseUpdateModel> <azure.devops.v5_1.test.models.SuiteTestCaseUpdateModel>` suite_test_case_update_model: Model for updation of the properties of test case suite association.
         :param str project: Project ID or project name
         :param int plan_id: ID of the test plan that contains the suite.
         :param int suite_id: ID of the test suite to which the test cases must be added.
@@ -664,7 +679,7 @@ class TestClient(Client):
         content = self._serialize.body(suite_test_case_update_model, 'SuiteTestCaseUpdateModel')
         response = self._send(http_method='PATCH',
                               location_id='a4a1ec1c-b03f-41ca-8857-704594ecf58e',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('[SuiteTestCase]', self._unwrap_collection(response))

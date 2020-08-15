@@ -8,7 +8,7 @@
 
 from msrest import Serializer, Deserializer
 from ...client import Client
-from ...v6_0.profile import models
+from ...v5_1.profile import models
 
 
 class ProfileClient(Client):
@@ -34,7 +34,7 @@ class ProfileClient(Client):
         :param str partition: The partition (named group) of attributes to return.
         :param str core_attributes: A comma-delimited list of core profile attributes to return. Valid values are Email, Avatar, DisplayName, and ContactWithOffers.
         :param bool force_refresh: Not used in this version of the API.
-        :rtype: :class:`<Profile> <azure.devops.v6_0.profile.models.Profile>`
+        :rtype: :class:`<Profile> <azure.devops.v5_1.profile.models.Profile>`
         """
         route_values = {}
         if id is not None:
@@ -52,7 +52,7 @@ class ProfileClient(Client):
             query_parameters['forceRefresh'] = self._serialize.query('force_refresh', force_refresh, 'bool')
         response = self._send(http_method='GET',
                               location_id='f83735dc-483f-4238-a291-d45f6080a9af',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('Profile', response)
