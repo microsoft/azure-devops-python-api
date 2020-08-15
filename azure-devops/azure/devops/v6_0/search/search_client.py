@@ -95,21 +95,6 @@ class SearchClient(Client):
                               route_values=route_values)
         return self._deserialize('RepositoryStatusResponse', response)
 
-    def get_tfvc_repository_status(self, project):
-        """GetTfvcRepositoryStatus.
-        [Preview API] Provides status of TFVC Repository.
-        :param str project: Project ID or project name
-        :rtype: :class:`<TfvcRepositoryStatusResponse> <azure.devops.v6_0.search.models.TfvcRepositoryStatusResponse>`
-        """
-        route_values = {}
-        if project is not None:
-            route_values['project'] = self._serialize.url('project', project, 'str')
-        response = self._send(http_method='GET',
-                              location_id='d5bf4e52-e0af-4626-8c50-8a80b18fa69f',
-                              version='6.0-preview.1',
-                              route_values=route_values)
-        return self._deserialize('TfvcRepositoryStatusResponse', response)
-
     def fetch_wiki_search_results(self, request, project=None):
         """FetchWikiSearchResults.
         [Preview API] Provides a set of results for the search request.

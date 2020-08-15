@@ -619,8 +619,6 @@ class UsersSummary(Model):
 
     :param available_access_levels: Available Access Levels
     :type available_access_levels: list of :class:`AccessLevel <azure.devops.v6_0.member_entitlement_management.models.AccessLevel>`
-    :param default_access_level: Default Access Level
-    :type default_access_level: :class:`AccessLevel <azure.devops.v6_0.member_entitlement_management.models.AccessLevel>`
     :param extensions: Summary of Extensions in the organization
     :type extensions: list of :class:`ExtensionSummaryData <azure.devops.v6_0.member_entitlement_management.models.ExtensionSummaryData>`
     :param group_options: Group Options
@@ -633,17 +631,15 @@ class UsersSummary(Model):
 
     _attribute_map = {
         'available_access_levels': {'key': 'availableAccessLevels', 'type': '[AccessLevel]'},
-        'default_access_level': {'key': 'defaultAccessLevel', 'type': 'AccessLevel'},
         'extensions': {'key': 'extensions', 'type': '[ExtensionSummaryData]'},
         'group_options': {'key': 'groupOptions', 'type': '[GroupOption]'},
         'licenses': {'key': 'licenses', 'type': '[LicenseSummaryData]'},
         'project_refs': {'key': 'projectRefs', 'type': '[ProjectRef]'}
     }
 
-    def __init__(self, available_access_levels=None, default_access_level=None, extensions=None, group_options=None, licenses=None, project_refs=None):
+    def __init__(self, available_access_levels=None, extensions=None, group_options=None, licenses=None, project_refs=None):
         super(UsersSummary, self).__init__()
         self.available_access_levels = available_access_levels
-        self.default_access_level = default_access_level
         self.extensions = extensions
         self.group_options = group_options
         self.licenses = licenses

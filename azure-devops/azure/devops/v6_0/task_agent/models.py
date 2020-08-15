@@ -1344,6 +1344,31 @@ class KubernetesResourceCreateParameters(Model):
         self.tags = tags
 
 
+class MarketplacePurchasedLicense(Model):
+    """
+    Represents a purchase of resource units in a secondary marketplace.
+
+    :param marketplace_name: The Marketplace display name.
+    :type marketplace_name: str
+    :param purchaser_name: The name of the identity making the purchase as seen by the marketplace
+    :type purchaser_name: str
+    :param purchase_unit_count: The quantity purchased.
+    :type purchase_unit_count: int
+    """
+
+    _attribute_map = {
+        'marketplace_name': {'key': 'marketplaceName', 'type': 'str'},
+        'purchaser_name': {'key': 'purchaserName', 'type': 'str'},
+        'purchase_unit_count': {'key': 'purchaseUnitCount', 'type': 'int'}
+    }
+
+    def __init__(self, marketplace_name=None, purchaser_name=None, purchase_unit_count=None):
+        super(MarketplacePurchasedLicense, self).__init__()
+        self.marketplace_name = marketplace_name
+        self.purchaser_name = purchaser_name
+        self.purchase_unit_count = purchase_unit_count
+
+
 class MetricsColumnMetaData(Model):
     """
     Meta data for a metrics column.
@@ -2542,8 +2567,6 @@ class TaskAgentPoolReference(Model):
     :type is_legacy: bool
     :param name:
     :type name: str
-    :param options: Additional pool settings and details
-    :type options: object
     :param pool_type: Gets or sets the type of the pool
     :type pool_type: object
     :param scope:
@@ -2557,19 +2580,17 @@ class TaskAgentPoolReference(Model):
         'is_hosted': {'key': 'isHosted', 'type': 'bool'},
         'is_legacy': {'key': 'isLegacy', 'type': 'bool'},
         'name': {'key': 'name', 'type': 'str'},
-        'options': {'key': 'options', 'type': 'object'},
         'pool_type': {'key': 'poolType', 'type': 'object'},
         'scope': {'key': 'scope', 'type': 'str'},
         'size': {'key': 'size', 'type': 'int'}
     }
 
-    def __init__(self, id=None, is_hosted=None, is_legacy=None, name=None, options=None, pool_type=None, scope=None, size=None):
+    def __init__(self, id=None, is_hosted=None, is_legacy=None, name=None, pool_type=None, scope=None, size=None):
         super(TaskAgentPoolReference, self).__init__()
         self.id = id
         self.is_hosted = is_hosted
         self.is_legacy = is_legacy
         self.name = name
-        self.options = options
         self.pool_type = pool_type
         self.scope = scope
         self.size = size
@@ -3485,6 +3506,8 @@ class TaskHubLicenseDetails(Model):
     :type hosted_agent_minutes_used_count: int
     :param hosted_licenses_are_premium:
     :type hosted_licenses_are_premium: bool
+    :param marketplace_purchased_hosted_licenses:
+    :type marketplace_purchased_hosted_licenses: list of :class:`MarketplacePurchasedLicense <azure.devops.v6_0.task_agent.models.MarketplacePurchasedLicense>`
     :param msdn_users_count:
     :type msdn_users_count: int
     :param purchased_hosted_license_count: Microsoft-hosted licenses purchased from VSTS directly.
@@ -3508,6 +3531,7 @@ class TaskHubLicenseDetails(Model):
         'hosted_agent_minutes_free_count': {'key': 'hostedAgentMinutesFreeCount', 'type': 'int'},
         'hosted_agent_minutes_used_count': {'key': 'hostedAgentMinutesUsedCount', 'type': 'int'},
         'hosted_licenses_are_premium': {'key': 'hostedLicensesArePremium', 'type': 'bool'},
+        'marketplace_purchased_hosted_licenses': {'key': 'marketplacePurchasedHostedLicenses', 'type': '[MarketplacePurchasedLicense]'},
         'msdn_users_count': {'key': 'msdnUsersCount', 'type': 'int'},
         'purchased_hosted_license_count': {'key': 'purchasedHostedLicenseCount', 'type': 'int'},
         'purchased_license_count': {'key': 'purchasedLicenseCount', 'type': 'int'},
@@ -3516,7 +3540,7 @@ class TaskHubLicenseDetails(Model):
         'total_private_license_count': {'key': 'totalPrivateLicenseCount', 'type': 'int'}
     }
 
-    def __init__(self, enterprise_users_count=None, failed_to_reach_all_providers=None, free_hosted_license_count=None, free_license_count=None, has_license_count_ever_updated=None, hosted_agent_minutes_free_count=None, hosted_agent_minutes_used_count=None, hosted_licenses_are_premium=None, msdn_users_count=None, purchased_hosted_license_count=None, purchased_license_count=None, total_hosted_license_count=None, total_license_count=None, total_private_license_count=None):
+    def __init__(self, enterprise_users_count=None, failed_to_reach_all_providers=None, free_hosted_license_count=None, free_license_count=None, has_license_count_ever_updated=None, hosted_agent_minutes_free_count=None, hosted_agent_minutes_used_count=None, hosted_licenses_are_premium=None, marketplace_purchased_hosted_licenses=None, msdn_users_count=None, purchased_hosted_license_count=None, purchased_license_count=None, total_hosted_license_count=None, total_license_count=None, total_private_license_count=None):
         super(TaskHubLicenseDetails, self).__init__()
         self.enterprise_users_count = enterprise_users_count
         self.failed_to_reach_all_providers = failed_to_reach_all_providers
@@ -3526,6 +3550,7 @@ class TaskHubLicenseDetails(Model):
         self.hosted_agent_minutes_free_count = hosted_agent_minutes_free_count
         self.hosted_agent_minutes_used_count = hosted_agent_minutes_used_count
         self.hosted_licenses_are_premium = hosted_licenses_are_premium
+        self.marketplace_purchased_hosted_licenses = marketplace_purchased_hosted_licenses
         self.msdn_users_count = msdn_users_count
         self.purchased_hosted_license_count = purchased_hosted_license_count
         self.purchased_license_count = purchased_license_count
@@ -3925,8 +3950,6 @@ class VariableGroupProviderData(Model):
 
 class VariableValue(Model):
     """
-    :param is_read_only:
-    :type is_read_only: bool
     :param is_secret:
     :type is_secret: bool
     :param value:
@@ -3934,14 +3957,12 @@ class VariableValue(Model):
     """
 
     _attribute_map = {
-        'is_read_only': {'key': 'isReadOnly', 'type': 'bool'},
         'is_secret': {'key': 'isSecret', 'type': 'bool'},
         'value': {'key': 'value', 'type': 'str'}
     }
 
-    def __init__(self, is_read_only=None, is_secret=None, value=None):
+    def __init__(self, is_secret=None, value=None):
         super(VariableValue, self).__init__()
-        self.is_read_only = is_read_only
         self.is_secret = is_secret
         self.value = value
 
@@ -4244,8 +4265,6 @@ class TaskAgentPool(TaskAgentPoolReference):
     :type is_legacy: bool
     :param name:
     :type name: str
-    :param options: Additional pool settings and details
-    :type options: object
     :param pool_type: Gets or sets the type of the pool
     :type pool_type: object
     :param scope:
@@ -4258,8 +4277,6 @@ class TaskAgentPool(TaskAgentPoolReference):
     :type auto_provision: bool
     :param auto_size: Whether or not the pool should autosize itself based on the Agent Cloud Provider settings.
     :type auto_size: bool
-    :param auto_update: Whether or not agents in this pool are allowed to automatically update
-    :type auto_update: bool
     :param created_by: Creator of the pool. The creator of the pool is automatically added into the administrators group for the pool on creation.
     :type created_by: :class:`IdentityRef <azure.devops.v6_0.task_agent.models.IdentityRef>`
     :param created_on: The date/time of the pool creation.
@@ -4277,14 +4294,12 @@ class TaskAgentPool(TaskAgentPoolReference):
         'is_hosted': {'key': 'isHosted', 'type': 'bool'},
         'is_legacy': {'key': 'isLegacy', 'type': 'bool'},
         'name': {'key': 'name', 'type': 'str'},
-        'options': {'key': 'options', 'type': 'object'},
         'pool_type': {'key': 'poolType', 'type': 'object'},
         'scope': {'key': 'scope', 'type': 'str'},
         'size': {'key': 'size', 'type': 'int'},
         'agent_cloud_id': {'key': 'agentCloudId', 'type': 'int'},
         'auto_provision': {'key': 'autoProvision', 'type': 'bool'},
         'auto_size': {'key': 'autoSize', 'type': 'bool'},
-        'auto_update': {'key': 'autoUpdate', 'type': 'bool'},
         'created_by': {'key': 'createdBy', 'type': 'IdentityRef'},
         'created_on': {'key': 'createdOn', 'type': 'iso-8601'},
         'owner': {'key': 'owner', 'type': 'IdentityRef'},
@@ -4292,12 +4307,11 @@ class TaskAgentPool(TaskAgentPoolReference):
         'target_size': {'key': 'targetSize', 'type': 'int'}
     }
 
-    def __init__(self, id=None, is_hosted=None, is_legacy=None, name=None, options=None, pool_type=None, scope=None, size=None, agent_cloud_id=None, auto_provision=None, auto_size=None, auto_update=None, created_by=None, created_on=None, owner=None, properties=None, target_size=None):
-        super(TaskAgentPool, self).__init__(id=id, is_hosted=is_hosted, is_legacy=is_legacy, name=name, options=options, pool_type=pool_type, scope=scope, size=size)
+    def __init__(self, id=None, is_hosted=None, is_legacy=None, name=None, pool_type=None, scope=None, size=None, agent_cloud_id=None, auto_provision=None, auto_size=None, created_by=None, created_on=None, owner=None, properties=None, target_size=None):
+        super(TaskAgentPool, self).__init__(id=id, is_hosted=is_hosted, is_legacy=is_legacy, name=name, pool_type=pool_type, scope=scope, size=size)
         self.agent_cloud_id = agent_cloud_id
         self.auto_provision = auto_provision
         self.auto_size = auto_size
-        self.auto_update = auto_update
         self.created_by = created_by
         self.created_on = created_on
         self.owner = owner
@@ -4423,6 +4437,7 @@ __all__ = [
     'InputValuesError',
     'KubernetesResource',
     'KubernetesResourceCreateParameters',
+    'MarketplacePurchasedLicense',
     'MetricsColumnMetaData',
     'MetricsColumnsHeader',
     'MetricsRow',

@@ -141,93 +141,6 @@ class CloneStatistics(Model):
         self.total_test_cases_count = total_test_cases_count
 
 
-class CloneTestCaseOperationInformation(Model):
-    """
-    :param clone_operation_response: Various information related to the clone
-    :type clone_operation_response: :class:`CloneOperationCommonResponse <azure.devops.v6_0.test_plan.models.CloneOperationCommonResponse>`
-    :param clone_options: Test Plan Clone create parameters
-    :type clone_options: :class:`CloneTestCaseOptions <azure.devops.v6_0.test_plan.models.CloneTestCaseOptions>`
-    :param destination_test_suite: Information of destination Test Suite
-    :type destination_test_suite: :class:`TestSuiteReferenceWithProject <azure.devops.v6_0.test_plan.models.TestSuiteReferenceWithProject>`
-    :param source_test_suite: Information of source Test Suite
-    :type source_test_suite: :class:`SourceTestSuiteResponse <azure.devops.v6_0.test_plan.models.SourceTestSuiteResponse>`
-    """
-
-    _attribute_map = {
-        'clone_operation_response': {'key': 'cloneOperationResponse', 'type': 'CloneOperationCommonResponse'},
-        'clone_options': {'key': 'cloneOptions', 'type': 'CloneTestCaseOptions'},
-        'destination_test_suite': {'key': 'destinationTestSuite', 'type': 'TestSuiteReferenceWithProject'},
-        'source_test_suite': {'key': 'sourceTestSuite', 'type': 'SourceTestSuiteResponse'}
-    }
-
-    def __init__(self, clone_operation_response=None, clone_options=None, destination_test_suite=None, source_test_suite=None):
-        super(CloneTestCaseOperationInformation, self).__init__()
-        self.clone_operation_response = clone_operation_response
-        self.clone_options = clone_options
-        self.destination_test_suite = destination_test_suite
-        self.source_test_suite = source_test_suite
-
-
-class CloneTestCaseOptions(Model):
-    """
-    :param include_attachments: If set to true, include the attachments
-    :type include_attachments: bool
-    :param include_links: If set to true, include the links
-    :type include_links: bool
-    :param related_link_comment: Comment on the link that will link the new clone  test case to the original Set null for no comment
-    :type related_link_comment: str
-    """
-
-    _attribute_map = {
-        'include_attachments': {'key': 'includeAttachments', 'type': 'bool'},
-        'include_links': {'key': 'includeLinks', 'type': 'bool'},
-        'related_link_comment': {'key': 'relatedLinkComment', 'type': 'str'}
-    }
-
-    def __init__(self, include_attachments=None, include_links=None, related_link_comment=None):
-        super(CloneTestCaseOptions, self).__init__()
-        self.include_attachments = include_attachments
-        self.include_links = include_links
-        self.related_link_comment = related_link_comment
-
-
-class CloneTestCaseParams(Model):
-    """
-    Parameters for Test Suite clone operation
-
-    :param clone_options: Test Case Clone create parameters
-    :type clone_options: :class:`CloneTestCaseOptions <azure.devops.v6_0.test_plan.models.CloneTestCaseOptions>`
-    :param destination_test_plan: Information about destination Test Plan
-    :type destination_test_plan: :class:`TestPlanReference <azure.devops.v6_0.test_plan.models.TestPlanReference>`
-    :param destination_test_suite: Information about destination Test Suite
-    :type destination_test_suite: :class:`DestinationTestSuiteInfo <azure.devops.v6_0.test_plan.models.DestinationTestSuiteInfo>`
-    :param source_test_plan: Information about source Test Plan
-    :type source_test_plan: :class:`TestPlanReference <azure.devops.v6_0.test_plan.models.TestPlanReference>`
-    :param source_test_suite: Information about source Test Suite
-    :type source_test_suite: :class:`SourceTestSuiteInfo <azure.devops.v6_0.test_plan.models.SourceTestSuiteInfo>`
-    :param test_case_ids: Test Case IDs
-    :type test_case_ids: list of int
-    """
-
-    _attribute_map = {
-        'clone_options': {'key': 'cloneOptions', 'type': 'CloneTestCaseOptions'},
-        'destination_test_plan': {'key': 'destinationTestPlan', 'type': 'TestPlanReference'},
-        'destination_test_suite': {'key': 'destinationTestSuite', 'type': 'DestinationTestSuiteInfo'},
-        'source_test_plan': {'key': 'sourceTestPlan', 'type': 'TestPlanReference'},
-        'source_test_suite': {'key': 'sourceTestSuite', 'type': 'SourceTestSuiteInfo'},
-        'test_case_ids': {'key': 'testCaseIds', 'type': '[int]'}
-    }
-
-    def __init__(self, clone_options=None, destination_test_plan=None, destination_test_suite=None, source_test_plan=None, source_test_suite=None, test_case_ids=None):
-        super(CloneTestCaseParams, self).__init__()
-        self.clone_options = clone_options
-        self.destination_test_plan = destination_test_plan
-        self.destination_test_suite = destination_test_suite
-        self.source_test_plan = source_test_plan
-        self.source_test_suite = source_test_suite
-        self.test_case_ids = test_case_ids
-
-
 class CloneTestPlanOperationInformation(Model):
     """
     Response for Test Plan clone operation
@@ -487,88 +400,6 @@ class LastResultDetails(Model):
         self.date_completed = date_completed
         self.duration = duration
         self.run_by = run_by
-
-
-class LibraryWorkItemsData(Model):
-    """
-    This data model is used in Work item-based tabs of Test Plans Library.
-
-    :param column_options: Specifies the column option field names
-    :type column_options: list of str
-    :param continuation_token: Continuation token to fetch next set of elements. Present only when HasMoreElements is true.
-    :type continuation_token: str
-    :param exceeded_work_item_query_limit: Boolean indicating if the WIQL query has exceeded the limit of items returned.
-    :type exceeded_work_item_query_limit: bool
-    :param has_more_elements: Boolean indicating if there are more elements present than what are being sent.
-    :type has_more_elements: bool
-    :param return_code: Specifies if there was an error while execution of data provider.
-    :type return_code: object
-    :param work_item_ids: List of work items returned when OrderByField is sent something other than Id.
-    :type work_item_ids: list of int
-    :param work_items: List of work items to be returned.
-    :type work_items: list of :class:`WorkItemDetails <azure.devops.v6_0.test_plan.models.WorkItemDetails>`
-    """
-
-    _attribute_map = {
-        'column_options': {'key': 'columnOptions', 'type': '[str]'},
-        'continuation_token': {'key': 'continuationToken', 'type': 'str'},
-        'exceeded_work_item_query_limit': {'key': 'exceededWorkItemQueryLimit', 'type': 'bool'},
-        'has_more_elements': {'key': 'hasMoreElements', 'type': 'bool'},
-        'return_code': {'key': 'returnCode', 'type': 'object'},
-        'work_item_ids': {'key': 'workItemIds', 'type': '[int]'},
-        'work_items': {'key': 'workItems', 'type': '[WorkItemDetails]'}
-    }
-
-    def __init__(self, column_options=None, continuation_token=None, exceeded_work_item_query_limit=None, has_more_elements=None, return_code=None, work_item_ids=None, work_items=None):
-        super(LibraryWorkItemsData, self).__init__()
-        self.column_options = column_options
-        self.continuation_token = continuation_token
-        self.exceeded_work_item_query_limit = exceeded_work_item_query_limit
-        self.has_more_elements = has_more_elements
-        self.return_code = return_code
-        self.work_item_ids = work_item_ids
-        self.work_items = work_items
-
-
-class LibraryWorkItemsDataProviderRequest(Model):
-    """
-    This is the request data contract for LibraryTestCaseDataProvider.
-
-    :param column_options: Specifies the list of column options to show in test cases table.
-    :type column_options: list of str
-    :param continuation_token: The continuation token required for paging of work items. This is required when getting subsequent sets of work items when OrderByField is Id.
-    :type continuation_token: str
-    :param filter_values: List of filter values to be supplied. Currently supported filters are Title, State, AssignedTo, Priority, AreaPath.
-    :type filter_values: list of :class:`TestPlansLibraryWorkItemFilter <azure.devops.v6_0.test_plan.models.TestPlansLibraryWorkItemFilter>`
-    :param is_ascending: Whether the data is to be sorted in ascending or descending order. When not supplied, defaults to descending.
-    :type is_ascending: bool
-    :param library_query_type: The type of query to run.
-    :type library_query_type: object
-    :param order_by_field: Work item field on which to order the results. When not supplied, defaults to work item IDs.
-    :type order_by_field: str
-    :param work_item_ids: List of work items to query for field details. This is required when getting subsequent sets of work item fields when OrderByField is other than Id.
-    :type work_item_ids: list of int
-    """
-
-    _attribute_map = {
-        'column_options': {'key': 'columnOptions', 'type': '[str]'},
-        'continuation_token': {'key': 'continuationToken', 'type': 'str'},
-        'filter_values': {'key': 'filterValues', 'type': '[TestPlansLibraryWorkItemFilter]'},
-        'is_ascending': {'key': 'isAscending', 'type': 'bool'},
-        'library_query_type': {'key': 'libraryQueryType', 'type': 'object'},
-        'order_by_field': {'key': 'orderByField', 'type': 'str'},
-        'work_item_ids': {'key': 'workItemIds', 'type': '[int]'}
-    }
-
-    def __init__(self, column_options=None, continuation_token=None, filter_values=None, is_ascending=None, library_query_type=None, order_by_field=None, work_item_ids=None):
-        super(LibraryWorkItemsDataProviderRequest, self).__init__()
-        self.column_options = column_options
-        self.continuation_token = continuation_token
-        self.filter_values = filter_values
-        self.is_ascending = is_ascending
-        self.library_query_type = library_query_type
-        self.order_by_field = order_by_field
-        self.work_item_ids = work_item_ids
 
 
 class NameValuePair(Model):
@@ -1012,35 +843,6 @@ class TestConfigurationReference(Model):
         self.name = name
 
 
-class TestEntityCount(Model):
-    """
-    Test Entity Count Used to store test cases count (define tab) and test point count (execute tab) Used to store test cases count (define tab) and test point count (execute tab)
-
-    :param count: Test Entity Count
-    :type count: int
-    :param test_plan_id: Test Plan under which the Test Entities are
-    :type test_plan_id: int
-    :param test_suite_id: Test Suite under which the Test Entities are
-    :type test_suite_id: int
-    :param total_count: Total test entities in the suite without the applied filters
-    :type total_count: int
-    """
-
-    _attribute_map = {
-        'count': {'key': 'count', 'type': 'int'},
-        'test_plan_id': {'key': 'testPlanId', 'type': 'int'},
-        'test_suite_id': {'key': 'testSuiteId', 'type': 'int'},
-        'total_count': {'key': 'totalCount', 'type': 'int'}
-    }
-
-    def __init__(self, count=None, test_plan_id=None, test_suite_id=None, total_count=None):
-        super(TestEntityCount, self).__init__()
-        self.count = count
-        self.test_plan_id = test_plan_id
-        self.test_suite_id = test_suite_id
-        self.total_count = total_count
-
-
 class TestEnvironment(Model):
     """
     Test environment Detail.
@@ -1189,8 +991,6 @@ class TestPlansHubRefreshData(Model):
     :type execute_column_option_fields: list of str
     :param is_advanced_extension_enabled:
     :type is_advanced_extension_enabled: bool
-    :param selected_pivot_id:
-    :type selected_pivot_id: str
     :param selected_suite_id:
     :type selected_suite_id: int
     :param test_case_page_size:
@@ -1218,7 +1018,6 @@ class TestPlansHubRefreshData(Model):
         'error_message': {'key': 'errorMessage', 'type': 'str'},
         'execute_column_option_fields': {'key': 'executeColumnOptionFields', 'type': '[str]'},
         'is_advanced_extension_enabled': {'key': 'isAdvancedExtensionEnabled', 'type': 'bool'},
-        'selected_pivot_id': {'key': 'selectedPivotId', 'type': 'str'},
         'selected_suite_id': {'key': 'selectedSuiteId', 'type': 'int'},
         'test_case_page_size': {'key': 'testCasePageSize', 'type': 'int'},
         'test_cases': {'key': 'testCases', 'type': '[TestCase]'},
@@ -1231,13 +1030,12 @@ class TestPlansHubRefreshData(Model):
         'test_suites_continuation_token': {'key': 'testSuitesContinuationToken', 'type': 'str'}
     }
 
-    def __init__(self, define_column_option_fields=None, error_message=None, execute_column_option_fields=None, is_advanced_extension_enabled=None, selected_pivot_id=None, selected_suite_id=None, test_case_page_size=None, test_cases=None, test_cases_continuation_token=None, test_plan=None, test_point_page_size=None, test_points=None, test_points_continuation_token=None, test_suites=None, test_suites_continuation_token=None):
+    def __init__(self, define_column_option_fields=None, error_message=None, execute_column_option_fields=None, is_advanced_extension_enabled=None, selected_suite_id=None, test_case_page_size=None, test_cases=None, test_cases_continuation_token=None, test_plan=None, test_point_page_size=None, test_points=None, test_points_continuation_token=None, test_suites=None, test_suites_continuation_token=None):
         super(TestPlansHubRefreshData, self).__init__()
         self.define_column_option_fields = define_column_option_fields
         self.error_message = error_message
         self.execute_column_option_fields = execute_column_option_fields
         self.is_advanced_extension_enabled = is_advanced_extension_enabled
-        self.selected_pivot_id = selected_pivot_id
         self.selected_suite_id = selected_suite_id
         self.test_case_page_size = test_case_page_size
         self.test_cases = test_cases
@@ -1248,31 +1046,6 @@ class TestPlansHubRefreshData(Model):
         self.test_points_continuation_token = test_points_continuation_token
         self.test_suites = test_suites
         self.test_suites_continuation_token = test_suites_continuation_token
-
-
-class TestPlansLibraryWorkItemFilter(Model):
-    """
-    Container to hold information about a filter being applied in Test Plans Library.
-
-    :param field_name: Work item field name on which the items are to be filtered.
-    :type field_name: str
-    :param field_values: Work item field values corresponding to the field name.
-    :type field_values: list of str
-    :param filter_mode: Mode of the filter.
-    :type filter_mode: object
-    """
-
-    _attribute_map = {
-        'field_name': {'key': 'fieldName', 'type': 'str'},
-        'field_values': {'key': 'fieldValues', 'type': '[str]'},
-        'filter_mode': {'key': 'filterMode', 'type': 'object'}
-    }
-
-    def __init__(self, field_name=None, field_values=None, filter_mode=None):
-        super(TestPlansLibraryWorkItemFilter, self).__init__()
-        self.field_name = field_name
-        self.field_values = field_values
-        self.filter_mode = filter_mode
 
 
 class TestPlanUpdateParams(TestPlanCreateParams):
@@ -1411,6 +1184,35 @@ class TestPoint(Model):
         self.tester = tester
         self.test_plan = test_plan
         self.test_suite = test_suite
+
+
+class TestPointCount(Model):
+    """
+    Test Point Count
+
+    :param count: Test Point Count
+    :type count: int
+    :param test_plan_id: Test Plan under which the Test Points are
+    :type test_plan_id: int
+    :param test_suite_id: Test Suite under which the Test Points are
+    :type test_suite_id: int
+    :param total_count: Total test points in the suite without the applied filters
+    :type total_count: int
+    """
+
+    _attribute_map = {
+        'count': {'key': 'count', 'type': 'int'},
+        'test_plan_id': {'key': 'testPlanId', 'type': 'int'},
+        'test_suite_id': {'key': 'testSuiteId', 'type': 'int'},
+        'total_count': {'key': 'totalCount', 'type': 'int'}
+    }
+
+    def __init__(self, count=None, test_plan_id=None, test_suite_id=None, total_count=None):
+        super(TestPointCount, self).__init__()
+        self.count = count
+        self.test_plan_id = test_plan_id
+        self.test_suite_id = test_suite_id
+        self.total_count = total_count
 
 
 class TestPointDetailedReference(Model):
@@ -1838,33 +1640,6 @@ class SourceTestplanResponse(TestPlanReference):
         self.suite_ids = suite_ids
 
 
-class SourceTestSuiteResponse(TestSuiteReference):
-    """
-    Source Test Suite Response for Test Case clone operation
-
-    :param id: ID of the test suite.
-    :type id: int
-    :param name: Name of the test suite.
-    :type name: str
-    :param project: project reference
-    :type project: :class:`TeamProjectReference <azure.devops.v6_0.test_plan.models.TeamProjectReference>`
-    :param test_case_ids: Id of suites to be cloned inside source Test Plan
-    :type test_case_ids: list of int
-    """
-
-    _attribute_map = {
-        'id': {'key': 'id', 'type': 'int'},
-        'name': {'key': 'name', 'type': 'str'},
-        'project': {'key': 'project', 'type': 'TeamProjectReference'},
-        'test_case_ids': {'key': 'testCaseIds', 'type': '[int]'}
-    }
-
-    def __init__(self, id=None, name=None, project=None, test_case_ids=None):
-        super(SourceTestSuiteResponse, self).__init__(id=id, name=name)
-        self.project = project
-        self.test_case_ids = test_case_ids
-
-
 class SuiteEntry(SuiteEntryUpdateParams):
     """
     A suite entry defines properties for a test suite.
@@ -2213,9 +1988,6 @@ __all__ = [
     'CloneOperationCommonResponse',
     'CloneOptions',
     'CloneStatistics',
-    'CloneTestCaseOperationInformation',
-    'CloneTestCaseOptions',
-    'CloneTestCaseParams',
     'CloneTestPlanOperationInformation',
     'CloneTestPlanParams',
     'CloneTestSuiteOperationInformation',
@@ -2225,8 +1997,6 @@ __all__ = [
     'GraphSubjectBase',
     'IdentityRef',
     'LastResultDetails',
-    'LibraryWorkItemsData',
-    'LibraryWorkItemsDataProviderRequest',
     'NameValuePair',
     'PointAssignment',
     'ReferenceLinks',
@@ -2243,15 +2013,14 @@ __all__ = [
     'TestCaseResultsData',
     'TestConfigurationCreateUpdateParameters',
     'TestConfigurationReference',
-    'TestEntityCount',
     'TestEnvironment',
     'TestOutcomeSettings',
     'TestPlanCreateParams',
     'TestPlanReference',
     'TestPlansHubRefreshData',
-    'TestPlansLibraryWorkItemFilter',
     'TestPlanUpdateParams',
     'TestPoint',
+    'TestPointCount',
     'TestPointDetailedReference',
     'TestPointResults',
     'TestPointUpdateParams',
@@ -2265,7 +2034,6 @@ __all__ = [
     'WorkItemDetails',
     'DestinationTestPlanCloneParams',
     'SourceTestplanResponse',
-    'SourceTestSuiteResponse',
     'SuiteEntry',
     'TestConfiguration',
     'TestPlan',

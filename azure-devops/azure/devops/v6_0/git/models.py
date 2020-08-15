@@ -1576,8 +1576,6 @@ class GitPullRequestCompletionOptions(Model):
     """
     Preferences about how the pull request should be completed.
 
-    :param auto_complete_ignore_config_ids: List of any policy configuration Id's which auto-complete should not wait for. Only applies to optional policies (isBlocking == false). Auto-complete always waits for required policies (isBlocking == true).
-    :type auto_complete_ignore_config_ids: list of int
     :param bypass_policy: If true, policies will be explicitly bypassed while the pull request is completed.
     :type bypass_policy: bool
     :param bypass_reason: If policies are bypassed, this reason is stored as to why bypass was used.
@@ -1586,7 +1584,7 @@ class GitPullRequestCompletionOptions(Model):
     :type delete_source_branch: bool
     :param merge_commit_message: If set, this will be used as the commit message of the merge commit.
     :type merge_commit_message: str
-    :param merge_strategy: Specify the strategy used to merge the pull request during completion. If MergeStrategy is not set to any value, a no-FF merge will be created if SquashMerge == false. If MergeStrategy is not set to any value, the pull request commits will be squashed if SquashMerge == true. The SquashMerge property is deprecated. It is recommended that you explicitly set MergeStrategy in all cases. If an explicit value is provided for MergeStrategy, the SquashMerge property will be ignored.
+    :param merge_strategy: Specify the strategy used to merge the pull request during completion. If MergeStrategy is not set to any value, a no-FF merge will be created if SquashMerge == false. If MergeStrategy is not set to any value, the pull request commits will be squash if SquashMerge == true. The SquashMerge member is deprecated. It is recommended that you explicitly set MergeStrategy in all cases. If an explicit value is provided for MergeStrategy, the SquashMerge member will be ignored.
     :type merge_strategy: object
     :param squash_merge: SquashMerge is deprecated. You should explicitly set the value of MergeStrategy. If MergeStrategy is set to any value, the SquashMerge value will be ignored. If MergeStrategy is not set, the merge strategy will be no-fast-forward if this flag is false, or squash if true.
     :type squash_merge: bool
@@ -1597,7 +1595,6 @@ class GitPullRequestCompletionOptions(Model):
     """
 
     _attribute_map = {
-        'auto_complete_ignore_config_ids': {'key': 'autoCompleteIgnoreConfigIds', 'type': '[int]'},
         'bypass_policy': {'key': 'bypassPolicy', 'type': 'bool'},
         'bypass_reason': {'key': 'bypassReason', 'type': 'str'},
         'delete_source_branch': {'key': 'deleteSourceBranch', 'type': 'bool'},
@@ -1608,9 +1605,8 @@ class GitPullRequestCompletionOptions(Model):
         'triggered_by_auto_complete': {'key': 'triggeredByAutoComplete', 'type': 'bool'}
     }
 
-    def __init__(self, auto_complete_ignore_config_ids=None, bypass_policy=None, bypass_reason=None, delete_source_branch=None, merge_commit_message=None, merge_strategy=None, squash_merge=None, transition_work_items=None, triggered_by_auto_complete=None):
+    def __init__(self, bypass_policy=None, bypass_reason=None, delete_source_branch=None, merge_commit_message=None, merge_strategy=None, squash_merge=None, transition_work_items=None, triggered_by_auto_complete=None):
         super(GitPullRequestCompletionOptions, self).__init__()
-        self.auto_complete_ignore_config_ids = auto_complete_ignore_config_ids
         self.bypass_policy = bypass_policy
         self.bypass_reason = bypass_reason
         self.delete_source_branch = delete_source_branch
@@ -1727,8 +1723,6 @@ class GitPullRequestMergeOptions(Model):
     """
     The options which are used when a pull request merge is created.
 
-    :param conflict_authorship_commits: If true, conflict resolutions applied during the merge will be put in separate commits to preserve authorship info for git blame, etc.
-    :type conflict_authorship_commits: bool
     :param detect_rename_false_positives:
     :type detect_rename_false_positives: bool
     :param disable_renames: If true, rename detection will not be performed during the merge.
@@ -1736,14 +1730,12 @@ class GitPullRequestMergeOptions(Model):
     """
 
     _attribute_map = {
-        'conflict_authorship_commits': {'key': 'conflictAuthorshipCommits', 'type': 'bool'},
         'detect_rename_false_positives': {'key': 'detectRenameFalsePositives', 'type': 'bool'},
         'disable_renames': {'key': 'disableRenames', 'type': 'bool'}
     }
 
-    def __init__(self, conflict_authorship_commits=None, detect_rename_false_positives=None, disable_renames=None):
+    def __init__(self, detect_rename_false_positives=None, disable_renames=None):
         super(GitPullRequestMergeOptions, self).__init__()
-        self.conflict_authorship_commits = conflict_authorship_commits
         self.detect_rename_false_positives = detect_rename_false_positives
         self.disable_renames = disable_renames
 
@@ -2822,8 +2814,6 @@ class IdentityRefWithVote(IdentityRef):
     :type profile_url: str
     :param unique_name: Deprecated - use Domain+PrincipalName instead
     :type unique_name: str
-    :param has_declined: Indicates if this reviewer has declined to review this pull request.
-    :type has_declined: bool
     :param is_flagged: Indicates if this reviewer is flagged for attention on this pull request.
     :type is_flagged: bool
     :param is_required: Indicates if this is a required reviewer for this pull request. <br /> Branches can have policies that require particular reviewers are required for pull requests.
@@ -2850,7 +2840,6 @@ class IdentityRefWithVote(IdentityRef):
         'is_deleted_in_origin': {'key': 'isDeletedInOrigin', 'type': 'bool'},
         'profile_url': {'key': 'profileUrl', 'type': 'str'},
         'unique_name': {'key': 'uniqueName', 'type': 'str'},
-        'has_declined': {'key': 'hasDeclined', 'type': 'bool'},
         'is_flagged': {'key': 'isFlagged', 'type': 'bool'},
         'is_required': {'key': 'isRequired', 'type': 'bool'},
         'reviewer_url': {'key': 'reviewerUrl', 'type': 'str'},
@@ -2858,9 +2847,8 @@ class IdentityRefWithVote(IdentityRef):
         'voted_for': {'key': 'votedFor', 'type': '[IdentityRefWithVote]'}
     }
 
-    def __init__(self, _links=None, descriptor=None, display_name=None, url=None, directory_alias=None, id=None, image_url=None, inactive=None, is_aad_identity=None, is_container=None, is_deleted_in_origin=None, profile_url=None, unique_name=None, has_declined=None, is_flagged=None, is_required=None, reviewer_url=None, vote=None, voted_for=None):
+    def __init__(self, _links=None, descriptor=None, display_name=None, url=None, directory_alias=None, id=None, image_url=None, inactive=None, is_aad_identity=None, is_container=None, is_deleted_in_origin=None, profile_url=None, unique_name=None, is_flagged=None, is_required=None, reviewer_url=None, vote=None, voted_for=None):
         super(IdentityRefWithVote, self).__init__(_links=_links, descriptor=descriptor, display_name=display_name, url=url, directory_alias=directory_alias, id=id, image_url=image_url, inactive=inactive, is_aad_identity=is_aad_identity, is_container=is_container, is_deleted_in_origin=is_deleted_in_origin, profile_url=profile_url, unique_name=unique_name)
-        self.has_declined = has_declined
         self.is_flagged = is_flagged
         self.is_required = is_required
         self.reviewer_url = reviewer_url

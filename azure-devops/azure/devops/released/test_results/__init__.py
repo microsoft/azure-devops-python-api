@@ -6,12 +6,11 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v6_0.test_results.models import *
+from ...v5_1.test_results.models import *
 from .test_results_client import TestResultsClient
 
 __all__ = [
     'AggregatedDataForResultTrend',
-    'AggregatedResultDetailsByOutcome',
     'AggregatedResultsAnalysis',
     'AggregatedResultsByOutcome',
     'AggregatedResultsDifference',
@@ -37,21 +36,15 @@ __all__ = [
     'IdentityRef',
     'JobReference',
     'ModuleCoverage',
-    'NewTestResultLoggingSettings',
     'PhaseReference',
     'PipelineReference',
-    'PipelineTestMetrics',
     'QueryModel',
     'ReferenceLinks',
     'ReleaseReference',
-    'ResultsAnalysis',
     'ResultsFilter',
-    'ResultsSummaryByOutcome',
-    'ResultSummary',
     'RunCreateModel',
     'RunFilter',
     'RunStatistic',
-    'RunSummary',
     'RunSummaryModel',
     'RunUpdateModel',
     'ShallowReference',
@@ -80,7 +73,6 @@ __all__ = [
     'TestOperationReference',
     'TestResolutionState',
     'TestResultDocument',
-    'TestResultFailuresAnalysis',
     'TestResultHistory',
     'TestResultHistoryDetailsForGroup',
     'TestResultHistoryForGroup',

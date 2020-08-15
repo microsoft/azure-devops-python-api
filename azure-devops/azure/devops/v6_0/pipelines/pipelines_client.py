@@ -27,12 +27,12 @@ class PipelinesClient(Client):
 
     def get_artifact(self, project, pipeline_id, run_id, artifact_name, expand=None):
         """GetArtifact.
-        [Preview API] Get a specific artifact from a pipeline run
+        [Preview API]
         :param str project: Project ID or project name
-        :param int pipeline_id: ID of the pipeline.
-        :param int run_id: ID of the run of that pipeline.
-        :param str artifact_name: Name of the artifact.
-        :param str expand: Expand options. Default is None.
+        :param int pipeline_id:
+        :param int run_id:
+        :param str artifact_name:
+        :param str expand:
         :rtype: :class:`<Artifact> <azure.devops.v6_0.pipelines.models.Artifact>`
         """
         route_values = {}
@@ -56,12 +56,12 @@ class PipelinesClient(Client):
 
     def get_log(self, project, pipeline_id, run_id, log_id, expand=None):
         """GetLog.
-        [Preview API] Get a specific log from a pipeline run
+        [Preview API]
         :param str project: Project ID or project name
-        :param int pipeline_id: ID of the pipeline.
-        :param int run_id: ID of the run of that pipeline.
-        :param int log_id: ID of the log.
-        :param str expand: Expand options. Default is None.
+        :param int pipeline_id:
+        :param int run_id:
+        :param int log_id:
+        :param str expand:
         :rtype: :class:`<Log> <azure.devops.v6_0.pipelines.models.Log>`
         """
         route_values = {}
@@ -85,11 +85,11 @@ class PipelinesClient(Client):
 
     def list_logs(self, project, pipeline_id, run_id, expand=None):
         """ListLogs.
-        [Preview API] Get a list of logs from a pipeline run.
+        [Preview API]
         :param str project: Project ID or project name
-        :param int pipeline_id: ID of the pipeline.
-        :param int run_id: ID of the run of that pipeline.
-        :param str expand: Expand options. Default is None.
+        :param int pipeline_id:
+        :param int run_id:
+        :param str expand:
         :rtype: :class:`<LogCollection> <azure.devops.v6_0.pipelines.models.LogCollection>`
         """
         route_values = {}
@@ -111,8 +111,8 @@ class PipelinesClient(Client):
 
     def create_pipeline(self, input_parameters, project):
         """CreatePipeline.
-        [Preview API] Create a pipeline.
-        :param :class:`<CreatePipelineParameters> <azure.devops.v6_0.pipelines.models.CreatePipelineParameters>` input_parameters: Input parameters.
+        [Preview API]
+        :param :class:`<CreatePipelineParameters> <azure.devops.v6_0.pipelines.models.CreatePipelineParameters>` input_parameters:
         :param str project: Project ID or project name
         :rtype: :class:`<Pipeline> <azure.devops.v6_0.pipelines.models.Pipeline>`
         """
@@ -131,7 +131,7 @@ class PipelinesClient(Client):
         """GetPipeline.
         [Preview API] Gets a pipeline, optionally at the specified version
         :param str project: Project ID or project name
-        :param int pipeline_id: The pipeline ID
+        :param int pipeline_id: The pipeline id
         :param int pipeline_version: The pipeline version
         :rtype: :class:`<Pipeline> <azure.devops.v6_0.pipelines.models.Pipeline>`
         """
@@ -152,7 +152,7 @@ class PipelinesClient(Client):
 
     def list_pipelines(self, project, order_by=None, top=None, continuation_token=None):
         """ListPipelines.
-        [Preview API] Get a list of pipelines.
+        [Preview API] Gets a list of pipelines.
         :param str project: Project ID or project name
         :param str order_by: A sort expression. Defaults to "name asc"
         :param int top: The maximum number of pipelines to return
@@ -218,10 +218,10 @@ class PipelinesClient(Client):
     def run_pipeline(self, run_parameters, project, pipeline_id, pipeline_version=None):
         """RunPipeline.
         [Preview API] Runs a pipeline.
-        :param :class:`<RunPipelineParameters> <azure.devops.v6_0.pipelines.models.RunPipelineParameters>` run_parameters: Optional additional parameters for this run.
+        :param :class:`<RunPipelineParameters> <azure.devops.v6_0.pipelines.models.RunPipelineParameters>` run_parameters: Optional.
         :param str project: Project ID or project name
-        :param int pipeline_id: The pipeline ID.
-        :param int pipeline_version: The pipeline version.
+        :param int pipeline_id: The pipeline id
+        :param int pipeline_version: The pipeline version
         :rtype: :class:`<Run> <azure.devops.v6_0.pipelines.models.Run>`
         """
         route_values = {}
@@ -240,4 +240,25 @@ class PipelinesClient(Client):
                               query_parameters=query_parameters,
                               content=content)
         return self._deserialize('Run', response)
+
+    def get_signed_signal_rUrl(self, project, pipeline_id, run_id):
+        """GetSignedSignalRUrl.
+        [Preview API]
+        :param str project: Project ID or project name
+        :param int pipeline_id:
+        :param int run_id:
+        :rtype: :class:`<SignalRConnection> <azure.devops.v6_0.pipelines.models.SignalRConnection>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if pipeline_id is not None:
+            route_values['pipelineId'] = self._serialize.url('pipeline_id', pipeline_id, 'int')
+        if run_id is not None:
+            route_values['runId'] = self._serialize.url('run_id', run_id, 'int')
+        response = self._send(http_method='GET',
+                              location_id='1ffe4916-ac72-4566-add0-9bab31e44fcf',
+                              version='6.0-preview.1',
+                              route_values=route_values)
+        return self._deserialize('SignalRConnection', response)
 

@@ -8,7 +8,7 @@
 
 from msrest import Serializer, Deserializer
 from ...client import Client
-from ...v6_0.git import models
+from ...v5_1.git import models
 
 
 class GitClientBase(Client):
@@ -34,7 +34,7 @@ class GitClientBase(Client):
         :param bool download: If true, prompt for a download rather than rendering in a browser. Note: this value defaults to true if $format is zip
         :param str file_name: Provide a fileName to use for a download.
         :param bool resolve_lfs: If true, try to resolve a blob to its LFS contents, if it's an LFS pointer file. Only compatible with octet-stream Accept headers or $format types
-        :rtype: :class:`<GitBlobRef> <azure.devops.v6_0.git.models.GitBlobRef>`
+        :rtype: :class:`<GitBlobRef> <azure.devops.v5_1.git.models.GitBlobRef>`
         """
         route_values = {}
         if project is not None:
@@ -52,7 +52,7 @@ class GitClientBase(Client):
             query_parameters['resolveLfs'] = self._serialize.query('resolve_lfs', resolve_lfs, 'bool')
         response = self._send(http_method='GET',
                               location_id='7b28e929-2c99-405d-9c5c-6167a06e6816',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('GitBlobRef', response)
@@ -84,7 +84,7 @@ class GitClientBase(Client):
             query_parameters['resolveLfs'] = self._serialize.query('resolve_lfs', resolve_lfs, 'bool')
         response = self._send(http_method='GET',
                               location_id='7b28e929-2c99-405d-9c5c-6167a06e6816',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               accept_media_type='application/octet-stream')
@@ -114,7 +114,7 @@ class GitClientBase(Client):
         content = self._serialize.body(blob_ids, '[str]')
         response = self._send(http_method='POST',
                               location_id='7b28e929-2c99-405d-9c5c-6167a06e6816',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content,
@@ -152,7 +152,7 @@ class GitClientBase(Client):
             query_parameters['resolveLfs'] = self._serialize.query('resolve_lfs', resolve_lfs, 'bool')
         response = self._send(http_method='GET',
                               location_id='7b28e929-2c99-405d-9c5c-6167a06e6816',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               accept_media_type='application/zip')
@@ -168,8 +168,8 @@ class GitClientBase(Client):
         :param str repository_id: The name or ID of the repository.
         :param str name: Name of the branch.
         :param str project: Project ID or project name
-        :param :class:`<GitVersionDescriptor> <azure.devops.v6_0.git.models.GitVersionDescriptor>` base_version_descriptor: Identifies the commit or branch to use as the base.
-        :rtype: :class:`<GitBranchStats> <azure.devops.v6_0.git.models.GitBranchStats>`
+        :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.git.models.GitVersionDescriptor>` base_version_descriptor: Identifies the commit or branch to use as the base.
+        :rtype: :class:`<GitBranchStats> <azure.devops.v5_1.git.models.GitBranchStats>`
         """
         route_values = {}
         if project is not None:
@@ -188,7 +188,7 @@ class GitClientBase(Client):
                 query_parameters['baseVersionDescriptor.versionOptions'] = base_version_descriptor.version_options
         response = self._send(http_method='GET',
                               location_id='d5b216de-d8d5-4d32-ae76-51df755b16d3',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('GitBranchStats', response)
@@ -198,7 +198,7 @@ class GitClientBase(Client):
         Retrieve statistics about all branches within a repository.
         :param str repository_id: The name or ID of the repository.
         :param str project: Project ID or project name
-        :param :class:`<GitVersionDescriptor> <azure.devops.v6_0.git.models.GitVersionDescriptor>` base_version_descriptor: Identifies the commit or branch to use as the base.
+        :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.git.models.GitVersionDescriptor>` base_version_descriptor: Identifies the commit or branch to use as the base.
         :rtype: [GitBranchStats]
         """
         route_values = {}
@@ -216,7 +216,7 @@ class GitClientBase(Client):
                 query_parameters['baseVersionDescriptor.versionOptions'] = base_version_descriptor.version_options
         response = self._send(http_method='GET',
                               location_id='d5b216de-d8d5-4d32-ae76-51df755b16d3',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[GitBranchStats]', self._unwrap_collection(response))
@@ -229,7 +229,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param int top: The maximum number of changes to return.
         :param int skip: The number of changes to skip.
-        :rtype: :class:`<GitCommitChanges> <azure.devops.v6_0.git.models.GitCommitChanges>`
+        :rtype: :class:`<GitCommitChanges> <azure.devops.v5_1.git.models.GitCommitChanges>`
         """
         route_values = {}
         if project is not None:
@@ -245,7 +245,7 @@ class GitClientBase(Client):
             query_parameters['skip'] = self._serialize.query('skip', skip, 'int')
         response = self._send(http_method='GET',
                               location_id='5bf884f5-3e07-42e9-afb8-1b872267bf16',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('GitCommitChanges', response)
@@ -258,9 +258,9 @@ class GitClientBase(Client):
         :param bool diff_common_commit: If true, diff between common and target commits. If false, diff between base and target commits.
         :param int top: Maximum number of changes to return. Defaults to 100.
         :param int skip: Number of changes to skip
-        :param :class:`<GitBaseVersionDescriptor> <azure.devops.v6_0.git.models.GitBaseVersionDescriptor>` base_version_descriptor: Descriptor for base commit.
-        :param :class:`<GitTargetVersionDescriptor> <azure.devops.v6_0.git.models.GitTargetVersionDescriptor>` target_version_descriptor: Descriptor for target commit.
-        :rtype: :class:`<GitCommitDiffs> <azure.devops.v6_0.git.models.GitCommitDiffs>`
+        :param :class:`<GitBaseVersionDescriptor> <azure.devops.v5_1.git.models.GitBaseVersionDescriptor>` base_version_descriptor: Descriptor for base commit.
+        :param :class:`<GitTargetVersionDescriptor> <azure.devops.v5_1.git.models.GitTargetVersionDescriptor>` target_version_descriptor: Descriptor for target commit.
+        :rtype: :class:`<GitCommitDiffs> <azure.devops.v5_1.git.models.GitCommitDiffs>`
         """
         route_values = {}
         if project is not None:
@@ -290,7 +290,7 @@ class GitClientBase(Client):
                 query_parameters['targetVersionOptions'] = target_version_descriptor.target_version_options
         response = self._send(http_method='GET',
                               location_id='615588d5-c0c7-4b88-88f8-e625306446e8',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('GitCommitDiffs', response)
@@ -302,7 +302,7 @@ class GitClientBase(Client):
         :param str repository_id: The id or friendly name of the repository. To use the friendly name, projectId must also be specified.
         :param str project: Project ID or project name
         :param int change_count: The number of changes to include in the result.
-        :rtype: :class:`<GitCommit> <azure.devops.v6_0.git.models.GitCommit>`
+        :rtype: :class:`<GitCommit> <azure.devops.v5_1.git.models.GitCommit>`
         """
         route_values = {}
         if project is not None:
@@ -316,7 +316,7 @@ class GitClientBase(Client):
             query_parameters['changeCount'] = self._serialize.query('change_count', change_count, 'int')
         response = self._send(http_method='GET',
                               location_id='c2570c3b-5b3f-41b8-98bf-5407bfde8d58',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('GitCommit', response)
@@ -325,7 +325,7 @@ class GitClientBase(Client):
         """GetCommits.
         Retrieve git commits for a project
         :param str repository_id: The id or friendly name of the repository. To use the friendly name, projectId must also be specified.
-        :param :class:`<GitQueryCommitsCriteria> <azure.devops.v6_0.git.models.GitQueryCommitsCriteria>` search_criteria:
+        :param :class:`<GitQueryCommitsCriteria> <azure.devops.v5_1.git.models.GitQueryCommitsCriteria>` search_criteria:
         :param str project: Project ID or project name
         :param int skip:
         :param int top:
@@ -384,15 +384,13 @@ class GitClientBase(Client):
                 query_parameters['searchCriteria.includePushData'] = search_criteria.include_push_data
             if search_criteria.history_mode is not None:
                 query_parameters['searchCriteria.historyMode'] = search_criteria.history_mode
-            if search_criteria.show_oldest_commits_first is not None:
-                query_parameters['searchCriteria.showOldestCommitsFirst'] = search_criteria.show_oldest_commits_first
         if skip is not None:
             query_parameters['$skip'] = self._serialize.query('skip', skip, 'int')
         if top is not None:
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         response = self._send(http_method='GET',
                               location_id='c2570c3b-5b3f-41b8-98bf-5407bfde8d58',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[GitCommitRef]', self._unwrap_collection(response))
@@ -424,7 +422,7 @@ class GitClientBase(Client):
             query_parameters['includeLinks'] = self._serialize.query('include_links', include_links, 'bool')
         response = self._send(http_method='GET',
                               location_id='c2570c3b-5b3f-41b8-98bf-5407bfde8d58',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[GitCommitRef]', self._unwrap_collection(response))
@@ -432,7 +430,7 @@ class GitClientBase(Client):
     def get_commits_batch(self, search_criteria, repository_id, project=None, skip=None, top=None, include_statuses=None):
         """GetCommitsBatch.
         Retrieve git commits for a project matching the search criteria
-        :param :class:`<GitQueryCommitsCriteria> <azure.devops.v6_0.git.models.GitQueryCommitsCriteria>` search_criteria: Search options
+        :param :class:`<GitQueryCommitsCriteria> <azure.devops.v5_1.git.models.GitQueryCommitsCriteria>` search_criteria: Search options
         :param str repository_id: The name or ID of the repository.
         :param str project: Project ID or project name
         :param int skip: Number of commits to skip.
@@ -455,13 +453,13 @@ class GitClientBase(Client):
         content = self._serialize.body(search_criteria, 'GitQueryCommitsCriteria')
         response = self._send(http_method='POST',
                               location_id='6400dfb2-0bcb-462b-b992-5a57f8f1416c',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
         return self._deserialize('[GitCommitRef]', self._unwrap_collection(response))
 
-    def get_item(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None, resolve_lfs=None, sanitize=None):
+    def get_item(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None, resolve_lfs=None):
         """GetItem.
         Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.
         :param str repository_id: The name or ID of the repository.
@@ -472,11 +470,10 @@ class GitClientBase(Client):
         :param bool include_content_metadata: Set to true to include content metadata.  Default is false.
         :param bool latest_processed_change: Set to true to include the latest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
-        :param :class:`<GitVersionDescriptor> <azure.devops.v6_0.git.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is the default branch for the repository.
+        :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.git.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is the default branch for the repository.
         :param bool include_content: Set to true to include item content when requesting json.  Default is false.
         :param bool resolve_lfs: Set to true to resolve Git LFS pointer files to return actual content from Git LFS.  Default is false.
-        :param bool sanitize: Set to true to sanitize an svg file and return it as image. Useful only if requested for svg file. Default is false.
-        :rtype: :class:`<GitItem> <azure.devops.v6_0.git.models.GitItem>`
+        :rtype: :class:`<GitItem> <azure.devops.v5_1.git.models.GitItem>`
         """
         route_values = {}
         if project is not None:
@@ -507,16 +504,14 @@ class GitClientBase(Client):
             query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         if resolve_lfs is not None:
             query_parameters['resolveLfs'] = self._serialize.query('resolve_lfs', resolve_lfs, 'bool')
-        if sanitize is not None:
-            query_parameters['sanitize'] = self._serialize.query('sanitize', sanitize, 'bool')
         response = self._send(http_method='GET',
                               location_id='fb93c0db-47ed-4a31-8c20-47552878fb44',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('GitItem', response)
 
-    def get_item_content(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None, resolve_lfs=None, sanitize=None, **kwargs):
+    def get_item_content(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None, resolve_lfs=None, **kwargs):
         """GetItemContent.
         Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.
         :param str repository_id: The name or ID of the repository.
@@ -527,10 +522,9 @@ class GitClientBase(Client):
         :param bool include_content_metadata: Set to true to include content metadata.  Default is false.
         :param bool latest_processed_change: Set to true to include the latest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
-        :param :class:`<GitVersionDescriptor> <azure.devops.v6_0.git.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is the default branch for the repository.
+        :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.git.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is the default branch for the repository.
         :param bool include_content: Set to true to include item content when requesting json.  Default is false.
         :param bool resolve_lfs: Set to true to resolve Git LFS pointer files to return actual content from Git LFS.  Default is false.
-        :param bool sanitize: Set to true to sanitize an svg file and return it as image. Useful only if requested for svg file. Default is false.
         :rtype: object
         """
         route_values = {}
@@ -562,11 +556,9 @@ class GitClientBase(Client):
             query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         if resolve_lfs is not None:
             query_parameters['resolveLfs'] = self._serialize.query('resolve_lfs', resolve_lfs, 'bool')
-        if sanitize is not None:
-            query_parameters['sanitize'] = self._serialize.query('sanitize', sanitize, 'bool')
         response = self._send(http_method='GET',
                               location_id='fb93c0db-47ed-4a31-8c20-47552878fb44',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               accept_media_type='application/octet-stream')
@@ -587,7 +579,7 @@ class GitClientBase(Client):
         :param bool latest_processed_change: Set to true to include the latest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
         :param bool include_links: Set to true to include links to items.  Default is false.
-        :param :class:`<GitVersionDescriptor> <azure.devops.v6_0.git.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is the default branch for the repository.
+        :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.git.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is the default branch for the repository.
         :rtype: [GitItem]
         """
         route_values = {}
@@ -617,12 +609,12 @@ class GitClientBase(Client):
                 query_parameters['versionDescriptor.versionOptions'] = version_descriptor.version_options
         response = self._send(http_method='GET',
                               location_id='fb93c0db-47ed-4a31-8c20-47552878fb44',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[GitItem]', self._unwrap_collection(response))
 
-    def get_item_text(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None, resolve_lfs=None, sanitize=None, **kwargs):
+    def get_item_text(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None, resolve_lfs=None, **kwargs):
         """GetItemText.
         Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.
         :param str repository_id: The name or ID of the repository.
@@ -633,10 +625,9 @@ class GitClientBase(Client):
         :param bool include_content_metadata: Set to true to include content metadata.  Default is false.
         :param bool latest_processed_change: Set to true to include the latest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
-        :param :class:`<GitVersionDescriptor> <azure.devops.v6_0.git.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is the default branch for the repository.
+        :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.git.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is the default branch for the repository.
         :param bool include_content: Set to true to include item content when requesting json.  Default is false.
         :param bool resolve_lfs: Set to true to resolve Git LFS pointer files to return actual content from Git LFS.  Default is false.
-        :param bool sanitize: Set to true to sanitize an svg file and return it as image. Useful only if requested for svg file. Default is false.
         :rtype: object
         """
         route_values = {}
@@ -668,11 +659,9 @@ class GitClientBase(Client):
             query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         if resolve_lfs is not None:
             query_parameters['resolveLfs'] = self._serialize.query('resolve_lfs', resolve_lfs, 'bool')
-        if sanitize is not None:
-            query_parameters['sanitize'] = self._serialize.query('sanitize', sanitize, 'bool')
         response = self._send(http_method='GET',
                               location_id='fb93c0db-47ed-4a31-8c20-47552878fb44',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               accept_media_type='text/plain')
@@ -682,7 +671,7 @@ class GitClientBase(Client):
             callback = None
         return self._client.stream_download(response, callback=callback)
 
-    def get_item_zip(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None, resolve_lfs=None, sanitize=None, **kwargs):
+    def get_item_zip(self, repository_id, path, project=None, scope_path=None, recursion_level=None, include_content_metadata=None, latest_processed_change=None, download=None, version_descriptor=None, include_content=None, resolve_lfs=None, **kwargs):
         """GetItemZip.
         Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.
         :param str repository_id: The name or ID of the repository.
@@ -693,10 +682,9 @@ class GitClientBase(Client):
         :param bool include_content_metadata: Set to true to include content metadata.  Default is false.
         :param bool latest_processed_change: Set to true to include the latest changes.  Default is false.
         :param bool download: Set to true to download the response as a file.  Default is false.
-        :param :class:`<GitVersionDescriptor> <azure.devops.v6_0.git.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is the default branch for the repository.
+        :param :class:`<GitVersionDescriptor> <azure.devops.v5_1.git.models.GitVersionDescriptor>` version_descriptor: Version descriptor.  Default is the default branch for the repository.
         :param bool include_content: Set to true to include item content when requesting json.  Default is false.
         :param bool resolve_lfs: Set to true to resolve Git LFS pointer files to return actual content from Git LFS.  Default is false.
-        :param bool sanitize: Set to true to sanitize an svg file and return it as image. Useful only if requested for svg file. Default is false.
         :rtype: object
         """
         route_values = {}
@@ -728,11 +716,9 @@ class GitClientBase(Client):
             query_parameters['includeContent'] = self._serialize.query('include_content', include_content, 'bool')
         if resolve_lfs is not None:
             query_parameters['resolveLfs'] = self._serialize.query('resolve_lfs', resolve_lfs, 'bool')
-        if sanitize is not None:
-            query_parameters['sanitize'] = self._serialize.query('sanitize', sanitize, 'bool')
         response = self._send(http_method='GET',
                               location_id='fb93c0db-47ed-4a31-8c20-47552878fb44',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               accept_media_type='application/zip')
@@ -745,7 +731,7 @@ class GitClientBase(Client):
     def get_items_batch(self, request_data, repository_id, project=None):
         """GetItemsBatch.
         Post for retrieving a creating a batch out of a set of items in a repo / project given a list of paths or a long path
-        :param :class:`<GitItemRequestData> <azure.devops.v6_0.git.models.GitItemRequestData>` request_data: Request data attributes: ItemDescriptors, IncludeContentMetadata, LatestProcessedChange, IncludeLinks. ItemDescriptors: Collection of items to fetch, including path, version, and recursion level. IncludeContentMetadata: Whether to include metadata for all items LatestProcessedChange: Whether to include shallow ref to commit that last changed each item. IncludeLinks: Whether to include the _links field on the shallow references.
+        :param :class:`<GitItemRequestData> <azure.devops.v5_1.git.models.GitItemRequestData>` request_data: Request data attributes: ItemDescriptors, IncludeContentMetadata, LatestProcessedChange, IncludeLinks. ItemDescriptors: Collection of items to fetch, including path, version, and recursion level. IncludeContentMetadata: Whether to include metadata for all items LatestProcessedChange: Whether to include shallow ref to commit that last changed each item. IncludeLinks: Whether to include the _links field on the shallow references.
         :param str repository_id: The name or ID of the repository
         :param str project: Project ID or project name
         :rtype: [[GitItem]]
@@ -758,7 +744,7 @@ class GitClientBase(Client):
         content = self._serialize.body(request_data, 'GitItemRequestData')
         response = self._send(http_method='POST',
                               location_id='630fd2e4-fb88-4f85-ad21-13f3fd1fbca9',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('[[GitItem]]', self._unwrap_collection(response))
@@ -790,7 +776,7 @@ class GitClientBase(Client):
             query_parameters['skip'] = self._serialize.query('skip', skip, 'int')
         response = self._send(http_method='GET',
                               location_id='e7ea0883-095f-4926-b5fb-f24691c26fb9',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[GitCommitRef]', self._unwrap_collection(response))
@@ -803,7 +789,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param int top: Maximum number of commits to return.
         :param str continuation_token: The continuation token used for pagination.
-        :rtype: :class:`<[GitCommitRef]> <azure.devops.v6_0.git.models.[GitCommitRef]>`
+        :rtype: :class:`<GetPullRequestCommitsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -819,10 +805,25 @@ class GitClientBase(Client):
             query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
         response = self._send(http_method='GET',
                               location_id='52823034-34a8-4576-922c-8d8b77e9e4c4',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[GitCommitRef]', self._unwrap_collection(response))
+        response_value = self._deserialize('[GitCommitRef]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetPullRequestCommitsResponseValue(response_value, continuation_token)
+
+    class GetPullRequestCommitsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_pull_request_commits method
+
+            :param value:
+            :type value: :class:`<[GitCommitRef]> <azure.devops.v5_1.git.models.[GitCommitRef]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def get_pull_request_iteration_changes(self, repository_id, pull_request_id, iteration_id, project=None, top=None, skip=None, compare_to=None):
         """GetPullRequestIterationChanges.
@@ -834,7 +835,7 @@ class GitClientBase(Client):
         :param int top: Optional. The number of changes to retrieve.  The default value is 100 and the maximum value is 2000.
         :param int skip: Optional. The number of changes to ignore.  For example, to retrieve changes 101-150, set top 50 and skip to 100.
         :param int compare_to: ID of the pull request iteration to compare against.  The default value is zero which indicates the comparison is made against the common commit between the source and target branches
-        :rtype: :class:`<GitPullRequestIterationChanges> <azure.devops.v6_0.git.models.GitPullRequestIterationChanges>`
+        :rtype: :class:`<GitPullRequestIterationChanges> <azure.devops.v5_1.git.models.GitPullRequestIterationChanges>`
         """
         route_values = {}
         if project is not None:
@@ -854,7 +855,7 @@ class GitClientBase(Client):
             query_parameters['$compareTo'] = self._serialize.query('compare_to', compare_to, 'int')
         response = self._send(http_method='GET',
                               location_id='4216bdcf-b6b1-4d59-8b82-c34cc183fc8b',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('GitPullRequestIterationChanges', response)
@@ -866,7 +867,7 @@ class GitClientBase(Client):
         :param int pull_request_id: ID of the pull request.
         :param int iteration_id: ID of the pull request iteration to return.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPullRequestIteration> <azure.devops.v6_0.git.models.GitPullRequestIteration>`
+        :rtype: :class:`<GitPullRequestIteration> <azure.devops.v5_1.git.models.GitPullRequestIteration>`
         """
         route_values = {}
         if project is not None:
@@ -879,7 +880,7 @@ class GitClientBase(Client):
             route_values['iterationId'] = self._serialize.url('iteration_id', iteration_id, 'int')
         response = self._send(http_method='GET',
                               location_id='d43911ee-6958-46b0-a42b-8445b8a0d004',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('GitPullRequestIteration', response)
 
@@ -904,7 +905,7 @@ class GitClientBase(Client):
             query_parameters['includeCommits'] = self._serialize.query('include_commits', include_commits, 'bool')
         response = self._send(http_method='GET',
                               location_id='d43911ee-6958-46b0-a42b-8445b8a0d004',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[GitPullRequestIteration]', self._unwrap_collection(response))
@@ -912,10 +913,10 @@ class GitClientBase(Client):
     def get_pull_request_query(self, queries, repository_id, project=None):
         """GetPullRequestQuery.
         This API is used to find what pull requests are related to a given commit.  It can be used to either find the pull request that created a particular merge commit or it can be used to find all pull requests that have ever merged a particular commit.  The input is a list of queries which each contain a list of commits. For each commit that you search against, you will get back a dictionary of commit -> pull requests.
-        :param :class:`<GitPullRequestQuery> <azure.devops.v6_0.git.models.GitPullRequestQuery>` queries: The list of queries to perform.
+        :param :class:`<GitPullRequestQuery> <azure.devops.v5_1.git.models.GitPullRequestQuery>` queries: The list of queries to perform.
         :param str repository_id: ID of the repository.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPullRequestQuery> <azure.devops.v6_0.git.models.GitPullRequestQuery>`
+        :rtype: :class:`<GitPullRequestQuery> <azure.devops.v5_1.git.models.GitPullRequestQuery>`
         """
         route_values = {}
         if project is not None:
@@ -925,7 +926,7 @@ class GitClientBase(Client):
         content = self._serialize.body(queries, 'GitPullRequestQuery')
         response = self._send(http_method='POST',
                               location_id='b3a6eebe-9cf0-49ea-b6cb-1a4c5f5007b0',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('GitPullRequestQuery', response)
@@ -933,12 +934,12 @@ class GitClientBase(Client):
     def create_pull_request_reviewer(self, reviewer, repository_id, pull_request_id, reviewer_id, project=None):
         """CreatePullRequestReviewer.
         Add a reviewer to a pull request or cast a vote.
-        :param :class:`<IdentityRefWithVote> <azure.devops.v6_0.git.models.IdentityRefWithVote>` reviewer: Reviewer's vote.<br />If the reviewer's ID is included here, it must match the reviewerID parameter.<br />Reviewers can set their own vote with this method.  When adding other reviewers, vote must be set to zero.
-        :param str repository_id: The repository ID of the pull request's target branch.
+        :param :class:`<IdentityRefWithVote> <azure.devops.v5_1.git.models.IdentityRefWithVote>` reviewer: Reviewer's vote.<br />If the reviewer's ID is included here, it must match the reviewerID parameter.<br />Reviewers can set their own vote with this method.  When adding other reviewers, vote must be set to zero.
+        :param str repository_id: The repository ID of the pull request’s target branch.
         :param int pull_request_id: ID of the pull request.
         :param str reviewer_id: ID of the reviewer.
         :param str project: Project ID or project name
-        :rtype: :class:`<IdentityRefWithVote> <azure.devops.v6_0.git.models.IdentityRefWithVote>`
+        :rtype: :class:`<IdentityRefWithVote> <azure.devops.v5_1.git.models.IdentityRefWithVote>`
         """
         route_values = {}
         if project is not None:
@@ -952,7 +953,7 @@ class GitClientBase(Client):
         content = self._serialize.body(reviewer, 'IdentityRefWithVote')
         response = self._send(http_method='PUT',
                               location_id='4b6702c7-aa35-4b89-9c96-b9abf6d3e540',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('IdentityRefWithVote', response)
@@ -961,7 +962,7 @@ class GitClientBase(Client):
         """CreatePullRequestReviewers.
         Add reviewers to a pull request.
         :param [IdentityRef] reviewers: Reviewers to add to the pull request.
-        :param str repository_id: The repository ID of the pull request's target branch.
+        :param str repository_id: The repository ID of the pull request’s target branch.
         :param int pull_request_id: ID of the pull request.
         :param str project: Project ID or project name
         :rtype: [IdentityRefWithVote]
@@ -976,39 +977,15 @@ class GitClientBase(Client):
         content = self._serialize.body(reviewers, '[IdentityRef]')
         response = self._send(http_method='POST',
                               location_id='4b6702c7-aa35-4b89-9c96-b9abf6d3e540',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('[IdentityRefWithVote]', self._unwrap_collection(response))
 
-    def create_unmaterialized_pull_request_reviewer(self, reviewer, repository_id, pull_request_id, project=None):
-        """CreateUnmaterializedPullRequestReviewer.
-        Add an unmaterialized identity to the reviewers of a pull request.
-        :param :class:`<IdentityRefWithVote> <azure.devops.v6_0.git.models.IdentityRefWithVote>` reviewer: Reviewer to add to the pull request.
-        :param str repository_id: The repository ID of the pull request's target branch.
-        :param int pull_request_id: ID of the pull request.
-        :param str project: Project ID or project name
-        :rtype: :class:`<IdentityRefWithVote> <azure.devops.v6_0.git.models.IdentityRefWithVote>`
-        """
-        route_values = {}
-        if project is not None:
-            route_values['project'] = self._serialize.url('project', project, 'str')
-        if repository_id is not None:
-            route_values['repositoryId'] = self._serialize.url('repository_id', repository_id, 'str')
-        if pull_request_id is not None:
-            route_values['pullRequestId'] = self._serialize.url('pull_request_id', pull_request_id, 'int')
-        content = self._serialize.body(reviewer, 'IdentityRefWithVote')
-        response = self._send(http_method='PUT',
-                              location_id='4b6702c7-aa35-4b89-9c96-b9abf6d3e540',
-                              version='6.0',
-                              route_values=route_values,
-                              content=content)
-        return self._deserialize('IdentityRefWithVote', response)
-
     def delete_pull_request_reviewer(self, repository_id, pull_request_id, reviewer_id, project=None):
         """DeletePullRequestReviewer.
         Remove a reviewer from a pull request.
-        :param str repository_id: The repository ID of the pull request's target branch.
+        :param str repository_id: The repository ID of the pull request’s target branch.
         :param int pull_request_id: ID of the pull request.
         :param str reviewer_id: ID of the reviewer to remove.
         :param str project: Project ID or project name
@@ -1024,17 +1001,17 @@ class GitClientBase(Client):
             route_values['reviewerId'] = self._serialize.url('reviewer_id', reviewer_id, 'str')
         self._send(http_method='DELETE',
                    location_id='4b6702c7-aa35-4b89-9c96-b9abf6d3e540',
-                   version='6.0',
+                   version='5.1',
                    route_values=route_values)
 
     def get_pull_request_reviewer(self, repository_id, pull_request_id, reviewer_id, project=None):
         """GetPullRequestReviewer.
         Retrieve information about a particular reviewer on a pull request
-        :param str repository_id: The repository ID of the pull request's target branch.
+        :param str repository_id: The repository ID of the pull request’s target branch.
         :param int pull_request_id: ID of the pull request.
         :param str reviewer_id: ID of the reviewer.
         :param str project: Project ID or project name
-        :rtype: :class:`<IdentityRefWithVote> <azure.devops.v6_0.git.models.IdentityRefWithVote>`
+        :rtype: :class:`<IdentityRefWithVote> <azure.devops.v5_1.git.models.IdentityRefWithVote>`
         """
         route_values = {}
         if project is not None:
@@ -1047,14 +1024,14 @@ class GitClientBase(Client):
             route_values['reviewerId'] = self._serialize.url('reviewer_id', reviewer_id, 'str')
         response = self._send(http_method='GET',
                               location_id='4b6702c7-aa35-4b89-9c96-b9abf6d3e540',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('IdentityRefWithVote', response)
 
     def get_pull_request_reviewers(self, repository_id, pull_request_id, project=None):
         """GetPullRequestReviewers.
         Retrieve the reviewers for a pull request
-        :param str repository_id: The repository ID of the pull request's target branch.
+        :param str repository_id: The repository ID of the pull request’s target branch.
         :param int pull_request_id: ID of the pull request.
         :param str project: Project ID or project name
         :rtype: [IdentityRefWithVote]
@@ -1068,42 +1045,15 @@ class GitClientBase(Client):
             route_values['pullRequestId'] = self._serialize.url('pull_request_id', pull_request_id, 'int')
         response = self._send(http_method='GET',
                               location_id='4b6702c7-aa35-4b89-9c96-b9abf6d3e540',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('[IdentityRefWithVote]', self._unwrap_collection(response))
-
-    def update_pull_request_reviewer(self, reviewer, repository_id, pull_request_id, reviewer_id, project=None):
-        """UpdatePullRequestReviewer.
-        Edit a reviewer entry. These fields are patchable: isFlagged, hasDeclined
-        :param :class:`<IdentityRefWithVote> <azure.devops.v6_0.git.models.IdentityRefWithVote>` reviewer: Reviewer data.<br />If the reviewer's ID is included here, it must match the reviewerID parameter.
-        :param str repository_id: The repository ID of the pull request's target branch.
-        :param int pull_request_id: ID of the pull request.
-        :param str reviewer_id: ID of the reviewer.
-        :param str project: Project ID or project name
-        :rtype: :class:`<IdentityRefWithVote> <azure.devops.v6_0.git.models.IdentityRefWithVote>`
-        """
-        route_values = {}
-        if project is not None:
-            route_values['project'] = self._serialize.url('project', project, 'str')
-        if repository_id is not None:
-            route_values['repositoryId'] = self._serialize.url('repository_id', repository_id, 'str')
-        if pull_request_id is not None:
-            route_values['pullRequestId'] = self._serialize.url('pull_request_id', pull_request_id, 'int')
-        if reviewer_id is not None:
-            route_values['reviewerId'] = self._serialize.url('reviewer_id', reviewer_id, 'str')
-        content = self._serialize.body(reviewer, 'IdentityRefWithVote')
-        response = self._send(http_method='PATCH',
-                              location_id='4b6702c7-aa35-4b89-9c96-b9abf6d3e540',
-                              version='6.0',
-                              route_values=route_values,
-                              content=content)
-        return self._deserialize('IdentityRefWithVote', response)
 
     def update_pull_request_reviewers(self, patch_votes, repository_id, pull_request_id, project=None):
         """UpdatePullRequestReviewers.
         Reset the votes of multiple reviewers on a pull request.  NOTE: This endpoint only supports updating votes, but does not support updating required reviewers (use policy) or display names.
         :param [IdentityRefWithVote] patch_votes: IDs of the reviewers whose votes will be reset to zero
-        :param str repository_id: The repository ID of the pull request's target branch.
+        :param str repository_id: The repository ID of the pull request’s target branch.
         :param int pull_request_id: ID of the pull request
         :param str project: Project ID or project name
         """
@@ -1117,7 +1067,7 @@ class GitClientBase(Client):
         content = self._serialize.body(patch_votes, '[IdentityRefWithVote]')
         self._send(http_method='PATCH',
                    location_id='4b6702c7-aa35-4b89-9c96-b9abf6d3e540',
-                   version='6.0',
+                   version='5.1',
                    route_values=route_values,
                    content=content)
 
@@ -1126,7 +1076,7 @@ class GitClientBase(Client):
         Retrieve a pull request.
         :param int pull_request_id: The ID of the pull request to retrieve.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPullRequest> <azure.devops.v6_0.git.models.GitPullRequest>`
+        :rtype: :class:`<GitPullRequest> <azure.devops.v5_1.git.models.GitPullRequest>`
         """
         route_values = {}
         if project is not None:
@@ -1135,7 +1085,7 @@ class GitClientBase(Client):
             route_values['pullRequestId'] = self._serialize.url('pull_request_id', pull_request_id, 'int')
         response = self._send(http_method='GET',
                               location_id='01a46dea-7d46-4d40-bc84-319e7c260d99',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('GitPullRequest', response)
 
@@ -1143,7 +1093,7 @@ class GitClientBase(Client):
         """GetPullRequestsByProject.
         Retrieve all pull requests matching a specified criteria.
         :param str project: Project ID or project name
-        :param :class:`<GitPullRequestSearchCriteria> <azure.devops.v6_0.git.models.GitPullRequestSearchCriteria>` search_criteria: Pull requests will be returned that match this search criteria.
+        :param :class:`<GitPullRequestSearchCriteria> <azure.devops.v5_1.git.models.GitPullRequestSearchCriteria>` search_criteria: Pull requests will be returned that match this search criteria.
         :param int max_comment_length: Not used.
         :param int skip: The number of pull requests to ignore. For example, to retrieve results 101-150, set top to 50 and skip to 100.
         :param int top: The number of pull requests to retrieve.
@@ -1178,7 +1128,7 @@ class GitClientBase(Client):
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         response = self._send(http_method='GET',
                               location_id='a5d28130-9cd2-40fa-9f08-902e7daa9efb',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[GitPullRequest]', self._unwrap_collection(response))
@@ -1186,11 +1136,11 @@ class GitClientBase(Client):
     def create_pull_request(self, git_pull_request_to_create, repository_id, project=None, supports_iterations=None):
         """CreatePullRequest.
         Create a pull request.
-        :param :class:`<GitPullRequest> <azure.devops.v6_0.git.models.GitPullRequest>` git_pull_request_to_create: The pull request to create.
+        :param :class:`<GitPullRequest> <azure.devops.v5_1.git.models.GitPullRequest>` git_pull_request_to_create: The pull request to create.
         :param str repository_id: The repository ID of the pull request's target branch.
         :param str project: Project ID or project name
         :param bool supports_iterations: If true, subsequent pushes to the pull request will be individually reviewable. Set this to false for large pull requests for performance reasons if this functionality is not needed.
-        :rtype: :class:`<GitPullRequest> <azure.devops.v6_0.git.models.GitPullRequest>`
+        :rtype: :class:`<GitPullRequest> <azure.devops.v5_1.git.models.GitPullRequest>`
         """
         route_values = {}
         if project is not None:
@@ -1203,7 +1153,7 @@ class GitClientBase(Client):
         content = self._serialize.body(git_pull_request_to_create, 'GitPullRequest')
         response = self._send(http_method='POST',
                               location_id='9946fd70-0d40-406e-b686-b4744cbbcc37',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -1220,7 +1170,7 @@ class GitClientBase(Client):
         :param int top: Not used.
         :param bool include_commits: If true, the pull request will be returned with the associated commits.
         :param bool include_work_item_refs: If true, the pull request will be returned with the associated work item references.
-        :rtype: :class:`<GitPullRequest> <azure.devops.v6_0.git.models.GitPullRequest>`
+        :rtype: :class:`<GitPullRequest> <azure.devops.v5_1.git.models.GitPullRequest>`
         """
         route_values = {}
         if project is not None:
@@ -1242,7 +1192,7 @@ class GitClientBase(Client):
             query_parameters['includeWorkItemRefs'] = self._serialize.query('include_work_item_refs', include_work_item_refs, 'bool')
         response = self._send(http_method='GET',
                               location_id='9946fd70-0d40-406e-b686-b4744cbbcc37',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('GitPullRequest', response)
@@ -1251,7 +1201,7 @@ class GitClientBase(Client):
         """GetPullRequests.
         Retrieve all pull requests matching a specified criteria.
         :param str repository_id: The repository ID of the pull request's target branch.
-        :param :class:`<GitPullRequestSearchCriteria> <azure.devops.v6_0.git.models.GitPullRequestSearchCriteria>` search_criteria: Pull requests will be returned that match this search criteria.
+        :param :class:`<GitPullRequestSearchCriteria> <azure.devops.v5_1.git.models.GitPullRequestSearchCriteria>` search_criteria: Pull requests will be returned that match this search criteria.
         :param str project: Project ID or project name
         :param int max_comment_length: Not used.
         :param int skip: The number of pull requests to ignore. For example, to retrieve results 101-150, set top to 50 and skip to 100.
@@ -1289,7 +1239,7 @@ class GitClientBase(Client):
             query_parameters['$top'] = self._serialize.query('top', top, 'int')
         response = self._send(http_method='GET',
                               location_id='9946fd70-0d40-406e-b686-b4744cbbcc37',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[GitPullRequest]', self._unwrap_collection(response))
@@ -1297,11 +1247,11 @@ class GitClientBase(Client):
     def update_pull_request(self, git_pull_request_to_update, repository_id, pull_request_id, project=None):
         """UpdatePullRequest.
         Update a pull request
-        :param :class:`<GitPullRequest> <azure.devops.v6_0.git.models.GitPullRequest>` git_pull_request_to_update: The pull request content that should be updated.
+        :param :class:`<GitPullRequest> <azure.devops.v5_1.git.models.GitPullRequest>` git_pull_request_to_update: The pull request content that should be updated.
         :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request to update.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPullRequest> <azure.devops.v6_0.git.models.GitPullRequest>`
+        :rtype: :class:`<GitPullRequest> <azure.devops.v5_1.git.models.GitPullRequest>`
         """
         route_values = {}
         if project is not None:
@@ -1313,7 +1263,7 @@ class GitClientBase(Client):
         content = self._serialize.body(git_pull_request_to_update, 'GitPullRequest')
         response = self._send(http_method='PATCH',
                               location_id='9946fd70-0d40-406e-b686-b4744cbbcc37',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('GitPullRequest', response)
@@ -1321,12 +1271,12 @@ class GitClientBase(Client):
     def create_comment(self, comment, repository_id, pull_request_id, thread_id, project=None):
         """CreateComment.
         Create a comment on a specific thread in a pull request (up to 500 comments can be created per thread).
-        :param :class:`<Comment> <azure.devops.v6_0.git.models.Comment>` comment: The comment to create. Comments can be up to 150,000 characters.
+        :param :class:`<Comment> <azure.devops.v5_1.git.models.Comment>` comment: The comment to create. Comments can be up to 150,000 characters.
         :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request.
         :param int thread_id: ID of the thread that the desired comment is in.
         :param str project: Project ID or project name
-        :rtype: :class:`<Comment> <azure.devops.v6_0.git.models.Comment>`
+        :rtype: :class:`<Comment> <azure.devops.v5_1.git.models.Comment>`
         """
         route_values = {}
         if project is not None:
@@ -1340,7 +1290,7 @@ class GitClientBase(Client):
         content = self._serialize.body(comment, 'Comment')
         response = self._send(http_method='POST',
                               location_id='965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('Comment', response)
@@ -1367,7 +1317,7 @@ class GitClientBase(Client):
             route_values['commentId'] = self._serialize.url('comment_id', comment_id, 'int')
         self._send(http_method='DELETE',
                    location_id='965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b',
-                   version='6.0',
+                   version='5.1',
                    route_values=route_values)
 
     def get_comment(self, repository_id, pull_request_id, thread_id, comment_id, project=None):
@@ -1378,7 +1328,7 @@ class GitClientBase(Client):
         :param int thread_id: ID of the thread that the desired comment is in.
         :param int comment_id: ID of the comment.
         :param str project: Project ID or project name
-        :rtype: :class:`<Comment> <azure.devops.v6_0.git.models.Comment>`
+        :rtype: :class:`<Comment> <azure.devops.v5_1.git.models.Comment>`
         """
         route_values = {}
         if project is not None:
@@ -1393,7 +1343,7 @@ class GitClientBase(Client):
             route_values['commentId'] = self._serialize.url('comment_id', comment_id, 'int')
         response = self._send(http_method='GET',
                               location_id='965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('Comment', response)
 
@@ -1417,20 +1367,20 @@ class GitClientBase(Client):
             route_values['threadId'] = self._serialize.url('thread_id', thread_id, 'int')
         response = self._send(http_method='GET',
                               location_id='965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('[Comment]', self._unwrap_collection(response))
 
     def update_comment(self, comment, repository_id, pull_request_id, thread_id, comment_id, project=None):
         """UpdateComment.
         Update a comment associated with a specific thread in a pull request.
-        :param :class:`<Comment> <azure.devops.v6_0.git.models.Comment>` comment: The comment content that should be updated. Comments can be up to 150,000 characters.
+        :param :class:`<Comment> <azure.devops.v5_1.git.models.Comment>` comment: The comment content that should be updated. Comments can be up to 150,000 characters.
         :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request.
         :param int thread_id: ID of the thread that the desired comment is in.
         :param int comment_id: ID of the comment to update.
         :param str project: Project ID or project name
-        :rtype: :class:`<Comment> <azure.devops.v6_0.git.models.Comment>`
+        :rtype: :class:`<Comment> <azure.devops.v5_1.git.models.Comment>`
         """
         route_values = {}
         if project is not None:
@@ -1446,7 +1396,7 @@ class GitClientBase(Client):
         content = self._serialize.body(comment, 'Comment')
         response = self._send(http_method='PATCH',
                               location_id='965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('Comment', response)
@@ -1454,11 +1404,11 @@ class GitClientBase(Client):
     def create_thread(self, comment_thread, repository_id, pull_request_id, project=None):
         """CreateThread.
         Create a thread in a pull request.
-        :param :class:`<GitPullRequestCommentThread> <azure.devops.v6_0.git.models.GitPullRequestCommentThread>` comment_thread: The thread to create. Thread must contain at least one comment.
+        :param :class:`<GitPullRequestCommentThread> <azure.devops.v5_1.git.models.GitPullRequestCommentThread>` comment_thread: The thread to create. Thread must contain at least one comment.
         :param str repository_id: Repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPullRequestCommentThread> <azure.devops.v6_0.git.models.GitPullRequestCommentThread>`
+        :rtype: :class:`<GitPullRequestCommentThread> <azure.devops.v5_1.git.models.GitPullRequestCommentThread>`
         """
         route_values = {}
         if project is not None:
@@ -1470,7 +1420,7 @@ class GitClientBase(Client):
         content = self._serialize.body(comment_thread, 'GitPullRequestCommentThread')
         response = self._send(http_method='POST',
                               location_id='ab6e2e5d-a0b7-4153-b64a-a4efe0d49449',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('GitPullRequestCommentThread', response)
@@ -1484,7 +1434,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param int iteration: If specified, thread position will be tracked using this iteration as the right side of the diff.
         :param int base_iteration: If specified, thread position will be tracked using this iteration as the left side of the diff.
-        :rtype: :class:`<GitPullRequestCommentThread> <azure.devops.v6_0.git.models.GitPullRequestCommentThread>`
+        :rtype: :class:`<GitPullRequestCommentThread> <azure.devops.v5_1.git.models.GitPullRequestCommentThread>`
         """
         route_values = {}
         if project is not None:
@@ -1502,7 +1452,7 @@ class GitClientBase(Client):
             query_parameters['$baseIteration'] = self._serialize.query('base_iteration', base_iteration, 'int')
         response = self._send(http_method='GET',
                               location_id='ab6e2e5d-a0b7-4153-b64a-a4efe0d49449',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('GitPullRequestCommentThread', response)
@@ -1531,7 +1481,7 @@ class GitClientBase(Client):
             query_parameters['$baseIteration'] = self._serialize.query('base_iteration', base_iteration, 'int')
         response = self._send(http_method='GET',
                               location_id='ab6e2e5d-a0b7-4153-b64a-a4efe0d49449',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[GitPullRequestCommentThread]', self._unwrap_collection(response))
@@ -1539,12 +1489,12 @@ class GitClientBase(Client):
     def update_thread(self, comment_thread, repository_id, pull_request_id, thread_id, project=None):
         """UpdateThread.
         Update a thread in a pull request.
-        :param :class:`<GitPullRequestCommentThread> <azure.devops.v6_0.git.models.GitPullRequestCommentThread>` comment_thread: The thread content that should be updated.
+        :param :class:`<GitPullRequestCommentThread> <azure.devops.v5_1.git.models.GitPullRequestCommentThread>` comment_thread: The thread content that should be updated.
         :param str repository_id: The repository ID of the pull request's target branch.
         :param int pull_request_id: ID of the pull request.
         :param int thread_id: ID of the thread to update.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPullRequestCommentThread> <azure.devops.v6_0.git.models.GitPullRequestCommentThread>`
+        :rtype: :class:`<GitPullRequestCommentThread> <azure.devops.v5_1.git.models.GitPullRequestCommentThread>`
         """
         route_values = {}
         if project is not None:
@@ -1558,7 +1508,7 @@ class GitClientBase(Client):
         content = self._serialize.body(comment_thread, 'GitPullRequestCommentThread')
         response = self._send(http_method='PATCH',
                               location_id='ab6e2e5d-a0b7-4153-b64a-a4efe0d49449',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('GitPullRequestCommentThread', response)
@@ -1580,17 +1530,17 @@ class GitClientBase(Client):
             route_values['pullRequestId'] = self._serialize.url('pull_request_id', pull_request_id, 'int')
         response = self._send(http_method='GET',
                               location_id='0a637fcc-5370-4ce8-b0e8-98091f5f9482',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('[ResourceRef]', self._unwrap_collection(response))
 
     def create_push(self, push, repository_id, project=None):
         """CreatePush.
         Push changes to the repository.
-        :param :class:`<GitPush> <azure.devops.v6_0.git.models.GitPush>` push:
+        :param :class:`<GitPush> <azure.devops.v5_1.git.models.GitPush>` push:
         :param str repository_id: The name or ID of the repository.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitPush> <azure.devops.v6_0.git.models.GitPush>`
+        :rtype: :class:`<GitPush> <azure.devops.v5_1.git.models.GitPush>`
         """
         route_values = {}
         if project is not None:
@@ -1600,7 +1550,7 @@ class GitClientBase(Client):
         content = self._serialize.body(push, 'GitPush')
         response = self._send(http_method='POST',
                               location_id='ea98d07b-3c87-4971-8ede-a613694ffb55',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('GitPush', response)
@@ -1613,7 +1563,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param int include_commits: The number of commits to include in the result.
         :param bool include_ref_updates: If true, include the list of refs that were updated by the push.
-        :rtype: :class:`<GitPush> <azure.devops.v6_0.git.models.GitPush>`
+        :rtype: :class:`<GitPush> <azure.devops.v5_1.git.models.GitPush>`
         """
         route_values = {}
         if project is not None:
@@ -1629,7 +1579,7 @@ class GitClientBase(Client):
             query_parameters['includeRefUpdates'] = self._serialize.query('include_ref_updates', include_ref_updates, 'bool')
         response = self._send(http_method='GET',
                               location_id='ea98d07b-3c87-4971-8ede-a613694ffb55',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('GitPush', response)
@@ -1641,7 +1591,7 @@ class GitClientBase(Client):
         :param str project: Project ID or project name
         :param int skip: Number of pushes to skip.
         :param int top: Number of pushes to return.
-        :param :class:`<GitPushSearchCriteria> <azure.devops.v6_0.git.models.GitPushSearchCriteria>` search_criteria: Search criteria attributes: fromDate, toDate, pusherId, refName, includeRefUpdates or includeLinks. fromDate: Start date to search from. toDate: End date to search to. pusherId: Identity of the person who submitted the push. refName: Branch name to consider. includeRefUpdates: If true, include the list of refs that were updated by the push. includeLinks: Whether to include the _links field on the shallow references.
+        :param :class:`<GitPushSearchCriteria> <azure.devops.v5_1.git.models.GitPushSearchCriteria>` search_criteria: Search criteria attributes: fromDate, toDate, pusherId, refName, includeRefUpdates or includeLinks. fromDate: Start date to search from. toDate: End date to search to. pusherId: Identity of the person who submitted the push. refName: Branch name to consider. includeRefUpdates: If true, include the list of refs that were updated by the push. includeLinks: Whether to include the _links field on the shallow references.
         :rtype: [GitPush]
         """
         route_values = {}
@@ -1669,7 +1619,7 @@ class GitClientBase(Client):
                 query_parameters['searchCriteria.includeLinks'] = search_criteria.include_links
         response = self._send(http_method='GET',
                               location_id='ea98d07b-3c87-4971-8ede-a613694ffb55',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[GitPush]', self._unwrap_collection(response))
@@ -1688,7 +1638,7 @@ class GitClientBase(Client):
         :param str filter_contains: [optional] A filter to apply to the refs (contains).
         :param int top: [optional] Maximum number of refs to return. It cannot be bigger than 1000. If it is not provided but continuationToken is, top will default to 100.
         :param str continuation_token: The continuation token used for pagination.
-        :rtype: :class:`<[GitRef]> <azure.devops.v6_0.git.models.[GitRef]>`
+        :rtype: :class:`<GetRefsResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -1716,20 +1666,35 @@ class GitClientBase(Client):
             query_parameters['continuationToken'] = self._serialize.query('continuation_token', continuation_token, 'str')
         response = self._send(http_method='GET',
                               location_id='2d874a60-a811-4f62-9c9f-963a6ea0a55b',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[GitRef]', self._unwrap_collection(response))
+        response_value = self._deserialize('[GitRef]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetRefsResponseValue(response_value, continuation_token)
+
+    class GetRefsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_refs method
+
+            :param value:
+            :type value: :class:`<[GitRef]> <azure.devops.v5_1.git.models.[GitRef]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_ref(self, new_ref_info, repository_id, filter, project=None, project_id=None):
         """UpdateRef.
         Lock or Unlock a branch.
-        :param :class:`<GitRefUpdate> <azure.devops.v6_0.git.models.GitRefUpdate>` new_ref_info: The ref update action (lock/unlock) to perform
+        :param :class:`<GitRefUpdate> <azure.devops.v5_1.git.models.GitRefUpdate>` new_ref_info: The ref update action (lock/unlock) to perform
         :param str repository_id: The name or ID of the repository.
         :param str filter: The name of the branch to lock/unlock
         :param str project: Project ID or project name
         :param str project_id: ID or name of the team project. Optional if specifying an ID for repository.
-        :rtype: :class:`<GitRef> <azure.devops.v6_0.git.models.GitRef>`
+        :rtype: :class:`<GitRef> <azure.devops.v5_1.git.models.GitRef>`
         """
         route_values = {}
         if project is not None:
@@ -1744,7 +1709,7 @@ class GitClientBase(Client):
         content = self._serialize.body(new_ref_info, 'GitRefUpdate')
         response = self._send(http_method='PATCH',
                               location_id='2d874a60-a811-4f62-9c9f-963a6ea0a55b',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -1770,7 +1735,7 @@ class GitClientBase(Client):
         content = self._serialize.body(ref_updates, '[GitRefUpdate]')
         response = self._send(http_method='POST',
                               location_id='2d874a60-a811-4f62-9c9f-963a6ea0a55b',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -1779,10 +1744,10 @@ class GitClientBase(Client):
     def create_repository(self, git_repository_to_create, project=None, source_ref=None):
         """CreateRepository.
         Create a git repository in a team project.
-        :param :class:`<GitRepositoryCreateOptions> <azure.devops.v6_0.git.models.GitRepositoryCreateOptions>` git_repository_to_create: Specify the repo name, team project and/or parent repository. Team project information can be omitted from gitRepositoryToCreate if the request is project-scoped (i.e., includes project Id).
+        :param :class:`<GitRepositoryCreateOptions> <azure.devops.v5_1.git.models.GitRepositoryCreateOptions>` git_repository_to_create: Specify the repo name, team project and/or parent repository. Team project information can be omitted from gitRepositoryToCreate if the request is project-scoped (i.e., includes project Id).
         :param str project: Project ID or project name
         :param str source_ref: [optional] Specify the source refs to use while creating a fork repo
-        :rtype: :class:`<GitRepository> <azure.devops.v6_0.git.models.GitRepository>`
+        :rtype: :class:`<GitRepository> <azure.devops.v5_1.git.models.GitRepository>`
         """
         route_values = {}
         if project is not None:
@@ -1793,7 +1758,7 @@ class GitClientBase(Client):
         content = self._serialize.body(git_repository_to_create, 'GitRepositoryCreateOptions')
         response = self._send(http_method='POST',
                               location_id='225f7195-f9c7-4d14-ab28-a83f7ff77e1f',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               content=content)
@@ -1802,7 +1767,7 @@ class GitClientBase(Client):
     def delete_repository(self, repository_id, project=None):
         """DeleteRepository.
         Delete a git repository
-        :param str repository_id: The ID of the repository.
+        :param str repository_id: The name or ID of the repository.
         :param str project: Project ID or project name
         """
         route_values = {}
@@ -1812,7 +1777,7 @@ class GitClientBase(Client):
             route_values['repositoryId'] = self._serialize.url('repository_id', repository_id, 'str')
         self._send(http_method='DELETE',
                    location_id='225f7195-f9c7-4d14-ab28-a83f7ff77e1f',
-                   version='6.0',
+                   version='5.1',
                    route_values=route_values)
 
     def get_repositories(self, project=None, include_links=None, include_all_urls=None, include_hidden=None):
@@ -1836,7 +1801,7 @@ class GitClientBase(Client):
             query_parameters['includeHidden'] = self._serialize.query('include_hidden', include_hidden, 'bool')
         response = self._send(http_method='GET',
                               location_id='225f7195-f9c7-4d14-ab28-a83f7ff77e1f',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[GitRepository]', self._unwrap_collection(response))
@@ -1846,7 +1811,7 @@ class GitClientBase(Client):
         Retrieve a git repository.
         :param str repository_id: The name or ID of the repository.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitRepository> <azure.devops.v6_0.git.models.GitRepository>`
+        :rtype: :class:`<GitRepository> <azure.devops.v5_1.git.models.GitRepository>`
         """
         route_values = {}
         if project is not None:
@@ -1855,7 +1820,7 @@ class GitClientBase(Client):
             route_values['repositoryId'] = self._serialize.url('repository_id', repository_id, 'str')
         response = self._send(http_method='GET',
                               location_id='225f7195-f9c7-4d14-ab28-a83f7ff77e1f',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values)
         return self._deserialize('GitRepository', response)
 
@@ -1865,7 +1830,7 @@ class GitClientBase(Client):
         :param str repository_id: The name or ID of the repository.
         :param bool include_parent: True to include parent repository. Only available in authenticated calls.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitRepository> <azure.devops.v6_0.git.models.GitRepository>`
+        :rtype: :class:`<GitRepository> <azure.devops.v5_1.git.models.GitRepository>`
         """
         route_values = {}
         if project is not None:
@@ -1877,7 +1842,7 @@ class GitClientBase(Client):
             query_parameters['includeParent'] = self._serialize.query('include_parent', include_parent, 'bool')
         response = self._send(http_method='GET',
                               location_id='225f7195-f9c7-4d14-ab28-a83f7ff77e1f',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('GitRepository', response)
@@ -1885,10 +1850,10 @@ class GitClientBase(Client):
     def update_repository(self, new_repository_info, repository_id, project=None):
         """UpdateRepository.
         Updates the Git repository with either a new repo name or a new default branch.
-        :param :class:`<GitRepository> <azure.devops.v6_0.git.models.GitRepository>` new_repository_info: Specify a new repo name or a new default branch of the repository
-        :param str repository_id: The ID of the repository.
+        :param :class:`<GitRepository> <azure.devops.v5_1.git.models.GitRepository>` new_repository_info: Specify a new repo name or a new default branch of the repository
+        :param str repository_id: The name or ID of the repository.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitRepository> <azure.devops.v6_0.git.models.GitRepository>`
+        :rtype: :class:`<GitRepository> <azure.devops.v5_1.git.models.GitRepository>`
         """
         route_values = {}
         if project is not None:
@@ -1898,7 +1863,7 @@ class GitClientBase(Client):
         content = self._serialize.body(new_repository_info, 'GitRepository')
         response = self._send(http_method='PATCH',
                               location_id='225f7195-f9c7-4d14-ab28-a83f7ff77e1f',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('GitRepository', response)
@@ -1906,11 +1871,11 @@ class GitClientBase(Client):
     def create_commit_status(self, git_commit_status_to_create, commit_id, repository_id, project=None):
         """CreateCommitStatus.
         Create Git commit status.
-        :param :class:`<GitStatus> <azure.devops.v6_0.git.models.GitStatus>` git_commit_status_to_create: Git commit status object to create.
+        :param :class:`<GitStatus> <azure.devops.v5_1.git.models.GitStatus>` git_commit_status_to_create: Git commit status object to create.
         :param str commit_id: ID of the Git commit.
         :param str repository_id: ID of the repository.
         :param str project: Project ID or project name
-        :rtype: :class:`<GitStatus> <azure.devops.v6_0.git.models.GitStatus>`
+        :rtype: :class:`<GitStatus> <azure.devops.v5_1.git.models.GitStatus>`
         """
         route_values = {}
         if project is not None:
@@ -1922,7 +1887,7 @@ class GitClientBase(Client):
         content = self._serialize.body(git_commit_status_to_create, 'GitStatus')
         response = self._send(http_method='POST',
                               location_id='428dd4fb-fda5-4722-af02-9313b80305da',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               content=content)
         return self._deserialize('GitStatus', response)
@@ -1954,7 +1919,7 @@ class GitClientBase(Client):
             query_parameters['latestOnly'] = self._serialize.query('latest_only', latest_only, 'bool')
         response = self._send(http_method='GET',
                               location_id='428dd4fb-fda5-4722-af02-9313b80305da',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('[GitStatus]', self._unwrap_collection(response))
@@ -1968,7 +1933,7 @@ class GitClientBase(Client):
         :param str project_id: Project Id.
         :param bool recursive: Search recursively. Include trees underneath this tree. Default is false.
         :param str file_name: Name to use if a .zip file is returned. Default is the object ID.
-        :rtype: :class:`<GitTreeRef> <azure.devops.v6_0.git.models.GitTreeRef>`
+        :rtype: :class:`<GitTreeRef> <azure.devops.v5_1.git.models.GitTreeRef>`
         """
         route_values = {}
         if project is not None:
@@ -1986,7 +1951,7 @@ class GitClientBase(Client):
             query_parameters['fileName'] = self._serialize.query('file_name', file_name, 'str')
         response = self._send(http_method='GET',
                               location_id='729f6437-6f92-44ec-8bee-273a7111063c',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('GitTreeRef', response)
@@ -2018,7 +1983,7 @@ class GitClientBase(Client):
             query_parameters['fileName'] = self._serialize.query('file_name', file_name, 'str')
         response = self._send(http_method='GET',
                               location_id='729f6437-6f92-44ec-8bee-273a7111063c',
-                              version='6.0',
+                              version='5.1',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               accept_media_type='application/zip')

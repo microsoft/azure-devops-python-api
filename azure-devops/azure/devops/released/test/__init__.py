@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v6_0.test.models import *
+from ...v5_1.test.models import *
 from .test_client import TestClient
 
 __all__ = [

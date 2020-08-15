@@ -8,7 +8,7 @@
 
 from msrest import Serializer, Deserializer
 from ...client import Client
-from ...v6_0.test_plan import models
+from ...v5_1.test_plan import models
 
 
 class TestPlanClient(Client):
@@ -36,7 +36,7 @@ class TestPlanClient(Client):
             query_parameters['testCaseId'] = self._serialize.query('test_case_id', test_case_id, 'int')
         response = self._send(http_method='GET',
                               location_id='a4080e84-f17b-4fad-84f1-7960b6525bf2',
-                              version='6.0',
+                              version='5.1',
                               query_parameters=query_parameters)
         return self._deserialize('[TestSuite]', self._unwrap_collection(response))
 

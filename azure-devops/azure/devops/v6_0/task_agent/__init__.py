@@ -57,6 +57,7 @@ __all__ = [
     'InputValuesError',
     'KubernetesResource',
     'KubernetesResourceCreateParameters',
+    'MarketplacePurchasedLicense',
     'MetricsColumnMetaData',
     'MetricsColumnsHeader',
     'MetricsRow',

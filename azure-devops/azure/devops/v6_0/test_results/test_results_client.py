@@ -25,50 +25,6 @@ class TestResultsClient(Client):
 
     resource_area_identifier = 'c83eaf52-edf3-4034-ae11-17d38f25404c'
 
-    def query_test_results_meta_data(self, test_case_reference_ids, project, details_to_include=None):
-        """QueryTestResultsMetaData.
-        [Preview API] Get list of test Result meta data details for corresponding testcasereferenceId
-        :param [str] test_case_reference_ids: TestCaseReference Ids of the test Result to be queried, comma separated list of valid ids (limit no. of ids 200).
-        :param str project: Project ID or project name
-        :param str details_to_include: Details to include with test results metadata. Default is None. Other values are FlakyIdentifiers.
-        :rtype: [TestResultMetaData]
-        """
-        route_values = {}
-        if project is not None:
-            route_values['project'] = self._serialize.url('project', project, 'str')
-        query_parameters = {}
-        if details_to_include is not None:
-            query_parameters['detailsToInclude'] = self._serialize.query('details_to_include', details_to_include, 'str')
-        content = self._serialize.body(test_case_reference_ids, '[str]')
-        response = self._send(http_method='POST',
-                              location_id='b72ff4c0-4341-4213-ba27-f517cf341c95',
-                              version='6.0-preview.4',
-                              route_values=route_values,
-                              query_parameters=query_parameters,
-                              content=content)
-        return self._deserialize('[TestResultMetaData]', self._unwrap_collection(response))
-
-    def update_test_results_meta_data(self, test_result_meta_data_update_input, project, test_case_reference_id):
-        """UpdateTestResultsMetaData.
-        [Preview API] Update properties of test result meta data
-        :param :class:`<TestResultMetaDataUpdateInput> <azure.devops.v6_0.test_results.models.TestResultMetaDataUpdateInput>` test_result_meta_data_update_input: TestResultMetaData update input TestResultMetaDataUpdateInput
-        :param str project: Project ID or project name
-        :param int test_case_reference_id: TestCaseReference Id of Test Result to be updated.
-        :rtype: :class:`<TestResultMetaData> <azure.devops.v6_0.test_results.models.TestResultMetaData>`
-        """
-        route_values = {}
-        if project is not None:
-            route_values['project'] = self._serialize.url('project', project, 'str')
-        if test_case_reference_id is not None:
-            route_values['testCaseReferenceId'] = self._serialize.url('test_case_reference_id', test_case_reference_id, 'int')
-        content = self._serialize.body(test_result_meta_data_update_input, 'TestResultMetaDataUpdateInput')
-        response = self._send(http_method='PATCH',
-                              location_id='b72ff4c0-4341-4213-ba27-f517cf341c95',
-                              version='6.0-preview.4',
-                              route_values=route_values,
-                              content=content)
-        return self._deserialize('TestResultMetaData', response)
-
     def get_test_result_logs(self, project, run_id, result_id, type, directory_path=None, file_name_prefix=None, fetch_meta_data=None, top=None, continuation_token=None):
         """GetTestResultLogs.
         [Preview API] Get list of test result attachments reference

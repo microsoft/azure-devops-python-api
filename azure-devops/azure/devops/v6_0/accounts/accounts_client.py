@@ -27,7 +27,7 @@ class AccountsClient(Client):
 
     def get_accounts(self, owner_id=None, member_id=None, properties=None):
         """GetAccounts.
-        Get a list of accounts for a specific owner or a specific member. One of the following parameters is required: ownerId, memberId.
+        [Preview API] Get a list of accounts for a specific owner or a specific member.
         :param str owner_id: ID for the owner of the accounts.
         :param str member_id: ID for a member of the accounts.
         :param str properties:
@@ -42,7 +42,7 @@ class AccountsClient(Client):
             query_parameters['properties'] = self._serialize.query('properties', properties, 'str')
         response = self._send(http_method='GET',
                               location_id='229a6a53-b428-4ffb-a835-e8f36b5b4b1e',
-                              version='6.0',
+                              version='6.0-preview.1',
                               query_parameters=query_parameters)
         return self._deserialize('[Account]', self._unwrap_collection(response))
 

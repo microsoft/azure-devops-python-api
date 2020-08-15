@@ -752,8 +752,6 @@ class TimelineReference(Model):
 
 class VariableValue(Model):
     """
-    :param is_read_only:
-    :type is_read_only: bool
     :param is_secret:
     :type is_secret: bool
     :param value:
@@ -761,14 +759,12 @@ class VariableValue(Model):
     """
 
     _attribute_map = {
-        'is_read_only': {'key': 'isReadOnly', 'type': 'bool'},
         'is_secret': {'key': 'isSecret', 'type': 'bool'},
         'value': {'key': 'value', 'type': 'str'}
     }
 
-    def __init__(self, is_read_only=None, is_secret=None, value=None):
+    def __init__(self, is_secret=None, value=None):
         super(VariableValue, self).__init__()
-        self.is_read_only = is_read_only
         self.is_secret = is_secret
         self.value = value
 
@@ -870,8 +866,6 @@ class TaskOrchestrationPlan(TaskOrchestrationPlanReference):
     :type version: int
     :param environment:
     :type environment: :class:`PlanEnvironment <azure.devops.v6_0.task.models.PlanEnvironment>`
-    :param expanded_yaml:
-    :type expanded_yaml: :class:`TaskLogReference <azure.devops.v6_0.task.models.TaskLogReference>`
     :param finish_time:
     :type finish_time: datetime
     :param implementation:
@@ -905,7 +899,6 @@ class TaskOrchestrationPlan(TaskOrchestrationPlanReference):
         'scope_identifier': {'key': 'scopeIdentifier', 'type': 'str'},
         'version': {'key': 'version', 'type': 'int'},
         'environment': {'key': 'environment', 'type': 'PlanEnvironment'},
-        'expanded_yaml': {'key': 'expandedYaml', 'type': 'TaskLogReference'},
         'finish_time': {'key': 'finishTime', 'type': 'iso-8601'},
         'implementation': {'key': 'implementation', 'type': 'TaskOrchestrationContainer'},
         'initialization_log': {'key': 'initializationLog', 'type': 'TaskLogReference'},
@@ -918,10 +911,9 @@ class TaskOrchestrationPlan(TaskOrchestrationPlanReference):
         'timeline': {'key': 'timeline', 'type': 'TimelineReference'}
     }
 
-    def __init__(self, artifact_location=None, artifact_uri=None, definition=None, owner=None, plan_group=None, plan_id=None, plan_type=None, scope_identifier=None, version=None, environment=None, expanded_yaml=None, finish_time=None, implementation=None, initialization_log=None, requested_by_id=None, requested_for_id=None, result=None, result_code=None, start_time=None, state=None, timeline=None):
+    def __init__(self, artifact_location=None, artifact_uri=None, definition=None, owner=None, plan_group=None, plan_id=None, plan_type=None, scope_identifier=None, version=None, environment=None, finish_time=None, implementation=None, initialization_log=None, requested_by_id=None, requested_for_id=None, result=None, result_code=None, start_time=None, state=None, timeline=None):
         super(TaskOrchestrationPlan, self).__init__(artifact_location=artifact_location, artifact_uri=artifact_uri, definition=definition, owner=owner, plan_group=plan_group, plan_id=plan_id, plan_type=plan_type, scope_identifier=scope_identifier, version=version)
         self.environment = environment
-        self.expanded_yaml = expanded_yaml
         self.finish_time = finish_time
         self.implementation = implementation
         self.initialization_log = initialization_log
