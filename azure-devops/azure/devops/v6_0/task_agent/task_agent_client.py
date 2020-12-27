@@ -10,6 +10,17 @@ from msrest import Serializer, Deserializer
 from ...client import Client
 from . import models
 
+class GetDeploymentExecutionResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_build_changes method
+            :param value:
+            :type value: :class:`<[Change]> <azure.devops.v5_1.build.models.[Change]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
 class TaskAgentClient(Client):
     """TaskAgent
@@ -358,7 +369,7 @@ class TaskAgentClient(Client):
         :param int environment_id:
         :param str continuation_token:
         :param int top:
-        :rtype: :class:`<[EnvironmentDeploymentExecutionRecord]> <azure.devops.v6_0.task_agent.models.[EnvironmentDeploymentExecutionRecord]>`
+        :rtype: : class: `<GetDeploymentExecutionResponseValue>`
         """
         route_values = {}
         if project is not None:
@@ -375,7 +386,9 @@ class TaskAgentClient(Client):
                               version='6.0-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[EnvironmentDeploymentExecutionRecord]', self._unwrap_collection(response))
+        response_value = self._deserialize('[EnvironmentDeploymentExecutionRecord]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetDeploymentExecutionResponseValue(response_value, continuation_token)
 
     def add_environment(self, environment_create_parameter, project):
         """AddEnvironment.
