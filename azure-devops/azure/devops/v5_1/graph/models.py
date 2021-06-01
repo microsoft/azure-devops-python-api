@@ -358,6 +358,25 @@ class GraphUserCreationContext(Model):
         self.storage_key = storage_key
 
 
+class GraphUserAADCreationContext(Model):
+    """
+    :param principal_name: The principal name from AAD like 'user@mydomain.com'
+    :type principal_name: str
+    :param storage_key: Optional: If provided, we will use this identifier for the storage key of the created user
+    :type storage_key: str
+    """
+
+    _attribute_map = {
+        'storage_key': {'key': 'storageKey', 'type': 'str'},
+        'principal_name': {'key': 'principalName', 'type': 'str'}
+    }
+
+    def __init__(self, storage_key=None, principal_name=None):
+        super(GraphUserAADCreationContext, self).__init__()
+        self.storage_key = storage_key
+        self.principal_name = principal_name
+
+
 class GraphUserUpdateContext(Model):
     """
     Do not attempt to use this type to update user. Use one of the subclasses instead. This type does not contain sufficient fields to create a new user.
