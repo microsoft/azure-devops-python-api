@@ -1,0 +1,720 @@
+{
+  "count": 5,
+  "value": [
+    {
+      "_links": {
+        "self": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/Builds/92"
+        },
+        "web": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_build/results?buildId=92"
+        },
+        "sourceVersionDisplayUri": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/builds/92/sources"
+        },
+        "timeline": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/builds/92/Timeline"
+        },
+        "badge": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/status/6"
+        }
+      },
+      "properties": {},
+      "tags": [],
+      "validationResults": [],
+      "plans": [
+        {
+          "planId": "ae81e239-7a15-42b6-a3a2-0ff96077d4e3"
+        }
+      ],
+      "triggerInfo": {
+        "ci.sourceBranch": "refs/heads/main",
+        "ci.sourceSha": "3808e45591b1c6a8a68f9b0d1b188f278110a98a",
+        "ci.message": "Merge branch 'main' of https://dev.azure.com/tpwange/poc/_git/poc",
+        "ci.triggerRepository": "0376cdc7-e386-44a3-85b0-b09b8c20c534"
+      },
+      "id": 92,
+      "buildNumber": "20210813.3",
+      "status": "completed",
+      "result": "succeeded",
+      "queueTime": "2021-08-13T08:57:20.8293474Z",
+      "startTime": "2021-08-13T09:02:11.1272511Z",
+      "finishTime": "2021-08-13T09:06:28.4211883Z",
+      "url": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/Builds/92",
+      "definition": {
+        "drafts": [],
+        "id": 6,
+        "name": "poc - Python unit test",
+        "url": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/Definitions/6?revision=2",
+        "uri": "vstfs:///Build/Definition/6",
+        "path": "\\",
+        "type": "build",
+        "queueStatus": "enabled",
+        "revision": 2,
+        "project": {
+          "id": "6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+          "name": "poc",
+          "url": "https://dev.azure.com/tpwange/_apis/projects/6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+          "state": "wellFormed",
+          "revision": 12,
+          "visibility": "private",
+          "lastUpdateTime": "2021-06-17T05:52:48.74Z"
+        }
+      },
+      "buildNumberRevision": 3,
+      "project": {
+        "id": "6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+        "name": "poc",
+        "url": "https://dev.azure.com/tpwange/_apis/projects/6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+        "state": "wellFormed",
+        "revision": 12,
+        "visibility": "private",
+        "lastUpdateTime": "2021-06-17T05:52:48.74Z"
+      },
+      "uri": "vstfs:///Build/Build/92",
+      "sourceBranch": "refs/heads/main",
+      "sourceVersion": "3808e45591b1c6a8a68f9b0d1b188f278110a98a",
+      "queue": {
+        "id": 8,
+        "name": "Hosted Ubuntu 1604",
+        "pool": {
+          "id": 8,
+          "name": "Hosted Ubuntu 1604",
+          "isHosted": true
+        }
+      },
+      "priority": "normal",
+      "reason": "individualCI",
+      "requestedFor": {
+        "displayName": "Tzupo Wang",
+        "url": "https://spsprodsea2.vssps.visualstudio.com/Adfc8d897-babb-43b6-8dac-80beda8f57df/_apis/Identities/2e31c11b-3529-6576-ab2a-58dec0f33eb9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/msa.MmUzMWMxMWItMzUyOS03NTc2LWFiMmEtNThkZWMwZjMzZWI5"
+          }
+        },
+        "id": "2e31c11b-3529-6576-ab2a-58dec0f33eb9",
+        "uniqueName": "tpwange@hotmail.com",
+        "imageUrl": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/msa.MmUzMWMxMWItMzUyOS03NTc2LWFiMmEtNThkZWMwZjMzZWI5",
+        "descriptor": "msa.MmUzMWMxMWItMzUyOS03NTc2LWFiMmEtNThkZWMwZjMzZWI5"
+      },
+      "requestedBy": {
+        "displayName": "Microsoft.VisualStudio.Services.TFS",
+        "url": "https://spsprodsea2.vssps.visualstudio.com/Adfc8d897-babb-43b6-8dac-80beda8f57df/_apis/Identities/00000002-0000-8888-8000-000000000000",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          }
+        },
+        "id": "00000002-0000-8888-8000-000000000000",
+        "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+        "imageUrl": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA",
+        "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+      },
+      "lastChangedDate": "2021-08-13T09:06:28.807Z",
+      "lastChangedBy": {
+        "displayName": "Microsoft.VisualStudio.Services.TFS",
+        "url": "https://spsprodsea2.vssps.visualstudio.com/Adfc8d897-babb-43b6-8dac-80beda8f57df/_apis/Identities/00000002-0000-8888-8000-000000000000",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          }
+        },
+        "id": "00000002-0000-8888-8000-000000000000",
+        "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+        "imageUrl": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA",
+        "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+      },
+      "orchestrationPlan": {
+        "planId": "ae81e239-7a15-42b6-a3a2-0ff96077d4e3"
+      },
+      "logs": {
+        "id": 0,
+        "type": "Container",
+        "url": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/builds/92/logs"
+      },
+      "repository": {
+        "id": "0376cdc7-e386-44a3-85b0-b09b8c20c534",
+        "type": "TfsGit",
+        "name": "poc",
+        "url": "https://dev.azure.com/tpwange/poc/_git/poc",
+        "clean": null,
+        "checkoutSubmodules": false
+      },
+      "retainedByRelease": false,
+      "triggeredByBuild": null
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/Builds/91"
+        },
+        "web": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_build/results?buildId=91"
+        },
+        "sourceVersionDisplayUri": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/builds/91/sources"
+        },
+        "timeline": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/builds/91/Timeline"
+        },
+        "badge": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/status/6"
+        }
+      },
+      "properties": {},
+      "tags": [],
+      "validationResults": [],
+      "plans": [
+        {
+          "planId": "56566c54-bc03-4ae2-9fad-6a3b2516a459"
+        }
+      ],
+      "triggerInfo": {
+        "ci.sourceBranch": "refs/heads/git@github.com-tpwange1977/poc.git",
+        "ci.sourceSha": "b8a819d1ca758e71da85ae1352c7baf3b67b2b50",
+        "ci.message": "ok",
+        "ci.triggerRepository": "0376cdc7-e386-44a3-85b0-b09b8c20c534"
+      },
+      "id": 91,
+      "buildNumber": "20210813.2",
+      "status": "completed",
+      "result": "succeeded",
+      "queueTime": "2021-08-13T08:55:23.3483587Z",
+      "startTime": "2021-08-13T08:57:33.2703773Z",
+      "finishTime": "2021-08-13T09:01:55.115833Z",
+      "url": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/Builds/91",
+      "definition": {
+        "drafts": [],
+        "id": 6,
+        "name": "poc - Python unit test",
+        "url": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/Definitions/6?revision=2",
+        "uri": "vstfs:///Build/Definition/6",
+        "path": "\\",
+        "type": "build",
+        "queueStatus": "enabled",
+        "revision": 2,
+        "project": {
+          "id": "6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+          "name": "poc",
+          "url": "https://dev.azure.com/tpwange/_apis/projects/6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+          "state": "wellFormed",
+          "revision": 12,
+          "visibility": "private",
+          "lastUpdateTime": "2021-06-17T05:52:48.74Z"
+        }
+      },
+      "buildNumberRevision": 2,
+      "project": {
+        "id": "6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+        "name": "poc",
+        "url": "https://dev.azure.com/tpwange/_apis/projects/6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+        "state": "wellFormed",
+        "revision": 12,
+        "visibility": "private",
+        "lastUpdateTime": "2021-06-17T05:52:48.74Z"
+      },
+      "uri": "vstfs:///Build/Build/91",
+      "sourceBranch": "refs/heads/git@github.com-tpwange1977/poc.git",
+      "sourceVersion": "b8a819d1ca758e71da85ae1352c7baf3b67b2b50",
+      "queue": {
+        "id": 8,
+        "name": "Hosted Ubuntu 1604",
+        "pool": {
+          "id": 8,
+          "name": "Hosted Ubuntu 1604",
+          "isHosted": true
+        }
+      },
+      "priority": "normal",
+      "reason": "individualCI",
+      "requestedFor": {
+        "displayName": "Tzupo Wang",
+        "url": "https://spsprodsea2.vssps.visualstudio.com/Adfc8d897-babb-43b6-8dac-80beda8f57df/_apis/Identities/2e31c11b-3529-6576-ab2a-58dec0f33eb9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/msa.MmUzMWMxMWItMzUyOS03NTc2LWFiMmEtNThkZWMwZjMzZWI5"
+          }
+        },
+        "id": "2e31c11b-3529-6576-ab2a-58dec0f33eb9",
+        "uniqueName": "tpwange@hotmail.com",
+        "imageUrl": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/msa.MmUzMWMxMWItMzUyOS03NTc2LWFiMmEtNThkZWMwZjMzZWI5",
+        "descriptor": "msa.MmUzMWMxMWItMzUyOS03NTc2LWFiMmEtNThkZWMwZjMzZWI5"
+      },
+      "requestedBy": {
+        "displayName": "Microsoft.VisualStudio.Services.TFS",
+        "url": "https://spsprodsea2.vssps.visualstudio.com/Adfc8d897-babb-43b6-8dac-80beda8f57df/_apis/Identities/00000002-0000-8888-8000-000000000000",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          }
+        },
+        "id": "00000002-0000-8888-8000-000000000000",
+        "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+        "imageUrl": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA",
+        "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+      },
+      "lastChangedDate": "2021-08-13T09:01:55.687Z",
+      "lastChangedBy": {
+        "displayName": "Microsoft.VisualStudio.Services.TFS",
+        "url": "https://spsprodsea2.vssps.visualstudio.com/Adfc8d897-babb-43b6-8dac-80beda8f57df/_apis/Identities/00000002-0000-8888-8000-000000000000",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          }
+        },
+        "id": "00000002-0000-8888-8000-000000000000",
+        "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+        "imageUrl": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA",
+        "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+      },
+      "orchestrationPlan": {
+        "planId": "56566c54-bc03-4ae2-9fad-6a3b2516a459"
+      },
+      "logs": {
+        "id": 0,
+        "type": "Container",
+        "url": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/builds/91/logs"
+      },
+      "repository": {
+        "id": "0376cdc7-e386-44a3-85b0-b09b8c20c534",
+        "type": "TfsGit",
+        "name": "poc",
+        "url": "https://dev.azure.com/tpwange/poc/_git/poc",
+        "clean": null,
+        "checkoutSubmodules": false
+      },
+      "retainedByRelease": false,
+      "triggeredByBuild": null
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/Builds/90"
+        },
+        "web": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_build/results?buildId=90"
+        },
+        "sourceVersionDisplayUri": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/builds/90/sources"
+        },
+        "timeline": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/builds/90/Timeline"
+        },
+        "badge": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/status/6"
+        }
+      },
+      "properties": {},
+      "tags": [],
+      "validationResults": [],
+      "plans": [
+        {
+          "planId": "7c8c959c-dc1e-448b-a1b5-2feaf582e237"
+        }
+      ],
+      "triggerInfo": {
+        "ci.sourceBranch": "refs/heads/poc",
+        "ci.sourceSha": "b8a819d1ca758e71da85ae1352c7baf3b67b2b50",
+        "ci.message": "ok",
+        "ci.triggerRepository": "0376cdc7-e386-44a3-85b0-b09b8c20c534"
+      },
+      "id": 90,
+      "buildNumber": "20210813.1",
+      "status": "completed",
+      "result": "succeeded",
+      "queueTime": "2021-08-13T08:53:26.3282205Z",
+      "startTime": "2021-08-13T08:53:42.9273135Z",
+      "finishTime": "2021-08-13T08:57:18.7523919Z",
+      "url": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/Builds/90",
+      "definition": {
+        "drafts": [],
+        "id": 6,
+        "name": "poc - Python unit test",
+        "url": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/Definitions/6?revision=2",
+        "uri": "vstfs:///Build/Definition/6",
+        "path": "\\",
+        "type": "build",
+        "queueStatus": "enabled",
+        "revision": 2,
+        "project": {
+          "id": "6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+          "name": "poc",
+          "url": "https://dev.azure.com/tpwange/_apis/projects/6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+          "state": "wellFormed",
+          "revision": 12,
+          "visibility": "private",
+          "lastUpdateTime": "2021-06-17T05:52:48.74Z"
+        }
+      },
+      "buildNumberRevision": 1,
+      "project": {
+        "id": "6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+        "name": "poc",
+        "url": "https://dev.azure.com/tpwange/_apis/projects/6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+        "state": "wellFormed",
+        "revision": 12,
+        "visibility": "private",
+        "lastUpdateTime": "2021-06-17T05:52:48.74Z"
+      },
+      "uri": "vstfs:///Build/Build/90",
+      "sourceBranch": "refs/heads/poc",
+      "sourceVersion": "b8a819d1ca758e71da85ae1352c7baf3b67b2b50",
+      "queue": {
+        "id": 8,
+        "name": "Hosted Ubuntu 1604",
+        "pool": {
+          "id": 8,
+          "name": "Hosted Ubuntu 1604",
+          "isHosted": true
+        }
+      },
+      "priority": "normal",
+      "reason": "individualCI",
+      "requestedFor": {
+        "displayName": "Tzupo Wang",
+        "url": "https://spsprodsea2.vssps.visualstudio.com/Adfc8d897-babb-43b6-8dac-80beda8f57df/_apis/Identities/2e31c11b-3529-6576-ab2a-58dec0f33eb9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/msa.MmUzMWMxMWItMzUyOS03NTc2LWFiMmEtNThkZWMwZjMzZWI5"
+          }
+        },
+        "id": "2e31c11b-3529-6576-ab2a-58dec0f33eb9",
+        "uniqueName": "tpwange@hotmail.com",
+        "imageUrl": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/msa.MmUzMWMxMWItMzUyOS03NTc2LWFiMmEtNThkZWMwZjMzZWI5",
+        "descriptor": "msa.MmUzMWMxMWItMzUyOS03NTc2LWFiMmEtNThkZWMwZjMzZWI5"
+      },
+      "requestedBy": {
+        "displayName": "Microsoft.VisualStudio.Services.TFS",
+        "url": "https://spsprodsea2.vssps.visualstudio.com/Adfc8d897-babb-43b6-8dac-80beda8f57df/_apis/Identities/00000002-0000-8888-8000-000000000000",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          }
+        },
+        "id": "00000002-0000-8888-8000-000000000000",
+        "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+        "imageUrl": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA",
+        "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+      },
+      "lastChangedDate": "2021-08-13T08:57:19.093Z",
+      "lastChangedBy": {
+        "displayName": "Microsoft.VisualStudio.Services.TFS",
+        "url": "https://spsprodsea2.vssps.visualstudio.com/Adfc8d897-babb-43b6-8dac-80beda8f57df/_apis/Identities/00000002-0000-8888-8000-000000000000",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          }
+        },
+        "id": "00000002-0000-8888-8000-000000000000",
+        "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+        "imageUrl": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA",
+        "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+      },
+      "orchestrationPlan": {
+        "planId": "7c8c959c-dc1e-448b-a1b5-2feaf582e237"
+      },
+      "logs": {
+        "id": 0,
+        "type": "Container",
+        "url": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/builds/90/logs"
+      },
+      "repository": {
+        "id": "0376cdc7-e386-44a3-85b0-b09b8c20c534",
+        "type": "TfsGit",
+        "name": "poc",
+        "url": "https://dev.azure.com/tpwange/poc/_git/poc",
+        "clean": null,
+        "checkoutSubmodules": false
+      },
+      "retainedByRelease": false,
+      "triggeredByBuild": null
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/Builds/89"
+        },
+        "web": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_build/results?buildId=89"
+        },
+        "sourceVersionDisplayUri": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/builds/89/sources"
+        },
+        "timeline": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/builds/89/Timeline"
+        },
+        "badge": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/status/6"
+        }
+      },
+      "properties": {},
+      "tags": [],
+      "validationResults": [],
+      "plans": [
+        {
+          "planId": "c1f251e6-e88b-4e00-bd34-aee61304a4e6"
+        }
+      ],
+      "triggerInfo": {
+        "ci.sourceBranch": "refs/heads/main",
+        "ci.sourceSha": "e803b9f754f23a44ffddef4dd47a7e49b43b0501",
+        "ci.message": "Updated run.py",
+        "ci.triggerRepository": "0376cdc7-e386-44a3-85b0-b09b8c20c534"
+      },
+      "id": 89,
+      "buildNumber": "20210716.3",
+      "status": "completed",
+      "result": "succeeded",
+      "queueTime": "2021-07-16T14:42:30.4549699Z",
+      "startTime": "2021-07-16T14:42:52.0666525Z",
+      "finishTime": "2021-07-16T14:46:02.9026066Z",
+      "url": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/Builds/89",
+      "definition": {
+        "drafts": [],
+        "id": 6,
+        "name": "poc - Python unit test",
+        "url": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/Definitions/6?revision=2",
+        "uri": "vstfs:///Build/Definition/6",
+        "path": "\\",
+        "type": "build",
+        "queueStatus": "enabled",
+        "revision": 2,
+        "project": {
+          "id": "6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+          "name": "poc",
+          "url": "https://dev.azure.com/tpwange/_apis/projects/6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+          "state": "wellFormed",
+          "revision": 12,
+          "visibility": "private",
+          "lastUpdateTime": "2021-06-17T05:52:48.74Z"
+        }
+      },
+      "buildNumberRevision": 3,
+      "project": {
+        "id": "6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+        "name": "poc",
+        "url": "https://dev.azure.com/tpwange/_apis/projects/6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+        "state": "wellFormed",
+        "revision": 12,
+        "visibility": "private",
+        "lastUpdateTime": "2021-06-17T05:52:48.74Z"
+      },
+      "uri": "vstfs:///Build/Build/89",
+      "sourceBranch": "refs/heads/main",
+      "sourceVersion": "e803b9f754f23a44ffddef4dd47a7e49b43b0501",
+      "queue": {
+        "id": 8,
+        "name": "Hosted Ubuntu 1604",
+        "pool": {
+          "id": 8,
+          "name": "Hosted Ubuntu 1604",
+          "isHosted": true
+        }
+      },
+      "priority": "normal",
+      "reason": "individualCI",
+      "requestedFor": {
+        "displayName": "Tzupo Wang",
+        "url": "https://spsprodsea2.vssps.visualstudio.com/Adfc8d897-babb-43b6-8dac-80beda8f57df/_apis/Identities/2e31c11b-3529-6576-ab2a-58dec0f33eb9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/msa.MmUzMWMxMWItMzUyOS03NTc2LWFiMmEtNThkZWMwZjMzZWI5"
+          }
+        },
+        "id": "2e31c11b-3529-6576-ab2a-58dec0f33eb9",
+        "uniqueName": "tpwange@hotmail.com",
+        "imageUrl": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/msa.MmUzMWMxMWItMzUyOS03NTc2LWFiMmEtNThkZWMwZjMzZWI5",
+        "descriptor": "msa.MmUzMWMxMWItMzUyOS03NTc2LWFiMmEtNThkZWMwZjMzZWI5"
+      },
+      "requestedBy": {
+        "displayName": "Microsoft.VisualStudio.Services.TFS",
+        "url": "https://spsprodsea2.vssps.visualstudio.com/Adfc8d897-babb-43b6-8dac-80beda8f57df/_apis/Identities/00000002-0000-8888-8000-000000000000",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          }
+        },
+        "id": "00000002-0000-8888-8000-000000000000",
+        "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+        "imageUrl": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA",
+        "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+      },
+      "lastChangedDate": "2021-07-16T14:46:03.457Z",
+      "lastChangedBy": {
+        "displayName": "Microsoft.VisualStudio.Services.TFS",
+        "url": "https://spsprodsea2.vssps.visualstudio.com/Adfc8d897-babb-43b6-8dac-80beda8f57df/_apis/Identities/00000002-0000-8888-8000-000000000000",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          }
+        },
+        "id": "00000002-0000-8888-8000-000000000000",
+        "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+        "imageUrl": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA",
+        "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+      },
+      "orchestrationPlan": {
+        "planId": "c1f251e6-e88b-4e00-bd34-aee61304a4e6"
+      },
+      "logs": {
+        "id": 0,
+        "type": "Container",
+        "url": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/builds/89/logs"
+      },
+      "repository": {
+        "id": "0376cdc7-e386-44a3-85b0-b09b8c20c534",
+        "type": "TfsGit",
+        "name": "poc",
+        "url": "https://dev.azure.com/tpwange/poc/_git/poc",
+        "clean": null,
+        "checkoutSubmodules": false
+      },
+      "retainedByRelease": false,
+      "triggeredByBuild": null
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/Builds/88"
+        },
+        "web": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_build/results?buildId=88"
+        },
+        "sourceVersionDisplayUri": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/builds/88/sources"
+        },
+        "timeline": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/builds/88/Timeline"
+        },
+        "badge": {
+          "href": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/status/6"
+        }
+      },
+      "properties": {},
+      "tags": [],
+      "validationResults": [],
+      "plans": [
+        {
+          "planId": "96509493-70cb-4ef2-bdc4-96a66c86624a"
+        }
+      ],
+      "triggerInfo": {
+        "ci.sourceBranch": "refs/heads/main",
+        "ci.sourceSha": "1c4446eb79ae6693d91c8fe205d2d34ac00f8c12",
+        "ci.message": "Updated .coveragec",
+        "ci.triggerRepository": "0376cdc7-e386-44a3-85b0-b09b8c20c534"
+      },
+      "id": 88,
+      "buildNumber": "20210716.2",
+      "status": "completed",
+      "result": "succeeded",
+      "queueTime": "2021-07-16T14:30:22.3119614Z",
+      "startTime": "2021-07-16T14:30:41.567428Z",
+      "finishTime": "2021-07-16T14:34:55.0728547Z",
+      "url": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/Builds/88",
+      "definition": {
+        "drafts": [],
+        "id": 6,
+        "name": "poc - Python unit test",
+        "url": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/Definitions/6?revision=2",
+        "uri": "vstfs:///Build/Definition/6",
+        "path": "\\",
+        "type": "build",
+        "queueStatus": "enabled",
+        "revision": 2,
+        "project": {
+          "id": "6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+          "name": "poc",
+          "url": "https://dev.azure.com/tpwange/_apis/projects/6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+          "state": "wellFormed",
+          "revision": 12,
+          "visibility": "private",
+          "lastUpdateTime": "2021-06-17T05:52:48.74Z"
+        }
+      },
+      "buildNumberRevision": 2,
+      "project": {
+        "id": "6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+        "name": "poc",
+        "url": "https://dev.azure.com/tpwange/_apis/projects/6af3092f-4f64-41ff-afd5-be24db8ed7b0",
+        "state": "wellFormed",
+        "revision": 12,
+        "visibility": "private",
+        "lastUpdateTime": "2021-06-17T05:52:48.74Z"
+      },
+      "uri": "vstfs:///Build/Build/88",
+      "sourceBranch": "refs/heads/main",
+      "sourceVersion": "1c4446eb79ae6693d91c8fe205d2d34ac00f8c12",
+      "queue": {
+        "id": 8,
+        "name": "Hosted Ubuntu 1604",
+        "pool": {
+          "id": 8,
+          "name": "Hosted Ubuntu 1604",
+          "isHosted": true
+        }
+      },
+      "priority": "normal",
+      "reason": "individualCI",
+      "requestedFor": {
+        "displayName": "Tzupo Wang",
+        "url": "https://spsprodsea2.vssps.visualstudio.com/Adfc8d897-babb-43b6-8dac-80beda8f57df/_apis/Identities/2e31c11b-3529-6576-ab2a-58dec0f33eb9",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/msa.MmUzMWMxMWItMzUyOS03NTc2LWFiMmEtNThkZWMwZjMzZWI5"
+          }
+        },
+        "id": "2e31c11b-3529-6576-ab2a-58dec0f33eb9",
+        "uniqueName": "tpwange@hotmail.com",
+        "imageUrl": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/msa.MmUzMWMxMWItMzUyOS03NTc2LWFiMmEtNThkZWMwZjMzZWI5",
+        "descriptor": "msa.MmUzMWMxMWItMzUyOS03NTc2LWFiMmEtNThkZWMwZjMzZWI5"
+      },
+      "requestedBy": {
+        "displayName": "Microsoft.VisualStudio.Services.TFS",
+        "url": "https://spsprodsea2.vssps.visualstudio.com/Adfc8d897-babb-43b6-8dac-80beda8f57df/_apis/Identities/00000002-0000-8888-8000-000000000000",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          }
+        },
+        "id": "00000002-0000-8888-8000-000000000000",
+        "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+        "imageUrl": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA",
+        "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+      },
+      "lastChangedDate": "2021-07-16T14:34:55.527Z",
+      "lastChangedBy": {
+        "displayName": "Microsoft.VisualStudio.Services.TFS",
+        "url": "https://spsprodsea2.vssps.visualstudio.com/Adfc8d897-babb-43b6-8dac-80beda8f57df/_apis/Identities/00000002-0000-8888-8000-000000000000",
+        "_links": {
+          "avatar": {
+            "href": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+          }
+        },
+        "id": "00000002-0000-8888-8000-000000000000",
+        "uniqueName": "00000002-0000-8888-8000-000000000000@2c895908-04e0-4952-89fd-54b0046d6288",
+        "imageUrl": "https://dev.azure.com/tpwange/_apis/GraphProfile/MemberAvatars/s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA",
+        "descriptor": "s2s.MDAwMDAwMDItMDAwMC04ODg4LTgwMDAtMDAwMDAwMDAwMDAwQDJjODk1OTA4LTA0ZTAtNDk1Mi04OWZkLTU0YjAwNDZkNjI4OA"
+      },
+      "orchestrationPlan": {
+        "planId": "96509493-70cb-4ef2-bdc4-96a66c86624a"
+      },
+      "logs": {
+        "id": 0,
+        "type": "Container",
+        "url": "https://dev.azure.com/tpwange/6af3092f-4f64-41ff-afd5-be24db8ed7b0/_apis/build/builds/88/logs"
+      },
+      "repository": {
+        "id": "0376cdc7-e386-44a3-85b0-b09b8c20c534",
+        "type": "TfsGit",
+        "name": "poc",
+        "url": "https://dev.azure.com/tpwange/poc/_git/poc",
+        "clean": null,
+        "checkoutSubmodules": false
+      },
+      "retainedByRelease": false,
+      "triggeredByBuild": null
+    }
+  ]
+}
