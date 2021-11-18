@@ -9,6 +9,7 @@
 from msrest import Serializer, Deserializer
 from ...client import Client
 from . import models
+from ...detailed_response import DetailedResponse
 
 
 class GitClientBase(Client):
@@ -2837,7 +2838,11 @@ class GitClientBase(Client):
                               version='6.0-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[GitRef]', self._unwrap_collection(response))
+
+        response_value = self._deserialize('[GitRef]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return DetailedResponse(response_value, continuation_token)
+
 
     def update_ref(self, new_ref_info, repository_id, filter, project=None, project_id=None):
         """UpdateRef.
@@ -3032,7 +3037,10 @@ class GitClientBase(Client):
                               version='6.0-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[GitRepository]', self._unwrap_collection(response))
+        response_value = self._deserialize('[GitRepository]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return DetailedResponse(response_value, continuation_token)
+
 
     def get_repository(self, repository_id, project=None):
         """GetRepository.

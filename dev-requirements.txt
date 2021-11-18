@@ -1,0 +1,5 @@
+-r requirements.txt
+
+bandit==1.7.0
+flake8==3.6.0
+flake8-breakpoint==1.1.0

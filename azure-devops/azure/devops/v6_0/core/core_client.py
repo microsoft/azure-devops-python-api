@@ -8,6 +8,7 @@
 
 from msrest import Serializer, Deserializer
 from ...client import Client
+from ...detailed_response import DetailedResponse
 from . import models
 
 
@@ -134,7 +135,10 @@ class CoreClient(Client):
                               version='6.0-preview.2',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[TeamMember]', self._unwrap_collection(response))
+
+        response_value = self._deserialize('[TeamMember]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return DetailedResponse(response_value, continuation_token)
 
     def get_process_by_id(self, process_id):
         """GetProcessById.
@@ -242,7 +246,9 @@ class CoreClient(Client):
                               location_id='603fe2ac-9723-48b9-88ad-09305aa6c6e1',
                               version='6.0-preview.4',
                               query_parameters=query_parameters)
-        return self._deserialize('[TeamProjectReference]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TeamProjectReference]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return DetailedResponse(response_value, continuation_token)
 
     def queue_create_project(self, project_to_create):
         """QueueCreateProject.
@@ -394,7 +400,10 @@ class CoreClient(Client):
                               location_id='7a4d9ee9-3433-4347-b47a-7a80f1cf307e',
                               version='6.0-preview.3',
                               query_parameters=query_parameters)
-        return self._deserialize('[WebApiTeam]', self._unwrap_collection(response))
+
+        response_value = self._deserialize('[WebApiTeam]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return DetailedResponse(response_value, continuation_token)
 
     def create_team(self, team, project_id):
         """CreateTeam.
@@ -480,7 +489,9 @@ class CoreClient(Client):
                               version='6.0-preview.3',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[WebApiTeam]', self._unwrap_collection(response))
+        response_value = self._deserialize('[WebApiTeam]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return DetailedResponse(response_value, continuation_token)
 
     def update_team(self, team_data, project_id, team_id):
         """UpdateTeam.

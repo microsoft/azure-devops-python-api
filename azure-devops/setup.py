@@ -5,8 +5,8 @@
 
 from setuptools import setup, find_packages
 
-NAME = "azure-devops"
-VERSION = "6.0.0b4"
+NAME = "linearb-azure-devops-client"
+VERSION = "0.9"
 
 # To install the library, run the following
 #
@@ -20,12 +20,9 @@ REQUIRES = [
 ]
 
 CLASSIFIERS = [
-    'Development Status :: 4 - Beta',
     'Intended Audience :: Developers',
     'Intended Audience :: System Administrators',
     'Programming Language :: Python',
-    'Programming Language :: Python :: 2',
-    'Programming Language :: Python :: 2.7',
     'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: 3.6',
@@ -41,8 +38,8 @@ setup(
     description="Python wrapper around the Azure DevOps 6.x APIs",
     author="Microsoft Corporation",
     author_email="vstscli@microsoft.com",
-    url="https://github.com/Microsoft/vsts-python-api",
-    keywords=["Microsoft", "VSTS", "Team Services", "SDK", "AzureTfs", "AzureDevOps", "DevOps"],
+    url="https://github.com/linear-b/azure-devops-python-api",
+    keywords=["Microsoft", "LinearB", "VSTS", "Team Services", "SDK", "AzureTfs", "AzureDevOps", "DevOps"],
     install_requires=REQUIRES,
     classifiers=CLASSIFIERS,
     packages=find_packages(),
