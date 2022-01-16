@@ -10,6 +10,7 @@ following is a list of changes on top of original repository
 2. deleted scripts directory
 3. removed v5_1 clients package`
 4. added 'DetailedResponse' class to return end point returned values and pagination token (bug fix for 6.0 clients)
+5. Some 'get' functions in git_client_base return FullResponse object instead of only deserialized response
 
 
 ## installation and packaging
