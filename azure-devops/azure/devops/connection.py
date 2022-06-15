@@ -21,7 +21,7 @@ class Connection(object):
     """Connection.
     """
 
-    def __init__(self, base_url=None, creds=None, user_agent=None):
+    def __init__(self, base_url=None, creds=None, user_agent=None, ssl_verify=True):
         self._config = ClientConfiguration(base_url)
         self._config.credentials = creds
         self._addition_user_agent = user_agent
@@ -36,6 +36,7 @@ class Connection(object):
         self.clients_v5_1 = ClientFactoryV5_1(self)
         self.clients_v6_0 = ClientFactoryV6_0(self)
         self.use_fiddler = False
+        self._ssl_verify = ssl_verify
 
     def get_client(self, client_type):
         """get_client.
@@ -58,6 +59,7 @@ class Connection(object):
         url = self._get_url_for_client_instance(client_class)
         client = client_class(url, self._creds)
         client.add_user_agent(self._addition_user_agent)
+        self._configure_client_ssl_option(client)
         if self.use_fiddler:
             self._configure_client_for_fiddler(client)
         return client
@@ -92,6 +94,7 @@ class Connection(object):
         if resource_id in _deployment_level_resource_areas:
             return _deployment_level_resource_areas[resource_id]
         location_client = LocationClient(sps_url, self._creds)
+        self._configure_client_ssl_option(location_client)
         if self.use_fiddler:
             self._configure_client_for_fiddler(location_client)
         resource_area = location_client.get_resource_area(area_id=resource_id)
@@ -104,6 +107,7 @@ class Connection(object):
     def _get_resource_areas(self, force=False):
         if self._resource_areas is None or force:
             location_client = LocationClient(self.base_url, self._creds)
+            self._configure_client_ssl_option(location_client)
             if self.use_fiddler:
                 self._configure_client_for_fiddler(location_client)
             if not force and RESOURCE_FILE_CACHE[location_client.normalized_url]:
@@ -128,6 +132,9 @@ class Connection(object):
             except Exception as ex:
                 logger.debug(ex, exc_info=True)
         return self._resource_areas
+
+    def _configure_client_ssl_option(self, client):
+        client.config.connection.verify = self._ssl_verify
 
     @staticmethod
     def _combine_url(part1, part2):
