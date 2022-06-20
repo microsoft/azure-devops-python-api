@@ -9,7 +9,7 @@
 from msrest import Serializer, Deserializer
 from ...client import Client
 from . import models
-
+from ...full_response import FullResponse
 
 class GraphClient(Client):
     """Graph
@@ -429,7 +429,7 @@ class GraphClient(Client):
         response_object = models.PagedGraphUsers()
         response_object.graph_users = self._deserialize('[GraphUser]', self._unwrap_collection(response))
         response_object.continuation_token = response.headers.get('X-MS-ContinuationToken')
-        return response_object
+        return FullResponse(response_object, response)
 
     def update_user(self, update_context, user_descriptor):
         """UpdateUser.
