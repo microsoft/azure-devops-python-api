@@ -9,7 +9,7 @@
 from msrest import Serializer, Deserializer
 from ...client import Client
 from . import models
-
+from ...full_response import FullResponse
 
 class ServiceHooksClient(Client):
     """ServiceHooks
@@ -286,14 +286,14 @@ class ServiceHooksClient(Client):
         """CreateSubscription.
         [Preview API] Create a subscription.
         :param :class:`<Subscription> <azure.devops.v6_0.service_hooks.models.Subscription>` subscription: Subscription to be created.
-        :rtype: :class:`<Subscription> <azure.devops.v6_0.service_hooks.models.Subscription>`
+        :rtype: class:`<FullResponse> <azure.devops.FullResponse>`
         """
         content = self._serialize.body(subscription, 'Subscription')
         response = self._send(http_method='POST',
                               location_id='fc50d02a-849f-41fb-8af1-0a5216103269',
                               version='6.0-preview.1',
                               content=content)
-        return self._deserialize('Subscription', response)
+        return FullResponse(self._deserialize('Subscription', response), response)
 
     def delete_subscription(self, subscription_id):
         """DeleteSubscription.
@@ -330,7 +330,7 @@ class ServiceHooksClient(Client):
         :param str event_type: The event type to filter on (if any).
         :param str consumer_id: ID for a consumer.
         :param str consumer_action_id: ID for a consumerActionId.
-        :rtype: [Subscription]
+        :rtype: class:`<FullResponse> <azure.devops.FullResponse>`
         """
         query_parameters = {}
         if publisher_id is not None:
@@ -345,7 +345,7 @@ class ServiceHooksClient(Client):
                               location_id='fc50d02a-849f-41fb-8af1-0a5216103269',
                               version='6.0-preview.1',
                               query_parameters=query_parameters)
-        return self._deserialize('[Subscription]', self._unwrap_collection(response))
+        return FullResponse(self._deserialize('[Subscription]', self._unwrap_collection(response)), response)
 
     def replace_subscription(self, subscription, subscription_id=None):
         """ReplaceSubscription.
@@ -369,14 +369,14 @@ class ServiceHooksClient(Client):
         """CreateSubscriptionsQuery.
         [Preview API] Query for service hook subscriptions.
         :param :class:`<SubscriptionsQuery> <azure.devops.v6_0.service_hooks.models.SubscriptionsQuery>` query:
-        :rtype: :class:`<SubscriptionsQuery> <azure.devops.v6_0.service_hooks.models.SubscriptionsQuery>`
+        :rtype: class:`<FullResponse> <azure.devops.FullResponse>`
         """
         content = self._serialize.body(query, 'SubscriptionsQuery')
         response = self._send(http_method='POST',
                               location_id='c7c3c1cf-9e05-4c0d-a425-a0f922c2c6ed',
                               version='6.0-preview.1',
                               content=content)
-        return self._deserialize('SubscriptionsQuery', response)
+        return FullResponse(self._deserialize('SubscriptionsQuery', response), response)
 
     def create_test_notification(self, test_notification, use_real_data=None):
         """CreateTestNotification.

@@ -6,7 +6,7 @@
 from setuptools import setup, find_packages
 
 NAME = "linearb-azure-devops-client"
-VERSION = "0.9.1"
+VERSION = "0.9.2"
 
 # To install the library, run the following
 #
