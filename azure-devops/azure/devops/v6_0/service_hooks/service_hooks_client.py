@@ -303,10 +303,11 @@ class ServiceHooksClient(Client):
         route_values = {}
         if subscription_id is not None:
             route_values['subscriptionId'] = self._serialize.url('subscription_id', subscription_id, 'str')
-        self._send(http_method='DELETE',
+        response = self._send(http_method='DELETE',
                    location_id='fc50d02a-849f-41fb-8af1-0a5216103269',
                    version='6.0-preview.1',
                    route_values=route_values)
+        return FullResponse(None, response)
 
     def get_subscription(self, subscription_id):
         """GetSubscription.
