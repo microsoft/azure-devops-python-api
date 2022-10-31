@@ -69,16 +69,24 @@ class CreatePipelineConfigurationParameters(Model):
     Configuration parameters of the pipeline.
 
     :param type: Type of configuration.
+    :type type: str
+    :param path: Path of the configuration.
+    :type type: str
+    :param repository: Where the configuration resides.
     :type type: object
     """
 
     _attribute_map = {
-        'type': {'key': 'type', 'type': 'object'}
+        'type': {'key': 'type', 'type': 'str'},
+        'path': {'key': 'path', 'type': 'str'},
+        'repository': {'key': 'repository', 'type': 'object'}
     }
 
-    def __init__(self, type=None):
-        super(CreatePipelineConfigurationParameters, self).__init__()
+    def __init__(self, type=None, path=None, repository=None):
+        super(CreatePipelineConfigurationParameters, self).__init__()        
         self.type = type
+        self.path = path
+        self.repository = repository
 
 
 class CreatePipelineParameters(Model):
