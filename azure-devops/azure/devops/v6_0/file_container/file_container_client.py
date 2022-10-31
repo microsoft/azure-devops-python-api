@@ -87,19 +87,7 @@ class FileContainerClient(Client):
                               query_parameters=query_parameters)
         return self._deserialize('[FileContainer]', self._unwrap_collection(response))
 
-    def get_items(self, container_id, scope=None, item_path=None, metadata=None, format=None, download_file_name=None, include_download_tickets=None, is_shallow=None):
-        """GetItems.
-        [Preview API]
-        :param long container_id:
-        :param str scope:
-        :param str item_path:
-        :param bool metadata:
-        :param str format:
-        :param str download_file_name:
-        :param bool include_download_tickets:
-        :param bool is_shallow:
-        :rtype: [FileContainerItem]
-        """
+    def __get_items(self, container_id, scope=None, item_path=None, metadata=None, format=None, download_file_name=None, include_download_tickets=None, is_shallow=None):
         route_values = {}
         if container_id is not None:
             route_values['containerId'] = self._serialize.url('container_id', container_id, 'long')
@@ -118,10 +106,62 @@ class FileContainerClient(Client):
             query_parameters['includeDownloadTickets'] = self._serialize.query('include_download_tickets', include_download_tickets, 'bool')
         if is_shallow is not None:
             query_parameters['isShallow'] = self._serialize.query('is_shallow', is_shallow, 'bool')
-        response = self._send(http_method='GET',
-                              location_id='e4f5c81e-e250-447b-9fef-bd48471bea5e',
-                              version='6.0-preview.4',
-                              route_values=route_values,
-                              query_parameters=query_parameters)
+        return self._send(http_method='GET',
+                          location_id='e4f5c81e-e250-447b-9fef-bd48471bea5e',
+                          version='6.0-preview.4',
+                          route_values=route_values,
+                          query_parameters=query_parameters)
+
+    def get_items(self, container_id, scope=None, item_path=None, metadata=None, format=None, download_file_name=None, include_download_tickets=None, is_shallow=None, as_stream=False, **kwargs):
+        """GetItems.
+        [Preview API]
+        :param long container_id:
+        :param str scope:
+        :param str item_path:
+        :param bool metadata:
+        :param str format:
+        :param str download_file_name:
+        :param bool include_download_tickets:
+        :param bool is_shallow:
+        :rtype: [FileContainerItem]
+        """
+
+        response = self.__get_items(
+            container_id=container_id,
+            scope=scope,
+            item_path=item_path,
+            metadata=metadata,
+            format=format,
+            download_file_name=download_file_name,
+            include_download_tickets=include_download_tickets,
+            is_shallow=is_shallow)
+
         return self._deserialize('[FileContainerItem]', self._unwrap_collection(response))
 
+    def download_item(self, container_id, scope=None, item_path=None, download_file_name=None, is_shallow=None, **kwargs):
+        """GetItems.
+        [Preview API]
+        :param long container_id:
+        :param str scope:
+        :param str item_path:
+        :param str download_file_name:
+        :param bool is_shallow:
+        :rtype: object
+        """
+
+        response = self.__get_items(
+            container_id=container_id,
+            scope=scope,
+            item_path=item_path,
+            metadata=None,
+            format='OctetStream',
+            download_file_name=download_file_name,
+            include_download_tickets=None,
+            is_shallow=is_shallow)
+
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+
+        return self._client.stream_download(response, callback=callback)
