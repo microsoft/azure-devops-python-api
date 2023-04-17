@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v5_1.task_agent.models import *
+from ...v7_0.task_agent.models import *
 from .task_agent_client import TaskAgentClient
 
 __all__ = [
@@ -57,7 +57,6 @@ __all__ = [
     'InputValuesError',
     'KubernetesResource',
     'KubernetesResourceCreateParameters',
-    'MarketplacePurchasedLicense',
     'MetricsColumnMetaData',
     'MetricsColumnsHeader',
     'MetricsRow',
@@ -84,7 +83,6 @@ __all__ = [
     'TaskAgentCloud',
     'TaskAgentCloudRequest',
     'TaskAgentCloudType',
-    'TaskAgentDelaySource',
     'TaskAgentJobRequest',
     'TaskAgentMessage',
     'TaskAgentPool',
@@ -102,6 +100,7 @@ __all__ = [
     'TaskAgentSessionKey',
     'TaskAgentUpdate',
     'TaskAgentUpdateReason',
+    'TaskCommandRestrictions',
     'TaskDefinition',
     'TaskDefinitionEndpoint',
     'TaskDefinitionReference',
@@ -112,6 +111,7 @@ __all__ = [
     'TaskGroupRevision',
     'TaskGroupStep',
     'TaskGroupUpdateParameter',
+    'TaskGroupUpdatePropertiesBase',
     'TaskHubLicenseDetails',
     'TaskInputDefinition',
     'TaskInputDefinitionBase',
@@ -120,12 +120,15 @@ __all__ = [
     'TaskOutputVariable',
     'TaskPackageMetadata',
     'TaskReference',
+    'TaskRestrictions',
     'TaskSourceDefinition',
     'TaskSourceDefinitionBase',
+    'TaskVariableRestrictions',
     'TaskVersion',
     'ValidationItem',
     'VariableGroup',
     'VariableGroupParameters',
+    'VariableGroupProjectReference',
     'VariableGroupProviderData',
     'VariableValue',
     'VirtualMachine',
