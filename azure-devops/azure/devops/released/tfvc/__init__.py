@@ -6,17 +6,17 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v5_1.tfvc.models import *
+from ...v7_0.tfvc.models import *
 from .tfvc_client import TfvcClient
 
 __all__ = [
     'AssociatedWorkItem',
-    'Change',
-    'CheckinNote',
     'FileContentMetadata',
     'GitRepository',
     'GitRepositoryRef',
     'GraphSubjectBase',
+    'Change',
+    'CheckinNote',
     'IdentityRef',
     'ItemContent',
     'ItemModel',
