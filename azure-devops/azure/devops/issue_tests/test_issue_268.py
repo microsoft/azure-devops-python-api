@@ -22,13 +22,13 @@ class _TestResponse(HTTPClientResponse):
 class TestDeserialization(unittest.TestCase):
 
     # https://github.com/microsoft/azure-devops-python-api/issues/268
-    def test_deserialization_issue_268_51(self):
-        from azure.devops.v5_1.task_agent import models
+    def test_deserialization_issue_268_71(self):
+        from azure.devops.v7_1.task_agent import models
         self._test_deserialization(models.__dict__.items(), _268_type, _268_json)
 
     # https://github.com/microsoft/azure-devops-python-api/issues/268
-    def test_deserialization_issue_268_60(self):
-        from azure.devops.v6_0.task_agent import models
+    def test_deserialization_issue_268_70(self):
+        from azure.devops.v7_0.task_agent import models
         self._test_deserialization(models.__dict__.items(), _268_type, _268_json)
 
     @staticmethod
