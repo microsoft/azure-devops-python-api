@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v5_1.build.models import *
+from ...v7_0.build.models import *
 from .build_client import BuildClient
 
 __all__ = [
@@ -46,28 +46,41 @@ __all__ = [
     'BuildRepository',
     'BuildRequestValidationResult',
     'BuildResourceUsage',
+    'BuildRetentionHistory',
+    'BuildRetentionSample',
     'BuildSettings',
-    'Change',
     'DataSourceBindingBase',
     'DefinitionReference',
     'DefinitionResourceReference',
     'Deployment',
     'Folder',
     'GraphSubjectBase',
+    'Change',
     'IdentityRef',
     'Issue',
+    'JobReference',
     'JsonPatchOperation',
+    'MinimalRetentionLease',
+    'NewRetentionLease',
+    'PhaseReference',
+    'PipelineGeneralSettings',
+    'PipelineReference',
     'ProcessParameters',
+    'ProjectRetentionSetting',
     'PullRequest',
     'ReferenceLinks',
     'ReleaseReference',
     'RepositoryWebhook',
     'ResourceRef',
+    'RetentionLease',
+    'RetentionLeaseUpdate',
     'RetentionPolicy',
+    'RetentionSetting',
     'SourceProviderAttributes',
     'SourceRepositories',
     'SourceRepository',
     'SourceRepositoryItem',
+    'StageReference',
     'SupportedTrigger',
     'TaskAgentPoolReference',
     'TaskDefinitionReference',
@@ -82,9 +95,14 @@ __all__ = [
     'TimelineAttempt',
     'TimelineRecord',
     'TimelineReference',
+    'UpdateProjectRetentionSettingModel',
+    'UpdateRetentionSettingModel',
+    'UpdateStageParameters',
+    'UpdateTagParameters',
     'VariableGroup',
     'VariableGroupReference',
     'WebApiConnectedServiceRef',
     'XamlBuildControllerReference',
+    'YamlBuild',
     'BuildClient'
 ]
