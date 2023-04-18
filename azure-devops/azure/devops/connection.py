@@ -10,9 +10,9 @@ from ._file_cache import RESOURCE_CACHE as RESOURCE_FILE_CACHE
 from .client_configuration import ClientConfiguration
 from .exceptions import AzureDevOpsClientRequestError
 from .released.client_factory import ClientFactory
-from .v5_1.location.location_client import LocationClient
-from .v5_1.client_factory import ClientFactoryV5_1
-from .v6_0.client_factory import ClientFactoryV6_0
+from .v7_1.location.location_client import LocationClient
+from .v7_1.client_factory import ClientFactoryV7_1
+from .v7_0.client_factory import ClientFactoryV7_0
 
 logger = logging.getLogger(__name__)
 
@@ -33,8 +33,8 @@ class Connection(object):
         self._creds = creds
         self._resource_areas = None
         self.clients = ClientFactory(self)
-        self.clients_v5_1 = ClientFactoryV5_1(self)
-        self.clients_v6_0 = ClientFactoryV6_0(self)
+        self.clients_v7_1 = ClientFactoryV7_1(self)
+        self.clients_v7_0 = ClientFactoryV7_0(self)
         self.use_fiddler = False
 
     def get_client(self, client_type):
