@@ -6,7 +6,7 @@
 from setuptools import setup, find_packages
 
 NAME = "azure-devops"
-VERSION = "7.0.0"
+VERSION = "7.1.0b1"
 
 # To install the library, run the following
 #
@@ -25,7 +25,6 @@ CLASSIFIERS = [
     'Intended Audience :: System Administrators',
     'Programming Language :: Python',
     'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: 3.7',
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
@@ -38,16 +37,15 @@ setup(
     name=NAME,
     version=VERSION,
     license='MIT',
-    description="Python wrapper around the Azure DevOps 6.x APIs",
+    description="Python wrapper around the Azure DevOps 7.x APIs",
     author="Microsoft Corporation",
-    author_email="vstscli@microsoft.com",
-    url="https://github.com/Microsoft/vsts-python-api",
+    url="https://github.com/microsoft/azure-devops-python-api",
     keywords=["Microsoft", "VSTS", "Team Services", "SDK", "AzureTfs", "AzureDevOps", "DevOps"],
     install_requires=REQUIRES,
     classifiers=CLASSIFIERS,
     packages=find_packages(),
     include_package_data=True,
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     long_description="""\
     """
 )

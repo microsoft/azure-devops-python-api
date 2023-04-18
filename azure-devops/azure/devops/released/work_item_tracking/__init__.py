@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v5_1.work_item_tracking.models import *
+from ...v7_0.work_item_tracking.models import *
 from .work_item_tracking_client import WorkItemTrackingClient
 
 __all__ = [
@@ -26,13 +26,19 @@ __all__ = [
     'CommentReaction',
     'CommentUpdate',
     'CommentVersion',
+    'EmailRecipients',
+    'ExternalDeployment',
+    'ExternalEnvironment',
+    'ExternalPipeline',
     'FieldDependentRule',
-    'FieldsToEvaluate',
     'GraphSubjectBase',
     'IdentityRef',
     'IdentityReference',
     'JsonPatchOperation',
     'Link',
+    'MailMessage',
+    'ProcessIdModel',
+    'ProcessMigrationResultModel',
     'ProjectWorkItemStateColors',
     'ProvisioningResult',
     'QueryBatchGetRequest',
@@ -42,8 +48,10 @@ __all__ = [
     'ReportingWorkItemLinksBatch',
     'ReportingWorkItemRevisionsBatch',
     'ReportingWorkItemRevisionsFilter',
+    'SendMailBody',
     'StreamedBatch',
     'TeamContext',
+    'UpdateWorkItemField',
     'Wiql',
     'WorkArtifactLink',
     'WorkItem',
@@ -73,6 +81,7 @@ __all__ = [
     'WorkItemRelationUpdates',
     'WorkItemStateColor',
     'WorkItemStateTransition',
+    'WorkItemTagDefinition',
     'WorkItemTemplate',
     'WorkItemTemplateReference',
     'WorkItemTrackingReference',

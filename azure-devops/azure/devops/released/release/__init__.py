@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v5_1.release.models import *
+from ...v7_0.release.models import *
 from .release_client import ReleaseClient
 
 __all__ = [
@@ -22,7 +22,6 @@ __all__ = [
     'AuthorizationHeader',
     'AutoTriggerIssue',
     'BuildVersion',
-    'Change',
     'ComplianceSettings',
     'Condition',
     'ConfigurationVariableValue',
@@ -41,6 +40,7 @@ __all__ = [
     'Folder',
     'GateUpdateMetadata',
     'GraphSubjectBase',
+    'Change',
     'IdentityRef',
     'IgnoredGate',
     'InputDescriptor',
@@ -54,8 +54,12 @@ __all__ = [
     'ManualIntervention',
     'ManualInterventionUpdateMetadata',
     'Metric',
+    'OrgPipelineReleaseSettings',
+    'OrgPipelineReleaseSettingsUpdateParameters',
     'PipelineProcess',
     'ProcessParameters',
+    'ProjectPipelineReleaseSettings',
+    'ProjectPipelineReleaseSettingsUpdateParameters',
     'ProjectReference',
     'QueuedReleaseData',
     'ReferenceLinks',
@@ -85,9 +89,9 @@ __all__ = [
     'ReleaseGates',
     'ReleaseReference',
     'ReleaseRevision',
-    'ReleaseSchedule',
     'ReleaseSettings',
     'ReleaseShallowReference',
+    'ReleaseSchedule',
     'ReleaseStartEnvironmentMetadata',
     'ReleaseStartMetadata',
     'ReleaseTask',
@@ -102,6 +106,7 @@ __all__ = [
     'TaskInputValidation',
     'TaskSourceDefinitionBase',
     'VariableGroup',
+    'VariableGroupProjectReference',
     'VariableGroupProviderData',
     'VariableValue',
     'WorkflowTask',
