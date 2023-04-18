@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v5_1.test_plan.models import *
+from ...v7_0.test_plan.models import *
 from .test_plan_client import TestPlanClient
 
 __all__ = [
@@ -14,6 +14,9 @@ __all__ = [
     'CloneOperationCommonResponse',
     'CloneOptions',
     'CloneStatistics',
+    'CloneTestCaseOperationInformation',
+    'CloneTestCaseOptions',
+    'CloneTestCaseParams',
     'CloneTestPlanOperationInformation',
     'CloneTestPlanParams',
     'CloneTestSuiteOperationInformation',
@@ -24,6 +27,8 @@ __all__ = [
     'GraphSubjectBase',
     'IdentityRef',
     'LastResultDetails',
+    'LibraryWorkItemsData',
+    'LibraryWorkItemsDataProviderRequest',
     'NameValuePair',
     'PointAssignment',
     'ReferenceLinks',
@@ -32,15 +37,19 @@ __all__ = [
     'SourceTestPlanInfo',
     'SourceTestplanResponse',
     'SourceTestSuiteInfo',
+    'SourceTestSuiteResponse',
     'SuiteEntry',
     'SuiteEntryUpdateParams',
     'SuiteTestCaseCreateUpdateParameters',
     'TeamProjectReference',
     'TestCase',
+    'TestCaseAssociatedResult',
     'TestCaseReference',
+    'TestCaseResultsData',
     'TestConfiguration',
     'TestConfigurationCreateUpdateParameters',
     'TestConfigurationReference',
+    'TestEntityCount',
     'TestEnvironment',
     'TestOutcomeSettings',
     'TestPlan',
@@ -48,9 +57,10 @@ __all__ = [
     'TestPlanDetailedReference',
     'TestPlanReference',
     'TestPlansHubRefreshData',
+    'TestPlansLibraryWorkItemFilter',
     'TestPlanUpdateParams',
     'TestPoint',
-    'TestPointCount',
+    'TestPointDetailedReference',
     'TestPointResults',
     'TestPointUpdateParams',
     'TestSettings',

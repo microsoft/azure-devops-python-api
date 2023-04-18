@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v5_1.core.models import *
+from ...v7_0.core.models import *
 from .core_client import CoreClient
 
 __all__ = [
