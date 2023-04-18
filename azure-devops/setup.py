@@ -47,7 +47,12 @@ setup(
     classifiers=CLASSIFIERS,
     packages=find_packages(),
     include_package_data=True,
+<<<<<<< Updated upstream
     python_requires=">=3.6",
     long_description="""\
     """
+=======
+    python_requires=">=3.7",
+    long_description="Azure DevOps Python clients"
+>>>>>>> Stashed changes
 )
