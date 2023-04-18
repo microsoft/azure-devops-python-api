@@ -8,7 +8,7 @@
 
 from msrest import Serializer, Deserializer
 from ...client import Client
-from ...v5_1.release import models
+from ...v7_0.release import models
 
 
 class ReleaseClient(Client):
@@ -37,7 +37,7 @@ class ReleaseClient(Client):
         :param int continuation_token: Gets the approvals after the continuation token provided.
         :param str query_order: Gets the results in the defined order of created approvals. Default is 'descending'.
         :param bool include_my_group_approvals: 'true' to include my group approvals. Default is 'false'.
-        :rtype: :class:`<GetApprovalsResponseValue>`
+        :rtype: :class:`<[ReleaseApproval]> <azure.devops.v7_0.release.models.[ReleaseApproval]>`
         """
         route_values = {}
         if project is not None:
@@ -62,33 +62,18 @@ class ReleaseClient(Client):
             query_parameters['includeMyGroupApprovals'] = self._serialize.query('include_my_group_approvals', include_my_group_approvals, 'bool')
         response = self._send(http_method='GET',
                               location_id='b47c6458-e73b-47cb-a770-4df1e8813a91',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        response_value = self._deserialize('[ReleaseApproval]', self._unwrap_collection(response))
-        continuation_token = self._get_continuation_token(response)
-        return self.GetApprovalsResponseValue(response_value, continuation_token)
-
-    class GetApprovalsResponseValue(object):
-        def __init__(self, value, continuation_token):
-            """
-            Response for the get_approvals method
-
-            :param value:
-            :type value: :class:`<[ReleaseApproval]> <azure.devops.v5_1.release.models.[ReleaseApproval]>`
-            :param continuation_token: The continuation token to be used to get the next page of results.
-            :type continuation_token: str
-            """
-            self.value = value
-            self.continuation_token = continuation_token
+        return self._deserialize('[ReleaseApproval]', self._unwrap_collection(response))
 
     def update_release_approval(self, approval, project, approval_id):
         """UpdateReleaseApproval.
         Update status of an approval
-        :param :class:`<ReleaseApproval> <azure.devops.v5_1.release.models.ReleaseApproval>` approval: ReleaseApproval object having status, approver and comments.
+        :param :class:`<ReleaseApproval> <azure.devops.v7_0.release.models.ReleaseApproval>` approval: ReleaseApproval object having status, approver and comments.
         :param str project: Project ID or project name
         :param int approval_id: Id of the approval.
-        :rtype: :class:`<ReleaseApproval> <azure.devops.v5_1.release.models.ReleaseApproval>`
+        :rtype: :class:`<ReleaseApproval> <azure.devops.v7_0.release.models.ReleaseApproval>`
         """
         route_values = {}
         if project is not None:
@@ -98,17 +83,91 @@ class ReleaseClient(Client):
         content = self._serialize.body(approval, 'ReleaseApproval')
         response = self._send(http_method='PATCH',
                               location_id='9328e074-59fb-465a-89d9-b09c82ee5109',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values,
                               content=content)
         return self._deserialize('ReleaseApproval', response)
 
+    def get_release_task_attachment_content(self, project, release_id, environment_id, attempt_id, plan_id, timeline_id, record_id, type, name, **kwargs):
+        """GetReleaseTaskAttachmentContent.
+        Get a release task attachment.
+        :param str project: Project ID or project name
+        :param int release_id: Id of the release.
+        :param int environment_id: Id of the release environment.
+        :param int attempt_id: Attempt number of deployment.
+        :param str plan_id: Plan Id of the deploy phase.
+        :param str timeline_id: Timeline Id of the task.
+        :param str record_id: Record Id of attachment.
+        :param str type: Type of the attachment.
+        :param str name: Name of the attachment.
+        :rtype: object
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if release_id is not None:
+            route_values['releaseId'] = self._serialize.url('release_id', release_id, 'int')
+        if environment_id is not None:
+            route_values['environmentId'] = self._serialize.url('environment_id', environment_id, 'int')
+        if attempt_id is not None:
+            route_values['attemptId'] = self._serialize.url('attempt_id', attempt_id, 'int')
+        if plan_id is not None:
+            route_values['planId'] = self._serialize.url('plan_id', plan_id, 'str')
+        if timeline_id is not None:
+            route_values['timelineId'] = self._serialize.url('timeline_id', timeline_id, 'str')
+        if record_id is not None:
+            route_values['recordId'] = self._serialize.url('record_id', record_id, 'str')
+        if type is not None:
+            route_values['type'] = self._serialize.url('type', type, 'str')
+        if name is not None:
+            route_values['name'] = self._serialize.url('name', name, 'str')
+        response = self._send(http_method='GET',
+                              location_id='60b86efb-7b8c-4853-8f9f-aa142b77b479',
+                              version='7.0',
+                              route_values=route_values,
+                              accept_media_type='application/octet-stream')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
+
+    def get_release_task_attachments(self, project, release_id, environment_id, attempt_id, plan_id, type):
+        """GetReleaseTaskAttachments.
+        Get the release task attachments.
+        :param str project: Project ID or project name
+        :param int release_id: Id of the release.
+        :param int environment_id: Id of the release environment.
+        :param int attempt_id: Attempt number of deployment.
+        :param str plan_id: Plan Id of the deploy phase.
+        :param str type: Type of the attachment.
+        :rtype: [ReleaseTaskAttachment]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if release_id is not None:
+            route_values['releaseId'] = self._serialize.url('release_id', release_id, 'int')
+        if environment_id is not None:
+            route_values['environmentId'] = self._serialize.url('environment_id', environment_id, 'int')
+        if attempt_id is not None:
+            route_values['attemptId'] = self._serialize.url('attempt_id', attempt_id, 'int')
+        if plan_id is not None:
+            route_values['planId'] = self._serialize.url('plan_id', plan_id, 'str')
+        if type is not None:
+            route_values['type'] = self._serialize.url('type', type, 'str')
+        response = self._send(http_method='GET',
+                              location_id='a4d06688-0dfa-4895-82a5-f43ec9452306',
+                              version='7.0',
+                              route_values=route_values)
+        return self._deserialize('[ReleaseTaskAttachment]', self._unwrap_collection(response))
+
     def create_release_definition(self, release_definition, project):
         """CreateReleaseDefinition.
         Create a release definition
-        :param :class:`<ReleaseDefinition> <azure.devops.v5_1.release.models.ReleaseDefinition>` release_definition: release definition object to create.
+        :param :class:`<ReleaseDefinition> <azure.devops.v7_0.release.models.ReleaseDefinition>` release_definition: release definition object to create.
         :param str project: Project ID or project name
-        :rtype: :class:`<ReleaseDefinition> <azure.devops.v5_1.release.models.ReleaseDefinition>`
+        :rtype: :class:`<ReleaseDefinition> <azure.devops.v7_0.release.models.ReleaseDefinition>`
         """
         route_values = {}
         if project is not None:
@@ -116,7 +175,7 @@ class ReleaseClient(Client):
         content = self._serialize.body(release_definition, 'ReleaseDefinition')
         response = self._send(http_method='POST',
                               location_id='d8f96f24-8ea7-4cb6-baab-2df8fc515665',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values,
                               content=content)
         return self._deserialize('ReleaseDefinition', response)
@@ -141,7 +200,7 @@ class ReleaseClient(Client):
             query_parameters['forceDelete'] = self._serialize.query('force_delete', force_delete, 'bool')
         self._send(http_method='DELETE',
                    location_id='d8f96f24-8ea7-4cb6-baab-2df8fc515665',
-                   version='5.1',
+                   version='7.0',
                    route_values=route_values,
                    query_parameters=query_parameters)
 
@@ -151,7 +210,7 @@ class ReleaseClient(Client):
         :param str project: Project ID or project name
         :param int definition_id: Id of the release definition.
         :param [str] property_filters: A comma-delimited list of extended properties to be retrieved. If set, the returned Release Definition will contain values for the specified property Ids (if they exist). If not set, properties will not be included.
-        :rtype: :class:`<ReleaseDefinition> <azure.devops.v5_1.release.models.ReleaseDefinition>`
+        :rtype: :class:`<ReleaseDefinition> <azure.devops.v7_0.release.models.ReleaseDefinition>`
         """
         route_values = {}
         if project is not None:
@@ -164,7 +223,7 @@ class ReleaseClient(Client):
             query_parameters['propertyFilters'] = self._serialize.query('property_filters', property_filters, 'str')
         response = self._send(http_method='GET',
                               location_id='d8f96f24-8ea7-4cb6-baab-2df8fc515665',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('ReleaseDefinition', response)
@@ -187,7 +246,7 @@ class ReleaseClient(Client):
         :param [str] definition_id_filter: A comma-delimited list of release definitions to retrieve.
         :param bool is_deleted: 'true' to get release definitions that has been deleted. Default is 'false'
         :param bool search_text_contains_folder_name: 'true' to get the release definitions under the folder with name as specified in searchText. Default is 'false'.
-        :rtype: :class:`<GetReleaseDefinitionsResponseValue>`
+        :rtype: :class:`<[ReleaseDefinition]> <azure.devops.v7_0.release.models.[ReleaseDefinition]>`
         """
         route_values = {}
         if project is not None:
@@ -226,32 +285,17 @@ class ReleaseClient(Client):
             query_parameters['searchTextContainsFolderName'] = self._serialize.query('search_text_contains_folder_name', search_text_contains_folder_name, 'bool')
         response = self._send(http_method='GET',
                               location_id='d8f96f24-8ea7-4cb6-baab-2df8fc515665',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        response_value = self._deserialize('[ReleaseDefinition]', self._unwrap_collection(response))
-        continuation_token = self._get_continuation_token(response)
-        return self.GetReleaseDefinitionsResponseValue(response_value, continuation_token)
-
-    class GetReleaseDefinitionsResponseValue(object):
-        def __init__(self, value, continuation_token):
-            """
-            Response for the get_release_definitions method
-
-            :param value:
-            :type value: :class:`<[ReleaseDefinition]> <azure.devops.v5_1.release.models.[ReleaseDefinition]>`
-            :param continuation_token: The continuation token to be used to get the next page of results.
-            :type continuation_token: str
-            """
-            self.value = value
-            self.continuation_token = continuation_token
+        return self._deserialize('[ReleaseDefinition]', self._unwrap_collection(response))
 
     def update_release_definition(self, release_definition, project):
         """UpdateReleaseDefinition.
         Update a release definition.
-        :param :class:`<ReleaseDefinition> <azure.devops.v5_1.release.models.ReleaseDefinition>` release_definition: Release definition object to update.
+        :param :class:`<ReleaseDefinition> <azure.devops.v7_0.release.models.ReleaseDefinition>` release_definition: Release definition object to update.
         :param str project: Project ID or project name
-        :rtype: :class:`<ReleaseDefinition> <azure.devops.v5_1.release.models.ReleaseDefinition>`
+        :rtype: :class:`<ReleaseDefinition> <azure.devops.v7_0.release.models.ReleaseDefinition>`
         """
         route_values = {}
         if project is not None:
@@ -259,7 +303,7 @@ class ReleaseClient(Client):
         content = self._serialize.body(release_definition, 'ReleaseDefinition')
         response = self._send(http_method='PUT',
                               location_id='d8f96f24-8ea7-4cb6-baab-2df8fc515665',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values,
                               content=content)
         return self._deserialize('ReleaseDefinition', response)
@@ -282,7 +326,7 @@ class ReleaseClient(Client):
         :param datetime min_started_time:
         :param datetime max_started_time:
         :param str source_branch:
-        :rtype: :class:`<GetDeploymentsResponseValue>`
+        :rtype: :class:`<[Deployment]> <azure.devops.v7_0.release.models.[Deployment]>`
         """
         route_values = {}
         if project is not None:
@@ -320,25 +364,204 @@ class ReleaseClient(Client):
             query_parameters['sourceBranch'] = self._serialize.query('source_branch', source_branch, 'str')
         response = self._send(http_method='GET',
                               location_id='b005ef73-cddc-448e-9ba2-5193bf36b19f',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        response_value = self._deserialize('[Deployment]', self._unwrap_collection(response))
-        continuation_token = self._get_continuation_token(response)
-        return self.GetDeploymentsResponseValue(response_value, continuation_token)
+        return self._deserialize('[Deployment]', self._unwrap_collection(response))
 
-    class GetDeploymentsResponseValue(object):
-        def __init__(self, value, continuation_token):
-            """
-            Response for the get_deployments method
+    def get_release_environment(self, project, release_id, environment_id, expand=None):
+        """GetReleaseEnvironment.
+        Get a release environment.
+        :param str project: Project ID or project name
+        :param int release_id: Id of the release.
+        :param int environment_id: Id of the release environment.
+        :param str expand: A property that should be expanded in the environment.
+        :rtype: :class:`<ReleaseEnvironment> <azure.devops.v7_0.release.models.ReleaseEnvironment>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if release_id is not None:
+            route_values['releaseId'] = self._serialize.url('release_id', release_id, 'int')
+        if environment_id is not None:
+            route_values['environmentId'] = self._serialize.url('environment_id', environment_id, 'int')
+        query_parameters = {}
+        if expand is not None:
+            query_parameters['$expand'] = self._serialize.query('expand', expand, 'str')
+        response = self._send(http_method='GET',
+                              location_id='a7e426b1-03dc-48af-9dfe-c98bac612dcb',
+                              version='7.0',
+                              route_values=route_values,
+                              query_parameters=query_parameters)
+        return self._deserialize('ReleaseEnvironment', response)
 
-            :param value:
-            :type value: :class:`<[Deployment]> <azure.devops.v5_1.release.models.[Deployment]>`
-            :param continuation_token: The continuation token to be used to get the next page of results.
-            :type continuation_token: str
-            """
-            self.value = value
-            self.continuation_token = continuation_token
+    def update_release_environment(self, environment_update_data, project, release_id, environment_id):
+        """UpdateReleaseEnvironment.
+        Update the status of a release environment
+        :param :class:`<ReleaseEnvironmentUpdateMetadata> <azure.devops.v7_0.release.models.ReleaseEnvironmentUpdateMetadata>` environment_update_data: Environment update meta data.
+        :param str project: Project ID or project name
+        :param int release_id: Id of the release.
+        :param int environment_id: Id of release environment.
+        :rtype: :class:`<ReleaseEnvironment> <azure.devops.v7_0.release.models.ReleaseEnvironment>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if release_id is not None:
+            route_values['releaseId'] = self._serialize.url('release_id', release_id, 'int')
+        if environment_id is not None:
+            route_values['environmentId'] = self._serialize.url('environment_id', environment_id, 'int')
+        content = self._serialize.body(environment_update_data, 'ReleaseEnvironmentUpdateMetadata')
+        response = self._send(http_method='PATCH',
+                              location_id='a7e426b1-03dc-48af-9dfe-c98bac612dcb',
+                              version='7.0',
+                              route_values=route_values,
+                              content=content)
+        return self._deserialize('ReleaseEnvironment', response)
+
+    def delete_folder(self, project, path):
+        """DeleteFolder.
+        Deletes a definition folder for given folder name and path and all it's existing definitions.
+        :param str project: Project ID or project name
+        :param str path: Path of the folder to delete.
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if path is not None:
+            route_values['path'] = self._serialize.url('path', path, 'str')
+        self._send(http_method='DELETE',
+                   location_id='f7ddf76d-ce0c-4d68-94ff-becaec5d9dea',
+                   version='7.0',
+                   route_values=route_values)
+
+    def get_folders(self, project, path=None, query_order=None):
+        """GetFolders.
+        Gets folders.
+        :param str project: Project ID or project name
+        :param str path: Path of the folder.
+        :param str query_order: Gets the results in the defined order. Default is 'None'.
+        :rtype: [Folder]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if path is not None:
+            route_values['path'] = self._serialize.url('path', path, 'str')
+        query_parameters = {}
+        if query_order is not None:
+            query_parameters['queryOrder'] = self._serialize.query('query_order', query_order, 'str')
+        response = self._send(http_method='GET',
+                              location_id='f7ddf76d-ce0c-4d68-94ff-becaec5d9dea',
+                              version='7.0',
+                              route_values=route_values,
+                              query_parameters=query_parameters)
+        return self._deserialize('[Folder]', self._unwrap_collection(response))
+
+    def update_folder(self, folder, project, path):
+        """UpdateFolder.
+        Updates an existing folder at given existing path.
+        :param :class:`<Folder> <azure.devops.v7_0.release.models.Folder>` folder: folder.
+        :param str project: Project ID or project name
+        :param str path: Path of the folder to update.
+        :rtype: :class:`<Folder> <azure.devops.v7_0.release.models.Folder>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if path is not None:
+            route_values['path'] = self._serialize.url('path', path, 'str')
+        content = self._serialize.body(folder, 'Folder')
+        response = self._send(http_method='PATCH',
+                              location_id='f7ddf76d-ce0c-4d68-94ff-becaec5d9dea',
+                              version='7.0',
+                              route_values=route_values,
+                              content=content)
+        return self._deserialize('Folder', response)
+
+    def update_gates(self, gate_update_metadata, project, gate_step_id):
+        """UpdateGates.
+        Updates the gate for a deployment.
+        :param :class:`<GateUpdateMetadata> <azure.devops.v7_0.release.models.GateUpdateMetadata>` gate_update_metadata: Metadata to patch the Release Gates.
+        :param str project: Project ID or project name
+        :param int gate_step_id: Gate step Id.
+        :rtype: :class:`<ReleaseGates> <azure.devops.v7_0.release.models.ReleaseGates>`
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if gate_step_id is not None:
+            route_values['gateStepId'] = self._serialize.url('gate_step_id', gate_step_id, 'int')
+        content = self._serialize.body(gate_update_metadata, 'GateUpdateMetadata')
+        response = self._send(http_method='PATCH',
+                              location_id='2666a539-2001-4f80-bcc7-0379956749d4',
+                              version='7.0',
+                              route_values=route_values,
+                              content=content)
+        return self._deserialize('ReleaseGates', response)
+
+    def get_logs(self, project, release_id, **kwargs):
+        """GetLogs.
+        Get logs for a release Id.
+        :param str project: Project ID or project name
+        :param int release_id: Id of the release.
+        :rtype: object
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if release_id is not None:
+            route_values['releaseId'] = self._serialize.url('release_id', release_id, 'int')
+        response = self._send(http_method='GET',
+                              location_id='c37fbab5-214b-48e4-a55b-cb6b4f6e4038',
+                              version='7.0',
+                              route_values=route_values,
+                              accept_media_type='application/zip')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
+
+    def get_task_log(self, project, release_id, environment_id, release_deploy_phase_id, task_id, start_line=None, end_line=None, **kwargs):
+        """GetTaskLog.
+        Gets the task log of a release as a plain text file.
+        :param str project: Project ID or project name
+        :param int release_id: Id of the release.
+        :param int environment_id: Id of release environment.
+        :param int release_deploy_phase_id: Release deploy phase Id.
+        :param int task_id: ReleaseTask Id for the log.
+        :param long start_line: Starting line number for logs
+        :param long end_line: Ending line number for logs
+        :rtype: object
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if release_id is not None:
+            route_values['releaseId'] = self._serialize.url('release_id', release_id, 'int')
+        if environment_id is not None:
+            route_values['environmentId'] = self._serialize.url('environment_id', environment_id, 'int')
+        if release_deploy_phase_id is not None:
+            route_values['releaseDeployPhaseId'] = self._serialize.url('release_deploy_phase_id', release_deploy_phase_id, 'int')
+        if task_id is not None:
+            route_values['taskId'] = self._serialize.url('task_id', task_id, 'int')
+        query_parameters = {}
+        if start_line is not None:
+            query_parameters['startLine'] = self._serialize.query('start_line', start_line, 'long')
+        if end_line is not None:
+            query_parameters['endLine'] = self._serialize.query('end_line', end_line, 'long')
+        response = self._send(http_method='GET',
+                              location_id='17c91af7-09fd-4256-bff1-c24ee4f73bc0',
+                              version='7.0',
+                              route_values=route_values,
+                              query_parameters=query_parameters,
+                              accept_media_type='text/plain')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
 
     def get_manual_intervention(self, project, release_id, manual_intervention_id):
         """GetManualIntervention.
@@ -346,7 +569,7 @@ class ReleaseClient(Client):
         :param str project: Project ID or project name
         :param int release_id: Id of the release.
         :param int manual_intervention_id: Id of the manual intervention.
-        :rtype: :class:`<ManualIntervention> <azure.devops.v5_1.release.models.ManualIntervention>`
+        :rtype: :class:`<ManualIntervention> <azure.devops.v7_0.release.models.ManualIntervention>`
         """
         route_values = {}
         if project is not None:
@@ -357,7 +580,7 @@ class ReleaseClient(Client):
             route_values['manualInterventionId'] = self._serialize.url('manual_intervention_id', manual_intervention_id, 'int')
         response = self._send(http_method='GET',
                               location_id='616c46e4-f370-4456-adaa-fbaf79c7b79e',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values)
         return self._deserialize('ManualIntervention', response)
 
@@ -375,18 +598,18 @@ class ReleaseClient(Client):
             route_values['releaseId'] = self._serialize.url('release_id', release_id, 'int')
         response = self._send(http_method='GET',
                               location_id='616c46e4-f370-4456-adaa-fbaf79c7b79e',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values)
         return self._deserialize('[ManualIntervention]', self._unwrap_collection(response))
 
     def update_manual_intervention(self, manual_intervention_update_metadata, project, release_id, manual_intervention_id):
         """UpdateManualIntervention.
         Update manual intervention.
-        :param :class:`<ManualInterventionUpdateMetadata> <azure.devops.v5_1.release.models.ManualInterventionUpdateMetadata>` manual_intervention_update_metadata: Meta data to update manual intervention.
+        :param :class:`<ManualInterventionUpdateMetadata> <azure.devops.v7_0.release.models.ManualInterventionUpdateMetadata>` manual_intervention_update_metadata: Meta data to update manual intervention.
         :param str project: Project ID or project name
         :param int release_id: Id of the release.
         :param int manual_intervention_id: Id of the manual intervention.
-        :rtype: :class:`<ManualIntervention> <azure.devops.v5_1.release.models.ManualIntervention>`
+        :rtype: :class:`<ManualIntervention> <azure.devops.v7_0.release.models.ManualIntervention>`
         """
         route_values = {}
         if project is not None:
@@ -398,7 +621,7 @@ class ReleaseClient(Client):
         content = self._serialize.body(manual_intervention_update_metadata, 'ManualInterventionUpdateMetadata')
         response = self._send(http_method='PATCH',
                               location_id='616c46e4-f370-4456-adaa-fbaf79c7b79e',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values,
                               content=content)
         return self._deserialize('ManualIntervention', response)
@@ -428,7 +651,7 @@ class ReleaseClient(Client):
         :param [str] property_filters: A comma-delimited list of extended properties to be retrieved. If set, the returned Releases will contain values for the specified property Ids (if they exist). If not set, properties will not be included. Note that this will not filter out any Release from results irrespective of whether it has property set or not.
         :param [int] release_id_filter: A comma-delimited list of releases Ids. Only releases with these Ids will be returned.
         :param str path: Releases under this folder path will be returned
-        :rtype: :class:`<GetReleasesResponseValue>`
+        :rtype: :class:`<[Release]> <azure.devops.v7_0.release.models.[Release]>`
         """
         route_values = {}
         if project is not None:
@@ -481,32 +704,17 @@ class ReleaseClient(Client):
             query_parameters['path'] = self._serialize.query('path', path, 'str')
         response = self._send(http_method='GET',
                               location_id='a166fde7-27ad-408e-ba75-703c2cc9d500',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        response_value = self._deserialize('[Release]', self._unwrap_collection(response))
-        continuation_token = self._get_continuation_token(response)
-        return self.GetReleasesResponseValue(response_value, continuation_token)
-
-    class GetReleasesResponseValue(object):
-        def __init__(self, value, continuation_token):
-            """
-            Response for the get_releases method
-
-            :param value:
-            :type value: :class:`<[Release]> <azure.devops.v5_1.release.models.[Release]>`
-            :param continuation_token: The continuation token to be used to get the next page of results.
-            :type continuation_token: str
-            """
-            self.value = value
-            self.continuation_token = continuation_token
+        return self._deserialize('[Release]', self._unwrap_collection(response))
 
     def create_release(self, release_start_metadata, project):
         """CreateRelease.
         Create a release.
-        :param :class:`<ReleaseStartMetadata> <azure.devops.v5_1.release.models.ReleaseStartMetadata>` release_start_metadata: Metadata to create a release.
+        :param :class:`<ReleaseStartMetadata> <azure.devops.v7_0.release.models.ReleaseStartMetadata>` release_start_metadata: Metadata to create a release.
         :param str project: Project ID or project name
-        :rtype: :class:`<Release> <azure.devops.v5_1.release.models.Release>`
+        :rtype: :class:`<Release> <azure.devops.v7_0.release.models.Release>`
         """
         route_values = {}
         if project is not None:
@@ -514,7 +722,7 @@ class ReleaseClient(Client):
         content = self._serialize.body(release_start_metadata, 'ReleaseStartMetadata')
         response = self._send(http_method='POST',
                               location_id='a166fde7-27ad-408e-ba75-703c2cc9d500',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values,
                               content=content)
         return self._deserialize('Release', response)
@@ -528,7 +736,7 @@ class ReleaseClient(Client):
         :param [str] property_filters: A comma-delimited list of extended properties to be retrieved. If set, the returned Release will contain values for the specified property Ids (if they exist). If not set, properties will not be included.
         :param str expand: A property that should be expanded in the release.
         :param int top_gate_records: Number of release gate records to get. Default is 5.
-        :rtype: :class:`<Release> <azure.devops.v5_1.release.models.Release>`
+        :rtype: :class:`<Release> <azure.devops.v7_0.release.models.Release>`
         """
         route_values = {}
         if project is not None:
@@ -547,7 +755,7 @@ class ReleaseClient(Client):
             query_parameters['$topGateRecords'] = self._serialize.query('top_gate_records', top_gate_records, 'int')
         response = self._send(http_method='GET',
                               location_id='a166fde7-27ad-408e-ba75-703c2cc9d500',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('Release', response)
@@ -570,7 +778,7 @@ class ReleaseClient(Client):
             query_parameters['definitionSnapshotRevision'] = self._serialize.query('definition_snapshot_revision', definition_snapshot_revision, 'int')
         response = self._send(http_method='GET',
                               location_id='a166fde7-27ad-408e-ba75-703c2cc9d500',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values,
                               query_parameters=query_parameters,
                               accept_media_type='text/plain')
@@ -583,10 +791,10 @@ class ReleaseClient(Client):
     def update_release(self, release, project, release_id):
         """UpdateRelease.
         Update a complete release object.
-        :param :class:`<Release> <azure.devops.v5_1.release.models.Release>` release: Release object for update.
+        :param :class:`<Release> <azure.devops.v7_0.release.models.Release>` release: Release object for update.
         :param str project: Project ID or project name
         :param int release_id: Id of the release to update.
-        :rtype: :class:`<Release> <azure.devops.v5_1.release.models.Release>`
+        :rtype: :class:`<Release> <azure.devops.v7_0.release.models.Release>`
         """
         route_values = {}
         if project is not None:
@@ -596,7 +804,7 @@ class ReleaseClient(Client):
         content = self._serialize.body(release, 'Release')
         response = self._send(http_method='PUT',
                               location_id='a166fde7-27ad-408e-ba75-703c2cc9d500',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values,
                               content=content)
         return self._deserialize('Release', response)
@@ -604,10 +812,10 @@ class ReleaseClient(Client):
     def update_release_resource(self, release_update_metadata, project, release_id):
         """UpdateReleaseResource.
         Update few properties of a release.
-        :param :class:`<ReleaseUpdateMetadata> <azure.devops.v5_1.release.models.ReleaseUpdateMetadata>` release_update_metadata: Properties of release to update.
+        :param :class:`<ReleaseUpdateMetadata> <azure.devops.v7_0.release.models.ReleaseUpdateMetadata>` release_update_metadata: Properties of release to update.
         :param str project: Project ID or project name
         :param int release_id: Id of the release to update.
-        :rtype: :class:`<Release> <azure.devops.v5_1.release.models.Release>`
+        :rtype: :class:`<Release> <azure.devops.v7_0.release.models.Release>`
         """
         route_values = {}
         if project is not None:
@@ -617,8 +825,52 @@ class ReleaseClient(Client):
         content = self._serialize.body(release_update_metadata, 'ReleaseUpdateMetadata')
         response = self._send(http_method='PATCH',
                               location_id='a166fde7-27ad-408e-ba75-703c2cc9d500',
-                              version='5.1',
+                              version='7.0',
                               route_values=route_values,
                               content=content)
         return self._deserialize('Release', response)
+
+    def get_definition_revision(self, project, definition_id, revision, **kwargs):
+        """GetDefinitionRevision.
+        Get release definition for a given definitionId and revision
+        :param str project: Project ID or project name
+        :param int definition_id: Id of the definition.
+        :param int revision: Id of the revision.
+        :rtype: object
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
+        if revision is not None:
+            route_values['revision'] = self._serialize.url('revision', revision, 'int')
+        response = self._send(http_method='GET',
+                              location_id='258b82e0-9d41-43f3-86d6-fef14ddd44bc',
+                              version='7.0',
+                              route_values=route_values,
+                              accept_media_type='text/plain')
+        if "callback" in kwargs:
+            callback = kwargs["callback"]
+        else:
+            callback = None
+        return self._client.stream_download(response, callback=callback)
+
+    def get_release_definition_history(self, project, definition_id):
+        """GetReleaseDefinitionHistory.
+        Get revision history for a release definition
+        :param str project: Project ID or project name
+        :param int definition_id: Id of the definition.
+        :rtype: [ReleaseDefinitionRevision]
+        """
+        route_values = {}
+        if project is not None:
+            route_values['project'] = self._serialize.url('project', project, 'str')
+        if definition_id is not None:
+            route_values['definitionId'] = self._serialize.url('definition_id', definition_id, 'int')
+        response = self._send(http_method='GET',
+                              location_id='258b82e0-9d41-43f3-86d6-fef14ddd44bc',
+                              version='7.0',
+                              route_values=route_values)
+        return self._deserialize('[ReleaseDefinitionRevision]', self._unwrap_collection(response))
 

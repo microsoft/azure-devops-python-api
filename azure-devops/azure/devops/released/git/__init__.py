@@ -6,12 +6,11 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from ...v5_1.git.models import *
+from ...v7_0.git.models import *
 from .git_client import GitClient
 
 __all__ = [
     'Attachment',
-    'Change',
     'Comment',
     'CommentIterationContext',
     'CommentPosition',
@@ -30,10 +29,9 @@ __all__ = [
     'GitBaseVersionDescriptor',
     'GitBlobRef',
     'GitBranchStats',
-    'GitCherryPick',
     'GitCommit',
-    'GitCommitChanges',
     'GitCommitDiffs',
+    'GitCommitChanges',
     'GitCommitRef',
     'GitConflict',
     'GitConflictUpdateResult',
@@ -43,6 +41,7 @@ __all__ = [
     'GitForkRef',
     'GitForkSyncRequest',
     'GitForkSyncRequestParameters',
+    'GitCherryPick',
     'GitImportGitSource',
     'GitImportRequest',
     'GitImportRequestParameters',
@@ -58,10 +57,10 @@ __all__ = [
     'GitObject',
     'GitPolicyConfigurationResponse',
     'GitPullRequest',
-    'GitPullRequestChange',
     'GitPullRequestCommentThread',
     'GitPullRequestCommentThreadContext',
     'GitPullRequestCompletionOptions',
+    'GitPullRequestChange',
     'GitPullRequestIteration',
     'GitPullRequestIterationChanges',
     'GitPullRequestMergeOptions',
@@ -98,6 +97,7 @@ __all__ = [
     'GitVersionDescriptor',
     'GlobalGitRepositoryKey',
     'GraphSubjectBase',
+    'Change',
     'IdentityRef',
     'IdentityRefWithVote',
     'ImportRepositoryValidation',
