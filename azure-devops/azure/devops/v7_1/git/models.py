@@ -779,13 +779,13 @@ class GitCommitDiffs(Model):
 class GitCommitChanges(Model):
     """
     :param change_counts:
-    :type change_counts: :class:`ChangeCountDictionary <azure.devops.v7_1.git.models.ChangeCountDictionary>`
+    :type change_counts: dict
     :param changes:
     :type changes: list of :class:`object <azure.devops.v7_1.git.models.object>`
     """
 
     _attribute_map = {
-        'change_counts': {'key': 'changeCounts', 'type': 'ChangeCountDictionary'},
+        'change_counts': {'key': 'changeCounts', 'type': '{int}'},
         'changes': {'key': 'changes', 'type': '[object]'}
     }
 
@@ -814,7 +814,7 @@ class GitCommitRef(Model):
     :param commit_too_many_changes: Indicates that commit contains too many changes to be displayed
     :type commit_too_many_changes: bool
     :param change_counts: Counts of the types of changes (edits, deletes, etc.) included with the commit.
-    :type change_counts: :class:`ChangeCountDictionary <azure.devops.v7_1.git.models.ChangeCountDictionary>`
+    :type change_counts: dict
     :param changes: An enumeration of the changes included with the commit.
     :type changes: list of :class:`object <azure.devops.v7_1.git.models.object>`
     :param parents: An enumeration of the parent commit IDs for this commit.
@@ -839,7 +839,7 @@ class GitCommitRef(Model):
         'commit_id': {'key': 'commitId', 'type': 'str'},
         'committer': {'key': 'committer', 'type': 'GitUserDate'},
         'commit_too_many_changes': {'key': 'commitTooManyChanges', 'type': 'bool'},
-        'change_counts': {'key': 'changeCounts', 'type': 'ChangeCountDictionary'},
+        'change_counts': {'key': 'changeCounts', 'type': '{int}'},
         'changes': {'key': 'changes', 'type': '[object]'},
         'parents': {'key': 'parents', 'type': '[str]'},
         'push': {'key': 'push', 'type': 'GitPushRef'},
@@ -3511,7 +3511,7 @@ class GitCommit(GitCommitRef):
     :param commit_too_many_changes: Indicates that commit contains too many changes to be displayed
     :type commit_too_many_changes: bool
     :param change_counts: Counts of the types of changes (edits, deletes, etc.) included with the commit.
-    :type change_counts: :class:`ChangeCountDictionary <azure.devops.v7_1.git.models.ChangeCountDictionary>`
+    :type change_counts: dict
     :param changes: An enumeration of the changes included with the commit.
     :type changes: list of :class:`object <azure.devops.v7_1.git.models.object>`
     :param parents: An enumeration of the parent commit IDs for this commit.
@@ -3538,7 +3538,7 @@ class GitCommit(GitCommitRef):
         'commit_id': {'key': 'commitId', 'type': 'str'},
         'committer': {'key': 'committer', 'type': 'GitUserDate'},
         'commit_too_many_changes': {'key': 'commitTooManyChanges', 'type': 'bool'},
-        'change_counts': {'key': 'changeCounts', 'type': 'ChangeCountDictionary'},
+        'change_counts': {'key': 'changeCounts', 'type': '{int}'},
         'changes': {'key': 'changes', 'type': '[object]'},
         'parents': {'key': 'parents', 'type': '[str]'},
         'push': {'key': 'push', 'type': 'GitPushRef'},
