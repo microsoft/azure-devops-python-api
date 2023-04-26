@@ -651,13 +651,13 @@ class GitCommitDiffs(Model):
 class GitCommitChanges(Model):
     """
     :param change_counts:
-    :type change_counts: :class:`ChangeCountDictionary <azure.devops.v7_0.git.models.ChangeCountDictionary>`
+    :type change_counts: dict
     :param changes:
     :type changes: list of :class:`object <azure.devops.v7_0.git.models.object>`
     """
 
     _attribute_map = {
-        'change_counts': {'key': 'changeCounts', 'type': 'ChangeCountDictionary'},
+        'change_counts': {'key': 'changeCounts', 'type': '{int}'},
         'changes': {'key': 'changes', 'type': '[object]'}
     }
 
@@ -684,7 +684,7 @@ class GitCommitRef(Model):
     :param committer: Committer of the commit.
     :type committer: :class:`GitUserDate <azure.devops.v7_0.git.models.GitUserDate>`
     :param change_counts: Counts of the types of changes (edits, deletes, etc.) included with the commit.
-    :type change_counts: :class:`ChangeCountDictionary <azure.devops.v7_0.git.models.ChangeCountDictionary>`
+    :type change_counts: dict
     :param changes: An enumeration of the changes included with the commit.
     :type changes: list of :class:`object <azure.devops.v7_0.git.models.object>`
     :param parents: An enumeration of the parent commit IDs for this commit.
@@ -708,7 +708,7 @@ class GitCommitRef(Model):
         'comment_truncated': {'key': 'commentTruncated', 'type': 'bool'},
         'commit_id': {'key': 'commitId', 'type': 'str'},
         'committer': {'key': 'committer', 'type': 'GitUserDate'},
-        'change_counts': {'key': 'changeCounts', 'type': 'ChangeCountDictionary'},
+        'change_counts': {'key': 'changeCounts', 'type': '{int}'},
         'changes': {'key': 'changes', 'type': '[object]'},
         'parents': {'key': 'parents', 'type': '[str]'},
         'push': {'key': 'push', 'type': 'GitPushRef'},
@@ -3369,7 +3369,7 @@ class GitCommit(GitCommitRef):
     :param committer: Committer of the commit.
     :type committer: :class:`GitUserDate <azure.devops.v7_0.git.models.GitUserDate>`
     :param change_counts: Counts of the types of changes (edits, deletes, etc.) included with the commit.
-    :type change_counts: :class:`ChangeCountDictionary <azure.devops.v7_0.git.models.ChangeCountDictionary>`
+    :type change_counts: dict
     :param changes: An enumeration of the changes included with the commit.
     :type changes: list of :class:`object <azure.devops.v7_0.git.models.object>`
     :param parents: An enumeration of the parent commit IDs for this commit.
@@ -3395,7 +3395,7 @@ class GitCommit(GitCommitRef):
         'comment_truncated': {'key': 'commentTruncated', 'type': 'bool'},
         'commit_id': {'key': 'commitId', 'type': 'str'},
         'committer': {'key': 'committer', 'type': 'GitUserDate'},
-        'change_counts': {'key': 'changeCounts', 'type': 'ChangeCountDictionary'},
+        'change_counts': {'key': 'changeCounts', 'type': '{int}'},
         'changes': {'key': 'changes', 'type': '[object]'},
         'parents': {'key': 'parents', 'type': '[str]'},
         'push': {'key': 'push', 'type': 'GitPushRef'},
