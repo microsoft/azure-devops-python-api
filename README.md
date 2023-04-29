@@ -1,5 +1,4 @@
 [![Python package](https://github.com/microsoft/azure-devops-python-api/workflows/Python%20package/badge.svg)](https://github.com/microsoft/azure-devops-python-api/actions)
-[![Build Status](https://dev.azure.com/mseng/vsts-cli/_apis/build/status/vsts-python-api?branchName=dev)](https://dev.azure.com/mseng/vsts-cli/_build/latest?definitionId=5904&branchName=dev)
 [![Python](https://img.shields.io/pypi/pyversions/azure-devops.svg)](https://pypi.python.org/pypi/azure-devops)
 
 # Azure DevOps Python API
