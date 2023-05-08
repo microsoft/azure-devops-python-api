@@ -6,6 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
+from typing import Optional, Dict, Any, List
 from msrest.serialization import Model
 
 
@@ -42,7 +43,10 @@ class CopyDashboardOptions(Model):
         'team_id': {'key': 'teamId', 'type': 'str'}
     }
 
-    def __init__(self, copy_dashboard_scope=None, copy_queries_flag=None, description=None, name=None, project_id=None, query_folder_path=None, refresh_interval=None, team_id=None):
+    def __init__(self, copy_dashboard_scope=None, copy_queries_flag: Optional[bool] = None,
+                 description: Optional[str] = None, name: Optional[str] = None, project_id: Optional[str] = None,
+                 query_folder_path: Optional[str] = None, refresh_interval: Optional[int] = None,
+                 team_id: Optional[str] = None) -> None:
         super(CopyDashboardOptions, self).__init__()
         self.copy_dashboard_scope = copy_dashboard_scope
         self.copy_queries_flag = copy_queries_flag
@@ -54,262 +58,40 @@ class CopyDashboardOptions(Model):
         self.team_id = team_id
 
 
-class CopyDashboardResponse(Model):
+class ReferenceLinks(Model):
     """
-    :param copied_dashboard: Copied Dashboard
-    :type copied_dashboard: :class:`Dashboard <azure.devops.v7_0.dashboard.models.Dashboard>`
-    :param copy_dashboard_options: Copy Dashboard options
-    :type copy_dashboard_options: :class:`CopyDashboardOptions <azure.devops.v7_0.dashboard.models.CopyDashboardOptions>`
-    """
+    The class to represent a collection of REST reference links.
 
-    _attribute_map = {
-        'copied_dashboard': {'key': 'copiedDashboard', 'type': 'Dashboard'},
-        'copy_dashboard_options': {'key': 'copyDashboardOptions', 'type': 'CopyDashboardOptions'}
-    }
-
-    def __init__(self, copied_dashboard=None, copy_dashboard_options=None):
-        super(CopyDashboardResponse, self).__init__()
-        self.copied_dashboard = copied_dashboard
-        self.copy_dashboard_options = copy_dashboard_options
-
-
-class Dashboard(Model):
-    """
-    Model of a Dashboard.
-
-    :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v7_0.dashboard.models.ReferenceLinks>`
-    :param dashboard_scope: Entity to which the dashboard is scoped.
-    :type dashboard_scope: object
-    :param description: Description of the dashboard.
-    :type description: str
-    :param eTag: Server defined version tracking value, used for edit collision detection.
-    :type eTag: str
-    :param group_id: ID of the group for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards this property is empty.
-    :type group_id: str
-    :param id: ID of the Dashboard. Provided by service at creation time.
-    :type id: str
-    :param name: Name of the Dashboard.
-    :type name: str
-    :param owner_id: ID of the owner for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards, this is the unique identifier for the user identity associated with the dashboard.
-    :type owner_id: str
-    :param position: Position of the dashboard, within a dashboard group. If unset at creation time, position is decided by the service.
-    :type position: int
-    :param refresh_interval: Interval for client to automatically refresh the dashboard. Expressed in minutes.
-    :type refresh_interval: int
-    :param url:
-    :type url: str
-    :param widgets: The set of Widgets on the dashboard.
-    :type widgets: list of :class:`Widget <azure.devops.v7_0.dashboard.models.Widget>`
+    :param links: The readonly view of the links.  Because Reference links are readonly, we only want to expose them as read only.
+    :type links: dict
     """
 
     _attribute_map = {
-        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
-        'dashboard_scope': {'key': 'dashboardScope', 'type': 'object'},
-        'description': {'key': 'description', 'type': 'str'},
-        'eTag': {'key': 'eTag', 'type': 'str'},
-        'group_id': {'key': 'groupId', 'type': 'str'},
-        'id': {'key': 'id', 'type': 'str'},
-        'name': {'key': 'name', 'type': 'str'},
-        'owner_id': {'key': 'ownerId', 'type': 'str'},
-        'position': {'key': 'position', 'type': 'int'},
-        'refresh_interval': {'key': 'refreshInterval', 'type': 'int'},
-        'url': {'key': 'url', 'type': 'str'},
-        'widgets': {'key': 'widgets', 'type': '[Widget]'}
+        'links': {'key': 'links', 'type': '{object}'}
     }
 
-    def __init__(self, _links=None, dashboard_scope=None, description=None, eTag=None, group_id=None, id=None, name=None, owner_id=None, position=None, refresh_interval=None, url=None, widgets=None):
-        super(Dashboard, self).__init__()
-        self._links = _links
-        self.dashboard_scope = dashboard_scope
-        self.description = description
-        self.eTag = eTag
-        self.group_id = group_id
-        self.id = id
-        self.name = name
-        self.owner_id = owner_id
-        self.position = position
-        self.refresh_interval = refresh_interval
-        self.url = url
-        self.widgets = widgets
+    def __init__(self, links: Optional[Dict[Any, Any]] = None) -> None:
+        super(ReferenceLinks, self).__init__()
+        self.links = links
 
 
-class DashboardGroup(Model):
+class WidgetSize(Model):
     """
-    Describes a list of dashboards associated to an owner. Currently, teams own dashboard groups.
-
-    :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v7_0.dashboard.models.ReferenceLinks>`
-    :param dashboard_entries: A list of Dashboards held by the Dashboard Group
-    :type dashboard_entries: list of :class:`DashboardGroupEntry <azure.devops.v7_0.dashboard.models.DashboardGroupEntry>`
-    :param permission: Deprecated: The old permission model describing the level of permissions for the current team. Pre-M125.
-    :type permission: object
-    :param team_dashboard_permission: A permissions bit mask describing the security permissions of the current team for dashboards. When this permission is the value None, use GroupMemberPermission. Permissions are evaluated based on the presence of a value other than None, else the GroupMemberPermission will be saved.
-    :type team_dashboard_permission: object
-    :param url:
-    :type url: str
+    :param column_span: The Width of the widget, expressed in dashboard grid columns.
+    :type column_span: int
+    :param row_span: The height of the widget, expressed in dashboard grid rows.
+    :type row_span: int
     """
 
     _attribute_map = {
-        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
-        'dashboard_entries': {'key': 'dashboardEntries', 'type': '[DashboardGroupEntry]'},
-        'permission': {'key': 'permission', 'type': 'object'},
-        'team_dashboard_permission': {'key': 'teamDashboardPermission', 'type': 'object'},
-        'url': {'key': 'url', 'type': 'str'}
+        'column_span': {'key': 'columnSpan', 'type': 'int'},
+        'row_span': {'key': 'rowSpan', 'type': 'int'}
     }
 
-    def __init__(self, _links=None, dashboard_entries=None, permission=None, team_dashboard_permission=None, url=None):
-        super(DashboardGroup, self).__init__()
-        self._links = _links
-        self.dashboard_entries = dashboard_entries
-        self.permission = permission
-        self.team_dashboard_permission = team_dashboard_permission
-        self.url = url
-
-
-class DashboardGroupEntry(Dashboard):
-    """
-    Dashboard group entry, wrapping around Dashboard (needed?)
-
-    :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v7_0.dashboard.models.ReferenceLinks>`
-    :param dashboard_scope: Entity to which the dashboard is scoped.
-    :type dashboard_scope: object
-    :param description: Description of the dashboard.
-    :type description: str
-    :param eTag: Server defined version tracking value, used for edit collision detection.
-    :type eTag: str
-    :param group_id: ID of the group for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards this property is empty.
-    :type group_id: str
-    :param id: ID of the Dashboard. Provided by service at creation time.
-    :type id: str
-    :param name: Name of the Dashboard.
-    :type name: str
-    :param owner_id: ID of the owner for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards, this is the unique identifier for the user identity associated with the dashboard.
-    :type owner_id: str
-    :param position: Position of the dashboard, within a dashboard group. If unset at creation time, position is decided by the service.
-    :type position: int
-    :param refresh_interval: Interval for client to automatically refresh the dashboard. Expressed in minutes.
-    :type refresh_interval: int
-    :param url:
-    :type url: str
-    :param widgets: The set of Widgets on the dashboard.
-    :type widgets: list of :class:`Widget <azure.devops.v7_0.dashboard.models.Widget>`
-    """
-
-    _attribute_map = {
-        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
-        'dashboard_scope': {'key': 'dashboardScope', 'type': 'object'},
-        'description': {'key': 'description', 'type': 'str'},
-        'eTag': {'key': 'eTag', 'type': 'str'},
-        'group_id': {'key': 'groupId', 'type': 'str'},
-        'id': {'key': 'id', 'type': 'str'},
-        'name': {'key': 'name', 'type': 'str'},
-        'owner_id': {'key': 'ownerId', 'type': 'str'},
-        'position': {'key': 'position', 'type': 'int'},
-        'refresh_interval': {'key': 'refreshInterval', 'type': 'int'},
-        'url': {'key': 'url', 'type': 'str'},
-        'widgets': {'key': 'widgets', 'type': '[Widget]'},
-    }
-
-    def __init__(self, _links=None, dashboard_scope=None, description=None, eTag=None, group_id=None, id=None, name=None, owner_id=None, position=None, refresh_interval=None, url=None, widgets=None):
-        super(DashboardGroupEntry, self).__init__(_links=_links, dashboard_scope=dashboard_scope, description=description, eTag=eTag, group_id=group_id, id=id, name=name, owner_id=owner_id, position=position, refresh_interval=refresh_interval, url=url, widgets=widgets)
-
-
-class DashboardGroupEntryResponse(DashboardGroupEntry):
-    """
-    Response from RestAPI when saving and editing DashboardGroupEntry
-
-    :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v7_0.dashboard.models.ReferenceLinks>`
-    :param dashboard_scope: Entity to which the dashboard is scoped.
-    :type dashboard_scope: object
-    :param description: Description of the dashboard.
-    :type description: str
-    :param eTag: Server defined version tracking value, used for edit collision detection.
-    :type eTag: str
-    :param group_id: ID of the group for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards this property is empty.
-    :type group_id: str
-    :param id: ID of the Dashboard. Provided by service at creation time.
-    :type id: str
-    :param name: Name of the Dashboard.
-    :type name: str
-    :param owner_id: ID of the owner for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards, this is the unique identifier for the user identity associated with the dashboard.
-    :type owner_id: str
-    :param position: Position of the dashboard, within a dashboard group. If unset at creation time, position is decided by the service.
-    :type position: int
-    :param refresh_interval: Interval for client to automatically refresh the dashboard. Expressed in minutes.
-    :type refresh_interval: int
-    :param url:
-    :type url: str
-    :param widgets: The set of Widgets on the dashboard.
-    :type widgets: list of :class:`Widget <azure.devops.v7_0.dashboard.models.Widget>`
-    """
-
-    _attribute_map = {
-        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
-        'dashboard_scope': {'key': 'dashboardScope', 'type': 'object'},
-        'description': {'key': 'description', 'type': 'str'},
-        'eTag': {'key': 'eTag', 'type': 'str'},
-        'group_id': {'key': 'groupId', 'type': 'str'},
-        'id': {'key': 'id', 'type': 'str'},
-        'name': {'key': 'name', 'type': 'str'},
-        'owner_id': {'key': 'ownerId', 'type': 'str'},
-        'position': {'key': 'position', 'type': 'int'},
-        'refresh_interval': {'key': 'refreshInterval', 'type': 'int'},
-        'url': {'key': 'url', 'type': 'str'},
-        'widgets': {'key': 'widgets', 'type': '[Widget]'},
-    }
-
-    def __init__(self, _links=None, dashboard_scope=None, description=None, eTag=None, group_id=None, id=None, name=None, owner_id=None, position=None, refresh_interval=None, url=None, widgets=None):
-        super(DashboardGroupEntryResponse, self).__init__(_links=_links, dashboard_scope=dashboard_scope, description=description, eTag=eTag, group_id=group_id, id=id, name=name, owner_id=owner_id, position=position, refresh_interval=refresh_interval, url=url, widgets=widgets)
-
-
-class DashboardResponse(DashboardGroupEntry):
-    """
-    :param _links:
-    :type _links: :class:`ReferenceLinks <azure.devops.v7_0.dashboard.models.ReferenceLinks>`
-    :param dashboard_scope: Entity to which the dashboard is scoped.
-    :type dashboard_scope: object
-    :param description: Description of the dashboard.
-    :type description: str
-    :param eTag: Server defined version tracking value, used for edit collision detection.
-    :type eTag: str
-    :param group_id: ID of the group for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards this property is empty.
-    :type group_id: str
-    :param id: ID of the Dashboard. Provided by service at creation time.
-    :type id: str
-    :param name: Name of the Dashboard.
-    :type name: str
-    :param owner_id: ID of the owner for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards, this is the unique identifier for the user identity associated with the dashboard.
-    :type owner_id: str
-    :param position: Position of the dashboard, within a dashboard group. If unset at creation time, position is decided by the service.
-    :type position: int
-    :param refresh_interval: Interval for client to automatically refresh the dashboard. Expressed in minutes.
-    :type refresh_interval: int
-    :param url:
-    :type url: str
-    :param widgets: The set of Widgets on the dashboard.
-    :type widgets: list of :class:`Widget <azure.devops.v7_0.dashboard.models.Widget>`
-    """
-
-    _attribute_map = {
-        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
-        'dashboard_scope': {'key': 'dashboardScope', 'type': 'object'},
-        'description': {'key': 'description', 'type': 'str'},
-        'eTag': {'key': 'eTag', 'type': 'str'},
-        'group_id': {'key': 'groupId', 'type': 'str'},
-        'id': {'key': 'id', 'type': 'str'},
-        'name': {'key': 'name', 'type': 'str'},
-        'owner_id': {'key': 'ownerId', 'type': 'str'},
-        'position': {'key': 'position', 'type': 'int'},
-        'refresh_interval': {'key': 'refreshInterval', 'type': 'int'},
-        'url': {'key': 'url', 'type': 'str'},
-        'widgets': {'key': 'widgets', 'type': '[Widget]'},
-    }
-
-    def __init__(self, _links=None, dashboard_scope=None, description=None, eTag=None, group_id=None, id=None, name=None, owner_id=None, position=None, refresh_interval=None, url=None, widgets=None):
-        super(DashboardResponse, self).__init__(_links=_links, dashboard_scope=dashboard_scope, description=description, eTag=eTag, group_id=group_id, id=id, name=name, owner_id=owner_id, position=position, refresh_interval=refresh_interval, url=url, widgets=widgets)
+    def __init__(self, column_span: Optional[int] = None, row_span: Optional[int] = None) -> None:
+        super(WidgetSize, self).__init__()
+        self.column_span = column_span
+        self.row_span = row_span
 
 
 class LightboxOptions(Model):
@@ -330,28 +112,31 @@ class LightboxOptions(Model):
         'width': {'key': 'width', 'type': 'int'}
     }
 
-    def __init__(self, height=None, resizable=None, width=None):
+    def __init__(self, height: Optional[int] = None, resizable: Optional[bool] = None,
+                 width: Optional[int] = None) -> None:
         super(LightboxOptions, self).__init__()
         self.height = height
         self.resizable = resizable
         self.width = width
 
 
-class ReferenceLinks(Model):
+class WidgetPosition(Model):
     """
-    The class to represent a collection of REST reference links.
-
-    :param links: The readonly view of the links.  Because Reference links are readonly, we only want to expose them as read only.
-    :type links: dict
+    :param column:
+    :type column: int
+    :param row:
+    :type row: int
     """
 
     _attribute_map = {
-        'links': {'key': 'links', 'type': '{object}'}
+        'column': {'key': 'column', 'type': 'int'},
+        'row': {'key': 'row', 'type': 'int'}
     }
 
-    def __init__(self, links=None):
-        super(ReferenceLinks, self).__init__()
-        self.links = links
+    def __init__(self, column: Optional[int] = None, row: Optional[int] = None) -> None:
+        super(WidgetPosition, self).__init__()
+        self.column = column
+        self.row = row
 
 
 class SemanticVersion(Model):
@@ -372,40 +157,11 @@ class SemanticVersion(Model):
         'patch': {'key': 'patch', 'type': 'int'}
     }
 
-    def __init__(self, major=None, minor=None, patch=None):
+    def __init__(self, major: Optional[int] = None, minor: Optional[int] = None, patch: Optional[int] = None) -> None:
         super(SemanticVersion, self).__init__()
         self.major = major
         self.minor = minor
         self.patch = patch
-
-
-class TeamContext(Model):
-    """
-    The Team Context for an operation.
-
-    :param project: The team project Id or name.  Ignored if ProjectId is set.
-    :type project: str
-    :param project_id: The Team Project ID.  Required if Project is not set.
-    :type project_id: str
-    :param team: The Team Id or name.  Ignored if TeamId is set.
-    :type team: str
-    :param team_id: The Team Id
-    :type team_id: str
-    """
-
-    _attribute_map = {
-        'project': {'key': 'project', 'type': 'str'},
-        'project_id': {'key': 'projectId', 'type': 'str'},
-        'team': {'key': 'team', 'type': 'str'},
-        'team_id': {'key': 'teamId', 'type': 'str'}
-    }
-
-    def __init__(self, project=None, project_id=None, team=None, team_id=None):
-        super(TeamContext, self).__init__()
-        self.project = project
-        self.project_id = project_id
-        self.team = team
-        self.team_id = team_id
 
 
 class Widget(Model):
@@ -483,7 +239,17 @@ class Widget(Model):
         'url': {'key': 'url', 'type': 'str'}
     }
 
-    def __init__(self, _links=None, allowed_sizes=None, are_settings_blocked_for_user=None, artifact_id=None, configuration_contribution_id=None, configuration_contribution_relative_id=None, content_uri=None, contribution_id=None, dashboard=None, eTag=None, id=None, is_enabled=None, is_name_configurable=None, lightbox_options=None, loading_image_url=None, name=None, position=None, settings=None, settings_version=None, size=None, type_id=None, url=None):
+    def __init__(self, _links: Optional[ReferenceLinks] = None, allowed_sizes: Optional[List[WidgetSize]] = None,
+                 are_settings_blocked_for_user: Optional[bool] = None, artifact_id: Optional[str] = None,
+                 configuration_contribution_id: Optional[str] = None,
+                 configuration_contribution_relative_id: Optional[str] = None, content_uri: Optional[str] = None,
+                 contribution_id: Optional[str] = None, dashboard=None, eTag: Optional[str] = None,
+                 id: Optional[str] = None, is_enabled: Optional[bool] = None,
+                 is_name_configurable: Optional[bool] = None, lightbox_options: Optional[LightboxOptions] = None,
+                 loading_image_url: Optional[str] = None, name: Optional[str] = None,
+                 position: Optional[WidgetPosition] = None, settings: Optional[str] = None,
+                 settings_version: Optional[SemanticVersion] = None, size: Optional[WidgetSize] = None,
+                 type_id: Optional[str] = None, url: Optional[str] = None) -> None:
         super(Widget, self).__init__()
         self._links = _links
         self.allowed_sizes = allowed_sizes
@@ -507,6 +273,324 @@ class Widget(Model):
         self.size = size
         self.type_id = type_id
         self.url = url
+
+
+class Dashboard(Model):
+    """
+    Model of a Dashboard.
+
+    :param _links:
+    :type _links: :class:`ReferenceLinks <azure.devops.v7_0.dashboard.models.ReferenceLinks>`
+    :param dashboard_scope: Entity to which the dashboard is scoped.
+    :type dashboard_scope: object
+    :param description: Description of the dashboard.
+    :type description: str
+    :param eTag: Server defined version tracking value, used for edit collision detection.
+    :type eTag: str
+    :param group_id: ID of the group for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards this property is empty.
+    :type group_id: str
+    :param id: ID of the Dashboard. Provided by service at creation time.
+    :type id: str
+    :param name: Name of the Dashboard.
+    :type name: str
+    :param owner_id: ID of the owner for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards, this is the unique identifier for the user identity associated with the dashboard.
+    :type owner_id: str
+    :param position: Position of the dashboard, within a dashboard group. If unset at creation time, position is decided by the service.
+    :type position: int
+    :param refresh_interval: Interval for client to automatically refresh the dashboard. Expressed in minutes.
+    :type refresh_interval: int
+    :param url:
+    :type url: str
+    :param widgets: The set of Widgets on the dashboard.
+    :type widgets: list of :class:`Widget <azure.devops.v7_0.dashboard.models.Widget>`
+    """
+
+    _attribute_map = {
+        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'dashboard_scope': {'key': 'dashboardScope', 'type': 'object'},
+        'description': {'key': 'description', 'type': 'str'},
+        'eTag': {'key': 'eTag', 'type': 'str'},
+        'group_id': {'key': 'groupId', 'type': 'str'},
+        'id': {'key': 'id', 'type': 'str'},
+        'name': {'key': 'name', 'type': 'str'},
+        'owner_id': {'key': 'ownerId', 'type': 'str'},
+        'position': {'key': 'position', 'type': 'int'},
+        'refresh_interval': {'key': 'refreshInterval', 'type': 'int'},
+        'url': {'key': 'url', 'type': 'str'},
+        'widgets': {'key': 'widgets', 'type': '[Widget]'}
+    }
+
+    def __init__(self, _links: Optional[ReferenceLinks] = None, dashboard_scope=None, description: Optional[str] = None,
+                 eTag: Optional[str] = None, group_id: Optional[str] = None, id: Optional[str] = None,
+                 name: Optional[str] = None, owner_id: Optional[str] = None, position: Optional[int] = None,
+                 refresh_interval: Optional[int] = None, url: Optional[str] = None,
+                 widgets: Optional[List[Widget]] = None) -> None:
+        super(Dashboard, self).__init__()
+        self._links = _links
+        self.dashboard_scope = dashboard_scope
+        self.description = description
+        self.eTag = eTag
+        self.group_id = group_id
+        self.id = id
+        self.name = name
+        self.owner_id = owner_id
+        self.position = position
+        self.refresh_interval = refresh_interval
+        self.url = url
+        self.widgets = widgets
+
+
+class CopyDashboardResponse(Model):
+    """
+    :param copied_dashboard: Copied Dashboard
+    :type copied_dashboard: :class:`Dashboard <azure.devops.v7_0.dashboard.models.Dashboard>`
+    :param copy_dashboard_options: Copy Dashboard options
+    :type copy_dashboard_options: :class:`CopyDashboardOptions <azure.devops.v7_0.dashboard.models.CopyDashboardOptions>`
+    """
+
+    _attribute_map = {
+        'copied_dashboard': {'key': 'copiedDashboard', 'type': 'Dashboard'},
+        'copy_dashboard_options': {'key': 'copyDashboardOptions', 'type': 'CopyDashboardOptions'}
+    }
+
+    def __init__(self, copied_dashboard: Optional[Dashboard] = None,
+                 copy_dashboard_options: Optional[CopyDashboardOptions] = None) -> None:
+        super(CopyDashboardResponse, self).__init__()
+        self.copied_dashboard = copied_dashboard
+        self.copy_dashboard_options = copy_dashboard_options
+
+
+class DashboardGroupEntry(Dashboard):
+    """
+    Dashboard group entry, wrapping around Dashboard (needed?)
+
+    :param _links:
+    :type _links: :class:`ReferenceLinks <azure.devops.v7_0.dashboard.models.ReferenceLinks>`
+    :param dashboard_scope: Entity to which the dashboard is scoped.
+    :type dashboard_scope: object
+    :param description: Description of the dashboard.
+    :type description: str
+    :param eTag: Server defined version tracking value, used for edit collision detection.
+    :type eTag: str
+    :param group_id: ID of the group for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards this property is empty.
+    :type group_id: str
+    :param id: ID of the Dashboard. Provided by service at creation time.
+    :type id: str
+    :param name: Name of the Dashboard.
+    :type name: str
+    :param owner_id: ID of the owner for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards, this is the unique identifier for the user identity associated with the dashboard.
+    :type owner_id: str
+    :param position: Position of the dashboard, within a dashboard group. If unset at creation time, position is decided by the service.
+    :type position: int
+    :param refresh_interval: Interval for client to automatically refresh the dashboard. Expressed in minutes.
+    :type refresh_interval: int
+    :param url:
+    :type url: str
+    :param widgets: The set of Widgets on the dashboard.
+    :type widgets: list of :class:`Widget <azure.devops.v7_0.dashboard.models.Widget>`
+    """
+
+    _attribute_map = {
+        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'dashboard_scope': {'key': 'dashboardScope', 'type': 'object'},
+        'description': {'key': 'description', 'type': 'str'},
+        'eTag': {'key': 'eTag', 'type': 'str'},
+        'group_id': {'key': 'groupId', 'type': 'str'},
+        'id': {'key': 'id', 'type': 'str'},
+        'name': {'key': 'name', 'type': 'str'},
+        'owner_id': {'key': 'ownerId', 'type': 'str'},
+        'position': {'key': 'position', 'type': 'int'},
+        'refresh_interval': {'key': 'refreshInterval', 'type': 'int'},
+        'url': {'key': 'url', 'type': 'str'},
+        'widgets': {'key': 'widgets', 'type': '[Widget]'},
+    }
+
+    def __init__(self, _links: Optional[ReferenceLinks] = None, dashboard_scope: Optional[Dict[Any, Any]] = None,
+                 description: Optional[str] = None, eTag: Optional[str] = None, group_id: Optional[str] = None,
+                 id: Optional[str] = None, name: Optional[str] = None, owner_id: Optional[str] = None,
+                 position: Optional[int] = None, refresh_interval: Optional[int] = None, url: Optional[str] = None,
+                 widgets: Optional[List[Widget]] = None) -> None:
+        super(DashboardGroupEntry, self).__init__(_links=_links, dashboard_scope=dashboard_scope,
+                                                  description=description, eTag=eTag, group_id=group_id, id=id,
+                                                  name=name, owner_id=owner_id, position=position,
+                                                  refresh_interval=refresh_interval, url=url, widgets=widgets)
+
+
+class DashboardGroup(Model):
+    """
+    Describes a list of dashboards associated to an owner. Currently, teams own dashboard groups.
+
+    :param _links:
+    :type _links: :class:`ReferenceLinks <azure.devops.v7_0.dashboard.models.ReferenceLinks>`
+    :param dashboard_entries: A list of Dashboards held by the Dashboard Group
+    :type dashboard_entries: list of :class:`DashboardGroupEntry <azure.devops.v7_0.dashboard.models.DashboardGroupEntry>`
+    :param permission: Deprecated: The old permission model describing the level of permissions for the current team. Pre-M125.
+    :type permission: object
+    :param team_dashboard_permission: A permissions bit mask describing the security permissions of the current team for dashboards. When this permission is the value None, use GroupMemberPermission. Permissions are evaluated based on the presence of a value other than None, else the GroupMemberPermission will be saved.
+    :type team_dashboard_permission: object
+    :param url:
+    :type url: str
+    """
+
+    _attribute_map = {
+        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'dashboard_entries': {'key': 'dashboardEntries', 'type': '[DashboardGroupEntry]'},
+        'permission': {'key': 'permission', 'type': 'object'},
+        'team_dashboard_permission': {'key': 'teamDashboardPermission', 'type': 'object'},
+        'url': {'key': 'url', 'type': 'str'}
+    }
+
+    def __init__(self, _links: Optional[ReferenceLinks] = None,
+                 dashboard_entries: Optional[List[DashboardGroupEntry]] = None,
+                 permission: Optional[Dict[Any, Any]] = None,
+                 team_dashboard_permission: Optional[Dict[Any, Any]] = None,
+                 url: Optional[str] = None) -> None:
+        super(DashboardGroup, self).__init__()
+        self._links = _links
+        self.dashboard_entries = dashboard_entries
+        self.permission = permission
+        self.team_dashboard_permission = team_dashboard_permission
+        self.url = url
+
+
+class DashboardGroupEntryResponse(DashboardGroupEntry):
+    """
+    Response from RestAPI when saving and editing DashboardGroupEntry
+
+    :param _links:
+    :type _links: :class:`ReferenceLinks <azure.devops.v7_0.dashboard.models.ReferenceLinks>`
+    :param dashboard_scope: Entity to which the dashboard is scoped.
+    :type dashboard_scope: object
+    :param description: Description of the dashboard.
+    :type description: str
+    :param eTag: Server defined version tracking value, used for edit collision detection.
+    :type eTag: str
+    :param group_id: ID of the group for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards this property is empty.
+    :type group_id: str
+    :param id: ID of the Dashboard. Provided by service at creation time.
+    :type id: str
+    :param name: Name of the Dashboard.
+    :type name: str
+    :param owner_id: ID of the owner for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards, this is the unique identifier for the user identity associated with the dashboard.
+    :type owner_id: str
+    :param position: Position of the dashboard, within a dashboard group. If unset at creation time, position is decided by the service.
+    :type position: int
+    :param refresh_interval: Interval for client to automatically refresh the dashboard. Expressed in minutes.
+    :type refresh_interval: int
+    :param url:
+    :type url: str
+    :param widgets: The set of Widgets on the dashboard.
+    :type widgets: list of :class:`Widget <azure.devops.v7_0.dashboard.models.Widget>`
+    """
+
+    _attribute_map = {
+        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'dashboard_scope': {'key': 'dashboardScope', 'type': 'object'},
+        'description': {'key': 'description', 'type': 'str'},
+        'eTag': {'key': 'eTag', 'type': 'str'},
+        'group_id': {'key': 'groupId', 'type': 'str'},
+        'id': {'key': 'id', 'type': 'str'},
+        'name': {'key': 'name', 'type': 'str'},
+        'owner_id': {'key': 'ownerId', 'type': 'str'},
+        'position': {'key': 'position', 'type': 'int'},
+        'refresh_interval': {'key': 'refreshInterval', 'type': 'int'},
+        'url': {'key': 'url', 'type': 'str'},
+        'widgets': {'key': 'widgets', 'type': '[Widget]'},
+    }
+
+    def __init__(self, _links: Optional[ReferenceLinks] = None, dashboard_scope: Optional[Dict[Any, Any]] = None,
+                 description: Optional[str] = None, eTag: Optional[str] = None, group_id: Optional[str] = None,
+                 id: Optional[str] = None, name: Optional[str] = None, owner_id: Optional[str] = None,
+                 position: Optional[int] = None, refresh_interval: Optional[int] = None, url: Optional[str] = None,
+                 widgets: Optional[List[Widget]] = None) -> None:
+        super(DashboardGroupEntryResponse, self).__init__(_links=_links, dashboard_scope=dashboard_scope,
+                                                          description=description, eTag=eTag, group_id=group_id, id=id,
+                                                          name=name, owner_id=owner_id, position=position,
+                                                          refresh_interval=refresh_interval, url=url, widgets=widgets)
+
+
+class DashboardResponse(DashboardGroupEntry):
+    """
+    :param _links:
+    :type _links: :class:`ReferenceLinks <azure.devops.v7_0.dashboard.models.ReferenceLinks>`
+    :param dashboard_scope: Entity to which the dashboard is scoped.
+    :type dashboard_scope: object
+    :param description: Description of the dashboard.
+    :type description: str
+    :param eTag: Server defined version tracking value, used for edit collision detection.
+    :type eTag: str
+    :param group_id: ID of the group for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards this property is empty.
+    :type group_id: str
+    :param id: ID of the Dashboard. Provided by service at creation time.
+    :type id: str
+    :param name: Name of the Dashboard.
+    :type name: str
+    :param owner_id: ID of the owner for a dashboard. For team-scoped dashboards, this is the unique identifier for the team associated with the dashboard. For project-scoped dashboards, this is the unique identifier for the user identity associated with the dashboard.
+    :type owner_id: str
+    :param position: Position of the dashboard, within a dashboard group. If unset at creation time, position is decided by the service.
+    :type position: int
+    :param refresh_interval: Interval for client to automatically refresh the dashboard. Expressed in minutes.
+    :type refresh_interval: int
+    :param url:
+    :type url: str
+    :param widgets: The set of Widgets on the dashboard.
+    :type widgets: list of :class:`Widget <azure.devops.v7_0.dashboard.models.Widget>`
+    """
+
+    _attribute_map = {
+        '_links': {'key': '_links', 'type': 'ReferenceLinks'},
+        'dashboard_scope': {'key': 'dashboardScope', 'type': 'object'},
+        'description': {'key': 'description', 'type': 'str'},
+        'eTag': {'key': 'eTag', 'type': 'str'},
+        'group_id': {'key': 'groupId', 'type': 'str'},
+        'id': {'key': 'id', 'type': 'str'},
+        'name': {'key': 'name', 'type': 'str'},
+        'owner_id': {'key': 'ownerId', 'type': 'str'},
+        'position': {'key': 'position', 'type': 'int'},
+        'refresh_interval': {'key': 'refreshInterval', 'type': 'int'},
+        'url': {'key': 'url', 'type': 'str'},
+        'widgets': {'key': 'widgets', 'type': '[Widget]'},
+    }
+
+    def __init__(self, _links: Optional[ReferenceLinks] = None, dashboard_scope: Optional[Dict[Any, Any]] = None,
+                 description: Optional[str] = None, eTag: Optional[str] = None, group_id: Optional[str] = None,
+                 id: Optional[str] = None, name: Optional[str] = None, owner_id: Optional[str] = None,
+                 position: Optional[int] = None, refresh_interval: Optional[int] = None, url: Optional[str] = None,
+                 widgets: Optional[List[Widget]] = None) -> None:
+        super(DashboardResponse, self).__init__(_links=_links, dashboard_scope=dashboard_scope, description=description,
+                                                eTag=eTag, group_id=group_id, id=id, name=name, owner_id=owner_id,
+                                                position=position, refresh_interval=refresh_interval, url=url,
+                                                widgets=widgets)
+
+
+class TeamContext(Model):
+    """
+    The Team Context for an operation.
+
+    :param project: The team project Id or name.  Ignored if ProjectId is set.
+    :type project: str
+    :param project_id: The Team Project ID.  Required if Project is not set.
+    :type project_id: str
+    :param team: The Team Id or name.  Ignored if TeamId is set.
+    :type team: str
+    :param team_id: The Team Id
+    :type team_id: str
+    """
+
+    _attribute_map = {
+        'project': {'key': 'project', 'type': 'str'},
+        'project_id': {'key': 'projectId', 'type': 'str'},
+        'team': {'key': 'team', 'type': 'str'},
+        'team_id': {'key': 'teamId', 'type': 'str'}
+    }
+
+    def __init__(self, project: Optional[str] = None, project_id: Optional[str] = None, team: Optional[str] = None,
+                 team_id: Optional[str] = None) -> None:
+        super(TeamContext, self).__init__()
+        self.project = project
+        self.project_id = project_id
+        self.team = team
+        self.team_id = team_id
 
 
 class WidgetMetadata(Model):
@@ -587,7 +671,20 @@ class WidgetMetadata(Model):
         'type_id': {'key': 'typeId', 'type': 'str'}
     }
 
-    def __init__(self, allowed_sizes=None, analytics_service_required=None, catalog_icon_url=None, catalog_info_url=None, configuration_contribution_id=None, configuration_contribution_relative_id=None, configuration_required=None, content_uri=None, contribution_id=None, default_settings=None, description=None, is_enabled=None, is_name_configurable=None, is_visible_from_catalog=None, keywords=None, lightbox_options=None, loading_image_url=None, name=None, publisher_name=None, supported_scopes=None, tags=None, targets=None, type_id=None):
+    def __init__(self, allowed_sizes: Optional[List[WidgetSize]] = None,
+                 analytics_service_required: Optional[bool] = None,
+                 catalog_icon_url: Optional[str] = None, catalog_info_url: Optional[str] = None,
+                 configuration_contribution_id: Optional[str] = None,
+                 configuration_contribution_relative_id: Optional[str] = None,
+                 configuration_required: Optional[bool] = None, content_uri: Optional[str] = None,
+                 contribution_id: Optional[str] = None, default_settings: Optional[str] = None,
+                 description: Optional[str] = None, is_enabled: Optional[bool] = None,
+                 is_name_configurable: Optional[bool] = None, is_visible_from_catalog: Optional[bool] = None,
+                 keywords: Optional[List[str]] = None, lightbox_options: Optional[LightboxOptions] = None,
+                 loading_image_url: Optional[str] = None, name: Optional[str] = None,
+                 publisher_name: Optional[str] = None, supported_scopes: Optional[List[Dict[Any, Any]]] = None,
+                 tags: Optional[List[str]] = None, targets: Optional[List[str]] = None,
+                 type_id: Optional[str] = None) -> None:
         super(WidgetMetadata, self).__init__()
         self.allowed_sizes = allowed_sizes
         self.analytics_service_required = analytics_service_required
@@ -627,29 +724,10 @@ class WidgetMetadataResponse(Model):
         'widget_metadata': {'key': 'widgetMetadata', 'type': 'WidgetMetadata'}
     }
 
-    def __init__(self, uri=None, widget_metadata=None):
+    def __init__(self, uri: Optional[str] = None, widget_metadata: Optional[WidgetMetadata] = None) -> None:
         super(WidgetMetadataResponse, self).__init__()
         self.uri = uri
         self.widget_metadata = widget_metadata
-
-
-class WidgetPosition(Model):
-    """
-    :param column:
-    :type column: int
-    :param row:
-    :type row: int
-    """
-
-    _attribute_map = {
-        'column': {'key': 'column', 'type': 'int'},
-        'row': {'key': 'row', 'type': 'int'}
-    }
-
-    def __init__(self, column=None, row=None):
-        super(WidgetPosition, self).__init__()
-        self.column = column
-        self.row = row
 
 
 class WidgetResponse(Widget):
@@ -727,27 +805,29 @@ class WidgetResponse(Widget):
         'url': {'key': 'url', 'type': 'str'},
     }
 
-    def __init__(self, _links=None, allowed_sizes=None, are_settings_blocked_for_user=None, artifact_id=None, configuration_contribution_id=None, configuration_contribution_relative_id=None, content_uri=None, contribution_id=None, dashboard=None, eTag=None, id=None, is_enabled=None, is_name_configurable=None, lightbox_options=None, loading_image_url=None, name=None, position=None, settings=None, settings_version=None, size=None, type_id=None, url=None):
-        super(WidgetResponse, self).__init__(_links=_links, allowed_sizes=allowed_sizes, are_settings_blocked_for_user=are_settings_blocked_for_user, artifact_id=artifact_id, configuration_contribution_id=configuration_contribution_id, configuration_contribution_relative_id=configuration_contribution_relative_id, content_uri=content_uri, contribution_id=contribution_id, dashboard=dashboard, eTag=eTag, id=id, is_enabled=is_enabled, is_name_configurable=is_name_configurable, lightbox_options=lightbox_options, loading_image_url=loading_image_url, name=name, position=position, settings=settings, settings_version=settings_version, size=size, type_id=type_id, url=url)
-
-
-class WidgetSize(Model):
-    """
-    :param column_span: The Width of the widget, expressed in dashboard grid columns.
-    :type column_span: int
-    :param row_span: The height of the widget, expressed in dashboard grid rows.
-    :type row_span: int
-    """
-
-    _attribute_map = {
-        'column_span': {'key': 'columnSpan', 'type': 'int'},
-        'row_span': {'key': 'rowSpan', 'type': 'int'}
-    }
-
-    def __init__(self, column_span=None, row_span=None):
-        super(WidgetSize, self).__init__()
-        self.column_span = column_span
-        self.row_span = row_span
+    def __init__(self, _links: Optional[ReferenceLinks] = None, allowed_sizes: Optional[List[WidgetSize]] = None,
+                 are_settings_blocked_for_user: Optional[bool] = None, artifact_id: Optional[str] = None,
+                 configuration_contribution_id: Optional[str] = None,
+                 configuration_contribution_relative_id: Optional[str] = None, content_uri: Optional[str] = None,
+                 contribution_id: Optional[str] = None, dashboard: Optional[Dashboard] = None,
+                 eTag: Optional[str] = None, id: Optional[str] = None, is_enabled: Optional[bool] = None,
+                 is_name_configurable: Optional[bool] = None, lightbox_options: Optional[LightboxOptions] = None,
+                 loading_image_url: Optional[str] = None, name: Optional[str] = None,
+                 position: Optional[WidgetPosition] = None, settings: Optional[str] = None,
+                 settings_version: Optional[SemanticVersion] = None, size: Optional[WidgetSize] = None,
+                 type_id: Optional[str] = None, url: Optional[str] = None) -> None:
+        super(WidgetResponse, self).__init__(
+            _links=_links, allowed_sizes=allowed_sizes,
+            are_settings_blocked_for_user=are_settings_blocked_for_user,
+            artifact_id=artifact_id,
+            configuration_contribution_id=configuration_contribution_id,
+            configuration_contribution_relative_id=configuration_contribution_relative_id,
+            content_uri=content_uri, contribution_id=contribution_id,
+            dashboard=dashboard, eTag=eTag, id=id, is_enabled=is_enabled,
+            is_name_configurable=is_name_configurable,
+            lightbox_options=lightbox_options, loading_image_url=loading_image_url,
+            name=name, position=position, settings=settings,
+            settings_version=settings_version, size=size, type_id=type_id, url=url)
 
 
 class WidgetsVersionedList(Model):
@@ -765,7 +845,7 @@ class WidgetsVersionedList(Model):
         'widgets': {'key': 'widgets', 'type': '[Widget]'}
     }
 
-    def __init__(self, eTag=None, widgets=None):
+    def __init__(self, eTag: Optional[List[str]] = None, widgets: Optional[List[Widget]] = None) -> None:
         super(WidgetsVersionedList, self).__init__()
         self.eTag = eTag
         self.widgets = widgets
@@ -787,7 +867,8 @@ class WidgetTypesResponse(Model):
         'widget_types': {'key': 'widgetTypes', 'type': '[WidgetMetadata]'}
     }
 
-    def __init__(self, _links=None, uri=None, widget_types=None):
+    def __init__(self, _links: Optional[ReferenceLinks] = None, uri: Optional[str] = None,
+                 widget_types: Optional[List[WidgetMetadata]] = None) -> None:
         super(WidgetTypesResponse, self).__init__()
         self._links = _links
         self.uri = uri

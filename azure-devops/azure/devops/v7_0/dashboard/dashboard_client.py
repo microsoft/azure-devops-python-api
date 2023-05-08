@@ -6,6 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
+from typing import Optional
 from msrest import Serializer, Deserializer
 from ...client import Client
 from . import models
@@ -17,7 +18,7 @@ class DashboardClient(Client):
     :param Authentication creds: Authenticated credentials.
     """
 
-    def __init__(self, base_url=None, creds=None):
+    def __init__(self, base_url: Optional[str] = None, creds=None) -> None:
         super(DashboardClient, self).__init__(base_url, creds)
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
@@ -25,7 +26,7 @@ class DashboardClient(Client):
 
     resource_area_identifier = '31c84e0a-3ece-48fd-a29d-100849af99ba'
 
-    def create_dashboard(self, dashboard, team_context):
+    def create_dashboard(self, dashboard: models.Dashboard, team_context: models.TeamContext) -> models.Dashboard:
         """CreateDashboard.
         [Preview API] Create the supplied dashboard.
         :param :class:`<Dashboard> <azure.devops.v7_0.dashboard.models.Dashboard>` dashboard: The initial state of the dashboard
@@ -57,7 +58,7 @@ class DashboardClient(Client):
                               content=content)
         return self._deserialize('Dashboard', response)
 
-    def delete_dashboard(self, team_context, dashboard_id):
+    def delete_dashboard(self, team_context: models.TeamContext, dashboard_id: str) -> None:
         """DeleteDashboard.
         [Preview API] Delete a dashboard given its ID. This also deletes the widgets associated with this dashboard.
         :param :class:`<TeamContext> <azure.devops.v7_0.dashboard.models.TeamContext>` team_context: The team context for the operation
@@ -87,7 +88,7 @@ class DashboardClient(Client):
                    version='7.0-preview.3',
                    route_values=route_values)
 
-    def get_dashboard(self, team_context, dashboard_id):
+    def get_dashboard(self, team_context: models.TeamContext, dashboard_id: str) -> models.Dashboard:
         """GetDashboard.
         [Preview API] Get a dashboard by its ID.
         :param :class:`<TeamContext> <azure.devops.v7_0.dashboard.models.TeamContext>` team_context: The team context for the operation
@@ -119,7 +120,7 @@ class DashboardClient(Client):
                               route_values=route_values)
         return self._deserialize('Dashboard', response)
 
-    def get_dashboards_by_project(self, team_context):
+    def get_dashboards_by_project(self, team_context: models.TeamContext) -> models.Dashboard:
         """GetDashboardsByProject.
         [Preview API] Get a list of dashboards under a project.
         :param :class:`<TeamContext> <azure.devops.v7_0.dashboard.models.TeamContext>` team_context: The team context for the operation
@@ -148,7 +149,9 @@ class DashboardClient(Client):
                               route_values=route_values)
         return self._deserialize('[Dashboard]', self._unwrap_collection(response))
 
-    def replace_dashboard(self, dashboard, team_context, dashboard_id):
+    def replace_dashboard(
+            self, dashboard: models.Dashboard, team_context: models.TeamContext,
+            dashboard_id: str) -> models.Dashboard:
         """ReplaceDashboard.
         [Preview API] Replace configuration for the specified dashboard. Replaces Widget list on Dashboard, only if property is supplied.
         :param :class:`<Dashboard> <azure.devops.v7_0.dashboard.models.Dashboard>` dashboard: The Configuration of the dashboard to replace.
@@ -183,7 +186,8 @@ class DashboardClient(Client):
                               content=content)
         return self._deserialize('Dashboard', response)
 
-    def replace_dashboards(self, group, team_context):
+    def replace_dashboards(self, group: models.DashboardGroup,
+                           team_context: models.TeamContext) -> models.DashboardGroup:
         """ReplaceDashboards.
         [Preview API] Update the name and position of dashboards in the supplied group, and remove omitted dashboards. Does not modify dashboard content.
         :param :class:`<DashboardGroup> <azure.devops.v7_0.dashboard.models.DashboardGroup>` group:
@@ -215,7 +219,8 @@ class DashboardClient(Client):
                               content=content)
         return self._deserialize('DashboardGroup', response)
 
-    def create_widget(self, widget, team_context, dashboard_id):
+    def create_widget(self, widget: models.Widget, team_context: models.TeamContext,
+                      dashboard_id: str) -> models.Widget:
         """CreateWidget.
         [Preview API] Create a widget on the specified dashboard.
         :param :class:`<Widget> <azure.devops.v7_0.dashboard.models.Widget>` widget: State of the widget to add
@@ -250,7 +255,7 @@ class DashboardClient(Client):
                               content=content)
         return self._deserialize('Widget', response)
 
-    def delete_widget(self, team_context, dashboard_id, widget_id):
+    def delete_widget(self, team_context: models.TeamContext, dashboard_id: str, widget_id: str) -> models.Dashboard:
         """DeleteWidget.
         [Preview API] Delete the specified widget.
         :param :class:`<TeamContext> <azure.devops.v7_0.dashboard.models.TeamContext>` team_context: The team context for the operation
@@ -285,7 +290,7 @@ class DashboardClient(Client):
                               route_values=route_values)
         return self._deserialize('Dashboard', response)
 
-    def get_widget(self, team_context, dashboard_id, widget_id):
+    def get_widget(self, team_context: models.TeamContext, dashboard_id: str, widget_id: str) -> models.Widget:
         """GetWidget.
         [Preview API] Get the current state of the specified widget.
         :param :class:`<TeamContext> <azure.devops.v7_0.dashboard.models.TeamContext>` team_context: The team context for the operation
@@ -320,7 +325,8 @@ class DashboardClient(Client):
                               route_values=route_values)
         return self._deserialize('Widget', response)
 
-    def get_widgets(self, team_context, dashboard_id, eTag=None):
+    def get_widgets(self, team_context: models.TeamContext, dashboard_id: str,
+                    eTag: Optional[str] = None) -> models.WidgetsVersionedList:
         """GetWidgets.
         [Preview API] Get widgets contained on the specified dashboard.
         :param :class:`<TeamContext> <azure.devops.v7_0.dashboard.models.TeamContext>` team_context: The team context for the operation
@@ -360,7 +366,8 @@ class DashboardClient(Client):
         response_object.eTag = response.headers.get('ETag')
         return response_object
 
-    def replace_widget(self, widget, team_context, dashboard_id, widget_id):
+    def replace_widget(self, widget: models.Widget, team_context: models.TeamContext,
+                       dashboard_id: str, widget_id: str) -> models.Widget:
         """ReplaceWidget.
         [Preview API] Override the  state of the specified widget.
         :param :class:`<Widget> <azure.devops.v7_0.dashboard.models.Widget>` widget: State to be written for the widget.
@@ -398,7 +405,8 @@ class DashboardClient(Client):
                               content=content)
         return self._deserialize('Widget', response)
 
-    def replace_widgets(self, widgets, team_context, dashboard_id, eTag=None):
+    def replace_widgets(self, widgets, team_context: models.TeamContext, dashboard_id: str,
+                        eTag: Optional[str] = None) -> models.WidgetsVersionedList:
         """ReplaceWidgets.
         [Preview API] Replace the widgets on specified dashboard with the supplied widgets.
         :param [Widget] widgets: Revised state of widgets to store for the dashboard.
@@ -441,7 +449,8 @@ class DashboardClient(Client):
         response_object.eTag = response.headers.get('ETag')
         return response_object
 
-    def update_widget(self, widget, team_context, dashboard_id, widget_id):
+    def update_widget(self, widget: models.Widget, team_context: models.TeamContext, dashboard_id: str,
+                      widget_id: str) -> models.Widget:
         """UpdateWidget.
         [Preview API] Perform a partial update of the specified widget.
         :param :class:`<Widget> <azure.devops.v7_0.dashboard.models.Widget>` widget: Description of the widget changes to apply. All non-null fields will be replaced.
@@ -479,7 +488,8 @@ class DashboardClient(Client):
                               content=content)
         return self._deserialize('Widget', response)
 
-    def update_widgets(self, widgets, team_context, dashboard_id, eTag=None):
+    def update_widgets(self, widgets, team_context: models.TeamContext, dashboard_id: str,
+                       eTag: Optional[str] = None) -> models.WidgetsVersionedList:
         """UpdateWidgets.
         [Preview API] Update the supplied widgets on the dashboard using supplied state. State of existing Widgets not passed in the widget list is preserved.
         :param [Widget] widgets: The set of widget states to update on the dashboard.
@@ -522,7 +532,7 @@ class DashboardClient(Client):
         response_object.eTag = response.headers.get('ETag')
         return response_object
 
-    def get_widget_metadata(self, contribution_id, project=None):
+    def get_widget_metadata(self, contribution_id: str, project: Optional[str] = None) -> models.WidgetMetadataResponse:
         """GetWidgetMetadata.
         [Preview API] Get the widget metadata satisfying the specified contribution ID.
         :param str contribution_id: The ID of Contribution for the Widget
@@ -540,7 +550,7 @@ class DashboardClient(Client):
                               route_values=route_values)
         return self._deserialize('WidgetMetadataResponse', response)
 
-    def get_widget_types(self, scope, project=None):
+    def get_widget_types(self, scope: str, project: Optional[str] = None) -> models.WidgetTypesResponse:
         """GetWidgetTypes.
         [Preview API] Get all available widget metadata in alphabetical order, including widgets marked with isVisibleFromCatalog == false.
         :param str scope:
@@ -559,4 +569,3 @@ class DashboardClient(Client):
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('WidgetTypesResponse', response)
-
