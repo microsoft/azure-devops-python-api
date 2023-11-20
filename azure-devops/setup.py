@@ -3,7 +3,7 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
-from setuptools import setup, find_packages
+from setuptools import setup, find_namespace_packages
 
 NAME = "azure-devops"
 VERSION = "7.1.0b3"
@@ -30,6 +30,7 @@ CLASSIFIERS = [
     'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
     'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
     'License :: OSI Approved :: MIT License',
 ]
 
@@ -43,7 +44,7 @@ setup(
     keywords=["Microsoft", "VSTS", "Team Services", "SDK", "AzureTfs", "AzureDevOps", "DevOps"],
     install_requires=REQUIRES,
     classifiers=CLASSIFIERS,
-    packages=find_packages(),
+    packages=find_namespace_packages(),
     include_package_data=True,
     python_requires=">=3.7",
     long_description="Azure DevOps Python clients"
