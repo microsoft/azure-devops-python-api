@@ -153,7 +153,31 @@ class MemberEntitlementManagementClient(Client):
                               route_values=route_values,
                               query_parameters=query_parameters)
         return self._deserialize('PagedGraphMemberList', response)
-
+    
+    def get_user_entitlements(self, top=None, skip=None, filter=None, sort_option=None):
+        """GetUserEntitlements.
+        [Preview API] Get a paged set of user entitlements matching the filter criteria. If no filter is is passed, a page from all the account users is returned.
+        :param int top: Maximum number of the user entitlements to return. Max value is 10000. Default value is 100
+        :param int skip: Offset: Number of records to skip. Default value is 0
+        :param str filter: Comma (",") separated list of properties and their values to filter on. Currently, the API only supports filtering by ExtensionId. An example parameter would be filter=extensionId eq search.
+        :param str sort_option: PropertyName and Order (separated by a space ( )) to sort on (e.g. LastAccessDate Desc)
+        :rtype: :class:`<PagedGraphMemberList> <azure.devops.v5_0.member_entitlement_management.models.PagedGraphMemberList>`
+        """
+        query_parameters = {}
+        if top is not None:
+            query_parameters['top'] = self._serialize.query('top', top, 'int')
+        if skip is not None:
+            query_parameters['skip'] = self._serialize.query('skip', skip, 'int')
+        if filter is not None:
+            query_parameters['filter'] = self._serialize.query('filter', filter, 'str')
+        if sort_option is not None:
+            query_parameters['sortOption'] = self._serialize.query('sort_option', sort_option, 'str')
+        response = self._send(http_method='GET',
+                              location_id='387f832c-dbf2-4643-88e9-c1aa94dbb737',
+                              version='5.0-preview.2',
+                              query_parameters=query_parameters)
+        return self._deserialize('PagedGraphMemberList', response)
+    
     def remove_member_from_group(self, group_id, member_id):
         """RemoveMemberFromGroup.
         Remove a member from a Group.
