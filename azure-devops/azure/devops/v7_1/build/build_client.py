@@ -474,7 +474,7 @@ class BuildClient(Client):
             Response for the get_builds method
 
             :param value:
-            :type value: :class:`<[Build]> <azure.devops.v5_1.build.models.[Build]>`
+            :type value: :class:`<[Build]> <azure.devops.v7_1.build.models.[Build]>`
             :param continuation_token: The continuation token to be used to get the next page of results.
             :type continuation_token: str
             """
