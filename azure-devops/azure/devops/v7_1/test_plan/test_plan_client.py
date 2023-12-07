@@ -361,7 +361,22 @@ class TestPlanClient(Client):
                               version='7.1-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[TestSuite]', self._unwrap_collection(response))
+        response_value = self._deserialize('[TestSuite]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetTestSuitesForPlanResponseValue(response_value, continuation_token)
+
+    class GetTestSuitesForPlanResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_test_suites_for_plan method
+
+            :param value:
+            :type value: :class:`<[TestSuite]> <azure.devops.v7_1.test_plan.models.[TestSuite]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def update_test_suite(self, test_suite_update_params, project, plan_id, suite_id):
         """UpdateTestSuite.
