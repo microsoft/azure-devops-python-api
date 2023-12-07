@@ -464,7 +464,22 @@ class BuildClient(Client):
                               version='7.1-preview.7',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[Build]', self._unwrap_collection(response))
+        response_value = self._deserialize('[Build]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.GetBuildsResponseValue(response_value, continuation_token)
+
+    class GetBuildsResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the get_builds method
+
+            :param value:
+            :type value: :class:`<[Build]> <azure.devops.v7_1.build.models.[Build]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def queue_build(self, build, project, ignore_warnings=None, check_in_ticket=None, source_build_id=None, definition_id=None):
         """QueueBuild.

@@ -174,7 +174,22 @@ class PipelinesClient(Client):
                               version='7.1-preview.1',
                               route_values=route_values,
                               query_parameters=query_parameters)
-        return self._deserialize('[Pipeline]', self._unwrap_collection(response))
+        response_value = self._deserialize('[Pipeline]', self._unwrap_collection(response))
+        continuation_token = self._get_continuation_token(response)
+        return self.ListPipelinesResponseValue(response_value, continuation_token)
+        
+    class ListPipelinesResponseValue(object):
+        def __init__(self, value, continuation_token):
+            """
+            Response for the list_pipelines method
+
+            :param value:
+            :type value: :class:`<[Pipeline]> <azure.devops.v7_1.pipelines.models.[Pipeline]>`
+            :param continuation_token: The continuation token to be used to get the next page of results.
+            :type continuation_token: str
+            """
+            self.value = value
+            self.continuation_token = continuation_token
 
     def preview(self, run_parameters, project, pipeline_id, pipeline_version=None):
         """Preview.
