@@ -3,7 +3,7 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
-from msrest import Configuration
+from azure.core.rest import Configuration
 from .version import VERSION
 
 

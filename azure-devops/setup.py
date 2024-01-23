@@ -16,7 +16,7 @@ VERSION = "7.2.0b1"
 # http://pypi.python.org/pypi/setuptools
 
 REQUIRES = [
-    "msrest>=0.7.1,<0.8.0"
+    "azure.core"
 ]
 
 CLASSIFIERS = [

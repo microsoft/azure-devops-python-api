@@ -5,7 +5,7 @@
 
 import logging
 
-from msrest.service_client import ServiceClient
+from azure.core.rest.service_client import ServiceClient
 from ._file_cache import RESOURCE_CACHE as RESOURCE_FILE_CACHE
 from .client_configuration import ClientConfiguration
 from .exceptions import AzureDevOpsClientRequestError

@@ -1,6 +1,6 @@
 # coding=utf-8
 
-from msrest.universal_http import ClientRequest
+from azure.core.rest import HttpRequest, HttpResponse
 from .git_client_base import GitClientBase
 
 

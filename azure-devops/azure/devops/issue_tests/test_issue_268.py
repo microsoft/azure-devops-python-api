@@ -6,8 +6,7 @@
 import pprint
 import unittest
 
-from msrest import Deserializer
-from msrest.universal_http import HTTPClientResponse
+from azure.core.rest import HttpRequest, HttpResponse
 
 
 class _TestResponse(HTTPClientResponse):

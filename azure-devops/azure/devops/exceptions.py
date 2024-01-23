@@ -3,7 +3,7 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
-from msrest.exceptions import (
+from azure.core.rest.exceptions import (
     ClientException,
     ClientRequestError,
     AuthenticationError,

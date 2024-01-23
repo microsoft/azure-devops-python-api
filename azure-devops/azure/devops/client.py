@@ -10,10 +10,9 @@ import os
 import re
 import uuid
 
-from msrest import Deserializer, Serializer
-from msrest.exceptions import DeserializationError, SerializationError
-from msrest.universal_http import ClientRequest
-from msrest.service_client import ServiceClient
+from azure.core.rest import HttpRequest, HttpResponse
+from azure.core.rest.exceptions import DeserializationError, SerializationError
+from azure.core.rest.service_client import ServiceClient
 from .exceptions import AzureDevOpsAuthenticationError, AzureDevOpsClientRequestError, AzureDevOpsServiceError
 from .client_configuration import ClientConfiguration
 from . import _models
