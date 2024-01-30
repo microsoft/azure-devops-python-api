@@ -10,7 +10,7 @@ from msrest import Serializer, Deserializer
 from ...client import Client
 from ...detailed_response import DetailedResponse
 from . import models
-
+from ...full_response import FullResponse
 
 class CoreClient(Client):
     """Core
@@ -248,7 +248,7 @@ class CoreClient(Client):
                               query_parameters=query_parameters)
         response_value = self._deserialize('[TeamProjectReference]', self._unwrap_collection(response))
         continuation_token = self._get_continuation_token(response)
-        return DetailedResponse(response_value, continuation_token)
+        return FullResponse(DetailedResponse(response_value, continuation_token), response)
 
     def queue_create_project(self, project_to_create):
         """QueueCreateProject.
