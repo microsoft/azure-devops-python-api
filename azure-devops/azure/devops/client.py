@@ -11,10 +11,9 @@ import re
 import uuid
 
 from azure.core.rest import HttpRequest, HttpResponse
-from azure.core.rest.exceptions import DeserializationError, SerializationError
-from azure.core.rest.service_client import ServiceClient
+from azure.core.exceptions import DeserializationError, SerializationError
 from .exceptions import AzureDevOpsAuthenticationError, AzureDevOpsClientRequestError, AzureDevOpsServiceError
-from .client_configuration import ClientConfiguration
+from .azure_devops_client import AzureDevOpsClient
 from . import _models
 from ._file_cache import OPTIONS_CACHE as OPTIONS_FILE_CACHE
 
@@ -29,9 +28,7 @@ class Client(object):
     """
 
     def __init__(self, base_url=None, creds=None):
-        self.config = ClientConfiguration(base_url)
-        self.config.credentials = creds
-        self._client = ServiceClient(creds, config=self.config)
+        self._client = AzureDevOpsClient(base_url=base_url, credentials=creds)
         _base_client_models = {k: v for k, v in _models.__dict__.items() if isinstance(v, type)}
         self._base_deserialize = Deserializer(_base_client_models)
         self._base_serialize = Serializer(_base_client_models)

@@ -3,22 +3,17 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
-from azure.core.rest.exceptions import (
-    ClientException,
-    ClientRequestError,
-    AuthenticationError,
+from azure.core.exceptions import (
+    ClientAuthenticationError,
+    ServiceResponseError
 )
 
 
-class AzureDevOpsClientError(ClientException):
+class AzureDevOpsAuthenticationError(ClientAuthenticationError):
     pass
 
 
-class AzureDevOpsAuthenticationError(AuthenticationError):
-    pass
-
-
-class AzureDevOpsClientRequestError(ClientRequestError):
+class AzureDevOpsClientRequestError(ServiceResponseError):
     pass
 
 

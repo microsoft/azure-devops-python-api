@@ -5,9 +5,8 @@
 
 import logging
 
-from azure.core.rest.service_client import ServiceClient
 from ._file_cache import RESOURCE_CACHE as RESOURCE_FILE_CACHE
-from .client_configuration import ClientConfiguration
+from .azure_devops_client import AzureDevOpsClient
 from .exceptions import AzureDevOpsClientRequestError
 from .released.client_factory import ClientFactory
 from .v7_2.location.location_client import LocationClient
@@ -21,16 +20,12 @@ class Connection(object):
     """Connection.
     """
 
-    def __init__(self, base_url=None, creds=None, user_agent=None):
-        self._config = ClientConfiguration(base_url)
-        self._config.credentials = creds
+    def __init__(self, base_url=None, credentials=None, user_agent=None):
         self._addition_user_agent = user_agent
-        if user_agent is not None:
-            self._config.add_user_agent(user_agent)
-        self._client = ServiceClient(creds, self._config)
+        self._client = AzureDevOpsClient(base_url=base_url, credentials=credentials, user_agent=user_agent)
         self._client_cache = {}
         self.base_url = base_url
-        self._creds = creds
+        self._creds = credentials
         self._resource_areas = None
         self.clients = ClientFactory(self)
         self.clients_v7_2 = ClientFactoryV7_2(self)
