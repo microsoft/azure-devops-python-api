@@ -5,7 +5,7 @@
 
 This repository contains Python APIs for interacting with and managing Azure DevOps. These APIs power the Azure DevOps Extension for Azure CLI. To learn more about the Azure DevOps Extension for Azure CLI, visit the [Microsoft/azure-devops-cli-extension](https://github.com/Microsoft/azure-devops-cli-extension) repo.
 
-## Install 
+## Install
 
 ```
 pip install azure-devops
@@ -13,13 +13,11 @@ pip install azure-devops
 
 ## Get started
 
-
 To use the API, establish a connection using a [personal access token](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) and the URL to your Azure DevOps organization. Then get a client from the connection and make API calls.
 
 ```python
 from azure.devops.connection import Connection
 from msrest.authentication import BasicAuthentication
-import pprint
 
 # Fill in with your personal access token and org URL
 personal_access_token = 'YOURPAT'
@@ -34,17 +32,9 @@ core_client = connection.clients.get_core_client()
 
 # Get the first page of projects
 get_projects_response = core_client.get_projects()
-index = 0
-while get_projects_response is not None:
-    for project in get_projects_response.value:
-        pprint.pprint("[" + str(index) + "] " + project.name)
-        index += 1
-    if get_projects_response.continuation_token is not None and get_projects_response.continuation_token != "":
-        # Get the next page of projects
-        get_projects_response = core_client.get_projects(continuation_token=get_projects_response.continuation_token)
-    else:
-        # All projects have been retrieved
-        get_projects_response = None
+
+for index ,project in enumerate(get_projects_response):
+    print(f"[{index}]" , project.name )
 ```
 
 ## API documentation
