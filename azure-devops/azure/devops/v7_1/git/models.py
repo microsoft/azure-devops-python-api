@@ -1903,6 +1903,12 @@ class GitPullRequestSearchCriteria(Model):
     :type creator_id: str
     :param include_links: Whether to include the _links field on the shallow references
     :type include_links: bool
+    param max_time: If set, search for pull requests that created/closed before this date based on the queryTimeRangeType specified
+    :type max_time: str
+    param min_time: If set, search for pull requests that created/closed after this date based on the queryTimeRangeType specified.
+    :type min_time: str
+    param query_time_range_type: The type of time range which should be used for minTime and maxTime. Defaults to Created if unset
+    :type query_time_range_type: str
     :param repository_id: If set, search for pull requests whose target branch is in this repository.
     :type repository_id: str
     :param reviewer_id: If set, search for pull requests that have this identity as a reviewer.
@@ -1920,6 +1926,9 @@ class GitPullRequestSearchCriteria(Model):
     _attribute_map = {
         'creator_id': {'key': 'creatorId', 'type': 'str'},
         'include_links': {'key': 'includeLinks', 'type': 'bool'},
+        'max_time': {'key': 'maxTime', 'type': 'str'},
+        'min_time': {'key': 'minTime', 'type': 'str'},
+        'query_time_range_type': {'key': 'queryTimeRangeType', 'type': 'str'},
         'repository_id': {'key': 'repositoryId', 'type': 'str'},
         'reviewer_id': {'key': 'reviewerId', 'type': 'str'},
         'source_ref_name': {'key': 'sourceRefName', 'type': 'str'},
@@ -1928,10 +1937,13 @@ class GitPullRequestSearchCriteria(Model):
         'target_ref_name': {'key': 'targetRefName', 'type': 'str'}
     }
 
-    def __init__(self, creator_id=None, include_links=None, repository_id=None, reviewer_id=None, source_ref_name=None, source_repository_id=None, status=None, target_ref_name=None):
+    def __init__(self, creator_id=None, include_links=None, max_time=None, min_time=None, query_time_range_type='created', repository_id=None, reviewer_id=None, source_ref_name=None, source_repository_id=None, status=None, target_ref_name=None):
         super(GitPullRequestSearchCriteria, self).__init__()
         self.creator_id = creator_id
         self.include_links = include_links
+        self.max_time = max_time
+        self.min_time = min_time
+        self.query_time_range_type = query_time_range_type
         self.repository_id = repository_id
         self.reviewer_id = reviewer_id
         self.source_ref_name = source_ref_name
