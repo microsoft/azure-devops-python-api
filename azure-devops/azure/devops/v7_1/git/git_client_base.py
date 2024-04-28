@@ -2124,6 +2124,12 @@ class GitClientBase(Client):
                 query_parameters['searchCriteria.sourceRefName'] = search_criteria.source_ref_name
             if search_criteria.include_links is not None:
                 query_parameters['searchCriteria.includeLinks'] = search_criteria.include_links
+            if search_criteria.max_time is not None:
+                query_parameters['searchCriteria.maxTime'] = search_criteria.max_time
+            if search_criteria.min_time is not None:
+                query_parameters['searchCriteria.minTime'] = search_criteria.min_time
+            if search_criteria.query_time_range_type is not None:
+                query_parameters['searchCriteria.queryTimeRangeType'] = search_criteria.query_time_range_type
         if max_comment_length is not None:
             query_parameters['maxCommentLength'] = self._serialize.query('max_comment_length', max_comment_length, 'int')
         if skip is not None:
@@ -2235,6 +2241,12 @@ class GitClientBase(Client):
                 query_parameters['searchCriteria.sourceRefName'] = search_criteria.source_ref_name
             if search_criteria.include_links is not None:
                 query_parameters['searchCriteria.includeLinks'] = search_criteria.include_links
+            if search_criteria.max_time is not None:
+                query_parameters['searchCriteria.maxTime'] = search_criteria.max_time
+            if search_criteria.min_time is not None:
+                query_parameters['searchCriteria.minTime'] = search_criteria.min_time
+            if search_criteria.query_time_range_type is not None:
+                query_parameters['searchCriteria.queryTimeRangeType'] = search_criteria.query_time_range_type
         if max_comment_length is not None:
             query_parameters['maxCommentLength'] = self._serialize.query('max_comment_length', max_comment_length, 'int')
         if skip is not None:
