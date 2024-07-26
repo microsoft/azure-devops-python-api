@@ -5,7 +5,7 @@
 # regenerated.
 # --------------------------------------------------------------------------
 
-from msrest.serialization import Model
+from azure.core.serialization import Model
 
 
 class ApiResourceLocation(Model):
