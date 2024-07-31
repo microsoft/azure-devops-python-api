@@ -47,6 +47,25 @@ while get_projects_response is not None:
         get_projects_response = None
 ```
 
+Establish a connection using Browser Interactive mode
+
+```python
+from azure.devops.connection import Connection
+from azure.identity import InteractiveBrowserCredential
+from msrest.authentication import BasicTokenAuthentication
+
+# Fill in with your tenant id and org URL
+organization_url = 'https://dev.azure.com/YOURORG'
+tenant_id = 'YOURORG_TENANT_ID'
+
+# Create a connection to the org
+credentials = InteractiveBrowserCredential(tenant_id=_tenant_id)
+# The scope for the token should be 499b84ac-1321-427f-aa17-267ca6975798/.default which provides access to Azure DevOps Services REST API.
+access_token = credentials.get_token("499b84ac-1321-427f-aa17-267ca6975798/.default")
+token_auth = BasicTokenAuthentication({"access_token": access_token})
+connection = Connection(base_url=organization_url, creds=token_auth)
+```
+
 ## API documentation
 
 This Python library provides a thin wrapper around the Azure DevOps REST APIs. See the [Azure DevOps REST API reference](https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-5.1) for details on calling different APIs.
