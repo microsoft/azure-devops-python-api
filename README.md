@@ -18,7 +18,7 @@ To use the API, establish a connection using a [personal access token](https://d
 
 ```python
 from azure.devops.connection import Connection
-from msrest.authentication import BasicAuthentication
+from azure.identity import UsernamePasswordCredential
 import pprint
 
 # Fill in with your personal access token and org URL
@@ -26,7 +26,7 @@ personal_access_token = 'YOURPAT'
 organization_url = 'https://dev.azure.com/YOURORG'
 
 # Create a connection to the org
-credentials = BasicAuthentication('', personal_access_token)
+credentials = UsernamePasswordCredential(username = '', password = personal_access_token)
 connection = Connection(base_url=organization_url, creds=credentials)
 
 # Get a client (the "core" client provides access to projects, teams, etc)

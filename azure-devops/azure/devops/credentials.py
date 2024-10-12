@@ -3,7 +3,7 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
-from msrest.authentication import (
+from azure.core.rest.authentication import (
     BasicAuthentication,
     BasicTokenAuthentication,
     OAuthTokenAuthentication)

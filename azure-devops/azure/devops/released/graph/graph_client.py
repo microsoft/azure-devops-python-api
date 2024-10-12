@@ -6,7 +6,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------------------------
 
-from msrest import Serializer, Deserializer
+from azure.core.rest import HttpRequest, HttpResponse
 from ...client import Client
 from ...v7_0.graph import models
 
