@@ -334,7 +334,7 @@ class TestPlanClient(Client):
                               query_parameters=query_parameters)
         return self._deserialize('TestSuite', response)
 
-    def get_test_suites_for_plan(self, project, plan_id, expand=None, continuation_token=None, as_tree_view=None):
+    def get_test_suites_for_plan(self, project, plan_id, expand=None, continuation_token=None, as_tree_view=None, extract_all=False):
         """GetTestSuitesForPlan.
         Get test suites for plan.
         :param str project: Project ID or project name
@@ -361,6 +361,9 @@ class TestPlanClient(Client):
                               version='7.0',
                               route_values=route_values,
                               query_parameters=query_parameters)
+        if extract_all and 'x-ms-continuationtoken' in response.headers:
+            continuation_token = response.headers['x-ms-continuationtoken']
+            return self._deserialize('[TestPlan]', self._unwrap_collection(response)) + self.get_test_plans(project, plan_id, expand=expand, continuation_token=continuation_token, as_tree_view=as_tree_view, extract_all=True)
         return self._deserialize('[TestSuite]', self._unwrap_collection(response))
 
     def update_test_suite(self, test_suite_update_params, project, plan_id, suite_id):
