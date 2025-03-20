@@ -104,7 +104,7 @@ class WikiClient(Client):
         response_object.eTag = response.headers.get('ETag')
         return response_object
 
-    def create_or_update_page(self, parameters, project, wiki_identifier, path, version, comment=None, version_descriptor=None):
+    def create_or_update_page(self, parameters, project, wiki_identifier, path, version=None, comment=None, version_descriptor=None):
         """CreateOrUpdatePage.
         [Preview API] Creates or edits a wiki page.
         :param :class:`<WikiPageCreateOrUpdateParameters> <azure.devops.v7_1.wiki.models.WikiPageCreateOrUpdateParameters>` parameters: Wiki create or update operation parameters.
