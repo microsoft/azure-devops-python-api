@@ -9,6 +9,7 @@ import logging
 import os
 import re
 import uuid
+import www_authenticate
 
 from msrest import Deserializer, Serializer
 from msrest.exceptions import DeserializationError, SerializationError
@@ -285,10 +286,31 @@ class Client(object):
                 pass
         elif response.content is not None:
             error_message = response.content.decode("utf-8") + '  '
+
         if response.status_code == 401:
             full_message_format = '{error_message}The requested resource requires user authentication: {url}'
-            raise AzureDevOpsAuthenticationError(full_message_format.format(error_message=error_message,
-                                                                            url=request.url))
+            formatted_message = full_message_format.format(error_message=error_message, url=request.url)
+            
+            # Check for WWW-Authenticate header and extract claims challenge if present
+            claims_challenge = None
+            if 'WWW-Authenticate' in response.headers:
+                www_auth_header = response.headers['WWW-Authenticate']
+                logger.debug('Received WWW-Authenticate header: %s', www_auth_header)
+                
+                try:
+                    # Parse the WWW-Authenticate header
+                    parsed = www_authenticate.parse(www_auth_header)
+                    
+                    # Extract the claims challenge from bearer params if present
+                    claims_challenge = parsed.get("bearer", {}).get("claims")
+                    if claims_challenge:
+                        logger.debug('Claims challenge extracted: %s', claims_challenge)
+                except Exception as ex:
+                    # If parsing fails, log the error but continue without claims
+                    logger.debug('Failed to parse WWW-Authenticate header: %s', str(ex))
+            
+            # Raise authentication error with claims challenge if found
+            raise AzureDevOpsAuthenticationError(formatted_message, claims_challenge=claims_challenge)
         else:
             full_message_format = '{error_message}Operation returned a {status_code} status code.'
             raise AzureDevOpsClientRequestError(full_message_format.format(error_message=error_message,

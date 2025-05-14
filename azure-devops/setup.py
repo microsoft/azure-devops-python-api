@@ -16,7 +16,9 @@ VERSION = "7.1.0b4"
 # http://pypi.python.org/pypi/setuptools
 
 REQUIRES = [
-    "msrest>=0.7.1,<0.8.0"
+    "msrest>=0.7.1,<0.8.0",
+    "www-authenticate>=0.9.1",
+    "msal>=1.20.0"
 ]
 
 CLASSIFIERS = [
