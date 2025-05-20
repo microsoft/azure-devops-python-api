@@ -412,6 +412,12 @@ class CheckConfiguration(CheckConfigurationRef):
     :type modified_on: datetime
     :param timeout: Timeout in minutes for the check.
     :type timeout: int
+    :param is_disabled: True if the check is disabled.
+    :type is_disabled: bool
+    :param version: Configuration version.
+    :type version: int
+    :param settings: Check settings.
+    :type settings: TaskCheckConfig
     """
 
     _attribute_map = {
@@ -425,10 +431,13 @@ class CheckConfiguration(CheckConfigurationRef):
         'issue': {'key': 'issue', 'type': 'CheckIssue'},
         'modified_by': {'key': 'modifiedBy', 'type': 'IdentityRef'},
         'modified_on': {'key': 'modifiedOn', 'type': 'iso-8601'},
-        'timeout': {'key': 'timeout', 'type': 'int'}
+        'timeout': {'key': 'timeout', 'type': 'int'},
+        'is_disabled': {'key': 'isDisabled', 'type': 'bool'},
+        'version': {'key': 'version', 'type': 'int'},
+        'settings': {'key': 'settings', 'type': 'TaskCheckConfig'}
     }
 
-    def __init__(self, id=None, resource=None, type=None, url=None, _links=None, created_by=None, created_on=None, issue=None, modified_by=None, modified_on=None, timeout=None):
+    def __init__(self, id=None, resource=None, type=None, url=None, _links=None, created_by=None, created_on=None, issue=None, modified_by=None, modified_on=None, timeout=None, is_disabled=None, version=None, settings=None):
         super(CheckConfiguration, self).__init__(id=id, resource=resource, type=type, url=url)
         self._links = _links
         self.created_by = created_by
@@ -437,7 +446,9 @@ class CheckConfiguration(CheckConfigurationRef):
         self.modified_by = modified_by
         self.modified_on = modified_on
         self.timeout = timeout
-
+        self.is_disabled = is_disabled
+        self.version = version
+        self.settings = settings
 
 class CheckRun(CheckRunResult):
     """
