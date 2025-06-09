@@ -12,3 +12,5 @@ pipelines:
           lastModifiedDate: 2024-09-16
         armory:
           lastModifiedDate: 2024-09-16
+        accessibilityinsights:
+          lastModifiedDate: 2025-06-09
