@@ -2069,7 +2069,7 @@ class GitClientBase(Client):
                               route_values=route_values)
         return self._deserialize('GitPullRequest', response)
 
-    def get_pull_requests_by_project(self, project, search_criteria, max_comment_length=None, skip=None, top=None):
+    def get_pull_requests_by_project(self, project, search_criteria=None, max_comment_length=None, skip=None, top=None):
         """GetPullRequestsByProject.
         Retrieve all pull requests matching a specified criteria.
         :param str project: Project ID or project name
